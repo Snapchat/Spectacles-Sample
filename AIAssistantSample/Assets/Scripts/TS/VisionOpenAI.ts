@@ -16,6 +16,8 @@ export class VisionOpenAI extends BaseScriptComponent {
   // Remote service module for fetching data
   private remoteServiceModule: RemoteServiceModule = require("LensStudio:RemoteServiceModule");
 
+  private isProcessing: boolean = false;
+
   onAwake() {
     this.createEvent("OnStartEvent").bind(() => {
       this.onStart();
@@ -34,12 +36,19 @@ export class VisionOpenAI extends BaseScriptComponent {
   }
 
   async handleTriggerEnd(eventData) {
+    if (this.isProcessing) {
+      print("A request is already in progress. Please wait.");
+      return;
+    }
+
     if (!this.textInput.text || !this.image || !this.apiKey) {
       print("Text, Image, or API key input is missing");
       return;
     }
 
     try {
+      this.isProcessing = true;
+
       // Access the texture from the image component
       const texture = this.image.mainPass.baseTex;
       if (!texture) {
@@ -102,6 +111,8 @@ export class VisionOpenAI extends BaseScriptComponent {
       }
     } catch (error) {
       print("Error: " + error);
+    } finally {
+      this.isProcessing = false;
     }
   }
 
