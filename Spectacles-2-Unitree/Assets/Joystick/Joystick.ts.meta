@@ -1,0 +1,65 @@
+- !<AssetImportMetadata/96ecfc11-5e45-4733-8eb5-9a62bd348a8e>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 9b59ee1c-abca-4e6b-9e2e-a9a5884bc389
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 9b59ee1c-abca-4e6b-9e2e-a9a5884bc389
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> e7e7f978-527b-4ab9-9621-aed369716a15
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings/6987aa0e-2209-4ff9-ac73-aaeb4580cf5c>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/e7e7f978-527b-4ab9-9621-aed369716a15>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 00000000-0000-0000-0000-000000000000
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    cardinalWindowDegrees: false
+    client: false
+    deadzone: false
+    joystickObject: false
+    leftIndexFinger: false
+    leftThumb: false
+    moveSpeed: false
+    rightIndexFinger: false
+    rightThumb: false
+    robotObject: false
+  ScriptTypesHidden:
+    {}
+  DefaultScriptInputs:
+    - joystickObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      rightIndexFinger: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      leftIndexFinger: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      rightThumb: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      leftThumb: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      moveSpeed: !<float> 0.000000
+      robotObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      deadzone: 0.100000
+      cardinalWindowDegrees: !<float> 15.000000
+      client: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input SceneObject joystickObject
+    - // @input SceneObject robotObject
+    - // @input SceneObject rightIndexFinger
+    - // @input SceneObject leftIndexFinger
+    - // @input SceneObject rightThumb
+    - // @input SceneObject leftThumb
+    - // @input float moveSpeed
+    - // @input float deadzone = 0.1
+    - // @input float cardinalWindowDegrees = 15
+    - // @input Component.ScriptComponent client

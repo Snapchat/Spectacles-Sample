@@ -451,6 +451,31 @@ Extended Permissions mode on device must be enabled in some of the projects to a
   </tr>
 </table>
 
+## Community Samples
+
+<table>
+  <tr>
+    <td align="center" valign="top" width="33%" style="padding-top: 20px;" >
+      <a href="#">
+        <img src="./Spectacles-2-Unitree/README-ref/sample-list-unitree.gif" alt="spectacles-2-unitree" width="250px" />
+      </a>
+      <h3>Spectacles to Unitree Teleoperation</h3>
+      <p>
+      <a href="https://developers.snap.com/spectacles/about-spectacles-features/apis/gesture-module"><img src="https://img.shields.io/badge/Gesture%20Module-Light%20Gray?color=D3D3D3"/></a>
+      <a href="https://developers.snap.com/spectacles/about-spectacles-features/apis/web-socket"><img src="https://img.shields.io/badge/WebSocket-Light%20Gray?color=D3D3D3"/></a>
+      <a href="https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview"><img src="https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3"/></a>
+      </p>
+      <p>Simulate or remote control a humanoid robot by copying your hand movements</p>
+    </td>
+ <td align="center" valign="top" width="33%" style="padding-top: 20px;" >
+
+  </td>
+ <td align="center" valign="top" width="33%">
+
+  </td>
+  </tr>
+</table>
+
 ## Support
 
 If you have any questions or need assistance, please don't hesitate to reach out. Our community is here to help, and you can connect with us and ask for support [here](https://www.reddit.com/r/Spectacles/). We look forward to hearing from you and are excited to assist you on your journey!
