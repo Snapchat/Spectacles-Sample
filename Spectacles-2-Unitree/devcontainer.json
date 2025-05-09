@@ -1,0 +1,24 @@
+// For format details, see https://aka.ms/devcontainer.json.
+{
+  "name": "Spectacles-2-Unitree dev",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "options": [
+      "--platform=linux/arm64"
+    ]
+  },
+  "mounts": [
+    {
+      "source": "/var/run/docker.sock",
+      "target": "/var/run/docker.sock",
+      "type": "bind"
+    }
+  ],
+  "runArgs": [
+    "--platform=linux/arm64"
+  ],
+  "forwardPorts": [
+    8080
+  ]
+}

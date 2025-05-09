@@ -1,0 +1,101 @@
+- !<AssetImportMetadata/f1b04336-b445-4391-b31c-4a7abaf41d39>
+  ImporterSettings: !<AssetImporterSettings/7c183214-28d2-42c5-bfbf-c9f414621145>
+    {}
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 701e5d18-6a44-49ba-9cf8-a20c366c1439
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 701e5d18-6a44-49ba-9cf8-a20c366c1439
+  PackageType: NotAPackage
+  AssetDataMap:
+    TypeScriptAsset: !<own> ea5059d4-c4db-4ff5-b1fd-10c785f9bdb8
+  PackagePolicy: CannotBeUnpacked
+  DependentFiles:
+    []
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+  ExtraData:
+    {}
+- !<TypeScriptAssetData/ea5059d4-c4db-4ff5-b1fd-10c785f9bdb8>
+  Icon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 00000000-0000-0000-0000-000000000000
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    _enableXTranslation: false
+    _enableYTranslation: false
+    _enableZTranslation: false
+    _rotationAxis: false
+    beta: false
+    dcutoff: false
+    enableRotation: false
+    enableScale: false
+    enableStretchZ: false
+    enableTranslation: false
+    manipulateRootSceneObject: false
+    maximumScaleFactor: false
+    minCutoff: false
+    minimumScaleFactor: false
+    showFilterProperties: false
+    showRotationProperties: false
+    showStretchZProperties: false
+    showTranslationProperties: false
+    useFilter: false
+    zStretchFactorMax: false
+    zStretchFactorMin: false
+  ScriptTypesHidden:
+    {}
+  DefaultScriptInputs:
+    - manipulateRootSceneObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      minimumScaleFactor: 0.250000
+      maximumScaleFactor: !<float> 20.000000
+      enableTranslation: true
+      enableRotation: true
+      enableScale: true
+      enableStretchZ: true
+      showStretchZProperties: false
+      zStretchFactorMin: !<float> 1.000000
+      zStretchFactorMax: !<float> 12.000000
+      showFilterProperties: false
+      minCutoff: !<float> 2.000000
+      beta: 0.015000
+      dcutoff: !<float> 1.000000
+      useFilter: true
+      showTranslationProperties: false
+      _enableXTranslation: true
+      _enableYTranslation: true
+      _enableZTranslation: true
+      showRotationProperties: false
+      _rotationAxis: All
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"group_start", "label":"Interactable Manipulation"}'
+    - "// @input SceneObject manipulateRootSceneObject {\"hint\":\"Root SceneObject of the set of SceneObjects to manipulate. If left blank, this script's SceneObject will be treated as the root. The root's transform will be modified by this script.\"}"
+    - '// @input float minimumScaleFactor = 0.25 {"hint":"The smallest this object can scale down to, relative to its original scale. A value of 0.5 means it cannot scale smaller than 50% of its current size", "widget":"slider", "min":0, "max":1, "step":0.05}'
+    - '// @input float maximumScaleFactor = 20 {"hint":"The largest this object can scale up to, relative to its original scale. A value of 2 means it cannot scale larger than twice its current size", "widget":"slider", "min":1, "max":20, "step":0.5}'
+    - // @input bool enableTranslation = true
+    - // @input bool enableRotation = true
+    - // @input bool enableScale = true
+    - '// @input bool enableStretchZ = true {"hint":"Toggles forward stretch for manipulating objects from afar."}'
+    - '// @input bool showStretchZProperties {"showIf":"enableStretchZ", "showIfValue":true}'
+    - '// @input float zStretchFactorMin = 1 {"hint":"Z multiplier on the near end of the stretch scale", "showIf":"showStretchZProperties", "showIfValue":true}'
+    - '// @input float zStretchFactorMax = 12 {"hint":"Z multiplier on the far end of the stretch scale", "showIf":"showStretchZProperties", "showIfValue":true}'
+    - '// @input bool useFilter = true {"hint":"Apply filtering to smooth manipulation"}'
+    - '// @input bool showFilterProperties {"showIf":"useFilter", "showIfValue":true}'
+    - '// @input float minCutoff = 2 {"showIf":"showFilterProperties", "showIfValue":true}'
+    - '// @input float beta = 0.015 {"showIf":"showFilterProperties", "showIfValue":true}'
+    - '// @input float dcutoff = 1 {"showIf":"showFilterProperties", "showIfValue":true}'
+    - // @input bool showTranslationProperties
+    - "// @input bool _enableXTranslation = true {\"hint\":\"Enable translation along the world's X-axis.\", \"showIf\":\"showTranslationProperties\", \"showIfValue\":true}"
+    - "// @input bool _enableYTranslation = true {\"hint\":\"Enable translation along the world's Y-axis.\", \"showIf\":\"showTranslationProperties\", \"showIfValue\":true}"
+    - "// @input bool _enableZTranslation = true {\"hint\":\"Enable translation along the world's Z-axis.\", \"showIf\":\"showTranslationProperties\", \"showIfValue\":true}"
+    - // @input bool showRotationProperties
+    - '// @input string _rotationAxis = "All" {"hint":"Enable rotation about all axes or a single world axis (x,y,z) when using to two hands.", "widget":"combobox", "values":[{"label":"All", "value":"All"}, {"label":"X", "value":"X"}, {"label":"Y", "value":"Y"}, {"label":"Z", "value":"Z"}], "showIf":"showRotationProperties", "showIfValue":true}'
+    - '// @ui {"widget":"group_end"}'
+  SvgIcon: ""

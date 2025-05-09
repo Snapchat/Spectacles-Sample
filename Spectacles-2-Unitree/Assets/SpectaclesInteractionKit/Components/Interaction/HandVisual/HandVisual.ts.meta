@@ -1,0 +1,190 @@
+- !<AssetImportMetadata/5036fe7f-5043-42b3-852e-6db9996cd6be>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 27fb63e0-f430-409f-b812-20bc1f008d3c
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 27fb63e0-f430-409f-b812-20bc1f008d3c
+  PackageType: NotAPackage
+  ImporterSettings: !<AssetImporterSettings/830742f7-e0a3-428f-a12f-df4bc21289e8>
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 69c8692f-ebb8-45c5-8b65-8a66ad27951b
+  PackagePolicy: CannotBeUnpacked
+  DependentFiles:
+    []
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+  ExtraData:
+    {}
+- !<TypeScriptAssetData/69c8692f-ebb8-45c5-8b65-8a66ad27951b>
+  InputLines:
+    - '// @ui {"widget":"group_start", "label":"Hand Visual"}'
+    - '// @input string handType {"widget":"combobox", "values":[{"label":"Left", "value":"left"}, {"label":"Right", "value":"right"}]}'
+    - '// @input string selectVisual = "Default" {"widget":"combobox", "values":[{"label":"Default", "value":"Default"}, {"label":"Occluder", "value":"Occluder"}]}'
+    - // @input HandInteractor handInteractor
+    - // @input Component.RenderMeshVisual handMesh
+    - '// @input float handMeshRenderOrder = 9999 {"hint":"The desired render order of the handMesh"}'
+    - '// @input SceneObject root {"hint":"Parent of both the rig and the mesh"}'
+    - '// @input bool autoJointMapping = true {"hint":"If checked the HandVisual will attempt to automatically wire joints"}'
+    - '// @ui {"widget":"group_start", "label":"Joint Setup", "showIf":"autoJointMapping", "showIfValue":false}'
+    - // @input SceneObject wrist
+    - // @input SceneObject thumbToWrist
+    - // @input SceneObject thumbBaseJoint
+    - // @input SceneObject thumbKnuckle
+    - // @input SceneObject thumbMidJoint
+    - // @input SceneObject thumbTip
+    - // @input SceneObject indexToWrist
+    - // @input SceneObject indexKnuckle
+    - // @input SceneObject indexMidJoint
+    - // @input SceneObject indexUpperJoint
+    - // @input SceneObject indexTip
+    - // @input SceneObject middleToWrist
+    - // @input SceneObject middleKnuckle
+    - // @input SceneObject middleMidJoint
+    - // @input SceneObject middleUpperJoint
+    - // @input SceneObject middleTip
+    - // @input SceneObject ringToWrist
+    - // @input SceneObject ringKnuckle
+    - // @input SceneObject ringMidJoint
+    - // @input SceneObject ringUpperJoint
+    - // @input SceneObject ringTip
+    - // @input SceneObject pinkyToWrist
+    - // @input SceneObject pinkyKnuckle
+    - // @input SceneObject pinkyMidJoint
+    - // @input SceneObject pinkyUpperJoint
+    - // @input SceneObject pinkyTip
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Glow Effect"}'
+    - '// @input bool shouldThumbPokeGlow {"hint":"Whether or not the thumb should glow when poking"}'
+    - '// @input Asset.RenderMesh unitPlaneMesh {"hint":"The plane mesh on which the glow texture/material will be rendered"}'
+    - '// @input Asset.Material tipGlowMaterial {"hint":"The material which will be manipulated to create the glow effect"}'
+    - '// @input vec4 idleColor {"hint":"The color the glow will be when you are not pinching", "widget":"color"}'
+    - '// @input vec4 pinchDownColor {"hint":"The color the glow will be when you are pinching", "widget":"color"}'
+    - '// @input float tapProximityThreshold {"hint":"How close index finger of tapping hand has to be to tapped hand to initiate tap glow"}'
+    - '// @input Asset.Texture pinchTexture {"hint":"The texture applied to the hand when creating pinch glow effect"}'
+    - '// @input Asset.Texture tapTexture {"hint":"The texture applied to the hand when creating tap glow effect"}'
+    - '// @input float tipGlowRenderOrder = 10000 {"hint":"The render order of the quad on which the tip glow effect occurs"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Radial Gradient Occlusion"}'
+    - '// @input bool occluderEnabled {"hint":"Whether or not the radial gradient occluder is enabled"}'
+    - '// @input Asset.RenderMesh occluderUnitPlaneMesh {"hint":"The plane mesh the radial gradient occluder will be rendered"}'
+    - '// @input Asset.Material radialGradientOcclusionMaterial {"hint":"The material which will be create the gradient occlusion effect"}'
+    - '// @input float gradientQuadRenderOrder = 9997 {"hint":"The render order of the gradient quad tracked to the hand"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Hand Mesh Materials"}'
+    - '// @input Asset.Material handOutlineMaterial {"hint":"The material which will be create the default visual effect on the hand mesh"}'
+    - '// @input Asset.Material handOccluderMaterial {"hint":"The material which will be create the occluder visual effect on the hand mesh"}'
+    - '// @ui {"widget":"group_end"}'
+  Icon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 00000000-0000-0000-0000-000000000000
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    autoJointMapping: false
+    gradientQuadRenderOrder: true
+    handInteractor: false
+    handMesh: false
+    handMeshRenderOrder: true
+    handOccluderMaterial: false
+    handOutlineMaterial: false
+    handType: false
+    idleColor: false
+    indexKnuckle: false
+    indexMidJoint: false
+    indexTip: false
+    indexToWrist: false
+    indexUpperJoint: false
+    middleKnuckle: false
+    middleMidJoint: false
+    middleTip: false
+    middleToWrist: false
+    middleUpperJoint: false
+    occluderEnabled: false
+    occluderUnitPlaneMesh: false
+    pinchDownColor: false
+    pinchTexture: false
+    pinkyKnuckle: false
+    pinkyMidJoint: false
+    pinkyTip: false
+    pinkyToWrist: false
+    pinkyUpperJoint: false
+    radialGradientOcclusionMaterial: false
+    ringKnuckle: false
+    ringMidJoint: false
+    ringTip: false
+    ringToWrist: false
+    ringUpperJoint: false
+    root: false
+    selectVisual: false
+    shouldThumbPokeGlow: false
+    tapProximityThreshold: false
+    tapTexture: false
+    thumbBaseJoint: false
+    thumbKnuckle: false
+    thumbMidJoint: false
+    thumbTip: false
+    thumbToWrist: false
+    tipGlowMaterial: false
+    tipGlowRenderOrder: true
+    unitPlaneMesh: false
+    wrist: false
+  ScriptTypesHidden:
+    {}
+  DefaultScriptInputs:
+    - handType: ""
+      handMesh: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
+      root: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      autoJointMapping: true
+      wrist: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      thumbToWrist: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      thumbBaseJoint: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      thumbKnuckle: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      thumbMidJoint: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      thumbTip: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      indexToWrist: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      indexKnuckle: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      indexMidJoint: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      indexUpperJoint: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      indexTip: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      middleToWrist: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      middleKnuckle: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      middleMidJoint: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      middleUpperJoint: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      middleTip: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      ringToWrist: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      ringKnuckle: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      ringMidJoint: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      ringUpperJoint: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      ringTip: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      pinkyToWrist: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      pinkyKnuckle: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      pinkyMidJoint: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      pinkyUpperJoint: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      pinkyTip: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      occluderUnitPlaneMesh: !<reference.RenderMesh> 00000000-0000-0000-0000-000000000000
+      radialGradientOcclusionMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      unitPlaneMesh: !<reference.RenderMesh> 00000000-0000-0000-0000-000000000000
+      tipGlowMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      idleColor: !<Vec4> {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+      pinchDownColor: !<Vec4> {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+      tapProximityThreshold: !<float> 0.000000
+      pinchTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      tapTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      handMeshRenderOrder: !<float> 9999.000000
+      tipGlowRenderOrder: !<float> 10000.000000
+      gradientQuadRenderOrder: !<float> 9997.000000
+      occluderEnabled: false
+      selectVisual: Default
+      handInteractor: !<MappingBased.HandInteractor> 00000000-0000-0000-0000-000000000000
+      shouldThumbPokeGlow: false
+      handOutlineMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      handOccluderMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  SvgIcon: ""

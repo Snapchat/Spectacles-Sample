@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Connection Details - Spectacles-2-Unitree Coordination Server</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        function refreshPage() {
+            location.reload();
+        }
+        // Auto refresh every 5 seconds
+        setInterval(refreshPage, 5000);
+
+        function confirmClose() {
+            return confirm("Are you sure you want to close this connection?");
+        }
+
+        // Function to render RGBA data to canvas
+        function renderRGBAToCanvas(canvasId, base64Data) {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
+
+            // Get canvas context
+            const ctx = canvas.getContext('2d');
+            
+            // Decode base64 data
+            const binaryString = atob(base64Data);
+            const bytes = new Uint8Array(binaryString.length);
+            for (let i = 0; i < binaryString.length; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+
+            const width = 512;
+            const height = 512;
+            
+            // Set canvas size
+            canvas.width = width;
+            canvas.height = height;
+            
+            // Create ImageData object
+            const imageData = ctx.createImageData(width, height);
+            
+            // Fill pixel data
+            for (let i = 0; i < bytes.length; i += 4) {
+                imageData.data[i] = bytes[i];         // R
+                imageData.data[i + 1] = bytes[i + 1]; // G
+                imageData.data[i + 2] = bytes[i + 2]; // B
+                imageData.data[i + 3] = bytes[i + 3]; // A
+            }
+            
+            // Put the image data to canvas
+            ctx.putImageData(imageData, 0, 0);
+        }
+
+        window.addEventListener('load', function() {
+            // Find all canvases with data-rgba attributes and render them
+            document.querySelectorAll('canvas[data-rgba]').forEach(function(canvas) {
+                renderRGBAToCanvas(canvas.id, canvas.getAttribute('data-rgba'));
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Connection Details</h1>
+        <nav>
+            <a href="/" class="btn">Back to Dashboard</a>
+            <button onclick="refreshPage()" class="btn">Refresh</button>
+        </nav>
+    </header>
+
+    <div class="details-container">
+        <div class="details-section">
+            <h2>Client Information</h2>
+            <table class="details-table">
+                <tr>
+                    <th>ID:</th>
+                    <td>{{ client.id }}</td>
+                </tr>
+                <tr>
+                    <th>Type:</th>
+                    <td><span class="badge {{ client.type }}">{{ client.type }}</span></td>
+                </tr>
+                <tr>
+                    <th>IP Address:</th>
+                    <td>{{ client.remote_addr }}</td>
+                </tr>
+                <tr>
+                    <th>Connected At:</th>
+                    <td>{{ client.connected_at }}</td>
+                </tr>
+                <tr>
+                    <th>Paired Status:</th>
+                    <td>{{ "Paired" if client.is_paired else "Unpaired" }}</td>
+                </tr>
+                {% if client.is_paired %}
+                <tr>
+                    <th>Paired With:</th>
+                    <td>{{ client.paired_with }} ({{ client.paired_with_type }})</td>
+                </tr>
+                {% endif %}
+                <tr>
+                    <th>Messages Received:</th>
+                    <td>{{ client.messages_received }}</td>
+                </tr>
+                <tr>
+                    <th>Messages Sent:</th>
+                    <td>{{ client.messages_sent }}</td>
+                </tr>
+                <tr>
+                    <th>Average Latency:</th>
+                    <td>{{ client.avg_latency }} ms</td>
+                </tr>
+            </table>
+
+            <div class="actions">
+                <form action="/connection/{{ client.id }}/close" method="post" onsubmit="return confirmClose()">
+                    <button type="submit" class="btn danger">Close Connection</button>
+                </form>
+            </div>
+            {% if not client.is_paired %}
+            <div class="pairing-section">
+                <h3>Manually Pair Client</h3>
+                <form action="/connection/{{ client.id }}/force-pair" method="post">
+                    <div class="form-group">
+                        <label for="pair_with">Pair with client:</label>
+                        <select id="pair_with" name="pair_with" required>
+                            <option value="">-- Select client --</option>
+                            {% for available_client in available_clients %}
+                            <option value="{{ available_client.id }}">{{ available_client.id }} ({{ available_client.type }})
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn secondary">Force Pair</button>
+                </form>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="details-section message-log">
+            <h2>Message Log</h2>
+            {% if client.message_log %}
+            <div class="log-container">
+                {% for message in client.message_log %}
+                <div class="log-entry {{ message.direction }}">
+                    <div class="log-timestamp">{{ message.timestamp }}</div>
+                    <div class="log-content">
+                        {% if message.kind == "bytes" %}
+                            <canvas id="rgba-canvas-{{ loop.index }}" data-rgba="{{ message.content[5:] | b64encode }}" 
+                                    style="max-width: 100%;" width="320" height="240">
+                                Image data (RGBA format)
+                            </canvas>
+                        {% else %}
+                            {{ message.content | tojson }}
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p>No messages logged yet</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>

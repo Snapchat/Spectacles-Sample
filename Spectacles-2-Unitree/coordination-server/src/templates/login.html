@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login - Spectacles-2-Unitree Coordination Server</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form action="/login" method="post">
+            {% if error %}
+            <div class="error-message">{{ error }}</div>
+            {% endif %}
+            <div class="form-group">
+                <label for="password">Dashboard Password:</label>
+                <input type="password" id="password" name="password" required autofocus>
+            </div>
+            <button type="submit" class="btn primary">Login</button>
+        </form>
+    </div>
+</body>
+
+</html>

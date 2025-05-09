@@ -1,0 +1,54 @@
+- !<AssetImportMetadata/602bbb54-03d6-465d-a07e-57a05dc9abbf>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 4a953906-5131-40bb-8522-f05a0d213b4f
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 4a953906-5131-40bb-8522-f05a0d213b4f
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 375fedea-e7d9-43cc-887c-7a1974328630
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings/5cf0223e-a477-4fee-ad76-8e8483caf6ca>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/375fedea-e7d9-43cc-887c-7a1974328630>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 00000000-0000-0000-0000-000000000000
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    decoyController: false
+    filterEnabled: false
+    isEnabled: false
+    objectToSpawn: false
+    objectsToCheck: false
+    targetObject: false
+  ScriptTypesHidden:
+    {}
+  DefaultScriptInputs:
+    - targetObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      objectToSpawn: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      filterEnabled: false
+      isEnabled: true
+      decoyController: !<MappingBased.RobotDecoyController> 00000000-0000-0000-0000-000000000000
+      objectsToCheck: !<reference.SceneObject[]>
+        []
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input Asset.ObjectPrefab targetObject
+    - // @input Asset.ObjectPrefab objectToSpawn
+    - // @input bool filterEnabled
+    - // @input bool isEnabled = true
+    - // @input Component.ScriptComponent decoyController
+    - "// @input SceneObject[] objectsToCheck"

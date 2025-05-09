@@ -1,0 +1,124 @@
+- !<AssetImportMetadata/c836431b-fc22-429f-a67e-22093c813938>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 14c9f79e-3a55-43d4-bbf6-75c0d6d2e2a2
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 14c9f79e-3a55-43d4-bbf6-75c0d6d2e2a2
+  PackageType: NotAPackage
+  AssetDataMap:
+    TypeScriptAsset: !<own> 1f1999da-36f1-4f0d-9e61-26400b8aeb8d
+  ImporterSettings: !<AssetImporterSettings/bc38fe23-8c77-4010-9ee5-d2ca8eb5bc2b>
+    {}
+  PackagePolicy: CannotBeUnpacked
+  DependentFiles:
+    []
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+  ExtraData:
+    {}
+- !<TypeScriptAssetData/1f1999da-36f1-4f0d-9e61-26400b8aeb8d>
+  InputLines:
+    - '// @ui {"widget":"group_start", "label":"Frame Settings"}'
+    - // @input bool autoShowHide = true
+    - '// @input vec2 innerSize = "{32,32}"'
+    - // @input float border = 7
+    - '// @input vec2 constantPadding = "{0,0}" {"hint":"In world units (cm), stays constant through scaling"}'
+    - // @input bool allowScaling = true
+    - // @input bool autoScaleContent = true
+    - // @input bool isContentInteractable
+    - // @input bool allowTranslation = true
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"label", "label":""}'
+    - '// @ui {"widget":"group_start", "label":"Min/Max Size"}'
+    - '// @input vec2 minimumSize = "{10,10}" {"hint":"In world units (cm)"}'
+    - '// @input vec2 maximumSize = "{150,150}" {"hint":"In world units (cm)"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"label", "label":""}'
+    - '// @ui {"widget":"group_start", "label":"Billboarding"}'
+    - // @input bool useBillboarding
+    - '// @input bool xOnTranslate {"showIf":"useBillboarding"}'
+    - '// @input bool xAlways {"showIf":"xOnTranslate"}'
+    - '// @input bool yOnTranslate {"showIf":"useBillboarding"}'
+    - '// @input bool yAlways {"showIf":"yOnTranslate"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"label", "label":""}'
+    - '// @ui {"widget":"group_start", "label":"Snapping"}'
+    - '// @input bool useSnapping {"hint":"Use Snapping Behaviors"}'
+    - '// @input bool itemSnapping {"hint":"Container to Container Snapping", "showIf":"useSnapping"}'
+    - '// @input bool worldSnapping {"hint":"Container to World Snapping", "showIf":"useSnapping"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"label", "label":""}'
+    - '// @ui {"widget":"group_start", "label":"Follow Behavior"}'
+    - // @input bool showFollowButton
+    - '// @input bool useFOVFollow {"label":"Front Follow Behavior", "showIf":"showFollowButton"}'
+    - '// @input bool isFollowing {"showIf":"useFOVFollow"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"label", "label":""}'
+    - '// @ui {"widget":"group_start", "label":"Close Button"}'
+    - // @input bool showCloseButton = true
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Interaction Plane"}'
+    - // @input bool _enableInteractionPlane
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 00000000-0000-0000-0000-000000000000
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    _enableInteractionPlane: false
+    allowScaling: false
+    allowTranslation: false
+    autoScaleContent: false
+    autoShowHide: false
+    border: false
+    constantPadding: false
+    innerSize: false
+    isContentInteractable: false
+    isFollowing: false
+    itemSnapping: false
+    maximumSize: false
+    minimumSize: false
+    showCloseButton: false
+    showFollowButton: false
+    useBillboarding: false
+    useFOVFollow: false
+    useSnapping: false
+    worldSnapping: false
+    xAlways: false
+    xOnTranslate: false
+    yAlways: false
+    yOnTranslate: false
+  ScriptTypesHidden:
+    {}
+  DefaultScriptInputs:
+    - allowScaling: true
+      useBillboarding: false
+      useSnapping: false
+      showFollowButton: false
+      useFOVFollow: false
+      isFollowing: false
+      showCloseButton: true
+      border: !<float> 4.000000
+      autoScaleContent: true
+      isContentInteractable: false
+      autoShowHide: true
+      minimumSize: !<Vec2> {x: 10.000000, y: 10.000000}
+      maximumSize: !<Vec2> {x: 300.000000, y: 300.000000}
+      yOnTranslate: false
+      xOnTranslate: false
+      xAlways: false
+      yAlways: false
+      innerSize: !<Vec2> {x: 32.000000, y: 32.000000}
+      constantPadding: !<Vec2> {x: 0.000000, y: 0.000000}
+      allowTranslation: true
+      worldSnapping: false
+      itemSnapping: false
+      _enableInteractionPlane: false
+  ScriptTypes:
+    -
+      {}

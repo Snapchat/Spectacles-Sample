@@ -1,0 +1,23 @@
+# Third Party License Information
+
+- This project uses Python source, STL, and URDF files from [Unitree](https://github.com/unitreerobotics/avp_teleoperate/blob/main/LICENSE), originally licensed under the Apache 2.0 License:
+  - [unitree-client/src/ik/urdf/](./unitree-client/src/ik/urdf/)
+  - [unitree-client/src/ik/utils/](./unitree-client/src/ik/utils/)
+  - [unitree-client/src/ik/g1_controller.py](./unitree-client/src/ik/g1_controller.py)
+  - [unitree-client/src/ik/g1_solver.py](./unitree-client/src/ik/g1_solver.py), modifications licensed under the [MIT License](./LICENSE).
+- Python dependencies are not included in the source code, and are gathered as part of the build process for the Docker images via PyPi and conda-forge:
+  - [aiohttp](https://github.com/aio-libs/aiohttp/blob/master/LICENSE.txt) (Apache 2.0 License)
+  - [aiohttp-jinja2](https://github.com/aio-libs/aiohttp-jinja2/blob/master/LICENSE) (Apache 2.0 License)
+  - [asyncio](https://github.com/python/cpython/blob/main/LICENSE) (Python Software Foundation License) - Part of Python Standard Library
+  - [casadi](https://github.com/casadi/casadi/blob/develop/LICENSE.txt) (LGPL v3)
+  - [ipython](https://github.com/ipython/ipython/blob/main/LICENSE) (BSD 3-Clause License)
+  - [jinja2](https://github.com/pallets/jinja/blob/main/LICENSE.txt) (BSD 3-Clause License)
+  - [mujoco](https://github.com/google-deepmind/mujoco/blob/main/LICENSE) (Apache 2.0 License)
+  - [numpy](https://github.com/numpy/numpy/blob/main/LICENSE.txt) (BSD 3-Clause License)
+  - [opencv-contrib-python-headless](https://github.com/opencv/opencv-python/blob/master/LICENSE.txt) (MIT)
+  - [pillow](https://github.com/python-pillow/Pillow/blob/main/LICENSE) (MIT-CMU License)
+  - [pinocchio](https://github.com/stack-of-tasks/pinocchio/blob/master/LICENSE) (BSD 2-Clause License)
+  - [pip](https://github.com/pypa/pip/blob/main/LICENSE.txt) (MIT License)
+  - [pyzmq](https://github.com/zeromq/pyzmq/blob/main/LICENSE.md) (BSD 3-Clause License)
+  - [scipy](https://github.com/scipy/scipy/blob/main/LICENSE.txt) (BSD 3-Clause License)
+  - [websockets](https://github.com/aaugustin/websockets/blob/main/LICENSE) (BSD 3-Clause License)
