@@ -1,0 +1,131 @@
+- !<AssetImportMetadata/138461c2-3fa3-48fd-a275-453552370f72>
+  ImporterSettings: !<AssetImporterSettings/b7ffbbb4-ec6e-48fe-ae06-01a09c7a93ec>
+    {}
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 396c7703-7a44-43f8-bfa0-44ac0d6a9fba
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 396c7703-7a44-43f8-bfa0-44ac0d6a9fba
+  PackageType: NotAPackage
+  AssetDataMap:
+    TypeScriptAsset: !<own> 5268cc6c-59e0-4691-926c-7be3f68fc06c
+  PackagePolicy: CannotBeUnpacked
+  DependentFiles:
+    []
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+  ExtraData:
+    {}
+- !<TypeScriptAssetData/5268cc6c-59e0-4691-926c-7be3f68fc06c>
+  Icon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 00000000-0000-0000-0000-000000000000
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    _maxValue: false
+    _minValue: false
+    _sliderKnob: false
+    _stepSize: false
+    customFunctionForOnHoverEnter: false
+    customFunctionForOnHoverExit: false
+    customFunctionForOnMaxValueReached: false
+    customFunctionForOnMinValueReached: false
+    customFunctionForOnSlideEnd: false
+    customFunctionForOnSlideStart: false
+    customFunctionForOnValueUpdate: false
+    editEventCallbacks: false
+    onHoverEnterFunctionNames: false
+    onHoverExitFunctionNames: false
+    onMaxValueReachedFunctionNames: false
+    onMinValueReachedFunctionNames: false
+    onSlideEndFunctionNames: false
+    onSlideStartFunctionNames: false
+    onValueUpdateFunctionNames: false
+    sliderMax: false
+    sliderMin: false
+    startValue: false
+    stepBehavior: false
+    toggleDuration: false
+  ScriptTypesHidden:
+    {}
+  DefaultScriptInputs:
+    - startValue: 0.500000
+      stepBehavior: false
+      sliderMin: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      sliderMax: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      _minValue: !<float> 0.000000
+      _maxValue: !<float> 1.000000
+      _stepSize: !<float> 0.000000
+      _sliderKnob: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      editEventCallbacks: false
+      customFunctionForOnHoverEnter: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      onHoverEnterFunctionNames: !<string[]>
+        []
+      customFunctionForOnHoverExit: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      onHoverExitFunctionNames: !<string[]>
+        []
+      customFunctionForOnSlideStart: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      onSlideStartFunctionNames: !<string[]>
+        []
+      customFunctionForOnSlideEnd: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      onSlideEndFunctionNames: !<string[]>
+        []
+      customFunctionForOnValueUpdate: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      onValueUpdateFunctionNames: !<string[]>
+        []
+      customFunctionForOnMinValueReached: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      onMinValueReachedFunctionNames: !<string[]>
+        []
+      customFunctionForOnMaxValueReached: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      onMaxValueReachedFunctionNames: !<string[]>
+        []
+      toggleDuration: 0.200000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input float _minValue {"hint":"The minimum numeric value of the slider"}'
+    - '// @input float _maxValue = 1 {"hint":"The maximum numeric value of the slider"}'
+    - '// @input float startValue = 0.5 {"hint":"The initial numeric value of the slider"}'
+    - "// @input bool stepBehavior {\"hint\":\"Enable this to change the slider's value in steps rather than continuously\"}"
+    - "// @input float _stepSize {\"hint\":\"The size of the steps that the slider's value will be changed in.\", \"showIf\":\"stepBehavior\", \"showIfValue\":true}"
+    - '// @input float toggleDuration = 0.2 {"hint":"The duration of the toggle animation in seconds.", "showIf":"isToggleable", "showIfValue":true}'
+    - '// @ui {"widget":"separator"}'
+    - '// @input SceneObject sliderMin {"hint":"The position of the slider knob when the minimum value is reached."}'
+    - '// @input SceneObject sliderMax {"hint":"The position of the slider knob when the maximum value is reached."}'
+    - '// @input SceneObject _sliderKnob {"hint":"The SceneObject representing the knob of the slider which will be moved along the path between the positions provided by sliderMin and sliderMax when the value is updated. Please ensure the SceneObject has an Interactable component attached."}'
+    - '// @ui {"widget":"separator"}'
+    - "// @input bool editEventCallbacks {\"hint\":\"Enable this to add functions from another script to this component's callback events\"}"
+    - '// @ui {"widget":"group_start", "label":"On Hover Enter Callbacks", "showIf":"editEventCallbacks"}'
+    - '// @input Component.ScriptComponent customFunctionForOnHoverEnter {"hint":"The script containing functions to be called on hover enter"}'
+    - '// @input string[] onHoverEnterFunctionNames {"hint":"The names for the functions on the provided script, to be called on hover enter"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"On Hover Exit Callbacks", "showIf":"editEventCallbacks"}'
+    - '// @input Component.ScriptComponent customFunctionForOnHoverExit {"hint":"The script containing functions to be called on hover exit"}'
+    - '// @input string[] onHoverExitFunctionNames {"hint":"The names for the functions on the provided script, to be called on hover exit"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"On Slide Start Callbacks", "showIf":"editEventCallbacks"}'
+    - '// @input Component.ScriptComponent customFunctionForOnSlideStart {"hint":"The script containing functions to be called on slide start"}'
+    - '// @input string[] onSlideStartFunctionNames {"hint":"The names for the functions on the provided script, to be called on slide start"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"On Slide End Callbacks", "showIf":"editEventCallbacks"}'
+    - '// @input Component.ScriptComponent customFunctionForOnSlideEnd {"hint":"The script containing functions to be called on slide end"}'
+    - '// @input string[] onSlideEndFunctionNames {"hint":"The names for the functions on the provided script, to be called on slide end"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"On Value Update Callbacks", "showIf":"editEventCallbacks"}'
+    - '// @input Component.ScriptComponent customFunctionForOnValueUpdate {"hint":"The script containing functions to be called on value update"}'
+    - '// @input string[] onValueUpdateFunctionNames {"hint":"The names for the functions on the provided script, to be called on value update"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"On Min Value Reached Callbacks", "showIf":"editEventCallbacks"}'
+    - '// @input Component.ScriptComponent customFunctionForOnMinValueReached {"hint":"The script containing functions to be called on min value reached"}'
+    - '// @input string[] onMinValueReachedFunctionNames {"hint":"The names for the functions on the provided script, to be called when minimum value is reached"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"On Max Value Reached Callbacks", "showIf":"editEventCallbacks"}'
+    - '// @input Component.ScriptComponent customFunctionForOnMaxValueReached {"hint":"The script containing functions to be called on max value reached"}'
+    - '// @input string[] onMaxValueReachedFunctionNames {"hint":"The names for the functions on the provided script, to be called when maximum value is reached"}'
+    - '// @ui {"widget":"group_end"}'
+  SvgIcon: ""

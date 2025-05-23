@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard - Spectacles-2-Unitree Coordination Server</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        function refreshPage() {
+            location.reload();
+        }
+        // Auto refresh every 10 seconds
+        setInterval(refreshPage, 10000);
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Spectacles-2-Unitree Coordination Server</h1>
+        <nav>
+            <a href="/logout" class="btn">Logout</a>
+            <button onclick="refreshPage()" class="btn">Refresh</button>
+        </nav>
+    </header>
+
+    <div class="status-banner">
+        <p><strong>Server Status:</strong> Running</p>
+        <p><strong>Active Connections:</strong> {{ total_count }}</p>
+        <p><strong>Last Updated:</strong> <span id="lastUpdated"></span></p>
+    </div>
+
+    <div class="dashboard-container">
+        <div class="dashboard-section">
+            <h2>Paired Connections</h2>
+            {% if paired_clients %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>IP Address</th>
+                        <th>Connected Since</th>
+                        <th>Paired With</th>
+                        <th>Avg Latency</th>
+                        <th>Messages</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for client in paired_clients %}
+                    <tr>
+                        <td>{{ client.id }}</td>
+                        <td><span class="badge {{ client.type }}">{{ client.type }}</span></td>
+                        <td>{{ client.remote_addr }}</td>
+                        <td>{{ client.connected_at }}</td>
+                        <td>{{ client.paired_with }}</td>
+                        <td>{{ client.avg_latency }} ms</td>
+                        <td>{{ client.messages_received }} / {{ client.messages_sent }}</td>
+                        <td>
+                            <a href="/connection/{{ client.id }}" class="btn small">Details</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>No paired connections</p>
+            {% endif %}
+        </div>
+
+        <div class="dashboard-section">
+            <h2>Unpaired Robots</h2>
+            {% if unpaired_robots %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>IP Address</th>
+                        <th>Connected Since</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for client in unpaired_robots %}
+                    <tr>
+                        <td>{{ client.id }}</td>
+                        <td>{{ client.remote_addr }}</td>
+                        <td>{{ client.connected_at }}</td>
+                        <td>
+                            <a href="/connection/{{ client.id }}" class="btn small">Details</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>No unpaired robots</p>
+            {% endif %}
+        </div>
+
+        <div class="dashboard-section">
+            <h2>Unpaired Spectacles</h2>
+            {% if unpaired_spectacles %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>IP Address</th>
+                        <th>Connected Since</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for client in unpaired_spectacles %}
+                    <tr>
+                        <td>{{ client.id }}</td>
+                        <td>{{ client.remote_addr }}</td>
+                        <td>{{ client.connected_at }}</td>
+                        <td>
+                            <a href="/connection/{{ client.id }}" class="btn small">Details</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>No unpaired spectacles</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('lastUpdated').textContent = new Date().toLocaleString();
+    </script>
+</body>
+
+</html>

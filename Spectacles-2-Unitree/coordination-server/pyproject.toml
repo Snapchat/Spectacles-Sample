@@ -1,0 +1,58 @@
+[project]
+    dependencies = [
+        "aiohttp-jinja2>=1.6",
+        "aiohttp>=3.8.0",
+        "asyncio >=3.4.3",
+        "jinja2>=3.1.6",
+        "numpy>=2.2.3",
+        "opencv-contrib-python-headless>=4.11.0.86",
+        "pillow>=11.1.0",
+        "pyzmq>=26.3.0",
+        "websockets>=15.0",
+    ]
+    description = "Spectacles-2-Unitree Coordination Server"
+    name = "spectacles-2-unitree"
+    readme = "README.md"
+    requires-python = ">=3.12"
+    version = "0.1.0"
+
+[tool.ruff]
+    line-length = 160
+
+    [tool.ruff.lint]
+        select = [
+            "A",
+            "ARG",
+            "ASYNC",
+            "B",
+            "BLE",
+            "C4",
+            "DTZ",
+            "E",
+            "EM",
+            "ERA",
+            "FBT",
+            "FIX",
+            "FURB",
+            "INT",
+            "N",
+            "NPY",
+            "PERF",
+            "PIE",
+            "PYI",
+            "Q",
+            "RET",
+            "RUF",
+            "S",
+            "SIM",
+            "SLOT",
+            "TRY",
+            "UP",
+            "W",
+        ]
+        unfixable = ["B"]
+
+[dependency-groups]
+dev = [
+    "scipy-stubs>=1.15.2.1",
+]

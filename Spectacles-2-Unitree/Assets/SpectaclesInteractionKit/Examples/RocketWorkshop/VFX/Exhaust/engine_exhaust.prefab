@@ -1,0 +1,102 @@
+- !<ObjectPrefab/4d1b57db-5ca2-4c9f-b1f4-9e2c50c7429c>
+  PackagePath: ""
+  objects:
+    - !<own> 0a1b452c-746c-4273-a47a-4982a219fc84
+  LazyLoading: false
+  RetainAssets: true
+- !<SceneObject/0a1b452c-746c-4273-a47a-4982a219fc84>
+  PrefabRemaps:
+    []
+  Name: engine_exhaust
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: -0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 4.000000, y: 4.000000, z: 4.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> 6140714c-49da-45d6-a418-ced84a31c733
+  Components:
+    []
+- !<RenderMeshVisual/2a0b49d4-512e-45d2-b3af-84246595dc04>
+  PrefabRemaps:
+    []
+  Name: component_0
+  Enabled: true
+  RenderOrder: 100
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 889745a7-9062-432b-b028-bed9c7556fff
+  Mesh: !<reference> 78af2a2b-32ce-48b7-ba42-c5bccfeef254
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<RenderMeshVisual/506ee674-3f6a-435d-91b6-c4b281463811>
+  PrefabRemaps:
+    []
+  Name: component_0
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> e90357de-3c89-449a-b286-ef475ca93a50
+  Mesh: !<reference> fcfdee51-ef2d-45bf-9718-cf9de3ec3e1c
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    edit34: 1.000000
+- !<SceneObject/6140714c-49da-45d6-a418-ced84a31c733>
+  PrefabRemaps:
+    []
+  Name: blendshapes1
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.727880, z: 0.000000}
+    rotation: {x: -180.000000, y: 0.000000, z: 180.000000}
+    scale: {x: 0.900000, y: 0.900000, z: 0.900000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> 69f75d0a-3f47-438f-898d-6b6edf43ac6c
+  Components:
+    - !<own> 506ee674-3f6a-435d-91b6-c4b281463811
+    - !<own> f0d14b2e-2523-486b-b7fe-d53211b82ec2
+- !<SceneObject/69f75d0a-3f47-438f-898d-6b6edf43ac6c>
+  PrefabRemaps:
+    []
+  Name: glow_plane
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: -0.043960, z: -0.100000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 2.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 2a0b49d4-512e-45d2-b3af-84246595dc04
+- !<LookAtComponent/f0d14b2e-2523-486b-b7fe-d53211b82ec2>
+  PrefabRemaps:
+    []
+  Name: Look At
+  Enabled: true
+  LookAtMode: LookAtPoint
+  AimVectors: NegativeZAimYUp
+  WorldUpVector: ObjectY
+  Target: !<reference> b49fd017-c3f4-45da-b6f3-ea6a4119aa87
+  OffsetRotation: {x: 0.000000, y: 0.000000, z: 0.000000}
