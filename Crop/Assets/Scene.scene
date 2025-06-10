@@ -4,9 +4,11 @@
     - !<own> 0005641c-028d-459a-0000-000000014b4d
     - !<own> 00000000-0000-0065-0000-000000000064
     - !<own> b586a2d3-476c-4f34-8ead-ce537d16b6d8
+    - !<own> 3f790581-50ef-41f1-9a94-16ed457f6cb9
     - !<own> c40411fe-69a7-45fa-88dd-61a4550224a0
     - !<own> fd90a2f8-88e2-450a-b523-6bf58bfb55ee
     - !<own> 3f2b6956-2aad-451e-9555-fe237a9f8383
+    - !<own> 5f693957-6e39-45ea-be39-28920537d602
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       []
@@ -129,8 +131,6 @@
   DecayType: None
   DecayLimit: false
   DecayRange: 40.000000
-  UseEstimation: false
-  EstimationIntensity: !<float> 1.000000
 - !<SceneObject/00056e79-b066-62ca-0000-000000001406>
   PrefabRemaps:
     []
@@ -179,8 +179,6 @@
   DecayType: None
   DecayLimit: false
   DecayRange: 40.000000
-  UseEstimation: false
-  EstimationIntensity: !<float> 1.000000
 - !<SceneObject/017d3718-a161-48c8-bf21-86bf49f41918>
   PrefabRemaps:
     []
@@ -757,6 +755,22 @@
     - !<own> 017d3718-a161-48c8-bf21-86bf49f41918
   Components:
     []
+- !<ScriptComponent/29bf816b-7730-4851-91d1-98276f058410>
+  PrefabRemaps:
+    []
+  Name: RemoteServiceGatewayCredentials
+  Enabled: true
+  ScriptAsset: !<reference> 37976aca-6847-44c8-88d9-5edb6aadbbf2
+  ScriptInputsDefault:
+    apiToken: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      apiToken: "[PUT YOUR KEY HERE]"
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/2ac8b5ef-f10b-4d21-9171-7755ab6fb1f3>
   PrefabRemaps:
     []
@@ -998,6 +1012,21 @@
     - !<own> 6f787d27-fa28-4e42-9679-f12818ef950e
   Components:
     - !<own> 698f5e89-f8f4-4e32-8008-0ad83d59f853
+- !<SceneObject/3f790581-50ef-41f1-9a94-16ed457f6cb9>
+  PrefabRemaps:
+    []
+  Name: "RemoteServiceGatewayCredentials[EDIT ME]"
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 29bf816b-7730-4851-91d1-98276f058410
 - !<SceneObject/3fc47e57-f34c-4ed1-afb8-922c693071cf>
   PrefabRemaps:
     []
@@ -1066,6 +1095,7 @@
   ScriptAsset: !<reference> f9b29b39-ec8c-41bd-8b53-769ae9b818b8
   ScriptInputsDefault:
     selectVisual: true
+    handMeshRenderOrder: true
     autoJointMapping: true
     wrist: true
     thumbToWrist: true
@@ -1094,6 +1124,7 @@
     pinkyUpperJoint: true
     pinkyTip: true
     shouldThumbPokeGlow: true
+    tipGlowRenderOrder: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -1102,6 +1133,7 @@
       selectVisual: Default
       handInteractor: !<MappingBased.AssignableType> 02ed7428-d6e8-4822-afef-081a11683f02
       handMesh: !<reference.RenderMeshVisual> f527e3f3-060b-465b-900d-e93fe3d4a6c5
+      handMeshRenderOrder: !<float> 9999.000000
       root: !<reference.SceneObject> f15cbaba-4858-45fe-9bd1-3f769d81c10a
       autoJointMapping: true
       wrist: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
@@ -1139,11 +1171,88 @@
       tapProximityThreshold: !<float> 8.000000
       pinchTexture: !<reference.Texture> 3391429c-5c74-4b5c-b9fc-4ad3ba30bda4
       tapTexture: !<reference.Texture> e33d2c7f-1d12-4250-92fb-433c25ce1923
+      tipGlowRenderOrder: !<float> 10000.000000
       handOutlineMaterial: !<reference.Material> 7ac80b6c-979a-4a00-a694-099f296be161
       handOccluderMaterial: !<reference.Material> bb8479b9-021e-4c42-809a-60edf99cbeac
   ScriptTypes:
     "":
       {}
+- !<Text/54bf33c6-1a1d-4aaa-963e-264d1168f31c>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 999
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: Text
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 100
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -10.000000
+    bottom: -2.250000
+    right: 10.000000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Wrap
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: true
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.446708, y: 0.000000, z: 0.007446, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 1.000000
+      bottom: 1.000000
+      right: 1.000000
+      top: 1.000000
+    CornerRadius: 1.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
 - !<SceneObject/571c05f9-5075-4c72-804c-8fd516574b82>
   PrefabRemaps:
     []
@@ -1353,6 +1462,21 @@
     - !<own> 8796a1ff-7dce-43e0-bc3e-8454ed469f1e
   Components:
     []
+- !<SceneObject/5f693957-6e39-45ea-be39-28920537d602>
+  PrefabRemaps:
+    []
+  Name: APIKeyWarning
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> a5909235-a85f-4569-95f6-622bd46d3604
+  Components:
+    - !<own> 9e5a149d-8141-4417-b1ed-349062fbc3de
 - !<SceneObject/6585b7e7-08fc-42a2-8b20-e75cc85a8d81>
   PrefabRemaps:
     []
@@ -2014,6 +2138,22 @@
     []
   Components:
     - !<own> 196d9376-0850-40d5-b09a-c955e2fa1631
+- !<ScriptComponent/9e5a149d-8141-4417-b1ed-349062fbc3de>
+  PrefabRemaps:
+    []
+  Name: APIKeyHint
+  Enabled: true
+  ScriptAsset: !<reference> c0bb151a-51d6-4d51-9ad6-4dd6da6a384e
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      text: !<reference.Text> 54bf33c6-1a1d-4aaa-963e-264d1168f31c
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/9f9659e4-92ff-4219-b80f-76373c5b5909>
   PrefabRemaps:
     []
@@ -2074,6 +2214,21 @@
     []
   Components:
     - !<own> b5ff693c-56ce-4a2f-bd91-36adcb12714d
+- !<SceneObject/a5909235-a85f-4569-95f6-622bd46d3604>
+  PrefabRemaps:
+    []
+  Name: TextHint
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: -8.000000, z: -90.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 54bf33c6-1a1d-4aaa-963e-264d1168f31c
 - !<SceneObject/a890df31-eb50-48e1-bfa9-14ba0d1dbe9e>
   PrefabRemaps:
     []
@@ -2629,6 +2784,7 @@
   ScriptAsset: !<reference> f9b29b39-ec8c-41bd-8b53-769ae9b818b8
   ScriptInputsDefault:
     selectVisual: true
+    handMeshRenderOrder: true
     autoJointMapping: true
     wrist: true
     thumbToWrist: true
@@ -2657,6 +2813,7 @@
     pinkyUpperJoint: true
     pinkyTip: true
     shouldThumbPokeGlow: true
+    tipGlowRenderOrder: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -2665,6 +2822,7 @@
       selectVisual: Default
       handInteractor: !<MappingBased.AssignableType> b56677c5-2410-4a34-b5bb-6b126df9dd62
       handMesh: !<reference.RenderMeshVisual> b5ff693c-56ce-4a2f-bd91-36adcb12714d
+      handMeshRenderOrder: !<float> 9999.000000
       root: !<reference.SceneObject> e098393e-6215-437e-b1f7-b3e31da8955f
       autoJointMapping: true
       wrist: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
@@ -2702,6 +2860,7 @@
       tapProximityThreshold: !<float> 8.000000
       pinchTexture: !<reference.Texture> 3391429c-5c74-4b5c-b9fc-4ad3ba30bda4
       tapTexture: !<reference.Texture> e33d2c7f-1d12-4250-92fb-433c25ce1923
+      tipGlowRenderOrder: !<float> 10000.000000
       handOutlineMaterial: !<reference.Material> 7ac80b6c-979a-4a00-a694-099f296be161
       handOccluderMaterial: !<reference.Material> 5d5c762b-f0dd-4c06-b76f-bcb8f8fb525f
   ScriptTypes:
@@ -2792,7 +2951,6 @@
       specsRightCamera: !<reference.Camera> f3280b3a-c7da-4d79-bd27-659dcd704ab1
       screenCropTexture: !<reference.Texture> cd12b01a-61d6-4671-bba2-6c3bde1a9812
       deviceCamTexture: !<reference.Texture> 996c6f4e-b2ad-4117-9e3e-3db82e6e97f5
-      camModule: !<reference.CameraModule> 697fdc33-016c-4647-bd1d-2097a7dc483a
   ScriptTypes:
     "":
       {}

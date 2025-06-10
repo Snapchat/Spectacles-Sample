@@ -1,0 +1,57 @@
+- !<AssetImportMetadata/b07e5b15-72c6-43b7-a8eb-13317a6ed0e5>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> c0319e64-ed32-4c6d-b994-03e1943725fd
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> c0319e64-ed32-4c6d-b994-03e1943725fd
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> e29b3e35-87b1-4bf4-934c-36a79ce6c43d
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/e29b3e35-87b1-4bf4-934c-36a79ce6c43d>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: de8cbf07-fa49-420a-84e0-64a6472779a4
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    lineMaterial: false
+    mapModule: false
+    mapRenderPrefab: false
+    mapScale: false
+    mapTilePrefab: false
+    visitedDistance: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - mapModule: !<reference.MapModule> 00000000-0000-0000-0000-000000000000
+      mapTilePrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      lineMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      mapScale: !<float> 2.000000
+      mapRenderPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      visitedDistance: !<float> 10.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input Asset.MapModule mapModule
+    - // @input Asset.ObjectPrefab mapTilePrefab
+    - // @input Asset.Material lineMaterial
+    - // @input float mapScale = 2
+    - // @input Asset.ObjectPrefab mapRenderPrefab
+    - '// @input float visitedDistance = 10 {"hint":"If the user is less that this distance from a placed pin, it will be considered visited."}'

@@ -5,6 +5,8 @@
   PrimaryAsset: !<reference> db6e3391-b235-4fce-8965-b9d5fa785088
   PackageType: NotAPackage
   PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
   AssetDataMap:
     TypeScriptAsset: !<own> 17a4b436-8494-4892-a719-0e8e539b72cd
   DependentFiles:
@@ -12,10 +14,10 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-  ExtraData:
-    {}
 - !<TypeScriptAssetData/17a4b436-8494-4892-a719-0e8e539b72cd>
   SvgIcon: ""
+  SetupScript:
+    code: ""
   Description: ""
   InternalVersion: 0
   VersionMajor: 0
@@ -36,6 +38,8 @@
     widgetSelectionUI: false
   ScriptTypesHidden:
     {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
     - widgetSelectionUI: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
       lockWidgetButton: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
@@ -58,7 +62,3 @@
     - // @input SceneObject widgetParent
     - "// @input Asset.ObjectPrefab[] widgetPrefabs"
     - // @input Component.Text instructionText
-  SetupScript:
-    code: ""
-  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
-  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000

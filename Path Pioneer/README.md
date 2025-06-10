@@ -1,6 +1,6 @@
 # Path Pioneer
 
-[![SIK](https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?) [![Raycast](https://img.shields.io/badge/Raycast-Light%20Gray?color=D3D3D3)](https://developers.snap.com/lens-studio/api/lens-scripting/classes/Built-In.RayCastHit.html) [![Graphics, Material and Particles](https://img.shields.io/badge/Graphics%20Material%20Particles-Light%20Gray?color=D3D3D3)](https://developers.snap.com/lens-studio/features/graphics/materials/overview)
+[![SIK](https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?) [![Raycast](https://img.shields.io/badge/Raycast-Light%20Gray?color=D3D3D3)](https://developers.snap.com/lens-studio/api/lens-scripting/classes/Built-In.RayCastHit.html) [![Graphics Material Particles](https://img.shields.io/badge/Graphics%20Material%20Particles-Light%20Gray?color=D3D3D3)](https://developers.snap.com/lens-studio/features/graphics/materials/overview)
 
 <img src="./README-ref/sample-list-path-pioneer-rounded-edges.gif" alt="sample-list-path-pioneer-rounded-edges" width="500" />
 
@@ -20,10 +20,10 @@ Get started using our [Design Guidelines](https://developers.snap.com/spectacles
 
 ## Prerequisites
 
-- **Lens Studio**: v5.9.0+
-- **Spectacles OS Version**: v5.61.371+
-- **Spectacles App iOS**: v0.61.1.0+
-- **Spectacles App Android**: v0.61.1.1+
+- **Lens Studio**: v5.10.0+
+- **Spectacles OS Version**: v5.62+
+- **Spectacles App iOS**: v0.62+
+- **Spectacles App Android**: v0.62+
 
 To update your Spectacles device and mobile app, please refer to this [guide](https://support.spectacles.com/hc/en-us/articles/30214953982740-Updating).
 
@@ -73,7 +73,6 @@ The following scripts control the experience:
         - start line collision event, which increments laps
         - playing screenspace stats
 
-
 ## Testing the Lens
 
 ### In Lens Studio Editor
@@ -90,9 +89,7 @@ The following scripts control the experience:
 
 <img src="./README-ref/pr_start.gif" alt="pr_start" width="500" />
 
-
 <img src="./README-ref/pr_end.gif" alt="pr_end" width="500" />
-
 
 ## Support
 

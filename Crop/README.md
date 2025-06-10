@@ -1,6 +1,6 @@
 # Crop
 
-[![Experimental API](https://img.shields.io/badge/Experimental%20API-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/apis/experimental-apis?) [![SIK](https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?) [![Text To Speech](https://img.shields.io/badge/Text%20To%20Speech-Light%20Gray?color=D3D3D3)](https://platform.openai.com/docs/guides/text-to-speech?) [![Speech To Text](https://img.shields.io/badge/Speech%20To%20Text-Light%20Gray?color=D3D3D3)](https://platform.openai.com/docs/guides/speech-to-text?) [![Camera Access](https://img.shields.io/badge/Camera%20Access-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/apis/camera-module?) [![AI Vision](https://img.shields.io/badge/AI%20Vision-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/compatability-list) [![LLM](https://img.shields.io/badge/LLM-Light%20Gray?color=D3D3D3)](https://platform.openai.com/docs/guides/text-generation?) [![Vision](https://img.shields.io/badge/Vision-Light%20Gray?color=D3D3D3)](https://platform.openai.com/docs/guides/vision?) [![Fetch](https://img.shields.io/badge/Fetch-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/apis/fetch?) [![Web View](https://img.shields.io/badge/Web%20View-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/apis/web-view?) [![Gesture Module](https://img.shields.io/badge/Gesture%20Module-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/apis/gesture-module?) 
+[![SIK](https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?) [![Remote Service Gateway](https://img.shields.io/badge/Remote%20Service%20Gateway-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/overview) [![Experimental API](https://img.shields.io/badge/Experimental%20API-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/apis/experimental-apis?) [![Text To Speech](https://img.shields.io/badge/Text%20To%20Speech-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/compatibility-list) [![Speech To Text](https://img.shields.io/badge/Speech%20To%20Text-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/compatibility-list) [![Camera Access](https://img.shields.io/badge/Camera%20Access-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/apis/camera-module?) [![AI Vision](https://img.shields.io/badge/AI%20Vision-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/compatability-list) [![LLM](https://img.shields.io/badge/LLM-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/compatibility-list) [![Vision](https://img.shields.io/badge/Vision-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/compatibility-list) [![Fetch](https://img.shields.io/badge/Fetch-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/apis/fetch?) [![Web View](https://img.shields.io/badge/Web%20View-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/apis/web-view?) [![Gesture Module](https://img.shields.io/badge/Gesture%20Module-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/apis/gesture-module?)
 
 <img src="./README-ref/sample-list-crop-rounded-edges.gif" alt="crop" width="500" />
 
@@ -18,10 +18,10 @@ Get started using our [Design Guidelines](https://developers.snap.com/spectacles
 
 ## Prerequisites
 
-- **Lens Studio**: v5.9.0+
-- **Spectacles OS Version**: v5.61.371+
-- **Spectacles App iOS**: v0.61.1.0+
-- **Spectacles App Android**: v0.61.1.1+
+- **Lens Studio**: v5.10.0+
+- **Spectacles OS Version**: v5.62+
+- **Spectacles App iOS**: v0.62+
+- **Spectacles App Android**: v0.62+
 
 To update your Spectacles device and mobile app, please refer to this [guide](https://support.spectacles.com/hc/en-us/articles/30214953982740-Updating).
 
@@ -42,13 +42,12 @@ To obtain the project folder, you need to clone the repository.
 
 ## Initial Project Setup
 
-The project should be pre-configured to get you started without any additional steps. However, ensure you:
+In order to use this project and call Remote Service Gateway APIs, you need to:
 
-1. Open `ChatGPT.js`.
-2. Replace the placeholder API key with your own OpenAI API key:
-   ```javascript
-   const apiKey = "Insert your Open AI Key";
-   ```
+1. Install the Remote Service Gateway Token Generator plug-in from the Asset Browser
+2. Go to Window -> Remote Service Gateway Token
+3. Click "Generate Token"
+4. Copy paste the token into the "RemoteServiceGatewayCredentials" object in the Inspector
 
 ## Key Features
 
@@ -60,14 +59,11 @@ There is CropRegion.ts that takes 4 SceneObjects and uses those for the corners 
 
 ### In Lens Studio Editor
 
-[Experimental API](https://developers.snap.com/spectacles/about-spectacles-features/apis/experimental-apis) must be checked in Lens Studio and Device Type Override is set to Spectacles since this uses the Fetch API.
 Use the interactive preview to move around and click the screen to test the cropping behavior and ChatGPT functionality.
 
 ### On Spectacles Device
 
-[Extended Permissions](https://developers.snap.com/spectacles/permission-privacy/extended-permissions) mode must be enabled because this lens uses the camera frame and external API requests.
-
-Install the lens as normal and pinch both hands close togother, pull your right hand diagonally down to size the capture window, release the pinch on both hands to send capture to ChatGPT.
+Install the lens as normal and pinch both hands close together, pull your right hand diagonally down to size the capture window, release the pinch on both hands to send capture to ChatGPT.
 
 ## Open AI Disclaimer
 

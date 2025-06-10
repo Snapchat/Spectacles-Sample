@@ -1,0 +1,273 @@
+- !<AssetImportMetadata/f70133c8-ef95-4a78-8484-3abfdb465e60>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> 65cf3f8d-ec64-4260-87ee-658108fa074d
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> 65cf3f8d-ec64-4260-87ee-658108fa074d
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    ObjectPrefab: !<own> 9e09c72a-473c-4840-a685-4ffebfc23e7f
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/066a1e5a-4f83-40f8-96d9-2e04521cb946>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 1.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> e8aa7135-8a83-4d87-85e6-a17322dcd3c6
+    - !<own> 8a0f8c2a-d119-4447-bc79-ee734e5fe14d
+- !<ScriptComponent/59b4c7ae-bcf7-44ab-b631-ec16ac782fa4>
+  PrefabRemaps:
+    []
+  Name: CustomLocationPlacesImageDisplay
+  Enabled: true
+  ScriptAsset: !<reference> 0629fbc0-876f-4a40-8b0d-6a6b70937f6e
+  ScriptInputsDefault:
+    navigationComponent: true
+    disableOnShow: true
+    manageEnabled: true
+    distanceToPrompt: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      navigationComponent: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      imageRoot: !<reference.SceneObject> e8cd2b9d-4854-4858-9c69-aef2cbe55dd5
+      image: !<reference.Image> e8aa7135-8a83-4d87-85e6-a17322dcd3c6
+      disableOnShow: !<reference.SceneObject[]>
+        []
+      manageEnabled: true
+      distanceToPrompt: !<float> 15.000000
+  ScriptTypes:
+    "":
+      {}
+- !<ObjectPrefab/83106b6f-533e-4943-b0df-3ee5ed7d6d6f>
+  PackagePath: ""
+  objects:
+    - !<own> f713cdca-606c-4490-adec-ffa862a38a19
+  LazyLoading: false
+  RetainAssets: true
+- !<ScreenTransform/8a0f8c2a-d119-4447-bc79-ee734e5fe14d>
+  PrefabRemaps:
+    []
+  Name: Screen Transform
+  Enabled: true
+  IsAdvanced: true
+  Constraints:
+    pinToLeft: false
+    pinToTop: false
+    pinToRight: false
+    pinToBottom: false
+    fixedWidth: false
+    fixedHeight: false
+    deactivatedFixedSprite: false
+    deactivatedFixedPivot: false
+  Pivot: {x: 0.000000, y: 0.000000}
+  Transform:
+    position: {x: 0.000000, y: 0.000000, z: 1.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  RawMode: true
+  ForceBasic: false
+  Anchor:
+    left: -50.000000
+    bottom: -1.000000
+    right: 50.000000
+    top: 1.000000
+  Offset:
+    left: 0.000000
+    bottom: -50.000000
+    right: 0.000000
+    top: 50.000000
+- !<ScriptComponent/8ad4d5e7-af16-48f5-ab83-efb2d98f1dcb>
+  PrefabRemaps:
+    []
+  Name: ContainerFrame
+  Enabled: true
+  ScriptAsset: !<reference> 94ea82ba-1d42-4617-b71f-c92262f5960b
+  ScriptInputsDefault:
+    border: true
+    constantPadding: true
+    allowScaling: true
+    autoScaleContent: true
+    relativeZ: true
+    isContentInteractable: true
+    allowTranslation: true
+    cutOut: true
+    maximumSize: true
+    useBillboarding: true
+    xOnTranslate: true
+    xAlways: true
+    yOnTranslate: true
+    yAlways: true
+    useSnapping: true
+    itemSnapping: true
+    worldSnapping: true
+    showCloseButton: true
+    _enableInteractionPlane: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      autoShowHide: false
+      innerSize: !<Vec2> {x: 80.000000, y: 80.000000}
+      border: !<float> 4.000000
+      constantPadding: !<Vec2> {x: 0.000000, y: 0.000000}
+      allowScaling: true
+      autoScaleContent: true
+      relativeZ: false
+      isContentInteractable: false
+      allowTranslation: true
+      cutOut: false
+      minimumSize: !<Vec2> {x: 8.000000, y: 8.000000}
+      maximumSize: !<Vec2> {x: 300.000000, y: 300.000000}
+      useBillboarding: false
+      xOnTranslate: false
+      xAlways: false
+      yOnTranslate: false
+      yAlways: false
+      useSnapping: false
+      itemSnapping: false
+      worldSnapping: false
+      showFollowButton: true
+      useFOVFollow: true
+      isFollowing: true
+      showCloseButton: true
+      _enableInteractionPlane: false
+  ScriptTypes:
+    "":
+      {}
+- !<ObjectPrefabAssetData/9e09c72a-473c-4840-a685-4ffebfc23e7f>
+  SourceRemaps:
+    - 23ee160d-ac99-46cc-b306-8452c276eea4: e8aa7135-8a83-4d87-85e6-a17322dcd3c6
+    - 45a50540-db4f-4849-a8e7-c63545b917fa: 59b4c7ae-bcf7-44ab-b631-ec16ac782fa4
+    - 63b40153-528c-41b3-95c8-eeac018951bd: a7876a05-93cb-400f-9644-6cc9cfe49f69
+    - 65cf3f8d-ec64-4260-87ee-658108fa074d: 83106b6f-533e-4943-b0df-3ee5ed7d6d6f
+    - 7e9d1cb2-26d2-43e2-b471-9da01306a406: 066a1e5a-4f83-40f8-96d9-2e04521cb946
+    - 9857eb7c-ed9a-4276-965f-3a5cba8455ae: e8cd2b9d-4854-4858-9c69-aef2cbe55dd5
+    - 9a662235-b576-4558-a226-678e5c153945: caf2dcbe-b7e6-491f-b697-be291658acca
+    - 9b1f2305-f180-458c-a7c8-7a509042a351: 8a0f8c2a-d119-4447-bc79-ee734e5fe14d
+    - c0feedb9-44fe-4964-8d12-b82bced88b57: f713cdca-606c-4490-adec-ffa862a38a19
+    - fbde5f24-d628-49b3-beac-d24f9a7e073d: 8ad4d5e7-af16-48f5-ab83-efb2d98f1dcb
+  SourceState: !<own> 83106b6f-533e-4943-b0df-3ee5ed7d6d6f
+- !<ScriptComponent/a7876a05-93cb-400f-9644-6cc9cfe49f69>
+  PrefabRemaps:
+    []
+  Name: ManualPlaceList
+  Enabled: true
+  ScriptAsset: !<reference> bf283da6-505d-4897-a8d4-f7f67f8f0314
+  ScriptInputsDefault:
+    customLocationComponents: true
+    locationGroupComponents: true
+    imageDisplay: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      navigationDataComponent: !<MappingBased.AssignableType> caf2dcbe-b7e6-491f-b697-be291658acca
+      placeInputs:
+        - active: true
+          latitude: !<string> 51.51044879476567
+          longitude: !<string> -0.120001805141563
+          label: Static position
+          icon: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+          description: ""
+          distanceToActivate: !<float> 10.000000
+      sceneObjects:
+        - active: true
+          sceneObject: !<reference.SceneObject> 46643e77-0782-4db7-8190-5b950a3219aa
+          label: Starting
+          icon: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+          description: ""
+          distanceToActivate: !<float> 10.000000
+      customLocationComponents:
+        []
+      locationGroupComponents:
+        []
+      imageDisplay: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/caf2dcbe-b7e6-491f-b697-be291658acca>
+  PrefabRemaps:
+    []
+  Name: NavigationDataComponent
+  Enabled: true
+  ScriptAsset: !<reference> 9dd91c9b-d43c-47f5-a190-bff06edd28f2
+  ScriptInputsDefault:
+    updateThreshold: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      userCamera: !<reference.Camera> 00000000-0000-0065-0000-000000000065
+      updateThreshold: !<float> 1.000000
+  ScriptTypes:
+    "":
+      {}
+- !<Image/e8aa7135-8a83-4d87-85e6-a17322dcd3c6>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 8d6e984c-9ef5-4888-bf5f-055c171aff4e
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/e8cd2b9d-4854-4858-9c69-aef2cbe55dd5>
+  PrefabRemaps:
+    []
+  Name: PromptFrame
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: -200.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> 066a1e5a-4f83-40f8-96d9-2e04521cb946
+  Components:
+    - !<own> 8ad4d5e7-af16-48f5-ab83-efb2d98f1dcb
+    - !<own> 59b4c7ae-bcf7-44ab-b631-ec16ac782fa4
+- !<SceneObject/f713cdca-606c-4490-adec-ffa862a38a19>
+  PrefabRemaps:
+    []
+  Name: "[NavigationComponent]"
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: -130.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> e8cd2b9d-4854-4858-9c69-aef2cbe55dd5
+  Components:
+    - !<own> caf2dcbe-b7e6-491f-b697-be291658acca
+    - !<own> a7876a05-93cb-400f-9644-6cc9cfe49f69

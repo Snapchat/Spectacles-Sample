@@ -1,0 +1,66 @@
+- !<AssetImportMetadata/a0305c02-6ee2-4874-b4da-5b1886401e0c>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 646b3766-cf46-46d7-b175-f89035851b00
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 646b3766-cf46-46d7-b175-f89035851b00
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 66bedc0b-c0a3-4d06-beed-27dfe3292dcf
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/66bedc0b-c0a3-4d06-beed-27dfe3292dcf>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: ee5e36a9-3ad0-4abb-81f9-1ba3810ad628
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    flattenDuringTargetRotation: false
+    horizontalDistanceFromTarget: false
+    lerpSpeed: false
+    offset: false
+    offsetWithDetectedObject: false
+    offsetWithoutDetectedObject: false
+    reorientDuringTargetRotation: false
+    target: false
+    verticalDistanceFromTarget: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - target: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      verticalDistanceFromTarget: 0.100000
+      horizontalDistanceFromTarget: 0.100000
+      reorientDuringTargetRotation: true
+      flattenDuringTargetRotation: true
+      offset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      offsetWithoutDetectedObject: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      offsetWithDetectedObject: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      lerpSpeed: !<float> 5.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input SceneObject target {"hint":"Override default target mainCamera"}'
+    - '// @input float verticalDistanceFromTarget = 0.1 {"hint":"Minimum vertical movement to recalculate position"}'
+    - '// @input float horizontalDistanceFromTarget = 0.1 {"hint":"Minimum horizontal movement to recalculate position"}'
+    - '// @input bool reorientDuringTargetRotation = true {"hint":"Should the content rotate and reposition with the target"}'
+    - '// @input bool flattenDuringTargetRotation = true {"hint":"Flatten Y-axis rotation during target rotation"}'
+    - '// @input vec3 offset = {0,0,0} {"hint":"Offset for tethering the content in relation to the target"}'
+    - '// @input vec3 offsetWithoutDetectedObject = {0,0,0} {"hint":"Offset for tethering the content in relation to the target when detected object is not present"}'
+    - '// @input vec3 offsetWithDetectedObject = {0,0,0} {"hint":"Offset for tethering the content in relation to the target when detected object is present"}'
+    - '// @input float lerpSpeed = 5 {"hint":"Lerp speed for smooth movement"}'

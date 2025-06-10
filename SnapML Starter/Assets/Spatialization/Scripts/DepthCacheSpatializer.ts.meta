@@ -1,0 +1,102 @@
+- !<AssetImportMetadata/0557a1ab-1687-4da8-be13-bb0bc2abb92f>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 1d0ea291-7a0e-4dac-b81a-9e63ac63b622
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 1d0ea291-7a0e-4dac-b81a-9e63ac63b622
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 3c70e180-89f2-4e34-8664-1f98051cdfd8
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/3c70e180-89f2-4e34-8664-1f98051cdfd8>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 8941c906-054e-4335-a656-f61145c5d665
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    boundingBoxScale: false
+    camera: false
+    continuousUpdateInterval: false
+    debug: false
+    debugVisualizer: false
+    depthCache: false
+    depthPrefab: false
+    enableContinuousUpdate: false
+    enableRotationLerp: false
+    enableStaticScene: false
+    lerpDuration: false
+    maxCameraMovementSpeed: false
+    maxCameraRotationSpeed: false
+    maxDetections: false
+    mlSpatializer: false
+    positionUpdateThreshold: false
+    rotationLerpDuration: false
+    stableFramesRequired: false
+    testButton: false
+    vertexLerpDuration: false
+    vertexUpdateThreshold: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - camera: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      debugVisualizer: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      depthCache: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      depthPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      testButton: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      mlSpatializer: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      debug: true
+      enableContinuousUpdate: false
+      continuousUpdateInterval: !<float> 5.000000
+      maxDetections: !<float> 3.000000
+      boundingBoxScale: !<float> 1.000000
+      positionUpdateThreshold: !<float> 30.000000
+      maxCameraRotationSpeed: !<float> 90.000000
+      maxCameraMovementSpeed: !<float> 100.000000
+      vertexUpdateThreshold: !<float> 20.000000
+      stableFramesRequired: !<float> 2.000000
+      enableStaticScene: true
+      lerpDuration: 0.300000
+      vertexLerpDuration: 0.200000
+      enableRotationLerp: true
+      rotationLerpDuration: 0.400000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input SceneObject camera {"hint":"The camera that will be used for distance spatialization"}'
+    - '// @input AssignableType debugVisualizer {"hint":"The debug visualizer that will be used to visualize the camera frame and depth points"}'
+    - '// @input AssignableType_1 depthCache {"hint":"The depth cache that will be used to store and retrieve depth frames"}'
+    - '// @input Asset.ObjectPrefab depthPrefab {"hint":"The prefab that will be instantiated for each detected object"}'
+    - '// @input AssignableType_2 testButton {"hint":"The button that will trigger the update position function"}'
+    - '// @input AssignableType_3 mlSpatializer {"hint":"The spatializer that will be used for ML spatialization and coordinate conversion"}'
+    - '// @input bool debug = true {"hint":"The button that will trigger the update position function"}'
+    - '// @input bool enableContinuousUpdate {"hint":"Enable automatic position updates"}'
+    - '// @input float continuousUpdateInterval = 5 {"hint":"Interval in seconds between automatic position updates"}'
+    - '// @input float maxDetections = 3 {"hint":"Maximum number of detections to render (1-5)"}'
+    - '// @input float boundingBoxScale = 1 {"hint":"Scale factor for bounding box vertices (0-1, 0=center point, 1=full bbox)"}'
+    - '// @input float positionUpdateThreshold = 30 {"hint":"Minimum position change in cm to trigger update"}'
+    - '// @input float maxCameraRotationSpeed = 90 {"hint":"Maximum camera rotation speed (degrees/second) before skipping updates"}'
+    - '// @input float maxCameraMovementSpeed = 100 {"hint":"Maximum camera movement speed (cm/second) before skipping updates"}'
+    - '// @input float vertexUpdateThreshold = 20 {"hint":"Minimum vertex change in cm to trigger vertex update"}'
+    - '// @input float stableFramesRequired = 2 {"hint":"Number of stable frames required before considering detection persistent"}'
+    - '// @input bool enableStaticScene = true {"hint":"Enable static scene mode with pre-instantiated prefabs and smooth repositioning instead of clean up and re-instantiation"}'
+    - '// @input float lerpDuration = 0.3 {"hint":"Smooth lerp duration in seconds for position transitions"}'
+    - '// @input float vertexLerpDuration = 0.2 {"hint":"Smooth lerp duration in seconds for vertex transitions"}'
+    - '// @input bool enableRotationLerp = true {"hint":"Enable smooth rotation lerping for detection objects"}'
+    - '// @input float rotationLerpDuration = 0.4 {"hint":"Smooth lerp duration in seconds for rotation transitions"}'

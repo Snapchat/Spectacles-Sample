@@ -1,0 +1,79 @@
+- !<AssetImportMetadata/4c92df34-daaa-4dd8-8b39-f3064aeac728>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> 8f6bb214-72ba-4dd4-a9e6-f421d97bb6a1
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> 8f6bb214-72ba-4dd4-a9e6-f421d97bb6a1
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    ObjectPrefab: !<own> 1e25c951-15b1-4b7b-85dd-cc29b501ca7c
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ObjectPrefabAssetData/1e25c951-15b1-4b7b-85dd-cc29b501ca7c>
+  SourceRemaps:
+    - 1ef5b142-123b-4621-917a-96f75847ab49: 900fa65d-056a-4fe9-a581-6a4cfcbb2ca9
+    - 561550f8-91d5-4ade-9677-bb5dcebcfea2: ee188fa5-837d-49c5-8287-ac58588204e8
+    - 8f4eacf7-c68c-493a-8f21-6f388cb7525b: 915a28f0-9d6e-4df9-be39-7e4dbfec5cec
+    - 8f6bb214-72ba-4dd4-a9e6-f421d97bb6a1: fa4ccd35-cd30-4099-a715-422d9c369e18
+  SourceState: !<own> fa4ccd35-cd30-4099-a715-422d9c369e18
+- !<SceneObject/900fa65d-056a-4fe9-a581-6a4cfcbb2ca9>
+  PrefabRemaps:
+    []
+  Name: Cylinder
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 5.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 5.000000, y: 10.000000, z: 5.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 915a28f0-9d6e-4df9-be39-7e4dbfec5cec
+- !<RenderMeshVisual/915a28f0-9d6e-4df9-be39-7e4dbfec5cec>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> df5afac7-3aea-4b56-acdd-417a6bbe7f54
+  Mesh: !<reference> 5d6d12a5-7e8b-4e51-a1c4-c40d93293832
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/ee188fa5-837d-49c5-8287-ac58588204e8>
+  PrefabRemaps:
+    []
+  Name: Group
+  Enabled: false
+  Layers: 1
+  LocalTransform:
+    position: {x: -52.494041, y: -58.667816, z: -349.227753}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> 900fa65d-056a-4fe9-a581-6a4cfcbb2ca9
+  Components:
+    []
+- !<ObjectPrefab/fa4ccd35-cd30-4099-a715-422d9c369e18>
+  PackagePath: ""
+  objects:
+    - !<own> ee188fa5-837d-49c5-8287-ac58588204e8
+  LazyLoading: false
+  RetainAssets: true

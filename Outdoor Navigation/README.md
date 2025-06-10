@@ -1,6 +1,6 @@
 # Outdoor Navigation
 
-[![SIK](https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?) [![Location AR](https://img.shields.io/badge/Location%20AR-Light%20Gray?color=D3D3D3)](https://developers.snap.com/lens-studio/features/location-ar/custom-landmarker?) [![Map Component](https://img.shields.io/badge/Map%20Component-Light%20Gray?color=D3D3D3)](https://developers.snap.com/lens-studio/features/location-ar/map-component?) [![Places](https://img.shields.io/badge/Places-Light%20Gray?color=D3D3D3)](https://developers.snap.com/lens-studio/features/remote-apis/snap-places-api?)
+[![SIK](https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?) [![Location AR](https://img.shields.io/badge/Location%20AR-Light%20Gray?color=D3D3D3)](https://developers.snap.com/lens-studio/features/location-ar/custom-landmarker?) [![Outdoor Navigation](https://img.shields.io/badge/Outdoor%20Navigation-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/compatability-list?) [![Map Component](https://img.shields.io/badge/Map%20Component-Light%20Gray?color=D3D3D3)](https://developers.snap.com/lens-studio/features/location-ar/map-component?) [![Places](https://img.shields.io/badge/Places-Light%20Gray?color=D3D3D3)](https://developers.snap.com/lens-studio/features/remote-apis/snap-places-api?)
 
 <img src="./README-ref/sample-list-outdoor-navigation-rounded-edges.gif" alt="Outdoor Navigation" width="500" />
 
@@ -35,10 +35,10 @@ Get started using our [Design Guidelines](https://developers.snap.com/spectacles
 
 ## Prerequisites
 
-- **Lens Studio**: v5.9.0+
-- **Spectacles OS Version**: v5.61.371+
-- **Spectacles App iOS**: v0.61.1.0+
-- **Spectacles App Android**: v0.61.1.1+
+- **Lens Studio**: v5.10.0+
+- **Spectacles OS Version**: v5.62+
+- **Spectacles App iOS**: v0.62+
+- **Spectacles App Android**: v0.62+
 
 To update your Spectacles device and mobile app, refer to this [guide](https://support.spectacles.com/hc/en-us/articles/30214953982740-Updating).
 

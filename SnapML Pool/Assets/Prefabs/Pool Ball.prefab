@@ -1,0 +1,65 @@
+- !<ObjectPrefab/04b6b20f-594c-4e0a-9306-e86f930e7fba>
+  PackagePath: ""
+  objects:
+    - !<own> a888c583-e536-429a-aef9-cc397e5dbdf4
+  LazyLoading: false
+  RetainAssets: true
+- !<BodyComponent/0a24099f-46af-4b4e-b84e-259a1342a20b>
+  PrefabRemaps:
+    []
+  Name: Physics Body
+  Enabled: true
+  Shape: !<Sphere>
+    FitVisual: true
+    Radius: 6.000000
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
+  Dynamic: true
+  BodySetting: Density
+  BodySettingValue: 1.000000
+  Damping: 0.000000
+  AngularDamping: 0.000000
+- !<SceneObject/a888c583-e536-429a-aef9-cc397e5dbdf4>
+  PrefabRemaps:
+    []
+  Name: Pool Ball
+  Enabled: true
+  Layers: 4
+  LocalTransform:
+    position: {x: 0.000000, y: 75.000000, z: -0.000038}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 5.715002, y: 5.715000, z: 5.715002}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> c606c4bc-b2db-4a73-a309-e8b5b3171829
+    - !<own> 0a24099f-46af-4b4e-b84e-259a1342a20b
+- !<RenderMeshVisual/c606c4bc-b2db-4a73-a309-e8b5b3171829>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: Caster
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 1c97c8c2-f0ba-4837-8772-8a586c1b68bb
+  Mesh: !<reference> c0ee2918-1e1b-4535-94b6-332f3724c43c
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}

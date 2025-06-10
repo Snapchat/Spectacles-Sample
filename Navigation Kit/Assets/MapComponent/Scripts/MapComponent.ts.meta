@@ -1,0 +1,132 @@
+- !<AssetImportMetadata/e6a877cd-bbc8-4da6-85c3-22545a904e5f>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> d30bfc41-c132-4cbe-9b45-6c53e416915f
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> d30bfc41-c132-4cbe-9b45-6c53e416915f
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> dfd34910-87d8-46ec-a3d8-5434d992f229
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/dfd34910-87d8-46ec-a3d8-5434d992f229>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 647822e7-7364-4290-96ae-2ee6b415e48a
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    buttonRoot: false
+    enableMapSmoothing: false
+    enableScrolling: false
+    highlightPinColor: false
+    isMinimapAutoRotate: false
+    latitude: false
+    longitude: false
+    mapPinCursorDetectorSize: false
+    mapPinPrefab: false
+    mapPinsRotated: false
+    mapRenderParent: false
+    mapUpdateThreshold: false
+    mapZoomLevel: false
+    navigationComponent: false
+    placeListCreator: false
+    rotation: false
+    scrollingFriction: false
+    selectedPinColor: false
+    setMapToCustomLocation: false
+    showUserPin: false
+    tileCount: false
+    userPinAlignedWithOrientation: false
+    userPinMinimizedScale: false
+    userPinScale: false
+    userPinVisual: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - tileCount: !<float> 2.000000
+      mapRenderParent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      navigationComponent: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      mapZoomLevel: !<float> 0.000000
+      showUserPin: false
+      userPinVisual: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      userPinScale: !<Vec2> {x: 0.000000, y: 0.000000}
+      userPinMinimizedScale: !<float> 1.000000
+      userPinAlignedWithOrientation: false
+      mapPinPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      mapPinsRotated: false
+      mapPinCursorDetectorSize: 0.020000
+      highlightPinColor: !<Vec4> {x: 1.000000, y: 0.820000, z: 0.000000, w: 1.000000}
+      selectedPinColor: !<Vec4> {x: 0.820000, y: 1.000000, z: 0.000000, w: 1.000000}
+      enableScrolling: false
+      scrollingFriction: !<float> 4.000000
+      setMapToCustomLocation: false
+      longitude: ""
+      latitude: ""
+      rotation: !<float> 0.000000
+      isMinimapAutoRotate: false
+      enableMapSmoothing: false
+      mapUpdateThreshold: !<float> 0.000000
+      buttonRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      placeListCreator: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input float tileCount = 2
+    - // @input SceneObject mapRenderParent
+    - // @input AssignableType navigationComponent
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"Zoom level: 8 far zoom , 21 close zoom"}'
+    - '// @input float mapZoomLevel {"widget":"slider", "min":8, "max":21, "step":1}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"If user pin should be shown in the ma"}'
+    - // @input bool showUserPin
+    - '// @ui {"widget":"group_start", "label":"User Pin", "showIf":"showUserPin", "showIfValue":true}'
+    - // @input Asset.ObjectPrefab userPinVisual
+    - // @input vec2 userPinScale
+    - // @input float userPinMinimizedScale = 1
+    - // @input bool userPinAlignedWithOrientation
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"Map Pins"}'
+    - '// @ui {"widget":"label", "label":"Make sure your Pin Prefab has ScreenTransform"}'
+    - // @input Asset.ObjectPrefab mapPinPrefab
+    - '// @input bool mapPinsRotated {"hint":"All the map pins will rotate according to map rotation if enabled"}'
+    - '// @input float mapPinCursorDetectorSize = 0.02 {"hint":"A cicle shape detector is used to detect cursor"}'
+    - '// @input vec4 highlightPinColor = "{1.0, 0.82, 0.0, 1}" {"widget":"color"}'
+    - '// @input vec4 selectedPinColor = "{0.82, 1.0, 0.0, 1}" {"widget":"color"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"Interactions"}'
+    - // @input bool enableScrolling
+    - // @input float scrollingFriction = 4
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"For setting map location to custom location (not following user location)"}'
+    - // @input bool setMapToCustomLocation
+    - '// @ui {"widget":"group_start", "label":"Custom Location", "showIf":"setMapToCustomLocation", "showIfValue":true}'
+    - // @input string longitude
+    - // @input string latitude
+    - // @input float rotation
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"Rotations"}'
+    - // @input bool isMinimapAutoRotate
+    - // @input bool enableMapSmoothing
+    - '// @ui {"widget":"label", "label":"How often map should be updated (seconds)"}'
+    - // @input float mapUpdateThreshold
+    - // @input SceneObject buttonRoot
+    - // @input AssignableType_1 placeListCreator

@@ -5,11 +5,12 @@ export class CameraService extends BaseScriptComponent {
   @input specsRightCamera: Camera;
   @input screenCropTexture: Texture;
   @input deviceCamTexture: Texture;
-  @input camModule: CameraModule;
 
   private isEditor = global.deviceInfoSystem.isEditor();
   private camTexture = null;
   private cropProvider = null;
+  private camModule: CameraModule =
+    require("LensStudio:CameraModule") as CameraModule;
 
   onAwake() {
     this.createEvent("OnStartEvent").bind(this.start.bind(this));

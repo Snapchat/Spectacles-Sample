@@ -1,0 +1,65 @@
+- !<AssetImportMetadata/baf9fcbe-3f0e-44a3-a5f5-f88897f77e75>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 33cf9e07-bf75-4300-aa25-cf1e90404a48
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 33cf9e07-bf75-4300-aa25-cf1e90404a48
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 2c6178dd-0d26-4fd8-bd67-99edc8e73f3c
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/2c6178dd-0d26-4fd8-bd67-99edc8e73f3c>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 9eca77ba-918e-4fa0-98fb-6577a1ea0af9
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    debugImage: false
+    lostFramesThreshold: false
+    matchDetections: false
+    matchThreshold: false
+    maxCount: false
+    objectToCopy: false
+    setObjectPosition: false
+    smoothCoef: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - debugImage: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      objectToCopy: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      maxCount: !<float> 70.000000
+      setObjectPosition: true
+      matchDetections: false
+      matchThreshold: 0.500000
+      lostFramesThreshold: !<float> 4.000000
+      smoothCoef: !<float> 0.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Component.Image debugImage {"hint":"Debug Image"}'
+    - '// @input SceneObject objectToCopy {"hint":"Object used to copy and place over the detected objects"}'
+    - '// @input float maxCount = 70 {"hint":"Number of instances of the object", "widget":"slider", "min":0, "max":100, "step":1}'
+    - '// @input bool setObjectPosition = true {"hint":"set object position"}'
+    - '// @input bool matchDetections {"hint":"try to match current detections with ones from the previous frame, reuse same scene objects if match"}'
+    - '// @ui {"widget":"group_start", "label":"Match Settings", "showIf":"matchDetections"}'
+    - "// @input float matchThreshold = 0.5 {\"hint\":\"If the detection isn't matched then it will remain active during <lostFrameThreshold> updates\", \"widget\":\"slider\", \"min\":0, \"max\":0.95, \"step\":0.05}"
+    - '// @input float lostFramesThreshold = 4 {"hint":"Lost Frames", "widget":"slider", "min":0, "max":10, "step":1}'
+    - '// @input float smoothCoef {"hint":"smooth coefficient", "widget":"slider", "min":0, "max":1, "step":0.01}'
+    - '// @ui {"widget":"group_end"}'

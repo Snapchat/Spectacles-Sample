@@ -19,10 +19,10 @@ Get started using our [Design Guidelines](https://developers.snap.com/spectacles
 
 ## Prerequisites
 
-- **Lens Studio**: v5.9.0+
-- **Spectacles OS Version**: v5.61.371+
-- **Spectacles App iOS**: v0.61.1.0+
-- **Spectacles App Android**: v0.61.1.1+
+- **Lens Studio**: v5.10.0+
+- **Spectacles OS Version**: v5.62+
+- **Spectacles App iOS**: v0.62+
+- **Spectacles App Android**: v0.62+
 
 To update your Spectacles device and mobile app, please refer to this [guide](https://support.spectacles.com/hc/en-us/articles/30214953982740-Updating).
 
@@ -43,7 +43,7 @@ The project should be pre-configured to get you started without any additional s
 1. An "Essential" collection of material.
 2. An "Advanced" collection of material from the Asset Library or From the inital sample on Lens Studio home page named "Material Editor".
 
-<img src="./README-ref/matLibrary.png" alt="Material Library" width="600" />
+<img src="./README-ref/matLibrary.png" alt="Material Library" width="500" />
 
 ## Material Library Resources
 
@@ -54,7 +54,7 @@ See more at [Material Library](https://developers.snap.com/lens-studio/features/
 
 ### In Lens Studio Editor
 
-<img src="./README-ref/preview.png" alt="Preview Page" width="600" />
+<img src="./README-ref/preview.png" alt="Preview Page" width="500" />
 
 1. Open the Preview panel in Lens Studio.
 2. Use the "previous" and "next" button to go through all of the available materials.

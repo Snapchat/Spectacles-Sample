@@ -1,0 +1,113 @@
+- !<AssetImportMetadata/02a77305-e2ef-4889-b401-d856a708eaf5>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> b898a049-78d8-476d-8755-25f6f131dcfe
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> b898a049-78d8-476d-8755-25f6f131dcfe
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    ObjectPrefab: !<own> 15c3fe0f-ea9f-4719-8eb2-f8b9b0515d44
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptComponent/04f7c4a6-0b86-46ab-b6b5-529cba940380>
+  PrefabRemaps:
+    []
+  Name: ContainerFrame
+  Enabled: true
+  ScriptAsset: !<reference> 94ea82ba-1d42-4617-b71f-c92262f5960b
+  ScriptInputsDefault:
+    autoShowHide: true
+    constantPadding: true
+    relativeZ: true
+    allowTranslation: true
+    cutOut: true
+    maximumSize: true
+    useBillboarding: true
+    xAlways: true
+    yAlways: true
+    worldSnapping: true
+    showFollowButton: true
+    isFollowing: true
+    _enableInteractionPlane: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      autoShowHide: true
+      innerSize: !<Vec2> {x: 13.160000, y: 21.600000}
+      border: !<float> 3.000000
+      constantPadding: !<Vec2> {x: 0.000000, y: 0.000000}
+      allowScaling: false
+      autoScaleContent: false
+      relativeZ: false
+      isContentInteractable: true
+      allowTranslation: true
+      cutOut: false
+      minimumSize: !<Vec2> {x: 5.000000, y: 5.000000}
+      maximumSize: !<Vec2> {x: 300.000000, y: 300.000000}
+      useBillboarding: false
+      xOnTranslate: true
+      xAlways: false
+      yOnTranslate: true
+      yAlways: false
+      useSnapping: true
+      itemSnapping: true
+      worldSnapping: false
+      showFollowButton: false
+      useFOVFollow: true
+      isFollowing: false
+      showCloseButton: false
+      _enableInteractionPlane: false
+  ScriptTypes:
+    "":
+      {}
+- !<ObjectPrefabAssetData/15c3fe0f-ea9f-4719-8eb2-f8b9b0515d44>
+  SourceRemaps:
+    - 418a3c1a-94de-4754-97bd-19a2920c650d: 9c8d2088-5806-472a-93fc-51b4a0d6fd4e
+    - 619df0aa-3646-41ea-ab48-a571114a3e0e: 04f7c4a6-0b86-46ab-b6b5-529cba940380
+    - b898a049-78d8-476d-8755-25f6f131dcfe: c80ed550-b877-4847-9aca-be3a4d285abf
+    - f03e77cc-76ae-42a9-b4aa-245069196ea7: f0807496-3cec-4cd2-90fe-caa4d7b9fb90
+  SourceState: !<own> c80ed550-b877-4847-9aca-be3a4d285abf
+- !<SceneObject/9c8d2088-5806-472a-93fc-51b4a0d6fd4e>
+  PrefabRemaps:
+    []
+  Name: pfbWidget
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> f0807496-3cec-4cd2-90fe-caa4d7b9fb90
+    - !<own> 04f7c4a6-0b86-46ab-b6b5-529cba940380
+- !<ObjectPrefab/c80ed550-b877-4847-9aca-be3a4d285abf>
+  PackagePath: ""
+  objects:
+    - !<own> 9c8d2088-5806-472a-93fc-51b4a0d6fd4e
+  LazyLoading: false
+  RetainAssets: true
+- !<ScriptComponent/f0807496-3cec-4cd2-90fe-caa4d7b9fb90>
+  PrefabRemaps:
+    []
+  Name: Widget
+  Enabled: true
+  ScriptAsset: !<reference> 2212284e-011c-4c5b-8936-9406dd0e8b5f
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      containerFrame: !<MappingBased.AssignableType> 04f7c4a6-0b86-46ab-b6b5-529cba940380
+  ScriptTypes:
+    "":
+      {}

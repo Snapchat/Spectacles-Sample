@@ -1,6 +1,6 @@
 # Spatial Persistence
 
-[![Spatial Anchors](https://img.shields.io/badge/Spatial%20Anchors-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/apis/spatial-anchors?) [![SIK](https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?) [![Persistent Storage](https://img.shields.io/badge/Persistent%20Storage-Light%20Gray?color=D3D3D3)](https://developers.snap.com/lens-studio/features/persistent-cloud-storage/overview?) [![Multiplayer](https://img.shields.io/badge/Multiplayer-Light%20Gray?color=D3D3D3)](https://developers.snap.com/lens-studio/features/lens-cloud/lens-cloud-overview?)
+[![SIK](https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?) [![Spatial Anchors](https://img.shields.io/badge/Spatial%20Anchors-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/apis/spatial-anchors?) [![Persistent Storage](https://img.shields.io/badge/Persistent%20Storage-Light%20Gray?color=D3D3D3)](https://developers.snap.com/lens-studio/features/persistent-cloud-storage/overview?) [![Multiplayer](https://img.shields.io/badge/Multiplayer-Light%20Gray?color=D3D3D3)](https://developers.snap.com/lens-studio/features/lens-cloud/lens-cloud-overview?)
 
 <img src="./README-ref/sample-list-spatial-persistance-rounded-edges.gif" alt="spatial-persistance" width="500" />
 
@@ -18,10 +18,10 @@ Get started using our [Design Guidelines](https://developers.snap.com/spectacles
 
 ## Prerequisites
 
-- **Lens Studio**: v5.9.0+
-- **Spectacles OS Version**: v5.61.371+
-- **Spectacles App iOS**: v0.61.1.0+
-- **Spectacles App Android**: v0.61.1.1+
+- **Lens Studio**: v5.10.0+
+- **Spectacles OS Version**: v5.62+
+- **Spectacles App iOS**: v0.62+
+- **Spectacles App Android**: v0.62+
 
 To update your Spectacles device and mobile app, refer to this [guide](https://support.spectacles.com/hc/en-us/articles/30214953982740-Updating).
 

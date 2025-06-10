@@ -1,0 +1,93 @@
+- !<AssetImportMetadata/1fe8449b-142b-4f83-9cfb-10cfc2f0e0cc>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> ef1b3495-e82d-471f-98f8-19bdd317a74d
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> ef1b3495-e82d-471f-98f8-19bdd317a74d
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 772bfea7-6bb4-4625-b24d-687201f9aac6
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/772bfea7-6bb4-4625-b24d-687201f9aac6>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 1e657405-8f80-4ca2-9da6-91c078f67343
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    constrainPositionX: false
+    constrainPositionY: false
+    constrainPositionZ: false
+    constrainRotationX: false
+    constrainRotationY: false
+    constrainRotationZ: false
+    constrainScaleX: false
+    constrainScaleY: false
+    constrainScaleZ: false
+    positionLerpSpeed: false
+    positionOffset: false
+    rotationLerpSpeed: false
+    scaleLerpSpeed: false
+    target: false
+    targetX: false
+    targetY: false
+    targetZ: false
+    usePositionLerp: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - target: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      targetZ: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      targetY: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      targetX: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      positionOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      usePositionLerp: true
+      positionLerpSpeed: !<float> 1.000000
+      rotationLerpSpeed: !<float> 1.000000
+      scaleLerpSpeed: !<float> 1.000000
+      constrainPositionX: false
+      constrainPositionY: false
+      constrainPositionZ: false
+      constrainRotationX: false
+      constrainRotationY: false
+      constrainRotationZ: false
+      constrainScaleX: false
+      constrainScaleY: false
+      constrainScaleZ: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input SceneObject target {"hint":"Override default target mainCamera"}'
+    - '// @input SceneObject targetZ {"hint":"Override default target mainCamera"}'
+    - '// @input SceneObject targetY {"hint":"Override default target mainCamera"}'
+    - '// @input SceneObject targetX {"hint":"Override default target mainCamera"}'
+    - "// @input vec3 positionOffset = {0,0,0} {\"hint\":\"Position offset for matching the target's position\"}"
+    - '// @input bool usePositionLerp = true {"hint":"Use lerping for smooth position transitions"}'
+    - "// @input float positionLerpSpeed = 1 {\"hint\":\"Speed for moving towards the target's position (when lerping is enabled)\"}"
+    - "// @input float rotationLerpSpeed = 1 {\"hint\":\"Speed for rotating towards the target's rotation\"}"
+    - "// @input float scaleLerpSpeed = 1 {\"hint\":\"Speed for scaling towards the target's scale\"}"
+    - '// @input bool constrainPositionX {"hint":"Toggle to constrain movement on specific axes"}'
+    - // @input bool constrainPositionY
+    - // @input bool constrainPositionZ
+    - '// @input bool constrainRotationX {"hint":"Toggle to constrain rotation on specific axes"}'
+    - // @input bool constrainRotationY
+    - // @input bool constrainRotationZ
+    - '// @input bool constrainScaleX {"hint":"Toggle to constrain scaling on specific axes"}'
+    - // @input bool constrainScaleY
+    - // @input bool constrainScaleZ

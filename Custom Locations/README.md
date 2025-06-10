@@ -1,8 +1,8 @@
-# Custom Location Template
+# Custom Locations
 
-[![Location AR](https://img.shields.io/badge/Location%20AR-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/apis/custom-locations)
+[![SIK](https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?) [![Location AR](https://img.shields.io/badge/Location%20AR-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/apis/custom-locations)
 
-<img src="./README-ref/scan-sample.gif" alt="custom-locations" width="500" />
+<img src="./README-ref/sample-list-custom-locations-rounded-edges.gif" alt="custom-locations" width="500" />
 
 ## Overview
 
@@ -18,10 +18,10 @@ Get started using our [Design Guidelines](https://developers.snap.com/spectacles
 
 ## Prerequisites
 
-- **Lens Studio**: v5.9.0+
-- **Spectacles OS Version**: v5.61.371+
-- **Spectacles App iOS**: v0.61.1.0+
-- **Spectacles App Android**: v0.61.1.1+
+- **Lens Studio**: v5.10.0+
+- **Spectacles OS Version**: v5.62+
+- **Spectacles App iOS**: v0.62+
+- **Spectacles App Android**: v0.62+
 
 To update your Spectacles device and mobile app, refer to this [guide](https://support.spectacles.com/hc/en-us/articles/30214953982740-Updating).
 
@@ -56,7 +56,6 @@ At the physical location at which the AR content is anchored, create a series of
 
 <img src="./README-ref/custom-locations-scanning.gif" alt="Scan Locations" width="500" />
 
-
 ### Create Group
 
 Once the scans have been created and published, create a group including all of the scans.
@@ -68,11 +67,7 @@ Stabilize each of the members of the group and publish the Custom Location Group
 
 Add a Custom Location Group to the scene hierarchy of your project and press "Reload Group".
 
-<img
-  src="./README-ref/custom-location-group.png"
-  alt="Import group"
-  width="500"
-/>
+<img src="./README-ref/custom-location-group.png" alt="Import group" width="500" />
 
 ### Load the Sample Project in Lens Studio
 
@@ -82,11 +77,7 @@ Add a Custom Location Group to the scene hierarchy of your project and press "Re
 4. Add the ID of the scan to the "Group ID" field
 5. Click "Reload Group"
 
-<img
-  src="./README-ref/custom-location-scene.png"
-  alt="Load Sample"
-  width="500"
-/>
+<img src="./README-ref/custom-location-scene.png" alt="Load Sample" width="500" />
 
 ### Use Sample Assets to Create
 
@@ -105,21 +96,13 @@ Add a Custom Location Group to the scene hierarchy of your project and press "Re
 
 Add the content that is to be anchored to each of the locations.
 
-<img
-  src="./README-ref/custom-location-group-full.png"
-  alt="Location Group Full"
-  width="500"
-/>
+<img src="./README-ref/custom-location-group-full.png" alt="Location Group Full" width="500" />
 
 ### Test Your Lens
 
 The final lens with assets correctly parented can now be sent to Spectacles and tested at the scanned location.
 
-<img
-  src="./README-ref/custom-locations-end.gif"
-  alt="Test Your Lens"
-  width="500"
-/>
+<img src="./README-ref/custom-locations-end.gif" alt="Test Your Lens" width="500" />
 
 ## Notes on Testing the Lens
 

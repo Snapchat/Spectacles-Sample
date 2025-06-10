@@ -1,7 +1,6 @@
-import { InteractableOutlineFeedback } from "SpectaclesInteractionKit.lspkg/Components/Helpers/InteractableOutlineFeedback";
-import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable";
-import { SIK } from "SpectaclesInteractionKit.lspkg/SIK";
-import Event, { PublicApi } from "SpectaclesInteractionKit.lspkg/Utils/Event";
+import { InteractableOutlineFeedback } from "SpectaclesInteractionKit.lspkg/Components/Helpers/InteractableOutlineFeedback"
+import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable"
+import Event, { PublicApi } from "SpectaclesInteractionKit.lspkg/Utils/Event"
 
 /**
  * A simple button using SpectaclesInteractionKit events to signal user intent to delete a certain area.
@@ -9,31 +8,31 @@ import Event, { PublicApi } from "SpectaclesInteractionKit.lspkg/Utils/Event";
 @component
 export class AreaDeleteButton extends BaseScriptComponent {
   @input
-  private textComponent: Text;
+  private textComponent: Text
   @input
-  private buttonMesh: RenderMeshVisual;
+  private buttonMesh: RenderMeshVisual
 
-  private confirmButtonMesh: RenderMesh;
+  private confirmButtonMesh: RenderMesh
 
-  private interactable: Interactable;
+  private interactable: Interactable
 
-  private isInitialized: boolean = false;
+  private isInitialized: boolean = false
 
-  private onSelectEvent: Event<void> = new Event<void>();
-  readonly onSelect: PublicApi<void> = this.onSelectEvent.publicApi();
+  private onSelectEvent: Event<void> = new Event<void>()
+  readonly onSelect: PublicApi<void> = this.onSelectEvent.publicApi()
 
   onAwake() {
-    this.createEvent("OnStartEvent").bind(this.onStart.bind(this));
+    this.createEvent("OnStartEvent").bind(this.onStart.bind(this))
   }
 
   onStart() {
     this.interactable = this.sceneObject.getComponent(
-      SIK.InteractionConfiguration.requireType("Interactable")
-    ) as Interactable;
+      Interactable.getTypeName()
+    )
 
     this.interactable.onTriggerEnd.add((event) => {
-      this.onSelectEvent.invoke();
-    });
+      this.onSelectEvent.invoke()
+    })
   }
 
   /**
@@ -45,14 +44,14 @@ export class AreaDeleteButton extends BaseScriptComponent {
     confirmButtonMesh: RenderMesh,
     targetAreaButton: RenderMeshVisual
   ) {
-    this.confirmButtonMesh = confirmButtonMesh;
+    this.confirmButtonMesh = confirmButtonMesh
 
     const outlineFeedback = this.sceneObject.getComponent(
       InteractableOutlineFeedback.getTypeName()
-    );
-    outlineFeedback.meshVisuals.push(targetAreaButton);
+    )
+    outlineFeedback.meshVisuals.push(targetAreaButton)
 
-    this.isInitialized = true;
+    this.isInitialized = true
   }
 
   /**
@@ -60,11 +59,11 @@ export class AreaDeleteButton extends BaseScriptComponent {
    */
   public setIsConfirming() {
     if (!this.isInitialized) {
-      throw new Error("AreaDeleteButton.initialize() haven't been called");
+      throw new Error("AreaDeleteButton.initialize() haven't been called")
     }
 
-    this.textComponent.text = "Confirm";
-    this.buttonMesh.mesh = this.confirmButtonMesh;
-    this.buttonMesh.getTransform().setLocalScale(new vec3(0.6, 1, 1));
+    this.textComponent.text = "Confirm"
+    this.buttonMesh.mesh = this.confirmButtonMesh
+    this.buttonMesh.getTransform().setLocalScale(new vec3(0.6, 1, 1))
   }
 }

@@ -1,0 +1,63 @@
+- !<AssetImportMetadata/409cea32-42db-41f6-b25e-1567c27014b8>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 7ff170c8-01c7-4689-bc2c-3d9d72dc8122
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 7ff170c8-01c7-4689-bc2c-3d9d72dc8122
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> b94d88ed-8860-4ca6-99ca-4e422e7b34a4
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/b94d88ed-8860-4ca6-99ca-4e422e7b34a4>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 0c4cafd8-ef43-44e9-b75b-45fc84b09e97
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    debugLogging: false
+    detectButton: false
+    detectionPrefab: false
+    enableSurfaceDetection: false
+    maxDetectionCount: false
+    mlSpatializer: false
+    pinholeCapture: false
+    rayDistance: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - mlSpatializer: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      detectionPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      detectButton: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      maxDetectionCount: !<float> 5.000000
+      rayDistance: !<float> 200.000000
+      pinholeCapture: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      debugLogging: false
+      enableSurfaceDetection: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType mlSpatializer {"hint":"Reference to the MLSpatializer component that handles ML detection"}'
+    - '// @input Asset.ObjectPrefab detectionPrefab {"hint":"Object to place at detected locations"}'
+    - '// @input AssignableType_1 detectButton {"hint":"Button to trigger detection on click"}'
+    - '// @input float maxDetectionCount = 5 {"hint":"Maximum number of objects to detect and place", "widget":"slider", "min":1, "max":20, "step":1}'
+    - '// @input float rayDistance = 200 {"hint":"Distance to project detections in world space"}'
+    - '// @input AssignableType_2 pinholeCapture {"hint":"Reference to the PinholeCapture component"}'
+    - '// @input bool debugLogging {"hint":"Log detection results to console"}'
+    - '// @input bool enableSurfaceDetection = true {"hint":"Enable surface detection with WorldQueryModule"}'

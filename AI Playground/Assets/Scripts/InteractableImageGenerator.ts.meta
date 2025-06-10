@@ -1,0 +1,57 @@
+- !<AssetImportMetadata/debcc11f-bdaf-4c78-926b-5f9eb41e92b1>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 0eef9073-8bca-446c-8d98-3da4228ab85b
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 0eef9073-8bca-446c-8d98-3da4228ab85b
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 3ea75aef-5ead-4102-a321-ad73dc1af352
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/3ea75aef-5ead-4102-a321-ad73dc1af352>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 9eaa3e2e-d3e8-40fa-8e37-9024f6173324
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    asrQueryController: false
+    image: false
+    modelProvider: false
+    spinner: false
+    textDisplay: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - modelProvider: OpenAI
+      image: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      textDisplay: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      asrQueryController: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      spinner: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"Example of using generative image APIs"}'
+    - '// @input string modelProvider = "OpenAI" {"widget":"combobox", "values":[{"label":"OpenAI", "value":"OpenAI"}, {"label":"Gemini", "value":"Gemini"}]}'
+    - '// @ui {"widget":"separator"}'
+    - // @input Component.Image image
+    - // @input Component.Text textDisplay
+    - // @input AssignableType asrQueryController
+    - // @input SceneObject spinner

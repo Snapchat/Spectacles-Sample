@@ -1,0 +1,71 @@
+- !<AssetImportMetadata/2f3398aa-457f-4bc6-a201-fd93cf05f36c>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 9831a622-39de-4278-b912-ea2e7536aedc
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 9831a622-39de-4278-b912-ea2e7536aedc
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 6f5e4c11-3755-4287-a015-12f8dca6209e
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/6f5e4c11-3755-4287-a015-12f8dca6209e>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: cb44124e-342d-40c1-8af4-f7197536efd9
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    arNavigation: false
+    imageDisplay: false
+    indoorMinimapScale: false
+    indoorObjects: false
+    indoorPromptDistance: false
+    navigationComponent: false
+    outdoorObjects: false
+    panelManager: false
+    uiRoot: false
+    variantType: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - variantType: 0
+      navigationComponent: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      arNavigation: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      panelManager: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      imageDisplay: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      indoorObjects: !<reference.SceneObject[]>
+        []
+      outdoorObjects: !<reference.SceneObject[]>
+        []
+      uiRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      indoorMinimapScale: !<float> 0.000000
+      indoorPromptDistance: !<float> 5.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input int variantType {"widget":"combobox", "values":[{"label":"Indoors", "value":0}, {"label":"Outdoors", "value":1}]}'
+    - // @input AssignableType navigationComponent
+    - // @input AssignableType_1 arNavigation
+    - // @input AssignableType_2 panelManager
+    - // @input AssignableType_3 imageDisplay
+    - "// @input SceneObject[] indoorObjects = {}"
+    - "// @input SceneObject[] outdoorObjects = {}"
+    - // @input SceneObject uiRoot
+    - // @input float indoorMinimapScale = 1
+    - // @input float indoorPromptDistance = 5

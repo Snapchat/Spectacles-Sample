@@ -2,7 +2,7 @@
 
 [![SIK](https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?) [![Audio](https://img.shields.io/badge/Audio-Light%20Gray?color=D3D3D3)](https://developers.snap.com/lens-studio/features/audio/playing-audio?) [![Gesture Module](https://img.shields.io/badge/Gesture%20Module-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/apis/gesture-module?) [![Motion Controller](https://img.shields.io/badge/Motion%20Controller-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/apis/motion-controller?)
 
-<img src="./README-ref/public-speaker-rounded-edges.gif" alt="public-speaker" width="500" />
+<img src="./README-ref/sample-list-public-speaker-rounded-edges.gif" alt="public-speaker" width="500" />
 
 > **NOTE:**
 > The project uses VoiceML - Speech Recognition
@@ -10,7 +10,7 @@
 ## Overview
 This project is a fun teleprompter lens integrated into Spectacles designed for both rehearsal and live public speaking. It displays speech text directly within the speaker’s field of view, enabling easy reference without breaking engagement with the audience. The system supports real-time adjustments, allowing the slides to update at a variable pace controlled by intuitive gestures, pinch actions, voice commands, or using the Spectacles mobile app. And yes, we used this lens at GDC 2025 :)! 
 
-<img src="./README-ref/gdc-pres.png" alt="gdc-pres" width="200" />
+<img src="./README-ref/gdc-pres.png" alt="gdc-pres" width="500" />
 
 ## Design Guidelines
 
@@ -19,10 +19,10 @@ Get started using our [Design Guidelines](https://developers.snap.com/spectacles
 
 ## Prerequisites
 
-- **Lens Studio**: v5.9.0+
-- **Spectacles OS Version**: v5.61.371+
-- **Spectacles App iOS**: v0.61.1.0+
-- **Spectacles App Android**: v0.61.1.1+
+- **Lens Studio**: v5.10.0+
+- **Spectacles OS Version**: v5.62+
+- **Spectacles App iOS**: v0.62+
+- **Spectacles App Android**: v0.62+
 
 To update your Spectacles device and mobile app, please refer to this [guide](https://support.spectacles.com/hc/en-us/articles/30214953982740-Updating).
 
@@ -44,7 +44,7 @@ To obtain the project folder, clone the repository.
 
 This project allows you to connect your Spectacles to Google Slides presentations, enabling you to view and control slides directly from your Spectacles or synchronize with a presenter using Google Slides.
 
-<img src="./README-ref/web-slide-viewer.png" alt="web-slide-viewer" width="450" />
+<img src="./README-ref/web-slide-viewer.png" alt="web-slide-viewer" width="500" />
 
 The integration consists of three main components:
 
@@ -90,7 +90,7 @@ The integration consists of three main components:
    - Navigate to "APIs & Services" > "Library"
    - Search for "Google Slides API" and enable it
 
-<img src="./README-ref/oauth-1.png" alt="oauth-1" width="450" />
+<img src="./README-ref/oauth-1.png" alt="oauth-1" width="500" />
 
 4. Create OAuth credentials:
    - Go to "APIs & Services" > "Credentials"
@@ -99,7 +99,7 @@ The integration consists of three main components:
    - Add authorized redirect URIs (including `https://developers.google.com/oauthplayground`)
    - Click "Create" and note your Client ID and Client Secret
 
-<img src="./README-ref/oauth-2.png" alt="oauth-2" width="450" />
+<img src="./README-ref/oauth-2.png" alt="oauth-2" width="500" />
 
 5. Get a refresh token using OAuth Playground:
    - Go to [OAuth Playground](https://developers.google.com/oauthplayground/)
@@ -111,7 +111,7 @@ The integration consists of three main components:
    - Click "Exchange authorization code for tokens"
    - Note the Access Token (you'll need to refresh this periodically) and Refresh Token
 
-<img src="./README-ref/oauth-3.png" alt="oauth-3" width="450" />
+<img src="./README-ref/oauth-3.png" alt="oauth-3" width="500" />
 
 ### Connecting Everything Together
 
@@ -157,22 +157,21 @@ This project include different ways to change slides.
 
 - `PresentationSwitcher.ts` allows you to go next or go previous on the slides using [SIK](https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/get-started).
 
-<img src="./README-ref/mobile-divided.png" alt="mobile-divided" width="300" />
+<img src="./README-ref/mobile-divided.png" alt="mobile-divided" width="500" />
 
 - `MobileController.ts` allows you to go next or go previous on the slides using the [Motion Controller Module](https://developers.snap.com/spectacles/about-spectacles-features/apis/motion-controller). Open the Spectacles app, pair it with your Spectacles, and use the controller panel. The left half of the window will call "Previous", the right half of the window will call "Next".
 
-<img src="./README-ref/soft-press-diagram.png" alt="soft-press-diagram" width="450" />
+<img src="./README-ref/soft-press-diagram.png" alt="soft-press-diagram" width="500" />
 
 - `SoftPressController.ts` allows you to go next or go previous on the slides using a custom soft press button and [The Gesture Module](https://developers.snap.com/spectacles/about-spectacles-features/apis/gesture-module).
 
 - `VoiceController.ts` allows you to go next or go previous on the slides using [VoiceML](https://developers.snap.com/lens-studio/features/voice-ml/speech-recognition).
 
-
 ## Modify the sample
 
 Change the Orientation of the soft button that includes `SoftPressController.ts` and the distance from the Container UI based on your preference. 
 
-<img src="./README-ref/orientation.png" alt="orientation" width="450" />
+<img src="./README-ref/orientation.png" alt="orientation" width="500" />
 
 Change the voice commands in `VoiceController.ts`. 
 
@@ -192,7 +191,7 @@ Change the voice commands in `VoiceController.ts`.
 ```
 Update the slides with your images and text. 
 
-<img src="./README-ref/slides-hierarchy.png" alt="slides-hierarchy" width="450" />
+<img src="./README-ref/slides-hierarchy.png" alt="slides-hierarchy" width="500" />
 
 ## Testing the Lens
 

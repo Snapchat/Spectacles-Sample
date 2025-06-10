@@ -1,0 +1,57 @@
+- !<AssetImportMetadata/1ba049b0-92e1-4bab-9407-084836a8ad51>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 1d0b5f98-6ab7-4d7a-b74b-a4dd865b2a85
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 1d0b5f98-6ab7-4d7a-b74b-a4dd865b2a85
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> d05d0e9b-d84f-43b3-ad3c-54c60dc967cc
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/d05d0e9b-d84f-43b3-ad3c-54c60dc967cc>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 7ecaa391-e627-4c5f-98fd-5d2ef70bb27b
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    applyPosition: false
+    applyRotation: false
+    positionBlend: false
+    rotationBlend: false
+    target1: false
+    target2: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - target1: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      target2: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      applyPosition: true
+      applyRotation: true
+      positionBlend: 0.500000
+      rotationBlend: 0.500000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input SceneObject target1 {"hint":"First target for position/rotation calculation"}'
+    - '// @input SceneObject target2 {"hint":"Second target for position/rotation calculation"}'
+    - '// @input bool applyPosition = true {"hint":"Apply position between targets"}'
+    - '// @input bool applyRotation = true {"hint":"Apply rotation between targets"}'
+    - '// @input float positionBlend = 0.5 {"hint":"Position blend factor (0 = target1, 1 = target2, 0.5 = halfway)", "widget":"slider", "min":0, "max":1, "step":0.01}'
+    - '// @input float rotationBlend = 0.5 {"hint":"Rotation blend factor (0 = target1, 1 = target2, 0.5 = halfway)", "widget":"slider", "min":0, "max":1, "step":0.01}'

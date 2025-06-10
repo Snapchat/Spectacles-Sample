@@ -1,0 +1,56 @@
+- !<ObjectPrefab/8f6bb214-72ba-4dd4-a9e6-f421d97bb6a1>
+  PackagePath: ""
+  objects:
+    - !<own> 561550f8-91d5-4ade-9677-bb5dcebcfea2
+  LazyLoading: false
+  RetainAssets: true
+- !<SceneObject/1ef5b142-123b-4621-917a-96f75847ab49>
+  PrefabRemaps:
+    []
+  Name: Cylinder
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 5.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 5.000000, y: 10.000000, z: 5.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 8f4eacf7-c68c-493a-8f21-6f388cb7525b
+- !<SceneObject/561550f8-91d5-4ade-9677-bb5dcebcfea2>
+  PrefabRemaps:
+    []
+  Name: Group
+  Enabled: false
+  Layers: 1
+  LocalTransform:
+    position: {x: -52.494041, y: -58.667816, z: -349.227753}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    - !<own> 1ef5b142-123b-4621-917a-96f75847ab49
+  Components:
+    []
+- !<RenderMeshVisual/8f4eacf7-c68c-493a-8f21-6f388cb7525b>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> df5afac7-3aea-4b56-acdd-417a6bbe7f54
+  Mesh: !<reference> 5d6d12a5-7e8b-4e51-a1c4-c40d93293832
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}

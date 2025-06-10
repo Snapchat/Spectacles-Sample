@@ -1,0 +1,52 @@
+- !<AssetImportMetadata/391cdea5-c825-a848-ed90-980c3a82ee38>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 275adc1e-510f-4502-ac69-b5f3f30b79dd
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 275adc1e-510f-4502-ac69-b5f3f30b79dd
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    AssetLibraryId: 3kQqaLSKYvA1iY30Jz9FZW
+  AssetDataMap:
+    TypeScriptAsset: !<own> 94f35254-6aae-46b5-98aa-7526da5e0cd6
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/94f35254-6aae-46b5-98aa-7526da5e0cd6>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: |-
+    Allows do detect surface using WorldQueryModule
+    
+    API: 
+    startGroundCalibration(callback: (pos: vec3, rot: quat) => void)
+  InternalVersion: 1
+  VersionMajor: 1
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 238be09e-f56e-4b9c-819d-b52a30a58a6e
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    camObj: false
+    vertical: false
+    visualObj: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - camObj: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      visualObj: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      vertical: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input SceneObject camObj
+    - // @input SceneObject visualObj
+    - '// @input bool vertical = true {"hint":"Set to true if the surface you want to detect is vertical"}'

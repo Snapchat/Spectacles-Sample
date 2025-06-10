@@ -138,7 +138,7 @@ export class MapController extends BaseScriptComponent {
   public onMapPinAdded = this.onMapPinAddedEvent.publicApi();
 
   private onMapPinRemovedEvent = new Event<MapPin>();
-  public onMapPinRemoved = this.onMapPinAddedEvent.publicApi();
+  public onMapPinRemoved = this.onMapPinRemovedEvent.publicApi();
 
   private onAllMapPinsRemovedEvent = new Event();
   public onAllMapPinsRemoved = this.onAllMapPinsRemovedEvent.publicApi();

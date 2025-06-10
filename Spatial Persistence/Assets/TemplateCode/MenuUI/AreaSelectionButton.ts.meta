@@ -5,6 +5,8 @@
   PrimaryAsset: !<reference> be8aed7d-a3f1-4843-a0ef-118edd7a465e
   PackageType: NotAPackage
   PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
   AssetDataMap:
     TypeScriptAsset: !<own> 03c358c3-96ec-40c4-94b0-28114893801f
   DependentFiles:
@@ -12,10 +14,10 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-  ExtraData:
-    {}
 - !<TypeScriptAssetData/03c358c3-96ec-40c4-94b0-28114893801f>
   SvgIcon: ""
+  SetupScript:
+    code: ""
   Description: ""
   InternalVersion: 0
   VersionMajor: 0
@@ -30,6 +32,8 @@
     textComponent: false
   ScriptTypesHidden:
     {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
     - textComponent: !<reference.Text> 00000000-0000-0000-0000-000000000000
       buttonMesh: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
@@ -39,7 +43,3 @@
   InputLines:
     - // @input Component.Text textComponent
     - // @input Component.RenderMeshVisual buttonMesh
-  SetupScript:
-    code: ""
-  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
-  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000

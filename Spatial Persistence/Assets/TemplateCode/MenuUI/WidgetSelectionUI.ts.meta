@@ -5,6 +5,8 @@
   PrimaryAsset: !<reference> e339af02-5361-4c89-adfe-a2a0a89a5eab
   PackageType: NotAPackage
   PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
   AssetDataMap:
     TypeScriptAsset: !<own> 539eb24a-2c4c-42fc-9d1b-e3f31242d121
   DependentFiles:
@@ -12,10 +14,10 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-  ExtraData:
-    {}
 - !<TypeScriptAssetData/539eb24a-2c4c-42fc-9d1b-e3f31242d121>
   SvgIcon: ""
+  SetupScript:
+    code: ""
   Description: ""
   InternalVersion: 0
   VersionMajor: 0
@@ -31,6 +33,8 @@
     widgetSelections: false
   ScriptTypesHidden:
     {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
     - widgetSelections: !<reference.ObjectPrefab[]>
         []
@@ -43,7 +47,3 @@
     - "// @input Asset.ObjectPrefab[] widgetSelections"
     - // @input float itemsOffset = 5
     - // @input SceneObject widgetSelectionParent
-  SetupScript:
-    code: ""
-  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
-  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000

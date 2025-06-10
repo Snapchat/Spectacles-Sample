@@ -1,0 +1,72 @@
+- !<AssetImportMetadata/b62ab56f-63cc-41c3-b8f8-1d51782e5921>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 70c94890-c2d9-416c-b14d-a0cd0d0cfb27
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 70c94890-c2d9-416c-b14d-a0cd0d0cfb27
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> f5e613bb-b932-47b3-9b0a-e2e1e9cf0196
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/f5e613bb-b932-47b3-9b0a-e2e1e9cf0196>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 1a01a00a-1393-49ef-8edb-0f123d692ac6
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    geminiAssistant: false
+    geminiButton: false
+    hintText: false
+    hintTitle: false
+    openAIAssistant: false
+    openAIButton: false
+    snap3DInteractableFactory: false
+    sphereController: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - geminiAssistant: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      openAIAssistant: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      sphereController: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      snap3DInteractableFactory: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      hintTitle: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      hintText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      geminiButton: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
+      openAIButton: !<MappingBased.AssignableType_5> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"Connects the AI Assistant to the Sphere Controller UI"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Assistants"}'
+    - '// @ui {"widget":"label", "label":"Customize the voice and behavior of the assistants on their respective components."}'
+    - // @input AssignableType geminiAssistant
+    - // @input AssignableType_1 openAIAssistant
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"UI Elements"}'
+    - // @input AssignableType_2 sphereController
+    - // @input AssignableType_3 snap3DInteractableFactory
+    - // @input Component.Text hintTitle
+    - // @input Component.Text hintText
+    - // @input AssignableType_4 geminiButton
+    - // @input AssignableType_5 openAIButton
+    - '// @ui {"widget":"group_end"}'

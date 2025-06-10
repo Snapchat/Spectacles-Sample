@@ -1,7 +1,6 @@
-import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable";
-import { SIK } from "SpectaclesInteractionKit.lspkg/SIK";
-import { ToggleButton } from "SpectaclesInteractionKit.lspkg/Components/UI/ToggleButton/ToggleButton";
-import { TransformFollower } from "./TransformFollower";
+import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable"
+import { ToggleButton } from "SpectaclesInteractionKit.lspkg/Components/UI/ToggleButton/ToggleButton"
+import { TransformFollower } from "./TransformFollower"
 
 /**
  * A simple button using SpectaclesInteractionKit events to signal user intent to select a certain area and load serialized content.
@@ -9,58 +8,58 @@ import { TransformFollower } from "./TransformFollower";
 @component
 export class ToggleMenuButton extends BaseScriptComponent {
   private toggleButton = this.sceneObject.getComponent(
-    SIK.InteractionConfiguration.requireType("ToggleButton")
-  ) as ToggleButton;
+    ToggleButton.getTypeName()
+  )
 
   private interactable = this.sceneObject.getComponent(
-    SIK.InteractionConfiguration.requireType("Interactable")
-  ) as Interactable;
+    Interactable.getTypeName()
+  )
 
-  private visuals: RenderMeshVisual[];
+  private visuals: RenderMeshVisual[]
 
-  private transformFollower: TransformFollower;
+  private transformFollower: TransformFollower
 
-  private targetMenu: SceneObject;
+  private targetMenu: SceneObject
 
-  public onStateChanged;
+  public onStateChanged
 
   onAwake() {
-    this.createEvent("OnStartEvent").bind(this.onStart.bind(this));
+    this.createEvent("OnStartEvent").bind(this.onStart.bind(this))
   }
 
   onStart() {
-    this.onStateChanged = this.toggleButton.onStateChanged;
-    this.toggleButton.onStateChanged.add(this.handleStateChanged.bind(this));
+    this.onStateChanged = this.toggleButton.onStateChanged
+    this.toggleButton.onStateChanged.add(this.handleStateChanged.bind(this))
 
     this.visuals = [
       this.sceneObject.getChild(0).getComponent("Component.RenderMeshVisual"),
       this.sceneObject.getChild(1).getComponent("Component.RenderMeshVisual"),
-    ];
+    ]
 
     this.interactable.onHoverEnter.add(() => {
-      this.visuals[0].mainMaterial.mainPass.hovered = 1;
-      this.visuals[1].mainMaterial.mainPass.hovered = 1;
-    });
+      this.visuals[0].mainMaterial.mainPass.hovered = 1
+      this.visuals[1].mainMaterial.mainPass.hovered = 1
+    })
     this.interactable.onHoverExit.add(() => {
-      this.visuals[0].mainMaterial.mainPass.hovered = 0;
-      this.visuals[1].mainMaterial.mainPass.hovered = 0;
-    });
+      this.visuals[0].mainMaterial.mainPass.hovered = 0
+      this.visuals[1].mainMaterial.mainPass.hovered = 0
+    })
 
     this.transformFollower = this.sceneObject.getComponent(
       TransformFollower.getTypeName()
-    );
+    )
   }
 
   private handleStateChanged(isToggledOn: boolean) {
     if (this.targetMenu == null) {
-      return;
+      return
     }
 
-    this.targetMenu.enabled = isToggledOn;
+    this.targetMenu.enabled = isToggledOn
   }
 
   public setTargetMenu(targetMenu: SceneObject) {
-    this.targetMenu = targetMenu;
+    this.targetMenu = targetMenu
   }
 
   public setFollowTarget(
@@ -72,6 +71,6 @@ export class ToggleMenuButton extends BaseScriptComponent {
       followTarget,
       translationOffset,
       rotationOffset
-    );
+    )
   }
 }

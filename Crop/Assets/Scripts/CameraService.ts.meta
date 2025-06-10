@@ -16,6 +16,8 @@
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<TypeScriptAssetData/1ed21305-9748-44fd-b9ec-b87c80f3ac23>
   SvgIcon: ""
+  SetupScript:
+    code: ""
   Description: ""
   InternalVersion: 0
   VersionMajor: 0
@@ -26,7 +28,6 @@
   CurrentVisibility: Editable
   MaxVisibility: Editable
   ScriptInputsHidden:
-    camModule: false
     deviceCamTexture: false
     editorCamera: false
     screenCropTexture: false
@@ -34,13 +35,14 @@
     specsRightCamera: false
   ScriptTypesHidden:
     {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
     - editorCamera: !<reference.Camera> 00000000-0000-0000-0000-000000000000
       specsLeftCamera: !<reference.Camera> 00000000-0000-0000-0000-000000000000
       specsRightCamera: !<reference.Camera> 00000000-0000-0000-0000-000000000000
       screenCropTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
       deviceCamTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
-      camModule: !<reference.CameraModule> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
@@ -50,8 +52,3 @@
     - // @input Component.Camera specsRightCamera
     - // @input Asset.Texture screenCropTexture
     - // @input Asset.Texture deviceCamTexture
-    - // @input Asset.CameraModule camModule
-  SetupScript:
-    code: ""
-  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
-  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000

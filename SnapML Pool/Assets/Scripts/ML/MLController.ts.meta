@@ -1,0 +1,60 @@
+- !<AssetImportMetadata/c45c1aa5-502c-4193-8dd3-a26e382cc22d>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 79e09c85-7146-4e63-aa7d-162d01067f11
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 79e09c85-7146-4e63-aa7d-162d01067f11
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 5d2444f9-664a-4de6-b727-3ff03a8425b6
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/5d2444f9-664a-4de6-b727-3ff03a8425b6>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: c7fab37c-0f9e-4f85-bb64-2f5a3d144fc6
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    cameraService: false
+    detectionController: false
+    iouThreshold: false
+    model: false
+    modelInfo: false
+    poolTablePredictor: false
+    scoreThreshold: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - cameraService: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      poolTablePredictor: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      model: !<reference.MLAsset> 00000000-0000-0000-0000-000000000000
+      modelInfo: false
+      scoreThreshold: 0.400000
+      iouThreshold: 0.500000
+      detectionController: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input AssignableType cameraService
+    - // @input AssignableType_1 poolTablePredictor
+    - // @input Asset.MLAsset model
+    - // @input bool modelInfo
+    - '// @input float scoreThreshold = 0.33 {"widget":"slider", "min":0, "max":1, "step":0.01}'
+    - '// @input float iouThreshold = 0.5 {"widget":"slider", "min":0, "max":1, "step":0.01}'
+    - // @input AssignableType_2 detectionController

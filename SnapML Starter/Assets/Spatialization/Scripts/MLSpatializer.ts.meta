@@ -1,0 +1,90 @@
+- !<AssetImportMetadata/8ff4fd71-2558-4c4a-8871-bac047b1c6d1>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 40361e63-8b75-43fd-8e3a-d5547f82b063
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 40361e63-8b75-43fd-8e3a-d5547f82b063
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> f6063842-ef06-437e-9c0c-074f0e201eea
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/f6063842-ef06-437e-9c0c-074f0e201eea>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 3b9e77ac-5529-41c1-8d59-e54fa1dc059a
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    centerThreshold: false
+    classLabels: false
+    debugLogging: false
+    detectionPersistence: false
+    enableAllClasses: false
+    enableCallbacks: false
+    inputTexture: false
+    iouThreshold: false
+    logText: false
+    maxDetectionCount: false
+    model: false
+    monitorDetectedFunctions: false
+    monitorDetectionCallbacks: false
+    monitorLostFunctions: false
+    scoreThreshold: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - model: !<reference.MLAsset> 00000000-0000-0000-0000-000000000000
+      inputTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      maxDetectionCount: !<float> 5.000000
+      detectionPersistence: 0.500000
+      scoreThreshold: 0.400000
+      iouThreshold: 0.500000
+      classLabels: !<string[]>
+        - Chair
+        - Table
+        - Sofa
+      enableAllClasses: true
+      enableCallbacks: false
+      debugLogging: true
+      logText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      centerThreshold: 0.500000
+      monitorDetectionCallbacks: !<MappingBased.AssignableType[]>
+        []
+      monitorDetectedFunctions: !<string[]>
+        []
+      monitorLostFunctions: !<string[]>
+        []
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Asset.MLAsset model {"hint":"ONNX model asset"}'
+    - '// @input Asset.Texture inputTexture {"hint":"Input texture for the model (Device Camera Texture)"}'
+    - '// @input float maxDetectionCount = 5 {"hint":"Maximum number of objects to detect and place", "widget":"slider", "min":1, "max":20, "step":1}'
+    - '// @input float detectionPersistence = 0.5 {"hint":"Time in seconds to keep detections after they disappear", "widget":"slider", "min":0, "max":5, "step":0.1}'
+    - '// @input float scoreThreshold = 0.2 {"hint":"Score threshold for detections (0-1) - Lower values make it more sensitive to detections", "widget":"slider", "min":0, "max":1, "step":0.01}'
+    - '// @input float iouThreshold = 0.5 {"hint":"IOU threshold for non-maximum suppression (0-1)- Non-Maximum Suppression (NMS) is a technique used in object detection to remove redundant bounding boxes for the same object. Higher threshold (e.g., 0.8-0.9): More permissive - allows more overlapping boxes to remain - Lower threshold (e.g., 0.3-0.5): More strict - removes more overlapping boxes", "widget":"slider", "min":0, "max":1, "step":0.01}'
+    - '// @input string[] classLabels = {"Chair","Table","Sofa"} {"hint":"Class labels"}'
+    - '// @input bool enableAllClasses = true {"hint":"Enable all classes by default"}'
+    - '// @input bool enableCallbacks {"hint":"Enable callbacks for detection updates"}'
+    - '// @input bool debugLogging {"hint":"Log detection results to console"}'
+    - '// @input Component.Text logText {"hint":"Text component to display logs"}'
+    - '// @input float centerThreshold = 0.5 {"hint":"Center threshold (0-1) - Higher values exclude more detections from edges", "widget":"slider", "min":0, "max":1, "step":0.01}'
+    - '// @input AssignableType[] monitorDetectionCallbacks = {} {"hint":"Callbacks for monitor detection state changes"}'
+    - '// @input string[] monitorDetectedFunctions = {} {"hint":"Callbacks for monitor detection state changes"}'
+    - '// @input string[] monitorLostFunctions = {} {"hint":"Callbacks for monitor detection state changes"}'

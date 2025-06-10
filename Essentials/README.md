@@ -1,8 +1,8 @@
 # Essentials
 
-[![SIK](https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?) [![Physics](https://img.shields.io/badge/Physics-Light%20Gray?color=D3D3D3)](https://developers.snap.com/lens-studio/features/physics/physics-overview?) [![Gesture Module](https://img.shields.io/badge/Gesture%20Module-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/apis/gesture-module?) [![Animation](https://img.shields.io/badge/Animation-Light%20Gray?color=D3D3D3)](https://developers.snap.com/lens-studio/api/lens-scripting/modules/Packages_LSTween_LSTween.html) [![Raycast](https://img.shields.io/badge/Raycast-Light%20Gray?color=D3D3D3)](https://developers.snap.com/lens-studio/4.55.1/references/guides/lens-features/physics/raycast)
+[![SIK](https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?) [![Physics](https://img.shields.io/badge/Physics-Light%20Gray?color=D3D3D3)](https://developers.snap.com/lens-studio/features/physics/physics-overview?) [![Gesture Module](https://img.shields.io/badge/Gesture%20Module-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/apis/gesture-module?) [![Animation](https://img.shields.io/badge/Animation-Light%20Gray?color=D3D3D3)](https://developers.snap.com/lens-studio/api/lens-scripting/modules/Packages_LSTween_LSTween.html?) [![Raycast](https://img.shields.io/badge/Raycast-Light%20Gray?color=D3D3D3)](https://developers.snap.com/lens-studio/api/lens-scripting/classes/Built-In.RayCastHit.html)
 
-<img src="./README-ref/sample-list-essentials.gif" alt="essentials" width="500" />
+<img src="./README-ref/sample-list-essentials-rounded-edges.gif" alt="essentials" width="500" />
 
 ## Overview
 
@@ -13,7 +13,6 @@ Each folder contains specific examples and demonstrations that showcase various 
 > This project will only work for the Spectacles platform.
 > This projects include a comprehensive collection of foundational concepts and examples for creating lenses! Take advantage of this project providing it as LLM Context for your personal projects! 
 
-
 ## Design Guidelines
 
 Designing Lenses for Spectacles offers all-new possibilities to rethink user interaction with digital spaces and the physical world.
@@ -21,10 +20,10 @@ Get started using our [Design Guidelines](https://developers.snap.com/spectacles
 
 ## Prerequisites
 
-- **Lens Studio**: v5.9.0+
-- **Spectacles OS Version**: v5.61.371+
-- **Spectacles App iOS**: v0.61.1.0+
-- **Spectacles App Android**: v0.61.1.1+
+- **Lens Studio**: v5.10.0+
+- **Spectacles OS Version**: v5.62+
+- **Spectacles App iOS**: v0.62+
+- **Spectacles App Android**: v0.62+
 
 To update your Spectacles device and mobile app, please refer to this [guide](https://support.spectacles.com/hc/en-us/articles/30214953982740-Updating).
 
@@ -33,7 +32,6 @@ You can download the latest version of Lens Studio from [here](https://ar.snap.c
 The camera feature requires you to use Experimental APIs. Please see Experimental APIs for more details [here](https://developers.snap.com/spectacles/about-spectacles-features/apis/experimental-apis).
 
 Extended Permissions mode on device must be enabled for enabling some of the Spectacles APIs. Please see Extended Permissions for more details [here](https://developers.snap.com/spectacles/permission-privacy/extended-permissions).
-
 
 ## Getting Started
 
@@ -46,7 +44,6 @@ To obtain the project folder, clone the repository.
 ## Initial Project Setup
 
 The project should be pre-configured to get you started without any additional steps. However, if you encounter issues in the Logger Panel, please ensure your Lens Studio environment is set up for [Spectacles](https://developers.snap.com/spectacles/get-started/start-buiding/preview-panel).
-
 
 ## Table of Contents
 - [Project Structure](#project-structure)
