@@ -5,6 +5,7 @@ import { LightAiEventListener } from "./LightAiEventListener";
 import { reportError } from "Scripts/Helpers/ErrorUtils";
 import { setTimeout } from "SpectaclesInteractionKit.lspkg/Utils/FunctionTimingUtils";
 import { Logger } from "../Helpers/Logger";
+import { RemoteServiceGatewayCredentials } from "Remote Service Gateway.lspkg/RemoteServiceGatewayCredentials";
 
 @component
 export class LightAiInputManager extends BaseScriptComponent {
@@ -19,6 +20,9 @@ export class LightAiInputManager extends BaseScriptComponent {
 
     @input
     lightAiJsonEventEmitter: LightAiJsonEventEmitter
+
+    @input
+    remoteServiceGatewayCredentials: RemoteServiceGatewayCredentials
 
     private micTr: Transform
     private instructions: string;
@@ -70,7 +74,12 @@ export class LightAiInputManager extends BaseScriptComponent {
         if (on) {
             this.micSo.setParent(so);
             this.micTr.setLocalPosition(this.shownOffset);
-            this.textDisplay.text = "Pinch the microphone and say a color theme!";
+            if (this.remoteServiceGatewayCredentials.apiToken.includes("[PUT YOUR KEY HERE]") || this.remoteServiceGatewayCredentials.apiToken === "") {
+                this.textDisplay.text = "\nError: Add token to \nRemote Service Gateway Credentials."
+                return;
+            } else {
+                this.textDisplay.text = "Pinch the microphone and say a color theme!";
+            }
         } else {
             this.micSo.setParent(this.getSceneObject());
             this.micTr.setLocalPosition(this.hiddenOffset);
@@ -103,13 +112,16 @@ export class LightAiInputManager extends BaseScriptComponent {
         str += "Each light needs a keyframe to start at at second 0. "
         str += "Vary the timing and number of keyframes for each bulb -- all the keyframe times should be different. "
         str += "All of the colors should be complimentary and not the same. Use only colors that exactly match the theme. "
-        str += "Use saturated or neon colors." 
+        str += "Use saturated or neon colors."
         str += "Return only json. Do not return any other text."
         return str;
     }
 
     makeRequest(query: string) {
-        this.textDisplay.text = query + " coming up...";
+        if (this.remoteServiceGatewayCredentials.apiToken.includes("[PUT YOUR KEY HERE]") || this.remoteServiceGatewayCredentials.apiToken === "") {
+            return;
+        }
+        this.textDisplay.text = query + ". Coming up...";
         OpenAI.chatCompletions({
             model: "gpt-4.1",
             messages: [

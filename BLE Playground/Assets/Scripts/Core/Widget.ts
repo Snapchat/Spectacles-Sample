@@ -41,7 +41,7 @@ export class Widget extends BaseScriptComponent {
 
     onStart() {
         this.onTranslationStartRemover = this.containerFrame.onTranslationStart.add(() => this.onTranslationStart());
-        this.onSnappingCompleteRemover = this.containerFrame.onSnappingComplete.add(() => this.onSnappingComplete());
+        // this.onSnappingCompleteRemover = this.containerFrame.onSnappingComplete.add(() => this.onSnappingComplete());
     }
 
     init(node: SceneObject, myType: ScanResultType) {
@@ -62,6 +62,7 @@ export class Widget extends BaseScriptComponent {
         // It's our first translation from the "selected scan result widget" spot on the right of the hub
         if (!this.isFreed) {
             this.containerFrame.setBillboarding(true, true, false, true, false);
+            // NOTE: disabling snapping due to bug that will be fixed soon.
             // this.containerFrame.onTranslationStart.remove(this.onTranslationStartRemover);
             this.isFreed = true;
         }
