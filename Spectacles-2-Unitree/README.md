@@ -4,7 +4,7 @@
 
 ![Spectacles to Unitree simulation demo](./README-ref/sample-list-unitree.gif)
 
-> **IMPORTANT**: This project is provided purely for experimental and research purposes.  
+> **IMPORTANT**: This project is provided purely for experimental and research purposes.
 We do **not** endorse, sponsor, or have any formal affiliation with Unitree Robotics (or any other company mentioned).
 >
 > All trademarks, company names, and product names are the property of their respective owners.
@@ -16,7 +16,7 @@ A system for teleoperating a Unitree G1 humanoid robot using Snapchat Spectacles
 
 This project provides four main methods of interaction:
 
-1. **Hand Teleoperation**: Control the robot's arms and hands by mirroring your own hand movements, and view a simulated version of the robot in your Spectacles.
+1. **Hand Teleoperation**: Control the robot's arms and hands by mirroring your own hand movements, and view a simulated version of the robot in your Spectacles. **Toggle hand tracking by tapping your left palm with your right index finger.**
 
 ![High-fiving the robot using hand tracking](./README-ref/high-five.gif)
 
@@ -67,7 +67,7 @@ fly launch
 
 #### Spectacles Lens
 
-Open [this project](./Unitree.esproj) in Lens Studio. In the scene hierarchy, select the `CoordinationClient` component. Then, in the inspector panel, change the Server URL to your host, e.g. `wss://YOUR_SERVER_HOST/ws`.
+Open [this project](./Unitree.esproj) in Lens Studio, **version 5.4.1**. In the scene hierarchy, select the `CoordinationClient` component. Then, in the inspector panel, change the Server URL to your host, e.g. `wss://YOUR_SERVER_HOST/ws`.
 
 ![Lens Studio UI](./README-ref/server-b.png)
 
