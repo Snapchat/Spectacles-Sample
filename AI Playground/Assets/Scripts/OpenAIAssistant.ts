@@ -170,6 +170,14 @@ export class OpenAIAssistant extends BaseScriptComponent {
     }
   }
 
+  public interruptAudioOutput(): void {
+    if (this.dynamicAudioOutput && this.haveAudioOutput) {
+      this.dynamicAudioOutput.interruptAudioOutput();
+    } else {
+      print("DynamicAudioOutput is not initialized.");
+    }
+  }
+
   private sessionSetup() {
     let modalitiesArray = ["text"];
     if (this.haveAudioOutput) {

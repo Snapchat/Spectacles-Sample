@@ -5,6 +5,8 @@
   PrimaryAsset: !<reference> 3e976f48-683b-40e6-98f0-643a3e265051
   PackageType: NotAPackage
   PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
   AssetDataMap:
     TypeScriptAsset: !<own> f06d0f16-5460-473c-bdff-814f9be0c61a
   DependentFiles:
@@ -12,10 +14,10 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-  ExtraData:
-    {}
 - !<TypeScriptAssetData/f06d0f16-5460-473c-bdff-814f9be0c61a>
   SvgIcon: ""
+  SetupScript:
+    code: ""
   Description: ""
   InternalVersion: 0
   VersionMajor: 0
@@ -28,19 +30,19 @@
   ScriptInputsHidden:
     bubbleSphere: false
     colorID: false
-    highFiveAudio: false
     modelRim: false
     outerGlow: false
     overallBubble: false
     wasHighFiveText: false
   ScriptTypesHidden:
     {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
     - outerGlow: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
       bubbleSphere: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
       overallBubble: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       wasHighFiveText: !<reference.Text> 00000000-0000-0000-0000-000000000000
-      highFiveAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
       modelRim: !<reference.Material> 00000000-0000-0000-0000-000000000000
       colorID: !<float> 1.000000
   ScriptTypes:
@@ -51,10 +53,5 @@
     - // @input Component.RenderMeshVisual bubbleSphere
     - // @input SceneObject overallBubble
     - // @input Component.Text wasHighFiveText
-    - // @input Component.AudioComponent highFiveAudio
     - // @input Asset.Material modelRim
     - // @input float colorID
-  SetupScript:
-    code: ""
-  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
-  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000

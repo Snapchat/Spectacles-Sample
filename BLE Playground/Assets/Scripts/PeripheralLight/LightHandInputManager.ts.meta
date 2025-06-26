@@ -28,16 +28,27 @@
   CurrentVisibility: Editable
   MaxVisibility: Editable
   ScriptInputsHidden:
-    {}
+    cam: false
+    cameraQueryController: false
+    geminiDepthLightEstimator: false
+    handHintSequence: false
+    handToggle: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
   DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
-    -
-      {}
+    - cam: !<reference.Camera> 00000000-0000-0000-0000-000000000000
+      handHintSequence: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      cameraQueryController: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      geminiDepthLightEstimator: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      handToggle: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
-    []
+    - // @input Component.Camera cam
+    - // @input AssignableType handHintSequence
+    - // @input AssignableType_1 cameraQueryController
+    - // @input AssignableType_2 geminiDepthLightEstimator
+    - // @input AssignableType_3 handToggle

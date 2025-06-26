@@ -1,5 +1,5 @@
 import { CursorController } from "SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorCursor/CursorController";
-import { CursorMode, InteractorCursor } from "SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorCursor/InteractorCursor";
+import { InteractorCursor } from "SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorCursor/InteractorCursor";
 
 @component
 export class CursorVisualHelper extends BaseScriptComponent {

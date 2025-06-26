@@ -18,7 +18,7 @@ Get started using our [Design Guidelines](https://developers.snap.com/spectacles
 
 ## Prerequisites
 
-- **Lens Studio**: v5.10.0+
+- **Lens Studio**: v5.10.1+
 - **Spectacles OS Version**: v5.62+
 - **Spectacles App iOS**: v0.62+
 - **Spectacles App Android**: v0.62+
@@ -44,14 +44,7 @@ The project should be pre-configured to get you started without any additional s
 
 [AreaManager.ts](./Assets/TemplateCode/AreaManager.ts) - This is the primary script that integrates different behaviours with the UI.
 [AnchorManager.ts](./Assets/TemplateCode/SpatialPersistence/AnchorManager.ts) - Primary script for managing the anchor behaviours
-
-#### Spatial Persistence
-
-Exit the lens and open it again. If the same area is selected, the previously created notes will spawn in the same position in the space.
-
-#### Voice Dictation
-
-After a post-in note is created, select the microphone button on the top left corner to enable voice input. Say some words and it will turn into text and appear on the note.
+[TextInputManager](./Assets/TemplateCode/TextInputManager.ts) - Primary script for handling keyboard input
 
 ## Testing the Lens
 
@@ -64,6 +57,22 @@ In the [Interactive Preview Panel](https://developers.snap.com/lens-studio/lens-
 To install your Lens on your device, refer to the guide provided [here](https://developers.snap.com/spectacles/get-started/start-buiding/test-lens-on-spectacles).
 
 After successfully installing the Lens, Select the **New Area** button with the pinch gesture. The localization process should begin with a prompt text appeared informing the user to look around. After the localization completes, a panel will then show up where user can drag different post-it notes to the scene. Click on the **Main Menu** to go back to the area selection menu.
+
+#### Spatial Persistence
+
+Exit the lens and open it again. If the same area is selected, the previously created notes will spawn in the same position in the space.
+
+#### Recovery Mode
+
+When it fails to locate the previously mapped area, the recovery mode will be activated. The lens will restore the post-it notes in front of the user with the same relative positions. The user will be able to adjust the anchor point of the notes and press the save button to update the mapping.
+
+<img src="./README-ref/recovery-mode.gif" alt="recovery-mode" />
+
+#### Edit the post-it notes with AR Keyboard
+
+After a post-it note is created, select the edit button on the top left corner to launch the AR keyboard.
+
+<img src="./README-ref/ar-keyboard.gif" alt="ar-keyboard" />
 
 ## Support
 

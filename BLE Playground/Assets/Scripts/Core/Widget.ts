@@ -39,6 +39,7 @@ export class Widget extends BaseScriptComponent {
         this.createEvent("OnStartEvent").bind(() => this.onStart());
     }
 
+    // NOTE: disabling snapping on container due to bug that will be fixed soon.
     onStart() {
         this.onTranslationStartRemover = this.containerFrame.onTranslationStart.add(() => this.onTranslationStart());
         // this.onSnappingCompleteRemover = this.containerFrame.onSnappingComplete.add(() => this.onSnappingComplete());
@@ -50,8 +51,7 @@ export class Widget extends BaseScriptComponent {
         this.bleHubSo = node.getParent();
         this.bleHubTr = this.bleHubSo.getTransform();
 
-        // Todo: fix parenting bug by setting isSnappable
-        // this.parentToHub();
+        this.parentToHub();
     }
 
     getType() {
@@ -61,23 +61,29 @@ export class Widget extends BaseScriptComponent {
     onTranslationStart() {
         // It's our first translation from the "selected scan result widget" spot on the right of the hub
         if (!this.isFreed) {
+            let worldPos = this.tr.getWorldPosition();
+            let worldRot = this.tr.getWorldRotation();
+
+            this.containerFrame.getParentTransform().getSceneObject().setParent(null);
+
+            this.tr.setWorldPosition(worldPos);
+            this.tr.setWorldRotation(worldRot);
+            
             this.containerFrame.setBillboarding(true, true, false, true, false);
-            // NOTE: disabling snapping due to bug that will be fixed soon.
-            // this.containerFrame.onTranslationStart.remove(this.onTranslationStartRemover);
+            this.containerFrame.onTranslationStart.remove(this.onTranslationStartRemover);
             this.isFreed = true;
         }
-        // this.containerFrame.getParentTransform().getSceneObject().setParent(null);
     }
 
-    onSnappingComplete() {
-        // Do a distance check to the hub
-        // If we satisfy threshold, parent us to the hub 
-        let distSq = this.bleHubTr.getWorldPosition().distanceSquared(this.tr.getWorldPosition());
-        if (distSq < 2000) {
-            // Todo: fix parenting bug by setting isSnappable
-            // this.parentToHub();
-        }
-    }
+    // onSnappingComplete() {
+    //     // Do a distance check to the hub
+    //     // If we satisfy threshold, parent us to the hub 
+    //     let distSq = this.bleHubTr.getWorldPosition().distanceSquared(this.tr.getWorldPosition());
+    //     if (distSq < 2000) {
+    //         // Todo: fix parenting bug by setting isSnappable
+    //         // this.parentToHub();
+    //     }
+    // }
 
     private parentToHub() {
         let worldPos = this.tr.getWorldPosition();

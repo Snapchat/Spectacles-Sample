@@ -23,7 +23,7 @@ export class SurfaceDetectionMod extends BaseScriptComponent {
     private readonly MIN_HIT_DISTANCE = 50;
 
     // Number of frames before surface detection completes
-    private readonly CALIBRATION_FRAMES = 20;
+    private readonly CALIBRATION_FRAMES = 26;
 
     // Distance in cm the surface visual can move before canceling
     private readonly MOVE_DISTANCE_THRESHOLD = 5;

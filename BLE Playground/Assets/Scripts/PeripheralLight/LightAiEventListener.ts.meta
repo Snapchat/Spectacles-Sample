@@ -28,27 +28,18 @@
   CurrentVisibility: Editable
   MaxVisibility: Editable
   ScriptInputsHidden:
-    buttonFeedback_ForceVisualState: false
     lightAiInputManager: false
     lightController: false
-    text: false
-    toggleButton: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
   DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
-    - text: !<reference.Text> 00000000-0000-0000-0000-000000000000
-      toggleButton: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
-      buttonFeedback_ForceVisualState: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
-      lightAiInputManager: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
-      lightController: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+    - lightAiInputManager: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      lightController: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
-    - // @input Component.Text text
-    - // @input AssignableType toggleButton
-    - // @input AssignableType_1 buttonFeedback_ForceVisualState
-    - // @input AssignableType_2 lightAiInputManager
-    - // @input AssignableType_3 lightController
+    - // @input AssignableType lightAiInputManager
+    - // @input AssignableType_1 lightController

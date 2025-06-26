@@ -1,4 +1,3 @@
-import { ImageGenerator } from "./ImageGenerator";
 import { ASRQueryController } from "./ASRQueryController";
 import { Snap3DInteractableFactory } from "./Snap3DInteractableFactory";
 

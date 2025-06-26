@@ -159,8 +159,8 @@
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    position: {x: 0.000000, y: 0.200000, z: 0.000000}
+    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
   Children:
@@ -698,7 +698,6 @@
     LetterSpacing: 0.035000
     LineSpacing: 1.000000
     CapitalizationOverride: None
-    CapitilizationOverride: None
   DepthTest: false
   TwoSided: false
 - !<ScriptComponent/1a4315d9-fc28-4b3d-94dd-69afc623b180>
@@ -769,7 +768,7 @@
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: 10.000000, y: -10.000000, z: 5.000000}
+    position: {x: -9.000000, y: -10.000000, z: 5.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 2.000000, y: 2.000000, z: 2.000000}
     hasSegmentScaleCompensation: false
@@ -1508,7 +1507,7 @@
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
   SizeToFit: false
-  FontSize: 60
+  FontSize: 50
   Font: !<reference> 709203b6-8b83-40d7-8dda-e5adc4fd2875
   LayoutRect:
     left: -7.500000
@@ -1565,7 +1564,6 @@
     LetterSpacing: 0.035000
     LineSpacing: 1.000000
     CapitalizationOverride: None
-    CapitilizationOverride: None
   DepthTest: false
   TwoSided: false
 - !<RenderMeshVisual/39899817-020a-4ee9-91aa-ae7b8023414e>
@@ -1870,8 +1868,6 @@
   DecayType: None
   DecayLimit: false
   DecayRange: 40.000000
-  UseEstimation: false
-  EstimationIntensity: !<float> 1.000000
 - !<RenderMeshVisual/43cfdbc0-ab12-455c-ae20-601a2941cb65>
   PrefabRemaps:
     []
@@ -2389,6 +2385,7 @@
   ScriptAsset: !<reference> f9b29b39-ec8c-41bd-8b53-769ae9b818b8
   ScriptInputsDefault:
     selectVisual: true
+    handMeshRenderOrder: true
     autoJointMapping: true
     wrist: true
     thumbToWrist: true
@@ -2417,6 +2414,7 @@
     pinkyUpperJoint: true
     pinkyTip: true
     shouldThumbPokeGlow: true
+    tipGlowRenderOrder: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -2425,6 +2423,7 @@
       selectVisual: Default
       handInteractor: !<MappingBased.AssignableType> c4e7798d-94b6-4a7a-8fde-5bcfcafe5f6a
       handMesh: !<reference.RenderMeshVisual> 4b8fc732-6b2e-43e2-91d2-9552e4524130
+      handMeshRenderOrder: !<float> 9999.000000
       root: !<reference.SceneObject> 69c9a2e8-ad69-4979-a3a0-953e105ddfd3
       autoJointMapping: true
       wrist: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
@@ -2462,6 +2461,7 @@
       tapProximityThreshold: !<float> 8.000000
       pinchTexture: !<reference.Texture> 3391429c-5c74-4b5c-b9fc-4ad3ba30bda4
       tapTexture: !<reference.Texture> e33d2c7f-1d12-4250-92fb-433c25ce1923
+      tipGlowRenderOrder: !<float> 10000.000000
       handOutlineMaterial: !<reference.Material> 7ac80b6c-979a-4a00-a694-099f296be161
       handOccluderMaterial: !<reference.Material> bb8479b9-021e-4c42-809a-60edf99cbeac
   ScriptTypes:
@@ -2813,7 +2813,7 @@
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: -10.000000, y: -10.000000, z: 5.000000}
+    position: {x: 9.000000, y: -10.000000, z: 5.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 2.000000, y: 2.000000, z: 2.000000}
     hasSegmentScaleCompensation: false
@@ -2920,6 +2920,7 @@
   ScriptInputsDefault:
     targetingMode: true
     enableInstantDrag: true
+    isScrollable: true
     allowMultipleInteractors: true
     enablePokeDirectionality: true
     acceptableXDirections: true
@@ -2933,6 +2934,7 @@
     "":
       targetingMode: !<float> 3.000000
       enableInstantDrag: false
+      isScrollable: false
       allowMultipleInteractors: true
       enablePokeDirectionality: false
       acceptableXDirections: !<float> 0.000000
@@ -3017,8 +3019,6 @@
   DecayType: None
   DecayLimit: false
   DecayRange: 40.000000
-  UseEstimation: false
-  EstimationIntensity: !<float> 1.000000
 - !<SceneObject/73992cdb-2b91-4499-967b-c17883fffd70>
   PrefabRemaps:
     []
@@ -3465,6 +3465,7 @@
   ScriptAsset: !<reference> f9b29b39-ec8c-41bd-8b53-769ae9b818b8
   ScriptInputsDefault:
     selectVisual: true
+    handMeshRenderOrder: true
     autoJointMapping: true
     wrist: true
     thumbToWrist: true
@@ -3493,6 +3494,7 @@
     pinkyUpperJoint: true
     pinkyTip: true
     shouldThumbPokeGlow: true
+    tipGlowRenderOrder: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -3501,6 +3503,7 @@
       selectVisual: Default
       handInteractor: !<MappingBased.AssignableType> 1ae5cb7b-8695-475e-b72e-889fc10fb749
       handMesh: !<reference.RenderMeshVisual> 8b8346ed-ba55-46e0-a43a-9af09210b595
+      handMeshRenderOrder: !<float> 9999.000000
       root: !<reference.SceneObject> cf36227d-78cb-49b8-84ef-bad1b9539a41
       autoJointMapping: true
       wrist: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
@@ -3538,6 +3541,7 @@
       tapProximityThreshold: !<float> 8.000000
       pinchTexture: !<reference.Texture> 3391429c-5c74-4b5c-b9fc-4ad3ba30bda4
       tapTexture: !<reference.Texture> e33d2c7f-1d12-4250-92fb-433c25ce1923
+      tipGlowRenderOrder: !<float> 10000.000000
       handOutlineMaterial: !<reference.Material> 7ac80b6c-979a-4a00-a694-099f296be161
       handOccluderMaterial: !<reference.Material> 5d5c762b-f0dd-4c06-b76f-bcb8f8fb525f
   ScriptTypes:
@@ -3891,7 +3895,6 @@
   Enabled: true
   ScriptAsset: !<reference> 94ea82ba-1d42-4617-b71f-c92262f5960b
   ScriptInputsDefault:
-    innerSize: true
     border: true
     constantPadding: true
     allowScaling: true
@@ -3909,7 +3912,7 @@
   ScriptInputs:
     "":
       autoShowHide: false
-      innerSize: !<Vec2> {x: 32.000000, y: 32.000000}
+      innerSize: !<Vec2> {x: 34.000000, y: 25.000000}
       border: !<float> 4.000000
       constantPadding: !<Vec2> {x: 0.000000, y: 0.000000}
       allowScaling: true
@@ -4371,7 +4374,6 @@
     LetterSpacing: 0.035000
     LineSpacing: 1.000000
     CapitalizationOverride: None
-    CapitilizationOverride: None
   DepthTest: false
   TwoSided: false
 - !<SceneObject/a8e6296e-4d93-4ec9-b98c-a575bbb6e396>
@@ -4610,6 +4612,7 @@
   ScriptInputsDefault:
     targetingMode: true
     enableInstantDrag: true
+    isScrollable: true
     allowMultipleInteractors: true
     enablePokeDirectionality: true
     acceptableXDirections: true
@@ -4623,6 +4626,7 @@
     "":
       targetingMode: !<float> 3.000000
       enableInstantDrag: false
+      isScrollable: false
       allowMultipleInteractors: true
       enablePokeDirectionality: false
       acceptableXDirections: !<float> 0.000000
@@ -5491,7 +5495,6 @@
     LetterSpacing: 0.035000
     LineSpacing: 1.000000
     CapitalizationOverride: None
-    CapitilizationOverride: None
   DepthTest: false
   TwoSided: false
 - !<SceneObject/df30da9f-8b09-4124-b744-a6ac68d50d06>

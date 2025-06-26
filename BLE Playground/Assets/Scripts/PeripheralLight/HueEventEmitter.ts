@@ -12,7 +12,6 @@ import { reportError } from "../Helpers/ErrorUtils";
 import { LightStatusVisual } from "./LightStatusVisual";
 import { Logger } from "../Helpers/Logger";
 import { UniqueColorService } from "../Helpers/UniqueColorService";
-import { GeminiDepthLightEstimatorListener } from "./GeminiDepthLightEstimatorListener";
 
 // Store state data in two formats - for the debug visual, and bytes for the ble light
 // To reduce ble message count on drag, store the next brightness or color, and only set it once the last value is recieved
@@ -47,14 +46,9 @@ export class HueEventEmitter extends BaseScriptComponent {
     private inSetBrightnessState: boolean;
     private inSetColorState: boolean;
 
-    private geminiDepthLightEstimatorListener: GeminiDepthLightEstimatorListener
-
     private safeBytes = [];
 
-    private settingStartColor: boolean;
-
     onAwake() {
-        this.settingStartColor = true;
         this.inSetBrightnessState = false;
         this.inSetColorState = false;
 
@@ -72,9 +66,7 @@ export class HueEventEmitter extends BaseScriptComponent {
         });
     }
 
-    init(myBluetoothGatt: any, startColor: vec4, geminiDepthLightEstimatorListener: GeminiDepthLightEstimatorListener) {
-        this.geminiDepthLightEstimatorListener = geminiDepthLightEstimatorListener;
-
+    init(myBluetoothGatt: any, startColor: vec4) {
         this.bluetoothGatt = undefined;
         this.baseService = undefined;
         this.powerCharacteristic = undefined;
@@ -298,11 +290,6 @@ export class HueEventEmitter extends BaseScriptComponent {
             this.colorCharacteristic.writeValue(this.state.colorByteArray)
                 .then(() => {
                     this.lightStatusVisual.setColor(this.state.colorVec);
-
-                    if (this.settingStartColor) {
-                        this.settingStartColor = false;
-                        this.geminiDepthLightEstimatorListener.onHueSetStartColor();
-                    }
 
                     // Reduce messages on drag by only sending the latest next color once the last color has been set
                     // Logger.getInstance().log("HueLightController set color " + this.state.colorByteArray + "\n on char " + this.colorCharacteristic.uuid);

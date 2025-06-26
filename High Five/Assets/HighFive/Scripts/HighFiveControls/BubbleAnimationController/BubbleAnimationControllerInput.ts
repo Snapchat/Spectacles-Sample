@@ -17,9 +17,6 @@ export class BubbleAnimationControllerInput extends BaseScriptComponent {
     readonly wasHighFiveText: Text
 
     @input
-    readonly highFiveAudio: AudioComponent
-
-    @input
     modelRim: Material
 
     @input

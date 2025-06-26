@@ -3,7 +3,6 @@ import { ASRQueryController } from "AiPlayground/Scripts/ASRQueryController";
 import { LightAiJsonEventEmitter } from "./LightAiJsonEventEmitter";
 import { LightAiEventListener } from "./LightAiEventListener";
 import { reportError } from "Scripts/Helpers/ErrorUtils";
-import { setTimeout } from "SpectaclesInteractionKit.lspkg/Utils/FunctionTimingUtils";
 import { Logger } from "../Helpers/Logger";
 import { RemoteServiceGatewayCredentials } from "Remote Service Gateway.lspkg/RemoteServiceGatewayCredentials";
 
@@ -11,9 +10,6 @@ import { RemoteServiceGatewayCredentials } from "Remote Service Gateway.lspkg/Re
 export class LightAiInputManager extends BaseScriptComponent {
     @input
     asrQueryController: ASRQueryController
-
-    @input
-    micSo: SceneObject
 
     @input
     private textDisplay: Text;
@@ -24,65 +20,38 @@ export class LightAiInputManager extends BaseScriptComponent {
     @input
     remoteServiceGatewayCredentials: RemoteServiceGatewayCredentials
 
-    private micTr: Transform
     private instructions: string;
     private lightAiEventListeners: LightAiEventListener[];
     private aiLightDataCount: number;
     private loopLength: number;
 
-    private shownOffset: vec3
-    private hiddenOffset: vec3
-    private cooldown: boolean
-
     onAwake() {
-        this.cooldown = false;
-
         this.lightAiEventListeners = [];
         this.aiLightDataCount = 5;
         this.loopLength = 5;
-
-        this.shownOffset = new vec3(0, -5, 1);
-        this.hiddenOffset = new vec3(0, 3000, 0);
 
         this.instructions = this.definePrompt();
         this.createEvent("OnStartEvent").bind(() => this.onStart());
     }
 
     onStart() {
-        this.micTr = this.micSo.getTransform();
         this.asrQueryController.onQueryEvent.add((query) => {
-            this.makeRequest(query
-            );
+            this.makeRequest(query);
         });
     }
 
-    // Ai is global to all lights
-    // Toggling Ai for one turns them all on 
-    onToggle(on: boolean, so: SceneObject) {
-        if (this.cooldown === true) {
-            return;
-        }
-        this.cooldown = true;
-        setTimeout(() => {
-            this.cooldown = false;
-        }, 3);
-
-        this.lightAiEventListeners.forEach(light => {
-            light.toggleButton.isToggledOn = on;
-        });
-
+    // Called from RoomLightsUI
+    onToggle(on: boolean) {
         if (on) {
-            this.micSo.setParent(so);
-            this.micTr.setLocalPosition(this.shownOffset);
+            this.asrQueryController.show();
             if (this.remoteServiceGatewayCredentials.apiToken.includes("[PUT YOUR KEY HERE]") || this.remoteServiceGatewayCredentials.apiToken === "") {
-                this.textDisplay.text = "\nError: Add token to \nRemote Service Gateway Credentials."
+                this.textDisplay.text = "\nError: Add token to\nRemote Service Gateway Credentials."
                 return;
             } else {
-                this.textDisplay.text = "Pinch the microphone and say a color theme!";
+                this.textDisplay.text = "Pinch the microphone and\nsay a color theme!";
             }
         } else {
-            this.micSo.setParent(this.getSceneObject());
-            this.micTr.setLocalPosition(this.hiddenOffset);
+            this.asrQueryController.hide();
             this.lightAiJsonEventEmitter.stopAnimation();
         }
     }
@@ -121,7 +90,7 @@ export class LightAiInputManager extends BaseScriptComponent {
         if (this.remoteServiceGatewayCredentials.apiToken.includes("[PUT YOUR KEY HERE]") || this.remoteServiceGatewayCredentials.apiToken === "") {
             return;
         }
-        this.textDisplay.text = query + ". Coming up...";
+        this.textDisplay.text = query + " Coming up...";
         OpenAI.chatCompletions({
             model: "gpt-4.1",
             messages: [
@@ -138,7 +107,7 @@ export class LightAiInputManager extends BaseScriptComponent {
                 type: "json_object",
             },
         }).then((response) => {
-            this.textDisplay.text = query + " starting now!";
+            this.textDisplay.text = query + " Starting now!";
             this.cleanAndSendJson(response.choices[0].message.content);
         }).catch((error) => {
             reportError(error);

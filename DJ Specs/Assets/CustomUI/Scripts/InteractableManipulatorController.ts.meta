@@ -1,0 +1,69 @@
+- !<AssetImportMetadata/6d4fcb01-2084-4fe9-8895-baa5c22d8446>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 69eb10e9-3303-45f1-863c-efab3e990d7a
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 69eb10e9-3303-45f1-863c-efab3e990d7a
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 2c370969-c47f-424d-be41-d202b6edceb0
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/2c370969-c47f-424d-be41-d202b6edceb0>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 838996bd-8867-41d6-be92-aead61f2e94f
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    callback: false
+    doubleMapping: false
+    enableProjection: false
+    interactable: false
+    lineEnd: false
+    lineStart: false
+    manipulationComponent: false
+    methodName: false
+    onlyDuringManipulation: false
+    visualReference: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - interactable: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      manipulationComponent: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      lineStart: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      lineEnd: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      visualReference: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      callback: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      methodName: ""
+      enableProjection: true
+      onlyDuringManipulation: true
+      doubleMapping: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType interactable {"hint":"The Interactable component to monitor"}'
+    - '// @input AssignableType_1 manipulationComponent {"hint":"The InteractableManipulation component for manipulation events"}'
+    - '// @input SceneObject lineStart {"hint":"The start point of the line (represents minimum value)"}'
+    - '// @input SceneObject lineEnd {"hint":"The end point of the line (represents maximum value)"}'
+    - '// @input SceneObject visualReference {"hint":"The visual object that will move along the line to show projected position"}'
+    - '// @input Component.ScriptComponent callback {"hint":"Script component to call when projection value changes"}'
+    - '// @input string methodName {"hint":"Method name to call on the callback script"}'
+    - '// @input bool enableProjection = true {"hint":"Enable projection and visual reference updates"}'
+    - '// @input bool onlyDuringManipulation = true {"hint":"Only update during manipulation (if false, updates every frame)"}'
+    - '// @input bool doubleMapping = true {"hint":"Double the mapping means that the value will be from 0 to 2 instead of 0 to 1"}'

@@ -574,7 +574,7 @@
 - !<SceneObject/aa07cf21-3dac-49f0-b040-d09272ae41aa>
   PrefabRemaps:
     []
-  Name: RecordButton
+  Name: EditButton
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -596,7 +596,7 @@
 - !<ScriptComponent/aa24b5c3-8e83-4372-9e48-f730ad8d76ee>
   PrefabRemaps:
     []
-  Name: VoiceNote
+  Name: Note
   Enabled: true
   ScriptAsset: !<reference> a3e74958-6f6b-42c6-b1ce-8f2587f3e81e
   ScriptInputsDefault:
@@ -605,11 +605,12 @@
     {}
   ScriptInputs:
     "":
-      textField: !<reference.Text> c8604ea4-a14f-4b0e-93d6-256f4a6112c6
-      recordToggle: !<MappingBased.AssignableType> 2c9b8426-0185-4c36-a5f7-026e6597ec12
+      _textField: !<reference.Text> c8604ea4-a14f-4b0e-93d6-256f4a6112c6
+      _editToggle: !<MappingBased.AssignableType> 2c9b8426-0185-4c36-a5f7-026e6597ec12
       deleteButton: !<MappingBased.AssignableType_1> 5f1ee82d-9586-4b66-b25f-e3e54191303e
       noteInteractable: !<MappingBased.AssignableType_2> fa1e150e-c322-4fa2-9ace-2d58f021f803
       noteMesh: !<reference.RenderMeshVisual> 5760afcc-9ecc-430d-a97f-bc6c4fa4efab
+      editOutlineMaterial: !<reference.Material> adc3126f-3f6d-41e1-983a-7e4dfe1ef269
   ScriptTypes:
     "":
       {}
@@ -635,6 +636,12 @@
   ScriptTypes:
     "":
       {}
+- !<ObjectPrefab/b684e181-f817-4f5c-a467-103ef795c5b9>
+  PackagePath: ""
+  objects:
+    - !<own> 1cf5a971-a539-4f0e-9c9d-bd65110f1680
+  LazyLoading: false
+  RetainAssets: true
 - !<ColliderComponent/ba7cff05-3c72-4fce-ac14-ed9390eb9654>
   PrefabRemaps:
     []
@@ -800,20 +807,14 @@
     "":
       toggledOffMaterial: !<reference.Material> 13ce0ace-7a4b-4315-83b3-43401a47e11a
       toggledOffSelectMaterial: !<reference.Material> dc2ad675-b7a8-4151-abaf-202a6a6f7231
-      toggledOnMaterial: !<reference.Material> 2ab098ca-e9dd-4152-a81a-1eaeb2b46e16
-      toggledOnSelectMaterial: !<reference.Material> 489d63d1-7c69-46b9-aa43-dece2e9e2836
+      toggledOnMaterial: !<reference.Material> 13ce0ace-7a4b-4315-83b3-43401a47e11a
+      toggledOnSelectMaterial: !<reference.Material> dc2ad675-b7a8-4151-abaf-202a6a6f7231
       disabledMaterial: !<reference.Material> 5c26ae69-9d77-43c0-b6a8-981b768b1506
       meshVisuals: !<reference.RenderMeshVisual[]>
         - !<reference> 08c0b78e-83b3-4198-9f6b-84482f2a441c
   ScriptTypes:
     "":
       {}
-- !<ObjectPrefab/dc0bc9be-3590-4ffb-85ca-97dfbd125533>
-  PackagePath: ""
-  objects:
-    - !<own> 1cf5a971-a539-4f0e-9c9d-bd65110f1680
-  LazyLoading: false
-  RetainAssets: true
 - !<ScriptComponent/ddf137af-63a7-4e75-8df3-08afc212e8c8>
   PrefabRemaps:
     []
@@ -840,6 +841,7 @@
     - 17f33ea6-95d2-496e-ac67-773a84af158b: 2f929113-5032-46ef-84b1-97b04a877dcc
     - 25997906-d8d8-4e01-a6cb-90861d3311ec: 594a4034-35e6-404c-9125-ba2c18f2080f
     - 3046facc-6db5-4e23-b4f9-8353f02092f9: ba7cff05-3c72-4fce-ac14-ed9390eb9654
+    - 30bfee42-6ed4-4d5e-86a7-7ec0cdc70fdf: b684e181-f817-4f5c-a467-103ef795c5b9
     - 36a44e42-532e-4d94-8800-9bba7d456de6: fa1e150e-c322-4fa2-9ace-2d58f021f803
     - 3e437fe9-9b27-4c1c-9342-9ab07a010a6b: 5f1ee82d-9586-4b66-b25f-e3e54191303e
     - 44544726-33bf-4764-9927-63b351949ddc: 9df2502d-7f98-463f-b7b3-fb4972510c0f
@@ -870,7 +872,7 @@
     - e6005b7f-517e-49ab-bf21-24a6c0447dd3: 3d8626da-5317-49df-91c0-814cc9f013aa
     - e8ecfcad-2f00-40f9-bf81-716bdc7a2602: 9fe44812-1f79-4064-9be0-7b6e8e09518d
     - ffab31ce-e04f-47c6-90aa-2185c88b90be: a20c9a04-ef8c-4e35-bcfe-bbdd73dda06c
-  SourceState: !<own> dc0bc9be-3590-4ffb-85ca-97dfbd125533
+  SourceState: !<own> b684e181-f817-4f5c-a467-103ef795c5b9
 - !<ScriptComponent/f402c594-8896-41ba-bcc3-16ec2cd2b09a>
   PrefabRemaps:
     []

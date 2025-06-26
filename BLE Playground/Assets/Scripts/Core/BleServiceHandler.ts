@@ -13,7 +13,7 @@ import { reportError } from "../Helpers/ErrorUtils";
 import { HelperFuntions } from "../Helpers/HelperFunctions";
 import { Logger } from "../Helpers/Logger";
 import { LensInitializer } from "./LensInitializer";
-import { setTimeout } from "SpectaclesInteractionKit.lspkg/Utils/FunctionTimingUtils";
+import { CancelToken, clearTimeout, setTimeout } from "SpectaclesInteractionKit.lspkg/Utils/FunctionTimingUtils";
 
 @component
 export class BleServiceHandler extends BaseScriptComponent {
@@ -45,6 +45,8 @@ export class BleServiceHandler extends BaseScriptComponent {
 
     private isScanning: boolean;
 
+    private timeoutCancelToken: CancelToken
+
     onAwake() {
         this.isScanning = false;
         this.allScanSessionBluetoothScanResults = [];
@@ -70,7 +72,8 @@ export class BleServiceHandler extends BaseScriptComponent {
         if (global.deviceInfoSystem.isEditor() || LensInitializer.getInstance().isNoBleDebug) {
             Logger.getInstance().log("BleServiceHandler onStartScan in editor or debug.");
             this.startScanEvent.invoke();
-            setTimeout(() => {
+            this.timeoutCancelToken = setTimeout(() => {
+                clearTimeout(this.timeoutCancelToken);
                 this.scanToggle.isToggledOn = false;
                 this.onScanResult(undefined);
             }, .5);

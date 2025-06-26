@@ -6,7 +6,7 @@ import { SnapToWorld } from "../WorldQuery/SnapToWorld";
 export type WidgetSelectionEvent = {
   widgetIndex: number;
   position: vec3;
-  rotation: vec3;
+  rotation: quat;
 };
 
 @component
@@ -18,7 +18,7 @@ export class WidgetSelection extends BaseScriptComponent {
 
   private interactableTransform: Transform;
   private cachedDragPosition: vec3;
-  private cachedDragRotation: vec3;
+  private cachedDragRotation: quat;
 
   private snapToWorld: SnapToWorld;
 
@@ -44,18 +44,14 @@ export class WidgetSelection extends BaseScriptComponent {
       this.snapToWorld.updateManipulating(eventData);
 
       this.cachedDragPosition = this.interactableTransform.getWorldPosition();
-      this.cachedDragRotation = this.interactableTransform
-        .getWorldRotation()
-        .toEulerAngles();
+      this.cachedDragRotation = this.interactableTransform.getWorldRotation();
     });
 
     this.interactable.onDragEnd.add((eventData) => {
       let transformOnNoteInWorld = this.snapToWorld.getCurrentTransform();
       if (transformOnNoteInWorld) {
         this.cachedDragPosition = transformOnNoteInWorld.getWorldPosition();
-        this.cachedDragRotation = transformOnNoteInWorld
-          .getWorldRotation()
-          .toEulerAngles();
+        this.cachedDragRotation = transformOnNoteInWorld.getWorldRotation();
       }
       this.snapToWorld.endManipulating(eventData);
 

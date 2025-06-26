@@ -1,6 +1,6 @@
 import { unsubscribe } from "SpectaclesInteractionKit.lspkg/Utils/Event";
 import { AreaPromptButton } from "./MenuUI/AreaPromptButton";
-import { AreaSelectionMenu, NEW_AREA_NAME } from "./MenuUI/AreaSelectionMenu";
+import { AreaSelectionMenu } from "./MenuUI/AreaSelectionMenu";
 import { Widget } from "./Widget";
 import { SerializationManager } from "./Serialization/SerializationManager";
 import { AnchorManager } from "./SpatialPersistence/AnchorManager";
@@ -15,10 +15,14 @@ import { Anchor } from "SpatialAnchors.lspkg/Anchor";
 import { AnchorComponent } from "SpatialAnchors.lspkg/AnchorComponent";
 import { WidgetSelectionUI } from "./MenuUI/WidgetSelectionUI";
 import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable";
-import { RecoverState, RecoverWidgetButton } from "./MenuUI/LockWidgetButton";
+import {
+  RecoverState,
+  RecoverWidgetButton,
+} from "./MenuUI/RecoverWidgetButton";
 import { ToggleMenuButton } from "./MenuUI/ToggleMenuButton";
 import { WidgetSelectionEvent } from "./MenuUI/WidgetSelection";
-import { VoiceNote } from "./VoiceNotes/VoiceNote";
+import { Note } from "./Notes/Note";
+import { TextInputManager } from "./TextInputManager";
 
 const CAMERA_GAZE_OFFSET_FACTOR = 60;
 
@@ -71,6 +75,9 @@ export class AreaManager extends BaseScriptComponent {
 
   @input
   private instructionText: Text;
+
+  @input
+  private textInputManager: TextInputManager;
 
   private widgets: Widget[] = [];
 
@@ -201,6 +208,12 @@ export class AreaManager extends BaseScriptComponent {
 
     // Immediately prompt user to select an area.
     this.promptAreaSelection();
+
+    this.textInputManager.onKeyboardStateChanged.add((isOpen: boolean) => {
+      if (!isOpen) {
+        this.saveWidgets();
+      }
+    });
   }
 
   // Show/hide Note UI buttons.
@@ -222,35 +235,38 @@ export class AreaManager extends BaseScriptComponent {
 
   private spawnWidget(
     prefabIndex: number,
-    position: vec3,
-    rotation: vec3
+    widgetIndex: number,
+    localPosition: vec3,
+    localRotation: quat
   ): SceneObject {
     // Change to use mesh array instead?
     const objectPrefab = this.widgetPrefabs[prefabIndex];
 
     this.log(
-      "Spawning new widget at position: " + position + "w/ index:" + prefabIndex
+      "Spawning new widget at position: " +
+        localPosition +
+        "w/ index:" +
+        prefabIndex
     );
 
     const widgetObject = objectPrefab.instantiate(this.widgetParent);
     const transform = widgetObject.getTransform();
 
     // Place the widget in front of gaze.
-    const worldPosition = position;
-    const worldRotation = quat.fromEulerVec(rotation);
-
-    transform.setWorldTransform(
-      mat4.compose(worldPosition, worldRotation, vec3.one())
+    transform.setLocalTransform(
+      mat4.compose(localPosition, localRotation, vec3.one())
     );
 
     const widget = widgetObject.getComponent(Widget.getTypeName());
     widget.prefabIndex = prefabIndex;
+    widget.widgetIndex = widgetIndex;
     widget.onDelete.add((index) => {
       this.deleteWidget(widget);
     });
     widget.onUpdateContent.add(() => {
       this.saveWidgets();
     });
+    this.widgets.push(widget);
 
     const manipulationComponent: InteractableManipulation =
       widgetObject.getComponent(InteractableManipulation.getTypeName());
@@ -259,33 +275,34 @@ export class AreaManager extends BaseScriptComponent {
       this.saveWidgets();
     });
 
+    const noteComponent = widgetObject.getComponent(Note.getTypeName());
+
+    this.textInputManager.registerTextInput(
+      noteComponent.editToggle,
+      noteComponent.textField
+    );
+
     return widgetObject;
   }
 
   // Create a note instance in front of the user.
   private addWidget(event: WidgetSelectionEvent) {
     if (this.areaAnchor !== undefined || global.deviceInfoSystem.isEditor()) {
-      const widgetObject = this.spawnWidget(
+      const invertedWorldTransform = this.widgetParent
+        .getTransform()
+        .getInvertedWorldTransform();
+      this.spawnWidget(
         event.widgetIndex,
-        event.position,
-        event.rotation
+        this.widgets.length,
+        invertedWorldTransform.multiplyPoint(event.position),
+        this.widgetParent
+          .getTransform()
+          .getWorldRotation()
+          .invert()
+          .multiply(event.rotation)
       );
-      const widget = widgetObject.getComponent(Widget.getTypeName());
 
       this.toggleOffAllVoiceNotes();
-
-      // Save this.
-      widget.widgetIndex = this.widgets.length;
-      this.widgets.push(widget);
-
-      const voiceNoteComponent = widgetObject.getComponent(
-        VoiceNote.getTypeName()
-      );
-      voiceNoteComponent.OnPreRecordToggleChangeState.add((onState) => {
-        if (onState === true) {
-          this.toggleOffAllVoiceNotes(widget.widgetIndex);
-        }
-      });
 
       this.saveWidgets();
     }
@@ -348,37 +365,16 @@ export class AreaManager extends BaseScriptComponent {
     const numWidgets = widgetMats.length;
 
     for (let i = 0; i < numWidgets; i++) {
-      // TODO: refactor the below as the logic is quite similar to spawnWidget()
-      const objectPrefab = this.widgetPrefabs[widgetMeshIndices[i]].instantiate(
-        this.widgetParent
-      );
-
-      const widget = objectPrefab.getComponent(Widget.getTypeName());
-
-      widget.transform.setLocalPosition(widgetMats[i].column0);
-      widget.transform.setLocalRotation(
+      const widgetObject = this.spawnWidget(
+        widgetMeshIndices[i],
+        i,
+        widgetMats[i].column0,
         quat.fromEulerVec(widgetMats[i].column1)
       );
+
+      const widget = widgetObject.getComponent(Widget.getTypeName());
       widget.transform.setLocalScale(widgetMats[i].column2);
       widget.text = widgetTexts[i];
-      widget.prefabIndex = widgetMeshIndices[i];
-      widget.widgetIndex = i;
-      widget.onDelete.add((index) => {
-        this.deleteWidget(widget);
-      });
-      widget.onUpdateContent.add(() => {
-        this.saveWidgets();
-      });
-      this.widgets.push(widget);
-
-      const manipulationComponent: InteractableManipulation =
-        objectPrefab.getComponent(InteractableManipulation.getTypeName());
-
-      manipulationComponent.onManipulationEnd.add(() => {
-        this.saveWidgets();
-      });
-
-      this.log(`text:${widget.text} + text:${widgetTexts[i]}`);
     }
   }
 
@@ -572,14 +568,14 @@ export class AreaManager extends BaseScriptComponent {
       }
 
       const voiceNoteComponent = this.widgets[index].sceneObject.getComponent(
-        VoiceNote.getTypeName()
+        Note.getTypeName()
       );
 
       if (voiceNoteComponent == null) {
         continue;
       }
 
-      voiceNoteComponent.toggleRecordButton(false);
+      voiceNoteComponent.toggleEditButton(false);
     }
   }
 

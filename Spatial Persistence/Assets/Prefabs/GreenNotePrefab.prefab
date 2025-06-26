@@ -353,8 +353,8 @@
     "":
       toggledOffMaterial: !<reference.Material> 13ce0ace-7a4b-4315-83b3-43401a47e11a
       toggledOffSelectMaterial: !<reference.Material> dc2ad675-b7a8-4151-abaf-202a6a6f7231
-      toggledOnMaterial: !<reference.Material> 2ab098ca-e9dd-4152-a81a-1eaeb2b46e16
-      toggledOnSelectMaterial: !<reference.Material> 489d63d1-7c69-46b9-aa43-dece2e9e2836
+      toggledOnMaterial: !<reference.Material> 13ce0ace-7a4b-4315-83b3-43401a47e11a
+      toggledOnSelectMaterial: !<reference.Material> dc2ad675-b7a8-4151-abaf-202a6a6f7231
       disabledMaterial: !<reference.Material> 5c26ae69-9d77-43c0-b6a8-981b768b1506
       meshVisuals: !<reference.RenderMeshVisual[]>
         - !<reference> 8131973e-6df3-4a1c-8910-c80d3757ac35
@@ -843,7 +843,7 @@
 - !<SceneObject/e61f4f02-d8fb-49e6-8cf8-b6a23fc24103>
   PrefabRemaps:
     []
-  Name: RecordButton
+  Name: EditButton
   Enabled: true
   Layers: 1
   LocalTransform:
@@ -865,7 +865,7 @@
 - !<ScriptComponent/e98dbdcd-14f1-4966-999e-e7279f65cf78>
   PrefabRemaps:
     []
-  Name: VoiceNote
+  Name: Note
   Enabled: true
   ScriptAsset: !<reference> a3e74958-6f6b-42c6-b1ce-8f2587f3e81e
   ScriptInputsDefault:
@@ -874,11 +874,12 @@
     {}
   ScriptInputs:
     "":
-      textField: !<reference.Text> d0227c0a-a19f-4f9d-893e-1a873890bbf0
-      recordToggle: !<MappingBased.AssignableType> 9a9dd73d-4317-45e2-bfd8-60bf9b6b1a2e
+      _textField: !<reference.Text> d0227c0a-a19f-4f9d-893e-1a873890bbf0
+      _editToggle: !<MappingBased.AssignableType> 9a9dd73d-4317-45e2-bfd8-60bf9b6b1a2e
       deleteButton: !<MappingBased.AssignableType_1> 5d3a3314-d15e-4735-9783-4e0899f40eb3
       noteInteractable: !<MappingBased.AssignableType_2> 9273f76b-fb2e-4fa6-b383-bc9e1083cc91
       noteMesh: !<reference.RenderMeshVisual> 7c6435de-0557-4ec2-8fae-0935669e3dc4
+      editOutlineMaterial: !<reference.Material> adc3126f-3f6d-41e1-983a-7e4dfe1ef269
   ScriptTypes:
     "":
       {}

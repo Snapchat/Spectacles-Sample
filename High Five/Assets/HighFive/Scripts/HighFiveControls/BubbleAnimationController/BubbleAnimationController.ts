@@ -150,7 +150,5 @@ export class BubbleAnimationController {
       duration: 0.5,
       easing: "ease-out-cubic"
     })
-    this.input.highFiveAudio.play(1)
   }
-
 }

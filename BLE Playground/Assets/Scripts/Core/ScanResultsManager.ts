@@ -251,6 +251,7 @@ export class ScanResultsManager extends BaseScriptComponent {
         } else {
             Logger.getInstance().log("ScanResultsHandler register an unrecognized type");
         }
+        this.organizeScanResults();
         // Logger.getInstance().log("ScanResultsHandler register untyped " + this.untypedScanResults.length + " light " + this.lightScanResults.length + " hrm " + this.hrmScanResults.length + " unknown " + this.unknownScanResults.length);
 
         // Logger.getInstance().log("ScanResultsHandler register would call organizeScanResults " + this.filterButtonToggle.isToggledOn);

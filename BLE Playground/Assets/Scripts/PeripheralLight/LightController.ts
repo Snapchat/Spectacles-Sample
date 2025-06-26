@@ -4,24 +4,24 @@ import { Widget } from "../Core/Widget";
 import { Logger } from "../Helpers/Logger";
 import { HueEventEmitter } from "./HueEventEmitter";
 import { LightHandEventListener } from "./LightHandEventListener";
-import { GeminiDepthLightEstimatorListener } from "./GeminiDepthLightEstimatorListener";
 import { UniqueColorService } from "../Helpers/UniqueColorService";
 import { Colors } from "Scripts/Helpers/Colors";
 import { ButtonFeedback_ForceVisualState } from "../Helpers/ButtonFeedback_ForceVisualState";
+import { RoomLightsUI } from "./RoomLightsUI";
 
 @component
 export class LightController extends BaseScriptComponent {
     @input
     colorWheelImage: Image
 
+    @input 
+    roomLightsUI: RoomLightsUI
+
     @input
     hueEventEmitter: HueEventEmitter
 
     @input
     lightHandEventListener: LightHandEventListener
-
-    @input
-    geminiDepthLightEstimatorListener: GeminiDepthLightEstimatorListener
 
     @input
     powerButtonFeedback_ForceVisualState: ButtonFeedback_ForceVisualState
@@ -70,9 +70,9 @@ export class LightController extends BaseScriptComponent {
         this.markerTr.setLocalPosition(this.getLocalPositionAtColor(startColor));
 
         // Init
-        this.hueEventEmitter.init(bluetoothGatt, startColor, this.geminiDepthLightEstimatorListener);
-        this.geminiDepthLightEstimatorListener.init(startColor);
-        this.lightHandEventListener.init(this.geminiDepthLightEstimatorListener);
+        this.roomLightsUI.init();
+        this.hueEventEmitter.init(bluetoothGatt, startColor);
+        this.lightHandEventListener.init();
 
         this.containerFrame.onTranslationStart.add(() => this.hueEventEmitter.setFlash(true));
         this.containerFrame.onTranslationEnd.add(() => this.hueEventEmitter.setFlash(false));

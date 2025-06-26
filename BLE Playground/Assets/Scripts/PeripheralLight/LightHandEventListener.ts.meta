@@ -28,14 +28,11 @@
   CurrentVisibility: Editable
   MaxVisibility: Editable
   ScriptInputsHidden:
-    HandControlToggle: false
     cam: false
-    handControlButtonFeedback_ForceVisualState: false
-    handControlText: false
-    handHintSequence: false
     lightController: false
     lightHandInputManager: false
     pfbSurfaceDetection: false
+    text: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -43,21 +40,15 @@
   DefaultScriptInputs:
     - cam: !<reference.Camera> 00000000-0000-0000-0000-000000000000
       lightController: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
-      HandControlToggle: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
-      handControlButtonFeedback_ForceVisualState: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
-      handControlText: !<reference.Text> 00000000-0000-0000-0000-000000000000
       pfbSurfaceDetection: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
-      handHintSequence: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
-      lightHandInputManager: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
+      lightHandInputManager: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      text: !<reference.Text> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
     - // @input Component.Camera cam
     - // @input AssignableType lightController
-    - // @input AssignableType_1 HandControlToggle
-    - // @input AssignableType_2 handControlButtonFeedback_ForceVisualState
-    - // @input Component.Text handControlText
     - // @input Asset.ObjectPrefab pfbSurfaceDetection
-    - // @input AssignableType_3 handHintSequence
-    - // @input AssignableType_4 lightHandInputManager
+    - // @input AssignableType_1 lightHandInputManager
+    - // @input Component.Text text

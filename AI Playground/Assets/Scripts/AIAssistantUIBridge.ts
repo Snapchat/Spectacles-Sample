@@ -131,6 +131,9 @@ export class AIAssistantUIBridge extends BaseScriptComponent {
       }
       this.textIsVisible = false;
       this.currentAssistant.streamData(isActivated);
+      if (!isActivated) {
+        this.currentAssistant.interruptAudioOutput();
+      }
     });
   }
 

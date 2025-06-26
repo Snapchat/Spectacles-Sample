@@ -2,68 +2,73 @@ import { GeminiAPI } from "DepthCacheGemini/Scripts/GeminiAPI";
 import { ResponseUI } from "DepthCacheGemini/Scripts/ResponseUI";
 import { DepthCache } from "DepthCacheGemini/Scripts/DepthCache";
 import { DebugVisualizer } from "DepthCacheGemini/Scripts/DebugVisualizer";
-import { GeminiDepthLightEstimatorListener } from "./GeminiDepthLightEstimatorListener";
-import { setTimeout } from "SpectaclesInteractionKit.lspkg/Utils/FunctionTimingUtils";
+import { LightHandInputManager } from "./LightHandInputManager";
+import Event from "SpectaclesInteractionKit.lspkg/Utils/Event";
 
 @component
 export class GeminiDepthLightEstimator extends BaseScriptComponent {
 
-    @input debugVisualizer: DebugVisualizer;
-    @input gemini: GeminiAPI;
-    @input responseUI: ResponseUI;
-    @input depthCache: DepthCache;
+    @input 
+    debugVisualizer: DebugVisualizer;
 
-    private isRequestRunning: boolean = false;
+    @input 
+    gemini: GeminiAPI
+
+    @input 
+    responseUI: ResponseUI
+
+    @input 
+    depthCache: DepthCache
+
+    @input
+    lightHandInputManager: LightHandInputManager
+
+    @input
+    text: Text
+
+    get lightPlaced(){
+        return this.lightPlacedEvent.publicApi();
+    }
+
+    private lightPlacedEvent: Event = new Event();
+
+    private isRequestRunning: boolean = false
     private instruction: string
     private showDebug: boolean
 
-    private geminiDepthLightEstimatorListeners: GeminiDepthLightEstimatorListener[]
-    private colorsSetCount: number;
+    public lightPositions:vec3[]
 
     onAwake() {
-        this.geminiDepthLightEstimatorListeners = [];
-        this.colorsSetCount = 0;
         this.isRequestRunning = false;
         this.showDebug = false;
-        this.instruction = "Find the lamps and order them by color "; // append with color value  
-    }
+        this.instruction = "Find the lamps."; 
+        this.lightPositions = [];
 
-    addListener(lightAiDetectionRegistration: GeminiDepthLightEstimatorListener) {
-        this.geminiDepthLightEstimatorListeners.push(lightAiDetectionRegistration);
-    }
-
-    onStartColorSet() {
-        this.colorsSetCount++;
-        print("LightAiDetection onStartColorSet colors count " + this.colorsSetCount);
-
-        if (this.colorsSetCount == this.geminiDepthLightEstimatorListeners.length) {
-            print("LightAiDetection requestAllPositions");
-            setTimeout(()=>this.requestAllPositions(), 3);
-        }
+        this.text.text = "Look at lights and pinch camera\nto get positions from Gemini!"
     }
 
     requestAllPositions() {
-        return;
         if (this.isRequestRunning) {
-            print("LightAiDetection requestAllPositions request is running.");
+            this.text.text = "Already finding lamps...";
             return;
         }
-        let lampInstruction = this.instruction;
-        this.geminiDepthLightEstimatorListeners.forEach(l => {
-            lampInstruction += l.startColor.uniformScale(255).toString() + ", ";
-        });
 
         //reset
-        this.responseUI.clearLabels();
+        // this.responseUI.clearLabels();
+        // this.lightPositions = [];
 
         this.isRequestRunning = true;
         let depthFrameID = this.depthCache.saveDepthFrame();
         let camImage = this.depthCache.getCamImageWithID(depthFrameID);
 
-        this.sendToGemini(camImage, lampInstruction, depthFrameID);
+        this.sendToGemini(camImage, this.instruction, depthFrameID);
         if (this.showDebug) {
             this.debugVisualizer.updateCameraFrame(camImage);
         }
+    }
+
+    show(val:boolean){
+        this.responseUI.showLabels(val);
     }
 
     private sendToGemini(
@@ -71,10 +76,11 @@ export class GeminiDepthLightEstimator extends BaseScriptComponent {
         text: string,
         depthFrameID: number
     ) {
-        print("LightAiDetection sendToGemini");
+        this.text.text = "Looking for lights now!";
 
         this.gemini.makeGeminiRequest(cameraFrame, text, (response) => {
             this.isRequestRunning = false;
+
             print("LightAiDetection makeGeminiRequest response " + response);
 
             //create points and labels
@@ -91,18 +97,18 @@ export class GeminiDepthLightEstimator extends BaseScriptComponent {
                     depthFrameID
                 );
                 if (worldPosition != null) {
-                    if (this.geminiDepthLightEstimatorListeners.length > i) {
-                        print("LightAiDetection setLightWorldPosition " + worldPosition + ", i " + i);
-                        this.geminiDepthLightEstimatorListeners[i].setLightWorldPosition(worldPosition, i);
-                    }
-
-                    //create and position label in world space
+                    // create and position label in world space
                     // Hiding labels because they're not that accurate for me at the moment
-                    // this.responseUI.loadWorldLabel(
-                    //     pointObj.label + " " + i, //+ ", rgb: " + color.toString() + ", " + i,
-                    //     worldPosition,
-                    //     pointObj.showArrow
-                    // );
+                    this.responseUI.loadWorldLabel(
+                        pointObj.label,
+                        worldPosition,
+                        pointObj.showArrow
+                    );
+
+                    this.lightPlacedEvent.invoke();
+
+                    this.lightPositions.push(worldPosition);
+                    this.text.text = "";
                 } else {
                     print("AiLampDetection world pos is null");
                 }

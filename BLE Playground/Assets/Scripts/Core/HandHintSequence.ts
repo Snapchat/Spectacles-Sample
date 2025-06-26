@@ -7,9 +7,6 @@ export class HandHintSequence extends BaseScriptComponent {
     interactionHintController: InteractionHintController
 
     @input
-    lookHintText: Text
-
-    @input
     handHintText: Text
 
     private interactionHintControllerSo: SceneObject
@@ -17,7 +14,6 @@ export class HandHintSequence extends BaseScriptComponent {
     private handGrabLearned: boolean
     private handPointLearned: boolean
 
-    private lookStr: string
     private handGrabStr: string
     private handPointStr: string
 
@@ -30,19 +26,8 @@ export class HandHintSequence extends BaseScriptComponent {
         this.interactionHintControllerSo.enabled = false;
         this.handGrabLearned = false;
         this.handPointLearned = false;
-        this.lookStr = "Look at the flashing light to set position.";
         this.handGrabStr = "Open/close hand\nto the light.";
         this.handPointStr = "Move hand in a circle\naround the light.";
-    }
-
-    startLookHint() {
-        this.lookHintText.enabled = true;
-        this.handHintText.text = this.lookStr;
-    }
-
-    endLookHint() {
-        this.lookHintText.text = "";
-        this.lookHintText.enabled = false;
     }
 
     startHandGrabHint() {

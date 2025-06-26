@@ -1,9 +1,8 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 518
+    size: 512
     values:
-      - ""
       - Connected Lens Module.connectedLensModule
       - Device Camera Texture.deviceCameraTexture
       - Echopark.hdr
@@ -18,6 +17,11 @@ CollapsedEntities:
       - Materials/AreaDeleteButton.mat
       - Materials/BlueNote BG.mat
       - Materials/DeleteButton.mat
+      - Materials/EditButton/StartEditDisabled.mat
+      - Materials/EditButton/StartEditToggledOff.mat
+      - Materials/EditButton/StartEditToggledOffSelect.mat
+      - Materials/EditOutline.ss_graph
+      - Materials/EditOutlineMaterial.mat
       - Materials/GreenNote BG.mat
       - Materials/ListenButtonSimplePBRPulsing.ss_graph
       - Materials/Note.ss_graph
@@ -28,12 +32,6 @@ CollapsedEntities:
       - Materials/PulsatePass.ss_graph
       - Materials/ToggleMenuButton_BG_Off.mat
       - Materials/ToggleMenuButton_BG_On.mat
-      - Materials/TranscribeButton
-      - Materials/TranscribeButton/StartTranscribe Disabled.mat
-      - Materials/TranscribeButton/StartTranscribeToggledOff.mat
-      - Materials/TranscribeButton/StartTranscribeToggledOffSelect.mat
-      - Materials/TranscribeButton/StartTranscribeToggledOn.mat
-      - Materials/TranscribeButton/StartTranscribeToggledOnSelect.mat
       - Materials/WidgetSelectionUIBackground.mat
       - Materials/flat.ss_graph
       - Meshes
@@ -45,7 +43,6 @@ CollapsedEntities:
       - Meshes/NoteMesh.obj/Meshes
       - Meshes/NoteMesh.obj/Meshes/NoteMeshNew
       - Meshes/NoteMesh.obj/NoteMesh
-      - Prefabs
       - Prefabs/AreaDeleteButtonPrefab.prefab
       - Prefabs/AreaPromptButton.prefab
       - Prefabs/AreaSelectionButtonPrefab.prefab
@@ -55,9 +52,9 @@ CollapsedEntities:
       - Prefabs/ButtonPrefab.prefab
       - Prefabs/GreenNotePrefab.prefab
       - Prefabs/GreenNoteSelection.prefab
-      - Prefabs/LockWidgetButton.prefab
       - Prefabs/OrangeNotePrefab.prefab
       - Prefabs/OrangeNoteSelection.prefab
+      - Prefabs/RecoverWidgetButton.prefab
       - Prefabs/SelectWidgetButton.prefab
       - Prefabs/ToggleMenuButton.prefab
       - Prefabs/WidgetSelectionPrefab.prefab
@@ -485,40 +482,37 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/package.native
       - TemplateCode
       - TemplateCode/AreaManager.ts
-      - TemplateCode/MenuUI
       - TemplateCode/MenuUI/AreaDeleteButton.ts
       - TemplateCode/MenuUI/AreaPromptButton.ts
       - TemplateCode/MenuUI/AreaSelectionButton.ts
       - TemplateCode/MenuUI/AreaSelectionMenu.ts
       - TemplateCode/MenuUI/DeleteButton.ts
       - TemplateCode/MenuUI/LoadingIndicator.ts
-      - TemplateCode/MenuUI/LockWidgetButton.ts
+      - TemplateCode/MenuUI/RecoverWidgetButton.ts
       - TemplateCode/MenuUI/ResetButton.ts
       - TemplateCode/MenuUI/ToggleMenuButton.ts
       - TemplateCode/MenuUI/TransformFollower.ts
       - TemplateCode/MenuUI/WidgetSelection.ts
       - TemplateCode/MenuUI/WidgetSelectionUI.ts
+      - TemplateCode/Notes
+      - TemplateCode/Notes/Note.ts
       - TemplateCode/Queue.ts
       - TemplateCode/Serialization
       - TemplateCode/Serialization/SerializationManager.ts
       - TemplateCode/SpatialPersistence
       - TemplateCode/SpatialPersistence/AnchorManager.ts
-      - TemplateCode/VoiceNotes
-      - TemplateCode/VoiceNotes/VoiceMLSingletonInitializer.ts
-      - TemplateCode/VoiceNotes/VoiceMLTranscribe.ts
-      - TemplateCode/VoiceNotes/VoiceMLTranscribeSingleton.ts
-      - TemplateCode/VoiceNotes/VoiceNote.ts
+      - TemplateCode/TextInputManager.ts
       - TemplateCode/Widget.ts
       - TemplateCode/WorldQuery
       - TemplateCode/WorldQuery/SnapToWorld.ts
       - TemplateCode/WorldQuery/SnapToWorldInit.ts
       - Textures
+      - Textures/EditIcon.png
       - Textures/ListenIcon.png
       - Textures/PlaceholderMoveMeTexture.png
       - Textures/TrashIcon.png
       - Textures/mic-off.png
       - Textures/mic-on.png
       - Textures/white.png
-      - VoiceML Module.voiceMLModule
       - World Query Module.worldQueryModule
   options: 4

@@ -55,6 +55,9 @@ export class SerializationManager {
     const serializedAllAreasKey = SERIALIZATION_KEY + "_" + AREAS_KEY;
     try {
       const areasJson = this.persistentStorage.getString(serializedAllAreasKey);
+      if (areasJson === "") {
+        return {} as AreaNameToAreaId;
+      }
 
       return JSON.parse(areasJson) as AreaNameToAreaId;
     } catch (e) {

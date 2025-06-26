@@ -6,17 +6,28 @@ import { LSTween } from "Spectacles 3D Hand Hints.lspkg/LSTween/LSTween";
 @component
 export class ASRQueryController extends BaseScriptComponent {
   @input
-  private button: PinchButton;
+  private button: PinchButton
+
   @input
-  private activityRenderMesh: RenderMeshVisual;
-  private activityMaterial: Material;
+  private activityRenderMesh: RenderMeshVisual
 
-  private asrModule: AsrModule = require("LensStudio:AsrModule");
-  private isRecording: boolean = false;
+  private activityMaterial: Material
 
-  public onQueryEvent: Event<string> = new Event<string>();
+  private asrModule: AsrModule = require("LensStudio:AsrModule")
+  private isRecording: boolean = false
+
+  public onQueryEvent: Event<string> = new Event<string>()
+
+  private tr:Transform
+  private shownLocalPosition:vec3
+  private hiddenLocalPosition:vec3
 
   onAwake() {
+    this.tr = this.getTransform();
+    this.shownLocalPosition = vec3.zero();
+    this.hiddenLocalPosition = new vec3(0,3000,0);
+    this.tr.setLocalPosition(this.hiddenLocalPosition);
+    
     this.createEvent("OnStartEvent").bind(this.init.bind(this));
   }
 
@@ -32,7 +43,15 @@ export class ASRQueryController extends BaseScriptComponent {
     });
   }
 
-  public getVoiceQuery(): Promise<string> {
+  show(){
+    this.tr.setLocalPosition(this.shownLocalPosition);
+  }
+
+  hide(){
+    this.tr.setLocalPosition(this.hiddenLocalPosition);
+  }
+
+  getVoiceQuery(): Promise<string> {
     return new Promise((resolve, reject) => {
       if (this.isRecording) {
         this.animateVoiceIndicator(false);

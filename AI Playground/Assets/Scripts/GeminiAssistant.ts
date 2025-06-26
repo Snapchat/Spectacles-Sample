@@ -325,4 +325,12 @@ export class GeminiAssistant extends BaseScriptComponent {
     } as GeminiTypes.Live.Setup;
     this.GeminiLive.send(sessionSetupMessage);
   }
+
+  public interruptAudioOutput(): void {
+    if (this.dynamicAudioOutput && this.haveAudioOutput) {
+      this.dynamicAudioOutput.interruptAudioOutput();
+    } else {
+      print("DynamicAudioOutput is not initialized.");
+    }
+  }
 }

@@ -1,5 +1,4 @@
 import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable";
-import { SIK } from "SpectaclesInteractionKit.lspkg/SIK";
 import Event, { PublicApi } from "SpectaclesInteractionKit.lspkg/Utils/Event";
 
 /**
@@ -18,8 +17,8 @@ export class ResetButton extends BaseScriptComponent {
 
   onStart() {
     this.interactable = this.sceneObject.getComponent(
-      SIK.InteractionConfiguration.requireType("Interactable")
-    ) as Interactable;
+      Interactable.getTypeName()
+    );
 
     this.interactable.onTriggerEnd.add((event) => {
       this.onResetEvent.invoke();

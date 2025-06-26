@@ -51,7 +51,7 @@ export class InteractableImageGenerator extends BaseScriptComponent {
       })
       .catch((error) => {
         print("Error generating image: " + error);
-        this.textDisplay.text = "Error: " + error;
+        this.textDisplay.text = "Error Generating Image";
         this.spinner.enabled = false;
       });
   }

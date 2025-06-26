@@ -49,6 +49,12 @@ export class ResponseUI extends BaseScriptComponent {
     worldLabel.textComp.text = label;
   }
 
+  showLabels(val:boolean) {
+    for (var i = 0; i < this.getSceneObject().getChildrenCount(); i++) {
+      this.getSceneObject().getChild(i).enabled = val;
+    }
+  }
+
   clearLabels() {
     var points = [];
     for (var i = 0; i < this.getSceneObject().getChildrenCount(); i++) {
