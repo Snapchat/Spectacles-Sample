@@ -1,0 +1,78 @@
+- !<AssetImportMetadata/5a2171fe-7b7e-4457-920c-68c993bf9d68>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 4eb4730a-d97d-449b-91ca-8109833f7cdd
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 4eb4730a-d97d-449b-91ca-8109833f7cdd
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 75df6762-b78f-4d9d-a996-cbe8905a0c5f
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/75df6762-b78f-4d9d-a996-cbe8905a0c5f>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: ffed6c56-7e20-4cb9-9549-abb4eea2a180
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    _autoCorrectOffset: false
+    _circleSegments: false
+    _color: false
+    _debugPositions: false
+    _interpolationSteps: false
+    _radius: false
+    _smoothness: false
+    _useRelativeToComponent: false
+    _useWorldPosition: false
+    _zOffset: false
+    capEnds: false
+    material: false
+    pathPoints: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - pathPoints: !<reference.SceneObject[]>
+        []
+      _radius: !<float> 10.000000
+      _circleSegments: !<float> 16.000000
+      _interpolationSteps: !<float> 10.000000
+      _smoothness: 0.500000
+      material: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      _color: !<Vec3> {x: 1.000000, y: 1.000000, z: 0.000000}
+      capEnds: true
+      _zOffset: !<float> 0.000000
+      _useWorldPosition: true
+      _autoCorrectOffset: true
+      _useRelativeToComponent: true
+      _debugPositions: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input SceneObject[] pathPoints {"hint":"Array of scene objects that define the path of the 3D line"}'
+    - '// @input float _radius = 10 {"hint":"Radius of the circular cross-section"}'
+    - '// @input float _circleSegments = 16 {"hint":"Number of segments around the circle (higher = smoother)"}'
+    - '// @input float _interpolationSteps = 10 {"hint":"Number of interpolated points between each path point for smooth curves"}'
+    - '// @input float _smoothness = 0.5 {"hint":"Smoothing factor for spline interpolation (0=linear, 1=smooth)", "widget":"slider", "min":0, "max":1, "step":0.01}'
+    - '// @input Asset.Material material {"hint":"Material to apply to the 3D line mesh"}'
+    - '// @input vec3 _color = "{1, 1, 0}" {"widget":"color"}'
+    - '// @input bool capEnds = true {"hint":"Whether to cap the ends of the tube"}'
+    - '// @input float _zOffset {"hint":"Manual Z-axis offset to compensate for position alignment issues"}'
+    - '// @input bool _useWorldPosition = true {"hint":"Use world position instead of local position (fixes most offset issues)"}'
+    - '// @input bool _autoCorrectOffset = true {"hint":"Enable automatic position offset detection and correction"}'
+    - "// @input bool _useRelativeToComponent = true {\"hint\":\"Apply additional coordinate space transformation relative to this component's transform\"}"
+    - '// @input bool _debugPositions {"hint":"Debug: Show position information in console"}'

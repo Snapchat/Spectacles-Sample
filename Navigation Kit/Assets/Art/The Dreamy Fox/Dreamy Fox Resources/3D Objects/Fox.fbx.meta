@@ -102,7 +102,7 @@
   ImporterName: FbxImporter
   PrimaryAsset: !<reference> 20acbe16-d221-4a8d-b9f0-3ca5f9dff017
   PackageType: LegacyPackage
-  PackagePolicy: CanBeUnpacked
+  PackagePolicy: CanBeUnpackedTransparent
   ExtraData:
     AssetLibraryId: yNONcWsy6abuSEv46oAhs
   AssetDataMap:
@@ -145,11 +145,11 @@
   Name: Body_GEO
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -160,11 +160,11 @@
   Name: right_up_arm_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -0.970105, y: 0.000000, z: 0.000000}
-    rotation: {x: 6.732056, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.970105, y: 0.000000, z: 0.000000}
+    Rotation: {x: 6.732056, y: -0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> a23dd35d-42ee-4f29-bb38-d03b84d9c216
   Components:
@@ -175,11 +175,11 @@
   Name: tail_07_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.806688, y: 0.000000, z: -0.000000}
-    rotation: {x: 2.809615, y: -0.325933, z: -23.161226}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.806688, y: 0.000000, z: -0.000000}
+    Rotation: {x: 2.809615, y: -0.325933, z: -23.161226}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> e889f115-9557-44b8-9d16-1079a2c1a98b
   Components:
@@ -190,11 +190,11 @@
   Name: left_forearm_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.719233, y: 0.000000, z: -0.000000}
-    rotation: {x: 0.037128, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.719233, y: 0.000000, z: -0.000000}
+    Rotation: {x: 0.037128, y: -0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> cc5f32c3-0262-4ce7-bda4-dd61a9eba616
   Components:
@@ -205,11 +205,11 @@
   Name: left_ear_04_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.445166, y: 0.055332, z: 0.015523}
-    rotation: {x: 0.000000, y: 0.000000, z: -82.793938}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.445166, y: 0.055332, z: 0.015523}
+    Rotation: {x: 0.000000, y: 0.000000, z: -82.793938}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -220,11 +220,11 @@
   Name: left_ear_01_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 7.045041, y: -3.248331, z: 0.382236}
-    rotation: {x: 1.807586, y: -4.348310, z: -22.087631}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 7.045041, y: -3.248331, z: 0.382236}
+    Rotation: {x: 1.807586, y: -4.348310, z: -22.087631}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 66edecd7-deea-49ac-a022-651e8d31bfb5
   Components:
@@ -235,11 +235,11 @@
   Name: right_foot_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.835926, y: 0.000000, z: 0.000000}
-    rotation: {x: 37.762772, y: -75.593903, z: -33.504829}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.835926, y: 0.000000, z: 0.000000}
+    Rotation: {x: 37.762772, y: -75.593903, z: -33.504829}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 716f2864-2500-43d4-89d3-39a3cf0b0db7
   Components:
@@ -256,11 +256,11 @@
   Name: left_jacket_03_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -0.855859, y: -5.568525, z: -0.466249}
-    rotation: {x: -7.506742, y: -0.000000, z: -89.972092}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.855859, y: -5.568525, z: -0.466249}
+    Rotation: {x: -7.506742, y: -0.000000, z: -89.972092}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -271,11 +271,11 @@
   Name: tail_11_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.814297, y: -0.000000, z: -0.000000}
-    rotation: {x: 2.742825, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.814297, y: -0.000000, z: -0.000000}
+    Rotation: {x: 2.742825, y: -0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -286,11 +286,11 @@
   Name: spine_01_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -0.291767, y: 4.897032, z: -0.517349}
-    rotation: {x: 14.696981, y: -9.498715, z: 88.622757}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.291767, y: 4.897032, z: -0.517349}
+    Rotation: {x: 14.696981, y: -9.498715, z: 88.622757}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 814141ad-a559-49ed-bc2d-f698b43f787e
     - !<own> 98de392a-09a0-42b8-97d5-c8c5b80d33f8
@@ -310,11 +310,11 @@
   Name: right_knee_01_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.946911, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 28.797979, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.946911, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 28.797979, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> af09d79d-1b92-45ab-893f-44364d170efe
   Components:
@@ -325,11 +325,11 @@
   Name: spine_04_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.393294, y: -0.000000, z: -0.000000}
-    rotation: {x: 0.411298, y: -1.443425, z: -0.029892}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.393294, y: -0.000000, z: -0.000000}
+    Rotation: {x: 0.411298, y: -1.443425, z: -0.029892}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> d3a650df-778f-4e15-8247-3fb243bf8f3d
     - !<own> adde0586-925b-4d3e-91d0-6a08396da8b8
@@ -342,11 +342,11 @@
   Name: nose_02_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.260255, y: 0.036129, z: 0.000000}
-    rotation: {x: 0.537316, y: 3.242310, z: 3.749612}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.260255, y: 0.036129, z: 0.000000}
+    Rotation: {x: 0.537316, y: 3.242310, z: 3.749612}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 4b743548-2a2b-4760-8e9a-e5e908e48cf3
   Components:
@@ -357,11 +357,11 @@
   Name: right_shoulder_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -1.937352, y: 0.000000, z: 0.000000}
-    rotation: {x: -7.852444, y: -14.810437, z: -44.022289}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -1.937352, y: 0.000000, z: 0.000000}
+    Rotation: {x: -7.852444, y: -14.810437, z: -44.022289}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 04630613-411e-47e4-8468-07950a942378
   Components:
@@ -372,11 +372,11 @@
   Name: left_leg_01_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 2.766141, y: 0.179201, z: -0.200078}
-    rotation: {x: -13.394539, y: -18.437492, z: -78.156761}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 2.766141, y: 0.179201, z: -0.200078}
+    Rotation: {x: -13.394539, y: -18.437492, z: -78.156761}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 49151ddd-0b6f-4872-b212-747e106bb2f4
   Components:
@@ -387,11 +387,11 @@
   Name: head_GEO
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.259141, z: 0.000000}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000001, y: 1.000001, z: 1.000001}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.259141, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -402,11 +402,11 @@
   Name: Dreamy_FOX_GEO_ALL_GRP
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> ccbee41f-c2c2-4ba7-9dec-165412f710fc
     - !<own> 01bfa0a2-92b6-45c0-ab97-3b8093eda260
@@ -421,11 +421,11 @@
   Name: right_hoodie_top_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 2.260596, y: 5.338629, z: 0.389500}
-    rotation: {x: -178.039154, y: 1.732079, z: -89.918823}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 2.260596, y: 5.338629, z: 0.389500}
+    Rotation: {x: -178.039154, y: 1.732079, z: -89.918823}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -436,11 +436,11 @@
   Name: nose_GEO
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 14.686017, z: 5.239355}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000001, y: 1.000001, z: 1.000001}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 14.686017, z: 5.239355}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -451,11 +451,11 @@
   Name: Fox
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 63bbbcc5-f954-4e5c-9612-1a9f1cdc4422
     - !<own> 39c90a10-8c93-41d9-a434-b364e2af7e37
@@ -468,11 +468,11 @@
   Name: left_leg_02_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.963136, y: 0.000000, z: 0.000000}
-    rotation: {x: -9.783252, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.963136, y: 0.000000, z: 0.000000}
+    Rotation: {x: -9.783252, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> b1a01c3a-7164-4a64-ab07-23d49b67f31c
   Components:
@@ -483,11 +483,11 @@
   Name: tail_10_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.799202, y: -0.000000, z: 0.000000}
-    rotation: {x: 3.017879, y: -2.190082, z: -14.314964}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.799202, y: -0.000000, z: 0.000000}
+    Rotation: {x: 3.017879, y: -2.190082, z: -14.314964}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 1e561930-8f1c-41d3-ad29-401ab8f00e26
   Components:
@@ -498,11 +498,11 @@
   Name: nose_03_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.681116, y: 0.000000, z: 0.000000}
-    rotation: {x: 20.556049, y: 90.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.681116, y: 0.000000, z: 0.000000}
+    Rotation: {x: 20.556049, y: 90.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -513,11 +513,11 @@
   Name: tail_09_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.812833, y: -0.000000, z: -0.000000}
-    rotation: {x: 2.650038, y: 0.632000, z: -16.704243}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.812833, y: -0.000000, z: -0.000000}
+    Rotation: {x: 2.650038, y: 0.632000, z: -16.704243}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 4b49183a-ed02-4d0f-8585-9cf87f49e446
   Components:
@@ -528,11 +528,11 @@
   Name: spine_03_JNT_2
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.393337, y: -0.000000, z: -0.000000}
-    rotation: {x: 0.405942, y: 2.413218, z: 0.022171}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.393337, y: -0.000000, z: -0.000000}
+    Rotation: {x: 0.405942, y: 2.413218, z: 0.022171}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 2c2afa0f-d16e-4ff9-8d0a-071e5145f14e
   Components:
@@ -543,11 +543,11 @@
   Name: left_up_arm_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.970105, y: 0.000000, z: 0.000000}
-    rotation: {x: -0.606054, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.970105, y: 0.000000, z: 0.000000}
+    Rotation: {x: -0.606054, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> edc5dd1c-91b5-4ca0-ae90-9708a4fff9a8
   Components:
@@ -558,11 +558,11 @@
   Name: tail_03_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.763578, y: -0.000000, z: -0.000000}
-    rotation: {x: 5.334574, y: 8.335038, z: 34.493988}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.763578, y: -0.000000, z: -0.000000}
+    Rotation: {x: 5.334574, y: 8.335038, z: 34.493988}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> ec95eea9-f4ed-43cc-980f-a3661435d443
   Components:
@@ -594,11 +594,11 @@
   Name: spine_03_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.624416, y: 0.000000, z: -0.000000}
-    rotation: {x: 0.402012, y: 7.588983, z: -0.118705}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.624416, y: 0.000000, z: -0.000000}
+    Rotation: {x: 0.402012, y: 7.588983, z: -0.118705}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 4f960c25-4079-41ad-9e41-2fa1f5846f2e
   Components:
@@ -609,11 +609,11 @@
   Name: left_hoodie_top_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 2.283807, y: -5.352471, z: 0.098233}
-    rotation: {x: 1.066505, y: 1.041628, z: -89.956253}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 2.283807, y: -5.352471, z: 0.098233}
+    Rotation: {x: 1.066505, y: 1.041628, z: -89.956253}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -624,11 +624,11 @@
   Name: hoodie_top_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 8.325761, y: -0.015119, z: 2.862144}
-    rotation: {x: 0.324232, y: 0.374192, z: -89.991325}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 8.325761, y: -0.015119, z: 2.862144}
+    Rotation: {x: 0.324232, y: 0.374192, z: -89.991325}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -639,11 +639,11 @@
   Name: right_forearm_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -0.719233, y: 0.000000, z: -0.000000}
-    rotation: {x: 5.788628, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.719233, y: 0.000000, z: -0.000000}
+    Rotation: {x: 5.788628, y: -0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 8dfe8b1f-bd08-40c5-9789-f8041c3ccb53
   Components:
@@ -654,11 +654,11 @@
   Name: right_ear_03_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -1.796086, y: -0.063118, z: 0.061585}
-    rotation: {x: -1.255661, y: -14.197137, z: 4.356471}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -1.796086, y: -0.063118, z: 0.061585}
+    Rotation: {x: -1.255661, y: -14.197137, z: 4.356471}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> ca06f753-fbd6-4801-9b50-930c5f34d5f6
   Components:
@@ -669,11 +669,11 @@
   Name: right_leg_01_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -2.766141, y: 0.179201, z: -0.200078}
-    rotation: {x: 19.670004, y: -11.798772, z: -93.250610}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -2.766141, y: 0.179201, z: -0.200078}
+    Rotation: {x: 19.670004, y: -11.798772, z: -93.250610}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> ab982f4f-c87b-410a-ac97-37e93b81a3f6
   Components:
@@ -684,11 +684,11 @@
   Name: Dreamy_Fox_ROOT_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 1ebdae7c-6bee-4076-ab72-d8ecc0315826
   Components:
@@ -699,11 +699,11 @@
   Name: left_ear_02_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 2.513342, y: -0.000000, z: 0.000000}
-    rotation: {x: 0.685467, y: -3.598912, z: 10.985112}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 2.513342, y: -0.000000, z: 0.000000}
+    Rotation: {x: 0.685467, y: -3.598912, z: 10.985112}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> a0c09d1b-e543-4d2c-bda6-60bf6dcdb638
   Components:
@@ -714,11 +714,11 @@
   Name: left_jacket_02_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -0.621499, y: -3.657155, z: -3.243694}
-    rotation: {x: -7.506742, y: -0.000000, z: -89.972092}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.621499, y: -3.657155, z: -3.243694}
+    Rotation: {x: -7.506742, y: -0.000000, z: -89.972092}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -808,11 +808,11 @@
   Name: right_toe_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.144132, y: 0.000000, z: 0.000000}
-    rotation: {x: -11.779127, y: -34.694763, z: 20.120750}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.144132, y: 0.000000, z: 0.000000}
+    Rotation: {x: -11.779127, y: -34.694763, z: 20.120750}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -823,11 +823,11 @@
   Name: right_ear_01_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 7.044999, y: 3.248330, z: 0.382236}
-    rotation: {x: -178.868973, y: 5.641136, z: -157.907486}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 7.044999, y: 3.248330, z: 0.382236}
+    Rotation: {x: -178.868973, y: 5.641136, z: -157.907486}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> e40cb6cc-b7cd-4aad-9615-9ab7a5ab1c8e
   Components:
@@ -838,11 +838,11 @@
   Name: back_jacket_01_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.230134, y: 0.000112, z: -4.120349}
-    rotation: {x: -7.506742, y: -0.000000, z: -89.972092}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.230134, y: 0.000112, z: -4.120349}
+    Rotation: {x: -7.506742, y: -0.000000, z: -89.972092}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -853,11 +853,11 @@
   Name: spine_02_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.624366, y: -0.000000, z: 0.000000}
-    rotation: {x: 0.409282, y: 2.801591, z: 0.053400}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.624366, y: -0.000000, z: 0.000000}
+    Rotation: {x: 0.409282, y: 2.801591, z: 0.053400}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 5750f413-fcf3-4e06-a271-d2ed9c192ed4
   Components:
@@ -868,11 +868,11 @@
   Name: left_foot_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.850249, y: 0.000000, z: 0.000000}
-    rotation: {x: -21.844183, y: -60.664455, z: 9.690750}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.850249, y: 0.000000, z: 0.000000}
+    Rotation: {x: -21.844183, y: -60.664455, z: 9.690750}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 90b6d6f5-9511-4baa-a496-4b85d31ff595
   Components:
@@ -883,11 +883,11 @@
   Name: left_jacket_01_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -0.357407, y: -3.981340, z: 2.822795}
-    rotation: {x: -7.506742, y: -0.000000, z: -89.972092}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.357407, y: -3.981340, z: 2.822795}
+    Rotation: {x: -7.506742, y: -0.000000, z: -89.972092}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -938,11 +938,11 @@
   Name: right_hand_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -0.719233, y: 0.000000, z: -0.000000}
-    rotation: {x: 8.067015, y: -20.041328, z: -12.841852}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.719233, y: 0.000000, z: -0.000000}
+    Rotation: {x: 8.067015, y: -20.041328, z: -12.841852}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -953,11 +953,11 @@
   Name: left_toe_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.144132, y: 0.000000, z: 0.000000}
-    rotation: {x: 9.321831, y: -35.347687, z: -15.840135}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.144132, y: 0.000000, z: 0.000000}
+    Rotation: {x: 9.321831, y: -35.347687, z: -15.840135}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -968,11 +968,11 @@
   Name: left_shoulder_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.937352, y: 0.000000, z: 0.000000}
-    rotation: {x: 10.272378, y: 2.941384, z: -48.708961}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.937352, y: 0.000000, z: 0.000000}
+    Rotation: {x: 10.272378, y: 2.941384, z: -48.708961}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 5079d74a-dfd6-4d15-a6bc-03bca7df4100
   Components:
@@ -983,11 +983,11 @@
   Name: hips_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -0.500613, y: -0.000233, z: 0.012242}
-    rotation: {x: -1.400817, y: -0.000000, z: -89.973328}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.500613, y: -0.000233, z: 0.012242}
+    Rotation: {x: -1.400817, y: -0.000000, z: -89.973328}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 37ea80e6-b4aa-4689-814f-ed66c89efeb8
     - !<own> 62c6f963-10a7-49fa-ba08-6ec0308dac24
@@ -1000,11 +1000,11 @@
   Name: tail_05_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.803617, y: 0.000000, z: -0.000000}
-    rotation: {x: 2.199206, y: 4.740990, z: -13.075044}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.803617, y: 0.000000, z: -0.000000}
+    Rotation: {x: 2.199206, y: 4.740990, z: -13.075044}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> f0ab4b41-e9be-4080-8874-fdc1476f50e6
   Components:
@@ -1015,11 +1015,11 @@
   Name: left_ear_03_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.796076, y: 0.063117, z: -0.061590}
-    rotation: {x: 0.755131, y: -7.383152, z: 2.451544}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.796076, y: 0.063117, z: -0.061590}
+    Rotation: {x: 0.755131, y: -7.383152, z: 2.451544}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 135d082b-cc13-45df-987a-85667d81126f
   Components:
@@ -1030,11 +1030,11 @@
   Name: right_elbow_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -0.970105, y: 0.000000, z: 0.000000}
-    rotation: {x: 27.020264, y: -36.275532, z: -20.505356}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.970105, y: 0.000000, z: 0.000000}
+    Rotation: {x: 27.020264, y: -36.275532, z: -20.505356}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 5b8964a0-9360-4739-8f57-4956cf2ec49e
   Components:
@@ -1045,11 +1045,11 @@
   Name: right_jacket_02_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -0.625060, y: 3.656546, z: -3.243695}
-    rotation: {x: 172.493256, y: -0.000000, z: -89.972092}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.625060, y: 3.656546, z: -3.243695}
+    Rotation: {x: 172.493256, y: -0.000000, z: -89.972092}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -1060,11 +1060,11 @@
   Name: right_leg_02_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.946911, y: 0.000000, z: 0.000000}
-    rotation: {x: 18.862057, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.946911, y: 0.000000, z: 0.000000}
+    Rotation: {x: 18.862057, y: -0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 288bcfb3-0674-435c-879a-663fb299a9d1
   Components:
@@ -1075,11 +1075,11 @@
   Name: left_clavicle_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -0.715343, y: -2.392349, z: -0.060550}
-    rotation: {x: -0.181750, y: 26.482433, z: -101.628159}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.715343, y: -2.392349, z: -0.060550}
+    Rotation: {x: -0.181750, y: 26.482433, z: -101.628159}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 9719e7a6-05ae-48b9-b198-061bdc469ee4
   Components:
@@ -1090,11 +1090,11 @@
   Name: right_knee_02_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.835926, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.835926, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 16c6d0cb-bea1-449f-961a-1bd6d374f3c2
   Components:
@@ -1105,11 +1105,11 @@
   Name: left_knee_01_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.963136, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 23.067556, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.963136, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 23.067556, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> cbdba3fd-66fb-4376-8806-1e87dbb75b14
   Components:
@@ -1120,11 +1120,11 @@
   Name: right_jacket_03_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -0.863302, y: 5.280466, z: -0.078695}
-    rotation: {x: 172.493256, y: -0.000000, z: -89.972092}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.863302, y: 5.280466, z: -0.078695}
+    Rotation: {x: 172.493256, y: -0.000000, z: -89.972092}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -1175,11 +1175,11 @@
   Name: right_ear_04_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -1.445238, y: -0.055345, z: -0.015518}
-    rotation: {x: 0.000000, y: 0.000000, z: -82.793938}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -1.445238, y: -0.055345, z: -0.015518}
+    Rotation: {x: 0.000000, y: 0.000000, z: -82.793938}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -1190,11 +1190,11 @@
   Name: left_knee_02_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.850249, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.850249, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 86217fbf-8bf8-4f87-936d-32c4c6154996
   Components:
@@ -1205,11 +1205,11 @@
   Name: left_hand_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.719233, y: 0.000000, z: -0.000000}
-    rotation: {x: -0.301013, y: 5.829701, z: -6.633520}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.719233, y: 0.000000, z: -0.000000}
+    Rotation: {x: -0.301013, y: 5.829701, z: -6.633520}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -1220,11 +1220,11 @@
   Name: Hat1_GEO
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -1255,11 +1255,11 @@
   Name: head_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.073783, y: -0.000000, z: -0.000000}
-    rotation: {x: 15.431093, y: -2.959146, z: -0.046664}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.073783, y: -0.000000, z: -0.000000}
+    Rotation: {x: 15.431093, y: -2.959146, z: -0.046664}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 1524ca90-6bee-4625-bbaa-21260fb6853c
     - !<own> 58123bdc-039f-4746-8417-78d7795f17bf
@@ -1275,11 +1275,11 @@
   Name: nose_01_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.455047, y: -0.000000, z: 4.251815}
-    rotation: {x: -84.034721, y: -78.641411, z: -5.995573}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.455047, y: -0.000000, z: 4.251815}
+    Rotation: {x: -84.034721, y: -78.641411, z: -5.995573}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 2d6f23b0-91a5-431c-b98d-eb62f5a916e5
   Components:
@@ -1290,11 +1290,11 @@
   Name: neck_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.890468, y: -0.000000, z: -0.125990}
-    rotation: {x: 0.000000, y: -4.316508, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.890468, y: -0.000000, z: -0.125990}
+    Rotation: {x: 0.000000, y: -4.316508, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> d246eeaf-1575-4f32-9a16-5ddb280b4dc1
   Components:
@@ -1305,11 +1305,11 @@
   Name: right_clavicle_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -0.715343, y: 2.392349, z: -0.060550}
-    rotation: {x: -166.371277, y: -14.551223, z: -76.687813}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.715343, y: 2.392349, z: -0.060550}
+    Rotation: {x: -166.371277, y: -14.551223, z: -76.687813}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 34767b98-7c57-4393-aacc-f3ca993be65e
   Components:
@@ -1403,11 +1403,11 @@
   Name: right_ear_02_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -2.513352, y: 0.000001, z: -0.000000}
-    rotation: {x: -0.568501, y: -6.994196, z: 11.422152}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -2.513352, y: 0.000001, z: -0.000000}
+    Rotation: {x: -0.568501, y: -6.994196, z: 11.422152}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 604c372c-88b2-4360-9e45-66368b05d1d2
   Components:
@@ -1418,11 +1418,11 @@
   Name: right_jacket_01_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -0.405293, y: 3.369873, z: 2.890476}
-    rotation: {x: 172.493256, y: -0.000000, z: -89.972092}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.405293, y: 3.369873, z: 2.890476}
+    Rotation: {x: 172.493256, y: -0.000000, z: -89.972092}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -1433,11 +1433,11 @@
   Name: tail_08_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.804531, y: -0.000000, z: 0.000000}
-    rotation: {x: 2.741186, y: 0.011429, z: -16.317400}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.804531, y: -0.000000, z: 0.000000}
+    Rotation: {x: 2.741186, y: 0.011429, z: -16.317400}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 4db550f6-f457-4bdd-bd8e-22997b6f0d0f
   Components:
@@ -1448,11 +1448,11 @@
   Name: tail_04_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.811005, y: -0.000000, z: 0.000000}
-    rotation: {x: 2.475688, y: 5.431280, z: -5.627434}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.811005, y: -0.000000, z: 0.000000}
+    Rotation: {x: 2.475688, y: 5.431280, z: -5.627434}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 99bdd8a5-8f1d-41fa-b965-c0085d4d0b35
   Components:
@@ -1463,11 +1463,11 @@
   Name: Jacket_GEO
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -1478,11 +1478,11 @@
   Name: left_elbow_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.970105, y: 0.000000, z: 0.000000}
-    rotation: {x: -12.284747, y: -19.778522, z: 2.218077}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.970105, y: 0.000000, z: 0.000000}
+    Rotation: {x: -12.284747, y: -19.778522, z: 2.218077}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 10f21a99-05e3-4a9f-a2a6-b691b249d8c3
   Components:
@@ -1493,11 +1493,11 @@
   Name: tail_06_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.813890, y: 0.000000, z: -0.000000}
-    rotation: {x: 2.462635, y: 2.312952, z: -13.812428}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.813890, y: 0.000000, z: -0.000000}
+    Rotation: {x: 2.462635, y: 2.312952, z: -13.812428}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 0cb70d20-0a16-40ca-8f46-7ca4e788fcd2
   Components:
@@ -1508,11 +1508,11 @@
   Name: tail_01_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -0.000000, y: -0.676985, z: -3.730481}
-    rotation: {x: 110.146790, y: 84.298233, z: 110.492332}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.000000, y: -0.676985, z: -3.730481}
+    Rotation: {x: 110.146790, y: 84.298233, z: 110.492332}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> f8ddea67-2e1a-416f-8a0e-3759aa45f6a1
   Components:
@@ -1523,11 +1523,11 @@
   Name: tail_02_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.813994, y: -0.000000, z: 0.000000}
-    rotation: {x: 3.893368, y: 5.812644, z: 22.374586}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.813994, y: -0.000000, z: 0.000000}
+    Rotation: {x: 3.893368, y: 5.812644, z: 22.374586}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 52469a40-c179-445a-9db9-60987af997a2
   Components:
@@ -1538,11 +1538,11 @@
   Name: front_jacket_01_JNT
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -0.234174, y: -0.000114, z: 3.865570}
-    rotation: {x: -7.506742, y: -0.000000, z: -89.972092}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.234174, y: -0.000114, z: 3.865570}
+    Rotation: {x: -7.506742, y: -0.000000, z: -89.972092}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:

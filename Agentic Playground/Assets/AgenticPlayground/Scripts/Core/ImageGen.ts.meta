@@ -1,0 +1,47 @@
+- !<AssetImportMetadata/f1208f9c-6303-4029-8c2d-fc9e4f14c314>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 7b5fd1a2-a801-4bb5-9a11-18ce95560f32
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 7b5fd1a2-a801-4bb5-9a11-18ce95560f32
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> d03ef76f-be58-4792-840b-7563519eba22
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/d03ef76f-be58-4792-840b-7563519eba22>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 8ab56f6c-deba-40bc-892f-c3437fc05182
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    enableDebugLogging: false
+    image: false
+    modelProvider: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - image: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      modelProvider: OpenAI
+      enableDebugLogging: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Component.Image image {"hint":"Image component to display generated image"}'
+    - '// @input string modelProvider = "OpenAI" {"widget":"combobox", "values":[{"label":"OpenAI", "value":"OpenAI"}, {"label":"Gemini", "value":"Gemini"}]}'
+    - '// @input bool enableDebugLogging {"hint":"Enable debug logging for image generation"}'

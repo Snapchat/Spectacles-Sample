@@ -1,0 +1,59 @@
+- !<AssetImportMetadata/32771894-2759-4423-8fe7-fba7526b4946>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 9b28ae15-e0ea-4478-9384-7d0b581c3e20
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 9b28ae15-e0ea-4478-9384-7d0b581c3e20
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 8e93f45e-2e07-4e99-b3f9-77c2957a90e5
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/8e93f45e-2e07-4e99-b3f9-77c2957a90e5>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 282b9440-3b28-41f5-b330-953e4eea78bf
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    activityIndicator: false
+    agentOrchestrator: false
+    chatStorage: false
+    continuousListening: false
+    enableDebugLogging: false
+    micButton: false
+    sessionTimeout: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - agentOrchestrator: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      chatStorage: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      micButton: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      activityIndicator: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
+      enableDebugLogging: true
+      sessionTimeout: !<float> 300.000000
+      continuousListening: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType agentOrchestrator {"hint":"Reference to AgentOrchestrator component"}'
+    - '// @input AssignableType_1 chatStorage {"hint":"Reference to ChatStorage component for storing conversation history"}'
+    - '// @input AssignableType_2 micButton {"hint":"Mic button for starting/stopping chat sessions"}'
+    - '// @input Component.RenderMeshVisual activityIndicator {"hint":"Activity indicator visual (RenderMeshVisual)"}'
+    - '// @input bool enableDebugLogging = true {"hint":"Enable debug logging"}'
+    - '// @input float sessionTimeout = 300 {"hint":"Auto-timeout for chat sessions (seconds)"}'
+    - '// @input bool continuousListening {"hint":"Enable continuous listening mode"}'

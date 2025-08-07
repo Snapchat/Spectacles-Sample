@@ -5,6 +5,8 @@
   PrimaryAsset: !<reference> ff0b78fe-14d8-4308-b84f-14948d5f750c
   PackageType: NotAPackage
   PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
   AssetDataMap:
     TypeScriptAsset: !<own> bb436dc2-922f-48b6-8764-45f317323809
   DependentFiles:
@@ -12,12 +14,11 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-  ExtraData:
-    {}
 - !<TypeScriptAssetData/bb436dc2-922f-48b6-8764-45f317323809>
   SvgIcon: ""
+  SetupScript:
+    code: ""
   Description: ""
-  InternalVersion: 0
   VersionMajor: 0
   VersionMinor: 0
   VersionPatch: 0
@@ -31,6 +32,8 @@
     toolSpawnPoints: false
   ScriptTypesHidden:
     {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
     - toolPrefabs: !<reference.ObjectPrefab[]>
         []
@@ -44,7 +47,3 @@
     - "// @input Asset.ObjectPrefab[] toolPrefabs"
     - "// @input SceneObject[] toolSpawnPoints"
     - // @input SceneObject containerObj
-  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
-  SetupScript:
-    code: ""
-  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000

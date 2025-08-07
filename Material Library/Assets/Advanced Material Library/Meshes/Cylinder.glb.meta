@@ -1,16 +1,4 @@
 - !<AssetImportMetadata/66677247-6285-4024-afc7-d10319d0f650>
-  ImporterSettings: !<GltfImporterSettings>
-    ImportTangents: true
-    ImportMorphTargetAnimation: true
-    ConvertMetersToCentimeters: true
-    RegenerateTangents: false
-    ImportVertexColor: true
-    AnimationCurveOptimization: true
-    CustomAnimationSamplingRate: 30.000000
-    NamingConvention: ByCategory
-    UseLegacyImporter: true
-    PersistentIdGenerationAlgorithm: Legacy
-    WithMaterials: true
   ImportedAssetIds:
     Meshes/Cylinder: !<reference> c8deb236-162e-4dc7-a21b-6523404fcd8f
     Scene: !<reference> 037b6525-f836-4bea-8bd4-8b1d84b60f05
@@ -22,13 +10,25 @@
   ImporterName: GltfImporter
   PrimaryAsset: !<reference> 037b6525-f836-4bea-8bd4-8b1d84b60f05
   PackageType: LegacyPackage
-  AssetDataMap:
-    Scene: !<own> 2ede55dd-7e05-454f-9e46-d7908f3378d1
-  PackagePolicy: CanBeUnpacked
+  PackagePolicy: CanBeUnpackedTransparent
   ExtraData:
     {}
+  AssetDataMap:
+    Scene: !<own> 2ede55dd-7e05-454f-9e46-d7908f3378d1
   DependentFiles:
     []
+  ImporterSettings: !<GltfImporterSettings>
+    UseLegacyImporter: true
+    WithMaterials: true
+    NamingConvention: ByCategory
+    PersistentIdGenerationAlgorithm: Legacy
+    AnimationCurveOptimization: true
+    CustomAnimationSamplingRate: 30.000000
+    ImportVertexColor: true
+    ImportTangents: true
+    ImportMorphTargetAnimation: true
+    ConvertMetersToCentimeters: true
+    RegenerateTangents: false
   CompressionSettings: !<ComplexCompressionSettings>
     Presets:
       None Compression: !<SingleCompressionSettings>
@@ -44,11 +44,11 @@
   Name: Scene
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 4217d775-2bcf-4c5c-9fbe-1f6734c3f919
   Components:
@@ -59,11 +59,11 @@
   Name: Cylinder
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 100.000000, y: 100.000000, z: 100.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 100.000000, y: 100.000000, z: 100.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 3a9efaa1-b98c-49a4-99d3-f7288f21e83a
   Components:
@@ -83,11 +83,11 @@
   Name: Scenes
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 000d0f25-e27e-43c8-a0e7-06dffe88e4a7
   Components:
@@ -98,11 +98,11 @@
   Name: Cylinder
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:

@@ -5,6 +5,8 @@
   PrimaryAsset: !<reference> 5a445f60-0a3d-4e42-80f7-67544f73f850
   PackageType: NotAPackage
   PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
   AssetDataMap:
     ObjectPrefab: !<own> 5574808a-4a64-4ca7-84e4-d46ccb03f0e0
   DependentFiles:
@@ -12,8 +14,6 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-  ExtraData:
-    {}
 - !<RenderMeshVisual/14045707-d48d-48df-8b22-e4e8b54262be>
   PrefabRemaps:
     []
@@ -77,11 +77,11 @@
   Name: Sphere
   Enabled: false
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: -0.659977}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 0.785387, y: 0.785387, z: 0.087963}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: -0.659977}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.785387, y: 0.785387, z: 0.087963}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -112,11 +112,11 @@
   Name: d2_0
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: -0.000031, z: -0.064943}
-    rotation: {x: 0.000000, y: -89.802177, z: 0.000000}
-    scale: {x: 0.080000, y: 0.799995, z: 0.799991}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -0.000031, z: -0.064943}
+    Rotation: {x: 0.000000, y: -89.802177, z: 0.000000}
+    Scale: {x: 0.080000, y: 0.799995, z: 0.799991}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -149,11 +149,11 @@
   Name: DartYelloww
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 295.794678, z: 53.045158}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 10.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 295.794678, z: 53.045158}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 10.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 395095a7-6ee3-432c-828a-16fa9d4bfffc
     - !<own> 461eedfe-07c5-41ec-b43e-a52beeb10869
@@ -221,11 +221,13 @@
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
     enableInstantDrag: true
+    isScrollable: true
     allowMultipleInteractors: true
     enablePokeDirectionality: true
     acceptableXDirections: true
     acceptableYDirections: true
     acceptableZDirections: true
+    useFilteredPinch: true
     isSynced: true
     acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
@@ -234,12 +236,14 @@
     "":
       targetingMode: !<float> 1.000000
       enableInstantDrag: false
+      isScrollable: false
       allowMultipleInteractors: true
       enablePokeDirectionality: false
       acceptableXDirections: !<float> 0.000000
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
-      isSynced: true
+      useFilteredPinch: false
+      isSynced: false
       acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":

@@ -65,5 +65,5 @@ function InstantiateAlongLine() {
 }
 
 // Register the script
-script.api.InstantiateAlongLine = InstantiateAlongLine;
+script.InstantiateAlongLine = InstantiateAlongLine;
 InstantiateAlongLine();

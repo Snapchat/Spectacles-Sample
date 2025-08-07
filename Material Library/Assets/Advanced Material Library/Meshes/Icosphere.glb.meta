@@ -1,16 +1,4 @@
 - !<AssetImportMetadata/a09bdf3a-7f81-41b3-a2a5-d9f88aaeb1b6>
-  ImporterSettings: !<GltfImporterSettings>
-    ImportTangents: true
-    ImportMorphTargetAnimation: false
-    ConvertMetersToCentimeters: false
-    RegenerateTangents: false
-    ImportVertexColor: true
-    AnimationCurveOptimization: false
-    CustomAnimationSamplingRate: 30.000000
-    NamingConvention: ByCategory
-    UseLegacyImporter: true
-    PersistentIdGenerationAlgorithm: Legacy
-    WithMaterials: true
   ImportedAssetIds:
     Meshes/Icosphere: !<reference> 60f86432-3d9b-4f5b-9047-672c01a2d679
     Scene: !<reference> afc29142-d529-451e-9273-42f1d317a3c2
@@ -22,13 +10,25 @@
   ImporterName: GltfImporter
   PrimaryAsset: !<reference> afc29142-d529-451e-9273-42f1d317a3c2
   PackageType: LegacyPackage
-  AssetDataMap:
-    Scene: !<own> 02b24c4d-9fe5-43be-9180-3fee51db8ed9
-  PackagePolicy: CanBeUnpacked
+  PackagePolicy: CanBeUnpackedTransparent
   ExtraData:
     {}
+  AssetDataMap:
+    Scene: !<own> 02b24c4d-9fe5-43be-9180-3fee51db8ed9
   DependentFiles:
     []
+  ImporterSettings: !<GltfImporterSettings>
+    UseLegacyImporter: true
+    WithMaterials: true
+    NamingConvention: ByCategory
+    PersistentIdGenerationAlgorithm: Legacy
+    AnimationCurveOptimization: false
+    CustomAnimationSamplingRate: 30.000000
+    ImportVertexColor: true
+    ImportTangents: true
+    ImportMorphTargetAnimation: false
+    ConvertMetersToCentimeters: false
+    RegenerateTangents: false
   CompressionSettings: !<ComplexCompressionSettings>
     Presets:
       None Compression: !<SingleCompressionSettings>
@@ -53,11 +53,11 @@
   Name: Icosphere
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 1190e61f-03ec-44dc-b0e0-7c2af1aa377e
   Components:
@@ -68,11 +68,11 @@
   Name: Scenes
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> a8d58e0d-c2d9-41b7-a857-e9234bad1bfc
   Components:
@@ -109,11 +109,11 @@
   Name: Scene
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> cdbef61d-9aa7-4b1b-99d7-8099c5c36480
   Components:
@@ -124,11 +124,11 @@
   Name: Icosphere
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:

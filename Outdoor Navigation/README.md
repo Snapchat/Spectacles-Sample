@@ -35,8 +35,8 @@ Get started using our [Design Guidelines](https://developers.snap.com/spectacles
 
 ## Prerequisites
 
-- **Lens Studio**: v5.10.0+
-- **Spectacles OS Version**: v5.62+
+- **Lens Studio**: v5.12.0+
+- **Spectacles OS Version**: v5.63+
 - **Spectacles App iOS**: v0.62+
 - **Spectacles App Android**: v0.62+
 

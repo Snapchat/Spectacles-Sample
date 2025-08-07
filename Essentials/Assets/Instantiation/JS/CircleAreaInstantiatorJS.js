@@ -58,5 +58,5 @@ function CircleAreaInstantiator() {
 }
 
 // Register the script
-script.api.CircleAreaInstantiator = CircleAreaInstantiator;
+script.CircleAreaInstantiator = CircleAreaInstantiator;
 CircleAreaInstantiator();

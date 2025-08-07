@@ -5,6 +5,8 @@
   PrimaryAsset: !<reference> d909b5a2-1c6a-44e1-ac44-49bef8508e2a
   PackageType: NotAPackage
   PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    AssetLibraryId: 3kQqaLSKYvA1iY30Jz9FZW
   AssetDataMap:
     TypeScriptAsset: !<own> 78cd0c3c-7a8d-413f-922b-9ba93be0f5e1
   DependentFiles:
@@ -12,16 +14,15 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-  ExtraData:
-    AssetLibraryId: 3kQqaLSKYvA1iY30Jz9FZW
 - !<TypeScriptAssetData/78cd0c3c-7a8d-413f-922b-9ba93be0f5e1>
   SvgIcon: ""
+  SetupScript:
+    code: ""
   Description: |-
     Allows do detect surface using WorldQueryModule
     
     API: 
     startGroundCalibration(callback: (pos: vec3, rot: quat) => void)
-  InternalVersion: 1
   VersionMajor: 1
   VersionMinor: 0
   VersionPatch: 0
@@ -35,6 +36,8 @@
     visualObj: false
   ScriptTypesHidden:
     {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
     - camObj: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       visualObj: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
@@ -46,7 +49,3 @@
     - // @input SceneObject camObj
     - // @input SceneObject visualObj
     - // @input AssignableType animation
-  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
-  SetupScript:
-    code: ""
-  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000

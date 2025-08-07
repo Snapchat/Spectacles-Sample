@@ -82,18 +82,18 @@ updateEvent.bind(onUpdateEvent);
 function resumeTween(tweenObject, _tweenName) {
     var tweenScriptComponent = findTween(tweenObject, _tweenName);
     if (tweenScriptComponent) {
-        var tweenName = tweenScriptComponent.api.tweenName;
-        if (tweenScriptComponent.api.playAll && tweenScriptComponent.api.tweenType == "chain") {
-            for (var i = 0; i < tweenScriptComponent.api.allTweens.length; i++) {
-                tweenScriptComponent.api.allTweens[i].resume(tweenName);
+        var tweenName = tweenScriptComponent.tweenName;
+        if (tweenScriptComponent.playAll && tweenScriptComponent.tweenType == "chain") {
+            for (var i = 0; i < tweenScriptComponent.allTweens.length; i++) {
+                tweenScriptComponent.allTweens[i].resume(tweenName);
             }
-        } else if (tweenScriptComponent.api.tween) {
-            if (Array.isArray(tweenScriptComponent.api.tween)) {
-                for (var j = 0; j < tweenScriptComponent.api.tween.length; j++) {
-                    tweenScriptComponent.api.tween[j].resume(tweenName);
+        } else if (tweenScriptComponent.tween) {
+            if (Array.isArray(tweenScriptComponent.tween)) {
+                for (var j = 0; j < tweenScriptComponent.tween.length; j++) {
+                    tweenScriptComponent.tween[j].resume(tweenName);
                 }
             } else {
-                tweenScriptComponent.api.tween.resume(tweenName);
+                tweenScriptComponent.tween.resume(tweenName);
             }
         } else {
             debugPrint("Tween Manager: Warning, trying to resume " + tweenName + ", which hasn't been initialized", true);
@@ -107,18 +107,18 @@ function resumeTween(tweenObject, _tweenName) {
 function pauseTween(tweenObject, _tweenName) {
     var tweenScriptComponent = findTween(tweenObject, _tweenName);
     if (tweenScriptComponent) {
-        var tweenName = tweenScriptComponent.api.tweenName;
-        if (tweenScriptComponent.api.tweenType == "chain" && tweenScriptComponent.api.playAll) {
-            for (var i = 0; i < tweenScriptComponent.api.allTweens.length; i++) {
-                tweenScriptComponent.api.allTweens[i].pause(tweenName);
+        var tweenName = tweenScriptComponent.tweenName;
+        if (tweenScriptComponent.tweenType == "chain" && tweenScriptComponent.playAll) {
+            for (var i = 0; i < tweenScriptComponent.allTweens.length; i++) {
+                tweenScriptComponent.allTweens[i].pause(tweenName);
             }
-        } else if (tweenScriptComponent.api.tween) {
-            if (Array.isArray(tweenScriptComponent.api.tween)) {
-                for (var j = 0; j < tweenScriptComponent.api.tween.length; j++) {
-                    tweenScriptComponent.api.tween[j].pause(tweenName);
+        } else if (tweenScriptComponent.tween) {
+            if (Array.isArray(tweenScriptComponent.tween)) {
+                for (var j = 0; j < tweenScriptComponent.tween.length; j++) {
+                    tweenScriptComponent.tween[j].pause(tweenName);
                 }
             } else {
-                tweenScriptComponent.api.tween.pause(tweenName);
+                tweenScriptComponent.tween.pause(tweenName);
             }
         } else {
             debugPrint("Tween Manager: Warning, trying to pause " + tweenName + ", which hasn't been initialized", true);
@@ -131,12 +131,12 @@ function pauseTween(tweenObject, _tweenName) {
 function isPaused(tweenObject, tweenName) {
     var tweenScriptComponent = findTween(tweenObject, tweenName);
     if (tweenScriptComponent) {
-        if (tweenScriptComponent.api.tween) {
-            if (Array.isArray(tweenScriptComponent.api.tween)) {
-                return tweenScriptComponent.api.tween[tweenScriptComponent.api.tween.length - 1]._isPaused;
+        if (tweenScriptComponent.tween) {
+            if (Array.isArray(tweenScriptComponent.tween)) {
+                return tweenScriptComponent.tween[tweenScriptComponent.tween.length - 1]._isPaused;
             }
 
-            return tweenScriptComponent.api.tween._isPaused;
+            return tweenScriptComponent.tween._isPaused;
         }
 
         return false;
@@ -149,12 +149,12 @@ function isPaused(tweenObject, tweenName) {
 function isPlaying(tweenObject, tweenName) {
     var tweenScriptComponent = findTween(tweenObject, tweenName);
     if (tweenScriptComponent) {
-        if (tweenScriptComponent.api.tween) {
-            if (Array.isArray(tweenScriptComponent.api.tween)) {
-                return tweenScriptComponent.api.tween[tweenScriptComponent.api.tween.length - 1]._isPlaying;
+        if (tweenScriptComponent.tween) {
+            if (Array.isArray(tweenScriptComponent.tween)) {
+                return tweenScriptComponent.tween[tweenScriptComponent.tween.length - 1]._isPlaying;
             }
 
-            return tweenScriptComponent.api.tween._isPlaying;
+            return tweenScriptComponent.tween._isPlaying;
         }
 
         return false;
@@ -170,44 +170,44 @@ function startTween(tweenObject, tweenName, completeCallback, startCallback, sto
         debugPrint("Tween Manager: Starting " + tweenName);
 
         // Remove tween if it already exists
-        if (tweenScriptComponent.api.tween) {
-            if (Array.isArray(tweenScriptComponent.api.tween)) {
-                for (var i in tweenScriptComponent.api.tween) {
-                    global.TWEEN.remove(tweenScriptComponent.api.tween[i]);
+        if (tweenScriptComponent.tween) {
+            if (Array.isArray(tweenScriptComponent.tween)) {
+                for (var i in tweenScriptComponent.tween) {
+                    global.TWEEN.remove(tweenScriptComponent.tween[i]);
                 }
             } else {
-                global.TWEEN.remove(tweenScriptComponent.api.tween);
+                global.TWEEN.remove(tweenScriptComponent.tween);
             }
         }
 
         // Start the tween
-        tweenScriptComponent.api.startTween();
+        tweenScriptComponent.startTween();
 
         // Add the callbacks
-        if (tweenScriptComponent.api.tweenType == "chain") {
+        if (tweenScriptComponent.tweenType == "chain") {
             if (completeCallback) {
-                if (tweenScriptComponent.api.playAll) {
-                    tweenScriptComponent.api.longestTween.onComplete(completeCallback);
+                if (tweenScriptComponent.playAll) {
+                    tweenScriptComponent.longestTween.onComplete(completeCallback);
                 } else {
-                    if (Array.isArray(tweenScriptComponent.api.lastTween)) {
-                        tweenScriptComponent.api.lastTween[tweenScriptComponent.api.lastTween.length - 1].onComplete(completeCallback);
+                    if (Array.isArray(tweenScriptComponent.lastTween)) {
+                        tweenScriptComponent.lastTween[tweenScriptComponent.lastTween.length - 1].onComplete(completeCallback);
                     } else {
-                        tweenScriptComponent.api.lastTween.onComplete(completeCallback);
+                        tweenScriptComponent.lastTween.onComplete(completeCallback);
                     }
                 }
             }
 
             if (startCallback) {
-                if (Array.isArray(tweenScriptComponent.api.firstTween)) {
-                    tweenScriptComponent.api.firstTween[tweenScriptComponent.api.firstTween.length - 1].onStart(startCallback);
+                if (Array.isArray(tweenScriptComponent.firstTween)) {
+                    tweenScriptComponent.firstTween[tweenScriptComponent.firstTween.length - 1].onStart(startCallback);
                 } else {
-                    tweenScriptComponent.api.firstTween.onStart(startCallback);
+                    tweenScriptComponent.firstTween.onStart(startCallback);
                 }
             }
 
             if (stopCallback) {
-                for (var k = 0; k < tweenScriptComponent.api.allTweens.length; k++) {
-                    var currentTween = tweenScriptComponent.api.allTweens[k];
+                for (var k = 0; k < tweenScriptComponent.allTweens.length; k++) {
+                    var currentTween = tweenScriptComponent.allTweens[k];
                     if (Array.isArray(currentTween)) {
                         for (var j = 0; j < currentTween.length; j++) {
                             currentTween[j].onStop(stopCallback);
@@ -219,26 +219,26 @@ function startTween(tweenObject, tweenName, completeCallback, startCallback, sto
             }
         } else {
             if (completeCallback) {
-                if (Array.isArray(tweenScriptComponent.api.tween)) {
-                    tweenScriptComponent.api.tween[tweenScriptComponent.api.tween.length - 1].onComplete(completeCallback);
+                if (Array.isArray(tweenScriptComponent.tween)) {
+                    tweenScriptComponent.tween[tweenScriptComponent.tween.length - 1].onComplete(completeCallback);
                 } else {
-                    tweenScriptComponent.api.tween.onComplete(completeCallback);
+                    tweenScriptComponent.tween.onComplete(completeCallback);
                 }
             }
 
             if (startCallback) {
-                if (Array.isArray(tweenScriptComponent.api.tween)) {
-                    tweenScriptComponent.api.tween[tweenScriptComponent.api.tween.length - 1].onStart(startCallback);
+                if (Array.isArray(tweenScriptComponent.tween)) {
+                    tweenScriptComponent.tween[tweenScriptComponent.tween.length - 1].onStart(startCallback);
                 } else {
-                    tweenScriptComponent.api.tween.onStart(startCallback);
+                    tweenScriptComponent.tween.onStart(startCallback);
                 }
             }
 
             if (stopCallback) {
-                if (Array.isArray(tweenScriptComponent.api.tween)) {
-                    tweenScriptComponent.api.tween[tweenScriptComponent.api.tween.length - 1].onStop(stopCallback);
+                if (Array.isArray(tweenScriptComponent.tween)) {
+                    tweenScriptComponent.tween[tweenScriptComponent.tween.length - 1].onStop(stopCallback);
                 } else {
-                    tweenScriptComponent.api.tween.onStop(stopCallback);
+                    tweenScriptComponent.tween.onStop(stopCallback);
                 }
             }
         }
@@ -250,19 +250,19 @@ function stopTween(tweenObject, tweenName) {
     var tweenScriptComponent = findTween(tweenObject, tweenName);
     if (tweenScriptComponent) {
         debugPrint("Tween Manager: Stopping " + tweenName);
-        if (tweenScriptComponent.api.tweenType == "chain") {
-            if (tweenScriptComponent.api.playAll && tweenScriptComponent.api.allTweens) {
-                for (var i = 0; i < tweenScriptComponent.api.allTweens.length; i++) {
-                    tweenScriptComponent.api.allTweens[i].stop();
+        if (tweenScriptComponent.tweenType == "chain") {
+            if (tweenScriptComponent.playAll && tweenScriptComponent.allTweens) {
+                for (var i = 0; i < tweenScriptComponent.allTweens.length; i++) {
+                    tweenScriptComponent.allTweens[i].stop();
                 }
                 return;
-            } else if (tweenScriptComponent.api.tween) {
-                if (Array.isArray(tweenScriptComponent.api.tween)) {
-                    for (var j = 0; j < tweenScriptComponent.api.tween.length; j++) {
-                        tweenScriptComponent.api.tween[j].stop();
+            } else if (tweenScriptComponent.tween) {
+                if (Array.isArray(tweenScriptComponent.tween)) {
+                    for (var j = 0; j < tweenScriptComponent.tween.length; j++) {
+                        tweenScriptComponent.tween[j].stop();
                     }
                 } else {
-                    tweenScriptComponent.api.tween.stop();
+                    tweenScriptComponent.tween.stop();
                 }
             } else {
                 debugPrint("Tween Manager: Warning, trying to stop " + tweenName + ", which hasn't been started");
@@ -271,13 +271,13 @@ function stopTween(tweenObject, tweenName) {
             return;
         }
 
-        if (tweenScriptComponent.api.tween) {
-            if (Array.isArray(tweenScriptComponent.api.tween)) {
-                for (var k = 0; k < tweenScriptComponent.api.tween.length; k++) {
-                    tweenScriptComponent.api.tween[k].stop();
+        if (tweenScriptComponent.tween) {
+            if (Array.isArray(tweenScriptComponent.tween)) {
+                for (var k = 0; k < tweenScriptComponent.tween.length; k++) {
+                    tweenScriptComponent.tween[k].stop();
                 }
             } else {
-                tweenScriptComponent.api.tween.stop();
+                tweenScriptComponent.tween.stop();
             }
         } else {
             debugPrint("Tween Manager: Warning, trying to stop " + tweenName + ", which hasn't been started");
@@ -290,8 +290,8 @@ function setStartValue(tweenObject, tweenName, startValue) {
     var tweenScriptComponent = findTween(tweenObject, tweenName);
 
     if (tweenScriptComponent) {
-        if (tweenScriptComponent.api.setStart) {
-            tweenScriptComponent.api.setStart(startValue);
+        if (tweenScriptComponent.setStart) {
+            tweenScriptComponent.setStart(startValue);
         } else {
             debugPrint("Tween Manager: You cannot manually set the start value of " + tweenName);
         }
@@ -303,8 +303,8 @@ function setEndValue(tweenObject, tweenName, endValue) {
     var tweenScriptComponent = findTween(tweenObject, tweenName);
 
     if (tweenScriptComponent) {
-        if (tweenScriptComponent.api.setEnd) {
-            tweenScriptComponent.api.setEnd(endValue);
+        if (tweenScriptComponent.setEnd) {
+            tweenScriptComponent.setEnd(endValue);
         } else {
             debugPrint("Tween Manager: You cannot manually set the end value of " + tweenName);
         }
@@ -316,7 +316,7 @@ function resetObject(tweenObject, tweenName) {
     var tweenScriptComponent = findTween(tweenObject, tweenName);
     if (tweenScriptComponent) {
         debugPrint("Tween Manager: Resetting Object " + tweenName);
-        tweenScriptComponent.api.resetObject();
+        tweenScriptComponent.resetObject();
     }
 }
 
@@ -328,28 +328,28 @@ function resetTween(tweenObject, tweenName) {
 
 function resetTweenComponent(tweenScriptComponent) {
     if (tweenScriptComponent) {
-        debugPrint("Tween Manager: Resetting tween " + tweenScriptComponent.api.tweenName);
+        debugPrint("Tween Manager: Resetting tween " + tweenScriptComponent.tweenName);
 
-        if (tweenScriptComponent.api.tweenType == "chain") {
-            tweenScriptComponent.api.backwards = false;
+        if (tweenScriptComponent.tweenType == "chain") {
+            tweenScriptComponent.backwards = false;
             debugPrint("Tween Manager: Chain Tween reset is not fully supported");
         }
 
-        if (tweenScriptComponent.api.movementType && tweenScriptComponent.api.movementType > 0) {
+        if (tweenScriptComponent.movementType && tweenScriptComponent.movementType > 0) {
             debugPrint("Tween Manager: Reset for this tween movement type is not fully supported");
         }
 
         // Remove tween if it already exists
-        if (tweenScriptComponent.api.tween) {
-            if (Array.isArray(tweenScriptComponent.api.tween)) {
-                for (var i in tweenScriptComponent.api.tween) {
-                    global.TWEEN.remove(tweenScriptComponent.api.tween[i]);
+        if (tweenScriptComponent.tween) {
+            if (Array.isArray(tweenScriptComponent.tween)) {
+                for (var i in tweenScriptComponent.tween) {
+                    global.TWEEN.remove(tweenScriptComponent.tween[i]);
                 }
             } else {
-                global.TWEEN.remove(tweenScriptComponent.api.tween);
+                global.TWEEN.remove(tweenScriptComponent.tween);
             }
         }
-        tweenScriptComponent.api.resetObject();
+        tweenScriptComponent.resetObject();
     }
 }
 
@@ -366,11 +366,11 @@ function restartAutoTweens() {
     for (var i = 0; i < script.registry.length; i++) {
         var tweenScriptComponent = script.registry[i];
 
-        if (tweenScriptComponent && tweenScriptComponent.api.playAutomatically) {
-            debugPrint("Restarting tween " + tweenScriptComponent.api.tweenName);
+        if (tweenScriptComponent && tweenScriptComponent.playAutomatically) {
+            debugPrint("Restarting tween " + tweenScriptComponent.tweenName);
 
             // Start the tween
-            tweenScriptComponent.api.startTween();
+            tweenScriptComponent.startTween();
         }
     }
 }
@@ -379,7 +379,7 @@ script.registry = [];
 
 function addToRegistry(tweenScriptComponent) {
     if (tweenScriptComponent) {
-        debugPrint("Adding tween " + tweenScriptComponent.api.tweenName + " to Tween Manager registry");
+        debugPrint("Adding tween " + tweenScriptComponent.tweenName + " to Tween Manager registry");
         script.registry[script.registry.length++] = tweenScriptComponent;
         return true;
     }
@@ -424,9 +424,9 @@ function findTween(tweenObject, tweenName) {
 
     for (var i = 0; i < scriptComponents.length; i++) {
         var scriptComponent = scriptComponents[i];
-        if (scriptComponent.api) {
-            if (scriptComponent.api.tweenName) {
-                if (tweenName == scriptComponent.api.tweenName) {
+        if (scriptComponent) {
+            if (scriptComponent.tweenName) {
+                if (tweenName == scriptComponent.tweenName) {
                     return scriptComponent;
                 }
             }
@@ -444,9 +444,9 @@ function findTweenRecursive(tweenObject, tweenName) {
     var scriptComponents = tweenObject.getComponents("Component.ScriptComponent");
     for (var i = 0; i < scriptComponents.length; i++) {
         var scriptComponent = scriptComponents[i];
-        if (scriptComponent.api) {
-            if (scriptComponent.api.tweenName) {
-                if (tweenName == scriptComponent.api.tweenName) {
+        if (scriptComponent) {
+            if (scriptComponent.tweenName) {
+                if (tweenName == scriptComponent.tweenName) {
                     return scriptComponent;
                 }
             }
@@ -471,18 +471,18 @@ function getGenericTweenValue(tweenObject, tweenName) {
     for (var i = 0; i < scriptComponents.length; i++) {
         var scriptComponent = scriptComponents[i];
 
-        if (scriptComponent.api) {
-            if (tweenName == scriptComponent.api.tweenName) {
-                if (scriptComponent.api.tweenType == "value") {
-                    if (scriptComponent.api.tween) {
-                        if (!scriptComponent.api.tween._isPlaying) {
+        if (scriptComponent) {
+            if (tweenName == scriptComponent.tweenName) {
+                if (scriptComponent.tweenType == "value") {
+                    if (scriptComponent.tween) {
+                        if (!scriptComponent.tween._isPlaying) {
                             debugPrint("Tween Manager: Tween Value, " + tweenName + ", is not currently playing. Ensure that it has been started by either calling its startTween() function or by setting it to Play Automatically.", true);
                         }
                     } else {
                         debugPrint("Tween Manager: Tween Value, " + tweenName + ", has not been set up. Ensure that this Tween Value is ordered before every other script that uses it in the Objects Panel and Inspector. Try initializing it in the Initialized event and scripting in the Lens Turn On event.", true);
                     }
 
-                    return scriptComponent.api.value;
+                    return scriptComponent.value;
                 }
             }
         } else {

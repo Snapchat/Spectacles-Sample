@@ -1,0 +1,285 @@
+- !<ObjectPrefab/868359d6-d8ad-4ff3-a7e6-db11a4409d59>
+  PackagePath: ""
+  objects:
+    - !<own> a9b4b869-f2b1-42ef-82a1-2de56cad16d7
+  LazyLoading: false
+  RetainAssets: true
+- !<ScriptComponent/03cbcb87-a211-44be-9966-d6e4d88a7ed4>
+  PrefabRemaps:
+    []
+  Name: SpatialImageSwapper
+  Enabled: true
+  ScriptAsset: !<reference> 1bfa4523-8f05-4492-b285-19802d71533a
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      spatializer: !<Typename.SpatialImage> d2e96cbc-3e09-4824-9226-2aa7fdcff2bc
+      flatImage: !<reference.Image> e8e7878e-df84-4cf3-9b70-67fb752a692e
+      autoSwapToSpatialized: true
+  ScriptTypes:
+    "":
+      SpatialImage: !<reference.ScriptAsset> 0befc8a4-0849-4e52-8f02-ac717484d5db
+- !<SceneObject/39dba10a-dd78-497b-b167-8cf0b36f4c90>
+  PrefabRemaps:
+    []
+  Name: FlatImage
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 82a12268-5b10-4a20-bffd-165fee79c94c
+    - !<own> e8e7878e-df84-4cf3-9b70-67fb752a692e
+- !<ScriptComponent/3c89942f-439f-4ef5-a723-99cd3b2bd2ea>
+  PrefabRemaps:
+    []
+  Name: ContainerFrame
+  Enabled: true
+  ScriptAsset: !<reference> 94ea82ba-1d42-4617-b71f-c92262f5960b
+  ScriptInputsDefault:
+    autoShowHide: true
+    border: true
+    constantPadding: true
+    allowScaling: true
+    autoScaleContent: true
+    relativeZ: true
+    isContentInteractable: true
+    allowTranslation: true
+    cutOut: true
+    xAlways: true
+    yAlways: true
+    useSnapping: true
+    worldSnapping: true
+    isFollowing: true
+    _enableInteractionPlane: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      autoShowHide: true
+      innerSize: !<Vec2> {x: 80.000000, y: 80.000000}
+      border: !<float> 4.000000
+      constantPadding: !<Vec2> {x: 0.000000, y: 0.000000}
+      allowScaling: true
+      autoScaleContent: true
+      relativeZ: false
+      isContentInteractable: false
+      allowTranslation: true
+      cutOut: false
+      minimumSize: !<Vec2> {x: 8.000000, y: 8.000000}
+      maximumSize: !<Vec2> {x: 200.000000, y: 200.000000}
+      useBillboarding: true
+      xOnTranslate: true
+      xAlways: false
+      yOnTranslate: true
+      yAlways: false
+      useSnapping: false
+      itemSnapping: true
+      worldSnapping: false
+      showFollowButton: true
+      useFOVFollow: true
+      isFollowing: false
+      showCloseButton: false
+      _enableInteractionPlane: false
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/57e8fb27-9e63-47b7-a164-174acf867665>
+  PrefabRemaps:
+    []
+  Name: SpatialImageDepthAnimator
+  Enabled: true
+  ScriptAsset: !<reference> 009da2ad-cfd3-4203-a05d-2651825078d7
+  ScriptInputsDefault:
+    animateSpeed: true
+    minDepth: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      spatializer: !<Typename.SpatialImage> d2e96cbc-3e09-4824-9226-2aa7fdcff2bc
+      angleValidator: !<MappingBased.AssignableType> d6581813-c0e5-4f98-b38e-0fa8502d0919
+      animateSpeed: 0.500000
+      minDepth: 0.050000
+  ScriptTypes:
+    "":
+      SpatialImage: !<reference.ScriptAsset> 0befc8a4-0849-4e52-8f02-ac717484d5db
+- !<ScriptComponent/58e369c6-44cd-41e8-ae46-0576fabb126e>
+  PrefabRemaps:
+    []
+  Name: SpatialImageFrame
+  Enabled: true
+  ScriptAsset: !<reference> 1882deaa-0bcd-4389-9ec7-729ab25dd9b3
+  ScriptInputsDefault:
+    imageTexture: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      container: !<MappingBased.AssignableType> 3c89942f-439f-4ef5-a723-99cd3b2bd2ea
+      spatializer: !<Typename.SpatialImage> d2e96cbc-3e09-4824-9226-2aa7fdcff2bc
+      spatialImageSwapper: !<MappingBased.AssignableType_1> 03cbcb87-a211-44be-9966-d6e4d88a7ed4
+      camera: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
+      imageTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    "":
+      SpatialImage: !<reference.ScriptAsset> 0befc8a4-0849-4e52-8f02-ac717484d5db
+- !<ScreenTransform/82a12268-5b10-4a20-bffd-165fee79c94c>
+  PrefabRemaps:
+    []
+  Name: Screen Transform
+  Enabled: true
+  IsAdvanced: true
+  Constraints:
+    pinToLeft: false
+    pinToTop: true
+    pinToRight: false
+    pinToBottom: true
+    fixedWidth: false
+    fixedHeight: false
+    deactivatedFixedSprite: false
+    deactivatedFixedPivot: false
+  Pivot: {x: 0.000000, y: 0.000000}
+  Transform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  RawMode: true
+  ForceBasic: false
+  Anchor:
+    left: -50.000000
+    bottom: -1.000000
+    right: 50.000000
+    top: 1.000000
+  Offset:
+    left: 0.000000
+    bottom: -50.000000
+    right: 0.000000
+    top: 50.000000
+- !<SceneObject/87fab577-3c65-4fb2-8fb4-35ece68755a1>
+  PrefabRemaps:
+    []
+  Name: SpatialImage
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> d2e96cbc-3e09-4824-9226-2aa7fdcff2bc
+    - !<own> d6581813-c0e5-4f98-b38e-0fa8502d0919
+    - !<own> 57e8fb27-9e63-47b7-a164-174acf867665
+    - !<own> 03cbcb87-a211-44be-9966-d6e4d88a7ed4
+- !<SceneObject/976a6477-7ec0-43b2-aed9-ddb564c86acd>
+  PrefabRemaps:
+    []
+  Name: BaseFrame
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.800000, y: 0.800000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 39dba10a-dd78-497b-b167-8cf0b36f4c90
+    - !<own> 87fab577-3c65-4fb2-8fb4-35ece68755a1
+  Components:
+    []
+- !<SceneObject/a9b4b869-f2b1-42ef-82a1-2de56cad16d7>
+  PrefabRemaps:
+    []
+  Name: SikSpatialImageFrame
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: -200.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 976a6477-7ec0-43b2-aed9-ddb564c86acd
+  Components:
+    - !<own> 58e369c6-44cd-41e8-ae46-0576fabb126e
+    - !<own> 3c89942f-439f-4ef5-a723-99cd3b2bd2ea
+- !<ScriptComponent/d2e96cbc-3e09-4824-9226-2aa7fdcff2bc>
+  PrefabRemaps:
+    []
+  Name: Spatial Image
+  Enabled: true
+  ScriptAsset: !<reference> 0befc8a4-0849-4e52-8f02-ac717484d5db
+  ScriptInputsDefault:
+    imageTexture: true
+    advancedSettings: true
+    _frameHeight: true
+    _frameOffset: true
+    _depthScale: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      imageTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      advancedSettings: false
+      _frameHeight: 100
+      _frameOffset: -200
+      _depthScale: 100
+      _fadeBorder: false
+      _frameOn: false
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/d6581813-c0e5-4f98-b38e-0fa8502d0919>
+  PrefabRemaps:
+    []
+  Name: SpatialImageAngleValidator
+  Enabled: true
+  ScriptAsset: !<reference> 7d9b8736-c7d9-4e2d-89c5-f6a14dd9731e
+  ScriptInputsDefault:
+    validZoneFocal: true
+    validZoneAngle: true
+    validZoneThreshold: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      image: !<reference.SceneObject> 87fab577-3c65-4fb2-8fb4-35ece68755a1
+      frame: !<MappingBased.AssignableType> 3c89942f-439f-4ef5-a723-99cd3b2bd2ea
+      validZoneFocal: !<float> 2.000000
+      validZoneAngle: !<float> 25.000000
+      validZoneThreshold: !<float> 5.000000
+      camera: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
+  ScriptTypes:
+    "":
+      {}
+- !<Image/e8e7878e-df84-4cf3-9b70-67fb752a692e>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: FitHeight
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 448d0457-4ef0-43da-815f-1c8604ea9087
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000

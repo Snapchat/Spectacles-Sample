@@ -16,8 +16,9 @@
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<TypeScriptAssetData/3ad70b7b-777d-4607-ad9d-09a61dc7216f>
   SvgIcon: ""
+  SetupScript:
+    code: ""
   Description: ""
-  InternalVersion: 0
   VersionMajor: 0
   VersionMinor: 0
   VersionPatch: 0
@@ -40,6 +41,8 @@
     zStretchFactorMin: false
   ScriptTypesHidden:
     {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
     - mapSceneObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       mapComponent: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
@@ -69,7 +72,3 @@
     - '// @input float minCutoff = 2 {"showIf":"showFilterProperties", "showIfValue":true}'
     - '// @input float beta = 0.015 {"showIf":"showFilterProperties", "showIfValue":true}'
     - '// @input float dcutoff = 1 {"showIf":"showFilterProperties", "showIfValue":true}'
-  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
-  SetupScript:
-    code: ""
-  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000

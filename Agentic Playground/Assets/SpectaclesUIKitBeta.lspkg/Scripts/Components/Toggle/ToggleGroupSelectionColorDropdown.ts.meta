@@ -1,0 +1,60 @@
+- !<AssetImportMetadata/7e897cd1-e2a1-4ac7-9155-0f6e94287f47>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 05a8db1a-e7a5-43a0-b1f6-183806954ab9
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 05a8db1a-e7a5-43a0-b1f6-183806954ab9
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 584c1178-c96f-47e6-8a06-356a946541d3
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/584c1178-c96f-47e6-8a06-356a946541d3>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 82067d3e-66f6-4266-9f0c-fc4f37515320
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    _allowAllTogglesOff: false
+    _toggles: false
+    addCallbacks: false
+    onToggleSelectedCallbacks: false
+    panel: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - _allowAllTogglesOff: false
+      addCallbacks: false
+      onToggleSelectedCallbacks:
+        []
+      _toggles: !<MappingBased.AssignableType[]>
+        []
+      panel: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input bool _allowAllTogglesOff {"hint":"Is it allowed that no toggle is switched on?"}'
+    - "// @input bool addCallbacks {\"hint\":\"Enable this to add functions from another script to this component's callbacks\"}"
+    - /*
+    - "@typedef Callback"
+    - "@property {Component.ScriptComponent} scriptComponent "
+    - "@property {string} functionName "
+    - "*/"
+    - '// @input Callback[] onToggleSelectedCallbacks = {} {"label":"On Toggle Selected Callbacks", "showIf":"addCallbacks"}'
+    - "// @input AssignableType[] _toggles = {}"
+    - // @input SceneObject panel

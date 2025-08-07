@@ -49,5 +49,5 @@ function SquareAreaInstantiator() {
 }
 
 // Register the script
-script.api.SquareAreaInstantiator = SquareAreaInstantiator;
+script.SquareAreaInstantiator = SquareAreaInstantiator;
 SquareAreaInstantiator();

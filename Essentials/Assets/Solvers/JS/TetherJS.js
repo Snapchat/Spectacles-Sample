@@ -344,12 +344,12 @@ function TetherJS() {
     }
     
     // Expose public methods
-    script.api.calculateNewTargetPosition = calculateNewTargetPosition;
-    script.api.shouldReposition = shouldReposition;
-    script.api.getCurrentAngle = function() { return _currentAngle; };
-    script.api.getFlatAngle = function() { return _flatAngle; };
+    script.calculateNewTargetPosition = calculateNewTargetPosition;
+    script.shouldReposition = shouldReposition;
+    script.getCurrentAngle = function() { return _currentAngle; };
+    script.getFlatAngle = function() { return _flatAngle; };
 }
 
 // Register the script
-script.api.TetherJS = TetherJS;
+script.TetherJS = TetherJS;
 TetherJS();

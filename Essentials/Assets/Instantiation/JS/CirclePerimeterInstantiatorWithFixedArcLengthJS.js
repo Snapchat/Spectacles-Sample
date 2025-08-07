@@ -70,5 +70,5 @@ function CirclePerimeterInstantiatorWithFixedArcLength() {
 }
 
 // Register the script
-script.api.CirclePerimeterInstantiatorWithFixedArcLength = CirclePerimeterInstantiatorWithFixedArcLength;
+script.CirclePerimeterInstantiatorWithFixedArcLength = CirclePerimeterInstantiatorWithFixedArcLength;
 CirclePerimeterInstantiatorWithFixedArcLength();

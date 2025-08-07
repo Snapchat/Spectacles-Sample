@@ -51,6 +51,51 @@ AI-powered experiences and integrations
       <p>Sample project for AI in using Spectacles Remote Service Gateway.</p>
     </td>
     <td align="center" valign="top" width="33%">
+      <a href="./Agentic Playground/">
+        <img src="./Agentic Playground/README-ref/sample-list-agentic-playground-rounded-edges.gif" alt="agentic-playground" width="250px" />
+      </a>
+      <h3>Agentic Playground</h3>
+      <p>
+<a href="https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?">
+  <img src="https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/overview">
+  <img src="https://img.shields.io/badge/Remote%20Service%20Gateway-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/apis/experimental-apis?">
+  <img src="https://img.shields.io/badge/Experimental%20API-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/compatibility-list">
+  <img src="https://img.shields.io/badge/Text%20To%20Speech-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/compatibility-list">
+  <img src="https://img.shields.io/badge/Speech%20To%20Text-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/apis/camera-module?">
+  <img src="https://img.shields.io/badge/Camera%20Access-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/compatability-list">
+  <img src="https://img.shields.io/badge/AI%20Vision-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/compatibility-list">
+  <img src="https://img.shields.io/badge/LLM-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/compatibility-list">
+  <img src="https://img.shields.io/badge/Vision-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/apis/fetch?">
+  <img src="https://img.shields.io/badge/Fetch-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/apis/web-view?">
+  <img src="https://img.shields.io/badge/Web%20View-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/apis/gesture-module?">
+  <img src="https://img.shields.io/badge/Gesture%20Module-Light%20Gray?color=D3D3D3" />
+</a>
+      </p>
+      <p>Advanced AI playground demonstrating agentic behaviors and autonomous interactions using Spectacles platform.</p>
+    </td>
+    <td align="center" valign="top" width="33%">
       <a href="./Crop/">
         <img src="./Crop/README-ref/sample-list-crop-rounded-edges.gif" alt="crop" width="250px" />
       </a>
@@ -652,7 +697,24 @@ Bluetooth Low Energy connectivity projects
       </p>
       <p>General BLE playground for experimenting with Bluetooth Low Energy features on Spectacles.</p>
     </td>
-    <td></td>
+    <td align="center" valign="top" width="33%">
+      <a href="./BLE Game Controller/">
+        <img src="./BLE Game Controller/README-ref/sample-list-ble-game-controller-rounded-edges.gif" alt="ble-game-controller" width="250px" />
+      </a>
+      <h3>BLE Game Controller</h3>
+      <p>
+<a href="https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?">
+  <img src="https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/apis/experimental-apis?">
+  <img src="https://img.shields.io/badge/Experimental%20API-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/compatibility-list">
+  <img src="https://img.shields.io/badge/BLE-Light%20Gray?color=D3D3D3" />
+</a>
+      </p>
+      <p>Interactive 3D character experience using Bluetooth game controllers with movement, animations, and haptic feedback.</p>
+    </td>
   </tr>
 </table>
 
@@ -671,7 +733,7 @@ Bluetooth Low Energy connectivity projects
 
 ## Contributing
 
-We welcome contributions! Please read our contributing guidelines and feel free to submit pull requests or open issues.
+We welcome contributions on existing project! Feel free to submit pull requests or open issues.
 
 ---
 

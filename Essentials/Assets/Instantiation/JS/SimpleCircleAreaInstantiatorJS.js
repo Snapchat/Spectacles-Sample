@@ -71,5 +71,5 @@ function SimpleCircleAreaInstantiator() {
 }
 
 // Register the script
-script.api.SimpleCircleAreaInstantiator = SimpleCircleAreaInstantiator;
+script.SimpleCircleAreaInstantiator = SimpleCircleAreaInstantiator;
 SimpleCircleAreaInstantiator();

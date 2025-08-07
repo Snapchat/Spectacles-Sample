@@ -16,8 +16,9 @@
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<TypeScriptAssetData/13c9127d-ac8a-4712-9b1c-15a98faff7ea>
   SvgIcon: ""
+  SetupScript:
+    code: ""
   Description: ""
-  InternalVersion: 0
   VersionMajor: 0
   VersionMinor: 0
   VersionPatch: 0
@@ -35,6 +36,8 @@
     verticalDistanceFromTarget: false
   ScriptTypesHidden:
     {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
     - target: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       verticalDistanceFromTarget: 0.100000
@@ -54,7 +57,3 @@
     - '// @input bool flattenDuringTargetRotation = true {"hint":"Flatten Y-axis rotation during target rotation"}'
     - '// @input vec3 offset = {0,0,0} {"hint":"Offset for tethering the content in relation to the target"}'
     - '// @input float lerpSpeed = 5 {"hint":"Lerp speed for smooth movement"}'
-  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
-  SetupScript:
-    code: ""
-  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000

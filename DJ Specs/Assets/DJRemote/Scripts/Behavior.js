@@ -2100,7 +2100,7 @@ function triggerCallScriptAPI() {
                 debugPrint("Script Component must be set!");
                 return;
             }
-            targetAPI = script.callScriptAPIScriptComponent.api;
+            targetAPI = script.callScriptAPIScriptComponent;
             break;
         case "Global API":
             targetAPI = global;
@@ -2560,15 +2560,15 @@ function triggerAnimateMesh() {
     }
 }
 script.trigger = onTrigger;
-script.api.trigger = script.trigger;
+script.trigger = script.trigger;
 script.addTriggerResponse = function(callback) {
     localTriggerResponses.push(callback);
 };
-script.api.addTriggerResponse = script.addTriggerResponse;
+script.addTriggerResponse = script.addTriggerResponse;
 script.removeTriggerResponse = function(callback) {
     if (!removeFromArray(localTriggerResponses, callback)) {
         debugPrint("Failed to remove response");
     }
 };
-script.api.removeTriggerResponse = script.removeTriggerResponse;
+script.removeTriggerResponse = script.removeTriggerResponse;
 setupTrigger();

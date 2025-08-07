@@ -1,0 +1,90 @@
+- !<ObjectPrefab/1215244d-17d3-4cf6-bcab-4ac10faa3aae>
+  PackagePath: ""
+  objects:
+    - !<own> 7668f73a-9ecd-49b2-981a-45717b984345
+  LazyLoading: false
+  RetainAssets: true
+- !<ScriptComponent/064a7656-5952-4665-894d-692637b3633c>
+  PrefabRemaps:
+    []
+  Name: Line3D
+  Enabled: true
+  ScriptAsset: !<reference> 4eb4730a-d97d-449b-91ca-8109833f7cdd
+  ScriptInputsDefault:
+    _circleSegments: true
+    _interpolationSteps: true
+    _smoothness: true
+    capEnds: true
+    _zOffset: true
+    _useWorldPosition: true
+    _autoCorrectOffset: true
+    _useRelativeToComponent: true
+    _debugPositions: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      pathPoints: !<reference.SceneObject[]>
+        - !<reference> 227f4622-9ced-4c2d-ae48-1ee8a7185077
+        - !<reference> 9c3fe9b1-e56c-4ba6-8353-9cbb4a1637fe
+      _radius: 0.200000
+      _circleSegments: !<float> 16.000000
+      _interpolationSteps: !<float> 10.000000
+      _smoothness: 0.500000
+      material: !<reference.Material> 8b0bc87f-5d51-438a-a3de-723112c98b39
+      _color: !<Vec3> {x: 0.361166, y: 0.388067, z: 0.384421}
+      capEnds: true
+      _zOffset: !<float> 0.000000
+      _useWorldPosition: true
+      _autoCorrectOffset: true
+      _useRelativeToComponent: true
+      _debugPositions: false
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/227f4622-9ced-4c2d-ae48-1ee8a7185077>
+  PrefabRemaps:
+    []
+  Name: LineStart
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    []
+- !<SceneObject/7668f73a-9ecd-49b2-981a-45717b984345>
+  PrefabRemaps:
+    []
+  Name: Line
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 227f4622-9ced-4c2d-ae48-1ee8a7185077
+    - !<own> 9c3fe9b1-e56c-4ba6-8353-9cbb4a1637fe
+  Components:
+    - !<own> 064a7656-5952-4665-894d-692637b3633c
+- !<SceneObject/9c3fe9b1-e56c-4ba6-8353-9cbb4a1637fe>
+  PrefabRemaps:
+    []
+  Name: LineEnd
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    []

@@ -24,8 +24,12 @@ export class CameraService extends BaseScriptComponent {
     camRequest.cameraId = camID;
     camRequest.imageSmallerDimension = this.isEditor ? 352 : 756;
     this.camTexture = this.camModule.requestCamera(camRequest);
+    var camTexControl = this.camTexture.control as CameraTextureProvider;
+    camTexControl.onNewFrame.add(() => {});
     this.cropProvider = this.screenCropTexture.control as CameraTextureProvider;
     this.cropProvider.inputTexture = this.camTexture;
+
+    this.cropProvider;
     if (this.isEditor) {
       return;
     }

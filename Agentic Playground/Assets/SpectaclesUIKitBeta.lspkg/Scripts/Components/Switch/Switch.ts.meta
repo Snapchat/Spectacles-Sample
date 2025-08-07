@@ -1,0 +1,78 @@
+- !<AssetImportMetadata/19004ab6-6a01-59e6-9482-31fe4cfbd73e>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> a14f4a47-ac92-4d69-b68e-57bb756969dd
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> a14f4a47-ac92-4d69-b68e-57bb756969dd
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 228217b0-6a87-49fb-a724-8f6ae7cadab5
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/228217b0-6a87-49fb-a724-8f6ae7cadab5>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 6d17a0c1-43ad-4ea6-a848-f1c486dc84dd
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    _defaultState: false
+    _direction: false
+    _knobSize: false
+    _numberOfStates: false
+    _playAudio: false
+    _size: false
+    _triggerToCycle: false
+    addCallbacks: false
+    isDisabled: false
+    onFinishedCallbacks: false
+    onValueChangedCallbacks: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - isDisabled: false
+      _playAudio: false
+      _size: !<Vec3> {x: 6.000000, y: 3.000000, z: 1.000000}
+      _knobSize: !<Vec2> {x: 2.000000, y: 3.000000}
+      _triggerToCycle: false
+      _direction: !<float> 0.000000
+      _numberOfStates: 2
+      _defaultState: 0
+      addCallbacks: false
+      onValueChangedCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input bool isDisabled {"hint":"Disabled Mode"}'
+    - '// @input bool _playAudio {"label":"Play Audio", "hint":"Play audio on interaction"}'
+    - '// @input vec3 _size = {6,3,3} {"hint":"Size of the element in centimeters"}'
+    - // @input vec2 _knobSize
+    - // @input bool _triggerToCycle
+    - '// @input float _direction {"widget":"combobox", "values":[{"label":"Normal", "value":0}, {"label":"Reverse", "value":1}], "showIf":"triggerToCycle"}'
+    - '// @input int _numberOfStates = 2 {"hint":"The number of states the switch can have. Must be a whole number greater than 1."}'
+    - '// @input int _defaultState {"hint":"The default state of the switch. Must be a whole number between 0 and `numberOfStates - 1`."}'
+    - "// @input bool addCallbacks {\"hint\":\"Enable this to add functions from another script to this component's callbacks\"}"
+    - /*
+    - "@typedef Callback"
+    - "@property {Component.ScriptComponent} scriptComponent "
+    - "@property {string} functionName "
+    - "*/"
+    - '// @input Callback[] onValueChangedCallbacks = {} {"label":"On Value Changed Callbacks", "showIf":"addCallbacks"}'
+    - '// @input Callback[] onFinishedCallbacks = {} {"label":"On Finished Callbacks", "showIf":"addCallbacks"}'

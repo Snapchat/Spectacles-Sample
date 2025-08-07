@@ -223,7 +223,7 @@ export function makeTween(
   lateUpdateEvent.bind(() => {
     if (getTime() > startTime + duration) {
       hasRemovedEvent = true;
-      updateDispatcher.removeLateUpdateEvent(lateUpdateEvent);
+      updateDispatcher.removeEvent(lateUpdateEvent);
       callback(1);
     } else {
       callback((getTime() - startTime) / duration);
@@ -234,7 +234,7 @@ export function makeTween(
   function cancel() {
     if (!hasRemovedEvent) {
       hasRemovedEvent = true;
-      updateDispatcher.removeLateUpdateEvent(lateUpdateEvent);
+      updateDispatcher.removeEvent(lateUpdateEvent);
     }
   }
 

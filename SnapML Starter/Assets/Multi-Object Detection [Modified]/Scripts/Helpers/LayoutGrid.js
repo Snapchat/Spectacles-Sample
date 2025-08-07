@@ -127,7 +127,7 @@ function buildAxis(index, shape) {
 
 function update() {
     if (!initialized) {
-        print("[Layout Group] layout is not initialized yet, call script.api.initialize first");
+        print("[Layout Group] layout is not initialized yet, call script.initialize first");
         return;
     }
     var shape = calculateShape();
@@ -223,9 +223,9 @@ function getContainerSize(st) {
     return getActualSize(st);
 }
 
-script.api.initialize = initialize;
-script.api.update = update;
-script.api.getContainerSize = getContainerSize;
+script.initialize = initialize;
+script.update = update;
+script.getContainerSize = getContainerSize;
 
 if (script.initializeOnStart) {
     initialize();

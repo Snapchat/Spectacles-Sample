@@ -5,6 +5,8 @@
   PrimaryAsset: !<reference> 798cec70-deaf-4285-a931-20dfad3a7701
   PackageType: NotAPackage
   PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
   AssetDataMap:
     ObjectPrefab: !<own> 1930c421-1ad0-4565-9b65-34d0f82c8c74
   DependentFiles:
@@ -12,8 +14,6 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-  ExtraData:
-    {}
 - !<ObjectPrefabAssetData/1930c421-1ad0-4565-9b65-34d0f82c8c74>
   SourceRemaps:
     - 0a960e4a-a824-4651-8398-33fd7340b2d7: 37be061b-c395-4699-a84b-e8b90aa81a9b
@@ -27,11 +27,11 @@
   Name: DartBoard
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: -315.039551}
-    rotation: {x: 90.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 100.000000, y: 10.000000, z: 100.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: -315.039551}
+    Rotation: {x: 90.000000, y: -0.000000, z: 0.000000}
+    Scale: {x: 100.000000, y: 10.000000, z: 100.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:

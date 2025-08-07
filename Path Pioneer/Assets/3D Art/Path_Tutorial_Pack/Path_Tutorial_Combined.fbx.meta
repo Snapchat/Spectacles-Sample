@@ -73,7 +73,7 @@
   ImporterName: FbxImporter
   PrimaryAsset: !<reference> 9018dbdf-f719-4ed3-8ab3-b7cbf7808541
   PackageType: LegacyPackage
-  PackagePolicy: CanBeUnpacked
+  PackagePolicy: CanBeUnpackedTransparent
   ExtraData:
     {}
   AssetDataMap:
@@ -116,11 +116,11 @@
   Name: User_Spine
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 3.551592, z: 0.000000}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 3.551592, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 79a1dc6d-13b0-40f0-ba8f-15d8c0c99098
   Components:
@@ -131,11 +131,11 @@
   Name: User_Neck
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 3.512079, z: 0.000003}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 3.512079, z: 0.000003}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> f7259419-2fca-433b-b54d-a8c32f02f1fe
   Components:
@@ -146,11 +146,11 @@
   Name: Track_Geo
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 2e0e3f40-0559-4ae4-b3e9-118cfca2d5aa
     - !<own> 3104ff30-d9ed-4576-8319-ff66ae7726d7
@@ -172,11 +172,11 @@
   Name: User_RightArm
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -2.443309, y: -0.299754, z: 0.000000}
-    rotation: {x: 0.000000, y: -30.000000, z: 75.002312}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -2.443309, y: -0.299754, z: 0.000000}
+    Rotation: {x: 0.000000, y: -30.000000, z: 75.002312}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 803c6f98-3550-405a-b917-1d23d2353278
   Components:
@@ -187,11 +187,11 @@
   Name: User_LeftForeArm
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 5.897940, y: 0.000077, z: -0.414124}
-    rotation: {x: 0.000000, y: -30.000000, z: 0.010294}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 5.897940, y: 0.000077, z: -0.414124}
+    Rotation: {x: 0.000000, y: -30.000000, z: 0.010294}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> c4531972-08b1-49b7-9765-89ff7612ae53
   Components:
@@ -202,11 +202,11 @@
   Name: User_LeftLeg
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -0.000001, y: -6.852974, z: 0.811221}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.000001, y: -6.852974, z: 0.811221}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 609a61a0-a831-4897-8368-57584f170823
   Components:
@@ -217,11 +217,11 @@
   Name: Sprint_Mesh
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -232,11 +232,11 @@
   Name: Loop_Mesh
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -247,11 +247,11 @@
   Name: Rings_Start
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 20.393526, y: 0.000000, z: -20.393530}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 0.000000, y: 1.000000, z: 0.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 20.393526, y: 0.000000, z: -20.393530}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.000000, y: 1.000000, z: 0.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -262,11 +262,11 @@
   Name: Human
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -277,11 +277,11 @@
   Name: Path_Tutorial_Combined
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 5d328dbd-b5be-4a02-8417-6dd933325abf
     - !<own> 1517c55b-8aaa-4042-bb54-3d7b74f99a05
@@ -315,11 +315,11 @@
   Name: Path_Plane_2
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -330,11 +330,11 @@
   Name: Finish_line
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 45.866402, y: 0.000000, z: -45.866402}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 0.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 45.866402, y: 0.000000, z: -45.866402}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -345,11 +345,11 @@
   Name: Human_Geo
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: -12.547609, z: 4.413225}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -12.547609, z: 4.413225}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 368cadc6-da36-450a-965b-77e58cf8af4a
   Components:
@@ -360,11 +360,11 @@
   Name: User_LeftFoot
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -0.010687, y: -8.119369, z: -0.599621}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.010687, y: -8.119369, z: -0.599621}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -401,11 +401,11 @@
   Name: Arrow_Start
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 20.389072, y: 26.278498, z: -20.387356}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 0.000000, y: 0.000000, z: 0.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 20.389072, y: 26.278498, z: -20.387356}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.000000, y: 0.000000, z: 0.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -416,11 +416,11 @@
   Name: User_RightUpLeg
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -2.383090, y: -0.761254, z: -0.000000}
-    rotation: {x: -15.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -2.383090, y: -0.761254, z: -0.000000}
+    Rotation: {x: -15.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> c80591ab-0f3a-4acd-8340-71dc3038dd08
   Components:
@@ -471,11 +471,11 @@
   Name: User_Spine1
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 3.512053, z: -0.000000}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 3.512053, z: -0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 91e1b1fd-60c3-401b-b808-25c7f607baa6
     - !<own> 7acff3fc-0c9b-4464-8d52-7d67ab91b4ed
@@ -488,11 +488,11 @@
   Name: User_RightShoulder
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -1.555991, y: 1.740486, z: -0.000000}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -1.555991, y: 1.740486, z: -0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 172af3b5-a4ca-4906-9cbd-77f0bfe65aa4
   Components:
@@ -503,11 +503,11 @@
   Name: User_RightForeArm
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -5.897943, y: 0.000310, z: -0.414105}
-    rotation: {x: 0.000000, y: 30.000000, z: -0.032457}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -5.897943, y: 0.000310, z: -0.414105}
+    Rotation: {x: 0.000000, y: 30.000000, z: -0.032457}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> bf74d2c5-0546-4632-b452-2f2478d7a1a1
   Components:
@@ -518,11 +518,11 @@
   Name: User_LeftShoulder
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 1.555991, y: 1.740486, z: -0.000000}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 1.555991, y: 1.740486, z: -0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> f9dd2666-c3f3-428d-8da8-52c34793e8c7
   Components:
@@ -553,11 +553,11 @@
   Name: Ring_Finish
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 156.574127, y: 0.000000, z: -156.574127}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 0.000000, y: 1.000000, z: 0.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 156.574127, y: 0.000000, z: -156.574127}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.000000, y: 1.000000, z: 0.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -568,11 +568,11 @@
   Name: User_LeftUpLeg
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 2.383089, y: -0.761254, z: -0.000000}
-    rotation: {x: 15.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 2.383089, y: -0.761254, z: -0.000000}
+    Rotation: {x: 15.000000, y: -0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 200df518-c1be-47b7-bab3-c7def373c4a5
   Components:
@@ -583,11 +583,11 @@
   Name: User_Reference
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.926924, y: 0.000004, z: -5.090000}
-    rotation: {x: -180.000000, y: 50.321381, z: -180.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.926924, y: 0.000004, z: -5.090000}
+    Rotation: {x: -180.000000, y: 50.321381, z: -180.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> ff14672e-28fd-467f-b78d-d956e5cd4fe4
   Components:
@@ -627,23 +627,23 @@
       PlaybackSpeed: 1.000000
       Begin: 0.000000
       End: 877.000000
+      Offset: 0.000000
       Reversed: false
       Disabled: false
       BlendMode: Default
       ScaleMode: Multiply
       PlaybackMode: Loop
-      Offset: 0.000000
 - !<SceneObject/bf74d2c5-0546-4632-b452-2f2478d7a1a1>
   PrefabRemaps:
     []
   Name: User_RightHand
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -7.690288, y: -0.008588, z: 0.372814}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.210971}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -7.690288, y: -0.008588, z: 0.372814}
+    Rotation: {x: 0.000000, y: -0.000000, z: 0.210971}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -654,11 +654,11 @@
   Name: User_RightFoot
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.010686, y: -8.119367, z: -0.599618}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.010686, y: -8.119367, z: -0.599618}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -731,11 +731,11 @@
   Name: User_LeftHand
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 7.690289, y: -0.005824, z: 0.372816}
-    rotation: {x: 0.000000, y: 0.000000, z: -0.066911}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 7.690289, y: -0.005824, z: 0.372816}
+    Rotation: {x: 0.000000, y: 0.000000, z: -0.066911}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -821,11 +821,11 @@
   Name: User_RightLeg
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000005, y: -6.853033, z: 0.810722}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000005, y: -6.853033, z: 0.810722}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> bfea6650-fa15-4961-8a9b-1a86cfedff55
   Components:
@@ -876,11 +876,11 @@
   Name: Start_line
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 5.757664, y: 0.000000, z: -5.757664}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 0.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 5.757664, y: 0.000000, z: -5.757664}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -911,11 +911,11 @@
   Name: Rings_Start_Loop
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 20.393526, y: 0.440371, z: -20.393530}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 0.000000, y: 0.000000, z: 0.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 20.393526, y: 0.440371, z: -20.393530}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.000000, y: 0.000000, z: 0.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -966,11 +966,11 @@
   Name: Path_Plane_3
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -981,11 +981,11 @@
   Name: Arrow_Finish
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 156.569672, y: 26.278498, z: -156.567963}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 0.000000, y: 0.000000, z: 0.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 156.569672, y: 26.278498, z: -156.567963}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.000000, y: 0.000000, z: 0.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -996,11 +996,11 @@
   Name: Path_Plane_1
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -1011,11 +1011,11 @@
   Name: User_Head
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -0.000000, y: 7.731276, z: 0.000002}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.000000, y: 7.731276, z: 0.000002}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -1026,11 +1026,11 @@
   Name: User_LeftArm
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 2.443309, y: -0.299754, z: 0.000000}
-    rotation: {x: 0.000000, y: -15.000000, z: -75.000748}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 2.443309, y: -0.299754, z: 0.000000}
+    Rotation: {x: 0.000000, y: -15.000000, z: -75.000748}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 18e29e79-f60d-4127-96eb-306ebccecb29
   Components:
@@ -1041,11 +1041,11 @@
   Name: User_Hips
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 15.215491, z: -0.337826}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 15.215491, z: -0.337826}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> b20497c7-77fd-4c59-b731-760ce67057d8
     - !<own> 6d8dc60e-f1ba-4b8f-922a-2a9b613d2297

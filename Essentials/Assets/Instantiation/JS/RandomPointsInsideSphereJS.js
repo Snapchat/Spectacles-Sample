@@ -71,5 +71,5 @@ function RandomPointsInsideSphere() {
 }
 
 // Register the script
-script.api.RandomPointsInsideSphere = RandomPointsInsideSphere;
+script.RandomPointsInsideSphere = RandomPointsInsideSphere;
 RandomPointsInsideSphere();

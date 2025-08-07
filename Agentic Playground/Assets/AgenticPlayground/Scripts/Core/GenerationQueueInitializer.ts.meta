@@ -1,0 +1,56 @@
+- !<AssetImportMetadata/eaa8c0ec-dbd0-4274-bad2-ca8961f25c6a>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 52d57696-27e9-493f-8e70-8fb6f53db779
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 52d57696-27e9-493f-8e70-8fb6f53db779
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 58be2b59-34cb-4855-988b-1a16f8375df8
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/58be2b59-34cb-4855-988b-1a16f8375df8>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 52126c31-17fa-440a-b87b-37e4c91d439f
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    enableDebugLogging: false
+    enableQueueSystem: false
+    imageGenFactory: false
+    maxConcurrentImages: false
+    maxConcurrentModels: false
+    modelGenFactory: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - imageGenFactory: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      modelGenFactory: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      enableQueueSystem: true
+      maxConcurrentImages: !<float> 1.000000
+      maxConcurrentModels: !<float> 1.000000
+      enableDebugLogging: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType imageGenFactory {"hint":"Reference to the ImageGen factory component"}'
+    - '// @input AssignableType_1 modelGenFactory {"hint":"Reference to the ModelGen factory component"}'
+    - '// @input bool enableQueueSystem = true {"hint":"Enable queue system (set to false to disable queuing)"}'
+    - '// @input float maxConcurrentImages = 1 {"hint":"Maximum concurrent image generations (1 = sequential)", "widget":"slider", "min":1, "max":3, "step":1}'
+    - '// @input float maxConcurrentModels = 1 {"hint":"Maximum concurrent model generations (1 = sequential)", "widget":"slider", "min":1, "max":2, "step":1}'
+    - '// @input bool enableDebugLogging = true {"hint":"Enable debug logging"}'

@@ -29,7 +29,7 @@ var tailColor;
 function initialize() {
     if (validateInputs()) {
         setMeshBuilder();
-        script.api.resetTrail();
+        script.resetTrail();
         isInitialized = true;
     }
 }
@@ -51,15 +51,15 @@ function setMeshBuilder() {
     tailColor = [script.trailColor.r, script.trailColor.g, script.trailColor.b, 1];
 }
 
-script.api.hideTrail = function() {
+script.hideTrail = function() {
     renderMeshVisual.enabled = false;
 };
 
-script.api.showTrail = function() {
+script.showTrail = function() {
     renderMeshVisual.enabled = true;
 };
 
-script.api.resetTrail = function() {
+script.resetTrail = function() {
     var verticesCount = builder.getVerticesCount();
     var indicesCount = builder.getIndicesCount();
     if (verticesCount > 0) {

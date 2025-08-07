@@ -16,8 +16,9 @@
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<TypeScriptAssetData/19e7b311-5238-43e1-8b87-9ea9f71d23e7>
   SvgIcon: ""
+  SetupScript:
+    code: ""
   Description: ""
-  InternalVersion: 0
   VersionMajor: 0
   VersionMinor: 0
   VersionPatch: 0
@@ -33,6 +34,8 @@
     triggerOnGreaterThan: false
   ScriptTypesHidden:
     {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
     - target: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       distances: !<float[]>
@@ -51,7 +54,3 @@
     - '// @input Component.ScriptComponent[] events = {} {"hint":"Script components (like DistanceEventsCallbacks) that have the callback functions"}'
     - "// @input string[] eventFunctions = {} {\"hint\":\"Function names to call on the corresponding event scripts (e.g. 'onDistanceThresholdCrossed')\"}"
     - '// @input bool triggerOnGreaterThan = true {"hint":"Whether to trigger when distance becomes greater than threshold (true) or less than threshold (false)"}'
-  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
-  SetupScript:
-    code: ""
-  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000

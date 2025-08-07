@@ -1,0 +1,71 @@
+- !<AssetImportMetadata/df0905bc-92b0-4263-b084-23fb97517820>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> e8b53c9b-07ab-44d2-91f4-01449aec7811
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> e8b53c9b-07ab-44d2-91f4-01449aec7811
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> bb7f89c5-f563-4916-9cc3-abf55d46558f
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/bb7f89c5-f563-4916-9cc3-abf55d46558f>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 4c0b57cf-3acf-44a6-9963-95128c7588b5
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    contentText: false
+    enable3DGeneration: false
+    enableDebugLogging: false
+    loadingSpinner: false
+    modelGenerator: false
+    modelPlaceholder: false
+    nodeId: false
+    nodeLevel: false
+    nodePosition: false
+    titleText: false
+    useGenerationQueue: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - titleText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      modelPlaceholder: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      contentText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      nodeId: ""
+      nodePosition: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      nodeLevel: !<float> 1.000000
+      enableDebugLogging: false
+      enable3DGeneration: true
+      modelGenerator: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      loadingSpinner: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      useGenerationQueue: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Component.Text titleText {"hint":"Text component for the node title"}'
+    - '// @input SceneObject modelPlaceholder {"hint":"Scene object reference for the 3D model position"}'
+    - '// @input Component.Text contentText {"hint":"Text component for the node content/description"}'
+    - '// @input string nodeId {"hint":"Unique identifier for this node"}'
+    - '// @input vec3 nodePosition {"hint":"Position in the diagram structure"}'
+    - '// @input float nodeLevel = 1 {"hint":"Level in the diagram hierarchy"}'
+    - '// @input bool enableDebugLogging {"hint":"Enable debug logging for this node"}'
+    - '// @input bool enable3DGeneration = true {"hint":"Enable automatic 3D model generation"}'
+    - '// @input AssignableType modelGenerator {"hint":"modelGenBridge component for specialized 3D model generation"}'
+    - '// @input SceneObject loadingSpinner {"hint":"Loading indicator to show during model generation"}'
+    - '// @input bool useGenerationQueue = true {"hint":"Enable queue-based generation for multiple concurrent requests"}'

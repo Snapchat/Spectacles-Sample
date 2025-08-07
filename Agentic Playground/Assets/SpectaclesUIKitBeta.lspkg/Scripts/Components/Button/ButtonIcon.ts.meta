@@ -1,0 +1,66 @@
+- !<AssetImportMetadata/8992e0b7-ed19-4e9e-81a9-ebb1d3233893>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> fe677ed7-1bed-49d9-b766-d98f92beeec8
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> fe677ed7-1bed-49d9-b766-d98f92beeec8
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> d97696e4-5f98-471a-8396-083c81d44d8c
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/d97696e4-5f98-471a-8396-083c81d44d8c>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 20b11406-6943-47bd-81c5-9ddf10e9cd96
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    _autoHighlight: false
+    _playAudio: false
+    _size: false
+    addCallbacks: false
+    isDisabled: false
+    triggerDownCallbacks: false
+    triggerUpCallbacks: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - isDisabled: false
+      _playAudio: false
+      _size: !<Vec3> {x: 6.000000, y: 3.000000, z: 3.000000}
+      _autoHighlight: false
+      addCallbacks: false
+      triggerUpCallbacks:
+        []
+      triggerDownCallbacks:
+        []
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input bool isDisabled {"hint":"Disabled Mode"}'
+    - '// @input bool _playAudio {"label":"Play Audio", "hint":"Play audio on interaction"}'
+    - '// @input vec3 _size = {6,3,3} {"hint":"Size of the element in centimeters"}'
+    - '// @input bool _autoHighlight {"hint":"Automatic highlight"}'
+    - "// @input bool addCallbacks {\"hint\":\"Enable this to add functions from another script to this component's callbacks\"}"
+    - /*
+    - "@typedef Callback"
+    - "@property {Component.ScriptComponent} scriptComponent "
+    - "@property {string} functionName "
+    - "*/"
+    - '// @input Callback[] triggerUpCallbacks = {} {"label":"On Trigger Up Callbacks", "showIf":"addCallbacks"}'
+    - '// @input Callback[] triggerDownCallbacks = {} {"label":"On Trigger Down Callbacks", "showIf":"addCallbacks"}'

@@ -1,0 +1,71 @@
+- !<AssetImportMetadata/9540e419-f988-4e99-bb5f-44bac6c9c6d7>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 3c231fea-535a-4cd1-968a-9413f767b3b9
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 3c231fea-535a-4cd1-968a-9413f767b3b9
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 9a60a31b-a9c2-4fe6-8dee-3a2ba317fdbe
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/9a60a31b-a9c2-4fe6-8dee-3a2ba317fdbe>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 940211dd-cf31-49eb-96c1-3ad757108386
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    animationSpeed: false
+    cardPrefab: false
+    centerPosition: false
+    leftCardRotationZ: false
+    leftPosition: false
+    numberOfCards: false
+    rightCardRotationZ: false
+    rightPosition: false
+    swipeSpeedThreshold: false
+    swipeThreshold: false
+    testMode: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - cardPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      numberOfCards: 10
+      leftPosition: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      centerPosition: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      rightPosition: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      swipeThreshold: !<float> 50.000000
+      animationSpeed: 0.500000
+      swipeSpeedThreshold: !<float> 100.000000
+      leftCardRotationZ: !<float> -15.000000
+      rightCardRotationZ: !<float> 15.000000
+      testMode: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Asset.ObjectPrefab cardPrefab {"hint":"Prefab to instantiate for each card"}'
+    - '// @input int numberOfCards = "10" {"hint":"Total number of cards to handle"}'
+    - '// @input SceneObject leftPosition {"hint":"Transform for the left position"}'
+    - '// @input SceneObject centerPosition {"hint":"Transform for the center position (active/swipeable)"}'
+    - '// @input SceneObject rightPosition {"hint":"Transform for the right position"}'
+    - '// @input number swipeThreshold = "50.0" {"hint":"Minimum swipe distance to trigger card change"}'
+    - '// @input number animationSpeed = "0.5" {"hint":"Animation speed for card transitions (0-1)"}'
+    - '// @input number swipeSpeedThreshold = "100.0" {"hint":"Minimum swipe speed (distance/time) to trigger quick swipe"}'
+    - '// @input number leftCardRotationZ = "-15.0" {"hint":"Rotation angle in degrees for the left card (negative tilts left)"}'
+    - '// @input number rightCardRotationZ = "15.0" {"hint":"Rotation angle in degrees for the right card (positive tilts right)"}'
+    - '// @input boolean testMode = "false" {"hint":"Enable test mode with randomly generated lecture content - DEPRECATED: Use SummaryBridge test framework instead"}'

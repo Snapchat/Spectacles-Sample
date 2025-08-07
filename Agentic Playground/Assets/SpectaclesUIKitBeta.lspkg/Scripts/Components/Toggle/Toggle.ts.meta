@@ -1,0 +1,69 @@
+- !<AssetImportMetadata/6c4ecab2-81f0-968f-9999-9d62c8d25dfb>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 3e23441a-309d-48e9-b46a-7d60c7dd13f1
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 3e23441a-309d-48e9-b46a-7d60c7dd13f1
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 7377d08d-4f9e-4a63-9e9b-0a964723d4d9
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/7377d08d-4f9e-4a63-9e9b-0a964723d4d9>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: d232e4b1-4e8b-434f-8b49-c19f3dadf8b6
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    _autoHighlight: false
+    _defaultToOn: false
+    _playAudio: false
+    _size: false
+    addCallbacks: false
+    isDisabled: false
+    onFinishedCallbacks: false
+    onValueChangedCallbacks: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - isDisabled: false
+      _playAudio: false
+      _size: !<Vec3> {x: 6.000000, y: 3.000000, z: 1.000000}
+      _autoHighlight: false
+      _defaultToOn: false
+      addCallbacks: false
+      onValueChangedCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input bool isDisabled {"hint":"Disabled Mode"}'
+    - '// @input bool _playAudio {"label":"Play Audio", "hint":"Play audio on interaction"}'
+    - '// @input vec3 _size = {6,3,3} {"hint":"Size of the element in centimeters"}'
+    - '// @input bool _autoHighlight {"hint":"Automatic highlight"}'
+    - '// @input bool _defaultToOn {"hint":"The default state of the Toggle"}'
+    - "// @input bool addCallbacks {\"hint\":\"Enable this to add functions from another script to this component's callbacks\"}"
+    - /*
+    - "@typedef Callback"
+    - "@property {Component.ScriptComponent} scriptComponent "
+    - "@property {string} functionName "
+    - "*/"
+    - '// @input Callback[] onValueChangedCallbacks = {} {"label":"On Value Changed Callbacks", "showIf":"addCallbacks"}'
+    - '// @input Callback[] onFinishedCallbacks = {} {"label":"On Finished Callbacks", "showIf":"addCallbacks"}'

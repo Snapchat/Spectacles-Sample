@@ -1,0 +1,62 @@
+- !<AssetImportMetadata/394cc93e-2ae2-45b1-a2ab-a4f0128ff764>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> c8b9f62b-f596-4074-a850-45c19d2cdbdf
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> c8b9f62b-f596-4074-a850-45c19d2cdbdf
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 76f6f25f-a239-4031-b001-aa178d45fe4b
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/76f6f25f-a239-4031-b001-aa178d45fe4b>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: e7f00b2e-02f5-4883-8494-371559afe1fe
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    enableDebugLogging: false
+    image: false
+    imageGenFactory: false
+    modelProvider: false
+    spinner: false
+    testOnAwake: false
+    testPrompt: false
+    textDisplay: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - image: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      textDisplay: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      spinner: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      imageGenFactory: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      modelProvider: OpenAI
+      testOnAwake: false
+      testPrompt: A beautiful landscape
+      enableDebugLogging: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Component.Image image {"hint":"Image component to display generated image"}'
+    - '// @input Component.Text textDisplay {"hint":"Text component to display status"}'
+    - '// @input SceneObject spinner {"hint":"Spinner/loading indicator"}'
+    - '// @input AssignableType imageGenFactory {"hint":"ImageGen factory component for core image generation"}'
+    - '// @input string modelProvider = "OpenAI" {"widget":"combobox", "values":[{"label":"OpenAI", "value":"OpenAI"}, {"label":"Gemini", "value":"Gemini"}]}'
+    - '// @input bool testOnAwake {"hint":"Test generation on awake with this prompt"}'
+    - '// @input string testPrompt = "A beautiful landscape" {"widget":"text_area"}'
+    - '// @input bool enableDebugLogging {"hint":"Enable debug logging"}'

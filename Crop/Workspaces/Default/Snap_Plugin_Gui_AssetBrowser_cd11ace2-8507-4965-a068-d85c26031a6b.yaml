@@ -1,18 +1,22 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 650
+    size: 658
     values:
+      - ""
       - 3DModels
       - Echopark.hdr
       - Images
       - Materials
       - Prefabs
+      - Remote Service Gateway.lspkg
       - Remote Service Gateway.lspkg/Helpers
       - Remote Service Gateway.lspkg/Helpers/AudioProcessor.ts
       - Remote Service Gateway.lspkg/Helpers/DynamicAudioOutput.ts
       - Remote Service Gateway.lspkg/Helpers/MicrophoneRecorder.ts
       - Remote Service Gateway.lspkg/Helpers/VideoController.ts
+      - Remote Service Gateway.lspkg/HostedExternal
+      - Remote Service Gateway.lspkg/HostedExternal/Examples
       - Remote Service Gateway.lspkg/HostedExternal/Examples/ExampleGeminiCalls.ts
       - Remote Service Gateway.lspkg/HostedExternal/Examples/ExampleGeminiLive.ts
       - Remote Service Gateway.lspkg/HostedExternal/Examples/ExampleOAICalls.ts
@@ -72,6 +76,7 @@ CollapsedEntities:
       - Scripts/APIKeyHint.ts
       - Scripts/CameraService.ts
       - Scripts/ChatGPT.ts
+      - Scripts/PictureBehavior.ts
       - SpectaclesInteractionKit.lspkg
       - SpectaclesInteractionKit.lspkg/Assets
       - SpectaclesInteractionKit.lspkg/Assets/Audio
@@ -85,6 +90,7 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/Assets/Materials/BaseHandVisualsMaterials/FingerTipGlow.mat
       - SpectaclesInteractionKit.lspkg/Assets/Materials/BaseHandVisualsMaterials/HandOccluderLeft.mat
       - SpectaclesInteractionKit.lspkg/Assets/Materials/BaseHandVisualsMaterials/HandOccluderRight.mat
+      - SpectaclesInteractionKit.lspkg/Assets/Materials/BaseHandVisualsMaterials/NoDraw.mat
       - SpectaclesInteractionKit.lspkg/Assets/Materials/BitmojiMaterial.mat
       - SpectaclesInteractionKit.lspkg/Assets/Materials/ContainerImageMaterial.mat
       - SpectaclesInteractionKit.lspkg/Assets/Materials/LogoMaterial.mat
@@ -135,7 +141,9 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/ButtonCapsuleMesh.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/ButtonSphereMesh.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/Check.mesh
-      - SpectaclesInteractionKit.lspkg/Assets/Meshes/LeftHandMesh.mesh
+      - SpectaclesInteractionKit.lspkg/Assets/Meshes/LeftHandMeshFull.mesh
+      - SpectaclesInteractionKit.lspkg/Assets/Meshes/LeftHandMeshIndexThumb.mesh
+      - SpectaclesInteractionKit.lspkg/Assets/Meshes/LeftHandMeshPin.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/PlaneMesh.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/PlatformUI
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/PlatformUI/PlatformCapsuleButton.mesh
@@ -145,7 +153,9 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/PlatformUI/ScrollBarKnobMesh.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/PlatformUI/ScrollBarMesh.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/PlatformUI/Slider.mesh
-      - SpectaclesInteractionKit.lspkg/Assets/Meshes/RightHandMesh.mesh
+      - SpectaclesInteractionKit.lspkg/Assets/Meshes/RightHandMeshFull.mesh
+      - SpectaclesInteractionKit.lspkg/Assets/Meshes/RightHandMeshIndexThumb.mesh
+      - SpectaclesInteractionKit.lspkg/Assets/Meshes/RightHandMeshPin.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/ScrollBarSlider.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/SliderSphereKnob.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/SliderTrack.mesh
@@ -154,9 +164,11 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/Uncheck.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Shaders
       - SpectaclesInteractionKit.lspkg/Assets/Shaders/BaseHandVisualsShaders
-      - SpectaclesInteractionKit.lspkg/Assets/Shaders/BaseHandVisualsShaders/FingerHighlight.ss_graph
+      - SpectaclesInteractionKit.lspkg/Assets/Shaders/BaseHandVisualsShaders/FingerHighlightAdd.ss_graph
+      - SpectaclesInteractionKit.lspkg/Assets/Shaders/BaseHandVisualsShaders/FingerHighlightOpaque.ss_graph
       - SpectaclesInteractionKit.lspkg/Assets/Shaders/BaseHandVisualsShaders/FingerTipGlow.ss_graph
       - SpectaclesInteractionKit.lspkg/Assets/Shaders/BaseHandVisualsShaders/HandOccluder.ss_graph
+      - SpectaclesInteractionKit.lspkg/Assets/Shaders/BaseHandVisualsShaders/NoDraw.ss_graph
       - SpectaclesInteractionKit.lspkg/Assets/Shaders/NormalBasedTargetOutline.ss_graph
       - SpectaclesInteractionKit.lspkg/Assets/Shaders/PinchButton-ActiveOrInActive.ss_graph
       - SpectaclesInteractionKit.lspkg/Assets/Shaders/PinchDarkRadial.ss_graph
@@ -197,14 +209,7 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/Assets/Textures/Base.png
       - SpectaclesInteractionKit.lspkg/Assets/Textures/BaseHandVisualsTextures
       - SpectaclesInteractionKit.lspkg/Assets/Textures/BaseHandVisualsTextures/Glow.png
-      - SpectaclesInteractionKit.lspkg/Assets/Textures/BaseHandVisualsTextures/handMeshNewMask.png
-      - SpectaclesInteractionKit.lspkg/Assets/Textures/BaseHandVisualsTextures/handMeshNewMaskColored.png
-      - SpectaclesInteractionKit.lspkg/Assets/Textures/BaseHandVisualsTextures/handMeshPinchTexture.png
-      - SpectaclesInteractionKit.lspkg/Assets/Textures/BaseHandVisualsTextures/handMeshTapTexture.png
-      - SpectaclesInteractionKit.lspkg/Assets/Textures/BaseHandVisualsTextures/mask_fingertip.jpg
-      - SpectaclesInteractionKit.lspkg/Assets/Textures/BaseHandVisualsTextures/mask_fingertip_colored.png
-      - SpectaclesInteractionKit.lspkg/Assets/Textures/BaseHandVisualsTextures/mask_outline.jpg
-      - SpectaclesInteractionKit.lspkg/Assets/Textures/BaseHandVisualsTextures/mask_outline_colored.png
+      - SpectaclesInteractionKit.lspkg/Assets/Textures/BaseHandVisualsTextures/MaskMap.png
       - SpectaclesInteractionKit.lspkg/Assets/Textures/MaterialParams.png
       - SpectaclesInteractionKit.lspkg/Assets/Textures/Normal.png
       - SpectaclesInteractionKit.lspkg/Assets/Textures/PlatformUI
@@ -235,6 +240,7 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/Components/Helpers/InteractableColorFeedback.ts
       - SpectaclesInteractionKit.lspkg/Components/Helpers/InteractableOutlineFeedback.ts
       - SpectaclesInteractionKit.lspkg/Components/Helpers/InteractableSquishFeedback.ts
+      - SpectaclesInteractionKit.lspkg/Components/Helpers/ProximitySensor.ts
       - SpectaclesInteractionKit.lspkg/Components/Helpers/ScreenTransformAdapter.ts
       - SpectaclesInteractionKit.lspkg/Components/Helpers/ScrollBarFeedback.ts
       - SpectaclesInteractionKit.lspkg/Components/Helpers/SliderFeedback.ts
@@ -438,7 +444,9 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/README.md
       - SpectaclesInteractionKit.lspkg/SIK.ts
       - SpectaclesInteractionKit.lspkg/Utils
+      - SpectaclesInteractionKit.lspkg/Utils/BinaryHeap.ts
       - SpectaclesInteractionKit.lspkg/Utils/BistableThreshold.ts
+      - SpectaclesInteractionKit.lspkg/Utils/ColliderUtils.ts
       - SpectaclesInteractionKit.lspkg/Utils/Event.ts
       - SpectaclesInteractionKit.lspkg/Utils/Filter.ts
       - SpectaclesInteractionKit.lspkg/Utils/FunctionTimingUtils.ts
@@ -448,6 +456,7 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/Utils/LogLevel.ts
       - SpectaclesInteractionKit.lspkg/Utils/MovingAverageFilter.ts
       - SpectaclesInteractionKit.lspkg/Utils/NativeLogger.ts
+      - SpectaclesInteractionKit.lspkg/Utils/ObjectPool.ts
       - SpectaclesInteractionKit.lspkg/Utils/OneEuroFilter.ts
       - SpectaclesInteractionKit.lspkg/Utils/ReplayEvent.ts
       - SpectaclesInteractionKit.lspkg/Utils/SafeReference.ts
@@ -592,7 +601,6 @@ CollapsedEntities:
       - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Shaders/Planet_rings.ss_graph
       - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Shaders/Platform.ss_graph
       - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Shaders/Rocket.ss_graph
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Shaders/SpritePreset.ss_graph
       - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Textures
       - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Textures/A-icon.png
       - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Textures/B-icon.png

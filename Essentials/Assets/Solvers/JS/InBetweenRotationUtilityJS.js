@@ -223,11 +223,11 @@ function InBetweenRotationUtilityJS() {
     }
     
     // Expose public methods
-    script.api.getInBetweenRotationFromTransforms = getInBetweenRotationFromTransforms;
-    script.api.getInBetweenRotation = getInBetweenRotation;
-    script.api.getForwardVector = getForwardVector;
+    script.getInBetweenRotationFromTransforms = getInBetweenRotationFromTransforms;
+    script.getInBetweenRotation = getInBetweenRotation;
+    script.getForwardVector = getForwardVector;
 }
 
 // Register the script
-script.api.InBetweenRotationUtilityJS = InBetweenRotationUtilityJS;
+script.InBetweenRotationUtilityJS = InBetweenRotationUtilityJS;
 InBetweenRotationUtilityJS();

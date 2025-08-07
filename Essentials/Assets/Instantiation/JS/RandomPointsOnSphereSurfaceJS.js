@@ -69,5 +69,5 @@ function RandomPointsOnSphereSurface() {
 }
 
 // Register the script
-script.api.RandomPointsOnSphereSurface = RandomPointsOnSphereSurface;
+script.RandomPointsOnSphereSurface = RandomPointsOnSphereSurface;
 RandomPointsOnSphereSurface();

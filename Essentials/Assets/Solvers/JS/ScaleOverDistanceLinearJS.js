@@ -83,10 +83,10 @@ function ScaleOverDistanceLinearJS() {
     }
     
     // Expose public methods
-    script.api.updateScale = updateScale;
-    script.api.getDistance = function() { return _distance; };
+    script.updateScale = updateScale;
+    script.getDistance = function() { return _distance; };
 }
 
 // Register the script
-script.api.ScaleOverDistanceLinearJS = ScaleOverDistanceLinearJS;
+script.ScaleOverDistanceLinearJS = ScaleOverDistanceLinearJS;
 ScaleOverDistanceLinearJS();

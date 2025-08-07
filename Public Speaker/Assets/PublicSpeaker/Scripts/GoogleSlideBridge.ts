@@ -6,7 +6,8 @@ const log = new NativeLogger("GoogleSlidesBridge");
 export class GoogleSlideBridge extends BaseScriptComponent {
 
   private internetModule: InternetModule = require("LensStudio:InternetModule");
-  private remoteMediaModule = require("LensStudio:RemoteMediaModule");
+  private remoteServiceModule: RemoteServiceModule = require("LensStudio:RemoteServiceModule");
+  private remoteMediaModule: RemoteMediaModule = require("LensStudio:RemoteMediaModule");
 
   @input
   @hint("Your presentation id - find it in the google slide link")
@@ -293,9 +294,18 @@ export class GoogleSlideBridge extends BaseScriptComponent {
       return;
     }
 
-    if (!this.remoteMediaModule || !this.remoteMediaModule.makeResourceFromUrl) {
+    // Check for RemoteServiceModule for makeResourceFromUrl
+    if (!this.remoteServiceModule || !this.remoteServiceModule.makeResourceFromUrl) {
       log.e(
-        "RemoteMediaModule or makeResourceFromUrl is not available. Ensure you are testing on Spectacles or in Lens Studio with Device Type Override set to Spectacles."
+        "RemoteServiceModule or makeResourceFromUrl is not available. Ensure you are testing on Spectacles or in Lens Studio with Device Type Override set to Spectacles."
+      );
+      return;
+    }
+
+    // Check for RemoteMediaModule for loadResourceAsImageTexture
+    if (!this.remoteMediaModule || !this.remoteMediaModule.loadResourceAsImageTexture) {
+      log.e(
+        "RemoteMediaModule or loadResourceAsImageTexture is not available. Ensure you are testing on Spectacles or in Lens Studio with Device Type Override set to Spectacles."
       );
       return;
     }
@@ -307,14 +317,14 @@ export class GoogleSlideBridge extends BaseScriptComponent {
     }
 
     try {
-      // Create a DynamicResource from the URL
-      const resource: DynamicResource = this.remoteMediaModule.makeResourceFromUrl(url);
+      // Create a DynamicResource from the URL using RemoteServiceModule
+      const resource: DynamicResource = this.remoteServiceModule.makeResourceFromUrl(url);
       if (!resource) {
         log.e("Failed to create DynamicResource from URL.");
         return;
       }
 
-      // Load the resource as an image texture
+      // Load the resource as an image texture using RemoteMediaModule
       this.remoteMediaModule.loadResourceAsImageTexture(
         resource,
         (texture) => {

@@ -377,7 +377,7 @@ function setRelativePosition(relativePos) {
  */
 
 script.getRelativePosition = getRelativePosition;
-script.api.getRelativePosition = getRelativePosition;
+script.getRelativePosition = getRelativePosition;
 
 script.setRelativePosition = setRelativePosition;
-script.api.setRelativePosition = setRelativePosition;
+script.setRelativePosition = setRelativePosition;

@@ -257,13 +257,13 @@ function TetherBetweenAngleRangeJS() {
     }
     
     // Expose public methods
-    script.api.evaluateConditions = evaluateConditions;
-    script.api.calculateNewTargetPosition = calculateNewTargetPosition;
-    script.api.getCurrentAngle = function() { return _currentAngle; };
-    script.api.getHorizontalDistance = function() { return _horizontalDistance; };
-    script.api.getVerticalDistance = function() { return _verticalDistance; };
+    script.evaluateConditions = evaluateConditions;
+    script.calculateNewTargetPosition = calculateNewTargetPosition;
+    script.getCurrentAngle = function() { return _currentAngle; };
+    script.getHorizontalDistance = function() { return _horizontalDistance; };
+    script.getVerticalDistance = function() { return _verticalDistance; };
 }
 
 // Register the script
-script.api.TetherBetweenAngleRangeJS = TetherBetweenAngleRangeJS;
+script.TetherBetweenAngleRangeJS = TetherBetweenAngleRangeJS;
 TetherBetweenAngleRangeJS();

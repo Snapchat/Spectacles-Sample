@@ -1,0 +1,84 @@
+- !<AssetImportMetadata/b887b613-277f-1bf2-310b-923e5896c906>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 2f315c75-f600-450b-961a-846542f2368b
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 2f315c75-f600-450b-961a-846542f2368b
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> b938d415-a32b-4dc3-b83e-ff09b15aa552
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/b938d415-a32b-4dc3-b83e-ff09b15aa552>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: a371149a-035f-42bb-b7b3-61cc07445461
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    _activeIcon: false
+    _autoHighlight: false
+    _defaultIcon: false
+    _disabledIcon: false
+    _errorIcon: false
+    _hoverIcon: false
+    _playAudio: false
+    _radius: false
+    _zBackScale: false
+    addCallbacks: false
+    isDisabled: false
+    triggerDownCallbacks: false
+    triggerUpCallbacks: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - isDisabled: false
+      _playAudio: false
+      _autoHighlight: false
+      addCallbacks: false
+      triggerUpCallbacks:
+        []
+      triggerDownCallbacks:
+        []
+      _radius: !<float> 4.000000
+      _zBackScale: !<float> 1.000000
+      _defaultIcon: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      _hoverIcon: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      _activeIcon: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      _disabledIcon: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      _errorIcon: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input bool isDisabled {"hint":"Disabled Mode"}'
+    - '// @input bool _playAudio {"label":"Play Audio", "hint":"Play audio on interaction"}'
+    - '// @input bool _autoHighlight {"hint":"Automatic highlight"}'
+    - "// @input bool addCallbacks {\"hint\":\"Enable this to add functions from another script to this component's callbacks\"}"
+    - /*
+    - "@typedef Callback"
+    - "@property {Component.ScriptComponent} scriptComponent "
+    - "@property {string} functionName "
+    - "*/"
+    - '// @input Callback[] triggerUpCallbacks = {} {"label":"On Trigger Up Callbacks", "showIf":"addCallbacks"}'
+    - '// @input Callback[] triggerDownCallbacks = {} {"label":"On Trigger Down Callbacks", "showIf":"addCallbacks"}'
+    - '// @input float _radius = 1 {"hint":"Radius of Sphere In Local Space Units"}'
+    - '// @input float _zBackScale = 1 {"hint":"Scale of the back of the Sphere in Local Space Units. A value closer to 0.0 makes the back of the sphere flatter, while a value closer to 1.0 retains its original shape.", "widget":"slider", "min":0, "max":1}'
+    - "// @input Asset.Texture _defaultIcon {\"hint\":\"The icon displayed in button's default state\"}"
+    - "// @input Asset.Texture _hoverIcon {\"hint\":\"The icon displayed in button's hover state\"}"
+    - "// @input Asset.Texture _activeIcon {\"hint\":\"The icon displayed in button's active state\"}"
+    - "// @input Asset.Texture _disabledIcon {\"hint\":\"The icon displayed in button's disabled state\"}"
+    - "// @input Asset.Texture _errorIcon {\"hint\":\"The icon displayed in button's error state\"}"

@@ -1,0 +1,114 @@
+- !<AssetImportMetadata/e4cab0cb-4864-4f4b-a300-de69076fe1f0>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> 1215244d-17d3-4cf6-bcab-4ac10faa3aae
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> 1215244d-17d3-4cf6-bcab-4ac10faa3aae
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    ObjectPrefab: !<own> 7ddf8fc2-ff3e-4e8a-9501-2571e75c7537
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/46c88999-5a7a-45f2-87f9-77101cbee85f>
+  PrefabRemaps:
+    []
+  Name: LineStart
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    []
+- !<SceneObject/5a38df87-15cb-4a8f-992b-e39a4325c9c4>
+  PrefabRemaps:
+    []
+  Name: LineEnd
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    []
+- !<ObjectPrefabAssetData/7ddf8fc2-ff3e-4e8a-9501-2571e75c7537>
+  SourceRemaps:
+    - 064a7656-5952-4665-894d-692637b3633c: 8126f565-07f8-4775-9b11-cdfad6b3682e
+    - 1215244d-17d3-4cf6-bcab-4ac10faa3aae: 997bec61-cc12-4f05-b45e-4e4dc3df34c3
+    - 227f4622-9ced-4c2d-ae48-1ee8a7185077: 46c88999-5a7a-45f2-87f9-77101cbee85f
+    - 7668f73a-9ecd-49b2-981a-45717b984345: 857e96d5-d1c6-4fd4-999b-6e8d02c35f0b
+    - 9c3fe9b1-e56c-4ba6-8353-9cbb4a1637fe: 5a38df87-15cb-4a8f-992b-e39a4325c9c4
+  SourceState: !<own> 997bec61-cc12-4f05-b45e-4e4dc3df34c3
+- !<ScriptComponent/8126f565-07f8-4775-9b11-cdfad6b3682e>
+  PrefabRemaps:
+    []
+  Name: Line3D
+  Enabled: true
+  ScriptAsset: !<reference> 4eb4730a-d97d-449b-91ca-8109833f7cdd
+  ScriptInputsDefault:
+    _circleSegments: true
+    _interpolationSteps: true
+    _smoothness: true
+    capEnds: true
+    _zOffset: true
+    _useWorldPosition: true
+    _autoCorrectOffset: true
+    _useRelativeToComponent: true
+    _debugPositions: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      pathPoints: !<reference.SceneObject[]>
+        - !<reference> 46c88999-5a7a-45f2-87f9-77101cbee85f
+        - !<reference> 5a38df87-15cb-4a8f-992b-e39a4325c9c4
+      _radius: 0.200000
+      _circleSegments: !<float> 16.000000
+      _interpolationSteps: !<float> 10.000000
+      _smoothness: 0.500000
+      material: !<reference.Material> 8b0bc87f-5d51-438a-a3de-723112c98b39
+      _color: !<Vec3> {x: 0.361166, y: 0.388067, z: 0.384421}
+      capEnds: true
+      _zOffset: !<float> 0.000000
+      _useWorldPosition: true
+      _autoCorrectOffset: true
+      _useRelativeToComponent: true
+      _debugPositions: false
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/857e96d5-d1c6-4fd4-999b-6e8d02c35f0b>
+  PrefabRemaps:
+    []
+  Name: Line
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 46c88999-5a7a-45f2-87f9-77101cbee85f
+    - !<own> 5a38df87-15cb-4a8f-992b-e39a4325c9c4
+  Components:
+    - !<own> 8126f565-07f8-4775-9b11-cdfad6b3682e
+- !<ObjectPrefab/997bec61-cc12-4f05-b45e-4e4dc3df34c3>
+  PackagePath: ""
+  objects:
+    - !<own> 857e96d5-d1c6-4fd4-999b-6e8d02c35f0b
+  LazyLoading: false
+  RetainAssets: true

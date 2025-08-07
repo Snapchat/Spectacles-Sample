@@ -79,5 +79,5 @@ function BillboardJS() {
 }
 
 // Register the script
-script.api.BillboardJS = BillboardJS;
+script.BillboardJS = BillboardJS;
 BillboardJS();

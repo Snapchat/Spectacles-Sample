@@ -1,0 +1,56 @@
+- !<AssetImportMetadata/cb6dc1c3-86a6-05fa-827d-4c91157a0109>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 3cb20ce0-40db-457a-9db2-27c29fefe3f8
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 3cb20ce0-40db-457a-9db2-27c29fefe3f8
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 607bdd74-f1ad-4973-a29e-8025c77602e9
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/607bdd74-f1ad-4973-a29e-8025c77602e9>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 392e7d57-fbed-458e-aadb-0fe93772690d
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    cellPadding: false
+    cellSize: false
+    columns: false
+    gridOffset: false
+    layoutBy: false
+    rows: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - rows: 3
+      columns: 2
+      cellSize: !<Vec2> {x: 32.000000, y: 32.000000}
+      cellPadding: !<Vec4> {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+      layoutBy: !<float> 0.000000
+      gridOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input int rows = 3 {"hint":"Number of Rows"}'
+    - '// @input int columns = 2 {"hint":"Number of Columns"}'
+    - '// @input vec2 cellSize = "{32,32}" {"hint":"Size of content in single cell in local space"}'
+    - "// @input vec4 cellPadding = \"{0,0,0,0}\" {\"hint\":\"<p>Add'l size added to a given side of a cell.</p><p>Clockwise from left:</p><code> Left, Top, Right, Bottom </code>\"}"
+    - '// @input number layoutBy = "0" {"hint":"<h3>Layout by Row:</h3><p>start at top left, layout top row, then second from top row, etc. Overflows vertically. </p> <h3>Layout by Column:</h3> <p>start at top left, layout left column, then second from left column, etc. Overflows horizontally.</p>", "widget":"combobox", "values":[{"label":"Row", "value":0}, {"label":"Column", "value":1}]}'
+    - '// @input vec3 gridOffset = "{0,0,0}" {"hint":"Full local transform offset for the whole grid"}'

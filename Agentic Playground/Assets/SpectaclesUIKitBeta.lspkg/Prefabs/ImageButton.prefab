@@ -1,0 +1,84 @@
+- !<ObjectPrefab/3dae0781-d80a-446b-ac7f-072a8f3fb111>
+  PackagePath: ""
+  objects:
+    - !<own> 83695f28-fe87-4390-b78f-cc9c784ce60e
+  LazyLoading: false
+  RetainAssets: true
+- !<SceneObject/83695f28-fe87-4390-b78f-cc9c784ce60e>
+  PrefabRemaps:
+    []
+  Name: ImageButton
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 5.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> db864598-8def-43c2-9e6f-f4351431b06f
+  Components:
+    - !<own> c046780a-ca90-4eae-9c3e-51e413dd5e44
+- !<ScriptComponent/c046780a-ca90-4eae-9c3e-51e413dd5e44>
+  PrefabRemaps:
+    []
+  Name: Button
+  Enabled: true
+  ScriptAsset: !<reference> fb7c02aa-80f8-4fb5-89cc-9e3917cbf41e
+  ScriptInputsDefault:
+    isDisabled: true
+    _playAudio: true
+    _size: true
+    addCallbacks: true
+    triggerUpCallbacks: true
+    triggerDownCallbacks: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      isDisabled: false
+      _playAudio: false
+      _size: !<Vec3> {x: 6.000000, y: 3.000000, z: 1.000000}
+      _autoHighlight: true
+      addCallbacks: false
+      triggerUpCallbacks:
+        []
+      triggerDownCallbacks:
+        []
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/db864598-8def-43c2-9e6f-f4351431b06f>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 2.000000, y: 2.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> e491bf26-c9f6-4e19-a6f5-280c18a8b236
+- !<Image/e491bf26-c9f6-4e19-a6f5-280c18a8b236>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 39262017-06a1-45ee-9bb2-80f463734688
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000

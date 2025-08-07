@@ -1,0 +1,72 @@
+- !<AssetImportMetadata/06ba392e-7e62-4558-bcc6-37ea94caca89>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 0789df77-7a4f-41ab-b99d-4c4263712964
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 0789df77-7a4f-41ab-b99d-4c4263712964
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> b4cd7755-ab42-466d-979f-e68e140af785
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/b4cd7755-ab42-466d-979f-e68e140af785>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: bc8b3e4a-7263-487f-afbb-9409b9e86f17
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    _autoHighlight: false
+    _playAudio: false
+    _size: false
+    addCallbacks: false
+    isDisabled: false
+    textContent: false
+    textIndex: false
+    triggerDownCallbacks: false
+    triggerUpCallbacks: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - isDisabled: false
+      _playAudio: false
+      _size: !<Vec3> {x: 6.000000, y: 3.000000, z: 3.000000}
+      _autoHighlight: false
+      addCallbacks: false
+      triggerUpCallbacks:
+        []
+      triggerDownCallbacks:
+        []
+      textIndex: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      textContent: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input bool isDisabled {"hint":"Disabled Mode"}'
+    - '// @input bool _playAudio {"label":"Play Audio", "hint":"Play audio on interaction"}'
+    - '// @input vec3 _size = {6,3,3} {"hint":"Size of the element in centimeters"}'
+    - '// @input bool _autoHighlight {"hint":"Automatic highlight"}'
+    - "// @input bool addCallbacks {\"hint\":\"Enable this to add functions from another script to this component's callbacks\"}"
+    - /*
+    - "@typedef Callback"
+    - "@property {Component.ScriptComponent} scriptComponent "
+    - "@property {string} functionName "
+    - "*/"
+    - '// @input Callback[] triggerUpCallbacks = {} {"label":"On Trigger Up Callbacks", "showIf":"addCallbacks"}'
+    - '// @input Callback[] triggerDownCallbacks = {} {"label":"On Trigger Down Callbacks", "showIf":"addCallbacks"}'
+    - // @input Component.Text textIndex
+    - // @input Component.Text textContent

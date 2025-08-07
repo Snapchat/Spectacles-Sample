@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36" version="28.0.6">
+  <diagram name="Page-1" id="pa3Iml0Wvp47lnh5n3T4">
+    <mxGraphModel dx="6554" dy="4164" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="light-dark(#FFFFFF,#000000)" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="SummaryASQRController.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" vertex="1" parent="1">
+          <mxGeometry x="20" y="940" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Teacher speaks&amp;nbsp;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="-340" y="760" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Students Listens&amp;nbsp;&lt;div&gt;with Smart Glasses&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="-190" y="760" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-270" y="790" as="sourcePoint" />
+            <mxPoint x="-230" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6" value="&lt;div&gt;Students starts to make&amp;nbsp;&lt;br&gt;question to chat&amp;nbsp;&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="-190" y="950" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-170" y="870" as="sourcePoint" />
+            <mxPoint x="-170" y="930" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Summary&lt;/h1&gt;&lt;p&gt;Agent summarizes the retrieved audio into a legible multiple card component&amp;nbsp;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="10" y="740" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Chat&lt;/h1&gt;&lt;p&gt;The user uses Speech To Text to talk to Open AI or Gemini - Both realtime models. The answer of these models are influenced by a tool based structure with specialized agents that helps to provide a number of capabilities.&amp;nbsp;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="-350" width="180" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Diagram&lt;/h1&gt;&lt;p&gt;The diagram is created by the diagram tool as you can see below amd it;s a mix of media as text, images and 3d models.&amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="-10" width="400" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Simple Summarization and formatting&amp;nbsp;&lt;/h1&gt;&lt;p&gt;This is not part of the agentic tool, is a simple summary given speech to text that turns into text, then summarized then formatted across swappable cards to make things legible.&amp;nbsp;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="10" y="580" width="280" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="13" target="17" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="Manage transcription and turns speech into text" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="980" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="User clicks on a button to start and reclick on the button to stop live summarization.&lt;br&gt;Summary is updated every x seconds until user clicks the button and a session was active.&amp;nbsp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="860" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="SummaryComponent.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fa6800;fontColor=#000000;strokeColor=#C73500;" vertex="1" parent="1">
+          <mxGeometry x="20" y="1460" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="UI that hosts the text that has been summarized and formatted, visible in the UI for the user.&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="1500" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="SummaryStorage.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" vertex="1" parent="1">
+          <mxGeometry x="20" y="1100" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="19" target="50" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="Gets text from SummaryASQRController and store it with storage property, this will be the whole text that will be passed to an LLM that will turn text into a Summary and format it for the Summary component&amp;nbsp;&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="1140" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="User clicks on a button to start and reclicks on the button to stop live chat or the chat quits after x seconds of dialogue inactivity.&amp;nbsp;&lt;br&gt;&lt;br&gt;Chat component is updated with user and bot answer.&amp;nbsp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="-170" width="200" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="ChatASQRController.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#008a00;strokeColor=#005700;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="-50" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="Manage transcription and turns speech into text to create the query that the user will be sending during the real time conversation.&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="-10" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Agentic System: Tools available&lt;/h1&gt;&lt;p&gt;The tools registered to the agentic system and available for the user to be triggered during the live chat.&amp;nbsp;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1750" y="160" width="320" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="The query is collected by the orchestrator that will decide what tool to be used via tool executor.&amp;nbsp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="100" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="You are a student companion that is just chatting with a student, keep it chill&lt;div&gt;blah, blah&amp;nbsp;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="1050" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="26" value="&lt;div&gt;Students invoke tools&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="-190" y="1150" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="27" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-175.43" y="1060" as="sourcePoint" />
+            <mxPoint x="-175.43" y="1120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="28" value="You are a answering specific question regarding this document {document} blah blah&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="1050" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="29" value="You are a answering specific question regarding a lecture that is going on now and the student sees the surrounding&amp;nbsp;&lt;div&gt;{passing photo}&amp;nbsp;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="1050" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="30" value="You are diagram creator, you have this structure and this structure, please do create a document for generating a diagram and so on and so on&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="1050" width="470" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="ChatStorage.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="1280" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="32" value="Gets text from The chat conversation and store it with storage property, as the user&#39;s default option if not specified with a checkbox to delete memory, is to have a saved session of the whole chat/diagram flow" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="1320" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="33" value="DiagramStorage.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="1900" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="34" value="Gets text from The chat conversation and store it with storage property, as the user&#39;s default option if not specified with a checkbox to delete memory, is to have a saved session of the whole chat/diagram flow" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1530" y="1940" width="220" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="35" value="&lt;b&gt;How does the diagram work?&lt;/b&gt;&lt;div&gt;&lt;b&gt;In depth&amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1540" y="1210" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="36" value="&lt;b&gt;The diagram is a UI component that gets as inputs 3 main prefabs and an additional prefab to make lines&amp;nbsp;&lt;/b&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1540" y="1275" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="37" value="textNode.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" vertex="1" parent="1">
+          <mxGeometry x="1555" y="1360" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="38" value="Includes&lt;div&gt;text title, text content&amp;nbsp;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1530" y="1400" width="230" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="39" value="imageNode.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" vertex="1" parent="1">
+          <mxGeometry x="1830" y="1360" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="40" value="Includes&lt;div&gt;text title, image, text content&amp;nbsp;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1800" y="1400" width="230" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="41" value="Links the core functionality of image generation to component reference" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1800" y="1550" width="230" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="42" value="modelNode.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" vertex="1" parent="1">
+          <mxGeometry x="2100" y="1360" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="43" value="Includes&lt;div&gt;text title, 3dmodel placeholder position&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2070" y="1400" width="230" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="44" value="Links the core functionality of model generation to component reference" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2070" y="1550" width="230" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="45" value="&lt;b&gt;The role of the DiagramStorage is essential as we need to create a document that is stored on the diagram storage that will define the following&amp;nbsp;&lt;br&gt;&lt;br&gt;1. How many nodes&amp;nbsp;&lt;br&gt;2. What kind of nodes&amp;nbsp;&lt;br&gt;3. Text formatted for all of the nodes that will be applied to the nodes.&amp;nbsp;&lt;br&gt;For example&amp;nbsp;&lt;br&gt;&lt;br&gt;DiagramTitle: Title&amp;nbsp;&lt;br&gt;&lt;br&gt;Nodes: 20&amp;nbsp;&lt;br&gt;&lt;br&gt;Node 1: text&amp;nbsp;&lt;br&gt;Text title: &quot;Title....&quot;&amp;nbsp;&lt;br&gt;Text content: &quot;Content....&quot;&lt;br&gt;&lt;br&gt;&lt;/b&gt;&lt;b&gt;Node 2: image&lt;br&gt;Text title: &quot;Title....&quot;&amp;nbsp;&lt;br&gt;Text content: &quot;Content....&quot;&lt;br&gt;Image prompt &quot;Prompt...&quot;&lt;br&gt;&lt;br&gt;&lt;/b&gt;&lt;b&gt;Node 3: model&lt;br&gt;Text title: &quot;Title....&quot;&amp;nbsp;&lt;br&gt;Text content: &quot;Content....&quot;&lt;br&gt;Model prompt &quot;Prompt...&quot;&lt;br&gt;&lt;/b&gt;&lt;b&gt;&lt;br&gt;These document will be regenerated or updated and powered up every time the diagram tool is invoked.&amp;nbsp;&lt;br&gt;&lt;/b&gt;&lt;b&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/b&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2075" y="1930" width="230" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="47" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1920" y="1490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="47" value="ImageGenBridge.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+          <mxGeometry x="1830" y="1510" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="48" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="49" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2185" y="1490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="49" value="modelGenBridge.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+          <mxGeometry x="2095" y="1510" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="50" value="SummaryBridge.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+          <mxGeometry x="20" y="1300" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="53" target="15" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="52" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="53" target="60" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="53" value="Interfaces the UI with the content that comes from the AI elaboration" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="1340" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="54" value="ChatBridge.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="1480" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="55" value="Interfaces the real AI system with the UI component&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="1520" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="56" value="ChatComponent&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;.ts&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fa6800;fontColor=#000000;strokeColor=#C73500;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="1690" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="57" value="Display the information in the Ui" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="1730" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="58" value="AISummarizer.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;" vertex="1" parent="1">
+          <mxGeometry x="250" y="1300" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="60" target="53" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="60" value="&lt;div&gt;The real service that summarizes the Text (Uses Open AI) - not a tool part of the agent flow&amp;nbsp;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="1340" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="61" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1179.73" y="70" as="sourcePoint" />
+            <mxPoint x="1179.73" y="100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="62" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1189.83" y="1650" as="sourcePoint" />
+            <mxPoint x="1189.83" y="1680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="63" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1189.72" y="1450" as="sourcePoint" />
+            <mxPoint x="1190" y="1470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="64" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1190" y="1210" as="sourcePoint" />
+            <mxPoint x="1190" y="1260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="65" value="DiagramBridge.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="2100" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="66" value="Interfaces the real AI system with the UI component&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1540" y="2140" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="67" value="DiagramComponent&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;.ts&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fa6800;fontColor=#000000;strokeColor=#C73500;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="2310" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="68" value="Display the information in the Ui and handles nodes displaying&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1540" y="2350" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="69" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1639.83" y="2270" as="sourcePoint" />
+            <mxPoint x="1639.83" y="2300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="70" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1639.68" y="2070" as="sourcePoint" />
+            <mxPoint x="1639.68" y="2100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="71" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="72" target="55" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="72" value="Include&amp;nbsp;&lt;div&gt;TestFramework&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="1525" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="73" value="Include&amp;nbsp;&lt;div&gt;TestFramework&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="260" y="1460" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="74" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="75" target="66" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="75" value="Include&amp;nbsp;&lt;div&gt;TestFramework&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1800" y="2145" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="76" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=5;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-4" y="1606.43" as="sourcePoint" />
+            <mxPoint x="-4" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.686;entryY=0.98;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" source="73" target="53" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="1440" />
+              <mxPoint x="147" y="1440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="78" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=5;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1060" y="147.86" as="sourcePoint" />
+            <mxPoint x="1060" y="-350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="79" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=5;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1060" y="1868.9299999999998" as="sourcePoint" />
+            <mxPoint x="1060" y="1211.07" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="80" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=4;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1060" y="1209" as="sourcePoint" />
+            <mxPoint x="1060" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="81" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=5;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1510" y="2500" as="sourcePoint" />
+            <mxPoint x="1510" y="1210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="82" value="" style="endArrow=none;dashed=1;html=1;rounded=0;exitX=0.24;exitY=0.998;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=4;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1510" y="1214.5" as="sourcePoint" />
+            <mxPoint x="1510" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="83" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=5;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1510" y="147.8599999999999" as="sourcePoint" />
+            <mxPoint x="1510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="84" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;dashed=1;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="1330" width="20" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="85" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="2040" y="1890" width="290" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="86" value="&lt;b&gt;Diagram Parsing&amp;nbsp; Example&lt;/b&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2050" y="1850" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="87" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="88" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1300" y="1380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="88" value="StorageManager" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="1320" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="89" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="90" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1770" y="2010" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="90" value="StorageManager" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1800" y="1950" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="91" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="92" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220" y="1205" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="92" value="StorageManager" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="260" y="1145" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="93" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Nodes&lt;/h1&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1880" y="1280" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="94" value="AgentOrchestrator.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcd28;gradientColor=#ffa500;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="210" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="95" value="Central agent coordination&lt;br&gt;- Query analysis&lt;br&gt;- Tool selection&lt;br&gt;- Response orchestration" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="250" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="96" value="AgentLanguageInterface.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcd28;gradientColor=#ffa500;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="890" y="390" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="97" value="Language model abstraction&lt;br&gt;- Model switching&lt;br&gt;- Prompt management&lt;br&gt;- Response formatting" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="430" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="98" value="AgentToolExecutor.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcd28;gradientColor=#ffa500;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="390" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="99" value="Tool execution management&lt;br&gt;- Tool invocation&lt;br&gt;- Parameter validation&lt;br&gt;- Result processing" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="430" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="100" value="AgentMemorySystem.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcd28;gradientColor=#ffa500;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1390" y="390" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="101" value="Context and memory management&lt;br&gt;- Conversation context&lt;br&gt;- Long-term memory&lt;br&gt;- Relevance scoring" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1380" y="430" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="102" value="AgentTypes.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcd28;gradientColor=#ffa500;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1640" y="390" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="103" value="Type definitions and interfaces&lt;br&gt;- Agent contracts&lt;br&gt;- Data structures&lt;br&gt;- Configuration types" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1630" y="430" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="104" value="ToolRouter.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;gradientColor=#7ea6e0;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="640" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="105" value="Tool selection and routing&lt;br&gt;- Query classification&lt;br&gt;- Tool matching&lt;br&gt;- Fallback handling" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="680" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="106" value="GeneralConversationTool.ts" style="rounded=1;whiteSpace=wrap;html=1;gradientColor=#ea6b66;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="790" y="870" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="107" value="Default conversation handling&lt;br&gt;- General chat&lt;br&gt;- Contextual responses&lt;br&gt;- Fallback conversations" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="910" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="108" value="SummaryTool.ts" style="rounded=1;whiteSpace=wrap;html=1;gradientColor=#ea6b66;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="870" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="109" value="Summary-focused interactions&lt;br&gt;- Content queries&lt;br&gt;- Summary analysis&lt;br&gt;- Clarification requests" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="910" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="110" value="SpatialTool.ts" style="rounded=1;whiteSpace=wrap;html=1;gradientColor=#ea6b66;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="870" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="111" value="Spatial and visual processing&lt;br&gt;- Camera integration&lt;br&gt;- Visual Q&amp;A&lt;br&gt;- Environment analysis" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="910" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="112" value="DiagramCreatorTool.ts" style="rounded=1;whiteSpace=wrap;html=1;gradientColor=#ea6b66;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="870" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="113" value="New diagram creation&lt;br&gt;- Content analysis&lt;br&gt;- Structure planning&lt;br&gt;- Node generation" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="910" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="114" value="DiagramUpdaterTool.ts" style="rounded=1;whiteSpace=wrap;html=1;gradientColor=#ea6b66;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1810" y="870" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="115" value="Existing diagram modification&lt;br&gt;- Content updates&lt;br&gt;- Structure changes&lt;br&gt;- Node modifications" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1800" y="910" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="116" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1190" y="360" as="sourcePoint" />
+            <mxPoint x="1190" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="117" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;arcSize=2;strokeWidth=4;" vertex="1" parent="1">
+          <mxGeometry x="740" y="150" width="1350" height="1060" as="geometry" />
+        </mxCell>
+        <mxCell id="118" value="OpenAIAssistant.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="510" y="210" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="119" value="OpenAI API integration&lt;br&gt;- GPT model interface&lt;br&gt;- Token management&lt;br&gt;- Response processing" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="250" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="120" value="GeminiAssistant.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="515" y="380" width="175" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="121" value="Google Gemini integration&lt;br&gt;- Multimodal capabilities&lt;br&gt;- Vision processing&lt;br&gt;- Spatial understanding" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="420" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="122" value="ImageGen.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;" vertex="1" parent="1">
+          <mxGeometry x="512.5" y="560" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="123" value="includes&lt;div&gt;an image generator component that gets as input to generate an image: text&amp;nbsp;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="502.5" y="600" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="124" value="modelGen.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;" vertex="1" parent="1">
+          <mxGeometry x="510" y="710" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="125" value="includes&lt;div&gt;a 3D model generator component that gets as input to generate a 3d model: text&amp;nbsp;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="750" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="126" value="GenerationQueue.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#647687;fontColor=#ffffff;strokeColor=#314354;" vertex="1" parent="1">
+          <mxGeometry x="2170" y="500" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="127" value="Queue management system&lt;br&gt;- Request prioritization&lt;br&gt;- Concurrent processing&lt;br&gt;- Resource allocation" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2160" y="540" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="128" value="GenerationQueueInitializer.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#647687;fontColor=#ffffff;strokeColor=#314354;" vertex="1" parent="1">
+          <mxGeometry x="2420" y="500" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="129" value="Queue initialization&lt;br&gt;- System startup&lt;br&gt;- Configuration loading&lt;br&gt;- Service registration" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2410" y="540" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="130" value="GenerationQueueDebugger.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#647687;fontColor=#ffffff;strokeColor=#314354;" vertex="1" parent="1">
+          <mxGeometry x="2170" y="680" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="131" value="Queue monitoring and debugging&lt;br&gt;- Performance metrics&lt;br&gt;- Error tracking&lt;br&gt;- Queue visualization" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2160" y="720" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="132" value="ModelGenerationScheduler.ts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#647687;fontColor=#ffffff;strokeColor=#314354;" vertex="1" parent="1">
+          <mxGeometry x="2420" y="680" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="133" value="3D model generation scheduling&lt;br&gt;- Resource optimization&lt;br&gt;- Batch processing&lt;br&gt;- Priority management" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2410" y="720" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="134" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;arcSize=5;strokeWidth=4;" vertex="1" parent="1">
+          <mxGeometry x="2130" y="460" width="530" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="135" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" target="134" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1650" y="870" as="sourcePoint" />
+            <mxPoint x="1870" y="870" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1650" y="670" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="136" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Generative Queue Handler&amp;nbsp;&lt;/h1&gt;&lt;div&gt;Help generating images and 3D model in the diagram&amp;nbsp;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="2160" y="350" width="320" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="137" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;arcSize=5;strokeWidth=4;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1530" y="1260" width="810" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="138" value="Source: query + summary storage&lt;div&gt;Model: gets it from orchestrator (Gemini, or OpenAI)&amp;nbsp;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="800" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="139" value="Source: query + summary storage + chat storage&lt;br&gt;&lt;br&gt;&lt;div&gt;Model:&amp;nbsp;&lt;br&gt;Text -&amp;gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;gets it from orchestrator (Gemini, or OpenAI)&amp;nbsp;&lt;br&gt;&lt;/span&gt;Image -&amp;gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;gets it from ImageGen (Gemini, or OpenAI)&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;3D -&amp;gt; Snap3D&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;No voice mode active during generation&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1660" y="680" width="270" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="140" value="Source: query + camera input&lt;br&gt;Model: Gemini (Forced)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="800" width="270" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="141" value="Source: query only&lt;div&gt;Model: gets it from orchestrator (Gemini, or OpenAI)&amp;nbsp;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="790" y="780" width="220" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="142" value="No bridge needed, text is directly&amp;nbsp;&lt;br&gt;injected in the node text references" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="1500" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="143" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;arcSize=10;strokeWidth=4;" vertex="1" parent="1">
+          <mxGeometry x="480" y="150" width="230" height="730" as="geometry" />
+        </mxCell>
+        <mxCell id="144" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Providers&lt;/h1&gt;&lt;p&gt;The AI service powering the orchestrator and tooling system&amp;nbsp;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="502.5" y="40" width="197.5" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="145" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1.009;exitY=0.207;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" source="143" target="95" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="710" y="280" as="sourcePoint" />
+            <mxPoint x="760" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

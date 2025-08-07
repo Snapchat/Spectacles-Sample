@@ -16,8 +16,9 @@
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<TypeScriptAssetData/7aef4980-b8b3-4ae3-aed7-027b2a0e95bc>
   SvgIcon: ""
+  SetupScript:
+    code: ""
   Description: ""
-  InternalVersion: 0
   VersionMajor: 0
   VersionMinor: 0
   VersionPatch: 0
@@ -30,6 +31,8 @@
     target: false
   ScriptTypesHidden:
     {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
     - lookAway: true
       target: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
@@ -39,7 +42,3 @@
   InputLines:
     - '// @input bool lookAway = true {"hint":"Is billboard looking at default direction or opposite?"}'
     - '// @input SceneObject target {"hint":"Override default target mainCamera with your target"}'
-  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
-  SetupScript:
-    code: ""
-  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000

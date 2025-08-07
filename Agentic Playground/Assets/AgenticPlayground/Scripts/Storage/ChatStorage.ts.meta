@@ -1,0 +1,53 @@
+- !<AssetImportMetadata/c6e4cfe0-1626-49da-a6bc-7aed7e5d1d85>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 16aba366-73e3-4227-803f-1d255a273b07
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 16aba366-73e3-4227-803f-1d255a273b07
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 338d3fb7-1df9-474b-b66f-a6edd42a4b40
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/338d3fb7-1df9-474b-b66f-a6edd42a4b40>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: b4a6205e-ce9e-4ff6-bcc1-ae1e91b5f771
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    defaultSaveSessions: false
+    enableDebugLogging: false
+    enableStorage: false
+    maxMessagesPerSession: false
+    maxStoredSessions: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - enableStorage: true
+      enableDebugLogging: false
+      maxStoredSessions: !<float> 10.000000
+      maxMessagesPerSession: !<float> 200.000000
+      defaultSaveSessions: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input bool enableStorage = true {"hint":"Enable automatic chat storage"}'
+    - '// @input bool enableDebugLogging {"hint":"Enable debug logging for storage operations"}'
+    - '// @input float maxStoredSessions = 10 {"hint":"Maximum number of chat sessions to store", "widget":"slider", "min":1, "max":50, "step":1}'
+    - '// @input float maxMessagesPerSession = 200 {"hint":"Maximum messages per session before archiving", "widget":"slider", "min":10, "max":1000, "step":10}'
+    - '// @input bool defaultSaveSessions = true {"hint":"Default option to save sessions (per diagram spec)"}'

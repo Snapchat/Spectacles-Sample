@@ -1,9 +1,8 @@
 import { Gemini } from "Remote Service Gateway.lspkg/HostedExternal/Gemini";
 import { GeminiTypes } from "Remote Service Gateway.lspkg/HostedExternal/GeminiTypes";
 
-//const GEMINI_MODEL = "gemini-2.5-flash-preview-04-17";
-//const GEMINI_MODEL = "gemini-2.5-flash-preview-05-20";
-const GEMINI_MODEL = "gemini-2.5-pro-preview-05-06"; //does not support thinkingBudget
+//const GEMINI_MODEL = "gemini-2.5-flash";
+const GEMINI_MODEL = "gemini-2.5-pro";
 
 const SYSTEM_MESSAGE =
   //Goal

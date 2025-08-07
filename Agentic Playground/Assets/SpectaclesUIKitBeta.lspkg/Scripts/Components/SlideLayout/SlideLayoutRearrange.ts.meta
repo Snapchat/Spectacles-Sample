@@ -1,0 +1,92 @@
+- !<AssetImportMetadata/443c3a60-dc7f-482f-b7ea-14eebd90461a>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> b636351d-31f9-4e9f-98f0-b858d3ce7f03
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> b636351d-31f9-4e9f-98f0-b858d3ce7f03
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> ff8b5aad-3aba-4374-b6c8-1bd625878fb7
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/ff8b5aad-3aba-4374-b6c8-1bd625878fb7>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 1caefd03-d9f1-47ac-a620-836b9b17f5aa
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    animationSpeed: false
+    bottomCardRotationZ: false
+    bottomLastCardRotationZ: false
+    bottomLastPosition: false
+    bottomPosition: false
+    cardPrefab: false
+    enableScrollSystem: false
+    midPosition: false
+    numberOfCards: false
+    scrollController: false
+    scrollLineEnd: false
+    scrollLineStart: false
+    swipeSpeedThreshold: false
+    swipeThreshold: false
+    topCardRotationZ: false
+    topLastCardRotationZ: false
+    topLastPosition: false
+    topPosition: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - cardPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      numberOfCards: 10
+      topLastPosition: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      topPosition: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      midPosition: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      bottomPosition: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      bottomLastPosition: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      swipeThreshold: !<float> 50.000000
+      animationSpeed: 0.500000
+      swipeSpeedThreshold: !<float> 100.000000
+      topLastCardRotationZ: !<float> -10.000000
+      topCardRotationZ: !<float> -5.000000
+      bottomCardRotationZ: !<float> 5.000000
+      bottomLastCardRotationZ: !<float> 10.000000
+      enableScrollSystem: true
+      scrollLineStart: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      scrollLineEnd: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      scrollController: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Asset.ObjectPrefab cardPrefab {"hint":"Prefab to instantiate for each card"}'
+    - '// @input int numberOfCards = "10" {"hint":"Total number of cards to handle"}'
+    - '// @input SceneObject topLastPosition {"hint":"Transform for the top last position"}'
+    - '// @input SceneObject topPosition {"hint":"Transform for the top position"}'
+    - '// @input SceneObject midPosition {"hint":"Transform for the mid position (active/swipeable)"}'
+    - '// @input SceneObject bottomPosition {"hint":"Transform for the bottom position"}'
+    - '// @input SceneObject bottomLastPosition {"hint":"Transform for the bottom last position"}'
+    - '// @input number swipeThreshold = "50.0" {"hint":"Minimum swipe distance to trigger card change"}'
+    - '// @input number animationSpeed = "0.5" {"hint":"Animation speed for card transitions (0-1)"}'
+    - '// @input number swipeSpeedThreshold = "100.0" {"hint":"Minimum swipe speed (distance/time) to trigger quick swipe"}'
+    - '// @input number topLastCardRotationZ = "-10.0" {"hint":"Rotation angle in degrees for the top last card"}'
+    - '// @input number topCardRotationZ = "-5.0" {"hint":"Rotation angle in degrees for the top card"}'
+    - '// @input number bottomCardRotationZ = "5.0" {"hint":"Rotation angle in degrees for the bottom card"}'
+    - '// @input number bottomLastCardRotationZ = "10.0" {"hint":"Rotation angle in degrees for the bottom last card"}'
+    - '// @input bool enableScrollSystem = true {"hint":"Enable scroll system (if false, uses manual swipe only)"}'
+    - '// @input SceneObject scrollLineStart {"hint":"Line start point for scroll projection"}'
+    - '// @input SceneObject scrollLineEnd {"hint":"Line end point for scroll projection"}'
+    - '// @input SceneObject scrollController {"hint":"Draggable object that controls the scroll position"}'

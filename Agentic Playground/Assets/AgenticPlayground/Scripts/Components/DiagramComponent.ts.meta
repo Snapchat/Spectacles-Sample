@@ -1,0 +1,98 @@
+- !<AssetImportMetadata/4fca597f-3138-47db-9ba3-a976ed03ad58>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 1777d554-6cfa-44f6-9377-f7be71319e41
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 1777d554-6cfa-44f6-9377-f7be71319e41
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> d68a56f7-c60e-4271-a1ac-5d5dbbda58e9
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/d68a56f7-c60e-4271-a1ac-5d5dbbda58e9>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: c608e163-bf51-4297-a8cc-ae2b711ade56
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    angularSpread: false
+    enableDebugLogging: false
+    enableYSeparation: false
+    enableYVariation: false
+    endDirectionRef: false
+    imagePrefab: false
+    imageYOffsetMultiplier: false
+    levelSeparation: false
+    linePrefab: false
+    maxBranches: false
+    maxYOffset: false
+    maxYVariation: false
+    minBranchDistance: false
+    minXDistance: false
+    modelPrefab: false
+    nodeYOffset: false
+    startDirectionRef: false
+    startPrefab: false
+    textPrefab: false
+    ySeparationDuration: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - startPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      textPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      imagePrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      modelPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      linePrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      startDirectionRef: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      endDirectionRef: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      levelSeparation: !<float> 200.000000
+      angularSpread: !<float> 90.000000
+      minBranchDistance: !<float> 100.000000
+      maxBranches: !<float> 4.000000
+      minXDistance: !<float> 150.000000
+      maxYOffset: !<float> 200.000000
+      ySeparationDuration: 1.500000
+      enableYSeparation: true
+      enableYVariation: true
+      maxYVariation: !<float> 80.000000
+      nodeYOffset: !<float> 50.000000
+      imageYOffsetMultiplier: 1.500000
+      enableDebugLogging: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Asset.ObjectPrefab startPrefab {"hint":"Starting node prefab: The root node of the mind map tree structure. Should contain TextNode component and InteractableManipulation component. This node serves as the origin point for all branching and maintains the central diagram name."}'
+    - '// @input Asset.ObjectPrefab textPrefab {"hint":"Text node prefab: Standard text-based nodes in the mind map. Should contain TextNode component and InteractableManipulation component. These nodes display title (max 20 chars) and content (max 95 chars) text with AI/tech themed fake content generation."}'
+    - '// @input Asset.ObjectPrefab imagePrefab {"hint":"Image node prefab: Visual nodes that display images alongside text. Should contain ImageNode component and InteractableManipulation component. These nodes display title (max 26 chars) and content (max 200 chars) with special Y offset multiplier for elevated positioning."}'
+    - '// @input Asset.ObjectPrefab modelPrefab {"hint":"Model node prefab: 3D model nodes in the mind map. Should contain ModelNode component and InteractableManipulation component. These nodes display title (max 22 chars) and can reference 3D models with configurable scale parameters."}'
+    - '// @input Asset.ObjectPrefab linePrefab {"hint":"Line prefab with Line3D component: Connects nodes in the mind map structure. Must contain Line3D component for rendering connections between nodes. Lines connect to invisible objects at logical positions while nodes appear visually offset above connection points."}'
+    - '// @input SceneObject startDirectionRef {"hint":"Start direction reference object: Scene object that defines the starting point for overall mind map directionality. The tree structure will orient itself based on the vector from this object to the end direction reference, creating a directional flow for the entire mind map layout."}'
+    - '// @input SceneObject endDirectionRef {"hint":"End direction reference object: Scene object that defines the ending point for overall mind map directionality. Combined with start direction reference, this creates a directional vector that influences the angular distribution of all node branches in the tree structure."}'
+    - '// @input float levelSeparation = 200 {"hint":"Level separation distance: Distance between tree levels in world units. Controls how far child nodes are placed from their parent nodes. Higher values create more spread-out tree structures with greater separation between generations. Affects both visual appearance and collision detection.", "widget":"slider", "min":0, "max":400, "step":10}'
+    - '// @input float angularSpread = 90 {"hint":"Angular spread per level (degrees): Angular range within which child nodes are distributed around their parent. 90 degrees creates a quarter-circle distribution, 180 degrees creates a half-circle. Combined with minBranchDistance, this ensures proper spacing between sibling nodes.", "widget":"slider", "min":30, "max":180, "step":10}'
+    - '// @input float minBranchDistance = 100 {"hint":"Minimum distance between branches: Minimum world unit distance between sibling nodes from the same parent. Uses trigonometry to calculate required angular separation based on levelSeparation. Prevents overcrowding of child nodes and ensures readable spacing in the tree structure.", "widget":"slider", "min":20, "max":200, "step":10}'
+    - '// @input float maxBranches = 4 {"hint":"Maximum branches per node: Maximum number of child nodes that can branch from a single parent node. Controls tree density and complexity. Higher values create bushier trees while lower values create more linear structures. Affects randomization in test phases 2-4.", "widget":"slider", "min":1, "max":4, "step":1}'
+    - '// @input float minXDistance = 150 {"hint":"Minimum X distance between nodes: Minimum horizontal separation required between any two nodes in world units. When nodes are closer than this distance in X coordinate, the collision avoidance system triggers Y-axis separation animations. Lower values allow denser layouts, higher values enforce more spread.", "widget":"slider", "min":20, "max":300, "step":10}'
+    - '// @input float maxYOffset = 200 {"hint":"Maximum Y offset for collision avoidance: Maximum vertical distance nodes can be moved up or down to resolve X-axis conflicts. Controls the Y-axis range for collision resolution. Nodes will be randomly moved within ±maxYOffset to separate them vertically when too close horizontally.", "widget":"slider", "min":50, "max":300, "step":10}'
+    - '// @input float ySeparationDuration = 1.5 {"hint":"Y separation animation duration (seconds): Time duration for smooth Y-axis separation animations when resolving node conflicts. Shorter durations create snappy movements, longer durations create smoother transitions. Uses easeInOutCubic for natural motion curves.", "widget":"slider", "min":0.5, "max":3, "step":0.1}'
+    - '// @input bool enableYSeparation = true {"hint":"Enable Y separation collision avoidance: Master toggle for the collision avoidance system. When enabled, automatically detects nodes that are too close in X coordinate and animates them to different Y positions. Prevents overlapping nodes and maintains readable layout spacing."}'
+    - '// @input bool enableYVariation = true {"hint":"Enable initial Y variation in tree structure: Adds random Y-axis variation to nodes during initial creation. Creates more organic, natural-looking tree structures by introducing vertical randomness. Variation increases with tree level depth, making deeper nodes more scattered vertically."}'
+    - '// @input float maxYVariation = 80 {"hint":"Maximum initial Y variation per level: Maximum random Y offset applied during node creation, scaled by tree level depth. Level 1 nodes get small variation, deeper levels get progressively more variation. Creates organic branching patterns that avoid rigid geometric layouts.", "widget":"slider", "min":20, "max":200, "step":10}'
+    - '// @input float nodeYOffset = 50 {"hint":"Y offset for node instantiation (visual offset): Base upward offset applied to all node visual positions while keeping logical positions for line connections at original calculated positions. Creates floating effect where nodes appear above their connection points. Set to 0 for traditional flat layout.", "widget":"slider", "min":0, "max":200, "step":10}'
+    - '// @input float imageYOffsetMultiplier = 1.5 {"hint":"Y offset multiplier for image nodes: Special multiplier applied to image node Y offsets, making them float higher than other node types. Image nodes get nodeYOffset × imageYOffsetMultiplier elevation. Useful for creating visual hierarchy where images stand out above text and model nodes.", "widget":"slider", "min":0.1, "max":3, "step":0.1}'
+    - '// @input bool enableDebugLogging {"hint":"Enable debug logging for diagram operations"}'

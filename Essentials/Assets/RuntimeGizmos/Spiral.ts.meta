@@ -16,8 +16,9 @@
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<TypeScriptAssetData/d4b9cb45-a6e6-4fcb-b2d8-af41e28a6ebf>
   SvgIcon: ""
+  SetupScript:
+    code: ""
   Description: ""
-  InternalVersion: 0
   VersionMajor: 0
   VersionMinor: 0
   VersionPatch: 0
@@ -41,6 +42,7 @@
     totalSegments: false
   ScriptTypesHidden:
     {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
   DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
     - centerObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
@@ -73,6 +75,3 @@
     - '// @input float lineStyle {"widget":"combobox", "values":[{"label":"Full", "value":0}, {"label":"Split", "value":1}, {"label":"FadedEnd", "value":2}]}'
     - '// @input float totalSegments = 120 {"hint":"Total number of segments for the entire spiral (higher = smoother)"}'
     - '// @input float spiralType {"hint":"Type of spiral growth", "widget":"combobox", "values":[{"label":"Linear", "value":0}, {"label":"Exponential", "value":1}, {"label":"Logarithmic", "value":2}, {"label":"Helix", "value":3}]}'
-  SetupScript:
-    code: ""
-  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000

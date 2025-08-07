@@ -18,8 +18,8 @@ const statusMessageMap = {
 };
 
 class RemoteApiService {
-    constructor(internetModule) {
-        this.internetModule = internetModule;
+    constructor(remoteServiceModule) {
+        this.remoteServiceModule = remoteServiceModule;
     }
 
     async performApiRequest(endpoint, request, paramsSchema) {
@@ -37,7 +37,7 @@ class RemoteApiService {
         if (request.parameters) req.parameters = request.parameters;
         if (request.body) req.body = request.body;
 
-        const response = await new Promise((resolve) => this.internetModule.performApiRequest(req, resolve));
+        const response = await new Promise((resolve) => { this.remoteServiceModule.performApiRequest(req, resolve) });
         if (response.statusCode !== 1) {
             const message = statusMessageMap[response.statusCode] || statusMessageMap[0];
             throw new Error(`API Call Error - ${message}: ${response.body}.`);

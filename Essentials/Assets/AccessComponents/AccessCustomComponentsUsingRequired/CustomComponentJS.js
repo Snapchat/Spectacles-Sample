@@ -11,12 +11,12 @@
 script.textureSize = 512;
 
 // Called when the component is initialized
-script.api.onAwake = function() {
+script.onAwake = function() {
     print("CustomComponentJS has been initialized");
 };
 
 // Initialize the component
-script.api.onAwake();
+script.onAwake();
 
 // Public method that can be called
 script.hasTexture = function() {

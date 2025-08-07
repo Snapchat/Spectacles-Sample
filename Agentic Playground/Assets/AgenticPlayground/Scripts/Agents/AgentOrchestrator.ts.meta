@@ -1,0 +1,94 @@
+- !<AssetImportMetadata/b8097a6b-12dc-4589-9882-24cc18d44260>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 3ab602eb-50af-4da9-87da-bba1b83d50d0
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 3ab602eb-50af-4da9-87da-bba1b83d50d0
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> b09fd98b-40c5-4be6-8f43-1dc37c058f53
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/b09fd98b-40c5-4be6-8f43-1dc37c058f53>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: e85f69fe-0a9e-4274-b87f-33c93391e4b8
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    chatComponent: false
+    conversationContextMessages: false
+    defaultProvider: false
+    enableDebugLogging: false
+    enableSystem: false
+    enableTestMode: false
+    enableVoiceOutput: false
+    geminiAssistant: false
+    maxRetries: false
+    openAIAssistant: false
+    showQueryRouting: false
+    showToolUsage: false
+    storageManager: false
+    summaryComponent: false
+    toolDisplayText: false
+    toolTimeout: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - openAIAssistant: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      geminiAssistant: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      summaryComponent: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      chatComponent: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      storageManager: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
+      toolDisplayText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      enableSystem: true
+      enableTestMode: false
+      conversationContextMessages: !<float> 10.000000
+      toolTimeout: !<float> 15000.000000
+      maxRetries: !<float> 3.000000
+      defaultProvider: openai
+      enableVoiceOutput: true
+      enableDebugLogging: true
+      showToolUsage: true
+      showQueryRouting: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType openAIAssistant {"hint":"OpenAI Assistant component for language model integration"}'
+    - '// @input AssignableType_1 geminiAssistant {"hint":"Gemini Assistant component for language model integration"}'
+    - '// @input AssignableType_2 summaryComponent {"hint":"Summary Layout component for reading summary context"}'
+    - '// @input AssignableType_3 chatComponent {"hint":"Chat Layout component for chat integration"}'
+    - '// @input AssignableType_4 storageManager {"hint":"Storage Manager for centralized storage control"}'
+    - '// @input Component.Text toolDisplayText {"hint":"Text display component for tool usage information"}'
+    - '// @ui {"widget":"group_start", "label":"System Configuration"}'
+    - // @input bool enableSystem = true
+    - '// @input bool enableTestMode {"hint":"Enable test mode to use mock summary data when no real summary exists"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Agent Configuration"}'
+    - // @input float conversationContextMessages = 10
+    - // @input float toolTimeout = 15000
+    - // @input float maxRetries = 3
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"AI Provider Configuration"}'
+    - '// @input string defaultProvider = "openai" {"widget":"combobox", "values":[{"label":"openai", "value":"OpenAI"}, {"label":"gemini", "value":"Gemini"}]}'
+    - // @input bool enableVoiceOutput = true
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Debug Configuration"}'
+    - // @input bool enableDebugLogging = true
+    - // @input bool showToolUsage = true
+    - // @input bool showQueryRouting = true
+    - '// @ui {"widget":"group_end"}'

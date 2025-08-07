@@ -1,0 +1,59 @@
+- !<AssetImportMetadata/df0bdeb0-e1f2-4e34-8058-4928e22ce34a>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> b930c64b-dd6b-4425-b2a9-d927e6da9c26
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> b930c64b-dd6b-4425-b2a9-d927e6da9c26
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 788bb834-bf8c-4768-bde0-7ac680028ee4
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/788bb834-bf8c-4768-bde0-7ac680028ee4>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: cb81d593-9dcf-4582-9e1d-4ae91a0758c8
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    contentText: false
+    enableDebugLogging: false
+    isStartingNode: false
+    nodeId: false
+    nodeLevel: false
+    nodePosition: false
+    titleText: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - titleText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      contentText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      nodeId: ""
+      nodePosition: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      nodeLevel: !<float> 1.000000
+      enableDebugLogging: false
+      isStartingNode: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Component.Text titleText {"hint":"Text component for the node title"}'
+    - '// @input Component.Text contentText {"hint":"Text component for the node content"}'
+    - '// @input string nodeId {"hint":"Unique identifier for this node"}'
+    - '// @input vec3 nodePosition {"hint":"Position in the diagram structure"}'
+    - '// @input float nodeLevel = 1 {"hint":"Level in the diagram hierarchy"}'
+    - '// @input bool enableDebugLogging {"hint":"Enable debug logging for this node"}'
+    - '// @input bool isStartingNode {"hint":"Is this the starting node of the diagram?"}'

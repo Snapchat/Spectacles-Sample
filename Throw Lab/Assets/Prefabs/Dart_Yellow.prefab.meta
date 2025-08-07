@@ -5,6 +5,8 @@
   PrimaryAsset: !<reference> fae188f3-43b7-494f-b05f-2f6aa209bd8b
   PackageType: NotAPackage
   PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
   AssetDataMap:
     ObjectPrefab: !<own> 93d29cc8-e916-4e58-9682-fc5447c8caf0
   DependentFiles:
@@ -12,8 +14,6 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-  ExtraData:
-    {}
 - !<RenderMeshVisual/105b92a1-c7e8-4483-9689-0af6e8c09844>
   PrefabRemaps:
     []
@@ -82,11 +82,13 @@
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
     enableInstantDrag: true
+    isScrollable: true
     allowMultipleInteractors: true
     enablePokeDirectionality: true
     acceptableXDirections: true
     acceptableYDirections: true
     acceptableZDirections: true
+    useFilteredPinch: true
     isSynced: true
     acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
@@ -95,12 +97,14 @@
     "":
       targetingMode: !<float> 1.000000
       enableInstantDrag: false
+      isScrollable: false
       allowMultipleInteractors: true
       enablePokeDirectionality: false
       acceptableXDirections: !<float> 0.000000
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
-      isSynced: true
+      useFilteredPinch: false
+      isSynced: false
       acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
@@ -111,11 +115,11 @@
   Name: Cube.002
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -24.617846, y: -29.102051, z: 97.497185}
-    rotation: {x: -88.994377, y: 0.239151, z: 139.999588}
-    scale: {x: 80.448517, y: 100.003578, z: 120.549126}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -24.617846, y: -29.102051, z: 97.497185}
+    Rotation: {x: -88.994377, y: 0.239151, z: 139.999588}
+    Scale: {x: 80.448517, y: 100.003578, z: 120.549126}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -252,11 +256,11 @@
   Name: Cylinder
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: -0.978455, z: -62.404755}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 12.079400, y: 12.079400, z: 18.110870}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -0.978455, z: -62.404755}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 12.079400, y: 12.079400, z: 18.110870}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -269,11 +273,11 @@
   Name: DartNew
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 295.794678, z: -76.672874}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 10.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 295.794678, z: -76.672874}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 10.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> a950eba5-13ea-42f1-a215-e3d3e15b8c4a
     - !<own> b7a3cf1b-b152-4ead-af83-9fc71b5e5f6b
@@ -318,11 +322,11 @@
   Name: Cube.001
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -24.617846, y: 28.049347, z: 97.497185}
-    rotation: {x: -87.902321, y: 0.560867, z: 40.002308}
-    scale: {x: 80.446404, y: 100.052780, z: 120.511871}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -24.617846, y: 28.049347, z: 97.497185}
+    Rotation: {x: -87.902321, y: 0.560867, z: 40.002308}
+    Scale: {x: 80.446404, y: 100.052780, z: 120.511871}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -333,11 +337,11 @@
   Name: d2_0
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: -0.101947}
-    rotation: {x: 0.000000, y: -90.000000, z: 0.000000}
-    scale: {x: 0.070000, y: 0.700000, z: 0.700000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: -0.101947}
+    Rotation: {x: 0.000000, y: -90.000000, z: 0.000000}
+    Scale: {x: 0.070000, y: 0.700000, z: 0.700000}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -348,11 +352,11 @@
   Name: Cube
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 24.617846, y: 28.049347, z: 97.497185}
-    rotation: {x: -88.580017, y: 0.246727, z: -40.000443}
-    scale: {x: 80.448479, y: 100.008751, z: 120.544868}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 24.617846, y: 28.049347, z: 97.497185}
+    Rotation: {x: -88.580017, y: 0.246727, z: -40.000443}
+    Scale: {x: 80.448479, y: 100.008751, z: 120.544868}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -363,11 +367,11 @@
   Name: Cube.003
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 24.617846, y: -29.102051, z: 97.497185}
-    rotation: {x: -88.316666, y: 0.568354, z: -139.997650}
-    scale: {x: 80.446335, y: 100.038445, z: 120.523865}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 24.617846, y: -29.102051, z: 97.497185}
+    Rotation: {x: -88.316666, y: 0.568354, z: -139.997650}
+    Scale: {x: 80.446335, y: 100.038445, z: 120.523865}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -395,11 +399,11 @@
   Name: dart
   Enabled: false
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.130297}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 0.025000, y: 0.025000, z: 0.002800}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.130297}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.025000, y: 0.025000, z: 0.002800}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 74a7adbe-31e4-406a-b730-75c921fe0030
     - !<own> a962d412-c710-4dbc-8140-5d042c8ebc00

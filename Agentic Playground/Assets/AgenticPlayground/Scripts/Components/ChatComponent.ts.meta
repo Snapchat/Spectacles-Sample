@@ -1,0 +1,98 @@
+- !<AssetImportMetadata/2485b178-f5f5-4ca3-b6f3-61b36840e9d5>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> f5e92c72-c9e3-47fa-aa47-9ad697e44bee
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> f5e92c72-c9e3-47fa-aa47-9ad697e44bee
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> efdd8caa-0f57-4e90-961f-7d945ac8c35b
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/efdd8caa-0f57-4e90-961f-7d945ac8c35b>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: d038745d-3bd8-4660-a8bb-a9c1c0917a3f
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    animationSpeed: false
+    bottomLastPosition: false
+    bottomPosition: false
+    chatModeChronological: false
+    chatbotCardPrefab: false
+    enableScrollSystem: false
+    initialNumberOfCards: false
+    maxTestCards: false
+    midPosition: false
+    scrollController: false
+    scrollLineEnd: false
+    scrollLineStart: false
+    spacingMultiplier: false
+    swipeSpeedThreshold: false
+    swipeThreshold: false
+    testInterval: false
+    testMode: false
+    topLastPosition: false
+    topPosition: false
+    userCardPrefab: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - userCardPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      chatbotCardPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      initialNumberOfCards: 10
+      topLastPosition: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      topPosition: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      midPosition: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      bottomPosition: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      bottomLastPosition: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      swipeThreshold: !<float> 50.000000
+      animationSpeed: 0.500000
+      swipeSpeedThreshold: !<float> 100.000000
+      enableScrollSystem: true
+      scrollLineStart: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      scrollLineEnd: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      scrollController: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      testMode: false
+      testInterval: !<float> 2.000000
+      maxTestCards: 40
+      chatModeChronological: true
+      spacingMultiplier: !<float> 1.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Asset.ObjectPrefab userCardPrefab {"hint":"User card prefab"}'
+    - '// @input Asset.ObjectPrefab chatbotCardPrefab {"hint":"Chatbot card prefab"}'
+    - '// @input int initialNumberOfCards = "10" {"hint":"Initial number of cards"}'
+    - '// @input SceneObject topLastPosition {"hint":"Transform for the top last position"}'
+    - '// @input SceneObject topPosition {"hint":"Transform for the top position"}'
+    - '// @input SceneObject midPosition {"hint":"Transform for the mid position (active/swipeable)"}'
+    - '// @input SceneObject bottomPosition {"hint":"Transform for the bottom position"}'
+    - '// @input SceneObject bottomLastPosition {"hint":"Transform for the bottom last position"}'
+    - '// @input number swipeThreshold = "50.0" {"hint":"Minimum swipe distance to trigger card change"}'
+    - '// @input number animationSpeed = "0.5" {"hint":"Animation speed for card transitions (0-1)"}'
+    - '// @input number swipeSpeedThreshold = "100.0" {"hint":"Minimum swipe speed (distance/time) to trigger quick swipe"}'
+    - '// @input bool enableScrollSystem = true {"hint":"Enable scroll system (if false, uses manual swipe only)"}'
+    - '// @input SceneObject scrollLineStart {"hint":"Line start point for scroll projection"}'
+    - '// @input SceneObject scrollLineEnd {"hint":"Line end point for scroll projection"}'
+    - '// @input SceneObject scrollController {"hint":"Draggable object that controls the scroll position"}'
+    - '// @input bool testMode {"hint":"Enable test mode - adds cards automatically every 2 seconds"}'
+    - '// @input number testInterval = "2.0" {"hint":"Interval between test card additions (seconds)"}'
+    - '// @input int maxTestCards = "40" {"hint":"Maximum number of cards for testing"}'
+    - '// @input bool chatModeChronological = true {"hint":"Enable chronological chat mode - forces cards to appear in order 0,1,2,3 from top to bottom"}'
+    - '// @input number spacingMultiplier = "1.0" {"hint":"Multiplier for spacing between cards (1.0 = default, 2.0 = double spacing, 0.5 = half spacing)"}'

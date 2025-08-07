@@ -16,8 +16,9 @@
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<TypeScriptAssetData/9d445307-d296-4b5f-a22d-1d4cc58530f8>
   SvgIcon: ""
+  SetupScript:
+    code: ""
   Description: ""
-  InternalVersion: 0
   VersionMajor: 0
   VersionMinor: 0
   VersionPatch: 0
@@ -33,7 +34,7 @@
     closestPointMarker: false
     colliderObject: false
     googleSlideBridge: false
-    interactorObject: false
+    interactorPrefab: false
     next: false
     presentationSwitcher: false
     pressThreshold: false
@@ -43,11 +44,15 @@
     topVertex2: false
     topVertex3: false
     useGoogleSlide: false
+    useRightHand: false
   ScriptTypesHidden:
     {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
     - colliderObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
-      interactorObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      interactorPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      useRightHand: true
       closestPointMarker: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       topVertex0: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       topVertex1: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
@@ -68,7 +73,8 @@
       {}
   InputLines:
     - '// @input SceneObject colliderObject {"hint":"The collider that will detect the soft press interaction"}'
-    - '// @input SceneObject interactorObject {"hint":"The interactor object (e.g., finger tip)"}'
+    - '// @input Asset.ObjectPrefab interactorPrefab {"hint":"The prefab to attach to the wrist as the interactor"}'
+    - '// @input bool useRightHand = true {"hint":"Use right hand? (true = Right hand, false = Left hand)"}'
     - '// @input SceneObject closestPointMarker {"hint":"Optional: A SceneObject to visually mark the closest point on the line (for debugging)"}'
     - '// @input SceneObject topVertex0 {"hint":"Top vertex 0 of the collider cube"}'
     - '// @input SceneObject topVertex1 {"hint":"Top vertex 1 of the collider cube"}'
@@ -84,7 +90,3 @@
     - '// @input AssignableType_1 googleSlideBridge {"hint":"The google switcher manager"}'
     - '// @input bool next {"hint":"Does the presentation switcher bring you to the previous slide?"}'
     - '// @input bool useGoogleSlide {"hint":"Enable this boolean if you are planning to Use Google Slide API and the Google Slide Bridge"}'
-  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
-  SetupScript:
-    code: ""
-  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000

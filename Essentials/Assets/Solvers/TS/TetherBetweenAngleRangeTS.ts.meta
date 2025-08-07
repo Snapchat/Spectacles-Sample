@@ -16,8 +16,9 @@
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<TypeScriptAssetData/54cd0de9-57d8-42a4-8210-1b64f1caf9c1>
   SvgIcon: ""
+  SetupScript:
+    code: ""
   Description: ""
-  InternalVersion: 0
   VersionMajor: 0
   VersionMinor: 0
   VersionPatch: 0
@@ -35,6 +36,8 @@
     verticalDistanceThreshold: false
   ScriptTypesHidden:
     {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
     - target: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       angleThreshold: !<float> 45.000000
@@ -54,7 +57,3 @@
     - '// @input vec3 offset = {0,0,-100} {"hint":"Offset for positioning content relative to target"}'
     - '// @input float lerpSpeed = 5 {"hint":"Speed of position lerping"}'
     - '// @input bool showDebug {"hint":"Show debug information"}'
-  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
-  SetupScript:
-    code: ""
-  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000

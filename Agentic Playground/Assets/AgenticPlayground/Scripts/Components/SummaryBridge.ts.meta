@@ -1,0 +1,80 @@
+- !<AssetImportMetadata/2f941abd-29b0-4192-8ac3-71eda938d914>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 2d77f4ac-5d9f-49fa-b90f-9dcdf79a363d
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 2d77f4ac-5d9f-49fa-b90f-9dcdf79a363d
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> ce53d85f-eb11-4583-b144-dbdff07ac96c
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/ce53d85f-eb11-4583-b144-dbdff07ac96c>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: e332924b-6143-483f-85b4-ca657b1284b4
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    aiSummarizer: false
+    asrController: false
+    autoSummaryThreshold: false
+    enableAutoSummary: false
+    enableDebugLogging: false
+    showStoredTranscription: false
+    showSummaryCards: false
+    summarizationWordThreshold: false
+    summaryDisplayText: false
+    summaryLayout: false
+    summaryStorage: false
+    testASRDocumentCreation: false
+    testComponentWithoutStorage: false
+    updateInterval: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - summaryStorage: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      aiSummarizer: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      summaryLayout: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      summaryDisplayText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      asrController: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      testASRDocumentCreation: false
+      testComponentWithoutStorage: false
+      summarizationWordThreshold: !<float> 500.000000
+      enableDebugLogging: true
+      enableAutoSummary: true
+      autoSummaryThreshold: !<float> 1000.000000
+      updateInterval: !<float> 3.000000
+      showStoredTranscription: false
+      showSummaryCards: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType summaryStorage {"hint":"Reference to SummaryStorage component"}'
+    - '// @input AssignableType_1 aiSummarizer {"hint":"Reference to AISummarizer component"}'
+    - '// @input AssignableType_2 summaryLayout {"hint":"Reference to SummaryComponent for UI display"}'
+    - '// @input Component.Text summaryDisplayText {"hint":"Text component to display summary status"}'
+    - '// @input AssignableType_3 asrController {"hint":"Reference to SummaryASRController for speech input"}'
+    - '// @input bool testASRDocumentCreation {"hint":"Enable ASR document creation test"}'
+    - '// @input bool testComponentWithoutStorage {"hint":"Enable component testing without storage"}'
+    - '// @input float summarizationWordThreshold = 500 {"hint":"Word count threshold for summarization", "widget":"slider", "min":100, "max":1000, "step":50}'
+    - // @input bool enableDebugLogging = true
+    - // @input bool enableAutoSummary = true
+    - // @input float autoSummaryThreshold = 1000
+    - // @input float updateInterval = 3
+    - '// @input bool showStoredTranscription {"hint":"Log the transcription text that has been stored and summarized"}'
+    - '// @input bool showSummaryCards {"hint":"Log the summary cards content summarized by the AI"}'

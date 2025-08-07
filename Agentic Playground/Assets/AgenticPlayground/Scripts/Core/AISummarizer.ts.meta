@@ -1,0 +1,53 @@
+- !<AssetImportMetadata/687ec13e-21bc-434f-aa39-2f39e44ec559>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 6a22caf1-e869-4769-81c0-8eb5a4390cc0
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 6a22caf1-e869-4769-81c0-8eb5a4390cc0
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 34aea20b-cba3-425e-bfa2-bf777a15fa08
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/34aea20b-cba3-425e-bfa2-bf777a15fa08>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 19a4811e-c673-4c2e-a53b-35b7944f397a
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    enableDebugLogging: false
+    enableSummarization: false
+    maxSections: false
+    model: false
+    temperature: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - enableSummarization: true
+      model: gpt-4o-mini
+      maxSections: !<float> 5.000000
+      temperature: 0.300000
+      enableDebugLogging: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input bool enableSummarization = true {"hint":"Enable AI summarization"}'
+    - '// @input string model = "gpt-4o-mini" {"hint":"OpenAI model to use for summarization", "widget":"combobox", "values":[{"label":"gpt-4o-mini", "value":"GPT-4o Mini"}, {"label":"gpt-4o", "value":"GPT-4o"}, {"label":"gpt-3.5-turbo", "value":"GPT-3.5 Turbo"}]}'
+    - '// @input float maxSections = 5 {"hint":"Maximum number of summary sections to generate", "widget":"slider", "min":1, "max":10, "step":1}'
+    - '// @input float temperature = 0.3 {"hint":"Temperature for AI responses (0.0 = focused, 1.0 = creative)", "widget":"slider", "min":0, "max":1, "step":0.1}'
+    - '// @input bool enableDebugLogging = true {"hint":"Enable debug logging"}'

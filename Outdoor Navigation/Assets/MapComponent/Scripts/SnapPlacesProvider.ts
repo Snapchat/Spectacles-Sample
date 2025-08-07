@@ -44,8 +44,8 @@ export type PlaceInfo = {
 
 @component
 export class SnapPlacesProvider extends BaseScriptComponent {
-  
-  private internetModule: InternetModule = require("LensStudio:InternetModule");
+  @input
+  private remoteServiceModule: RemoteServiceModule
   private apiModule: any;
 
   private locationToPlaces: Map<GeoPosition, PlaceInfo[]> = new Map<
@@ -55,7 +55,7 @@ export class SnapPlacesProvider extends BaseScriptComponent {
 
   onAwake() {
     this.createEvent("OnStartEvent").bind(() => {
-      this.apiModule = new placesModule.ApiModule(this.internetModule);
+      this.apiModule = new placesModule.ApiModule(this.remoteServiceModule);
     });
   }
 

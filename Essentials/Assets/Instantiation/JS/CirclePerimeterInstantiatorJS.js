@@ -62,5 +62,5 @@ function CirclePerimeterInstantiator() {
 }
 
 // Register the script
-script.api.CirclePerimeterInstantiator = CirclePerimeterInstantiator;
+script.CirclePerimeterInstantiator = CirclePerimeterInstantiator;
 CirclePerimeterInstantiator();

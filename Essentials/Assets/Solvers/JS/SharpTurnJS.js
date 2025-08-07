@@ -165,10 +165,10 @@ function SharpTurnJS() {
     }
     
     // Expose public methods
-    script.api.addOnTurnListener = addOnTurnListener;
-    script.api.removeOnTurnListener = removeOnTurnListener;
+    script.addOnTurnListener = addOnTurnListener;
+    script.removeOnTurnListener = removeOnTurnListener;
 }
 
 // Register the script
-script.api.SharpTurnJS = SharpTurnJS;
+script.SharpTurnJS = SharpTurnJS;
 SharpTurnJS();

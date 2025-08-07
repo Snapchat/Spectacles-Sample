@@ -65,5 +65,5 @@ function InstantiateAlongLineWithFixedDistance() {
 }
 
 // Register the script
-script.api.InstantiateAlongLineWithFixedDistance = InstantiateAlongLineWithFixedDistance;
+script.InstantiateAlongLineWithFixedDistance = InstantiateAlongLineWithFixedDistance;
 InstantiateAlongLineWithFixedDistance();

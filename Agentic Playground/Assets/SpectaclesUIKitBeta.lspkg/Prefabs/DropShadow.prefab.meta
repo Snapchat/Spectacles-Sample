@@ -1,0 +1,64 @@
+- !<AssetImportMetadata/0678369d-7b14-c2bd-86e7-5b5d1b24ade8>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> 7a5453d7-c979-4590-8dab-f74ec8f7d2ff
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> 7a5453d7-c979-4590-8dab-f74ec8f7d2ff
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    ObjectPrefab: !<own> e5c7da9a-5761-44a7-a190-0fb7e4a5fc79
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/0cb231a3-d26d-4574-8285-49f0ef70b871>
+  PrefabRemaps:
+    []
+  Name: Shadow
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -0.500000, z: -0.010000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 67044bf0-0297-42f3-a538-29d345f041f4
+- !<ScriptComponent/67044bf0-0297-42f3-a538-29d345f041f4>
+  PrefabRemaps:
+    []
+  Name: DropShadow
+  Enabled: true
+  ScriptAsset: !<reference> ad762f27-84e0-4f5b-8944-81cf59ca64fc
+  ScriptInputsDefault:
+    _size: true
+    _cornerRadius: true
+    color: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      _size: !<Vec2> {x: 3.000000, y: 3.000000}
+      _cornerRadius: 1.500000
+      color: !<Vec4> {x: 0.043137, y: 0.043137, z: 0.043137, w: 0.149996}
+      spread: 0.300000
+  ScriptTypes:
+    "":
+      {}
+- !<ObjectPrefab/b077bb65-542a-49d7-a197-6aafbe835096>
+  PackagePath: ""
+  objects:
+    - !<own> 0cb231a3-d26d-4574-8285-49f0ef70b871
+  LazyLoading: false
+  RetainAssets: true
+- !<ObjectPrefabAssetData/e5c7da9a-5761-44a7-a190-0fb7e4a5fc79>
+  SourceRemaps:
+    - 027c76ea-9620-47ef-9e9f-779352ad1863: 67044bf0-0297-42f3-a538-29d345f041f4
+    - 7a5453d7-c979-4590-8dab-f74ec8f7d2ff: b077bb65-542a-49d7-a197-6aafbe835096
+    - 8c2d4051-2951-4561-a737-ec7d13074eed: 0cb231a3-d26d-4574-8285-49f0ef70b871
+  SourceState: !<own> b077bb65-542a-49d7-a197-6aafbe835096

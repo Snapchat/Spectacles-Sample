@@ -60,5 +60,5 @@ function InstantiateOn2DGrids() {
 }
 
 // Register the script
-script.api.InstantiateOn2DGrids = InstantiateOn2DGrids;
+script.InstantiateOn2DGrids = InstantiateOn2DGrids;
 InstantiateOn2DGrids();

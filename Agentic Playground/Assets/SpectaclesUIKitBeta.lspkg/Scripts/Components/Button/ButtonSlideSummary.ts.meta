@@ -1,0 +1,75 @@
+- !<AssetImportMetadata/18336d29-ccd2-4961-a8f1-529d16c0760e>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 2aa1aaf0-adb1-4d0c-b76c-bfbac2618c59
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 2aa1aaf0-adb1-4d0c-b76c-bfbac2618c59
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 0db3b2d6-35a9-48f2-baba-c32dfd533073
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/0db3b2d6-35a9-48f2-baba-c32dfd533073>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 51475900-411f-4d98-9ff9-1100d64aced8
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    _autoHighlight: false
+    _playAudio: false
+    _size: false
+    addCallbacks: false
+    isDisabled: false
+    textContent: false
+    textIndex: false
+    textTitle: false
+    triggerDownCallbacks: false
+    triggerUpCallbacks: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - isDisabled: false
+      _playAudio: false
+      _size: !<Vec3> {x: 6.000000, y: 3.000000, z: 3.000000}
+      _autoHighlight: false
+      addCallbacks: false
+      triggerUpCallbacks:
+        []
+      triggerDownCallbacks:
+        []
+      textIndex: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      textTitle: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      textContent: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input bool isDisabled {"hint":"Disabled Mode"}'
+    - '// @input bool _playAudio {"label":"Play Audio", "hint":"Play audio on interaction"}'
+    - '// @input vec3 _size = {6,3,3} {"hint":"Size of the element in centimeters"}'
+    - '// @input bool _autoHighlight {"hint":"Automatic highlight"}'
+    - "// @input bool addCallbacks {\"hint\":\"Enable this to add functions from another script to this component's callbacks\"}"
+    - /*
+    - "@typedef Callback"
+    - "@property {Component.ScriptComponent} scriptComponent "
+    - "@property {string} functionName "
+    - "*/"
+    - '// @input Callback[] triggerUpCallbacks = {} {"label":"On Trigger Up Callbacks", "showIf":"addCallbacks"}'
+    - '// @input Callback[] triggerDownCallbacks = {} {"label":"On Trigger Down Callbacks", "showIf":"addCallbacks"}'
+    - // @input Component.Text textIndex
+    - // @input Component.Text textTitle
+    - // @input Component.Text textContent

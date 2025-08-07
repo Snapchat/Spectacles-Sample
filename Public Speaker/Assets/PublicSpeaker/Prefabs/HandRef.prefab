@@ -1,0 +1,60 @@
+- !<ObjectPrefab/dbf596cf-4d83-42f8-af85-02fa4c0ef240>
+  PackagePath: ""
+  objects:
+    - !<own> 435d25b3-6884-4932-85e4-2d6a3876d0f4
+  LazyLoading: false
+  RetainAssets: true
+- !<RenderMeshVisual/1f997821-8631-45b3-9781-4cf4e4ce2dca>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 0ed8242c-ff3f-4c2d-8383-ec4b16baca52
+  Mesh: !<reference> a5ec991e-7d5e-41f7-8552-8100fe5c0fe1
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/435d25b3-6884-4932-85e4-2d6a3876d0f4>
+  PrefabRemaps:
+    []
+  Name: RightHandRef
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.300000, y: 0.300000, z: 0.300000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 1f997821-8631-45b3-9781-4cf4e4ce2dca
+    - !<own> a188092f-21e6-49fc-82ec-0f48e1e16e5e
+- !<ColliderComponent/a188092f-21e6-49fc-82ec-0f48e1e16e5e>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Sphere>
+    FitVisual: true
+    Radius: 6.000000
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false

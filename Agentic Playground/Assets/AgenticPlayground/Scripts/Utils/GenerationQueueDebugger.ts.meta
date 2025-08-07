@@ -1,0 +1,65 @@
+- !<AssetImportMetadata/befa8570-fbd2-414c-a20c-69839aa0c911>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 7584b039-5fd7-490c-aa71-8671c9769714
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 7584b039-5fd7-490c-aa71-8671c9769714
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> af326b79-81c3-4f82-8690-14433673494d
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/af326b79-81c3-4f82-8690-14433673494d>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: e2f69d2e-53d2-4b7e-b980-6d1b7343c10e
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    enableStatusLogging: false
+    imageNodePrefab: false
+    modelNodePrefab: false
+    runTestOnStart: false
+    testImageCount: false
+    testModelCount: false
+    testNodeParent: false
+    updateInterval: false
+    useNodePrefabs: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - enableStatusLogging: true
+      updateInterval: !<float> 2.000000
+      runTestOnStart: false
+      testImageCount: !<float> 3.000000
+      testModelCount: !<float> 2.000000
+      useNodePrefabs: false
+      imageNodePrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      modelNodePrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      testNodeParent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input bool enableStatusLogging = true {"hint":"Enable real-time queue status logging"}'
+    - '// @input float updateInterval = 2 {"hint":"Status update interval in seconds", "widget":"slider", "min":0.5, "max":5, "step":0.5}'
+    - '// @input bool runTestOnStart {"hint":"Test the queue with sample generations"}'
+    - '// @input float testImageCount = 3 {"hint":"Number of test images to generate", "widget":"slider", "min":0, "max":10, "step":1}'
+    - '// @input float testModelCount = 2 {"hint":"Number of test models to generate", "widget":"slider", "min":0, "max":5, "step":1}'
+    - '// @input bool useNodePrefabs {"hint":"Test using actual node prefabs instead of direct queue"}'
+    - '// @input Asset.ObjectPrefab imageNodePrefab {"hint":"Image node prefab for testing"}'
+    - '// @input Asset.ObjectPrefab modelNodePrefab {"hint":"Model node prefab for testing"}'
+    - '// @input SceneObject testNodeParent {"hint":"Parent object for spawned test nodes"}'

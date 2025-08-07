@@ -16,8 +16,9 @@
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<TypeScriptAssetData/e7036e4b-7524-4797-b239-fe67b40f37b4>
   SvgIcon: ""
+  SetupScript:
+    code: ""
   Description: ""
-  InternalVersion: 0
   VersionMajor: 0
   VersionMinor: 0
   VersionPatch: 0
@@ -30,6 +31,8 @@
     handColliderName: false
   ScriptTypesHidden:
     {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
     - collider: !<reference.ColliderComponent> 00000000-0000-0000-0000-000000000000
       handColliderName: ColliderTargetProvider
@@ -39,7 +42,3 @@
   InputLines:
     - // @input Component.ColliderComponent collider
     - '// @input string handColliderName = "ColliderTargetProvider"'
-  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
-  SetupScript:
-    code: ""
-  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000

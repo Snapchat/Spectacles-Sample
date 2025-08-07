@@ -5,6 +5,8 @@
   PrimaryAsset: !<reference> 16736bf8-9deb-41df-bba4-c6f13d3a082b
   PackageType: NotAPackage
   PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
   AssetDataMap:
     TypeScriptAsset: !<own> 6b6b0310-d56a-41e1-940b-878ec3169a77
   DependentFiles:
@@ -12,12 +14,11 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-  ExtraData:
-    {}
 - !<TypeScriptAssetData/6b6b0310-d56a-41e1-940b-878ec3169a77>
   SvgIcon: ""
+  SetupScript:
+    code: ""
   Description: ""
-  InternalVersion: 0
   VersionMajor: 0
   VersionMinor: 0
   VersionPatch: 0
@@ -31,6 +32,8 @@
     targetOutlineMaterial: false
   ScriptTypesHidden:
     {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
     - audio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
       targetOutlineMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
@@ -42,7 +45,3 @@
     - // @input Component.AudioComponent audio
     - '// @input Asset.Material targetOutlineMaterial {"hint":"This is the material that will provide the mesh outline"}'
     - // @input Component.RenderMeshVisual meshVisual
-  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
-  SetupScript:
-    code: ""
-  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000

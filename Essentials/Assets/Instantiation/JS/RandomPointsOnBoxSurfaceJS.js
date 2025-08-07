@@ -111,5 +111,5 @@ function RandomPointsOnBoxSurface() {
 }
 
 // Register the script
-script.api.RandomPointsOnBoxSurface = RandomPointsOnBoxSurface;
+script.RandomPointsOnBoxSurface = RandomPointsOnBoxSurface;
 RandomPointsOnBoxSurface();

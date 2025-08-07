@@ -1,0 +1,62 @@
+- !<AssetImportMetadata/8c58ed21-d356-409b-ad27-306f2a31a540>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> cb393bb2-b3b5-42b9-8b24-ab0efe8bb240
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> cb393bb2-b3b5-42b9-8b24-ab0efe8bb240
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 3fb9ceb9-07b8-40b3-ac0a-b9127e5b6f91
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/3fb9ceb9-07b8-40b3-ac0a-b9127e5b6f91>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 5461fd92-de12-4a0f-8576-bac5bdcb4126
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    diagramLayout: false
+    diagramStorage: false
+    enableAutoUpdate: false
+    enableDebugLogging: false
+    testDiagramWithSpecifications: false
+    testPhaseIndex: false
+    testSpecification: false
+    updateInterval: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - diagramStorage: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      diagramLayout: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      enableDebugLogging: true
+      enableAutoUpdate: true
+      updateInterval: !<float> 2.000000
+      testDiagramWithSpecifications: false
+      testSpecification: AI Fundamentals
+      testPhaseIndex: !<float> 0.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType diagramStorage {"hint":"Reference to DiagramStorage component"}'
+    - '// @input AssignableType_1 diagramLayout {"hint":"Reference to DiagramComponent for UI display"}'
+    - // @input bool enableDebugLogging = true
+    - // @input bool enableAutoUpdate = true
+    - // @input float updateInterval = 2
+    - '// @input bool testDiagramWithSpecifications {"hint":"Enable diagram testing with mock specifications"}'
+    - '// @input string testSpecification = "AI Fundamentals" {"hint":"Test specification: AI, ML, Neural Networks, Computer Vision, NLP"}'
+    - '// @input float testPhaseIndex {"hint":"Test phase index (0-4) for progressive diagram building", "widget":"slider", "min":0, "max":4, "step":1}'

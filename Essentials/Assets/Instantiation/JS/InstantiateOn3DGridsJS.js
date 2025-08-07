@@ -68,5 +68,5 @@ function InstantiateOn3DGrids() {
 }
 
 // Register the script
-script.api.InstantiateOn3DGrids = InstantiateOn3DGrids;
+script.InstantiateOn3DGrids = InstantiateOn3DGrids;
 InstantiateOn3DGrids();

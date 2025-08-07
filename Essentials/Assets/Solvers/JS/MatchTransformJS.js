@@ -211,9 +211,9 @@ function MatchTransformJS() {
     }
     
     // Expose public methods
-    script.api.updateTransform = updateTransform;
+    script.updateTransform = updateTransform;
 }
 
 // Register the script
-script.api.MatchTransformJS = MatchTransformJS;
+script.MatchTransformJS = MatchTransformJS;
 MatchTransformJS();

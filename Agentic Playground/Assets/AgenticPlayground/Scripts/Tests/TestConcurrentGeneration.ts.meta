@@ -1,0 +1,53 @@
+- !<AssetImportMetadata/79fb890a-f61c-41f1-b59f-c6ef192362ef>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> b42133ed-67b1-4890-ba78-82509a82316b
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> b42133ed-67b1-4890-ba78-82509a82316b
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> aa1ec5ee-89c2-4644-a261-d376552cd84c
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/aa1ec5ee-89c2-4644-a261-d376552cd84c>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 459d363f-b175-410e-91bb-771cecbc896d
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    concurrentImages: false
+    concurrentModels: false
+    imageGenFactory: false
+    modelGenFactory: false
+    startOnAwake: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - imageGenFactory: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      modelGenFactory: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      concurrentImages: !<float> 3.000000
+      concurrentModels: !<float> 2.000000
+      startOnAwake: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType imageGenFactory {"hint":"Reference to ImageGen factory"}'
+    - '// @input AssignableType_1 modelGenFactory {"hint":"Reference to ModelGen factory"}'
+    - '// @input float concurrentImages = 3 {"hint":"Number of concurrent image generations to test", "widget":"slider", "min":1, "max":5, "step":1}'
+    - '// @input float concurrentModels = 2 {"hint":"Number of concurrent model generations to test", "widget":"slider", "min":1, "max":3, "step":1}'
+    - '// @input bool startOnAwake = true {"hint":"Start test on awake"}'

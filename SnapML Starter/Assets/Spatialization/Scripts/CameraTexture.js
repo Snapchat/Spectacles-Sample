@@ -10,13 +10,15 @@ let cameraTextureProvider;
 
 // Public function to get the camera texture
 function getCameraTexture() {
-   
-    // crop before returning
-    let screenCropControl = script.screenTexture.control;
-    screenCropControl.inputTexture = cameraTexture;//assign the camera module texture output
-    return script.screenTexture;
-    //return cameraTexture;
-    
+    // Return a copy of the current camera frame
+    if (cameraTexture) {
+        let frameTexture = cameraTexture.copyFrame();
+        // crop before returning
+        let screenCropControl = script.screenTexture.control;
+        screenCropControl.inputTexture = frameTexture;
+        return script.screenTexture;
+    }
+    return null;
 }
 
 script.createEvent('OnStartEvent').bind(() => {
@@ -33,13 +35,19 @@ script.createEvent('OnStartEvent').bind(() => {
     cameraTexture = cameraModule.requestCamera(cameraRequest);
     cameraTextureProvider = cameraTexture.control;
     
-    cameraTextureProvider.onNewFrame.add((cameraFrame) => {
+    cameraTextureProvider.onNewFrame.add((frame) => {
+        // Get a copy of the current frame
+        let frameTexture = cameraTexture.copyFrame();
+        
         if (script.uiImage) {
-            script.uiImage.mainPass.baseTex = cameraTexture;
+            script.uiImage.mainPass.baseTex = frameTexture;
         }
         // Update the cropped image on every new frame as well
         if (script.croppedImage && script.screenTexture) {
-            script.croppedImage.mainPass.baseTex = getCameraTexture();
+            // Update the crop control with the new frame
+            let screenCropControl = script.screenTexture.control;
+            screenCropControl.inputTexture = frameTexture;
+            script.croppedImage.mainPass.baseTex = script.screenTexture;
         }
     });
     

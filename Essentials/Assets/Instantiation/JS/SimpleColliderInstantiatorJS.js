@@ -485,5 +485,5 @@ function SimpleColliderInstantiator() {
 }
 
 // Register the script
-script.api.SimpleColliderInstantiator = SimpleColliderInstantiator;
+script.SimpleColliderInstantiator = SimpleColliderInstantiator;
 SimpleColliderInstantiator();

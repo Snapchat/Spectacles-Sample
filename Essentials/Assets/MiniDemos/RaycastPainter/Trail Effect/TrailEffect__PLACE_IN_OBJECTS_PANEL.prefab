@@ -108,11 +108,11 @@
   Name: Reference Point 2
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 10.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 0.025021, y: 0.025021, z: 0.025021}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 10.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.025021, y: 0.025021, z: 0.025021}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 7da9e105-78a2-460f-8051-93e68ac1852a
   Components:
@@ -130,11 +130,11 @@
   Name: Guide
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 17.795990, y: -45.643269, z: 0.000000}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 27.725885, y: 27.725897, z: 27.725895}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 17.795990, y: -45.643269, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 27.725885, y: 27.725897, z: 27.725895}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -223,11 +223,11 @@
   Name: Guide
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 17.795990, y: 49.280487, z: 0.000000}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 27.725885, y: 27.725897, z: 27.725895}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 17.795990, y: 49.280487, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 27.725885, y: 27.725897, z: 27.725895}
+    HasSegmentScaleCompensation: false
   Children:
     []
   Components:
@@ -238,11 +238,11 @@
   Name: "moving_object [REPLACE_ME]"
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: -30.000000}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: -30.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> b4be2c50-4b10-4811-9dcf-7d6868cec14c
   Components:
@@ -253,11 +253,11 @@
   Name: Moving_Empty_Object
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: -10.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: -10.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> f065a20a-4c7d-4bd0-8da7-aa29fb9060c1
     - !<own> 465118b3-7892-4732-a770-b4af22b76ddb
@@ -269,11 +269,11 @@
   Name: TrailEffect__PLACE_IN_OBJECTS_PANEL
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> acf0f630-f39f-44fb-aa99-e232a6e608d5
   Components:
@@ -307,11 +307,7 @@
         enabled: true
         roughHarden: 0.500000
         roughCurve: 2.000000
-    IndirectDiffuse:
-      caster: false
-      receiver: false
-      receiverLayers: 1
-    AmbientOcclusion:
+    GlobalIllumination:
       caster: false
       receiver: false
       receiverLayers: 1
@@ -350,11 +346,7 @@
         enabled: true
         roughHarden: 0.500000
         roughCurve: 2.000000
-    IndirectDiffuse:
-      caster: false
-      receiver: false
-      receiverLayers: 1
-    AmbientOcclusion:
+    GlobalIllumination:
       caster: false
       receiver: false
       receiverLayers: 1
@@ -379,11 +371,11 @@
   Name: Reference Point 1
   Enabled: true
   Layers: 1
-  LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    scale: {x: 0.025021, y: 0.025021, z: 0.025021}
-    hasSegmentScaleCompensation: false
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.025021, y: 0.025021, z: 0.025021}
+    HasSegmentScaleCompensation: false
   Children:
     - !<own> 6613641f-d984-4861-9838-08b38af7c0c4
   Components:

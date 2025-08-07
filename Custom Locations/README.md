@@ -77,7 +77,7 @@ Add a Custom Location Group to the scene hierarchy of your project and press "Re
 4. Add the ID of the scan to the "Group ID" field
 5. Click "Reload Group"
 
-<img src="./README-ref/custom-location-scene.png" alt="Load Sample" width="500" />
+<img src="./README-ref/custom-location-group-full.png" alt="Location Group Full" width="500" />
 
 ### Use Sample Assets to Create
 
@@ -90,13 +90,13 @@ Add a Custom Location Group to the scene hierarchy of your project and press "Re
    5. Add the `ScaleInLocatedObject` script
    6. Update references to the content and `LocatedAt` component
    7. Add as a child an audio asset scene object
-   8. Add the `AudioLocatedObject` to the
+   8. Add the `AudioLocatedObject` to that object
    9. Add both `LocatedObject` scripts to the "Listener Objects" field on the activate script
 3. Repeat this for all locations as appropriate
 
 Add the content that is to be anchored to each of the locations.
 
-<img src="./README-ref/custom-location-group-full.png" alt="Location Group Full" width="500" />
+<img src="./README-ref/custom-location-scene.png" alt="Load Sample" width="500" />
 
 ### Test Your Lens
 

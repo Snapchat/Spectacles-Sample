@@ -78,5 +78,5 @@ function CircleSlicingInstantiator() {
 }
 
 // Register the script
-script.api.CircleSlicingInstantiator = CircleSlicingInstantiator;
+script.CircleSlicingInstantiator = CircleSlicingInstantiator;
 CircleSlicingInstantiator();

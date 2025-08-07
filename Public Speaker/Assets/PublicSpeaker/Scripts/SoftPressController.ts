@@ -3,6 +3,7 @@ import { mix } from "SpectaclesInteractionKit.lspkg/Utils/animate";
 import { clamp } from "SpectaclesInteractionKit.lspkg/Utils/mathUtils";
 import { PresentationSwitcher } from "./PresentationSwitcher";
 import { GoogleSlideBridge } from "./GoogleSlideBridge";
+import { HandVisual } from "SpectaclesInteractionKit.lspkg/Components/Interaction/HandVisual/HandVisual";
 
 const log = new NativeLogger("SoftPressController");
 
@@ -13,8 +14,12 @@ export class SoftPressController extends BaseScriptComponent {
   colliderObject: SceneObject;
 
   @input
-  @hint("The interactor object (e.g., finger tip)")
-  interactorObject: SceneObject;
+  @hint("The prefab to attach to the wrist as the interactor")
+  interactorPrefab: ObjectPrefab;
+
+  @input
+  @hint("Use right hand? (true = Right hand, false = Left hand)")
+  useRightHand: boolean = true;
 
   @input
   @allowUndefined
@@ -78,6 +83,8 @@ export class SoftPressController extends BaseScriptComponent {
   useGoogleSlide: boolean = false;
 
   private collider: ColliderComponent;
+  private interactorObject: SceneObject; // Instantiated from prefab and attached to wrist
+  private handVisual: HandVisual;
   private isInteracting: boolean = false;
   private pressValue: number = 0;
   private hasTriggeredEvent: boolean = false;
@@ -91,6 +98,9 @@ export class SoftPressController extends BaseScriptComponent {
   onAwake() {
     // Get the collider component
     this.collider = this.colliderObject.getComponent("Physics.ColliderComponent");
+
+    // Setup hand tracking and instantiate interactor prefab
+    this.setupHandTracking();
 
     // Bind the onStart event
     this.createEvent("OnStartEvent").bind(() => {
@@ -135,6 +145,91 @@ export class SoftPressController extends BaseScriptComponent {
     // Initialize press value and last closest point (in local space)
     this.pressValue = 0;
     this.lastClosestPointLocal = this.localTop;
+  }
+
+  private setupHandTracking() {
+    // Find the appropriate hand visual in the scene by searching all objects
+    let foundHandVisual: HandVisual | null = null;
+    
+    // Search through all root objects and their children
+    const rootCount = global.scene.getRootObjectsCount();
+    for (let i = 0; i < rootCount; i++) {
+      const rootObject = global.scene.getRootObject(i);
+      foundHandVisual = this.searchForHandVisual(rootObject);
+      if (foundHandVisual) break;
+    }
+
+    if (!foundHandVisual) {
+      const handTypeName = this.useRightHand ? "Right" : "Left";
+      log.e(`Could not find ${handTypeName} hand visual in the scene`);
+      return;
+    }
+
+    this.handVisual = foundHandVisual;
+
+    // Instantiate the interactor prefab
+    if (this.interactorPrefab) {
+      this.interactorObject = this.interactorPrefab.instantiate(null);
+      
+      // Attach the interactor to the wrist
+      this.attachToWrist();
+      
+      const handTypeName = this.useRightHand ? "Right" : "Left";
+      log.d(`Interactor prefab instantiated and attached to ${handTypeName} wrist`);
+    } else {
+      log.e("Interactor prefab is not assigned");
+    }
+  }
+
+  private searchForHandVisual(sceneObject: SceneObject): HandVisual | null {
+    // Check if this object has a HandVisual component
+    try {
+      const handVisual = sceneObject.getComponent(HandVisual.getTypeName()) as HandVisual;
+      if (handVisual) {
+        const handName = sceneObject.name.toLowerCase();
+        
+        // Check if this is the correct hand based on useRightHand selection
+        // true = Right hand, false = Left hand
+        const isCorrectHand = 
+          (!this.useRightHand && handName.includes("left")) ||
+          (this.useRightHand && handName.includes("right"));
+        
+        if (isCorrectHand) {
+          return handVisual;
+        }
+      }
+    } catch (e) {
+      // Object doesn't have HandVisual component, continue searching
+    }
+
+    // Search through children
+    for (let i = 0; i < sceneObject.getChildrenCount(); i++) {
+      const child = sceneObject.getChild(i);
+      const result = this.searchForHandVisual(child);
+      if (result) return result;
+    }
+
+    return null;
+  }
+
+  private attachToWrist() {
+    if (!this.handVisual || !this.interactorObject) return;
+
+    // Get the wrist transform from the hand visual
+    const wristObject = this.handVisual.wrist;
+    if (wristObject) {
+      // Parent the interactor to the wrist
+      this.interactorObject.setParent(wristObject);
+      
+      // Reset local transform to attach properly
+      this.interactorObject.getTransform().setLocalPosition(vec3.zero());
+      this.interactorObject.getTransform().setLocalRotation(quat.quatIdentity());
+      this.interactorObject.getTransform().setLocalScale(vec3.one());
+      
+      log.d("Interactor successfully attached to wrist");
+    } else {
+      log.e("Could not find wrist object in hand visual");
+    }
   }
 
   onStart() {

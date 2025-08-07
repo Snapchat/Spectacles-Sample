@@ -54,5 +54,5 @@ function RandomPointsInsideBox() {
 }
 
 // Register the script
-script.api.RandomPointsInsideBox = RandomPointsInsideBox;
+script.RandomPointsInsideBox = RandomPointsInsideBox;
 RandomPointsInsideBox();

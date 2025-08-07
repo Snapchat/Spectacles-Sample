@@ -1,0 +1,108 @@
+- !<AssetImportMetadata/c694b2d6-3490-8af1-ffad-0f76b5a269f2>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> 3dae0781-d80a-446b-ac7f-072a8f3fb111
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> 3dae0781-d80a-446b-ac7f-072a8f3fb111
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    ObjectPrefab: !<own> 2200dc9d-4043-4cfc-8826-dd3f389ccd68
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/160f1ef5-9e83-4b35-b92f-e6f4f83e9b8c>
+  PrefabRemaps:
+    []
+  Name: ImageButton
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 5.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> bcbc99e3-2f15-49d2-ab04-2d30b76f7b2a
+  Components:
+    - !<own> f6813af2-17df-4f61-9d21-2220ffc9d869
+- !<ObjectPrefabAssetData/2200dc9d-4043-4cfc-8826-dd3f389ccd68>
+  SourceRemaps:
+    - 3dae0781-d80a-446b-ac7f-072a8f3fb111: 2bb0753d-0bcf-487a-9282-eef4909626c5
+    - 83695f28-fe87-4390-b78f-cc9c784ce60e: 160f1ef5-9e83-4b35-b92f-e6f4f83e9b8c
+    - c046780a-ca90-4eae-9c3e-51e413dd5e44: f6813af2-17df-4f61-9d21-2220ffc9d869
+    - db864598-8def-43c2-9e6f-f4351431b06f: bcbc99e3-2f15-49d2-ab04-2d30b76f7b2a
+    - e491bf26-c9f6-4e19-a6f5-280c18a8b236: 2618001b-a3bd-48ad-a722-0f44d7ccf9ff
+  SourceState: !<own> 2bb0753d-0bcf-487a-9282-eef4909626c5
+- !<Image/2618001b-a3bd-48ad-a722-0f44d7ccf9ff>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 39262017-06a1-45ee-9bb2-80f463734688
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<ObjectPrefab/2bb0753d-0bcf-487a-9282-eef4909626c5>
+  PackagePath: ""
+  objects:
+    - !<own> 160f1ef5-9e83-4b35-b92f-e6f4f83e9b8c
+  LazyLoading: false
+  RetainAssets: true
+- !<SceneObject/bcbc99e3-2f15-49d2-ab04-2d30b76f7b2a>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 2.000000, y: 2.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 2618001b-a3bd-48ad-a722-0f44d7ccf9ff
+- !<ScriptComponent/f6813af2-17df-4f61-9d21-2220ffc9d869>
+  PrefabRemaps:
+    []
+  Name: Button
+  Enabled: true
+  ScriptAsset: !<reference> fb7c02aa-80f8-4fb5-89cc-9e3917cbf41e
+  ScriptInputsDefault:
+    isDisabled: true
+    _playAudio: true
+    _size: true
+    addCallbacks: true
+    triggerUpCallbacks: true
+    triggerDownCallbacks: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      isDisabled: false
+      _playAudio: false
+      _size: !<Vec3> {x: 6.000000, y: 3.000000, z: 1.000000}
+      _autoHighlight: true
+      addCallbacks: false
+      triggerUpCallbacks:
+        []
+      triggerDownCallbacks:
+        []
+  ScriptTypes:
+    "":
+      {}
