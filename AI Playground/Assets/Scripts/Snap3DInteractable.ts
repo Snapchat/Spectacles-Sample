@@ -41,6 +41,8 @@ export class Snap3DInteractable extends BaseScriptComponent {
 
   setImage(image: Texture) {
     this.img.enabled = true;
+    // Clone material to avoid replicating the preview image across instances
+    this.img.mainMaterial = this.img.mainMaterial.clone();
     this.img.mainPass.baseTex = image;
   }
 
