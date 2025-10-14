@@ -1,10 +1,10 @@
-import { OpenAI } from "Remote Service Gateway.lspkg/HostedExternal/OpenAI";
 import { ASRQueryController } from "AiPlayground/Scripts/ASRQueryController";
-import { LightAiJsonEventEmitter } from "./LightAiJsonEventEmitter";
 import { LightAiEventListener } from "./LightAiEventListener";
-import { reportError } from "Scripts/Helpers/ErrorUtils";
+import { LightAiJsonEventEmitter } from "./LightAiJsonEventEmitter";
 import { Logger } from "../Helpers/Logger";
-import { RemoteServiceGatewayCredentials } from "Remote Service Gateway.lspkg/RemoteServiceGatewayCredentials";
+import { OpenAI } from "RemoteServiceGateway.lspkg/HostedExternal/OpenAI";
+import { RemoteServiceGatewayCredentials } from "RemoteServiceGateway.lspkg/RemoteServiceGatewayCredentials";
+import { reportError } from "Scripts/Helpers/ErrorUtils";
 
 @component
 export class LightAiInputManager extends BaseScriptComponent {
@@ -44,7 +44,7 @@ export class LightAiInputManager extends BaseScriptComponent {
     onToggle(on: boolean) {
         if (on) {
             this.asrQueryController.show();
-            if (this.remoteServiceGatewayCredentials.apiToken.includes("[PUT YOUR KEY HERE]") || this.remoteServiceGatewayCredentials.apiToken === "") {
+            if (this.remoteServiceGatewayCredentials.openAIToken.includes("[INSERT OPENAI TOKEN HERE]") || this.remoteServiceGatewayCredentials.openAIToken === "") {
                 this.textDisplay.text = "\nError: Add token to\nRemote Service Gateway Credentials."
                 return;
             } else {
@@ -87,7 +87,7 @@ export class LightAiInputManager extends BaseScriptComponent {
     }
 
     makeRequest(query: string) {
-        if (this.remoteServiceGatewayCredentials.apiToken.includes("[PUT YOUR KEY HERE]") || this.remoteServiceGatewayCredentials.apiToken === "") {
+        if (this.remoteServiceGatewayCredentials.openAIToken.includes("[INSERT OPENAI TOKEN HERE]") || this.remoteServiceGatewayCredentials.openAIToken === "") {
             return;
         }
         this.textDisplay.text = query + " Coming up...";

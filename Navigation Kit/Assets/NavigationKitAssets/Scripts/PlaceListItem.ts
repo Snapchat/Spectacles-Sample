@@ -1,12 +1,13 @@
 import {Interactable} from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable"
 import {LensConfig} from "SpectaclesInteractionKit.lspkg/Utils/LensConfig"
-import {UpdateDispatcher} from "SpectaclesInteractionKit.lspkg/Utils/UpdateDispatcher"
+import {DispatchedUpdateEvent, UpdateDispatcher} from "SpectaclesInteractionKit.lspkg/Utils/UpdateDispatcher"
 import {CustomLocationPlace} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/CustomLocationPlace"
 import {NavigationDataComponent} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/NavigationDataComponent"
 import {Place} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/Place"
 import {UserPosition} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/UserPosition"
 import {CustomLocationPlacesImageDisplay} from "./CustomLocationPlacesImageDisplay"
 import {LoadingRotator} from "./LoadingRotator"
+import { unsubscribe } from "SpectaclesInteractionKit.lspkg/Utils/Event"
 
 /**
  * This script handles an individual entry in the list of {@link Place}s created by {@link PlaceListCreator}.
@@ -66,7 +67,11 @@ export class PlaceListItem extends BaseScriptComponent {
     this.backgroundImage.mainMaterial = this.backgroundImage.mainMaterial.clone()
     this.promptImage.mainMaterial = this.promptImage.mainMaterial.clone()
 
-    this.interactable.onTriggerEnd.add(() => {
+
+    const unsubscribes: unsubscribe[] = []
+    const updateEvents: DispatchedUpdateEvent[] = []
+
+    const triggerEndUnsubscribe = this.interactable.onTriggerEnd.add(() => {
       if (this.status === PlaceStatus.active) {
         navigationComponent.stopNavigation()
       } else {
@@ -77,49 +82,71 @@ export class PlaceListItem extends BaseScriptComponent {
       }
       this.hover = false
     })
-    this.interactable.onHoverEnter.add(() => {
+    unsubscribes.push(triggerEndUnsubscribe)
+    const hoverEnterUnsubscribe = this.interactable.onHoverEnter.add(() => {
       this.hover = true
     })
-    this.interactable.onHoverExit.add(() => {
+    unsubscribes.push(hoverEnterUnsubscribe)
+    const hoverExitUnsubscribe = this.interactable.onHoverExit.add(() => {
       this.hover = false
     })
-    this.promptButton.onHoverEnter.add(() => {
+    unsubscribes.push(hoverExitUnsubscribe)
+    const promptHoverEnterUnsubscribe = this.promptButton.onHoverEnter.add(() => {
       print("prompt hover true")
       this.promptHover = true
     })
-    this.promptButton.onHoverExit.add(() => {
+    unsubscribes.push(promptHoverEnterUnsubscribe)
+    const promptHoverExitUnsubscribe = this.promptButton.onHoverExit.add(() => {
       print("prompt hover false")
       this.promptHover = false
     })
-    this.place.onStatusUpdated.add(() => this.updateDisplay())
+    unsubscribes.push(promptHoverExitUnsubscribe)
+    const statusUpdatedUnsubscribe = this.place.onStatusUpdated.add(() => this.updateDisplay())
+    unsubscribes.push(statusUpdatedUnsubscribe)
 
-    navigationComponent.onArrivedAtPlace((place) => this.arriveAtPlace(place))
-    navigationComponent.onNavigationStarted((place) => this.newNavigationTarget(place))
+    const arrivedAtPlaceUnsubscribe = navigationComponent.onArrivedAtPlace((place) => this.arriveAtPlace(place))
+    const navigationStartedUnsubscribe = navigationComponent.onNavigationStarted((place) => this.newNavigationTarget(place))
+    unsubscribes.push(arrivedAtPlaceUnsubscribe)
+    unsubscribes.push(navigationStartedUnsubscribe)
+
 
     if (!isNull(imageDisplay)) {
-      imageDisplay.onPromptAvailable.add((place) => this.checkPromptStatus(place))
+      const promptAvailableUnsubscribe = imageDisplay.onPromptAvailable.add((place) => this.checkPromptStatus(place))
+      unsubscribes.push(promptAvailableUnsubscribe)
     }
 
     this.promptButton.sceneObject.enabled = false
-    this.promptButton.onTriggerEnd.add(() => {
+    const promptButtonTriggerEndUnsubscribe = this.promptButton.onTriggerEnd.add(() => {
       this.imageDisplay.setVisible(!this.imageDisplay.visible)
-      this.updateDisplay()
+    this.updateDisplay()
     })
+    unsubscribes.push(promptButtonTriggerEndUnsubscribe)
     this.loadingIndicator.enabled = false
     this.loadingIndicator.sceneObject.enabled = false
 
     const CustomLocationPlace = place as CustomLocationPlace
     if (!isNull(CustomLocationPlace.locatedAt)) {
-      this.updateDispatcher.createUpdateEvent("UpdateEvent").bind(() => {
+      const updateEvent = this.updateDispatcher.createUpdateEvent("UpdateEvent")
+      updateEvent.bind(() => {
         const enabledAndNotReady = CustomLocationPlace.locatedAt.sceneObject.enabled && !CustomLocationPlace.ready
         this.loadingIndicator.enabled = enabledAndNotReady
         this.loadingIndicator.sceneObject.enabled = enabledAndNotReady
       })
+      updateEvents.push(updateEvent)
     }
 
     this.createEvent("OnEnableEvent").bind(() => this.updateDisplay())
-    this.updateDispatcher.createUpdateEvent("UpdateEvent").bind(() => {
+    const updateEvent = this.updateDispatcher.createUpdateEvent("UpdateEvent")
+    updateEvent.bind(() => {
       this.updateDisplay()
+    })
+    updateEvents.push(updateEvent)
+
+    this.createEvent("OnDestroyEvent").bind(() => {
+      unsubscribes.forEach((unsubscribe) => unsubscribe())
+      updateEvents.forEach((update) => { 
+        update.enabled = false; 
+        this.updateDispatcher.removeEvent(update)})
     })
   }
 

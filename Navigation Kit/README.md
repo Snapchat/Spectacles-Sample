@@ -7,6 +7,7 @@
 ## Overview
 
 This project demonstrates how to build guided tour experiences using the [Spectacles Navigation Kit (SNK)](https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-navigation-kit/getting-started). The example is set in London but users can build their own tours by simply replacing the places of interest.
+We also have a search button that can be used to populate the list with places nearby to the user.
 
 > **NOTE:**
 > This project will only work for the Spectacles platform.
@@ -24,10 +25,10 @@ Get started using our [Design Guidelines](https://developers.snap.com/spectacles
 
 ## Prerequisites
 
-- **Lens Studio**: v5.10.0+
-- **Spectacles OS Version**: v5.62+
-- **Spectacles App iOS**: v0.62+
-- **Spectacles App Android**: v0.62+
+- **Lens Studio**: v5.15.0+
+- **Spectacles OS Version**: v5.64+
+- **Spectacles App iOS**: v0.64+
+- **Spectacles App Android**: v0.64+
 
 To update your Spectacles device and mobile app, refer to this [guide](https://support.spectacles.com/hc/en-us/articles/30214953982740-Updating).
 
@@ -46,7 +47,8 @@ To obtain the project folder, you need to clone the repository.
 
 The cloned project has a working example scene. You can create your own guided tour by introducing your own places of interest. Places can be Custom Locations, a Custom Location Group, or longitude and latitude coordinates.
 
-Destinations in a tour are defined with a `ManualPlaceList` component. The example scene has two `ManualPlaceList` components, separately demonstrating indoor and outdoor tours. The `ManualPlaceList` components are parented to, and are selected using, the "ProjectVariant" scene object.
+Destinations in the indoor tour are defined with a `ManualPlaceList` component. The example scene has two `ManualPlaceList` components, separately demonstrating indoor and outdoor tours respectively. The outdoor tour list has it's entries disabled, but serves as an example of how places could be manually put into the tour. The `ManualPlaceList` components are parented to, and are selected using, the "ProjectVariant" scene object. 
+The outdoor tour uses `PlacesSearcher`, attached to the same scene object. This script takes the current position of the map and preforms a search of nearby places to populate the list.
 
 Each `ManualPlaceList` contains one or more of the following place types:
 
@@ -61,9 +63,9 @@ Further information about creating scans can be found [here](https://developers.
 
 The template provided demonstrates the creation of navigation experiences either indoors or outdoors. Transitions between indoors and outdoors are not currently supported.
 
-Medium to large outdoor experiences should be assembled from individual Custom Locations and geocoordinates. The scale of these experiences is not a good fit for Custom Location Groups. It should be noted that users may launch the Lens a long distance from any place of interest and so navigation will need to be provided from launch.
+Medium to large outdoor experiences should be assembled from individual Custom Locations and geo-coordinates. The scale of these experiences is not a good fit for Custom Location Groups. It should be noted that users may launch the Lens a long distance from any place of interest and so navigation will need to be provided from launch.
 
-Indoor experiences should be built on top of a single Custom Location Group. Geopositioning is not reliable indoors and so experiences should not provide arrow based navigation until a member of the group has been localized. Following localization the Spectacles Navigation Kit is capable of accurately calculating the relative position of the other members of the group. The recommended behaviour has been demonsrated on the "WelcomeSignIndoors" prefab, which provides a prompt for the first location and disables the overlay camera object on Lens start via the `TourSplashScreen` script.
+Indoor experiences should be built on top of a single Custom Location Group. Geo-positioning is not reliable indoors and so experiences should not provide arrow based navigation until a member of the group has been localized. Following localization the Spectacles Navigation Kit is capable of accurately calculating the relative position of the other members of the group. The recommended behavior has been demonstrated on the "WelcomeSignIndoors" prefab, which provides a prompt for the first location and disables the overlay camera object on Lens start via the `TourSplashScreen` script.
 
 To select between the two variants of this template project (indoors and outdoors) use the selection dropdown on the "ProjectVariant" scene object.
 
@@ -88,7 +90,7 @@ The core of this experience is driven by the SNK, more detail on the scripts pro
 
 [MinimapHighlightManager.ts](./Assets/NavigationKitAssets/Scripts/MinimapHighlightManager.ts): This script manages the highlight hoop and icon on the minimized map to signal to the user anything that might impede their chances of localising content.
 
-[CustomLocationPlacesImageDisplay.ts](./Assets/NavigationKitAssets/Scripts/CustomLocationPlacesImageDisplay.ts): This script creates a binding between a `CustomLocationPlace` and a prompt image (texture) that is made available for display when the user is close enough to the destination. Prompt images are useful for guiding users to a localization viewpoint and help mitigate inaccuracies in geopositioning.
+[CustomLocationPlacesImageDisplay.ts](./Assets/NavigationKitAssets/Scripts/CustomLocationPlacesImageDisplay.ts): This script creates a binding between a `CustomLocationPlace` and a prompt image (texture) that is made available for display when the user is close enough to the destination. Prompt images are useful for guiding users to a localization viewpoint and help mitigate inaccuracies in geo-positioning.
 
 [OnlyShowArrowAfterGroupLocalization.ts](./Assets/NavigationKitAssets/Scripts/OnlyShowArrowAfterGroupLocalization.ts): When developing indoor navigation experiences it is recommended that the ARNavigation arrow is only shown after a member of the Custom Location Group has been localized. This script provides that functionality.
 
@@ -148,3 +150,10 @@ If you have any questions or need assistance please don't hesitate to reach out.
 ## Contributing
 
 Feel free to provide improvements or suggestions or directly contribute via merge request. By sharing insights you help everyone else build better Lenses.
+
+---
+
+*Built with 👻 by the Spectacles team*
+ 
+
+

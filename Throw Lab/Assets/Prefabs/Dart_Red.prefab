@@ -49,6 +49,9 @@
   Enabled: true
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     allowMultipleInteractors: true
@@ -57,13 +60,14 @@
     acceptableYDirections: true
     acceptableZDirections: true
     useFilteredPinch: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 1.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: true
@@ -72,8 +76,6 @@
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
       useFilteredPinch: false
-      isSynced: false
-      acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
       {}
@@ -118,6 +120,7 @@
     _enableZTranslation: true
     showRotationProperties: true
     _rotationAxis: true
+    isSynced: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -143,6 +146,7 @@
       _enableZTranslation: true
       showRotationProperties: false
       _rotationAxis: All
+      isSynced: false
   ScriptTypes:
     "":
       {}
@@ -247,7 +251,18 @@
       {}
 - !<SceneObject/efda134f-00e3-4165-9908-8e85bf8ee957>
   PrefabRemaps:
-    []
+    - 033f8a04-ad25-4915-ae76-cc05d087b754: 033f8a04-ad25-4915-5189-33fa2f7848ab
+    - 13c57c01-1bd4-433d-824d-06ed0f9bc133: 13c57c01-1bd4-433d-7db2-f912f0643ecc
+    - 3aab486b-8a86-46c3-bcd3-b0b2110f56ac: 3aab486b-8a86-46c3-432c-4f4deef0a953
+    - 62723c38-084f-45b0-af0c-2db4d8a023a5: 62723c38-084f-45b0-50f3-d24b275fdc5a
+    - 664b00aa-03d4-4f9f-a16f-1e4c3f033354: 664b00aa-03d4-4f9f-5e90-e1b3c0fcccab
+    - 950ec144-110d-4aee-b791-f9e40bc92f4a: 950ec144-110d-4aee-486e-061bf436d0b5
+    - b1e20a39-fed7-4e86-8cff-c5ed83f7d215: b1e20a39-fed7-4e86-7300-3a127c082dea
+    - c6dd3f42-3a54-420b-9439-66a404a160cd: c6dd3f42-3a54-420b-6bc6-995bfb5e9f32
+    - e3cb375e-e7dc-4a64-a83c-49b4fd542c12: e3cb375e-e7dc-4a64-57c3-b64b02abd3ed
+    - ef9e9629-abf8-421b-b6f5-db1f38c3b873: ef9e9629-abf8-421b-490a-24e0c73c478c
+    - efda134f-00e3-4165-9908-8e85bf8ee957: efda134f-00e3-4165-66f7-717a407116a8
+    - f472a148-6262-420f-9dc2-8f1b580dc726: f472a148-6262-420f-623d-70e4a7f238d9
   Name: DartYelloww
   Enabled: true
   Layers: 1

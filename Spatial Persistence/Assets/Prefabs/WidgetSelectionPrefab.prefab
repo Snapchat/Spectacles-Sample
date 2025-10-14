@@ -34,15 +34,18 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -53,6 +56,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -64,6 +68,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -210,6 +215,9 @@
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
     targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     allowMultipleInteractors: true
@@ -218,13 +226,14 @@
     acceptableYDirections: true
     acceptableZDirections: true
     useFilteredPinch: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 3.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: true
@@ -233,8 +242,6 @@
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
       useFilteredPinch: false
-      isSynced: false
-      acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
       {}
@@ -386,6 +393,7 @@
     _enableZTranslation: true
     showRotationProperties: true
     _rotationAxis: true
+    isSynced: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -411,6 +419,7 @@
       _enableZTranslation: true
       showRotationProperties: false
       _rotationAxis: All
+      isSynced: false
   ScriptTypes:
     "":
       {}
@@ -548,7 +557,26 @@
     - !<own> d566a2f9-79b4-4e9b-9bb8-a502378946d5
 - !<SceneObject/fef9beb1-96f8-47d3-a1ca-edc9550de68a>
   PrefabRemaps:
-    []
+    - 1f30b40d-475e-4048-a98c-2bd6bdc55aa2: 1f30b40d-475e-4048-5673-d429423aa55d
+    - 352ae07d-7b0a-49bb-8875-cb916fd668cd: 352ae07d-7b0a-49bb-778a-346e90299732
+    - 424dd990-8740-4a90-a704-53ae70de8594: 424dd990-8740-4a90-58fb-ac518f217a6b
+    - 43e641bd-0dd9-49de-86a0-d65c357c4c7e: 43e641bd-0dd9-49de-795f-29a3ca83b381
+    - 4d598f0d-dfbd-4d88-9690-ccb4a22a83bb: 4d598f0d-dfbd-4d88-696f-334b5dd57c44
+    - 64b27a71-e17e-4978-b576-01a9febb411d: 64b27a71-e17e-4978-4a89-fe560144bee2
+    - 75bdf7d2-d657-4b3c-bb22-c5e6e2409037: 75bdf7d2-d657-4b3c-44dd-3a191dbf6fc8
+    - 7da89b08-7002-4f9b-9999-7453af354877: 7da89b08-7002-4f9b-6666-8bac50cab788
+    - 87ab66ca-f471-41bd-9a3b-f0b325a8a65d: 87ab66ca-f471-41bd-65c4-0f4cda5759a2
+    - 94cb9d63-1745-4e9b-930d-c1f55c984804: 94cb9d63-1745-4e9b-6cf2-3e0aa367b7fb
+    - 965d058a-9099-44f0-8336-0b4d044c9f2b: 965d058a-9099-44f0-7cc9-f4b2fbb360d4
+    - a638f754-4284-406c-aeaa-af221f142343: a638f754-4284-406c-5155-50dde0ebdcbc
+    - aeca7391-901d-4578-841d-dc07cbca3e4a: aeca7391-901d-4578-7be2-23f83435c1b5
+    - b07aebbf-a730-4378-8157-4f5dc7bee769: b07aebbf-a730-4378-7ea8-b0a238411896
+    - d566a2f9-79b4-4e9b-9bb8-a502378946d5: d566a2f9-79b4-4e9b-6447-5afdc876b92a
+    - d8246531-8156-48fa-b5e4-9413e806c6dc: d8246531-8156-48fa-4a1b-6bec17f93923
+    - db3ce466-f84f-48f2-aff7-445729c2d1bc: db3ce466-f84f-48f2-5008-bba8d63d2e43
+    - f24bf6ed-9fba-4491-8b30-eeb73e9d3c9c: f24bf6ed-9fba-4491-74cf-1148c162c363
+    - fb9702a7-3705-4035-b8b1-7369f9b665be: fb9702a7-3705-4035-474e-8c9606499a41
+    - fef9beb1-96f8-47d3-a1ca-edc9550de68a: fef9beb1-96f8-47d3-5e35-1236aaf21975
   Name: WidgetSelectionPrefab
   Enabled: true
   Layers: 1

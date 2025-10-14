@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> 78bf0c71-58ad-4052-b6f3-3aa554fb6fff
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,10 +14,10 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<SceneObject/2311c2ba-5a1d-4354-a686-e1ba5b595d6d>
+- !<SceneObject/0b44f79f-470a-4f47-719a-283f1bfbf371>
   PrefabRemaps:
     []
-  Name: AreaDeleteButton
+  Name: ButtonMesh
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
@@ -26,15 +26,27 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    - !<own> cde33ce0-2b91-49a4-9685-f9dceb5a43bb
-    - !<own> 4ec898c4-b88d-460c-8abc-547c55bdda9f
+    []
   Components:
-    - !<own> c7aaa646-97fc-495d-a4be-ade399de4712
-    - !<own> 65dc99e5-4c91-4235-bee0-1b82995d809b
-    - !<own> 778426cf-7df6-4803-a382-7fd2f0779aad
-    - !<own> 8527ff8a-0c10-45de-af78-d1c49cf645f4
-    - !<own> 33ccbfe8-e8cc-4033-98c5-346c1156cf8e
-- !<ScriptComponent/33ccbfe8-e8cc-4033-98c5-346c1156cf8e>
+    - !<own> b1787d79-1a9f-49bf-675e-18dbfd71b522
+- !<ScriptComponent/198b18e6-aac3-41f3-5489-fdf3d70beda8>
+  PrefabRemaps:
+    []
+  Name: AreaDeleteButton
+  Enabled: true
+  ScriptAsset: !<reference> ca75dde9-ec46-4f2e-82b3-7b101a636799
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      textComponent: !<reference.Text> 41f566d9-ea60-494a-67bf-82d909697970
+      buttonMesh: !<reference.RenderMeshVisual> b1787d79-1a9f-49bf-675e-18dbfd71b522
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/1e423436-b8a5-4514-62f7-f1d39e0d90b3>
   PrefabRemaps:
     []
   Name: InteractableOutlineFeedback
@@ -53,11 +65,49 @@
       activatingColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       outlineWeight: -0.250000
       meshVisuals: !<reference.RenderMeshVisual[]>
-        - !<reference> 669ac975-478e-43e3-8a9d-a772662e9ebc
+        - !<reference> b1787d79-1a9f-49bf-675e-18dbfd71b522
   ScriptTypes:
     "":
       {}
-- !<Text/47b9e156-8db9-417d-855c-09c5177272d4>
+- !<ColliderComponent/2a777578-ac60-4974-5d19-15aad47bac26>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Box>
+    FitVisual: false
+    Size: {x: 2.100000, y: 2.100000, z: 2.100000}
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
+- !<SceneObject/2daf0a9b-8a4e-4c22-7d34-e5c57008157e>
+  PrefabRemaps:
+    []
+  Name: AreaDeleteButton
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 0b44f79f-470a-4f47-719a-283f1bfbf371
+    - !<own> 65cbe51e-5ab3-4a5c-74d3-9ab4a0685417
+  Components:
+    - !<own> b6c614ed-0381-49e2-6b09-e64c73a65260
+    - !<own> 2a777578-ac60-4974-5d19-15aad47bac26
+    - !<own> b545acd6-0fa8-4110-5b60-8bb98c8f65d1
+    - !<own> 198b18e6-aac3-41f3-5489-fdf3d70beda8
+    - !<own> 1e423436-b8a5-4514-62f7-f1d39e0d90b3
+- !<Text/41f566d9-ea60-494a-67bf-82d909697970>
   PrefabRemaps:
     []
   Name: Text
@@ -87,15 +137,18 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -106,6 +159,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -117,6 +171,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -133,7 +188,7 @@
     CapitalizationOverride: None
   DepthTest: false
   TwoSided: false
-- !<SceneObject/4ec898c4-b88d-460c-8abc-547c55bdda9f>
+- !<SceneObject/65cbe51e-5ab3-4a5c-74d3-9ab4a0685417>
   PrefabRemaps:
     []
   Name: Text
@@ -147,26 +202,13 @@
   Children:
     []
   Components:
-    - !<own> 47b9e156-8db9-417d-855c-09c5177272d4
-- !<ColliderComponent/65dc99e5-4c91-4235-bee0-1b82995d809b>
-  PrefabRemaps:
-    []
-  Name: Physics Collider
-  Enabled: true
-  Shape: !<Box>
-    FitVisual: false
-    Size: {x: 2.100000, y: 2.100000, z: 2.100000}
-  Matter: !<reference> 00000000-0000-0000-0000-000000000000
-  Filter: !<reference> 00000000-0000-0000-0000-000000000000
-  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
-  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
-  EnableSmoothing: false
-  PositionTension: 30.000000
-  RotationTension: 30.000000
-  ForceCompound: false
-  Intangible: false
-  ShowCollider: false
-- !<RenderMeshVisual/669ac975-478e-43e3-8a9d-a772662e9ebc>
+    - !<own> 41f566d9-ea60-494a-67bf-82d909697970
+- !<ObjectPrefabAssetData/78ddc42a-cdf0-41d6-b57a-13e54c3c930c>
+  Prototype: !<ObjectOwner/cd3b2654-eb0e-4fd4-8413-2604beb10eac>
+    PackagePath: ""
+    objects:
+      - !<own> 2daf0a9b-8a4e-4c22-7d34-e5c57008157e
+- !<RenderMeshVisual/b1787d79-1a9f-49bf-675e-18dbfd71b522>
   PrefabRemaps:
     []
   Name: Render Mesh Visual
@@ -186,7 +228,7 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<ScriptComponent/778426cf-7df6-4803-a382-7fd2f0779aad>
+- !<ScriptComponent/b545acd6-0fa8-4110-5b60-8bb98c8f65d1>
   PrefabRemaps:
     []
   Name: Interactable
@@ -194,6 +236,9 @@
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
     targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     allowMultipleInteractors: true
@@ -202,13 +247,14 @@
     acceptableYDirections: true
     acceptableZDirections: true
     useFilteredPinch: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 3.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: true
@@ -217,43 +263,10 @@
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
       useFilteredPinch: false
-      isSynced: false
-      acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
       {}
-- !<ObjectPrefabAssetData/78ddc42a-cdf0-41d6-b57a-13e54c3c930c>
-  SourceRemaps:
-    - 0b44f79f-470a-4f47-8e65-d7c0e4040c8e: cde33ce0-2b91-49a4-9685-f9dceb5a43bb
-    - 198b18e6-aac3-41f3-ab76-020c28f41257: 8527ff8a-0c10-45de-af78-d1c49cf645f4
-    - 1e423436-b8a5-4514-9d08-0e2c61f26f4c: 33ccbfe8-e8cc-4033-98c5-346c1156cf8e
-    - 2a777578-ac60-4974-a2e6-ea552b8453d9: 65dc99e5-4c91-4235-bee0-1b82995d809b
-    - 2daf0a9b-8a4e-4c22-82cb-1a3a8ff7ea81: 2311c2ba-5a1d-4354-a686-e1ba5b595d6d
-    - 41f566d9-ea60-494a-9840-7d26f696868f: 47b9e156-8db9-417d-855c-09c5177272d4
-    - 65cbe51e-5ab3-4a5c-8b2c-654b5f97abe8: 4ec898c4-b88d-460c-8abc-547c55bdda9f
-    - 78bf0c71-58ad-4052-b6f3-3aa554fb6fff: e125ebdb-302e-4d8d-9a85-80fce328988b
-    - b1787d79-1a9f-49bf-98a1-e724028e4add: 669ac975-478e-43e3-8a9d-a772662e9ebc
-    - b545acd6-0fa8-4110-a49f-744673709a2e: 778426cf-7df6-4803-a382-7fd2f0779aad
-    - b6c614ed-0381-49e2-94f6-19b38c59ad9f: c7aaa646-97fc-495d-a4be-ade399de4712
-  SourceState: !<own> e125ebdb-302e-4d8d-9a85-80fce328988b
-- !<ScriptComponent/8527ff8a-0c10-45de-af78-d1c49cf645f4>
-  PrefabRemaps:
-    []
-  Name: AreaDeleteButton
-  Enabled: true
-  ScriptAsset: !<reference> ca75dde9-ec46-4f2e-82b3-7b101a636799
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      textComponent: !<reference.Text> 47b9e156-8db9-417d-855c-09c5177272d4
-      buttonMesh: !<reference.RenderMeshVisual> 669ac975-478e-43e3-8a9d-a772662e9ebc
-  ScriptTypes:
-    "":
-      {}
-- !<Canvas/c7aaa646-97fc-495d-a4be-ade399de4712>
+- !<Canvas/b6c614ed-0381-49e2-6b09-e64c73a65260>
   PrefabRemaps:
     []
   Name: Canvas
@@ -265,24 +278,3 @@
     bottom: -1.049999
     right: 3.750000
     top: 1.049999
-- !<SceneObject/cde33ce0-2b91-49a4-9685-f9dceb5a43bb>
-  PrefabRemaps:
-    []
-  Name: ButtonMesh
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 669ac975-478e-43e3-8a9d-a772662e9ebc
-- !<ObjectPrefab/e125ebdb-302e-4d8d-9a85-80fce328988b>
-  PackagePath: ""
-  objects:
-    - !<own> 2311c2ba-5a1d-4354-a686-e1ba5b595d6d
-  LazyLoading: false
-  RetainAssets: true

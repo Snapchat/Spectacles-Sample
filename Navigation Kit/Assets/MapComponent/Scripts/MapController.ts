@@ -845,6 +845,25 @@ export class MapController extends BaseScriptComponent {
   }
 
   /**
+   * Get the current location focus.
+   */
+  public getCurrentLocationFocus(): GeoPosition | null {
+    if (!this.isInitialized) {
+      return null
+    }
+
+    this.updateLocationOffset()
+    const adjustedAnchoredPosition = this.getPositionWithMapRotationOffset(vec2.zero())
+    const offset = this.gridView.getOffset().sub(this.offsetForLocation).sub(new vec2(0.5, 0.5))
+
+    const location: GeoPosition = this.fromLocalPositionToLongLat(
+      new vec2(adjustedAnchoredPosition.x - offset.x, adjustedAnchoredPosition.y + offset.y),
+      this.mapParameters.zoomLevel,
+    )
+    return location
+  }
+
+  /**
    * Drawing geometry multiline to map
    */
   drawGeometryMultiline(geometryMultiline, thickness: number = 0.2) {

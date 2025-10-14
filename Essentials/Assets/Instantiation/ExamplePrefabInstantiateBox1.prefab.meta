@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> 872c2c3d-9c78-48cb-baaf-d5f9bffd652c
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,7 +14,7 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<RenderMeshVisual/1995e9f3-af59-49bf-bac1-39aea84679b1>
+- !<RenderMeshVisual/48fadeca-dadb-4850-6fc9-84ed2bb8b530>
   PrefabRemaps:
     []
   Name: Render Mesh Visual
@@ -34,7 +34,7 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<SceneObject/2df5c651-a3c9-4f4d-90d4-ee7d24423a4c>
+- !<SceneObject/51e100a6-17e9-4d43-43f9-53997b197171>
   PrefabRemaps:
     []
   Name: InstantiateBox
@@ -48,16 +48,9 @@
   Children:
     []
   Components:
-    - !<own> 1995e9f3-af59-49bf-bac1-39aea84679b1
-- !<ObjectPrefab/63a3f5ff-f3d8-4b2b-86ef-6574ad2046b0>
-  PackagePath: ""
-  objects:
-    - !<own> 2df5c651-a3c9-4f4d-90d4-ee7d24423a4c
-  LazyLoading: false
-  RetainAssets: true
+    - !<own> 48fadeca-dadb-4850-6fc9-84ed2bb8b530
 - !<ObjectPrefabAssetData/d3d37b69-8d55-4481-a690-2a1d7f6c01a3>
-  SourceRemaps:
-    - 48fadeca-dadb-4850-9036-7b12d4474acf: 1995e9f3-af59-49bf-bac1-39aea84679b1
-    - 51e100a6-17e9-4d43-bc06-ac6684e68e8e: 2df5c651-a3c9-4f4d-90d4-ee7d24423a4c
-    - 872c2c3d-9c78-48cb-baaf-d5f9bffd652c: 63a3f5ff-f3d8-4b2b-86ef-6574ad2046b0
-  SourceState: !<own> 63a3f5ff-f3d8-4b2b-86ef-6574ad2046b0
+  Prototype: !<ObjectOwner/cb39d988-9668-4583-8985-19a800d7db83>
+    PackagePath: ""
+    objects:
+      - !<own> 51e100a6-17e9-4d43-43f9-53997b197171

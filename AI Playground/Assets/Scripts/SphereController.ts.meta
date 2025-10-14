@@ -4,7 +4,7 @@
   ImporterName: TypeScriptAssetImporter
   PrimaryAsset: !<reference> b725e111-c574-482b-97ef-7e2e034c2add
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -24,10 +24,9 @@
   VersionPatch: 0
   ComponentUid: a1facbc3-9aa1-4da1-a556-48d82522b6d0
   ExportUid: 00000000-0000-0000-0000-000000000000
-  CurrentVisibility: Editable
-  MaxVisibility: Editable
+  PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
-    closeButtonInteractable: false
+    closeButton: false
     closeObj: false
     hoverMat: false
     orbInteractableObj: false
@@ -41,6 +40,10 @@
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
   DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
   DefaultScriptInputs:
     - hoverMat: !<reference.Material> 00000000-0000-0000-0000-000000000000
       orbInteractableObj: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
@@ -48,10 +51,10 @@
       orbVisualParent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       orbScreenPosition: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       closeObj: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
-      closeButtonInteractable: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       worldSpaceText: !<reference.Text> 00000000-0000-0000-0000-000000000000
       screenSpaceText: !<reference.Text> 00000000-0000-0000-0000-000000000000
       uiParent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      closeButton: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
@@ -65,7 +68,7 @@
     - // @input SceneObject orbVisualParent
     - // @input SceneObject orbScreenPosition
     - // @input SceneObject closeObj
-    - // @input SceneObject closeButtonInteractable
     - // @input Component.Text worldSpaceText
     - // @input Component.Text screenSpaceText
     - // @input SceneObject uiParent
+    - // @input AssignableType closeButton

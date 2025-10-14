@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="UnusedAttribute"
+    package="com.snap.spectacles.kit">
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30"/>
+
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation" />
+
+    <queries>
+        <package android:name="com.snap.spectacles.app" />
+        <package android:name="com.snap.spectacles.app.alpha" />
+        <package android:name="com.snap.spectacles.app.beta" />
+        <package android:name="com.snap.spectacles.app.master" />
+        <package android:name="com.snap.spectacles.app.dev" />
+    </queries>
+
+    <application>
+        <activity
+            android:name="com.snap.spectacles.kit.core.SpectaclesKitActivity"
+            android:theme="@style/SpectaclesKit.Theme.Transparent"
+            android:exported="false">
+        </activity>
+    </application>
+
+</manifest>

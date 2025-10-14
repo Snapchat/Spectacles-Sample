@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> 7a5453d7-c979-4590-8dab-f74ec8f7d2ff
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,22 +14,7 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<SceneObject/0cb231a3-d26d-4574-8285-49f0ef70b871>
-  PrefabRemaps:
-    []
-  Name: Shadow
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: -0.500000, z: -0.010000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 67044bf0-0297-42f3-a538-29d345f041f4
-- !<ScriptComponent/67044bf0-0297-42f3-a538-29d345f041f4>
+- !<ScriptComponent/027c76ea-9620-47ef-6160-886cad52e79c>
   PrefabRemaps:
     []
   Name: DropShadow
@@ -50,15 +35,23 @@
   ScriptTypes:
     "":
       {}
-- !<ObjectPrefab/b077bb65-542a-49d7-a197-6aafbe835096>
-  PackagePath: ""
-  objects:
-    - !<own> 0cb231a3-d26d-4574-8285-49f0ef70b871
-  LazyLoading: false
-  RetainAssets: true
+- !<SceneObject/8c2d4051-2951-4561-58c8-1382ecf8b112>
+  PrefabRemaps:
+    []
+  Name: Shadow
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -0.500000, z: -0.010000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 027c76ea-9620-47ef-6160-886cad52e79c
 - !<ObjectPrefabAssetData/e5c7da9a-5761-44a7-a190-0fb7e4a5fc79>
-  SourceRemaps:
-    - 027c76ea-9620-47ef-9e9f-779352ad1863: 67044bf0-0297-42f3-a538-29d345f041f4
-    - 7a5453d7-c979-4590-8dab-f74ec8f7d2ff: b077bb65-542a-49d7-a197-6aafbe835096
-    - 8c2d4051-2951-4561-a737-ec7d13074eed: 0cb231a3-d26d-4574-8285-49f0ef70b871
-  SourceState: !<own> b077bb65-542a-49d7-a197-6aafbe835096
+  Prototype: !<ObjectOwner/d4bbfc65-570e-4dff-a121-6c1e3bcf47b9>
+    PackagePath: ""
+    objects:
+      - !<own> 8c2d4051-2951-4561-58c8-1382ecf8b112

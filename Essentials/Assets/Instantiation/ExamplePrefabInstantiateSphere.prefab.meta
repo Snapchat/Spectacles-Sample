@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> d6b9ce71-b4ae-4827-8134-77b317b35bc8
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -15,12 +15,26 @@
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<ObjectPrefabAssetData/390f6d58-c4f7-4bf1-b48a-559cedc7cfca>
-  SourceRemaps:
-    - 8bb4f07d-6512-4eae-adc1-f07b12a7ff30: 9361a808-0935-4c0e-8157-10f2a2d6fc7f
-    - 9fa39259-4206-469c-a101-14f063bc5b90: 528abfc9-e47e-46a3-85fa-9128a6c402d7
-    - d6b9ce71-b4ae-4827-8134-77b317b35bc8: b4295597-6b5b-4072-b72a-6c8d6845e3b3
-  SourceState: !<own> b4295597-6b5b-4072-b72a-6c8d6845e3b3
-- !<RenderMeshVisual/528abfc9-e47e-46a3-85fa-9128a6c402d7>
+  Prototype: !<ObjectOwner/2750e105-b750-4d11-adfa-cc36cc65f5ba>
+    PackagePath: ""
+    objects:
+      - !<own> 8bb4f07d-6512-4eae-523e-0f84ed5800cf
+- !<SceneObject/8bb4f07d-6512-4eae-523e-0f84ed5800cf>
+  PrefabRemaps:
+    []
+  Name: InstantiateSphere
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 5.000000, y: 5.000000, z: 5.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 9fa39259-4206-469c-5efe-eb0f9c43a46f
+- !<RenderMeshVisual/9fa39259-4206-469c-5efe-eb0f9c43a46f>
   PrefabRemaps:
     []
   Name: Render Mesh Visual
@@ -40,24 +54,3 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<SceneObject/9361a808-0935-4c0e-8157-10f2a2d6fc7f>
-  PrefabRemaps:
-    []
-  Name: InstantiateSphere
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 5.000000, y: 5.000000, z: 5.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 528abfc9-e47e-46a3-85fa-9128a6c402d7
-- !<ObjectPrefab/b4295597-6b5b-4072-b72a-6c8d6845e3b3>
-  PackagePath: ""
-  objects:
-    - !<own> 9361a808-0935-4c0e-8157-10f2a2d6fc7f
-  LazyLoading: false
-  RetainAssets: true

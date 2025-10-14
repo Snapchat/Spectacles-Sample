@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> 5933e938-cf8b-4a67-baa1-c18f6f10619a
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -15,12 +15,11 @@
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<ObjectPrefabAssetData/2c5872f5-6a16-4f69-8076-512e036d379c>
-  SourceRemaps:
-    - 4c6d1f7f-eb21-4027-8780-f7fb222d7603: 3cffe457-c7fa-48ce-bff4-e0d20e81767a
-    - 5933e938-cf8b-4a67-baa1-c18f6f10619a: a3401ad7-c30e-4703-b057-11f4a77594d2
-    - 615661ca-f981-4509-a458-e61395a032bf: 61de744b-ac3c-4b56-b63e-79ef6145e9ca
-  SourceState: !<own> a3401ad7-c30e-4703-b057-11f4a77594d2
-- !<SceneObject/3cffe457-c7fa-48ce-bff4-e0d20e81767a>
+  Prototype: !<ObjectOwner/26e3758b-f9f1-428a-85c0-0883a824b986>
+    PackagePath: ""
+    objects:
+      - !<own> 4c6d1f7f-eb21-4027-787f-0804ddd289fc
+- !<SceneObject/4c6d1f7f-eb21-4027-787f-0804ddd289fc>
   PrefabRemaps:
     []
   Name: BUGFIX-ShowCamOnScreen
@@ -34,8 +33,8 @@
   Children:
     []
   Components:
-    - !<own> 61de744b-ac3c-4b56-b63e-79ef6145e9ca
-- !<RenderMeshVisual/61de744b-ac3c-4b56-b63e-79ef6145e9ca>
+    - !<own> 615661ca-f981-4509-5ba7-19ec6a5fcd40
+- !<RenderMeshVisual/615661ca-f981-4509-5ba7-19ec6a5fcd40>
   PrefabRemaps:
     []
   Name: Render Mesh Visual
@@ -55,9 +54,3 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<ObjectPrefab/a3401ad7-c30e-4703-b057-11f4a77594d2>
-  PackagePath: ""
-  objects:
-    - !<own> 3cffe457-c7fa-48ce-bff4-e0d20e81767a
-  LazyLoading: false
-  RetainAssets: true

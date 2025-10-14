@@ -18,10 +18,10 @@ Get started using our [Design Guidelines](https://developers.snap.com/spectacles
 
 ## Prerequisites
 
-- **Lens Studio**: v5.10.0+
-- **Spectacles OS Version**: v5.62+
-- **Spectacles App iOS**: v0.62+
-- **Spectacles App Android**: v0.62+
+- **Lens Studio**: v5.15.0+
+- **Spectacles OS Version**: v5.64+
+- **Spectacles App iOS**: v0.64+
+- **Spectacles App Android**: v0.64+
 
 To update your Spectacles device and mobile app, refer to this [guide](https://support.spectacles.com/hc/en-us/articles/30214953982740-Updating).
 
@@ -47,6 +47,10 @@ The Spatial Image Gallery sample project includes three main scene objects:
 - **SpectaclesInteractionKit**: Drives the interactions.
 - **SikSpatialImageFrame**: Extends the container frame and allows manipulation of the spatial image.
 - **SpatialGallery**: Enables browsing and navigating through multiple images.
+- **RemoteServiceGatewayCredentials**: In order to access the spatialization service a gateway credential is required. 
+
+> **Remove Service Gateway**
+> Follow the instructions available [here](https://developers.snap.com/spectacles/about-spectacles-features/apis/remoteservice-gateway) to get a gateway credential. Enter this in the SceneObject **RemoteServiceGatewayCredentials**.
 
 ## Key Scripts
 
@@ -197,3 +201,10 @@ If you have any questions or need assistance, please don't hesitate to reach out
 ## Contributing
 
 Feel free to provide improvements or suggestions or directly contributing via merge request. By sharing insights, you help everyone else build better Lenses.
+
+---
+
+*Built with 👻 by the Spectacles team*
+ 
+
+

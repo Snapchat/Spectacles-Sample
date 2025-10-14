@@ -8,6 +8,65 @@ A comprehensive collection of templates and examples for building Lens experienc
 
 This repository contains multiple template projects showcasing different features and capabilities available when building for Spectacles. Each template is a complete, working example that you can use as a starting point for your own projects.
 
+## Prerequisites
+
+### Git LFS Required
+
+**This repository requires Git LFS (Large File Storage) to be installed and configured.** The templates contain large assets including 3D models, textures, images, and media files that are tracked using Git LFS.
+
+#### Installing Git LFS
+
+**macOS (using Homebrew):**
+```bash
+brew install git-lfs
+```
+
+**Windows:**
+Download and install from [git-lfs.github.com](https://git-lfs.github.com/)
+
+**Linux:**
+```bash
+# Debian/Ubuntu
+sudo apt-get install git-lfs
+
+# Fedora/Red Hat
+sudo dnf install git-lfs
+```
+
+#### Setting Up Git LFS
+
+After installing Git LFS, you need to set it up:
+
+```bash
+git lfs install
+```
+
+#### Cloning This Repository
+
+When cloning this repository, Git LFS will automatically download the large files:
+
+```bash
+git clone <repository-url>
+cd Spectacles-Templates
+```
+
+If you've already cloned the repository without Git LFS installed, you can fetch the LFS files:
+
+```bash
+git lfs install
+git lfs pull
+```
+
+#### Verifying Git LFS
+
+To verify that Git LFS is working correctly:
+
+```bash
+git lfs ls-files
+```
+
+This will show you all files tracked by Git LFS.
+
 ## AI
 
 AI-powered experiences and integrations
@@ -140,6 +199,8 @@ AI-powered experiences and integrations
       </p>
       <p>Sample project showing how to "crop" the environment using hand gesture.</p>
     </td>
+  </tr>
+  <tr>
     <td align="center" valign="top" width="33%">
       <a href="./Depth Cache/">
         <img src="./Depth Cache/README-ref/sample-list-depth-cache-rounded-edges.gif" alt="depth-cache" width="250px" />
@@ -170,6 +231,40 @@ AI-powered experiences and integrations
       </p>
       <p>Cache depth frames for pixel-to-3D projection with cloud-based vision models.</p>
     </td>
+    <td align="center" valign="top" width="33%">
+      <a href="./AI Music Gen/">
+        <img src="./AI Music Gen/README-ref/sample-list-ai-music-gen-rounded-edges.gif" alt="ai-music-gen" width="250px" />
+      </a>
+      <h3>AI Music Gen</h3>
+      <p>
+<a href="https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?">
+  <img src="https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/overview">
+  <img src="https://img.shields.io/badge/Remote%20Service%20Gateway-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/compatibility-list">
+  <img src="https://img.shields.io/badge/Speech%20To%20Text-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/compatibility-list">
+  <img src="https://img.shields.io/badge/Lyria-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/apis/snap3d">
+  <img src="https://img.shields.io/badge/Snap3D-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/compatibility-list">
+  <img src="https://img.shields.io/badge/Gemini-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/lens-studio/features/audio/playing-audio?">
+  <img src="https://img.shields.io/badge/Audio-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-ui-kit">
+  <img src="https://img.shields.io/badge/UIKit-Light%20Gray?color=D3D3D3" />
+</a>
+      </p>
+      <p>Generate AI music using Google's Lyria model. Combine genres, vibes, and instruments to create custom music tracks with 3D visualizations.</p>
+    </td>
+    <td></td>
   </tr>
 </table>
 
@@ -358,6 +453,45 @@ Essential projects to get you started with Spectacles development
       </p>
       <p>Sample project for path creation and path walking experience.</p>
     </td>
+  </tr>
+  <tr>
+    <td align="center" valign="top" width="33%">
+      <a href="./Snap Cloud/">
+        <img src="./Snap Cloud/README-ref/sample-list-snap-cloud-rounded-edges.gif" alt="snap-cloud" width="250px" />
+      </a>
+      <h3>Snap Cloud</h3>
+      <p>
+<a href="https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?">
+  <img src="https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/connected-lenses/overview?">
+  <img src="https://img.shields.io/badge/Networking-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://cloud.snap.com">
+  <img src="https://img.shields.io/badge/Cloud-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/lens-studio/features/capabilities/internet-module">
+  <img src="https://img.shields.io/badge/Internet%20Access-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-ui-kit/get-started">
+  <img src="https://img.shields.io/badge/UI%20Kit-Light%20Gray?color=D3D3D3" />
+</a>
+      </p>
+      <p>Database, real-time sync, cloud storage, and serverless functions using Snap Cloud (powered by Supabase).</p>
+    </td>
+    <td align="center" valign="top" width="33%">
+      <a href="./Spectacles Mobile Kit/">
+        <img src="./Spectacles Mobile Kit/README-ref/sample-list-mobile-kit-rounded-edges.gif" alt="spectacles-mobile-kit" width="250px" />
+      </a>
+      <h3>Spectacles Mobile Kit</h3>
+      <p>
+<a href="https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-mobile-kit/getting-started">
+  <img src="https://img.shields.io/badge/Mobile%20Kit-Light%20Gray?color=D3D3D3" />
+</a>
+      </p>
+      <p>SDK for seamless communication between mobile applications and Lenses running on Spectacles via BLE.</p>
+    </td>
+    <td></td>
   </tr>
 </table>
 
@@ -648,6 +782,60 @@ Multi-user collaborative experiences
       </p>
       <p>Sample Connected Lens project using Spectacles Sync Kit.</p>
     </td>
+    <td align="center" valign="top" width="33%">
+      <a href="./Think Out Loud/">
+        <img src="./Think Out Loud/README-ref/sample-list-think-out-loud-rounded-edges.gif" alt="think-out-loud" width="250px" />
+      </a>
+      <h3>Think Out Loud</h3>
+      <p>
+<a href="https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?">
+  <img src="https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?">
+  <img src="https://img.shields.io/badge/Sync%20Kit-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?">
+  <img src="https://img.shields.io/badge/UIKit-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/connected-lenses/overview?">
+  <img src="https://img.shields.io/badge/Connected%20Lenses-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/apis/cloud-storage">
+  <img src="https://img.shields.io/badge/Cloud%20Storage-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/apis/hand-tracking">
+  <img src="https://img.shields.io/badge/Hand%20Tracking-Light%20Gray?color=D3D3D3" />
+</a>
+      </p>
+      <p>Social AR networking application with floating status panels and real-time connections.</p>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" valign="top" width="33%">
+      <a href="./Spectacles Sync Kit/">
+        <img src="./Spectacles Sync Kit/README-ref/sample-list-spectacles-sync-kit-rounded-edges.gif" alt="spectacles-sync-kit" width="250px" />
+      </a>
+      <h3>Spectacles Sync Kit</h3>
+      <p>
+<a href="https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-sync-kit">
+  <img src="https://img.shields.io/badge/Sync%20Kit-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?">
+  <img src="https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/connected-lenses/overview?">
+  <img src="https://img.shields.io/badge/Connected%20Lenses-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/connected-lenses/overview?">
+  <img src="https://img.shields.io/badge/Networking-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/lens-studio/features/lens-cloud/lens-cloud-overview?">
+  <img src="https://img.shields.io/badge/Multiplayer-Light%20Gray?color=D3D3D3" />
+</a>
+      </p>
+      <p>Minimal example of Spectacles Sync Kit transform synchronization across Connected Lenses.</p>
+    </td>
+    <td></td>
     <td></td>
   </tr>
 </table>
@@ -727,9 +915,12 @@ Bluetooth Low Energy connectivity projects
 
 ## Getting Started
 
-1. Clone this repository
-2. Open any project folder in Lens Studio
-3. Explore the templates and start building!
+1. **Install Git LFS** (see [Prerequisites](#prerequisites) section above)
+2. **Clone this repository** with Git LFS enabled
+3. **Open any project folder** in Lens Studio
+4. **Explore the templates** and start building!
+
+> ⚠️ **Important:** Make sure Git LFS is installed before cloning, otherwise large assets won't download correctly.
 
 ## Contributing
 

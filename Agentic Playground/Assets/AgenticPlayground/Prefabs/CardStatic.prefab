@@ -80,6 +80,7 @@
     _enableZTranslation: true
     showRotationProperties: true
     _rotationAxis: true
+    isSynced: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -105,6 +106,7 @@
       _enableZTranslation: true
       showRotationProperties: false
       _rotationAxis: All
+      isSynced: false
   ScriptTypes:
     "":
       {}
@@ -138,15 +140,18 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -157,6 +162,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -168,6 +174,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -186,7 +193,13 @@
   TwoSided: false
 - !<SceneObject/78a2454a-ba95-4356-9dc7-b4c20b1cdbcc>
   PrefabRemaps:
-    []
+    - 07525601-4742-48d1-a072-1b9b81cbe8cf: 07525601-4742-48d1-5f8d-e4647e341730
+    - 4ee26351-e677-432f-b2e5-e2707465905a: 4ee26351-e677-432f-4d1a-1d8f8b9a6fa5
+    - 65ea999b-cf9b-4bd4-bd6d-7f490df60540: 65ea999b-cf9b-4bd4-4292-80b6f209fabf
+    - 77d8f16c-9008-4720-b345-2631c5e51a66: 77d8f16c-9008-4720-4cba-d9ce3a1ae599
+    - 78a2454a-ba95-4356-9dc7-b4c20b1cdbcc: 78a2454a-ba95-4356-6238-4b3df4e32433
+    - a3f47ec8-b6fa-481c-859b-5d3dc949ef89: a3f47ec8-b6fa-481c-7a64-a2c236b61076
+    - ddd394a5-b955-4328-ab89-17b75e03785d: ddd394a5-b955-4328-5476-e848a1fc87a2
   Name: Button
   Enabled: true
   Layers: 1

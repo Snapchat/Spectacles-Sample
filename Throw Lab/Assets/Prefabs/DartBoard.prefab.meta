@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> 798cec70-deaf-4285-a931-20dfad3a7701
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,14 +14,7 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<ObjectPrefabAssetData/1930c421-1ad0-4565-9b65-34d0f82c8c74>
-  SourceRemaps:
-    - 0a960e4a-a824-4651-8398-33fd7340b2d7: 37be061b-c395-4699-a84b-e8b90aa81a9b
-    - 174d5d2e-c13f-4ce2-843f-d396f41112d1: 887e2bd9-b7fa-481b-ae1a-e8cddca1f5c0
-    - 1cbbb100-3926-4eaa-95b3-6b0273dfc575: e1b3aab9-0912-4653-8ed4-046bd3716491
-    - 798cec70-deaf-4285-a931-20dfad3a7701: e9e23d0e-e38b-4d7e-aad9-dbe00bc32abc
-  SourceState: !<own> e9e23d0e-e38b-4d7e-aad9-dbe00bc32abc
-- !<SceneObject/37be061b-c395-4699-a84b-e8b90aa81a9b>
+- !<SceneObject/0a960e4a-a824-4651-7c67-cc028cbf4d28>
   PrefabRemaps:
     []
   Name: DartBoard
@@ -35,9 +28,9 @@
   Children:
     []
   Components:
-    - !<own> e1b3aab9-0912-4653-8ed4-046bd3716491
-    - !<own> 887e2bd9-b7fa-481b-ae1a-e8cddca1f5c0
-- !<ColliderComponent/887e2bd9-b7fa-481b-ae1a-e8cddca1f5c0>
+    - !<own> 1cbbb100-3926-4eaa-6a4c-94fd8c203a8a
+    - !<own> 174d5d2e-c13f-4ce2-7bc0-2c690beeed2e
+- !<ColliderComponent/174d5d2e-c13f-4ce2-7bc0-2c690beeed2e>
   PrefabRemaps:
     []
   Name: Physics Collider
@@ -56,7 +49,12 @@
   ForceCompound: false
   Intangible: false
   ShowCollider: true
-- !<RenderMeshVisual/e1b3aab9-0912-4653-8ed4-046bd3716491>
+- !<ObjectPrefabAssetData/1930c421-1ad0-4565-9b65-34d0f82c8c74>
+  Prototype: !<ObjectOwner/c1e92ccb-d046-486f-b7ce-a458ad75286d>
+    PackagePath: ""
+    objects:
+      - !<own> 0a960e4a-a824-4651-7c67-cc028cbf4d28
+- !<RenderMeshVisual/1cbbb100-3926-4eaa-6a4c-94fd8c203a8a>
   PrefabRemaps:
     []
   Name: Render Mesh Visual
@@ -76,9 +74,3 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<ObjectPrefab/e9e23d0e-e38b-4d7e-aad9-dbe00bc32abc>
-  PackagePath: ""
-  objects:
-    - !<own> 37be061b-c395-4699-a84b-e8b90aa81a9b
-  LazyLoading: false
-  RetainAssets: true

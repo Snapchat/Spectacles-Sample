@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> dbf596cf-4d83-42f8-af85-02fa4c0ef240
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,25 +14,7 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<ColliderComponent/6b90d965-d12f-4664-96b5-fbc22c8d8e39>
-  PrefabRemaps:
-    []
-  Name: Physics Collider
-  Enabled: true
-  Shape: !<Sphere>
-    FitVisual: true
-    Radius: 6.000000
-  Matter: !<reference> 00000000-0000-0000-0000-000000000000
-  Filter: !<reference> 00000000-0000-0000-0000-000000000000
-  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
-  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
-  EnableSmoothing: false
-  PositionTension: 30.000000
-  RotationTension: 30.000000
-  ForceCompound: false
-  Intangible: false
-  ShowCollider: false
-- !<RenderMeshVisual/adfbbbdb-fc5d-4f90-a62e-f3db542d7147>
+- !<RenderMeshVisual/1f997821-8631-45b3-687e-b30b1b31d235>
   PrefabRemaps:
     []
   Name: Render Mesh Visual
@@ -52,7 +34,7 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<SceneObject/b64fc2dc-858d-4a65-90b6-5d45a94d892d>
+- !<SceneObject/435d25b3-6884-4932-7a1b-d295c7892f0b>
   PrefabRemaps:
     []
   Name: RightHandRef
@@ -66,18 +48,28 @@
   Children:
     []
   Components:
-    - !<own> adfbbbdb-fc5d-4f90-a62e-f3db542d7147
-    - !<own> 6b90d965-d12f-4664-96b5-fbc22c8d8e39
+    - !<own> 1f997821-8631-45b3-687e-b30b1b31d235
+    - !<own> a188092f-21e6-49fc-7d13-f0b71e1e91a1
+- !<ColliderComponent/a188092f-21e6-49fc-7d13-f0b71e1e91a1>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Sphere>
+    FitVisual: true
+    Radius: 6.000000
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
 - !<ObjectPrefabAssetData/bdd6da21-f8bb-48a8-be2a-c65bc773de20>
-  SourceRemaps:
-    - 1f997821-8631-45b3-9781-4cf4e4ce2dca: adfbbbdb-fc5d-4f90-a62e-f3db542d7147
-    - 435d25b3-6884-4932-85e4-2d6a3876d0f4: b64fc2dc-858d-4a65-90b6-5d45a94d892d
-    - a188092f-21e6-49fc-82ec-0f48e1e16e5e: 6b90d965-d12f-4664-96b5-fbc22c8d8e39
-    - dbf596cf-4d83-42f8-af85-02fa4c0ef240: e3db4e83-1587-4cb0-a46c-08309d1d9537
-  SourceState: !<own> e3db4e83-1587-4cb0-a46c-08309d1d9537
-- !<ObjectPrefab/e3db4e83-1587-4cb0-a46c-08309d1d9537>
-  PackagePath: ""
-  objects:
-    - !<own> b64fc2dc-858d-4a65-90b6-5d45a94d892d
-  LazyLoading: false
-  RetainAssets: true
+  Prototype: !<ObjectOwner/8b718d1b-737a-4afd-aaed-da0648b0135c>
+    PackagePath: ""
+    objects:
+      - !<own> 435d25b3-6884-4932-7a1b-d295c7892f0b

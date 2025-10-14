@@ -1,11 +1,11 @@
 import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable";
-import { LSTween } from "LSTween.lspkg/LSTween";
-import Easing from "LSTween.lspkg/TweenJS/Easing";
+import animate from "SpectaclesInteractionKit.lspkg/Utils/animate";
 import { InteractableManipulation } from "SpectaclesInteractionKit.lspkg/Components/Interaction/InteractableManipulation/InteractableManipulation";
 
 import { HandInputData } from "SpectaclesInteractionKit.lspkg/Providers/HandInputData/HandInputData";
 import WorldCameraFinderProvider from "SpectaclesInteractionKit.lspkg/Providers/CameraProvider/WorldCameraFinderProvider";
 import { PinchButton } from "SpectaclesInteractionKit.lspkg/Components/UI/PinchButton/PinchButton";
+import { BaseButton } from "SpectaclesUIKit.lspkg/Scripts/Components/Button/BaseButton";
 
 import Event from "SpectaclesInteractionKit.lspkg/Utils/Event";
 
@@ -33,9 +33,6 @@ export class SphereController extends BaseScriptComponent {
   private closeObj: SceneObject;
 
   @input
-  private closeButtonInteractable: SceneObject;
-
-  @input
   private worldSpaceText: Text;
 
   @input
@@ -49,7 +46,8 @@ export class SphereController extends BaseScriptComponent {
   private interactable: Interactable;
   private manipulate: InteractableManipulation;
   private orbButton: PinchButton;
-  private closeButton: PinchButton;
+  @input
+  private closeButton: BaseButton;
 
   // Get SIK data
   private handProvider: HandInputData = HandInputData.getInstance();
@@ -73,9 +71,6 @@ export class SphereController extends BaseScriptComponent {
     this.orbButton = this.orbInteractableObj.getComponent(
       PinchButton.getTypeName()
     );
-    this.closeButton = this.closeButtonInteractable.getComponent(
-      PinchButton.getTypeName()
-    );
     this.setIsTrackedToHand(true);
     this.createEvent("OnStartEvent").bind(this.init.bind(this));
     this.createEvent("UpdateEvent").bind(this.onUpdate.bind(this));
@@ -92,39 +87,90 @@ export class SphereController extends BaseScriptComponent {
     this.manipulate.enabled = !value;
     if (value) {
       this.setOrbToScreenPosition(true);
-      LSTween.scaleToLocal(
-        this.orbObject.getTransform(),
-        this.minimizedSize,
-        600
-      )
-        .easing(Easing.Quadratic.InOut)
-        .start();
+      {
+        const tr = this.orbObject.getTransform();
+        const start = tr.getLocalScale();
+        const end = this.minimizedSize;
+        animate({
+          duration: 0.6,
+          easing: "ease-in-out-quad",
+          update: (t) => {
+            const x = start.x + (end.x - start.x) * t;
+            const y = start.y + (end.y - start.y) * t;
+            const z = start.z + (end.z - start.z) * t;
+            tr.setLocalScale(new vec3(x, y, z));
+          },
+        });
+      }
 
-      LSTween.scaleToLocal(
-        this.closeObj.getTransform(),
-        vec3.one().uniformScale(0.1),
-        600
-      )
-        .easing(Easing.Quadratic.InOut)
-        .onComplete(() => {
-          this.closeButton.sceneObject.enabled = false;
-        })
-        .start();
+      {
+        const tr = this.closeObj.getTransform();
+        const start = tr.getLocalScale();
+        const end = vec3.one().uniformScale(0.1);
+        animate({
+          duration: 0.6,
+          easing: "ease-in-out-quad",
+          update: (t) => {
+            const x = start.x + (end.x - start.x) * t;
+            const y = start.y + (end.y - start.y) * t;
+            const z = start.z + (end.z - start.z) * t;
+            tr.setLocalScale(new vec3(x, y, z));
+          },
+          ended: () => {
+            this.closeButton.sceneObject.enabled = false;
+          },
+        });
+      }
       this.screenSpaceText.enabled = false;
       this.worldSpaceText.enabled = false;
     } else {
-      LSTween.scaleToLocal(this.orbObject.getTransform(), this.fullSize, 400)
-        .easing(Easing.Quadratic.InOut)
-        .start();
-      let worldPos = this.wcfmp.getForwardPosition(100);
-      LSTween.moveToWorld(this.orbObject.getTransform(), worldPos, 600)
-        .easing(Easing.Quadratic.InOut)
-        .start();
+      {
+        const tr = this.orbObject.getTransform();
+        const start = tr.getLocalScale();
+        const end = this.fullSize;
+        animate({
+          duration: 0.4,
+          easing: "ease-in-out-quad",
+          update: (t) => {
+            const x = start.x + (end.x - start.x) * t;
+            const y = start.y + (end.y - start.y) * t;
+            const z = start.z + (end.z - start.z) * t;
+            tr.setLocalScale(new vec3(x, y, z));
+          },
+        });
+      }
+      {
+        const tr = this.orbObject.getTransform();
+        const start = tr.getWorldPosition();
+        const end = this.wcfmp.getForwardPosition(100);
+        animate({
+          duration: 0.6,
+          easing: "ease-in-out-quad",
+          update: (t) => {
+            const x = start.x + (end.x - start.x) * t;
+            const y = start.y + (end.y - start.y) * t;
+            const z = start.z + (end.z - start.z) * t;
+            tr.setWorldPosition(new vec3(x, y, z));
+          },
+        });
+      }
 
       this.closeButton.sceneObject.enabled = true;
-      LSTween.scaleToLocal(this.closeObj.getTransform(), vec3.one(), 600)
-        .easing(Easing.Quadratic.InOut)
-        .start();
+      {
+        const tr = this.closeObj.getTransform();
+        const start = tr.getLocalScale();
+        const end = vec3.one();
+        animate({
+          duration: 0.6,
+          easing: "ease-in-out-quad",
+          update: (t) => {
+            const x = start.x + (end.x - start.x) * t;
+            const y = start.y + (end.y - start.y) * t;
+            const z = start.z + (end.z - start.z) * t;
+            tr.setLocalScale(new vec3(x, y, z));
+          },
+        });
+      }
       this.screenSpaceText.enabled = false;
       this.worldSpaceText.enabled = true;
     }
@@ -134,21 +180,23 @@ export class SphereController extends BaseScriptComponent {
 
   private init() {
     this.interactable.onHoverEnter.add(() => {
-      LSTween.rawTween(200)
-        .onUpdate((tweenData) => {
-          let percent = tweenData.t as number;
-          this.hoverMat.mainPass.activeHover = percent;
-        })
-        .start();
+      animate({
+        duration: 0.2,
+        easing: "linear",
+        update: (t) => {
+          this.hoverMat.mainPass.activeHover = t;
+        },
+      });
     });
 
     this.interactable.onHoverExit.add(() => {
-      LSTween.rawTween(200)
-        .onUpdate((tweenData) => {
-          let percent = 1 - (tweenData.t as number);
-          this.hoverMat.mainPass.activeHover = percent;
-        })
-        .start();
+      animate({
+        duration: 0.2,
+        easing: "linear",
+        update: (t) => {
+          this.hoverMat.mainPass.activeHover = 1 - t;
+        },
+      });
     });
 
     this.orbButton.onButtonPinched.add(() => {
@@ -157,11 +205,13 @@ export class SphereController extends BaseScriptComponent {
       }
     });
 
-    this.closeButton.onButtonPinched.add(() => {
-      if (!this.trackedToHand) {
-        this.setIsTrackedToHand(true);
-      }
-    });
+    this.closeButton.onInitialized.add(() => {
+      this.closeButton.onTriggerUp.add(() => {
+        if (!this.trackedToHand) {
+          this.setIsTrackedToHand(true);
+        }
+      });
+    })
   }
 
   private onUpdate() {
@@ -208,22 +258,41 @@ export class SphereController extends BaseScriptComponent {
     if (!inScrPos) {
       this.orbVisualParent.setParent(this.orbScreenPosition);
       this.orbVisualParent.getTransform().setLocalPosition(vec3.zero());
-      LSTween.scaleFromToLocal(
-        this.orbVisualParent.getTransform(),
-        vec3.one().uniformScale(0.01),
-        vec3.one().uniformScale(0.3),
-        200
-      ).start();
+      {
+        const tr = this.orbVisualParent.getTransform();
+        const start = vec3.one().uniformScale(0.01);
+        const end = vec3.one().uniformScale(0.3);
+        animate({
+          duration: 0.2,
+          easing: "linear",
+          update: (t) => {
+            const x = start.x + (end.x - start.x) * t;
+            const y = start.y + (end.y - start.y) * t;
+            const z = start.z + (end.z - start.z) * t;
+            tr.setLocalScale(new vec3(x, y, z));
+          },
+        });
+      }
       this.screenSpaceText.enabled = true;
       this.worldSpaceText.enabled = false;
     } else {
       this.orbVisualParent.setParent(this.orbObject);
       this.orbVisualParent.getTransform().setLocalPosition(vec3.zero());
-      LSTween.scaleToLocal(
-        this.orbVisualParent.getTransform(),
-        vec3.one(),
-        200
-      ).start();
+      {
+        const tr = this.orbVisualParent.getTransform();
+        const start = tr.getLocalScale();
+        const end = vec3.one();
+        animate({
+          duration: 0.2,
+          easing: "linear",
+          update: (t) => {
+            const x = start.x + (end.x - start.x) * t;
+            const y = start.y + (end.y - start.y) * t;
+            const z = start.z + (end.z - start.z) * t;
+            tr.setLocalScale(new vec3(x, y, z));
+          },
+        });
+      }
       this.screenSpaceText.enabled = false;
       this.worldSpaceText.enabled = true;
     }

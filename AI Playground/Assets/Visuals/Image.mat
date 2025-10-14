@@ -4,15 +4,27 @@
     - !<own> b350c230-11e0-44b4-b486-ddda77a78de6
 - !<PassInfo/b350c230-11e0-44b4-b486-ddda77a78de6>
   CachedProperties:
-    - Port_Default_N369:
+    - Port_Default_N204:
+        typeIdx: 1
+        value: 0.000000
+    - PreviewEnabled:
+        typeIdx: 0
+        value: 0
+    - baseColor:
         typeIdx: 5
         value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-    - baseTexTransform:
-        typeIdx: 7
+    - baseTex:
+        typeIdx: 9
         value:
-          0: {x: 1.000000, y: 0.000000, z: 0.000000}
-          1: {x: 0.000000, y: 1.000000, z: 0.000000}
-          2: {x: 0.000000, y: 0.000000, z: 1.000000}
+          id: 5725b925-6e7b-4f46-aed1-e20a4626cd8a
+          sampler:
+            filteringMode: Trilinear
+            wrapModeU: ClampToEdge
+            wrapModeV: ClampToEdge
+            wrapModeW: ClampToEdge
+            borderColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+            mipmaps: false
+          type: Texture2D
   DepthWrite: false
   DepthTest: false
   DepthFunction: LessEqual
@@ -24,32 +36,12 @@
   FrustumCullPad: 0.000000
   InstanceCount: 1
   Defines:
+    - ENABLE_BASE_TEX
     - NODE_13_DROPLIST_ITEM 0
     - NODE_27_DROPLIST_ITEM 0
     - NODE_49_DROPLIST_ITEM 0
     - NODE_69_DROPLIST_ITEM 0
-    - ENABLE_BASE_TEX
   BlendMode: PremultipliedAlphaAuto
   Properties:
-    Port_Default_N204:
-      typeIdx: 1
-      value: 0.000000
-    PreviewEnabled:
-      typeIdx: 0
-      value: 0
-    baseColor:
-      typeIdx: 5
-      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-    baseTex:
-      typeIdx: 9
-      value:
-        id: 5725b925-6e7b-4f46-aed1-e20a4626cd8a
-        sampler:
-          filteringMode: Trilinear
-          wrapModeU: ClampToEdge
-          wrapModeV: ClampToEdge
-          wrapModeW: ClampToEdge
-          borderColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-          mipmaps: false
-        type: Texture2D
-  Pass: !<reference> 581237de-9dda-44f9-b93b-cbf8e5dcac16
+    {}
+  Pass: !<reference> add9dae1-6cd9-4ce1-8d01-b65052bd491b

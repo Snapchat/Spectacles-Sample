@@ -1,12 +1,11 @@
-import { PinchButton } from "SpectaclesInteractionKit.lspkg/Components/UI/PinchButton/PinchButton";
 import Event from "SpectaclesInteractionKit.lspkg/Utils/Event";
-import Tween from "LSTween.lspkg/TweenJS/Tween";
-import { LSTween } from "LSTween.lspkg/LSTween";
+import { BaseButton } from "SpectaclesUIKit.lspkg/Scripts/Components/Button/BaseButton";
+import animate from "SpectaclesInteractionKit.lspkg/Utils/animate";
 
 @component
 export class ASRQueryController extends BaseScriptComponent {
   @input
-  private button: PinchButton;
+  private button: BaseButton;
   @input
   private activityRenderMesh: RenderMeshVisual;
   private activityMaterial: Material;
@@ -25,11 +24,13 @@ export class ASRQueryController extends BaseScriptComponent {
     this.activityRenderMesh.clearMaterials();
     this.activityRenderMesh.mainMaterial = this.activityMaterial;
     this.activityMaterial.mainPass.in_out = 0;
-    this.button.onButtonPinched.add(() => {
-      this.getVoiceQuery().then((query) => {
-        this.onQueryEvent.invoke(query);
+    this.button.onInitialized.add(() => {
+      this.button.onTriggerUp.add(() => {
+        this.getVoiceQuery().then((query) => {
+          this.onQueryEvent.invoke(query);
+        });
       });
-    });
+    })
   }
 
   public getVoiceQuery(): Promise<string> {
@@ -65,19 +66,21 @@ export class ASRQueryController extends BaseScriptComponent {
 
   private animateVoiceIndicator(on: boolean) {
     if (on) {
-      LSTween.rawTween(250)
-        .onUpdate((data) => {
-          let percent = data.t as number;
-          this.activityMaterial.mainPass.in_out = percent;
-        })
-        .start();
+      animate({
+        duration: 0.5,
+        easing: "linear",
+        update: (t) => {
+          this.activityMaterial.mainPass.in_out = t;
+        },
+      });
     } else {
-      LSTween.rawTween(250)
-        .onUpdate((data) => {
-          let percent = 1 - (data.t as number);
-          this.activityMaterial.mainPass.in_out = percent;
-        })
-        .start();
+      animate({
+        duration: 0.5,
+        easing: "linear",
+        update: (t) => {
+          this.activityMaterial.mainPass.in_out = 1 - t;
+        },
+      });
     }
   }
 }

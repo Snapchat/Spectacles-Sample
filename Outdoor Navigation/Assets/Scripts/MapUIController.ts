@@ -57,6 +57,8 @@ export class MapUIController extends BaseScriptComponent {
   private showCafeButton: PinchButton;
   @input
   private showBarsButton: PinchButton;
+  @input
+  private showAllButton: PinchButton;
 
   // For debugging
   @input
@@ -65,7 +67,7 @@ export class MapUIController extends BaseScriptComponent {
 
   private buttonTransforms: Transform[];
 
-  private isMiniMap: boolean = true;
+  private isMiniMap: boolean = false;
 
   private tweenCancelFunction: CancelFunction;
 
@@ -102,6 +104,9 @@ export class MapUIController extends BaseScriptComponent {
     this.showRestaurantsButton.onButtonPinched.add(
       this.handleShowRestaurantsButtonPinched.bind(this)
     );
+    this.showAllButton.onButtonPinched.add(
+      this.handleShowAllButtonPinched.bind(this)
+    );
 
     // Should have the same order as the ButtonType enum
     this.buttonTransforms = [
@@ -114,6 +119,7 @@ export class MapUIController extends BaseScriptComponent {
       this.showCafeButton.getTransform(),
       this.showBarsButton.getTransform(),
       this.showRestaurantsButton.getTransform(),
+      this.showAllButton.getTransform(),
     ];
 
     if (this.logObject !== undefined) {
@@ -126,6 +132,7 @@ export class MapUIController extends BaseScriptComponent {
       this.showCafeButton.sceneObject.enabled = false;
       this.showBarsButton.sceneObject.enabled = false;
       this.showRestaurantsButton.sceneObject.enabled = false;
+      this.showAllButton.sceneObject.enabled = false;
     }
   }
 
@@ -164,6 +171,7 @@ export class MapUIController extends BaseScriptComponent {
       this.showCafeButton.sceneObject.enabled = false;
       this.showBarsButton.sceneObject.enabled = false;
       this.showRestaurantsButton.sceneObject.enabled = false;
+      this.showAllButton.sceneObject.enabled = false;
       this.tweenCancelFunction = makeTween((t) => {
         this.buttonTransforms[ButtonType.ZOOM_IN].setLocalPosition(
           vec3.lerp(ZOOM_IN_BUTTON_OFFSET_FULL, ZOOM_IN_BUTTON_OFFSET_MINI, t)
@@ -207,6 +215,7 @@ export class MapUIController extends BaseScriptComponent {
           this.showCafeButton.sceneObject.enabled = true;
           this.showBarsButton.sceneObject.enabled = true;
           this.showRestaurantsButton.sceneObject.enabled = true;
+          this.showAllButton.sceneObject.enabled = true;
         }
       }, TWEEN_DURATION);
     }
@@ -224,5 +233,9 @@ export class MapUIController extends BaseScriptComponent {
 
   private handleShowRestaurantsButtonPinched(event: InteractorEvent) {
     this.mapComponent.showNeaybyPlaces(["Restaurant"]);
+  }
+
+  private handleShowAllButtonPinched(event: InteractorEvent) {
+    this.mapComponent.showNeaybyPlaces(null);
   }
 }

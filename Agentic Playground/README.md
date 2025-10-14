@@ -6,7 +6,8 @@
 
 **An AI-Powered Educational Assistant for Snap Spectacles**
 
-Transform lecture experiences with real-time speech processing, intelligent tool routing, multi-modal content generation, and spatial diagram creation - all running natively on Spectacles.
+Transform lecture experiences with real-time speech processing, intelligent tool routing, multi-modal content generation, and spatial diagram creation - all running natively on Spectacles. 
+Take a sneak peak of how AI will rewrite the Lenses of the future. 
 
 > **NOTE:**
 > This project will only work for the **Spectacles platform**. You must set the simulation mode in Lens Studio Preview to `Spectacles (2024)`.
@@ -453,10 +454,10 @@ Get started using our [Design Guidelines](https://developers.snap.com/spectacles
 
 ## 📋 Prerequisites
 
-- **Lens Studio**: v5.10.1 or later
-- **Spectacles OS**: v5.062 or later  
-- **Spectacles App iOS**: v0.62+
-- **Spectacles App Android**: v0.62+
+- **Lens Studio**: v5.15.0+
+- **Spectacles OS**: v5.64+
+- **Spectacles App iOS**: v0.64+
+- **Spectacles App Android**: v0.64+
 - **Git LFS**: Required for project assets
 
 To update your Spectacles device and mobile app, please refer to this [guide](https://support.spectacles.com/hc/en-us/articles/30214953982740-Updating).
@@ -481,8 +482,8 @@ cd agentic-playground
 
 ### Prerequisites
 
-- **Lens Studio**: v5.10.1 or later
-- **Spectacles OS**: v5.062 or later
+- **Lens Studio**: v5.15.0+
+- **Spectacles OS**: v5.64+
 - **Target Platform**: Snap Spectacles (required for API access)
 - **API Access**: Remote Service Gateway token
 
@@ -552,7 +553,7 @@ Enable test mode for development without real lecture content:
 ### Supported External APIs
 
 #### 🔥 OpenAI Integration
-**Package**: `Remote Service Gateway.lspkg/HostedExternal/OpenAI`
+**Package**: `RemoteServiceGateway.lspkg/HostedExternal/OpenAI`
 
 - **Chat Completions**: Text-only responses for tool routing
 - **Realtime API**: Voice-enabled conversation with streaming
@@ -561,7 +562,7 @@ Enable test mode for development without real lecture content:
 
 **Usage Example**:
 ```typescript
-import { OpenAI } from "Remote Service Gateway.lspkg/HostedExternal/OpenAI";
+import { OpenAI } from "RemoteServiceGateway.lspkg/HostedExternal/OpenAI";
 
 // Text-only generation
 const response = await OpenAI.chatCompletions({
@@ -573,7 +574,7 @@ const response = await OpenAI.chatCompletions({
 ```
 
 #### ✨ Gemini Integration  
-**Package**: `Remote Service Gateway.lspkg/HostedExternal/Gemini`
+**Package**: `RemoteServiceGateway.lspkg/HostedExternal/Gemini`
 
 - **Model API**: Advanced reasoning and multimodal processing
 - **Live API**: Real-time conversation with vision capabilities
@@ -581,7 +582,7 @@ const response = await OpenAI.chatCompletions({
 
 **Usage Example**:
 ```typescript
-import { Gemini } from "Remote Service Gateway.lspkg/HostedExternal/Gemini";
+import { Gemini } from "RemoteServiceGateway.lspkg/HostedExternal/Gemini";
 
 // Multimodal generation with image
 const response = await Gemini.generateContent({
@@ -1005,4 +1006,4 @@ Feel free to adapt, modify, and build upon this educational framework while resp
 
 ---
 
-*Built with ❤️ for the future of educational technology on Snap Spectacles* 
+*Built with 👻 by the Spectacles team*  

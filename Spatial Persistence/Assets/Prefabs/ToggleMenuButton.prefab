@@ -28,6 +28,9 @@
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
     targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     enablePokeDirectionality: true
@@ -35,13 +38,14 @@
     acceptableYDirections: true
     acceptableZDirections: true
     useFilteredPinch: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 3.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: false
@@ -50,8 +54,6 @@
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
       useFilteredPinch: false
-      isSynced: false
-      acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
       {}
@@ -125,7 +127,18 @@
     {}
 - !<SceneObject/a7fde309-96af-413f-862f-d9543dd705cc>
   PrefabRemaps:
-    []
+    - 01e601ba-3dda-4e56-bfb2-0723f56d7433: 01e601ba-3dda-4e56-404d-f8dc0a928bcc
+    - 0744bf7e-cb44-4c9b-ab07-3af3cb9b7369: 0744bf7e-cb44-4c9b-54f8-c50c34648c96
+    - 677b4cbb-c09f-4826-a7db-518681f4ceec: 677b4cbb-c09f-4826-5824-ae797e0b3113
+    - 7ff87d74-05b4-405d-a82e-daff1e6764bc: 7ff87d74-05b4-405d-57d1-2500e1989b43
+    - 8b1a0ca2-00f6-4836-908f-beae95d4154a: 8b1a0ca2-00f6-4836-6f70-41516a2beab5
+    - 8d1b665b-ecb8-431a-9bfe-550a15756ad3: 8d1b665b-ecb8-431a-6401-aaf5ea8a952c
+    - a7fde309-96af-413f-862f-d9543dd705cc: a7fde309-96af-413f-79d0-26abc228fa33
+    - ab6b3b5f-12e8-4517-8391-6012c6f2ea99: ab6b3b5f-12e8-4517-7c6e-9fed390d1566
+    - b546c2ad-be3a-469e-9fd1-8a9c6ef2d3ea: b546c2ad-be3a-469e-602e-7563910d2c15
+    - baad610e-d587-4c8f-abe4-c00971ea7461: baad610e-d587-4c8f-541b-3ff68e158b9e
+    - d4a7a1ca-69ff-438d-9cbf-3fdcad807784: d4a7a1ca-69ff-438d-6340-c023527f887b
+    - f22e51b1-73f9-47bb-9861-8fe1b4a7af77: f22e51b1-73f9-47bb-679e-701e4b585088
   Name: MenuHandButton
   Enabled: true
   Layers: 1
@@ -155,6 +168,7 @@
     editEventCallbacks: true
     customFunctionForOnStateChanged: true
     onStateChangedFunctionNames: true
+    isSynced: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -166,6 +180,7 @@
       customFunctionForOnStateChanged: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
       onStateChangedFunctionNames: !<string[]>
         []
+      isSynced: false
   ScriptTypes:
     "":
       {}

@@ -90,6 +90,9 @@ export class MapComponent extends BaseScriptComponent {
   private onMiniMapToggledEvent = new Event<boolean>();
   onMiniMapToggled: PublicApi<boolean> = this.onMiniMapToggledEvent.publicApi();
 
+  private placeSearchStartedEvent = new Event();
+  public onPlaceSearchStarted: PublicApi<void> = this.placeSearchStartedEvent.publicApi();
+
   onAwake() {
     this.createEvent("OnStartEvent").bind(this.onStart.bind(this));
   }
@@ -327,6 +330,7 @@ export class MapComponent extends BaseScriptComponent {
    * Currently the range is 100m from the user location
    */
   showNeaybyPlaces(categoryName: string[]): void {
+    this.placeSearchStartedEvent.invoke();
     this.mapController.showNearbyPlaces(categoryName);
   }
 

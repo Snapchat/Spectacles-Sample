@@ -1,7 +1,7 @@
-import { OpenAI } from "Remote Service Gateway.lspkg/HostedExternal/OpenAI";
-import { OpenAITypes } from "Remote Service Gateway.lspkg/HostedExternal/OpenAITypes";
-import { Gemini } from "Remote Service Gateway.lspkg/HostedExternal/Gemini";
-import { GeminiTypes } from "Remote Service Gateway.lspkg/HostedExternal/GeminiTypes";
+import { Gemini } from "RemoteServiceGateway.lspkg/HostedExternal/Gemini";
+import { GeminiTypes } from "RemoteServiceGateway.lspkg/HostedExternal/GeminiTypes";
+import { OpenAI } from "RemoteServiceGateway.lspkg/HostedExternal/OpenAI";
+import { OpenAITypes } from "RemoteServiceGateway.lspkg/HostedExternal/OpenAITypes";
 
 export class ImageGenerator {
   private rmm = require("LensStudio:RemoteMediaModule") as RemoteMediaModule;

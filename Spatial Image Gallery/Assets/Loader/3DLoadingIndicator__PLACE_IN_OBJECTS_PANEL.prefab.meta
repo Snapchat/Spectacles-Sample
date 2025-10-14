@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> 79dcc377-6f68-493f-bae2-f5a54d91d2db
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,13 +14,7 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<ObjectPrefab/05ebbbc5-68f7-41d5-ae0b-062ce90e6483>
-  PackagePath: 3DLoadingIndicator__PLACE_IN_OBJECTS_PANEL
-  objects:
-    - !<own> 160f8984-9231-4d38-a6ec-d2526cc02c78
-  LazyLoading: false
-  RetainAssets: true
-- !<RenderMeshVisual/0d3707df-9626-4e42-8390-8690360910b1>
+- !<RenderMeshVisual/42bf4b78-fdd5-4993-4f68-b015bdb049d2>
   PrefabRemaps:
     []
   Name: component_0
@@ -40,7 +34,7 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<SceneObject/160f8984-9231-4d38-a6ec-d2526cc02c78>
+- !<SceneObject/63dad985-bf3d-47b0-7657-39f305f0596b>
   PrefabRemaps:
     []
   Name: 3DLoadingIndicator
@@ -54,9 +48,9 @@
   Children:
     []
   Components:
-    - !<own> 0d3707df-9626-4e42-8390-8690360910b1
-    - !<own> 38f0cc14-76a8-430a-9601-71485cd74334
-- !<ScriptComponent/38f0cc14-76a8-430a-9601-71485cd74334>
+    - !<own> 42bf4b78-fdd5-4993-4f68-b015bdb049d2
+    - !<own> 66c23e5d-b1ab-49e9-431e-02fd70d07fbe
+- !<ScriptComponent/66c23e5d-b1ab-49e9-431e-02fd70d07fbe>
   PrefabRemaps:
     []
   Name: 3DLoadingIndicator
@@ -68,14 +62,13 @@
     {}
   ScriptInputs:
     "":
-      loadingMesh: !<reference.MaterialMeshVisual> 0d3707df-9626-4e42-8390-8690360910b1
+      loadingMesh: !<reference.MaterialMeshVisual> 42bf4b78-fdd5-4993-4f68-b015bdb049d2
       startValue: !<float> 1.000000
   ScriptTypes:
     "":
       {}
 - !<ObjectPrefabAssetData/71cdb8ad-e5ca-4ae7-9d9a-96904649c63d>
-  SourceRemaps:
-    - 42bf4b78-fdd5-4993-b097-4fea424fb62d: 0d3707df-9626-4e42-8390-8690360910b1
-    - 63dad985-bf3d-47b0-89a8-c60cfa0fa694: 160f8984-9231-4d38-a6ec-d2526cc02c78
-    - 66c23e5d-b1ab-49e9-bce1-fd028f2f8041: 38f0cc14-76a8-430a-9601-71485cd74334
-  SourceState: !<own> 05ebbbc5-68f7-41d5-ae0b-062ce90e6483
+  Prototype: !<ObjectOwner/4800ef25-6c58-4e21-8f59-5e41cedebada>
+    PackagePath: ""
+    objects:
+      - !<own> 63dad985-bf3d-47b0-7657-39f305f0596b

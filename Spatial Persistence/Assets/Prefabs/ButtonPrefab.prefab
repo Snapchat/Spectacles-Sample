@@ -52,15 +52,18 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -71,6 +74,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -82,6 +86,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -106,6 +111,9 @@
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
     targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     allowMultipleInteractors: true
@@ -114,13 +122,14 @@
     acceptableYDirections: true
     acceptableZDirections: true
     useFilteredPinch: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 3.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: true
@@ -129,8 +138,6 @@
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
       useFilteredPinch: false
-      isSynced: false
-      acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
       {}
@@ -196,7 +203,19 @@
       {}
 - !<SceneObject/8f8a104b-806d-4e0b-926c-545598de67d6>
   PrefabRemaps:
-    []
+    - 072b4e93-01b7-4297-bb91-21c656e7b897: 072b4e93-01b7-4297-446e-de39a9184768
+    - 171d11ec-89d2-4edc-a34d-f1031a66a82c: 171d11ec-89d2-4edc-5cb2-0efce59957d3
+    - 2b1e3f99-d29f-4ec1-8010-80066f1de09b: 2b1e3f99-d29f-4ec1-7fef-7ff990e21f64
+    - 2bc474fc-7aa9-4d8f-aaaf-7438d89bca40: 2bc474fc-7aa9-4d8f-5550-8bc7276435bf
+    - 48fceefe-3b36-44fc-aa97-51ccbc02515a: 48fceefe-3b36-44fc-5568-ae3343fdaea5
+    - 57bd5fce-c01b-4c22-99b2-fe452646e0a7: 57bd5fce-c01b-4c22-664d-01bad9b91f58
+    - 8f8a104b-806d-4e0b-926c-545598de67d6: 8f8a104b-806d-4e0b-6d93-abaa67219829
+    - 98e410a5-dad3-4d3e-89c5-3e356b4194e6: 98e410a5-dad3-4d3e-763a-c1ca94be6b19
+    - 9af264f0-3e1a-4a91-8757-31afe7a3cadf: 9af264f0-3e1a-4a91-78a8-ce50185c3520
+    - d8ea75d0-602d-40ce-b18e-4dbe57538c1a: d8ea75d0-602d-40ce-4e71-b241a8ac73e5
+    - dd32c3a1-99d4-445b-bb18-5e429d3e4ba3: dd32c3a1-99d4-445b-44e7-a1bd62c1b45c
+    - f2e3f294-75f7-486a-a8a3-bfca2deb71b2: f2e3f294-75f7-486a-575c-4035d2148e4d
+    - fbaf53b6-c92c-44c3-b376-f8c570dde21f: fbaf53b6-c92c-44c3-4c89-073a8f221de0
   Name: AddNoteButton
   Enabled: true
   Layers: 1

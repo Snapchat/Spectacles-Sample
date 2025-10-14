@@ -19,10 +19,10 @@ export class MapMessageController extends BaseScriptComponent {
   onStart() {
     this.container.renderOrder = this.renderOrder;
     this.container.closeButton.onTrigger.add(() =>
-      this.handleCloseButtonTriggered()
+      this.closePanel()
     );
     this.mapComponent.subscribeOnNoNearbyPlacesFound(() =>
-      this.showMessage("No nearby places found")
+      this.showMessage("No nearby places found. \nPlease test with \"All\".")
     );
 
     this.mapComponent.subscribeOnNearbyPlacesFailed(() =>
@@ -31,15 +31,20 @@ export class MapMessageController extends BaseScriptComponent {
       )
     );
 
-    this.handleCloseButtonTriggered();
+    this.mapComponent.onPlaceSearchStarted.add(() => {
+      this.closePanel();
+    }
+    );
+
+    this.closePanel();
   }
 
-  showMessage(message: string) {
+  public showMessage(message: string) {
     this.container.sceneObject.enabled = true;
     this.textComponent.text = message;
   }
 
-  private handleCloseButtonTriggered() {
+  public closePanel() {
     this.container.sceneObject.enabled = false;
     this.textComponent.text = "";
   }

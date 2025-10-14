@@ -1,0 +1,129 @@
+- !<AssetImportMetadata/84f5fd07-bdfe-44b9-8fb1-4f22c33325dd>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> 978bfda2-ed95-46c2-8c36-3441fe9de91f
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> 978bfda2-ed95-46c2-8c36-3441fe9de91f
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    ObjectPrefab: !<own> 35295813-bd8b-410a-9412-15bfc7ced4c1
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/2ff0545f-5f83-4986-7e92-d70eb36b9157>
+  PrefabRemaps:
+    []
+  Name: PlayerObject
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 70bb5eae-fdef-46ac-7d7d-d1fd9f94b8a8
+  Components:
+    - !<own> 66bf15a6-8062-4427-7749-b0ca6fe9323b
+    - !<own> a277736b-246d-445c-5236-ddd8f9b063f4
+- !<ObjectPrefabAssetData/35295813-bd8b-410a-9412-15bfc7ced4c1>
+  Prototype: !<ObjectOwner/b2722e3a-e061-47e7-90f2-592dcf72263f>
+    PackagePath: ""
+    objects:
+      - !<own> 2ff0545f-5f83-4986-7e92-d70eb36b9157
+- !<ScriptComponent/66bf15a6-8062-4427-7749-b0ca6fe9323b>
+  PrefabRemaps:
+    []
+  Name: PlayerObjectController
+  Enabled: true
+  ScriptAsset: !<reference> 5674c75f-96c8-45d6-bee8-ff9197687f69
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      playerObjectManager: !<MappingBased.AssignableType> 993e3cff-3517-4702-bd74-30021152dff2
+      playerColorMaterials: !<reference.Material[]>
+        - !<reference> d31ad86b-f3d2-4adf-9987-153eb139e6ef
+        - !<reference> 50829173-8544-4f65-a54f-390b20752c41
+        - !<reference> 1b18b5f0-e04c-4ff8-902e-08cf7a8f2727
+        - !<reference> 9f9c9ad4-742e-4fbb-aeb4-ec9e4b1f566b
+        - !<reference> 577d50b6-dc5b-4d9c-9352-8f5c85eddf3c
+        - !<reference> eabc4894-b0b8-41bb-ae81-e922bf60197b
+        - !<reference> 20ace729-79d7-4c6d-8204-4b6d3581a2fc
+        - !<reference> ff59243c-a37e-4641-bfd6-45e6d9d4f379
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/70bb5eae-fdef-46ac-7d7d-d1fd9f94b8a8>
+  PrefabRemaps:
+    []
+  Name: EnableToSeeHeadposeInScene
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 10.000000, y: 10.000000, z: 10.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> b1591657-8a2e-476a-590e-dc563bbc882d
+- !<ScriptComponent/a277736b-246d-445c-5236-ddd8f9b063f4>
+  PrefabRemaps:
+    []
+  Name: SyncTransform
+  Enabled: true
+  ScriptAsset: !<reference> f3c20594-375f-43d8-a93f-a8e75bd6a61d
+  ScriptInputsDefault:
+    networkIdTypeString: true
+    customNetworkId: true
+    positionSyncString: true
+    rotationSyncString: true
+    scaleSyncString: true
+    persistenceString: true
+    sendsPerSecondLimit: true
+    useSmoothing: true
+    interpolationTarget: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      networkIdTypeString: objectId
+      customNetworkId: enter_unique_id
+      positionSyncString: Local
+      rotationSyncString: Local
+      scaleSyncString: Local
+      persistenceString: Session
+      sendsPerSecondLimit: 10
+      useSmoothing: true
+      interpolationTarget: -0.250000
+  ScriptTypes:
+    "":
+      {}
+- !<RenderMeshVisual/b1591657-8a2e-476a-590e-dc563bbc882d>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: false
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> e49c7177-679b-439a-9df6-e8d7488c203b
+  Mesh: !<reference> e542623c-1432-4bfa-881d-a28905bd9e57
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}

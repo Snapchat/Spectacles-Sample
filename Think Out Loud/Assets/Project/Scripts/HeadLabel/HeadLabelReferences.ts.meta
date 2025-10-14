@@ -1,0 +1,60 @@
+- !<AssetImportMetadata/4f5c63ba-0a4d-44c0-9384-3161fe712840>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 47c88132-0f4b-4dc9-a350-52c3247497d6
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 47c88132-0f4b-4dc9-a350-52c3247497d6
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 7399ddd2-3285-4924-a775-d1a8989bdf99
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/7399ddd2-3285-4924-a775-d1a8989bdf99>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 27fd2670-bc50-4573-8c82-34d2d684bf5f
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    pingAcceptedMaterial: false
+    pingDefaultMaterial: false
+    pingMaterialTargets: false
+    textStatus: false
+    textSubStatus: false
+    textUserName: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - textUserName: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      textStatus: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      textSubStatus: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      pingDefaultMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      pingAcceptedMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      pingMaterialTargets: !<reference.SceneObject[]>
+        []
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Component.Text textUserName {"hint":"Text component for user name"}'
+    - '// @input Component.Text textStatus {"hint":"Text component for main status"}'
+    - '// @input Component.Text textSubStatus {"hint":"Text component for sub status"}'
+    - '// @input Asset.Material pingDefaultMaterial {"hint":"Default material for normal/denied ping state"}'
+    - '// @input Asset.Material pingAcceptedMaterial {"hint":"Material for accepted ping state"}'
+    - '// @input SceneObject[] pingMaterialTargets = {} {"hint":"Array of scene objects with MeshRenderVisual for ping material swapping"}'

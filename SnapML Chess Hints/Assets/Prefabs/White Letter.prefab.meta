@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> 09df30ca-2758-4e78-a22f-abe0e5c376c1
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,7 +14,7 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<LookAtComponent/106c2ead-f55f-4352-b7a4-744f3ba1f677>
+- !<LookAtComponent/4626713d-a3ab-4794-6618-286a4f827520>
   PrefabRemaps:
     []
   Name: Look At
@@ -24,36 +24,12 @@
   WorldUpVector: SceneY
   Target: !<reference> 00000000-0000-0065-0000-000000000064
   OffsetRotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-- !<ObjectPrefab/430c8d9b-6e01-47e6-b70c-d37903b892ff>
-  PackagePath: ""
-  objects:
-    - !<own> f950ed0b-61be-48a8-a04d-54be62becff3
-  LazyLoading: false
-  RetainAssets: true
 - !<ObjectPrefabAssetData/8f708974-0473-4261-a33f-8f5d88aee511>
-  SourceRemaps:
-    - 09df30ca-2758-4e78-a22f-abe0e5c376c1: 430c8d9b-6e01-47e6-b70c-d37903b892ff
-    - 4626713d-a3ab-4794-99e7-d795b07d8adf: 106c2ead-f55f-4352-b7a4-744f3ba1f677
-    - add3e308-2ebc-458d-9a8a-1e5a9fc6810a: ffce67d8-6a79-4b0a-a58a-f85f0644738c
-    - f04a590d-2f3b-47ef-88a0-fd5932205e92: f950ed0b-61be-48a8-a04d-54be62becff3
-  SourceState: !<own> 430c8d9b-6e01-47e6-b70c-d37903b892ff
-- !<SceneObject/f950ed0b-61be-48a8-a04d-54be62becff3>
-  PrefabRemaps:
-    []
-  Name: White Letter
-  Enabled: false
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: -90.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> ffce67d8-6a79-4b0a-a58a-f85f0644738c
-    - !<own> 106c2ead-f55f-4352-b7a4-744f3ba1f677
-- !<Text/ffce67d8-6a79-4b0a-a58a-f85f0644738c>
+  Prototype: !<ObjectOwner/0ec26c94-0859-468a-909f-631b9f1a700b>
+    PackagePath: ""
+    objects:
+      - !<own> f04a590d-2f3b-47ef-775f-02a6cddfa16d
+- !<Text/add3e308-2ebc-458d-6575-e1a560397ef5>
   PrefabRemaps:
     []
   Name: Text
@@ -83,15 +59,18 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -102,6 +81,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -113,6 +93,7 @@
       Mode: Solid
       Color: {x: 0.818006, y: 0.765545, z: 0.633646, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -129,3 +110,19 @@
     CapitalizationOverride: None
   DepthTest: false
   TwoSided: false
+- !<SceneObject/f04a590d-2f3b-47ef-775f-02a6cddfa16d>
+  PrefabRemaps:
+    []
+  Name: White Letter
+  Enabled: false
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: -90.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> add3e308-2ebc-458d-6575-e1a560397ef5
+    - !<own> 4626713d-a3ab-4794-6618-286a4f827520

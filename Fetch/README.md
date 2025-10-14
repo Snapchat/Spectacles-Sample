@@ -1,4 +1,4 @@
-# Fetch
+# Fetch       
 
 [![SIK](https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?) [![Experimental API](https://img.shields.io/badge/Experimental%20API-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/apis/experimental-apis?) [![Fetch](https://img.shields.io/badge/Fetch-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/apis/fetch?) [![Web View](https://img.shields.io/badge/Web%20View-Light%20Gray?color=D3D3D3)](https://developers.snap.com/spectacles/about-spectacles-features/apis/web-view?)
 
@@ -18,10 +18,10 @@ Get started using our [Design Guidelines](https://developers.snap.com/spectacles
 
 ## Prerequisites
 
-- **Lens Studio**: v5.10.0+
-- **Spectacles OS Version**: v5.62+
-- **Spectacles App iOS**: v0.62+
-- **Spectacles App Android**: v0.62+
+- **Lens Studio**: v5.15.0+
+- **Spectacles OS Version**: v5.64+
+- **Spectacles App iOS**: v0.64+
+- **Spectacles App Android**: v0.64+
 
 To update your Spectacles device and mobile app, please refer to this [guide](https://support.spectacles.com/hc/en-us/articles/30214953982740-Updating).
 
@@ -66,3 +66,7 @@ If you have any questions or need assistance, please don't hesitate to reach out
 ## Contributing
 
 Feel free to provide improvements or suggestions or directly contributing via merge request. By sharing insights, you help everyone else build better Lenses.
+
+---
+
+*Built with 👻 by the Spectacles team* 

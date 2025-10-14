@@ -4,7 +4,7 @@
   ImporterName: TypeScriptAssetImporter
   PrimaryAsset: !<reference> 7412611f-8e82-41b0-90a2-f227aa8b851a
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -24,8 +24,7 @@
   VersionPatch: 0
   ComponentUid: 83aeb193-a617-4800-b75a-f61426faf8a6
   ExportUid: 00000000-0000-0000-0000-000000000000
-  CurrentVisibility: Editable
-  MaxVisibility: Editable
+  PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
     _allowAllTogglesOff: false
     _switches: false
@@ -35,6 +34,10 @@
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
   DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
   DefaultScriptInputs:
     - _allowAllTogglesOff: false
       addCallbacks: false
@@ -50,8 +53,8 @@
     - "// @input bool addCallbacks {\"hint\":\"Enable this to add functions from another script to this component's callbacks\"}"
     - /*
     - "@typedef Callback"
-    - "@property {Component.ScriptComponent} scriptComponent "
-    - "@property {string} functionName "
+    - "@property {Component.ScriptComponent} scriptComponent"
+    - "@property {string} functionName"
     - "*/"
     - '// @input Callback[] onToggleSelectedCallbacks = {} {"label":"On Toggle Selected Callbacks", "showIf":"addCallbacks"}'
     - "// @input AssignableType[] _switches = {}"

@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> 825a9190-8094-43e0-9da3-862abb8e446b
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,7 +14,7 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<ScriptComponent/219befcf-4637-482d-be32-cef11a24fde6>
+- !<ScriptComponent/035a6d28-53aa-4c2d-687b-a735c34da18b>
   PrefabRemaps:
     []
   Name: LoopController
@@ -26,17 +26,11 @@
     {}
   ScriptInputs:
     "":
-      audio: !<reference.AudioComponent> 94f0c849-3517-46d9-bee9-21466dca4268
+      audio: !<reference.AudioComponent> 30bafb4b-e5cc-4b3e-707f-39d03066a824
   ScriptTypes:
     "":
       {}
-- !<ObjectPrefab/27506da9-58b5-4b6e-aef0-8c19ac554016>
-  PackagePath: ""
-  objects:
-    - !<own> 3e2eb9bb-a611-40ed-aacc-bf72d05daabf
-  LazyLoading: false
-  RetainAssets: true
-- !<SceneObject/375670b7-250f-4c91-8d15-90c122fd7e03>
+- !<SceneObject/301b5033-0bf1-4296-456d-6fc6f60e25d7>
   PrefabRemaps:
     []
   Name: Audio
@@ -50,24 +44,8 @@
   Children:
     []
   Components:
-    - !<own> 94f0c849-3517-46d9-bee9-21466dca4268
-- !<SceneObject/3e2eb9bb-a611-40ed-aacc-bf72d05daabf>
-  PrefabRemaps:
-    []
-  Name: pfb_LoopController
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 300.000000, y: 300.000092, z: 300.000092}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> 375670b7-250f-4c91-8d15-90c122fd7e03
-  Components:
-    - !<own> 98c6f1df-d267-42f9-aed4-9fb6e465a9f1
-    - !<own> 219befcf-4637-482d-be32-cef11a24fde6
-- !<AudioComponent/94f0c849-3517-46d9-bee9-21466dca4268>
+    - !<own> 30bafb4b-e5cc-4b3e-707f-39d03066a824
+- !<AudioComponent/30bafb4b-e5cc-4b3e-707f-39d03066a824>
   PrefabRemaps:
     []
   Name: Audio
@@ -84,7 +62,28 @@
   MaxDistance: 0.000000
   EnableDirectivityEffect: false
   EnablePositionEffect: false
-- !<RenderMeshVisual/98c6f1df-d267-42f9-aed4-9fb6e465a9f1>
+- !<SceneObject/5d1b2ccc-3c1f-4402-5397-8b61f6e000fb>
+  PrefabRemaps:
+    []
+  Name: pfb_LoopController
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 300.000000, y: 300.000092, z: 300.000092}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 301b5033-0bf1-4296-456d-6fc6f60e25d7
+  Components:
+    - !<own> d3bd2b2b-0e60-4558-6d8d-da7ff2a646f2
+    - !<own> 035a6d28-53aa-4c2d-687b-a735c34da18b
+- !<ObjectPrefabAssetData/9f260798-5109-4e3d-afd7-a47ae97d5237>
+  Prototype: !<ObjectOwner/3f2e452f-cd46-4fe6-9412-8845a38d746c>
+    PackagePath: ""
+    objects:
+      - !<own> 5d1b2ccc-3c1f-4402-5397-8b61f6e000fb
+- !<RenderMeshVisual/d3bd2b2b-0e60-4558-6d8d-da7ff2a646f2>
   PrefabRemaps:
     []
   Name: Render Mesh Visual
@@ -104,12 +103,3 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<ObjectPrefabAssetData/9f260798-5109-4e3d-afd7-a47ae97d5237>
-  SourceRemaps:
-    - 035a6d28-53aa-4c2d-9784-58ca3cb25e74: 219befcf-4637-482d-be32-cef11a24fde6
-    - 301b5033-0bf1-4296-ba92-903909f1da28: 375670b7-250f-4c91-8d15-90c122fd7e03
-    - 30bafb4b-e5cc-4b3e-8f80-c62fcf9957db: 94f0c849-3517-46d9-bee9-21466dca4268
-    - 5d1b2ccc-3c1f-4402-ac68-749e091fff04: 3e2eb9bb-a611-40ed-aacc-bf72d05daabf
-    - 825a9190-8094-43e0-9da3-862abb8e446b: 27506da9-58b5-4b6e-aef0-8c19ac554016
-    - d3bd2b2b-0e60-4558-9272-25800d59b90d: 98c6f1df-d267-42f9-aed4-9fb6e465a9f1
-  SourceState: !<own> 27506da9-58b5-4b6e-aef0-8c19ac554016

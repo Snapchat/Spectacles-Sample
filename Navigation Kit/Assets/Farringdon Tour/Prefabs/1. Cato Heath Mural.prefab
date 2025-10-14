@@ -89,15 +89,18 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -108,6 +111,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -119,6 +123,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -224,6 +229,9 @@
   Enabled: true
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     allowMultipleInteractors: true
@@ -232,13 +240,14 @@
     acceptableYDirections: true
     acceptableZDirections: true
     useFilteredPinch: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 7.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: true
@@ -247,8 +256,6 @@
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
       useFilteredPinch: false
-      isSynced: false
-      acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
       {}
@@ -1541,7 +1548,105 @@
     - !<own> 123bc43b-5663-41f0-94d7-48080dba023b
 - !<SceneObject/d76b4bc1-16ee-46aa-baae-a3a79144781e>
   PrefabRemaps:
-    []
+    - 00752530-aacb-4e67-b908-93b3c66e9dd5: 00752530-aacb-4e67-46f7-6c4c3991622a
+    - 0c510668-4ae6-46cd-b52b-8475700cf2d8: 0c510668-4ae6-46cd-4ad4-7b8a8ff30d27
+    - 0c777223-b13b-4ff5-826b-d0e6e415aebe: 0c777223-b13b-4ff5-7d94-2f191bea5141
+    - 123bc43b-5663-41f0-94d7-48080dba023b: 123bc43b-5663-41f0-6b28-b7f7f245fdc4
+    - 167477e6-73f0-49eb-a42b-2b15278e78d4: 167477e6-73f0-49eb-5bd4-d4ead871872b
+    - 191327d3-b2d2-4dac-9bad-ba2106dddc8a: 191327d3-b2d2-4dac-6452-45def9222375
+    - 1dc0aa06-f4e1-4bd8-9114-325a4f02c2ec: 1dc0aa06-f4e1-4bd8-6eeb-cda5b0fd3d13
+    - 1e31f549-e562-480c-b186-4a812b42b099: 1e31f549-e562-480c-4e79-b57ed4bd4f66
+    - 1e5ed8a6-1401-41e5-8d73-a04076ac8ccf: 1e5ed8a6-1401-41e5-728c-5fbf89537330
+    - 1f8f72bb-eb9c-4b74-a7fd-20f01bba4bf2: 1f8f72bb-eb9c-4b74-5802-df0fe445b40d
+    - 22b7548b-7e59-4d1d-acbe-75f62d805e88: 22b7548b-7e59-4d1d-5341-8a09d27fa177
+    - 2533e250-560e-4790-b579-975ec6df3795: 2533e250-560e-4790-4a86-68a13920c86a
+    - 26cbc4fe-340a-4c9c-9ef5-4bfe1ba390a0: 26cbc4fe-340a-4c9c-610a-b401e45c6f5f
+    - 2919f109-433f-451f-80d2-a611c3d70cda: 2919f109-433f-451f-7f2d-59ee3c28f325
+    - 2bd4ad8b-42c0-439a-a516-fc53ae973d3f: 2bd4ad8b-42c0-439a-5ae9-03ac5168c2c0
+    - 2c4f1b6c-1f2b-4abe-b7e2-cc20c2274045: 2c4f1b6c-1f2b-4abe-481d-33df3dd8bfba
+    - 2d3c9c38-1bc0-43db-a8b9-d5fb0fad4061: 2d3c9c38-1bc0-43db-5746-2a04f052bf9e
+    - 34943986-727e-401b-9f20-7f66e90e9d62: 34943986-727e-401b-60df-809916f1629d
+    - 35f344d9-055e-43da-afb2-b3f0bad382a8: 35f344d9-055e-43da-504d-4c0f452c7d57
+    - 3b3104d2-1152-497f-93e8-8ab47b1f37eb: 3b3104d2-1152-497f-6c17-754b84e0c814
+    - 3e54fb9e-252f-4605-ae32-3d76c2c04cb2: 3e54fb9e-252f-4605-51cd-c2893d3fb34d
+    - 3ec37e21-59a4-44a5-bb6b-676235e2152f: 3ec37e21-59a4-44a5-4494-989dca1dead0
+    - 3f350ce4-7aeb-4bdc-8d23-8ea57510d6cc: 3f350ce4-7aeb-4bdc-72dc-715a8aef2933
+    - 470cfc02-d10b-4aa7-975d-d0b2886e8df9: 470cfc02-d10b-4aa7-68a2-2f4d77917206
+    - 47397ec1-f5db-4eb4-a13c-b4e3a40545da: 47397ec1-f5db-4eb4-5ec3-4b1c5bfaba25
+    - 48d49566-b482-4ae4-b95f-32379b6aa608: 48d49566-b482-4ae4-46a0-cdc8649559f7
+    - 4f8ec463-7c28-41d1-bb59-837ae9a082a2: 4f8ec463-7c28-41d1-44a6-7c85165f7d5d
+    - 516de4bc-da5c-4771-b6c8-725999819496: 516de4bc-da5c-4771-4937-8da6667e6b69
+    - 52073cc3-cbca-48a6-beb4-7b791c5cd529: 52073cc3-cbca-48a6-414b-8486e3a32ad6
+    - 558e03a9-6f65-4982-b670-86cbdff5a444: 558e03a9-6f65-4982-498f-7934200a5bbb
+    - 572ce488-fb1a-42a6-8064-5d68304346c4: 572ce488-fb1a-42a6-7f9b-a297cfbcb93b
+    - 59232585-b24b-41ef-9ff8-c3c5bc786c7f: 59232585-b24b-41ef-6007-3c3a43879380
+    - 598729a2-2313-4d6d-89e0-415588a5d9b8: 598729a2-2313-4d6d-761f-beaa775a2647
+    - 5fbd49ce-04d9-45d5-8c4f-0a95310ce0bb: 5fbd49ce-04d9-45d5-73b0-f56acef31f44
+    - 60aefa28-5b1d-4586-9c2f-94e24782a1ad: 60aefa28-5b1d-4586-63d0-6b1db87d5e52
+    - 65c6683a-e55b-47fc-aa71-646b611dbb3b: 65c6683a-e55b-47fc-558e-9b949ee244c4
+    - 6722a7dd-0d29-4bc3-8a75-dd3b26dcd9b3: 6722a7dd-0d29-4bc3-758a-22c4d923264c
+    - 674ff8a2-5f7c-4fd5-882a-b1817ba3b1cc: 674ff8a2-5f7c-4fd5-77d5-4e7e845c4e33
+    - 6a123342-f0a7-40f8-b6e4-832591c99607: 6a123342-f0a7-40f8-491b-7cda6e3669f8
+    - 6ed7ea32-e038-4e61-8e91-1419c4bfef21: 6ed7ea32-e038-4e61-716e-ebe63b4010de
+    - 7062b535-ba72-42fa-9515-c20f3bad65fe: 7062b535-ba72-42fa-6aea-3df0c4529a01
+    - 71622823-cd59-4524-abb9-d2dcea531b84: 71622823-cd59-4524-5446-2d2315ace47b
+    - 77d65824-368a-40ec-9ad5-455777096d08: 77d65824-368a-40ec-652a-baa888f692f7
+    - 7c264442-8688-4d33-8a16-d37ef583eee3: 7c264442-8688-4d33-75e9-2c810a7c111c
+    - 7df2fc19-a88d-42bf-8b5d-f7685d6c6d3b: 7df2fc19-a88d-42bf-74a2-0897a29392c4
+    - 80640a05-8045-4e01-9190-40ef54881379: 80640a05-8045-4e01-6e6f-bf10ab77ec86
+    - 81073e3d-ba1a-47d2-bf17-d17b780effca: 81073e3d-ba1a-47d2-40e8-2e8487f10035
+    - 8258cb16-b26c-4ab6-93c7-8d4f9d2c1058: 8258cb16-b26c-4ab6-6c38-72b062d3efa7
+    - 82fd0e06-0724-404a-86b3-e10f608ab229: 82fd0e06-0724-404a-794c-1ef09f754dd6
+    - 8358d7d0-b56e-4da9-9e9f-c0efd542d183: 8358d7d0-b56e-4da9-6160-3f102abd2e7c
+    - 85f6fcbb-54c8-49fb-a747-7a1be717f7c0: 85f6fcbb-54c8-49fb-58b8-85e418e8083f
+    - 883aed83-a8b4-4151-a672-cdee2f04958b: 883aed83-a8b4-4151-598d-3211d0fb6a74
+    - 89cdfeef-5258-483c-930e-f60cc7396bea: 89cdfeef-5258-483c-6cf1-09f338c69415
+    - 8a8788f4-bb2d-4f6d-8a62-b399278ff104: 8a8788f4-bb2d-4f6d-759d-4c66d8700efb
+    - 8bef5a36-6e40-4f52-99a9-021abb7d4a6f: 8bef5a36-6e40-4f52-6656-fde54482b590
+    - 8cb31eb8-9f2a-4067-ab12-f7876f31580d: 8cb31eb8-9f2a-4067-54ed-087890cea7f2
+    - 8df20542-1a46-4a74-8e67-b930fb099b4a: 8df20542-1a46-4a74-7198-46cf04f664b5
+    - 918bd71d-a9b2-4efc-83cd-36e3caf2abf0: 918bd71d-a9b2-4efc-7c32-c91c350d540f
+    - 94a46c9a-b8cc-48e1-bd8b-e3e60c1b3efe: 94a46c9a-b8cc-48e1-4274-1c19f3e4c101
+    - 976e7129-0842-48d4-88aa-cad6e0da414f: 976e7129-0842-48d4-7755-35291f25beb0
+    - 9a3f83a8-3629-4595-b6ba-2eb47bbf35d3: 9a3f83a8-3629-4595-4945-d14b8440ca2c
+    - 9d4afd4c-d105-4240-9980-0f7c05a06175: 9d4afd4c-d105-4240-667f-f083fa5f9e8a
+    - 9e98ec90-62a2-4504-a7cc-62c73e277b1b: 9e98ec90-62a2-4504-5833-9d38c1d884e4
+    - a1954924-08c6-4437-8039-147c221f6615: a1954924-08c6-4437-7fc6-eb83dde099ea
+    - a7e53825-63b5-49f1-981c-298711f6f5d9: a7e53825-63b5-49f1-67e3-d678ee090a26
+    - a99a1490-3dbe-4ddf-b7c3-104427b3ad75: a99a1490-3dbe-4ddf-483c-efbbd84c528a
+    - acac18fc-81d7-4998-bec5-c11ebc9050ac: acac18fc-81d7-4998-413a-3ee1436faf53
+    - adc5e344-2a89-4bc7-9eac-c908d9e582df: adc5e344-2a89-4bc7-6153-36f7261a7d20
+    - ae874305-4eae-4966-a4c7-1e7151c1412c: ae874305-4eae-4966-5b38-e18eae3ebed3
+    - aeceec35-173f-47de-b64b-72d48031e112: aeceec35-173f-47de-49b4-8d2b7fce1eed
+    - af69c9cc-5295-439c-a26d-ce506c00708e: af69c9cc-5295-439c-5d92-31af93ff8f71
+    - af84bf82-87e8-4bd5-97cb-b063774d3241: af84bf82-87e8-4bd5-6834-4f9c88b2cdbe
+    - afc04d1b-e07a-44ed-8bf6-5b356b995ee1: afc04d1b-e07a-44ed-7409-a4ca9466a11e
+    - b0a54d85-5837-46c5-b88f-37fdf84e3a36: b0a54d85-5837-46c5-4770-c80207b1c5c9
+    - b7935703-5aae-43f5-a287-08fd4201cb4d: b7935703-5aae-43f5-5d78-f702bdfe34b2
+    - b7de9958-1931-4b1b-882e-c6ae73cdada5: b7de9958-1931-4b1b-77d1-39518c32525a
+    - be9929fc-bb4c-4865-9c52-97e92ed6364f: be9929fc-bb4c-4865-63ad-6816d129c9b0
+    - c0a6509c-883a-469d-8949-855fb688da14: c0a6509c-883a-469d-76b6-7aa0497725eb
+    - c14a15e3-a168-40df-8ac6-49efa150d5d4: c14a15e3-a168-40df-7539-b6105eaf2a2b
+    - c4787e43-d3f9-4dad-8e16-6633cae6762f: c4787e43-d3f9-4dad-71e9-99cc351989d0
+    - c7a7a433-36f4-4c32-bbf5-50f8516f128a: c7a7a433-36f4-4c32-440a-af07ae90ed75
+    - d01c8156-f2cf-4e91-bc08-f1d76debdffc: d01c8156-f2cf-4e91-43f7-0e2892142003
+    - d517e32c-7552-4f52-bf2a-3ec009450cd5: d517e32c-7552-4f52-40d5-c13ff6baf32a
+    - d6cbccc6-036e-4a32-bd1a-9150101daf70: d6cbccc6-036e-4a32-42e5-6eafefe2508f
+    - d76b4bc1-16ee-46aa-baae-a3a79144781e: d76b4bc1-16ee-46aa-4551-5c586ebb87e1
+    - e17ba1ab-2e8c-4a2e-b30f-c367b3e706b3: e17ba1ab-2e8c-4a2e-4cf0-3c984c18f94c
+    - e1aead96-372c-4d26-8797-0925324ab5ea: e1aead96-372c-4d26-7868-f6dacdb54a15
+    - e3a7bc74-e7b3-4572-824f-5f50f6e5586e: e3a7bc74-e7b3-4572-7db0-a0af091aa791
+    - e5f54b16-1b2d-4f93-8d63-21b240cf59c9: e5f54b16-1b2d-4f93-729c-de4dbf30a636
+    - e81a78b2-ded9-41d2-93d5-373b35be240c: e81a78b2-ded9-41d2-6c2a-c8c4ca41dbf3
+    - eb681132-32f6-4cf6-8dcf-c349ec0d01fd: eb681132-32f6-4cf6-7230-3cb613f2fe02
+    - eb73f3f7-7103-4394-8956-fc810b748853: eb73f3f7-7103-4394-76a9-037ef48b77ac
+    - ed977066-b63f-4671-b743-1128c52046da: ed977066-b63f-4671-48bc-eed73adfb925
+    - f225496a-5436-4d42-939c-13566a04158d: f225496a-5436-4d42-6c63-eca995fbea72
+    - f65c0eba-4032-4084-ba41-4899b4286278: f65c0eba-4032-4084-45be-b7664bd79d87
+    - f7f9f524-95d1-433b-9679-e9df65fd5bfc: f7f9f524-95d1-433b-6986-16209a02a403
+    - fb064bbc-4ca2-4992-93f3-6514b858ddb2: fb064bbc-4ca2-4992-6c0c-9aeb47a7224d
+    - fc7f6333-7022-4d45-8af6-246f0334ccd6: fc7f6333-7022-4d45-7509-db90fccb3329
+    - ff53f9e9-6e21-47ff-8a31-068851aaea3e: ff53f9e9-6e21-47ff-75ce-f977ae5515c1
   Name: 1. Cato Heath Mural
   Enabled: false
   Layers: 1

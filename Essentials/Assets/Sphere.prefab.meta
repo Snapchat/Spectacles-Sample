@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> 271f8e3a-f6cb-487e-93de-b9c470990307
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,28 +14,7 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<ObjectPrefab/2d8f45ab-76ab-4142-be57-5e342ddb148d>
-  PackagePath: ""
-  objects:
-    - !<own> 4724a68c-9388-4e81-ad2c-102102cd58c4
-  LazyLoading: false
-  RetainAssets: true
-- !<SceneObject/4724a68c-9388-4e81-ad2c-102102cd58c4>
-  PrefabRemaps:
-    []
-  Name: Sphere
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 10.000000, y: 10.000000, z: 10.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 65611fbf-b31e-49e3-a989-a580715df697
-- !<RenderMeshVisual/65611fbf-b31e-49e3-a989-a580715df697>
+- !<RenderMeshVisual/15123ae3-924a-4d5c-731f-d44684815f97>
   PrefabRemaps:
     []
   Name: Render Mesh Visual
@@ -55,9 +34,23 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<SceneObject/8317c7df-92bd-4f7a-47c6-b4d57a2ccbcf>
+  PrefabRemaps:
+    []
+  Name: Sphere
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 10.000000, y: 10.000000, z: 10.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 15123ae3-924a-4d5c-731f-d44684815f97
 - !<ObjectPrefabAssetData/d03981c2-313c-4baa-b0c3-26f0d1b2c517>
-  SourceRemaps:
-    - 15123ae3-924a-4d5c-8ce0-2bb97b7ea068: 65611fbf-b31e-49e3-a989-a580715df697
-    - 271f8e3a-f6cb-487e-93de-b9c470990307: 2d8f45ab-76ab-4142-be57-5e342ddb148d
-    - 8317c7df-92bd-4f7a-b839-4b2a85d33430: 4724a68c-9388-4e81-ad2c-102102cd58c4
-  SourceState: !<own> 2d8f45ab-76ab-4142-be57-5e342ddb148d
+  Prototype: !<ObjectOwner/952a0cd1-5b36-41a1-8fc7-e21f4e123098>
+    PackagePath: ""
+    objects:
+      - !<own> 8317c7df-92bd-4f7a-47c6-b4d57a2ccbcf

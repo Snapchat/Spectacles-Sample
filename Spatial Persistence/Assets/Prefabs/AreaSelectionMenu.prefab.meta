@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> 9ddaebcc-bbae-47e3-8dcd-a35ab97bc820
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,39 +14,37 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<ObjectPrefab/052298d6-c164-48eb-8bef-85858ae830c5>
-  PackagePath: ""
-  objects:
-    - !<own> a228d8fa-eaed-4689-8684-e2df75133544
-  LazyLoading: false
-  RetainAssets: true
-- !<ScriptComponent/2b528db0-2ece-4528-b886-ad8464b9064d>
+- !<SceneObject/0982e2fe-bbf8-4062-622d-0258aaa45b53>
   PrefabRemaps:
     []
-  Name: AreaSelectionMenu
+  Name: Text
   Enabled: true
-  ScriptAsset: !<reference> e0c5249e-cf8d-4cf1-8f32-82fca21d9196
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      {}
-  ScriptTypes:
-    "":
-      {}
-- !<ObjectPrefabAssetData/37afb440-8149-48e4-9f56-b23312f57ada>
-  SourceRemaps:
-    - 0982e2fe-bbf8-4062-9dd2-fda7555ba4ac: 82d799dd-fdc3-49f5-804e-0e9ac10fc5dc
-    - 1d2ab62b-1f92-4995-8b7d-ff2e8f81d3fb: cdd1cda4-5ad9-40e9-9f45-2fb5f2cb187b
-    - 1dd89072-fbb8-40ab-a65f-ece12fe1823d: 53476472-cce2-41a1-857e-aa1dc32c9d98
-    - 6f14ffb5-b090-401c-b3d0-94747cc0c963: 8568418b-cc25-486c-ac96-68d53a97f515
-    - a775dfb2-999f-4868-9fe1-4622543da627: a228d8fa-eaed-4689-8684-e2df75133544
-    - c611ed3b-fc78-46ee-a4f4-541a7c92ca9e: 5f0a018f-7740-4d85-815e-2872a27bcf32
-    - efe98a47-32c8-4012-9f7f-ffeee50b6d41: 2b528db0-2ece-4528-b886-ad8464b9064d
-  SourceState: !<own> 052298d6-c164-48eb-8bef-85858ae830c5
-- !<RenderMeshVisual/53476472-cce2-41a1-857e-aa1dc32c9d98>
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> c611ed3b-fc78-46ee-5b0b-abe5836d3561
+- !<SceneObject/1d2ab62b-1f92-4995-7482-00d1707e2c04>
+  PrefabRemaps:
+    []
+  Name: ButtonMesh
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 1dd89072-fbb8-40ab-59a0-131ed01e7dc2
+- !<RenderMeshVisual/1dd89072-fbb8-40ab-59a0-131ed01e7dc2>
   PrefabRemaps:
     []
   Name: Render Mesh Visual
@@ -66,7 +64,41 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<Text/5f0a018f-7740-4d85-815e-2872a27bcf32>
+- !<ObjectPrefabAssetData/37afb440-8149-48e4-9f56-b23312f57ada>
+  Prototype: !<ObjectOwner/0395e818-624a-467b-ba4d-149857d36bb2>
+    PackagePath: ""
+    objects:
+      - !<own> a775dfb2-999f-4868-601e-b9ddabc259d8
+- !<Canvas/6f14ffb5-b090-401c-4c2f-6b8b833f369c>
+  PrefabRemaps:
+    []
+  Name: Canvas
+  Enabled: true
+  UnitType: World
+  SortingType: Hierarchy
+  WorldSpaceRect:
+    left: -7.500000
+    bottom: -1.049999
+    right: 7.500000
+    top: 1.049999
+- !<SceneObject/a775dfb2-999f-4868-601e-b9ddabc259d8>
+  PrefabRemaps:
+    []
+  Name: AreaSelectionMenu
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 1d2ab62b-1f92-4995-7482-00d1707e2c04
+    - !<own> 0982e2fe-bbf8-4062-622d-0258aaa45b53
+  Components:
+    - !<own> 6f14ffb5-b090-401c-4c2f-6b8b833f369c
+    - !<own> efe98a47-32c8-4012-6080-00111af492be
+- !<Text/c611ed3b-fc78-46ee-5b0b-abe5836d3561>
   PrefabRemaps:
     []
   Name: Text
@@ -96,15 +128,18 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -115,6 +150,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -126,6 +162,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -142,62 +179,19 @@
     CapitalizationOverride: None
   DepthTest: false
   TwoSided: false
-- !<SceneObject/82d799dd-fdc3-49f5-804e-0e9ac10fc5dc>
-  PrefabRemaps:
-    []
-  Name: Text
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 5f0a018f-7740-4d85-815e-2872a27bcf32
-- !<Canvas/8568418b-cc25-486c-ac96-68d53a97f515>
-  PrefabRemaps:
-    []
-  Name: Canvas
-  Enabled: true
-  UnitType: World
-  SortingType: Hierarchy
-  WorldSpaceRect:
-    left: -7.500000
-    bottom: -1.049999
-    right: 7.500000
-    top: 1.049999
-- !<SceneObject/a228d8fa-eaed-4689-8684-e2df75133544>
+- !<ScriptComponent/efe98a47-32c8-4012-6080-00111af492be>
   PrefabRemaps:
     []
   Name: AreaSelectionMenu
   Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> cdd1cda4-5ad9-40e9-9f45-2fb5f2cb187b
-    - !<own> 82d799dd-fdc3-49f5-804e-0e9ac10fc5dc
-  Components:
-    - !<own> 8568418b-cc25-486c-ac96-68d53a97f515
-    - !<own> 2b528db0-2ece-4528-b886-ad8464b9064d
-- !<SceneObject/cdd1cda4-5ad9-40e9-9f45-2fb5f2cb187b>
-  PrefabRemaps:
-    []
-  Name: ButtonMesh
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 53476472-cce2-41a1-857e-aa1dc32c9d98
+  ScriptAsset: !<reference> e0c5249e-cf8d-4cf1-8f32-82fca21d9196
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}

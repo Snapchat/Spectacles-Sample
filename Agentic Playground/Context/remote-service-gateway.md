@@ -65,7 +65,7 @@ This example demonstrates how to integrate OpenAI's chat completion API into Spe
 #### TypeScript
 
 ```typescript
-import { OpenAI } from 'Remote Service Gateway.lspkg/HostedExternal/OpenAI';
+import { OpenAI } from 'RemoteServiceGateway.lspkg/HostedExternal/OpenAI';
 
 @component
 export class OpenAIExample extends BaseScriptComponent {
@@ -104,7 +104,7 @@ export class OpenAIExample extends BaseScriptComponent {
 #### JavaScript
 
 ```javascript
-const OpenAI = require('Remote Service Gateway.lspkg/HostedExternal/OpenAI').OpenAI;
+const OpenAI = require('RemoteServiceGateway.lspkg/HostedExternal/OpenAI').OpenAI;
 
 script.createEvent('OnStartEvent').bind(() => {
   doChatCompletions();
@@ -142,8 +142,8 @@ This example demonstrates how to integrate Gemini's Model API into Spectacles Le
 #### TypeScript
 
 ```typescript
-import { Gemini } from 'Remote Service Gateway.lspkg/HostedExternal/Gemini';
-import { GeminiTypes } from 'Remote Service Gateway.lspkg/HostedExternal/GeminiTypes';
+import { Gemini } from 'RemoteServiceGateway.lspkg/HostedExternal/Gemini';
+import { GeminiTypes } from 'RemoteServiceGateway.lspkg/HostedExternal/GeminiTypes';
 
 @component
 export class GeminiExample extends BaseScriptComponent {
@@ -193,7 +193,7 @@ export class GeminiExample extends BaseScriptComponent {
 #### JavaScript
 
 ```javascript
-const Gemini = require('Remote Service Gateway.lspkg/HostedExternal/Gemini').Gemini;
+const Gemini = require('RemoteServiceGateway.lspkg/HostedExternal/Gemini').Gemini;
 
 script.createEvent('OnStartEvent').bind(() => {
   textToTextExample();
@@ -244,8 +244,8 @@ This example demonstrates how to integrate DeepSeek's R1 Reasoning API into Spec
 #### TypeScript
 
 ```typescript
-import { DeepSeek } from 'Remote Service Gateway.lspkg/HostedSnap/Deepseek';
-import { DeepSeekTypes } from 'Remote Service Gateway.lspkg/HostedSnap/DeepSeekTypes';
+import { DeepSeek } from 'RemoteServiceGateway.lspkg/HostedSnap/Deepseek';
+import { DeepSeekTypes } from 'RemoteServiceGateway.lspkg/HostedSnap/DeepSeekTypes';
 
 @component
 export class DeepSeekExample extends BaseScriptComponent {
@@ -292,7 +292,7 @@ export class DeepSeekExample extends BaseScriptComponent {
 #### JavaScript
 
 ```javascript
-const DeepSeek = require('Remote Service Gateway.lspkg/HostedSnap/Deepseek').DeepSeek;
+const DeepSeek = require('RemoteServiceGateway.lspkg/HostedSnap/Deepseek').DeepSeek;
 
 script.createEvent('OnStartEvent').bind(() => {
   doChatCompletions();
@@ -342,8 +342,8 @@ This example demonstrates how to integrate Snap3D into Spectacles Lenses, allowi
 #### TypeScript
 
 ```typescript
-import { Snap3D } from 'Remote Service Gateway.lspkg/HostedSnap/Snap3D';
-import { Snap3DTypes } from 'Remote Service Gateway.lspkg/HostedSnap/Snap3DTypes';
+import { Snap3D } from 'RemoteServiceGateway.lspkg/HostedSnap/Snap3D';
+import { Snap3DTypes } from 'RemoteServiceGateway.lspkg/HostedSnap/Snap3DTypes';
 
 @component
 export class DeepSeekExample extends BaseScriptComponent {
@@ -390,7 +390,7 @@ export class DeepSeekExample extends BaseScriptComponent {
 #### JavaScript
 
 ```javascript
-const Snap3D = require('Remote Service Gateway.lspkg/HostedSnap/Snap3D').Snap3D;
+const Snap3D = require('RemoteServiceGateway.lspkg/HostedSnap/Snap3D').Snap3D;
 
 script.createEvent('OnStartEvent').bind(() => {
   do3DGeneration();

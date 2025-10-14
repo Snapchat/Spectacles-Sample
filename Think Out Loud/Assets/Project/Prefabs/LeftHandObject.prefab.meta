@@ -1,0 +1,132 @@
+- !<AssetImportMetadata/3aa0e3ae-313e-444c-9701-eb8a75c86a4b>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> 4be79e26-054b-45a9-bc32-36fc0dddb49c
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> 4be79e26-054b-45a9-bc32-36fc0dddb49c
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    ObjectPrefab: !<own> f53a0291-b595-4fbf-a021-b60f0dd0ce83
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptComponent/011bd0ec-435e-4706-6766-13da4c4fba59>
+  PrefabRemaps:
+    []
+  Name: SyncTransform
+  Enabled: true
+  ScriptAsset: !<reference> f3c20594-375f-43d8-a93f-a8e75bd6a61d
+  ScriptInputsDefault:
+    networkIdTypeString: true
+    customNetworkId: true
+    positionSyncString: true
+    rotationSyncString: true
+    scaleSyncString: true
+    persistenceString: true
+    sendsPerSecondLimit: true
+    useSmoothing: true
+    interpolationTarget: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      networkIdTypeString: objectId
+      customNetworkId: enter_unique_id
+      positionSyncString: Local
+      rotationSyncString: Local
+      scaleSyncString: Local
+      persistenceString: Session
+      sendsPerSecondLimit: 10
+      useSmoothing: true
+      interpolationTarget: -0.250000
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/0d7b75f8-ce4e-4845-6b3d-9ab1c819d2c7>
+  PrefabRemaps:
+    []
+  Name: LeftHandObject
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 3c2b7ca6-6b73-4360-78a7-2d8c26044589
+  Components:
+    - !<own> aca91c35-8918-4bda-6c69-aad71889dca8
+    - !<own> 011bd0ec-435e-4706-6766-13da4c4fba59
+- !<SceneObject/3c2b7ca6-6b73-4360-78a7-2d8c26044589>
+  PrefabRemaps:
+    []
+  Name: Object 0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 9eaf2823-7870-4807-4287-99fe1289347a
+- !<RenderMeshVisual/9eaf2823-7870-4807-4287-99fe1289347a>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> e49c7177-679b-439a-9df6-e8d7488c203b
+  Mesh: !<reference> 028abd0e-6aeb-49d3-bb34-eaae9be577dc
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<ScriptComponent/aca91c35-8918-4bda-6c69-aad71889dca8>
+  PrefabRemaps:
+    []
+  Name: HandObjectController
+  Enabled: true
+  ScriptAsset: !<reference> fcf14470-857f-4c83-ad75-d8ed151021c6
+  ScriptInputsDefault:
+    handType: true
+    testingMode: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      handObjectManager: !<MappingBased.AssignableType> 07831fb3-5e8b-4645-b81b-22d4190d2011
+      handType: left
+      testingMode: false
+      handColorMaterials: !<reference.Material[]>
+        - !<reference> d31ad86b-f3d2-4adf-9987-153eb139e6ef
+        - !<reference> 50829173-8544-4f65-a54f-390b20752c41
+        - !<reference> 1b18b5f0-e04c-4ff8-902e-08cf7a8f2727
+        - !<reference> 9f9c9ad4-742e-4fbb-aeb4-ec9e4b1f566b
+        - !<reference> 577d50b6-dc5b-4d9c-9352-8f5c85eddf3c
+        - !<reference> eabc4894-b0b8-41bb-ae81-e922bf60197b
+        - !<reference> 20ace729-79d7-4c6d-8204-4b6d3581a2fc
+        - !<reference> ff59243c-a37e-4641-bfd6-45e6d9d4f379
+  ScriptTypes:
+    "":
+      {}
+- !<ObjectPrefabAssetData/f53a0291-b595-4fbf-a021-b60f0dd0ce83>
+  Prototype: !<ObjectOwner/bcc5cdc9-867e-4baa-87ea-c9490db17ec2>
+    PackagePath: ""
+    objects:
+      - !<own> 0d7b75f8-ce4e-4845-6b3d-9ab1c819d2c7

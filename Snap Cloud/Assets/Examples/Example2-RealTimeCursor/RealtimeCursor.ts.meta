@@ -1,0 +1,101 @@
+- !<AssetImportMetadata/532ec58e-c771-472a-830d-9b6d7ba123a6>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 1b6667ad-2c5a-44cb-8c85-b85f87f8670a
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 1b6667ad-2c5a-44cb-8c85-b85f87f8670a
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 974a034a-f53f-45a7-be00-743fe8f7c109
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/974a034a-f53f-45a7-be00-743fe8f7c109>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: cf557bd8-a793-4a70-a653-b969e473089b
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    broadcastInterval: false
+    channelName: false
+    coordinateScale: false
+    cursorObject: false
+    cursorZPosition: false
+    enableDebugLogs: false
+    heightOffset: false
+    invertX: false
+    invertY: false
+    logFrequency: false
+    lsXRange: false
+    lsYRange: false
+    modeText: false
+    movementScale: false
+    movementSpeed: false
+    perspectiveScale: false
+    snapCloudRequirements: false
+    statusText: false
+    toggleModeButton: false
+    verboseLogging: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - snapCloudRequirements: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      channelName: "[Insert your channel name]"
+      toggleModeButton: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      cursorObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      modeText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      statusText: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      broadcastInterval: 0.100000
+      movementSpeed: 0.150000
+      movementScale: 1.500000
+      cursorZPosition: !<float> -100.000000
+      heightOffset: !<float> 0.000000
+      lsXRange: !<float> 50.000000
+      lsYRange: !<float> 30.000000
+      coordinateScale: !<float> 10.000000
+      perspectiveScale: !<float> 10.000000
+      invertX: false
+      invertY: false
+      enableDebugLogs: true
+      verboseLogging: false
+      logFrequency: !<float> 10.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType snapCloudRequirements {"hint":"Reference to SnapCloudRequirements for centralized Supabase configuration"}'
+    - '// @input string channelName = "[Insert your channel name]" {"hint":"Channel name for cursor synchronization"}'
+    - '// @input AssignableType_1 toggleModeButton {"hint":"RectangleButton to toggle between broadcast and follow modes (from Spectacles UI Kit)"}'
+    - '// @input SceneObject cursorObject {"hint":"The cursor object to track (broadcast) or move (follow)"}'
+    - '// @input Component.Text modeText {"hint":"Text component to display current mode"}'
+    - '// @input SceneObject statusText {"hint":"Text component to display detailed status and logs"}'
+    - '// @input float broadcastInterval = 0.1 {"hint":"Broadcast interval in seconds (when in broadcast mode)", "widget":"slider", "min":0.05, "max":1, "step":0.05}'
+    - '// @input float movementSpeed = 0.15 {"hint":"Movement speed/smoothing factor (when in follow mode)", "widget":"slider", "min":0.05, "max":1, "step":0.1}'
+    - '// @input float movementScale = 1.5 {"hint":"Movement scale factor (when in follow mode)", "widget":"slider", "min":0.1, "max":50, "step":0.1}'
+    - '// @input float cursorZPosition = -100 {"hint":"Z position for cursor (when in follow mode) - negative is away from camera", "widget":"slider", "min":-200, "max":10, "step":1}'
+    - '// @input float heightOffset {"hint":"Height offset for the cursor object (when in follow mode)", "widget":"slider", "min":-2, "max":2, "step":0.1}'
+    - '// @input float lsXRange = 50 {"hint":"Lens Studio X coordinate range (from -lsXRange to +lsXRange)", "widget":"slider", "min":10, "max":200, "step":1}'
+    - '// @input float lsYRange = 30 {"hint":"Lens Studio Y coordinate range (from -lsYRange to +lsYRange)", "widget":"slider", "min":10, "max":200, "step":1}'
+    - '// @input float coordinateScale = 10 {"hint":"Scale factor for coordinate conversion (broadcast mode)", "widget":"slider", "min":0.1, "max":50, "step":0.1}'
+    - '// @input float perspectiveScale = 10 {"hint":"Perspective scaling factor (broadcast mode)", "widget":"slider", "min":0.1, "max":20, "step":0.1}'
+    - '// @input bool invertX {"hint":"Invert X axis mapping"}'
+    - '// @input bool invertY {"hint":"Invert Y axis mapping"}'
+    - '// @input bool enableDebugLogs = true {"hint":"Show debug information in console"}'
+    - '// @input bool verboseLogging {"hint":"Show coordinate values in every broadcast log"}'
+    - '// @input float logFrequency = 10 {"hint":"Log broadcast frequency (every N broadcasts)", "widget":"slider", "min":1, "max":100, "step":1}'

@@ -29,6 +29,9 @@
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
     targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     allowMultipleInteractors: true
@@ -36,13 +39,15 @@
     acceptableXDirections: true
     acceptableYDirections: true
     acceptableZDirections: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
+    useFilteredPinch: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 3.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: true
@@ -50,8 +55,7 @@
       acceptableXDirections: !<float> 0.000000
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
-      isSynced: true
-      acceptableSyncInteractionTypes: !<float> 7.000000
+      useFilteredPinch: false
   ScriptTypes:
     "":
       {}
@@ -75,7 +79,15 @@
       {}
 - !<SceneObject/41b44cad-5eb1-49dc-9a83-e753bf944deb>
   PrefabRemaps:
-    []
+    - 010bf23a-7d3c-40ba-b3a7-fdc7bf7a5864: 010bf23a-7d3c-40ba-4c58-02384085a79b
+    - 259ce649-8554-4be1-881e-4096584673e9: 259ce649-8554-4be1-77e1-bf69a7b98c16
+    - 2cfedc8c-a9c1-4c25-b069-19babe28e24d: 2cfedc8c-a9c1-4c25-4f96-e64541d71db2
+    - 41b44cad-5eb1-49dc-9a83-e753bf944deb: 41b44cad-5eb1-49dc-657c-18ac406bb214
+    - 7aa39e9b-5aed-4893-acfb-75f42c31deee: 7aa39e9b-5aed-4893-5304-8a0bd3ce2111
+    - c68492d1-a0e7-4d39-bf72-fb0f82cb4a56: c68492d1-a0e7-4d39-408d-04f07d34b5a9
+    - e4d1ef69-5af3-4e27-b46b-12a53b586778: e4d1ef69-5af3-4e27-4b94-ed5ac4a79887
+    - ee7357b1-9830-4fd0-b093-ef741fc6b694: ee7357b1-9830-4fd0-4f6c-108be039496b
+    - fba50bc8-c99c-4af2-9c7f-030d1b51b18a: fba50bc8-c99c-4af2-6380-fcf2e4ae4e75
   Name: OPrefab
   Enabled: true
   Layers: 1
@@ -215,6 +227,7 @@
     _enableZTranslation: true
     showRotationProperties: true
     _rotationAxis: true
+    isSynced: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -240,6 +253,7 @@
       _enableZTranslation: true
       showRotationProperties: false
       _rotationAxis: All
+      isSynced: false
   ScriptTypes:
     "":
       {}

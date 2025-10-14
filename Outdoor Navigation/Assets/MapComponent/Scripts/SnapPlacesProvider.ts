@@ -182,7 +182,7 @@ export class SnapPlacesProvider extends BaseScriptComponent {
       placeId: placeObject.id,
       category: categoryName,
       name: placeObject.name,
-      phone_number: placeObject.contactInfo.phoneNumber?.phoneNumber ?? "",
+      phone_number: placeObject.contactInfo?.phoneNumber?.phoneNumber ?? "",
       address: {
         street_address: placeObject.address.address1,
         locality: placeObject.address.locality,

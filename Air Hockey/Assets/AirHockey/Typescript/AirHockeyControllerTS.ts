@@ -114,11 +114,20 @@ export class AirHockeyController extends BaseScriptComponent {
 
   refreshUI() {
     const isConnected: boolean = this.syncEntity.isSetupFinished;
+    const canControlGame = this.isHost() || this.puck.syncEntity.doIOwnStore();
+
     this.startGameButton.getSceneObject().enabled =
       isConnected &&
-      this.isHost() &&
-      !this.isGameStartedProp.currentOrPendingValue &&
-      this.puck.syncEntity.doIOwnStore();
+      canControlGame &&
+      !this.isGameStartedProp.currentOrPendingValue;
+
+    print(
+      "Start button enabled: " + this.startGameButton.getSceneObject().enabled
+    );
+    print("Is host: " + this.isHost());
+    print("Is game started: " + this.isGameStartedProp.currentOrPendingValue);
+    print("Do I own puck: " + this.puck.syncEntity.doIOwnStore());
+    print("Can control game: " + canControlGame);
   }
 
   setLeftScore(newScore: number, oldScore: number) {
@@ -149,6 +158,10 @@ export class AirHockeyController extends BaseScriptComponent {
 
   startGame() {
     print("Start button pinched");
+    // Reset scores for a fresh start
+    this.leftScoreProp.setValueImmediate(this.syncEntity.currentStore, 0);
+    this.rightScoreProp.setValueImmediate(this.syncEntity.currentStore, 0);
+
     if (!this.isGameStartedProp.currentOrPendingValue) {
       this.isGameStartedProp.setValueImmediate(
         this.syncEntity.currentStore,
@@ -234,6 +247,9 @@ export class AirHockeyController extends BaseScriptComponent {
     this.syncEntity.addStorageProperty(this.leftScoreProp);
     this.syncEntity.addStorageProperty(this.rightScoreProp);
 
+    this.setLeftScore(this.leftScoreProp.currentValue, 0);
+    this.setRightScore(this.rightScoreProp.currentValue, 0);
+
     this.leftScoreProp.onAnyChange.add((newScore: number, oldScore: number) =>
       this.setLeftScore(newScore, oldScore)
     );
@@ -245,8 +261,81 @@ export class AirHockeyController extends BaseScriptComponent {
     this.syncEntity.onOwnerUpdated.add(() => this.onOwnershipUpdated());
   }
 
+  resetGame() {
+    print("Resetting game due to user leaving");
+
+    // Reset the game started state
+    this.isGameStartedProp.setValueImmediate(
+      this.syncEntity.currentStore,
+      false
+    );
+
+    // Reset player state flags
+    this.isLeftPlayer = false;
+    this.isRightPlayer = false;
+
+    // Disable paddle manipulation for both sides
+    this.leftPaddleManipulation.setCanTranslate(false);
+    this.rightPaddleManipulation.setCanTranslate(false);
+
+    // Use SessionController to clear ownership more reliably
+    const session = this.sessionController.getSession();
+
+    // Clear paddle ownership through session controller
+    if (this.leftPaddle.syncEntity.isStoreOwned()) {
+      session.clearRealtimeStoreOwnership(
+        this.leftPaddle.syncEntity.currentStore,
+        () => print("Left paddle ownership cleared successfully"),
+        (error) => print("Error clearing left paddle ownership: " + error)
+      );
+    }
+
+    if (this.rightPaddle.syncEntity.isStoreOwned()) {
+      session.clearRealtimeStoreOwnership(
+        this.rightPaddle.syncEntity.currentStore,
+        () => print("Right paddle ownership cleared successfully"),
+        (error) => print("Error clearing right paddle ownership: " + error)
+      );
+    }
+
+    // Ensure the current user can take control of the controller and puck
+    if (!this.syncEntity.doIOwnStore()) {
+      this.syncEntity.tryClaimOwnership(() => {
+        print("Controller ownership claimed after reset");
+        this.initAsOwner();
+      });
+    }
+
+    if (!this.puck.syncEntity.doIOwnStore()) {
+      this.puck.syncEntity.tryClaimOwnership(() => {
+        print("Puck ownership claimed after reset");
+        this.refreshUI();
+      });
+    }
+
+    // Stop puck movement and reset to center position
+    this.puck.stopMovement();
+    this.puck.getTransform().setLocalPosition(vec3.zero());
+
+    // Refresh UI to show the start button for the remaining player
+    this.refreshUI();
+  }
+
   onStart() {
     this.sessionController.notifyOnReady(() => this.onSessionReady());
+
+    this.sessionController.onUserLeftSession.add((user) => {
+      print("User left session");
+
+      // Always reset the game when someone leaves to ensure clean state
+      // This ensures paddles can be claimed and the remaining player can restart
+      this.resetGame();
+
+      // Give a small delay then refresh UI again to ensure proper state
+      const delayedEvent = this.createEvent("DelayedCallbackEvent");
+      delayedEvent.bind(() => this.refreshUI());
+      delayedEvent.reset(0.5);
+    });
   }
 
   onAwake() {

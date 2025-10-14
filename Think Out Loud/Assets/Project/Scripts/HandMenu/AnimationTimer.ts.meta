@@ -1,0 +1,56 @@
+- !<AssetImportMetadata/25f14c2b-2923-45bf-a46f-efbb293fa4e0>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> a7faefb7-cb88-47e2-a459-fbad87645e70
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> a7faefb7-cb88-47e2-a459-fbad87645e70
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 2c8d8ef9-e0b2-415b-a8b1-562f7f2843e8
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/2c8d8ef9-e0b2-415b-a8b1-562f7f2843e8>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 08a44bad-0b8d-454b-90cc-2f7ef650d011
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    animationTime: false
+    maxRotation: false
+    maxScale: false
+    minRotation: false
+    minScale: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - minRotation: !<Vec3> {x: -45.000000, y: -45.000000, z: -45.000000}
+      maxRotation: !<Vec3> {x: 45.000000, y: 45.000000, z: 45.000000}
+      minScale: !<Vec3> {x: 0.500000, y: 0.500000, z: 0.500000}
+      maxScale: !<Vec3> {x: 2.000000, y: 2.000000, z: 2.000000}
+      animationTime: !<float> 1500.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input vec3 minRotation = {-45,-45,-45} {"hint":"Minimum rotation values in degrees"}'
+    - '// @input vec3 maxRotation = {45,45,45} {"hint":"Maximum rotation values in degrees"}'
+    - '// @input vec3 minScale = {0.5,0.5,0.5} {"hint":"Minimum scale values"}'
+    - '// @input vec3 maxScale = {2,2,2} {"hint":"Maximum scale values"}'
+    - '// @input float animationTime = 1.5 {"hint":"Animation time in seconds for complete loop (A→B→A)", "widget":"slider", "min":0.5, "max":5, "step":0.1}'

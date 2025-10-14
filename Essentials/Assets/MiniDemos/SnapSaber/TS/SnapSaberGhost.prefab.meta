@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> b628a651-bbb4-40ea-8460-b85bdcc35133
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,38 +14,12 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<ColliderComponent/44788d72-5a98-41c9-bc30-9a1784aaae3b>
-  PrefabRemaps:
-    []
-  Name: Physics Collider
-  Enabled: true
-  Shape: !<Sphere>
-    FitVisual: true
-    Radius: 6.000000
-  Matter: !<reference> 00000000-0000-0000-0000-000000000000
-  Filter: !<reference> 00000000-0000-0000-0000-000000000000
-  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
-  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
-  EnableSmoothing: false
-  PositionTension: 30.000000
-  RotationTension: 30.000000
-  ForceCompound: false
-  Intangible: false
-  ShowCollider: false
 - !<ObjectPrefabAssetData/4536a59b-4d7d-4231-ace6-4a393d46321c>
-  SourceRemaps:
-    - 5286a28e-6fed-4539-825e-33cf7ed08a80: c29d0e48-9357-44ff-8cb0-db8bf331c16d
-    - add60f6d-4f8b-4d5d-8b71-dd9511b768fc: d18740e9-3117-4008-a8d3-be3eeab30b37
-    - b628a651-bbb4-40ea-8460-b85bdcc35133: 5393fbca-297f-4427-b05d-c17a5f383e1d
-    - ec692491-7683-4d54-bf45-a384a58a98f4: 44788d72-5a98-41c9-bc30-9a1784aaae3b
-  SourceState: !<own> 5393fbca-297f-4427-b05d-c17a5f383e1d
-- !<ObjectPrefab/5393fbca-297f-4427-b05d-c17a5f383e1d>
-  PackagePath: ""
-  objects:
-    - !<own> c29d0e48-9357-44ff-8cb0-db8bf331c16d
-  LazyLoading: false
-  RetainAssets: true
-- !<SceneObject/c29d0e48-9357-44ff-8cb0-db8bf331c16d>
+  Prototype: !<ObjectOwner/dbc21e44-43d8-40e1-b133-c5cc6600a147>
+    PackagePath: ""
+    objects:
+      - !<own> 5286a28e-6fed-4539-7da1-cc30812f757f
+- !<SceneObject/5286a28e-6fed-4539-7da1-cc30812f757f>
   PrefabRemaps:
     []
   Name: Box
@@ -59,9 +33,9 @@
   Children:
     []
   Components:
-    - !<own> d18740e9-3117-4008-a8d3-be3eeab30b37
-    - !<own> 44788d72-5a98-41c9-bc30-9a1784aaae3b
-- !<RenderMeshVisual/d18740e9-3117-4008-a8d3-be3eeab30b37>
+    - !<own> add60f6d-4f8b-4d5d-748e-226aee489703
+    - !<own> ec692491-7683-4d54-40ba-5c7b5a75670b
+- !<RenderMeshVisual/add60f6d-4f8b-4d5d-748e-226aee489703>
   PrefabRemaps:
     []
   Name: Render Mesh Visual
@@ -81,3 +55,21 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<ColliderComponent/ec692491-7683-4d54-40ba-5c7b5a75670b>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Sphere>
+    FitVisual: true
+    Radius: 6.000000
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false

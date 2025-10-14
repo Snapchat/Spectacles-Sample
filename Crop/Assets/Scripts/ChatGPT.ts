@@ -1,4 +1,4 @@
-import { OpenAI } from "Remote Service Gateway.lspkg/HostedExternal/OpenAI";
+import { OpenAI } from "RemoteServiceGateway.lspkg/HostedExternal/OpenAI";
 
 @component
 export class ChatGPT extends BaseScriptComponent {

@@ -186,6 +186,7 @@
     _enableZTranslation: true
     showRotationProperties: true
     _rotationAxis: true
+    isSynced: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -211,12 +212,34 @@
       _enableZTranslation: true
       showRotationProperties: false
       _rotationAxis: All
+      isSynced: false
   ScriptTypes:
     "":
       {}
 - !<SceneObject/87668c84-1eeb-44e2-b111-facbec915e85>
   PrefabRemaps:
-    []
+    - 1a87e45f-51ee-4bba-9ea6-6ad7ed76bc78: 1a87e45f-51ee-4bba-6159-952812894387
+    - 1d42b60f-d69f-4000-8e0d-a3dd6825d385: 1d42b60f-d69f-4000-71f2-5c2297da2c7a
+    - 22d36919-8988-4ea9-97ca-6e69088be250: 22d36919-8988-4ea9-6835-9196f7741daf
+    - 3490056f-b42f-4b33-a23a-8fcd652ae63c: 3490056f-b42f-4b33-5dc5-70329ad519c3
+    - 3645034b-1b7a-4f95-8c5f-ddbd7ff619d0: 3645034b-1b7a-4f95-73a0-22428009e62f
+    - 58b38e7c-167b-4b2f-af6f-0f0c8c816e6e: 58b38e7c-167b-4b2f-5090-f0f3737e9191
+    - 85bbd2ba-0af9-4a56-ae9f-757fb998114a: 85bbd2ba-0af9-4a56-5160-8a804667eeb5
+    - 87668c84-1eeb-44e2-b111-facbec915e85: 87668c84-1eeb-44e2-4eee-0534136ea17a
+    - 8e78076c-4e14-4517-9ca8-26e4803e61d7: 8e78076c-4e14-4517-6357-d91b7fc19e28
+    - 8eab9047-a594-4bfe-9c69-8adb9d327888: 8eab9047-a594-4bfe-6396-752462cd8777
+    - b625f2ac-9222-465a-8999-ceeb09f8416c: b625f2ac-9222-465a-7666-3114f607be93
+    - b79408c2-a84d-4f2b-9ba5-0d1c01aa0434: b79408c2-a84d-4f2b-645a-f2e3fe55fbcb
+    - b9a21228-911e-4f6d-8a82-d7e9bf9ea604: b9a21228-911e-4f6d-757d-2816406159fb
+    - bf286ed6-1843-495c-8019-6b06bda10599: bf286ed6-1843-495c-7fe6-94f9425efa66
+    - c05c04de-d899-424d-88c9-aa16c2119d63: c05c04de-d899-424d-7736-55e93dee629c
+    - d67663c7-8c0f-49d3-b7ba-e7831fd0da2e: d67663c7-8c0f-49d3-4845-187ce02f25d1
+    - d8280da9-affd-41e7-a12d-e8c9ed1ae658: d8280da9-affd-41e7-5ed2-173612e519a7
+    - e565ebc7-9346-4af4-9146-8fc46de20a18: e565ebc7-9346-4af4-6eb9-703b921df5e7
+    - ecb4374d-7a59-4f5d-9dfd-d53a7ab130a5: ecb4374d-7a59-4f5d-6202-2ac5854ecf5a
+    - f0b1fed7-b1fc-4cad-89bc-c781de29357d: f0b1fed7-b1fc-4cad-7643-387e21d6ca82
+    - f60d4455-89e2-444f-a212-b568fa5496b3: f60d4455-89e2-444f-5ded-4a9705ab694c
+    - f8422ccc-390e-4c9e-927b-074f1fa0926f: f8422ccc-390e-4c9e-6d84-f8b0e05f6d90
   Name: GreenNoteSelection
   Enabled: true
   Layers: 1
@@ -311,15 +334,18 @@
     Mode: Solid
     Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -330,6 +356,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -341,6 +368,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -422,15 +450,18 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -441,6 +472,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -452,6 +484,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -525,6 +558,9 @@
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
     targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     allowMultipleInteractors: true
@@ -533,13 +569,14 @@
     acceptableYDirections: true
     acceptableZDirections: true
     useFilteredPinch: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 3.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: true
@@ -548,8 +585,6 @@
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
       useFilteredPinch: false
-      isSynced: false
-      acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
       {}

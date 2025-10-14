@@ -1,6 +1,6 @@
-import { OpenAI } from "Remote Service Gateway.lspkg/HostedExternal/OpenAI";
-import { OpenAITypes } from "Remote Service Gateway.lspkg/HostedExternal/OpenAITypes";
 import Event from "SpectaclesInteractionKit.lspkg/Utils/Event";
+import { OpenAI } from "RemoteServiceGateway.lspkg/HostedExternal/OpenAI";
+import { OpenAITypes } from "RemoteServiceGateway.lspkg/HostedExternal/OpenAITypes";
 
 // ================================
 // Types for AI Summarizer

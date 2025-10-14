@@ -1,0 +1,89 @@
+- !<AssetImportMetadata/a1eb90ac-c457-48f7-be0e-085e4d55fc32>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> eab8fea5-0838-465b-9770-6283bc313ebf
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> eab8fea5-0838-465b-9770-6283bc313ebf
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 3386fc87-3fd7-4317-bf3e-db4023b4085b
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/3386fc87-3fd7-4317-bf3e-db4023b4085b>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 85472adf-4dd3-47bc-8618-26b5bf84dbc1
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    audioFileName: false
+    audioPlayer: false
+    cameraObject: false
+    defaultMaterial: false
+    enableDebugLogs: false
+    enableProgressLogs: false
+    imageDisplay: false
+    imageFileName: false
+    loadButton: false
+    modelDistance: false
+    modelFileName: false
+    modelParent: false
+    modelScale: false
+    snapCloudRequirements: false
+    statusText: false
+    storageBucket: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - snapCloudRequirements: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      storageBucket: assets
+      modelFileName: models/character.glb
+      imageFileName: images/texture.png
+      audioFileName: audio/sound.mp3
+      cameraObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      modelParent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      imageDisplay: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      audioPlayer: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      defaultMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      loadButton: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      enableProgressLogs: true
+      enableDebugLogs: true
+      modelDistance: !<float> 100.000000
+      modelScale: !<float> 1.000000
+      statusText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType snapCloudRequirements {"hint":"Reference to SnapCloudRequirements for centralized Supabase configuration"}'
+    - '// @input string storageBucket = "[Insert your bucket name]" {"hint":"Supabase Storage bucket name where assets are stored"}'
+    - "// @input string modelFileName = \"fox/scene.gltf\" {\"hint\":\"3D model filename in storage (e.g., 'fox/scene.gltf')\"}"
+    - "// @input string imageFileName = \"images/spectacles.jpg\" {\"hint\":\"Image filename in storage (e.g., 'images/spectacles.jpg')\"}"
+    - "// @input string audioFileName = \"audio/chill.mp3\" {\"hint\":\"Audio filename in storage (e.g., 'audio/chill.mp3')\"}"
+    - '// @input SceneObject cameraObject {"hint":"Camera object to use for positioning models in front of camera"}'
+    - '// @input SceneObject modelParent {"hint":"Parent scene object for the loaded 3D model"}'
+    - '// @input Component.Image imageDisplay {"hint":"Image component to display the loaded texture"}'
+    - '// @input SceneObject audioPlayer {"hint":"Scene object with AudioComponent to play the loaded audio"}'
+    - '// @input Asset.Material defaultMaterial {"hint":"Material to use for instantiated 3D models"}'
+    - '// @input AssignableType_1 loadButton {"hint":"RectangleButton to trigger asset loading (from Spectacles UI Kit)"}'
+    - '// @input bool enableProgressLogs = true {"hint":"Show loading progress in console"}'
+    - '// @input bool enableDebugLogs = true {"hint":"Enable detailed debug logging"}'
+    - '// @input float modelDistance = 100 {"hint":"Distance in front of camera to place model (in cm)", "widget":"slider", "min":50, "max":300, "step":10}'
+    - '// @input float modelScale = 1 {"hint":"Scale factor for loaded models", "widget":"slider", "min":0.1, "max":5, "step":0.1}'
+    - '// @input Component.Text statusText {"hint":"Text component to display loading status (optional)"}'

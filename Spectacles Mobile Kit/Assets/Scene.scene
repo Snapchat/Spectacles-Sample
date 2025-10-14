@@ -1,0 +1,288 @@
+- !<Scene/0a1ccb1a-fe88-4fbb-9883-e3af3c75fd99>
+  PackagePath: ""
+  objects:
+    - !<own> 607e9f9d-2f1a-4b23-8834-7758b47de4f9
+    - !<own> 0aeb74e3-b195-47ea-8e5b-e43d59926015
+    - !<own> cbd9bb79-129d-42cd-ab3e-b369d51ba7df
+    - !<own> f6aea168-da27-4f5f-b3a8-230baf839b3c
+    - !<own> ddca4969-e49a-4dd7-8ae9-cdcbe97d8201
+  layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
+    userLayers:
+      []
+    HasOrtho: true
+  RenderOutput: !<reference> 923415f5-4245-4675-ade1-6d69d6d23e71
+  RenderPreviewOutput: !<reference> 923415f5-4245-4675-ade1-6d69d6d23e71
+  RenderOverlayOutput: !<reference> 1e2cfe38-a2de-41b6-be7f-503fabad9750
+  PhysicsRootWorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/0aeb74e3-b195-47ea-8e5b-e43d59926015>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -19.092323, y: -35.078129, z: -265.393280}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 32.000000, y: 32.000000, z: 32.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 1fac59d6-f85c-41af-b656-622097b99fd9
+- !<ScriptComponent/1a7fdc6b-9688-4d1b-803e-43675228ffbc>
+  PrefabRemaps:
+    []
+  Name: SpectaclesMobileKitTest_TS
+  Enabled: true
+  ScriptAsset: !<reference> 50164823-46d3-4539-8c2a-02118b4f4373
+  ScriptInputsDefault:
+    resetAfterDelay: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      resetAfterDelay: false
+      image: !<reference.Image> 1fac59d6-f85c-41af-b656-622097b99fd9
+      gltfContainer: !<reference.SceneObject> cbd9bb79-129d-42cd-ab3e-b369d51ba7df
+      gltfMaterial: !<reference.Material> 556e161a-280f-43d3-97e4-92a94618c64e
+      logText: !<reference.Text> 943d29bc-32c7-41f3-8f12-ad4ec0c5111e
+  ScriptTypes:
+    "":
+      {}
+- !<Image/1fac59d6-f85c-41af-b656-622097b99fd9>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 556e161a-280f-43d3-97e4-92a94618c64e
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<ScriptComponent/3d795c28-32e4-4bf3-9c31-01c27990438c>
+  PrefabRemaps:
+    []
+  Name: SpectaclesMobileKitTest_JS
+  Enabled: true
+  ScriptAsset: !<reference> 828809cc-5dbc-4fc8-a492-fce86e136a9a
+  ScriptInputsDefault:
+    resetAfterDelay: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      resetAfterDelay: false
+      image: !<reference.Image> 1fac59d6-f85c-41af-b656-622097b99fd9
+      gltfContainer: !<reference.SceneObject> cbd9bb79-129d-42cd-ab3e-b369d51ba7df
+      gltfMaterial: !<reference.Material> 556e161a-280f-43d3-97e4-92a94618c64e
+      logText: !<reference.Text> 943d29bc-32c7-41f3-8f12-ad4ec0c5111e
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/607e9f9d-2f1a-4b23-8834-7758b47de4f9>
+  PrefabRemaps:
+    []
+  Name: Camera
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> a06124ec-7b03-43bb-8614-1a50b2468b77
+  Components:
+    - !<own> 9272bd37-11c7-4982-9d7f-1e62e14d0ab1
+    - !<own> f1a5f5d2-267f-4aae-b554-fe2a83d3a579
+- !<Camera/9272bd37-11c7-4982-9d7f-1e62e14d0ab1>
+  PrefabRemaps:
+    []
+  Name: Camera
+  Enabled: true
+  renderLayer: 1
+  MipmapLevel: 0
+  RenderOrder: 0
+  Size: 20.000000
+  Near: 1.000000
+  Far: 1000.000000
+  Fov: 63.541019
+  ClearColor: !<CameraClearColor>
+    Mode: None
+    Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+    InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
+  ClearDepth: !<CameraClearDepth>
+    Mode: Value
+    Value: 1.000000
+    InputTexture: !<reference> 00000000-0000-0000-0000-000000000000
+  Aspect: 1.000000
+  CameraType: Perspective
+  DepthMode: Regular
+  DeviceProperty: All
+  AspectPreset: Custom
+  OitLayers: NoOit
+  RenderTarget: !<reference> 923415f5-4245-4675-ade1-6d69d6d23e71
+  DepthStencilRenderTarget: !<reference> 00000000-0000-0000-0000-000000000000
+  MaskTexture: !<reference> 00000000-0000-0000-0000-000000000000
+  RayTracing: !<reference> 00000000-0000-0000-0000-000000000000
+  DevicePropertiesSource: !<reference> 00000000-0000-0000-0000-000000000000
+- !<Text/943d29bc-32c7-41f3-8f12-ad4ec0c5111e>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Top
+  HorizontalAlignment: Left
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: "Spectacles Kit Test:"
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 24
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -7.500000
+    bottom: -2.250000
+    right: 7.500000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Wrap
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
+- !<SceneObject/a06124ec-7b03-43bb-8614-1a50b2468b77>
+  PrefabRemaps:
+    []
+  Name: Test Log
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.283737, y: 16.884544, z: -121.781586}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 3.145002, y: 3.145002, z: 3.145002}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 943d29bc-32c7-41f3-8f12-ad4ec0c5111e
+- !<SceneObject/cbd9bb79-129d-42cd-ab3e-b369d51ba7df>
+  PrefabRemaps:
+    []
+  Name: GltContainer
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 25.018768, y: 0.000000, z: -189.888855}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    []
+- !<SceneObject/ddca4969-e49a-4dd7-8ae9-cdcbe97d8201>
+  PrefabRemaps:
+    []
+  Name: SpectaclesMobileKitTest_JS
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 3d795c28-32e4-4bf3-9c31-01c27990438c
+- !<DeviceTracking/f1a5f5d2-267f-4aae-b554-fe2a83d3a579>
+  PrefabRemaps:
+    []
+  Name: Device Tracking
+  Enabled: true
+  DeviceTrackingMode: World
+  RotationOptions: !<RotationOptions>
+    InvertRotation: false
+  SurfaceOptions: !<SurfaceOptions>
+    EnhanceWithNativeAR: false
+- !<SceneObject/f6aea168-da27-4f5f-b3a8-230baf839b3c>
+  PrefabRemaps:
+    []
+  Name: SpectaclesMobileKitTest_TS
+  Enabled: false
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 1a7fdc6b-9688-4d1b-803e-43675228ffbc

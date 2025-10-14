@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> 21d8b3a2-d22d-4441-a55b-aaf33fbfa659
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,7 +14,7 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<ScreenTransform/32514dfb-1fea-4950-819a-ed469d816071>
+- !<ScreenTransform/53ab9c40-5261-49a8-4f2a-4fb3fb1a6dfb>
   PrefabRemaps:
     []
   Name: Screen Transform
@@ -47,7 +47,24 @@
     bottom: -0.500000
     right: 0.500000
     top: 0.500000
-- !<SceneObject/5d8f9f55-6085-434c-b819-6dd0882ef831>
+- !<ObjectPrefabAssetData/7701d459-0d7d-460c-85e1-bea20379979b>
+  Prototype: !<ObjectOwner/5cee1d80-7d75-4f3e-80a6-88cd7562b31f>
+    PackagePath: ""
+    objects:
+      - !<own> c14f6a14-d006-4ded-4e0c-1f2b189d8af2
+- !<Canvas/7af72282-ca36-4dfa-6200-b70b261af476>
+  PrefabRemaps:
+    []
+  Name: Canvas
+  Enabled: true
+  UnitType: World
+  SortingType: Hierarchy
+  WorldSpaceRect:
+    left: -15.000000
+    bottom: -15.000000
+    right: 15.000000
+    top: 15.000000
+- !<SceneObject/84dd0126-c437-405d-6a99-713ae74f68ef>
   PrefabRemaps:
     []
   Name: MapCenter
@@ -61,18 +78,38 @@
   Children:
     []
   Components:
-    - !<own> 32514dfb-1fea-4950-819a-ed469d816071
-- !<ObjectPrefabAssetData/7701d459-0d7d-460c-85e1-bea20379979b>
-  SourceRemaps:
-    - 21d8b3a2-d22d-4441-a55b-aaf33fbfa659: da5e23da-fbed-463a-bd5e-6c0babff9974
-    - 53ab9c40-5261-49a8-b0d5-b04c04e59204: 32514dfb-1fea-4950-819a-ed469d816071
-    - 7af72282-ca36-4dfa-9dff-48f4d9e50b89: ee763c7d-ad8a-43f5-816c-562bf9b9a082
-    - 84dd0126-c437-405d-9566-8ec518b09710: 5d8f9f55-6085-434c-b819-6dd0882ef831
-    - 9eb9cb39-820f-4c7d-9e5b-d88e10e117b3: a9e4ed16-132a-4b92-853d-7c902d535c97
-    - c14f6a14-d006-4ded-b1f3-e0d4e762750d: f0b0b68b-0531-47d4-a355-c2359098e162
-    - dcbac797-4000-45cd-b1db-6c2e0cdc7ca1: 7ed5a117-1053-4db4-8085-0c3f5b3c4a89
-  SourceState: !<own> da5e23da-fbed-463a-bd5e-6c0babff9974
-- !<ScreenTransform/7ed5a117-1053-4db4-8085-0c3f5b3c4a89>
+    - !<own> 53ab9c40-5261-49a8-4f2a-4fb3fb1a6dfb
+- !<SceneObject/9eb9cb39-820f-4c7d-61a4-2771ef1ee84c>
+  PrefabRemaps:
+    []
+  Name: Map Grid
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 84dd0126-c437-405d-6a99-713ae74f68ef
+  Components:
+    - !<own> dcbac797-4000-45cd-4e24-93d1f323835e
+- !<SceneObject/c14f6a14-d006-4ded-4e0c-1f2b189d8af2>
+  PrefabRemaps:
+    []
+  Name: Map Render
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -120.000000, y: 0.000000, z: 40.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 9eb9cb39-820f-4c7d-61a4-2771ef1ee84c
+  Components:
+    - !<own> 7af72282-ca36-4dfa-6200-b70b261af476
+- !<ScreenTransform/dcbac797-4000-45cd-4e24-93d1f323835e>
   PrefabRemaps:
     []
   Name: Screen Transform
@@ -105,51 +142,3 @@
     bottom: 0.000000
     right: 0.000000
     top: 0.000000
-- !<SceneObject/a9e4ed16-132a-4b92-853d-7c902d535c97>
-  PrefabRemaps:
-    []
-  Name: Map Grid
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> 5d8f9f55-6085-434c-b819-6dd0882ef831
-  Components:
-    - !<own> 7ed5a117-1053-4db4-8085-0c3f5b3c4a89
-- !<ObjectPrefab/da5e23da-fbed-463a-bd5e-6c0babff9974>
-  PackagePath: ""
-  objects:
-    - !<own> f0b0b68b-0531-47d4-a355-c2359098e162
-  LazyLoading: false
-  RetainAssets: true
-- !<Canvas/ee763c7d-ad8a-43f5-816c-562bf9b9a082>
-  PrefabRemaps:
-    []
-  Name: Canvas
-  Enabled: true
-  UnitType: World
-  SortingType: Hierarchy
-  WorldSpaceRect:
-    left: -15.000000
-    bottom: -15.000000
-    right: 15.000000
-    top: 15.000000
-- !<SceneObject/f0b0b68b-0531-47d4-a355-c2359098e162>
-  PrefabRemaps:
-    []
-  Name: Map Render
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: -120.000000, y: 0.000000, z: 40.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> a9e4ed16-132a-4b92-853d-7c902d535c97
-  Components:
-    - !<own> ee763c7d-ad8a-43f5-816c-562bf9b9a082

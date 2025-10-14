@@ -437,6 +437,13 @@ export class MapComponent extends BaseScriptComponent {
   }
 
   /**
+   * Get the current location focus.
+   */
+  public getCurrentLocationFocus(): GeoPosition {
+    return this.mapController.getCurrentLocationFocus()
+  }
+
+  /**
    * Drawing geometry point to map
    */
   drawGeometryPoint(geometry, radius): void {

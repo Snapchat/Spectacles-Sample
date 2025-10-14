@@ -1,0 +1,53 @@
+- !<AssetImportMetadata/347d38f8-fb28-4070-8411-0e2548fb22ea>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> f305f337-4284-4cb7-b6d9-d0529658fe20
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> f305f337-4284-4cb7-b6d9-d0529658fe20
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 58b96869-1c6a-4328-a7e2-86b9c8e110e8
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/58b96869-1c6a-4328-a7e2-86b9c8e110e8>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: c24c2f6d-8d66-4ad1-8ff3-2ac5629146ce
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    headLabelManager: false
+    pingMenuPrefab: false
+    pingSendAudio: false
+    preferUserId: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - headLabelManager: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      pingMenuPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      pingSendAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      preferUserId: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType headLabelManager {"hint":"Reference to the head label manager to get all user head labels"}'
+    - '// @input Asset.ObjectPrefab pingMenuPrefab {"hint":"PingMenu prefab to instantiate when receiving ping requests"}'
+    - '// @input Component.AudioComponent pingSendAudio {"hint":"Audio component to play when sending a ping"}'
+    - '// @input bool preferUserId {"hint":"Prefer UserId over ConnectionId for targeting. Enable for same user across devices, disable for device-specific targeting"}'

@@ -8,7 +8,7 @@
   ImporterName: ObjImporter
   PrimaryAsset: !<reference> 8c1bac8a-9b2f-4bad-9620-be4b0092b2b0
   PackageType: LegacyPackage
-  PackagePolicy: CanBeUnpackedTransparent
+  LegacyPackagePolicy: CanBeUnpackedTransparent
   ExtraData:
     {}
   AssetDataMap:
@@ -29,10 +29,10 @@
       mesh: None Compression
     Overrides:
       {}
-- !<SceneObject/4248fc22-90da-422f-81b0-47e3ac10dd31>
+- !<SceneObject/27639f18-320d-4db8-5451-909e8542af94>
   PrefabRemaps:
     []
-  Name: Sphere
+  Name: NoteButton
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
@@ -41,16 +41,10 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    []
+    - !<own> b14ef7f4-ed0a-4698-6a1f-5892be4b45c7
   Components:
-    - !<own> 61f68be3-a927-42de-8f99-2047170b390e
-- !<ObjectPrefab/4c60c11c-0be6-4aaf-8fb7-b0efca390ff7>
-  PackagePath: ""
-  objects:
-    - !<own> f83630e8-21dc-49e4-86c8-22e523b7375d
-  LazyLoading: false
-  RetainAssets: true
-- !<RenderMeshVisual/61f68be3-a927-42de-8f99-2047170b390e>
+    []
+- !<RenderMeshVisual/2789e9f8-0807-4e47-767d-168097c98e9d>
   PrefabRemaps:
     []
   Name: component_0
@@ -71,15 +65,14 @@
   BlendShapes:
     {}
 - !<ObjectPrefabAssetData/77f80f0a-bcf5-412b-9d04-9d27e820925e>
-  SourceRemaps:
-    - 27639f18-320d-4db8-abae-6f617abd506b: f83630e8-21dc-49e4-86c8-22e523b7375d
-    - 2789e9f8-0807-4e47-8982-e97f68367162: 61f68be3-a927-42de-8f99-2047170b390e
-    - b14ef7f4-ed0a-4698-95e0-a76d41b4ba38: 4248fc22-90da-422f-81b0-47e3ac10dd31
-  SourceState: !<own> 4c60c11c-0be6-4aaf-8fb7-b0efca390ff7
-- !<SceneObject/f83630e8-21dc-49e4-86c8-22e523b7375d>
+  Prototype: !<ObjectOwner/ac39ed50-1801-4f62-9b90-a6caa1e24d23>
+    PackagePath: ""
+    objects:
+      - !<own> 27639f18-320d-4db8-5451-909e8542af94
+- !<SceneObject/b14ef7f4-ed0a-4698-6a1f-5892be4b45c7>
   PrefabRemaps:
     []
-  Name: NoteButton
+  Name: Sphere
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
@@ -88,6 +81,6 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    - !<own> 4248fc22-90da-422f-81b0-47e3ac10dd31
-  Components:
     []
+  Components:
+    - !<own> 2789e9f8-0807-4e47-767d-168097c98e9d

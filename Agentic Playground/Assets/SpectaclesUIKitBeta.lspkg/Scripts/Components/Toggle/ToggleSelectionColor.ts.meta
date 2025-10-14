@@ -4,7 +4,7 @@
   ImporterName: TypeScriptAssetImporter
   PrimaryAsset: !<reference> 951a6a8a-7e77-4e1c-b1b3-10a277518de4
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -24,8 +24,7 @@
   VersionPatch: 0
   ComponentUid: d8f431ab-8b78-4a4b-b800-18a4f6666357
   ExportUid: 00000000-0000-0000-0000-000000000000
-  CurrentVisibility: Editable
-  MaxVisibility: Editable
+  PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
     _autoHighlight: false
     _defaultToOn: false
@@ -39,6 +38,10 @@
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
   DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
   DefaultScriptInputs:
     - isDisabled: false
       _playAudio: false
@@ -62,8 +65,8 @@
     - "// @input bool addCallbacks {\"hint\":\"Enable this to add functions from another script to this component's callbacks\"}"
     - /*
     - "@typedef Callback"
-    - "@property {Component.ScriptComponent} scriptComponent "
-    - "@property {string} functionName "
+    - "@property {Component.ScriptComponent} scriptComponent"
+    - "@property {string} functionName"
     - "*/"
     - '// @input Callback[] onValueChangedCallbacks = {} {"label":"On Value Changed Callbacks", "showIf":"addCallbacks"}'
     - '// @input Callback[] onFinishedCallbacks = {} {"label":"On Finished Callbacks", "showIf":"addCallbacks"}'

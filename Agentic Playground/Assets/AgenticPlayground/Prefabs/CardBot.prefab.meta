@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> 8b58b759-aa86-4b72-89d7-35b7f84430e8
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,7 +14,63 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<ColliderComponent/18a0e39b-fbaa-4b55-af18-5df591a0a26b>
+- !<ScriptComponent/1a0d58d3-34a6-4e26-4350-a1cf48389e7c>
+  PrefabRemaps:
+    []
+  Name: InteractableManipulation
+  Enabled: true
+  ScriptAsset: !<reference> 664b556b-1946-4c2c-866a-e675b4e86006
+  ScriptInputsDefault:
+    minimumScaleFactor: true
+    maximumScaleFactor: true
+    enableTranslation: true
+    enableRotation: true
+    enableScale: true
+    enableStretchZ: true
+    showStretchZProperties: true
+    zStretchFactorMin: true
+    zStretchFactorMax: true
+    useFilter: true
+    showFilterProperties: true
+    minCutoff: true
+    beta: true
+    dcutoff: true
+    _enableXTranslation: true
+    _enableYTranslation: true
+    _enableZTranslation: true
+    showRotationProperties: true
+    _rotationAxis: true
+    isSynced: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      manipulateRootSceneObject: !<reference.SceneObject> 3ed757f8-594c-4aa6-7282-27e27f76bb28
+      minimumScaleFactor: 0.250000
+      maximumScaleFactor: !<float> 20.000000
+      enableTranslation: true
+      enableRotation: true
+      enableScale: true
+      enableStretchZ: true
+      showStretchZProperties: false
+      zStretchFactorMin: !<float> 1.000000
+      zStretchFactorMax: !<float> 12.000000
+      useFilter: true
+      showFilterProperties: false
+      minCutoff: !<float> 2.000000
+      beta: 0.015000
+      dcutoff: !<float> 1.000000
+      showTranslationProperties: true
+      _enableXTranslation: true
+      _enableYTranslation: true
+      _enableZTranslation: true
+      showRotationProperties: false
+      _rotationAxis: All
+      isSynced: false
+  ScriptTypes:
+    "":
+      {}
+- !<ColliderComponent/29336ee9-2261-495e-6c00-6774695cf082>
   PrefabRemaps:
     []
   Name: Physics Collider
@@ -32,53 +88,7 @@
   ForceCompound: false
   Intangible: false
   ShowCollider: false
-- !<SceneObject/27a7a94b-90de-4f3a-ae8c-f70207a9688e>
-  PrefabRemaps:
-    []
-  Name: TextIndex
-  Enabled: false
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 13.000000, y: 0.000000, z: 2.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 8643bab7-f501-4161-b53a-12b26c6acec0
-- !<ScriptComponent/2b817632-afef-4ec7-a976-337048f142e7>
-  PrefabRemaps:
-    []
-  Name: ButtonSlideCardBot
-  Enabled: true
-  ScriptAsset: !<reference> 9079ccc4-aec4-4550-a887-86e3c5e97322
-  ScriptInputsDefault:
-    isDisabled: true
-    _playAudio: true
-    _autoHighlight: true
-    addCallbacks: true
-    triggerUpCallbacks: true
-    triggerDownCallbacks: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      isDisabled: false
-      _playAudio: false
-      _size: !<Vec3> {x: 25.000000, y: 15.000000, z: 3.000000}
-      _autoHighlight: false
-      addCallbacks: false
-      triggerUpCallbacks:
-        []
-      triggerDownCallbacks:
-        []
-      textIndex: !<reference.Text> 8643bab7-f501-4161-b53a-12b26c6acec0
-      textContent: !<reference.Text> 5d4002f9-4989-4618-986b-49f834426f3e
-  ScriptTypes:
-    "":
-      {}
-- !<BodyComponent/2d651343-f17b-4921-8746-45178cec217b>
+- !<BodyComponent/393a34ab-f573-4fd7-6740-d3dd681110ab>
   PrefabRemaps:
     []
   Name: Physics Body
@@ -101,7 +111,26 @@
   BodySettingValue: 1.000000
   Damping: 0.000000
   AngularDamping: 0.000000
-- !<Text/5d4002f9-4989-4618-986b-49f834426f3e>
+- !<SceneObject/3ed757f8-594c-4aa6-7282-27e27f76bb28>
+  PrefabRemaps:
+    []
+  Name: CardBot
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> b505192a-dc57-4a10-7bc3-c6f444463230
+    - !<own> a4989fd7-b48c-4d33-585c-7e748f7ac63f
+  Components:
+    - !<own> c78dffa7-3957-48d1-67e2-fb910bbf9156
+    - !<own> 1a0d58d3-34a6-4e26-4350-a1cf48389e7c
+    - !<own> 393a34ab-f573-4fd7-6740-d3dd681110ab
+    - !<own> 29336ee9-2261-495e-6c00-6774695cf082
+- !<Text/8d10a993-2af7-4707-5c2e-ef9bf29bb4d3>
   PrefabRemaps:
     []
   Name: Text
@@ -131,15 +160,18 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -150,6 +182,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -161,6 +194,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -177,7 +211,7 @@
     CapitalizationOverride: None
   DepthTest: true
   TwoSided: false
-- !<SceneObject/6bd644fb-252c-4c32-a764-c7520b9c7cdf>
+- !<SceneObject/a4989fd7-b48c-4d33-585c-7e748f7ac63f>
   PrefabRemaps:
     []
   Name: TextContent
@@ -191,62 +225,54 @@
   Children:
     []
   Components:
-    - !<own> 5d4002f9-4989-4618-986b-49f834426f3e
-- !<ScriptComponent/77e9cb4b-00f1-40e8-a512-5da0d7fc6d99>
+    - !<own> 8d10a993-2af7-4707-5c2e-ef9bf29bb4d3
+- !<SceneObject/b505192a-dc57-4a10-7bc3-c6f444463230>
   PrefabRemaps:
     []
-  Name: InteractableManipulation
+  Name: TextIndex
+  Enabled: false
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 13.000000, y: 0.000000, z: 2.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> daab9f12-30dc-4b60-6b18-d7f7456eb879
+- !<ScriptComponent/c78dffa7-3957-48d1-67e2-fb910bbf9156>
+  PrefabRemaps:
+    []
+  Name: ButtonSlideCardBot
   Enabled: true
-  ScriptAsset: !<reference> 664b556b-1946-4c2c-866a-e675b4e86006
+  ScriptAsset: !<reference> 9079ccc4-aec4-4550-a887-86e3c5e97322
   ScriptInputsDefault:
-    minimumScaleFactor: true
-    maximumScaleFactor: true
-    enableTranslation: true
-    enableRotation: true
-    enableScale: true
-    enableStretchZ: true
-    showStretchZProperties: true
-    zStretchFactorMin: true
-    zStretchFactorMax: true
-    useFilter: true
-    showFilterProperties: true
-    minCutoff: true
-    beta: true
-    dcutoff: true
-    _enableXTranslation: true
-    _enableYTranslation: true
-    _enableZTranslation: true
-    showRotationProperties: true
-    _rotationAxis: true
+    isDisabled: true
+    _playAudio: true
+    _autoHighlight: true
+    addCallbacks: true
+    triggerUpCallbacks: true
+    triggerDownCallbacks: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      manipulateRootSceneObject: !<reference.SceneObject> dbd7d84f-6dfe-4ab9-8598-a5e0b539e57d
-      minimumScaleFactor: 0.250000
-      maximumScaleFactor: !<float> 20.000000
-      enableTranslation: true
-      enableRotation: true
-      enableScale: true
-      enableStretchZ: true
-      showStretchZProperties: false
-      zStretchFactorMin: !<float> 1.000000
-      zStretchFactorMax: !<float> 12.000000
-      useFilter: true
-      showFilterProperties: false
-      minCutoff: !<float> 2.000000
-      beta: 0.015000
-      dcutoff: !<float> 1.000000
-      showTranslationProperties: true
-      _enableXTranslation: true
-      _enableYTranslation: true
-      _enableZTranslation: true
-      showRotationProperties: false
-      _rotationAxis: All
+      isDisabled: false
+      _playAudio: false
+      _size: !<Vec3> {x: 25.000000, y: 15.000000, z: 3.000000}
+      _autoHighlight: false
+      addCallbacks: false
+      triggerUpCallbacks:
+        []
+      triggerDownCallbacks:
+        []
+      textIndex: !<reference.Text> daab9f12-30dc-4b60-6b18-d7f7456eb879
+      textContent: !<reference.Text> 8d10a993-2af7-4707-5c2e-ef9bf29bb4d3
   ScriptTypes:
     "":
       {}
-- !<Text/8643bab7-f501-4161-b53a-12b26c6acec0>
+- !<Text/daab9f12-30dc-4b60-6b18-d7f7456eb879>
   PrefabRemaps:
     []
   Name: Text
@@ -276,15 +302,18 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -295,6 +324,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -306,6 +336,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -322,41 +353,8 @@
     CapitalizationOverride: None
   DepthTest: true
   TwoSided: false
-- !<ObjectPrefab/ccd9caba-98cf-4534-a0fd-ce511d00df4a>
-  PackagePath: ""
-  objects:
-    - !<own> dbd7d84f-6dfe-4ab9-8598-a5e0b539e57d
-  LazyLoading: false
-  RetainAssets: true
-- !<SceneObject/dbd7d84f-6dfe-4ab9-8598-a5e0b539e57d>
-  PrefabRemaps:
-    []
-  Name: CardBot
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> 27a7a94b-90de-4f3a-ae8c-f70207a9688e
-    - !<own> 6bd644fb-252c-4c32-a764-c7520b9c7cdf
-  Components:
-    - !<own> 2b817632-afef-4ec7-a976-337048f142e7
-    - !<own> 77e9cb4b-00f1-40e8-a512-5da0d7fc6d99
-    - !<own> 2d651343-f17b-4921-8746-45178cec217b
-    - !<own> 18a0e39b-fbaa-4b55-af18-5df591a0a26b
 - !<ObjectPrefabAssetData/e1b0e4e5-a040-464e-aee4-9dbdc960b3e8>
-  SourceRemaps:
-    - 1a0d58d3-34a6-4e26-bcaf-5e30b7c76183: 77e9cb4b-00f1-40e8-a512-5da0d7fc6d99
-    - 29336ee9-2261-495e-93ff-988b96a30f7d: 18a0e39b-fbaa-4b55-af18-5df591a0a26b
-    - 393a34ab-f573-4fd7-98bf-2c2297eeef54: 2d651343-f17b-4921-8746-45178cec217b
-    - 3ed757f8-594c-4aa6-8d7d-d81d808944d7: dbd7d84f-6dfe-4ab9-8598-a5e0b539e57d
-    - 8b58b759-aa86-4b72-89d7-35b7f84430e8: ccd9caba-98cf-4534-a0fd-ce511d00df4a
-    - 8d10a993-2af7-4707-a3d1-10640d644b2c: 5d4002f9-4989-4618-986b-49f834426f3e
-    - a4989fd7-b48c-4d33-a7a3-818b708539c0: 6bd644fb-252c-4c32-a764-c7520b9c7cdf
-    - b505192a-dc57-4a10-843c-390bbbb9cdcf: 27a7a94b-90de-4f3a-ae8c-f70207a9688e
-    - c78dffa7-3957-48d1-981d-046ef4406ea9: 2b817632-afef-4ec7-a976-337048f142e7
-    - daab9f12-30dc-4b60-94e7-2808ba914786: 8643bab7-f501-4161-b53a-12b26c6acec0
-  SourceState: !<own> ccd9caba-98cf-4534-a0fd-ce511d00df4a
+  Prototype: !<ObjectOwner/7e8c69b4-5ffd-45ba-817a-f924dc8a6b03>
+    PackagePath: ""
+    objects:
+      - !<own> 3ed757f8-594c-4aa6-7282-27e27f76bb28

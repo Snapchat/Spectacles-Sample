@@ -31,10 +31,13 @@
   PrefabRemaps:
     []
   Name: Interactable
-  Enabled: true
+  Enabled: false
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
     targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     allowMultipleInteractors: true
@@ -43,13 +46,14 @@
     acceptableYDirections: true
     acceptableZDirections: true
     useFilteredPinch: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 3.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: true
@@ -58,16 +62,24 @@
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
       useFilteredPinch: false
-      isSynced: false
-      acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
       {}
 - !<SceneObject/21775cbf-6eb8-46d3-846d-c521f5404f00>
   PrefabRemaps:
-    []
+    - 0350ff28-12c5-4b24-aca8-b1d5ec41fa72: 0350ff28-12c5-4b24-5357-4e2a13be058d
+    - 0d7ca074-d01b-481c-8158-f2d561cddb8f: 0d7ca074-d01b-481c-7ea7-0d2a9e322470
+    - 21775cbf-6eb8-46d3-846d-c521f5404f00: 21775cbf-6eb8-46d3-7b92-3ade0abfb0ff
+    - 45ae402e-67fb-4c5d-9d1f-f7a818223f06: 45ae402e-67fb-4c5d-62e0-0857e7ddc0f9
+    - 45bbec06-75e1-444a-9139-211c3ccca82c: 45bbec06-75e1-444a-6ec6-dee3c33357d3
+    - 58df563d-e4f9-423e-b7ab-db3bfeb828cb: 58df563d-e4f9-423e-4854-24c40147d734
+    - 5f685549-9033-47f5-9118-c9f929cb8d69: 5f685549-9033-47f5-6ee7-3606d6347296
+    - 64053e25-3f29-4179-99c7-0cf04b17f809: 64053e25-3f29-4179-6638-f30fb4e807f6
+    - 6e65c824-339b-4301-adec-3600de4274e9: 6e65c824-339b-4301-5213-c9ff21bd8b16
+    - 723d601b-48bb-427e-925d-7d7c9e124c59: 723d601b-48bb-427e-6da2-828361edb3a6
+    - 9624b6d5-2bf1-40ac-9b61-1ecbb0ff48f3: 9624b6d5-2bf1-40ac-649e-e1344f00b70c
   Name: TennisBall
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 13.957748, y: -25.847389, z: -20.163143}
@@ -118,7 +130,7 @@
     "":
       audio: !<reference.AudioComponent> 9624b6d5-2bf1-40ac-9b61-1ecbb0ff48f3
       targetOutlineMaterial: !<reference.Material> 7231c7bc-6c14-4331-ad23-9ab928107707
-      meshVisual: !<reference.RenderMeshVisual> 7cf00fe5-58b3-4853-b4ef-a0970e36fd56
+      meshVisual: !<reference.RenderMeshVisual> 45ae402e-67fb-4c5d-9d1f-f7a818223f06
   ScriptTypes:
     "":
       {}
@@ -194,6 +206,7 @@
     _enableZTranslation: true
     showRotationProperties: true
     _rotationAxis: true
+    isSynced: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -219,6 +232,7 @@
       _enableZTranslation: true
       showRotationProperties: false
       _rotationAxis: All
+      isSynced: false
   ScriptTypes:
     "":
       {}
@@ -236,6 +250,8 @@
     "":
       collider: !<reference.ColliderComponent> 0350ff28-12c5-4b24-aca8-b1d5ec41fa72
       handColliderName: ColliderTargetProvider
+      leftHandColliderPrefab: !<reference.ObjectPrefab> 322a9cdf-e42e-48fc-871e-82b9cf430047
+      rightHandColliderPrefab: !<reference.ObjectPrefab> 322a9cdf-e42e-48fc-871e-82b9cf430047
   ScriptTypes:
     "":
       {}

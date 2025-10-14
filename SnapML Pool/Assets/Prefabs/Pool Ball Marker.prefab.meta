@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> aec63be5-2a20-4a28-9c0e-0b9a17be0b78
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,53 +14,7 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<SceneObject/02100a5e-be07-41c3-bfc8-5e0a292300c3>
-  PrefabRemaps:
-    []
-  Name: Text
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 1.011472, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 0.350000, y: 0.350000, z: 0.350000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 286ab5aa-283d-4024-9a54-1645d3bc60bf
-    - !<own> 1b98eda4-c56e-4ce0-9ec1-a9108c421251
-- !<RenderMeshVisual/15de738d-e9d9-441d-bf58-2cc465ef51f5>
-  PrefabRemaps:
-    []
-  Name: Render Mesh Visual
-  Enabled: true
-  RenderOrder: 0
-  StretchMode: Stretch
-  VerticalAlignment: Center
-  HorizontalAlignment: Center
-  MeshShadowMode: None
-  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-  ShadowDensity: 1.000000
-  Materials:
-    - !<reference> feb5c579-4bfb-4a44-83ea-e8045ec693ae
-  Mesh: !<reference> c0ee2918-1e1b-4535-94b6-332f3724c43c
-  Skin: !<reference> 00000000-0000-0000-0000-000000000000
-  BlendShapesEnabled: true
-  BlendNormals: false
-  BlendShapes:
-    {}
-- !<LookAtComponent/1b98eda4-c56e-4ce0-9ec1-a9108c421251>
-  PrefabRemaps:
-    []
-  Name: Look At
-  Enabled: true
-  LookAtMode: LookAtDirection
-  AimVectors: ZAimYUp
-  WorldUpVector: SceneY
-  Target: !<reference> 00000000-0000-0065-0000-000000000064
-  OffsetRotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-- !<Text/286ab5aa-283d-4024-9a54-1645d3bc60bf>
+- !<Text/5dd692ab-a2c3-4c9f-5363-4be39473bea2>
   PrefabRemaps:
     []
   Name: Text
@@ -90,15 +44,18 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -109,6 +66,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -120,6 +78,7 @@
       Mode: Solid
       Color: {x: 0.319402, y: 0.559579, z: 0.579110, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -136,22 +95,12 @@
     CapitalizationOverride: None
   DepthTest: false
   TwoSided: false
-- !<ObjectPrefab/68950a69-089f-4ff7-a5ae-ed5c972aeb0f>
-  PackagePath: ""
-  objects:
-    - !<own> b29c45fc-b8f6-4b21-a29c-cbc427077fdb
-  LazyLoading: false
-  RetainAssets: true
 - !<ObjectPrefabAssetData/8e3fc8a8-703d-4624-a317-320e9f9eee6f>
-  SourceRemaps:
-    - 5dd692ab-a2c3-4c9f-ac9c-b41c6b8c415d: 286ab5aa-283d-4024-9a54-1645d3bc60bf
-    - aec63be5-2a20-4a28-9c0e-0b9a17be0b78: 68950a69-089f-4ff7-a5ae-ed5c972aeb0f
-    - b0229975-e458-4b7f-bb05-2acde4a771b6: b29c45fc-b8f6-4b21-a29c-cbc427077fdb
-    - d4009620-1215-4145-a80e-bd79106914f9: 15de738d-e9d9-441d-bf58-2cc465ef51f5
-    - d8a117f0-db5c-4ce4-a7ac-10b18302d5ce: 02100a5e-be07-41c3-bfc8-5e0a292300c3
-    - dc0ed4e1-d02d-430e-bbf2-ae54f43783c2: 1b98eda4-c56e-4ce0-9ec1-a9108c421251
-  SourceState: !<own> 68950a69-089f-4ff7-a5ae-ed5c972aeb0f
-- !<SceneObject/b29c45fc-b8f6-4b21-a29c-cbc427077fdb>
+  Prototype: !<ObjectOwner/2e869b28-21d5-4887-84a1-6ce0497680a6>
+    PackagePath: ""
+    objects:
+      - !<own> b0229975-e458-4b7f-44fa-d5321b588e49
+- !<SceneObject/b0229975-e458-4b7f-44fa-d5321b588e49>
   PrefabRemaps:
     []
   Name: Sphere
@@ -163,6 +112,52 @@
     Scale: {x: 5.715000, y: 5.715000, z: 5.715000}
     HasSegmentScaleCompensation: false
   Children:
-    - !<own> 02100a5e-be07-41c3-bfc8-5e0a292300c3
+    - !<own> d8a117f0-db5c-4ce4-5853-ef4e7cfd2a31
   Components:
-    - !<own> 15de738d-e9d9-441d-bf58-2cc465ef51f5
+    - !<own> d4009620-1215-4145-57f1-4286ef96eb06
+- !<RenderMeshVisual/d4009620-1215-4145-57f1-4286ef96eb06>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> feb5c579-4bfb-4a44-83ea-e8045ec693ae
+  Mesh: !<reference> c0ee2918-1e1b-4535-94b6-332f3724c43c
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/d8a117f0-db5c-4ce4-5853-ef4e7cfd2a31>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 1.011472, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.350000, y: 0.350000, z: 0.350000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 5dd692ab-a2c3-4c9f-5363-4be39473bea2
+    - !<own> dc0ed4e1-d02d-430e-440d-51ab0bc87c3d
+- !<LookAtComponent/dc0ed4e1-d02d-430e-440d-51ab0bc87c3d>
+  PrefabRemaps:
+    []
+  Name: Look At
+  Enabled: true
+  LookAtMode: LookAtDirection
+  AimVectors: ZAimYUp
+  WorldUpVector: SceneY
+  Target: !<reference> 00000000-0000-0065-0000-000000000064
+  OffsetRotation: {x: 0.000000, y: 0.000000, z: 0.000000}

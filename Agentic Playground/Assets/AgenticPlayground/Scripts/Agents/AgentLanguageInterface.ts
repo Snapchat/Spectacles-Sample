@@ -1,8 +1,9 @@
-import { Message, LLMOptions, LLMResponse, ToolCall } from './AgentTypes';
-import { OpenAIAssistant } from '../Core/OpenAIAssistant';
-import { GeminiAssistant } from '../Core/GeminiAssistant';
+import { LLMOptions, LLMResponse, Message, ToolCall } from './AgentTypes';
+import { clearTimeout, setTimeout } from "SpectaclesInteractionKit.lspkg/Utils/FunctionTimingUtils";
+
 import Event from "SpectaclesInteractionKit.lspkg/Utils/Event";
-import { setTimeout, clearTimeout } from "SpectaclesInteractionKit.lspkg/Utils/FunctionTimingUtils";
+import { GeminiAssistant } from '../Core/GeminiAssistant';
+import { OpenAIAssistant } from '../Core/OpenAIAssistant';
 
 /**
  * Interface to AI language models
@@ -489,7 +490,7 @@ export class AgentLanguageInterface {
       print("AgentLanguageInterface: 📝 Generating Gemini text-only response using Models API");
       
       // Import Gemini Models API
-      const { Gemini } = require('Remote Service Gateway.lspkg/HostedExternal/Gemini');
+      const { Gemini } = require('RemoteServiceGateway.lspkg/HostedExternal/Gemini');
       
       // Convert messages to Gemini format (exclude system role)
       const contents = messages
@@ -532,7 +533,7 @@ export class AgentLanguageInterface {
       print("AgentLanguageInterface: 📝 Using OpenAI Chat Completions API for reliable text generation");
       
       // Import OpenAI API directly
-      const { OpenAI } = require('Remote Service Gateway.lspkg/HostedExternal/OpenAI');
+      const { OpenAI } = require('RemoteServiceGateway.lspkg/HostedExternal/OpenAI');
       
       // Convert our Message format to OpenAI format
       const openAIMessages = messages.map(msg => ({

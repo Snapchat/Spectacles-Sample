@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> a5871722-00a7-44d3-82fe-4f0a14d827ea
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -15,36 +15,11 @@
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<ObjectPrefabAssetData/0563be00-78c2-444d-acbb-5857abe16288>
-  SourceRemaps:
-    - 1b84e850-234e-4f97-97ae-233fc0af15ec: 77991a8a-13de-42f7-895e-b61d5258187b
-    - 6a13b88c-18ec-4394-9bd0-55e2d845fc3a: 77d935d7-3cd5-4959-b246-c671df666e0c
-    - a4744d34-20c7-4787-91db-332490db8ea2: 6983bb24-5459-4d06-b729-7ff1d4cfe5e7
-    - a5871722-00a7-44d3-82fe-4f0a14d827ea: 59f3dc49-9a86-44fd-8d0f-835a80b61fa4
-    - b8f82209-a304-4629-a54f-4d22a472d1fb: e732538d-26f4-45b8-95cd-d812f9481c1d
-    - fdb3b5cb-3b2c-484a-8d8c-7d53c396aca8: a01907c0-1c53-45f1-874b-d12ad9d36b99
-  SourceState: !<own> 59f3dc49-9a86-44fd-8d0f-835a80b61fa4
-- !<ObjectPrefab/59f3dc49-9a86-44fd-8d0f-835a80b61fa4>
-  PackagePath: ""
-  objects:
-    - !<own> 77991a8a-13de-42f7-895e-b61d5258187b
-  LazyLoading: false
-  RetainAssets: true
-- !<SceneObject/6983bb24-5459-4d06-b729-7ff1d4cfe5e7>
-  PrefabRemaps:
-    []
-  Name: Texture
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: -2.700514, y: 6.891428, z: 2.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 25.001524, y: 25.001524, z: 62.503807}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> e732538d-26f4-45b8-95cd-d812f9481c1d
-- !<SceneObject/77991a8a-13de-42f7-895e-b61d5258187b>
+  Prototype: !<ObjectOwner/f4b6bbd1-a0c1-4447-9c00-4541f39640a0>
+    PackagePath: ""
+    objects:
+      - !<own> 1b84e850-234e-4f97-6851-dcc03f50ea13
+- !<SceneObject/1b84e850-234e-4f97-6851-dcc03f50ea13>
   PrefabRemaps:
     []
   Name: Slide
@@ -56,11 +31,11 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    - !<own> 6983bb24-5459-4d06-b729-7ff1d4cfe5e7
-    - !<own> a01907c0-1c53-45f1-874b-d12ad9d36b99
+    - !<own> a4744d34-20c7-4787-6e24-ccdb6f24715d
+    - !<own> fdb3b5cb-3b2c-484a-7273-82ac3c695357
   Components:
     []
-- !<Text/77d935d7-3cd5-4959-b246-c671df666e0c>
+- !<Text/6a13b88c-18ec-4394-642f-aa1d27ba03c5>
   PrefabRemaps:
     []
   Name: Text
@@ -102,15 +77,18 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -121,6 +99,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -132,6 +111,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -148,22 +128,22 @@
     CapitalizationOverride: None
   DepthTest: false
   TwoSided: false
-- !<SceneObject/a01907c0-1c53-45f1-874b-d12ad9d36b99>
+- !<SceneObject/a4744d34-20c7-4787-6e24-ccdb6f24715d>
   PrefabRemaps:
     []
-  Name: Text
+  Name: Texture
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 45.316376, y: 10.875717, z: 2.000000}
+    Position: {x: -2.700514, y: 6.891428, z: 2.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.601571, y: 1.601571, z: 1.601571}
+    Scale: {x: 25.001524, y: 25.001524, z: 62.503807}
     HasSegmentScaleCompensation: false
   Children:
     []
   Components:
-    - !<own> 77d935d7-3cd5-4959-b246-c671df666e0c
-- !<Image/e732538d-26f4-45b8-95cd-d812f9481c1d>
+    - !<own> b8f82209-a304-4629-5ab0-b2dd5b8d2e04
+- !<Image/b8f82209-a304-4629-5ab0-b2dd5b8d2e04>
   PrefabRemaps:
     []
   Name: Image
@@ -182,3 +162,18 @@
   RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/fdb3b5cb-3b2c-484a-7273-82ac3c695357>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 45.316376, y: 10.875717, z: 2.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.601571, y: 1.601571, z: 1.601571}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 6a13b88c-18ec-4394-642f-aa1d27ba03c5

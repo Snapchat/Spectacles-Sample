@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> 01ac9b52-6b2c-44e1-ad7a-f6af8918341e
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,7 +14,42 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<ScriptComponent/069d7eb0-7002-4ee5-aa1b-3f83d60cc4c1>
+- !<AudioComponent/453b315b-d733-427c-6825-e8497008b559>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 4c3c4150-013a-407b-ae19-391641f6d12d
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: true
+  EnableDistanceEffect: true
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 1000.000000
+  EnableDirectivityEffect: true
+  EnablePositionEffect: true
+- !<ScriptComponent/671d73c2-8800-4e8f-7209-50d7558ba474>
+  PrefabRemaps:
+    []
+  Name: PingPongBallBehavior
+  Enabled: true
+  ScriptAsset: !<reference> 661e8ebe-53a2-4317-9deb-c25c09b94a23
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      audio: !<reference.AudioComponent> 453b315b-d733-427c-6825-e8497008b559
+      targetOutlineMaterial: !<reference.Material> 7231c7bc-6c14-4331-ad23-9ab928107707
+      meshVisual: !<reference.RenderMeshVisual> abdb9268-44d4-4010-73bb-36aea699769e
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/76b3387c-ea50-45da-6684-2093d9b8c237>
   PrefabRemaps:
     []
   Name: InteractableManipulation
@@ -41,6 +76,7 @@
     _enableZTranslation: true
     showRotationProperties: true
     _rotationAxis: true
+    isSynced: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -66,36 +102,11 @@
       _enableZTranslation: true
       showRotationProperties: false
       _rotationAxis: All
+      isSynced: false
   ScriptTypes:
     "":
       {}
-- !<ObjectPrefab/168e2242-9a07-4512-91f6-aa92aca73eec>
-  PackagePath: ""
-  objects:
-    - !<own> 35ebd7db-3314-4706-9bc4-7a4f3c83809d
-  LazyLoading: false
-  RetainAssets: true
-- !<SceneObject/35ebd7db-3314-4706-9bc4-7a4f3c83809d>
-  PrefabRemaps:
-    []
-  Name: PingPongBallNew
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 20.857748, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 4.000000, y: 4.000000, z: 4.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 3e39bef2-6546-4c0e-a59c-7de942dbf496
-    - !<own> 892b0f6a-963e-4aae-84da-32310dbfd922
-    - !<own> 4a40bbf0-8c2e-4987-92d9-bd70cba3ed40
-    - !<own> 9bbffbca-0aab-400d-a28d-61324ca02bf4
-    - !<own> 069d7eb0-7002-4ee5-aa1b-3f83d60cc4c1
-    - !<own> a770fc10-1b24-4cce-bc81-98ed889e130f
-- !<RenderMeshVisual/3e39bef2-6546-4c0e-a59c-7de942dbf496>
+- !<RenderMeshVisual/abdb9268-44d4-4010-73bb-36aea699769e>
   PrefabRemaps:
     []
   Name: Render Mesh Visual
@@ -115,24 +126,32 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<AudioComponent/4a40bbf0-8c2e-4987-92d9-bd70cba3ed40>
+- !<SceneObject/c69c87bd-4e2c-48e3-4293-ae816654ca37>
   PrefabRemaps:
     []
-  Name: Audio
+  Name: PingPongBallNew
   Enabled: true
-  AudioTrack: !<reference> 4c3c4150-013a-407b-ae19-391641f6d12d
-  EnableAutoplayLoop: false
-  Volume: 1.000000
-  EnableMixToSnap: false
-  RecordVolume: 1.000000
-  EnableSpatialAudio: true
-  EnableDistanceEffect: true
-  CurveType: Logarithm
-  MinDistance: 0.000000
-  MaxDistance: 1000.000000
-  EnableDirectivityEffect: true
-  EnablePositionEffect: true
-- !<BodyComponent/892b0f6a-963e-4aae-84da-32310dbfd922>
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 20.857748, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 4.000000, y: 4.000000, z: 4.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> abdb9268-44d4-4010-73bb-36aea699769e
+    - !<own> ef34a997-224c-4de4-7f8c-fc05fc39de3f
+    - !<own> 453b315b-d733-427c-6825-e8497008b559
+    - !<own> fa78a22c-49ff-4fd1-4afc-92134a5681bf
+    - !<own> 76b3387c-ea50-45da-6684-2093d9b8c237
+    - !<own> 671d73c2-8800-4e8f-7209-50d7558ba474
+- !<ObjectPrefabAssetData/cd00598c-3850-4c10-98c0-1a57db72d533>
+  Prototype: !<ObjectOwner/9cdc0a3f-7aac-4cae-a2f9-08f821131c4f>
+    PackagePath: ""
+    objects:
+      - !<own> c69c87bd-4e2c-48e3-4293-ae816654ca37
+- !<BodyComponent/ef34a997-224c-4de4-7f8c-fc05fc39de3f>
   PrefabRemaps:
     []
   Name: Physics Body
@@ -155,13 +174,16 @@
   BodySettingValue: 0.002000
   Damping: 0.010000
   AngularDamping: 0.010000
-- !<ScriptComponent/9bbffbca-0aab-400d-a28d-61324ca02bf4>
+- !<ScriptComponent/fa78a22c-49ff-4fd1-4afc-92134a5681bf>
   PrefabRemaps:
     []
   Name: Interactable
   Enabled: true
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     allowMultipleInteractors: true
@@ -170,13 +192,14 @@
     acceptableYDirections: true
     acceptableZDirections: true
     useFilteredPinch: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 1.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: true
@@ -185,37 +208,6 @@
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
       useFilteredPinch: false
-      isSynced: false
-      acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
       {}
-- !<ScriptComponent/a770fc10-1b24-4cce-bc81-98ed889e130f>
-  PrefabRemaps:
-    []
-  Name: PingPongBallBehavior
-  Enabled: true
-  ScriptAsset: !<reference> 661e8ebe-53a2-4317-9deb-c25c09b94a23
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      audio: !<reference.AudioComponent> 4a40bbf0-8c2e-4987-92d9-bd70cba3ed40
-      targetOutlineMaterial: !<reference.Material> 7231c7bc-6c14-4331-ad23-9ab928107707
-      meshVisual: !<reference.RenderMeshVisual> 3e39bef2-6546-4c0e-a59c-7de942dbf496
-  ScriptTypes:
-    "":
-      {}
-- !<ObjectPrefabAssetData/cd00598c-3850-4c10-98c0-1a57db72d533>
-  SourceRemaps:
-    - 01ac9b52-6b2c-44e1-ad7a-f6af8918341e: 168e2242-9a07-4512-91f6-aa92aca73eec
-    - 453b315b-d733-427c-97da-17b68ff74aa6: 4a40bbf0-8c2e-4987-92d9-bd70cba3ed40
-    - 671d73c2-8800-4e8f-8df6-af28aa745b8b: a770fc10-1b24-4cce-bc81-98ed889e130f
-    - 76b3387c-ea50-45da-997b-df6c26473dc8: 069d7eb0-7002-4ee5-aa1b-3f83d60cc4c1
-    - abdb9268-44d4-4010-8c44-c95159668961: 3e39bef2-6546-4c0e-a59c-7de942dbf496
-    - c69c87bd-4e2c-48e3-bd6c-517e99ab35c8: 35ebd7db-3314-4706-9bc4-7a4f3c83809d
-    - ef34a997-224c-4de4-8073-03fa03c621c0: 892b0f6a-963e-4aae-84da-32310dbfd922
-    - fa78a22c-49ff-4fd1-b503-6decb5a97e40: 9bbffbca-0aab-400d-a28d-61324ca02bf4
-  SourceState: !<own> 168e2242-9a07-4512-91f6-aa92aca73eec

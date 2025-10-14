@@ -1,14 +1,14 @@
-import { AudioProcessor } from "Remote Service Gateway.lspkg/Helpers/AudioProcessor";
-import { DynamicAudioOutput } from "Remote Service Gateway.lspkg/Helpers/DynamicAudioOutput";
 import {
   Gemini,
   GeminiLiveWebsocket,
-} from "Remote Service Gateway.lspkg/HostedExternal/Gemini";
-import { GeminiTypes } from "Remote Service Gateway.lspkg/HostedExternal/GeminiTypes";
-import { MicrophoneRecorder } from "Remote Service Gateway.lspkg/Helpers/MicrophoneRecorder";
-import { VideoController } from "Remote Service Gateway.lspkg/Helpers/VideoController";
+} from "RemoteServiceGateway.lspkg/HostedExternal/Gemini";
 
+import { AudioProcessor } from "RemoteServiceGateway.lspkg/Helpers/AudioProcessor";
+import { DynamicAudioOutput } from "RemoteServiceGateway.lspkg/Helpers/DynamicAudioOutput";
 import Event from "SpectaclesInteractionKit.lspkg/Utils/Event";
+import { GeminiTypes } from "RemoteServiceGateway.lspkg/HostedExternal/GeminiTypes";
+import { MicrophoneRecorder } from "RemoteServiceGateway.lspkg/Helpers/MicrophoneRecorder";
+import { VideoController } from "RemoteServiceGateway.lspkg/Helpers/VideoController";
 import { setTimeout } from "SpectaclesInteractionKit.lspkg/Utils/FunctionTimingUtils";
 
 @component

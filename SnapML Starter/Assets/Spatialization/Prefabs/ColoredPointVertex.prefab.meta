@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> 7302462f-a7b7-4036-b44a-0585c89f201d
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,7 +14,7 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<SceneObject/365353d3-b4d0-472a-8d56-0ac3f34f9ce5>
+- !<SceneObject/056e9bad-cff0-4105-6cdd-8a3d921720ff>
   PrefabRemaps:
     []
   Name: coloredPoint
@@ -26,16 +26,30 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    - !<own> 933e485c-ab9e-4edf-ba50-aaceb867a272
+    - !<own> 5f55218f-c4a4-4beb-7438-809e7d3d4f3c
   Components:
     []
-- !<ObjectPrefab/369b7a14-0733-49c4-9911-93bcf7b3751c>
-  PackagePath: ""
-  objects:
-    - !<own> 365353d3-b4d0-472a-8d56-0ac3f34f9ce5
-  LazyLoading: false
-  RetainAssets: true
-- !<RenderMeshVisual/7594c40e-3506-4ff3-9dd3-8a78651d28c1>
+- !<SceneObject/5f55218f-c4a4-4beb-7438-809e7d3d4f3c>
+  PrefabRemaps:
+    []
+  Name: Mesh using pointRedLabeled
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> ec23893b-cd3a-426f-54e9-a1837888040e
+- !<ObjectPrefabAssetData/858b754c-40bf-4018-82ba-3bd5d01875f2>
+  Prototype: !<ObjectOwner/40a1b1df-6d4d-46b8-b99d-0305e65c37df>
+    PackagePath: ""
+    objects:
+      - !<own> 056e9bad-cff0-4105-6cdd-8a3d921720ff
+- !<RenderMeshVisual/ec23893b-cd3a-426f-54e9-a1837888040e>
   PrefabRemaps:
     []
   Name: Render Mesh Visual
@@ -55,25 +69,3 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<ObjectPrefabAssetData/858b754c-40bf-4018-82ba-3bd5d01875f2>
-  SourceRemaps:
-    - 056e9bad-cff0-4105-9322-75c26de8df00: 365353d3-b4d0-472a-8d56-0ac3f34f9ce5
-    - 5f55218f-c4a4-4beb-8bc7-7f6182c2b0c3: 933e485c-ab9e-4edf-ba50-aaceb867a272
-    - 7302462f-a7b7-4036-b44a-0585c89f201d: 369b7a14-0733-49c4-9911-93bcf7b3751c
-    - ec23893b-cd3a-426f-ab16-5e7c8777fbf1: 7594c40e-3506-4ff3-9dd3-8a78651d28c1
-  SourceState: !<own> 369b7a14-0733-49c4-9911-93bcf7b3751c
-- !<SceneObject/933e485c-ab9e-4edf-ba50-aaceb867a272>
-  PrefabRemaps:
-    []
-  Name: Mesh using pointRedLabeled
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 7594c40e-3506-4ff3-9dd3-8a78651d28c1

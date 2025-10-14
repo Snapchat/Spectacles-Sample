@@ -157,7 +157,19 @@
       {}
 - !<SceneObject/3d00bb81-5008-4ef1-a32b-f379938439cf>
   PrefabRemaps:
-    []
+    - 1835e3ba-4c1e-464c-93db-5a17cde64b1e: 1835e3ba-4c1e-464c-6c24-a5e83219b4e1
+    - 265cfd96-6622-49d7-b4c5-c12bfde389f4: 265cfd96-6622-49d7-4b3a-3ed4021c760b
+    - 39390f21-fb86-420f-9b56-83dfeb960329: 39390f21-fb86-420f-64a9-7c201469fcd6
+    - 3d00bb81-5008-4ef1-a32b-f379938439cf: 3d00bb81-5008-4ef1-5cd4-0c866c7bc630
+    - 53b66fbe-d98c-46de-8fe6-4f183d83c2f6: 53b66fbe-d98c-46de-7019-b0e7c27c3d09
+    - 6fd29ff8-287c-4be1-adf1-caaa0ec8e1d7: 6fd29ff8-287c-4be1-520e-3555f1371e28
+    - 93146e20-bd11-4384-b04f-0b43f47582ab: 93146e20-bd11-4384-4fb0-f4bc0b8a7d54
+    - b5af0b01-5203-4bf4-9454-c5fb2858231d: b5af0b01-5203-4bf4-6bab-3a04d7a7dce2
+    - c3311f8d-4e03-4271-a5d4-19c803c3cf85: c3311f8d-4e03-4271-5a2b-e637fc3c307a
+    - dd504f64-d31c-4f0a-b06b-50a2daef85b1: dd504f64-d31c-4f0a-4f94-af5d25107a4e
+    - dfe14de8-a12f-45a8-a13b-9362201fa403: dfe14de8-a12f-45a8-5ec4-6c9ddfe05bfc
+    - e453a4bc-460c-4ab1-8f2a-ccf653e29cce: e453a4bc-460c-4ab1-70d5-3309ac1d6331
+    - eb6d8cf1-8c78-468b-9ccd-63b15f470600: eb6d8cf1-8c78-468b-6332-9c4ea0b8f9ff
   Name: NodeModel
   Enabled: true
   Layers: 1
@@ -234,6 +246,7 @@
     _enableZTranslation: true
     showRotationProperties: true
     _rotationAxis: true
+    isSynced: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -259,6 +272,7 @@
       _enableZTranslation: true
       showRotationProperties: false
       _rotationAxis: All
+      isSynced: false
   ScriptTypes:
     "":
       {}
@@ -309,6 +323,9 @@
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
     targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     allowMultipleInteractors: true
@@ -317,13 +334,14 @@
     acceptableYDirections: true
     acceptableZDirections: true
     useFilteredPinch: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 3.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: true
@@ -332,8 +350,6 @@
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
       useFilteredPinch: false
-      isSynced: false
-      acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
       {}
@@ -367,15 +383,18 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -386,6 +405,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -397,6 +417,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth

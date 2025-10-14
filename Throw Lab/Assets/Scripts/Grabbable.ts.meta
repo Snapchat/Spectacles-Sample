@@ -4,7 +4,7 @@
   ImporterName: TypeScriptAssetImporter
   PrimaryAsset: !<reference> 64087653-79d3-4558-b642-7d4c33f1c6f3
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -24,21 +24,30 @@
   VersionPatch: 0
   ComponentUid: cba92846-cfb4-4097-ab10-55fd8f58bded
   ExportUid: 00000000-0000-0000-0000-000000000000
-  CurrentVisibility: Editable
-  MaxVisibility: Editable
+  PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
     collider: false
     handColliderName: false
+    leftHandColliderPrefab: false
+    rightHandColliderPrefab: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
   DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
   DefaultScriptInputs:
     - collider: !<reference.ColliderComponent> 00000000-0000-0000-0000-000000000000
       handColliderName: ColliderTargetProvider
+      leftHandColliderPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      rightHandColliderPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
     - // @input Component.ColliderComponent collider
     - '// @input string handColliderName = "ColliderTargetProvider"'
+    - "// @input Asset.ObjectPrefab leftHandColliderPrefab {\"hint\":\"Prefab with collider named 'ColliderTargetProvider' to attach to left hand\"}"
+    - "// @input Asset.ObjectPrefab rightHandColliderPrefab {\"hint\":\"Prefab with collider named 'ColliderTargetProvider' to attach to right hand\"}"

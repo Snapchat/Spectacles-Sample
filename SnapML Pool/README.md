@@ -12,10 +12,10 @@ This project uses SnapML to detect a pool table with all 16 balls and pocket hol
 
 ## Prerequisites
 
-- **Lens Studio**: v5.10.0+
-- **Spectacles OS Version**: v5.62+
-- **Spectacles App iOS**: v0.62+
-- **Spectacles App Android**: v0.62+
+- **Lens Studio**: v5.15.0+
+- **Spectacles OS Version**: v5.64+
+- **Spectacles App iOS**: v0.64+
+- **Spectacles App Android**: v0.64+
 - **1 Standard Pool Table**
     - With all pieces
 
@@ -91,3 +91,8 @@ If you have any questions or need assistance, please don't hesitate to reach out
 ## Contributing
 
 Feel free to provide improvements or suggestions or directly contributing via merge request. By sharing insights, you help everyone else build better Lenses.
+
+---
+
+*Built with 👻 by the Spectacles team*
+ 

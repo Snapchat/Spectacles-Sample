@@ -21,7 +21,7 @@
       autoSwapToSpatialized: true
   ScriptTypes:
     "":
-      SpatialImage: !<reference.ScriptAsset> 0befc8a4-0849-4e52-8f02-ac717484d5db
+      SpatialImage: !<reference.ScriptAsset> e436ba89-4c78-4f4d-bf1d-a2865c4cf8a0
 - !<SceneObject/39dba10a-dd78-497b-b167-8cf0b36f4c90>
   PrefabRemaps:
     []
@@ -60,6 +60,8 @@
     worldSnapping: true
     isFollowing: true
     _enableInteractionPlane: true
+    _targetingVisual: true
+    isSynced: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -89,6 +91,8 @@
       isFollowing: false
       showCloseButton: false
       _enableInteractionPlane: false
+      _targetingVisual: !<float> 1.000000
+      isSynced: false
   ScriptTypes:
     "":
       {}
@@ -111,7 +115,7 @@
       minDepth: 0.050000
   ScriptTypes:
     "":
-      SpatialImage: !<reference.ScriptAsset> 0befc8a4-0849-4e52-8f02-ac717484d5db
+      SpatialImage: !<reference.ScriptAsset> e436ba89-4c78-4f4d-bf1d-a2865c4cf8a0
 - !<ScriptComponent/58e369c6-44cd-41e8-ae46-0576fabb126e>
   PrefabRemaps:
     []
@@ -131,7 +135,7 @@
       imageTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     "":
-      SpatialImage: !<reference.ScriptAsset> 0befc8a4-0849-4e52-8f02-ac717484d5db
+      SpatialImage: !<reference.ScriptAsset> e436ba89-4c78-4f4d-bf1d-a2865c4cf8a0
 - !<ScreenTransform/82a12268-5b10-4a20-bffd-165fee79c94c>
   PrefabRemaps:
     []
@@ -201,7 +205,18 @@
     []
 - !<SceneObject/a9b4b869-f2b1-42ef-82a1-2de56cad16d7>
   PrefabRemaps:
-    []
+    - 03cbcb87-a211-44be-9966-d6e4d88a7ed4: 03cbcb87-a211-44be-6699-291b2775812b
+    - 39dba10a-dd78-497b-b167-8cf0b36f4c90: 39dba10a-dd78-497b-4e98-730f4c90b36f
+    - 3c89942f-439f-4ef5-a723-99cd3b2bd2ea: 3c89942f-439f-4ef5-58dc-6632c4d42d15
+    - 57e8fb27-9e63-47b7-a164-174acf867665: 57e8fb27-9e63-47b7-5e9b-e8b53079899a
+    - 58e369c6-44cd-41e8-ae46-0576fabb126e: 58e369c6-44cd-41e8-51b9-fa890544ed91
+    - 82a12268-5b10-4a20-bffd-165fee79c94c: 82a12268-5b10-4a20-4002-e9a0118636b3
+    - 87fab577-3c65-4fb2-8fb4-35ece68755a1: 87fab577-3c65-4fb2-704b-ca131978aa5e
+    - 976a6477-7ec0-43b2-aed9-ddb564c86acd: 976a6477-7ec0-43b2-5126-224a9b379532
+    - a9b4b869-f2b1-42ef-82a1-2de56cad16d7: a9b4b869-f2b1-42ef-7d5e-d21a9352e928
+    - d2e96cbc-3e09-4824-9226-2aa7fdcff2bc: d2e96cbc-3e09-4824-6dd9-d55802300d43
+    - d6581813-c0e5-4f98-b38e-0fa8502d0919: d6581813-c0e5-4f98-4c71-f057afd2f6e6
+    - e8e7878e-df84-4cf3-9b70-67fb752a692e: e8e7878e-df84-4cf3-648f-98048ad596d1
   Name: SikSpatialImageFrame
   Enabled: true
   Layers: 1
@@ -220,8 +235,12 @@
     []
   Name: Spatial Image
   Enabled: true
-  ScriptAsset: !<reference> 0befc8a4-0849-4e52-8f02-ac717484d5db
+  ScriptAsset: !<reference> e436ba89-4c78-4f4d-bf1d-a2865c4cf8a0
   ScriptInputsDefault:
+    meshMaterial: true
+    remoteServiceModule: true
+    internetModule: true
+    remoteMediaModule: true
     imageTexture: true
     advancedSettings: true
     _frameHeight: true
@@ -231,6 +250,10 @@
     {}
   ScriptInputs:
     "":
+      meshMaterial: !<reference.Material> ae9cf7bb-8c5f-4177-b597-c6760fc60d80
+      remoteServiceModule: !<reference.RemoteServiceModule> d7c48e28-8882-4f34-a84f-6dd3b0921e97
+      internetModule: !<reference.InternetModule> 2e3110cc-840c-4773-93dd-34bff0d2e911
+      remoteMediaModule: !<reference.RemoteMediaModule> ab201da2-9b8f-406c-8aac-fb378b619ebb
       imageTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
       advancedSettings: false
       _frameHeight: 100

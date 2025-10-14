@@ -59,7 +59,15 @@
       {}
 - !<SceneObject/6f15a43c-6d6b-4172-9901-9109235ade8b>
   PrefabRemaps:
-    []
+    - 0f6e6780-e21c-444f-bee6-7dffbc356194: 0f6e6780-e21c-444f-4119-820043ca9e6b
+    - 38d7388f-013d-45f3-9ecf-51e497baa96c: 38d7388f-013d-45f3-6130-ae1b68455693
+    - 5efd2f82-4820-497a-a76f-44b18cc3ebed: 5efd2f82-4820-497a-5890-bb4e733c1412
+    - 6f15a43c-6d6b-4172-9901-9109235ade8b: 6f15a43c-6d6b-4172-66fe-6ef6dca52174
+    - 9228b582-dcc1-4ed8-98d3-944c1ea4256e: 9228b582-dcc1-4ed8-672c-6bb3e15bda91
+    - 93eb166d-475a-411c-abfa-315b390241d2: 93eb166d-475a-411c-5405-cea4c6fdbe2d
+    - c221ce92-abb0-4f61-a85b-d650afa4cacf: c221ce92-abb0-4f61-57a4-29af505b3530
+    - c9804ece-048e-4cbe-9642-673a15cde19e: c9804ece-048e-4cbe-69bd-98c5ea321e61
+    - cfc6b1b9-9ce5-4a92-96c3-f5e38441a737: cfc6b1b9-9ce5-4a92-693c-0a1c7bbe58c8
   Name: Button
   Enabled: true
   Layers: 1
@@ -102,6 +110,9 @@
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
     targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     enablePokeDirectionality: true
@@ -109,13 +120,14 @@
     acceptableYDirections: true
     acceptableZDirections: true
     useFilteredPinch: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 3.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: false
@@ -124,8 +136,6 @@
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
       useFilteredPinch: false
-      isSynced: false
-      acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
       {}

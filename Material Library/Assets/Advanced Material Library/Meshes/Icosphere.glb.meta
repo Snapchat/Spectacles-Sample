@@ -10,7 +10,7 @@
   ImporterName: GltfImporter
   PrimaryAsset: !<reference> afc29142-d529-451e-9273-42f1d317a3c2
   PackageType: LegacyPackage
-  PackagePolicy: CanBeUnpackedTransparent
+  LegacyPackagePolicy: CanBeUnpackedTransparent
   ExtraData:
     {}
   AssetDataMap:
@@ -39,51 +39,11 @@
     Overrides:
       {}
 - !<ObjectPrefabAssetData/02b24c4d-9fe5-43be-9180-3fee51db8ed9>
-  SourceRemaps:
-    - 17434aa0-62a8-4468-a394-6bf5dc818f63: 45e52386-5c20-446a-9428-d7e4be6db7a9
-    - 220c1ffd-4e68-4113-ba13-2c98f0029298: 069f76ab-bdb7-4121-b6ff-ffb05dc9982f
-    - 53c6896c-25cd-4f5a-9c58-c14cd211c0ad: cdbef61d-9aa7-4b1b-99d7-8099c5c36480
-    - 6310e841-4637-4607-805d-383347318acd: a8d58e0d-c2d9-41b7-a857-e9234bad1bfc
-    - 954338a5-e49d-4dca-8c03-a2eaa94704e4: 1190e61f-03ec-44dc-b0e0-7c2af1aa377e
-    - afc29142-d529-451e-9273-42f1d317a3c2: 3e1034ef-b7bc-4238-b72d-58406f8bdab6
-  SourceState: !<own> 3e1034ef-b7bc-4238-b72d-58406f8bdab6
-- !<SceneObject/069f76ab-bdb7-4121-b6ff-ffb05dc9982f>
-  PrefabRemaps:
-    []
-  Name: Icosphere
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> 1190e61f-03ec-44dc-b0e0-7c2af1aa377e
-  Components:
-    []
-- !<SceneObject/1190e61f-03ec-44dc-b0e0-7c2af1aa377e>
-  PrefabRemaps:
-    []
-  Name: Scenes
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> a8d58e0d-c2d9-41b7-a857-e9234bad1bfc
-  Components:
-    []
-- !<ObjectPrefab/3e1034ef-b7bc-4238-b72d-58406f8bdab6>
-  PackagePath: ""
-  objects:
-    - !<own> 069f76ab-bdb7-4121-b6ff-ffb05dc9982f
-  LazyLoading: false
-  RetainAssets: true
-- !<RenderMeshVisual/45e52386-5c20-446a-9428-d7e4be6db7a9>
+  Prototype: !<ObjectOwner/32ab2417-c379-49bb-8d2a-69cd1276e23f>
+    PackagePath: ""
+    objects:
+      - !<own> 220c1ffd-4e68-4113-45ec-d3670ffd6d67
+- !<RenderMeshVisual/17434aa0-62a8-4468-5c6b-940a237e709c>
   PrefabRemaps:
     []
   Name: Icosphere
@@ -103,10 +63,10 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<SceneObject/a8d58e0d-c2d9-41b7-a857-e9234bad1bfc>
+- !<SceneObject/220c1ffd-4e68-4113-45ec-d3670ffd6d67>
   PrefabRemaps:
     []
-  Name: Scene
+  Name: Icosphere
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
@@ -115,10 +75,10 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    - !<own> cdbef61d-9aa7-4b1b-99d7-8099c5c36480
+    - !<own> 954338a5-e49d-4dca-73fc-5d1556b8fb1b
   Components:
     []
-- !<SceneObject/cdbef61d-9aa7-4b1b-99d7-8099c5c36480>
+- !<SceneObject/53c6896c-25cd-4f5a-63a7-3eb32dee3f52>
   PrefabRemaps:
     []
   Name: Icosphere
@@ -132,4 +92,34 @@
   Children:
     []
   Components:
-    - !<own> 45e52386-5c20-446a-9428-d7e4be6db7a9
+    - !<own> 17434aa0-62a8-4468-5c6b-940a237e709c
+- !<SceneObject/6310e841-4637-4607-7fa2-c7ccb8ce7532>
+  PrefabRemaps:
+    []
+  Name: Scene
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 53c6896c-25cd-4f5a-63a7-3eb32dee3f52
+  Components:
+    []
+- !<SceneObject/954338a5-e49d-4dca-73fc-5d1556b8fb1b>
+  PrefabRemaps:
+    []
+  Name: Scenes
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 6310e841-4637-4607-7fa2-c7ccb8ce7532
+  Components:
+    []

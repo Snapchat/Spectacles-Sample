@@ -18,10 +18,10 @@ Get started using our [Design Guidelines](https://developers.snap.com/spectacles
 
 ## Prerequisites
 
-- **Lens Studio**: v5.10.0+
-- **Spectacles OS Version**: v5.62+
-- **Spectacles App iOS**: v0.62+
-- **Spectacles App Android**: v0.62+
+- **Lens Studio**: v5.15.0+
+- **Spectacles OS Version**: v5.64+
+- **Spectacles App iOS**: v0.64+
+- **Spectacles App Android**: v0.64+
 
 To update your Spectacles device and mobile app, please refer to this [guide](https://support.spectacles.com/hc/en-us/articles/30214953982740-Updating).
 
@@ -55,7 +55,7 @@ To obtain the project folder, clone the repository.
 <a href="https://www.amazon.com/Gy-521-MPU-6050-MPU6050-Sensors-Accelerometer/dp/B008BOPN40/ref=sr_1_6?crid=2B4BL34XHLEVM&keywords=mpu6050&qid=1653938597&sprefix=mou+6050%2Caps%2C125&sr=8-6">MPU-6050 on Amazon</a> 
 <p>
 
-![Screenshot](diagram.png)
+![Screenshot](./README-ref/diagram.png)
 
 ## Testing the Lens
 
@@ -80,3 +80,8 @@ This repository includes references to third-party websites and products for edu
 ## Contributing
 
 Feel free to provide improvements or suggestions or directly contributing via merge request. By sharing insights, you help everyone else build better Lenses.
+
+---
+
+*Built with 👻 by the Spectacles team*
+ 

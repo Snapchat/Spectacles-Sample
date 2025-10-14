@@ -1,7 +1,6 @@
-import { Snap3D } from "Remote Service Gateway.lspkg/HostedSnap/Snap3D";
-import { Snap3DTypes } from "Remote Service Gateway.lspkg/HostedSnap/Snap3DTypes";
+import { Snap3D } from "RemoteServiceGateway.lspkg/HostedSnap/Snap3D";
 import { Snap3DInteractable } from "./Snap3DInteractable";
-
+import { Snap3DTypes } from "RemoteServiceGateway.lspkg/HostedSnap/Snap3DTypes";
 import WorldCameraFinderProvider from "SpectaclesInteractionKit.lspkg/Providers/CameraProvider/WorldCameraFinderProvider";
 
 @component

@@ -14,7 +14,7 @@
   ImporterName: FbxImporter
   PrimaryAsset: !<reference> 9c00fef9-3fea-4774-b802-a55e7defec87
   PackageType: LegacyPackage
-  PackagePolicy: CanBeUnpackedTransparent
+  LegacyPackagePolicy: CanBeUnpackedTransparent
   ExtraData:
     {}
   AssetDataMap:
@@ -52,36 +52,7 @@
       jpg: Performance Compression
     Overrides:
       {}
-- !<SceneObject/0fba9ed5-ae24-4a85-8ce5-3a7462e3408b>
-  PrefabRemaps:
-    []
-  Name: board
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> ad2fc3e4-ae78-41e9-9583-a6f302a0dd58
-  Components:
-    - !<own> bb0b1918-ae04-461c-9f3c-bc9de7004979
-- !<ObjectPrefabAssetData/19b4ca59-6b7a-4540-b223-a99ed4fff34a>
-  SourceRemaps:
-    - 0874de98-4904-4aae-922a-d84860ccfb42: 9deb071b-ebf7-4168-af6e-a35facc5dea0
-    - 23e95d2f-b76f-406d-8f4b-8d1a9d56458a: 0fba9ed5-ae24-4a85-8ce5-3a7462e3408b
-    - 9362bf74-3a82-43b3-84c0-28c46ff2e8f0: ad2fc3e4-ae78-41e9-9583-a6f302a0dd58
-    - 9c00fef9-3fea-4774-b802-a55e7defec87: 7bce2b2e-49f5-4582-9d6f-1be83b7cdb01
-    - bff92057-7225-44d0-ad98-2d693f605d4a: bb0b1918-ae04-461c-9f3c-bc9de7004979
-  SourceState: !<own> 7bce2b2e-49f5-4582-9d6f-1be83b7cdb01
-- !<ObjectPrefab/7bce2b2e-49f5-4582-9d6f-1be83b7cdb01>
-  PackagePath: ""
-  objects:
-    - !<own> 0fba9ed5-ae24-4a85-8ce5-3a7462e3408b
-  LazyLoading: false
-  RetainAssets: true
-- !<RenderMeshVisual/9deb071b-ebf7-4168-af6e-a35facc5dea0>
+- !<RenderMeshVisual/0874de98-4904-4aae-6dd5-27b79f3304bd>
   PrefabRemaps:
     []
   Name: component_0
@@ -102,7 +73,27 @@
   BlendShapes:
     pCube2: 0.000000
     pCube3: 0.000000
-- !<SceneObject/ad2fc3e4-ae78-41e9-9583-a6f302a0dd58>
+- !<ObjectPrefabAssetData/19b4ca59-6b7a-4540-b223-a99ed4fff34a>
+  Prototype: !<ObjectOwner/518eaf55-fa03-4887-b74c-e31792124f09>
+    PackagePath: ""
+    objects:
+      - !<own> 23e95d2f-b76f-406d-70b4-72e562a9ba75
+- !<SceneObject/23e95d2f-b76f-406d-70b4-72e562a9ba75>
+  PrefabRemaps:
+    []
+  Name: board
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 9362bf74-3a82-43b3-7b3f-d73b900d170f
+  Components:
+    - !<own> bff92057-7225-44d0-5267-d296c09fa2b5
+- !<SceneObject/9362bf74-3a82-43b3-7b3f-d73b900d170f>
   PrefabRemaps:
     []
   Name: pCube1
@@ -116,8 +107,8 @@
   Children:
     []
   Components:
-    - !<own> 9deb071b-ebf7-4168-af6e-a35facc5dea0
-- !<AnimationPlayer/bb0b1918-ae04-461c-9f3c-bc9de7004979>
+    - !<own> 0874de98-4904-4aae-6dd5-27b79f3304bd
+- !<AnimationPlayer/bff92057-7225-44d0-5267-d296c09fa2b5>
   PrefabRemaps:
     []
   Name: component_1

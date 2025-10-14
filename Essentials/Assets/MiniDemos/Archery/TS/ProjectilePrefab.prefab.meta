@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> d20e8713-f3a9-4017-8108-e186de6e43a1
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,27 +14,7 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<RenderMeshVisual/2b860841-2c43-46a5-9ca5-349f09b20a2c>
-  PrefabRemaps:
-    []
-  Name: Render Mesh Visual
-  Enabled: true
-  RenderOrder: 0
-  StretchMode: Stretch
-  VerticalAlignment: Center
-  HorizontalAlignment: Center
-  MeshShadowMode: None
-  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-  ShadowDensity: 1.000000
-  Materials:
-    - !<reference> 7c02fcec-c3c7-485e-ab7b-ab75f51d3b8e
-  Mesh: !<reference> f3cc8afc-cb20-4193-bb1a-39f896f0cd9a
-  Skin: !<reference> 00000000-0000-0000-0000-000000000000
-  BlendShapesEnabled: true
-  BlendNormals: false
-  BlendShapes:
-    {}
-- !<BodyComponent/a658a6f0-aa39-475c-a912-43de8ad80404>
+- !<BodyComponent/511c5040-d880-4e66-47e4-73c31bca0aa5>
   PrefabRemaps:
     []
   Name: Physics Body
@@ -57,7 +37,24 @@
   BodySettingValue: 0.020000
   Damping: 0.500000
   AngularDamping: 0.500000
-- !<ColliderComponent/a7c99d01-1944-4cc9-9b4f-85331189c278>
+- !<SceneObject/57681c2b-66a7-4828-7aea-cfc6a7e7a5f4>
+  PrefabRemaps:
+    []
+  Name: Sphere
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 10.000000, y: 10.000000, z: 10.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> d030f2df-6be1-4cb7-672a-26a5ad757458
+    - !<own> 511c5040-d880-4e66-47e4-73c31bca0aa5
+    - !<own> 7638e1f7-f76f-4f7c-5c4c-e3313dab017e
+- !<ColliderComponent/7638e1f7-f76f-4f7c-5c4c-e3313dab017e>
   PrefabRemaps:
     []
   Name: Physics Collider
@@ -75,34 +72,28 @@
   ForceCompound: false
   Intangible: false
   ShowCollider: false
-- !<SceneObject/ddc66f6e-c1b8-46df-9f40-84e2c6390d8d>
+- !<RenderMeshVisual/d030f2df-6be1-4cb7-672a-26a5ad757458>
   PrefabRemaps:
     []
-  Name: Sphere
+  Name: Render Mesh Visual
   Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 10.000000, y: 10.000000, z: 10.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 2b860841-2c43-46a5-9ca5-349f09b20a2c
-    - !<own> a658a6f0-aa39-475c-a912-43de8ad80404
-    - !<own> a7c99d01-1944-4cc9-9b4f-85331189c278
-- !<ObjectPrefab/eef44887-fde0-4b3a-8986-a81aa98199e5>
-  PackagePath: ""
-  objects:
-    - !<own> ddc66f6e-c1b8-46df-9f40-84e2c6390d8d
-  LazyLoading: false
-  RetainAssets: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 7c02fcec-c3c7-485e-ab7b-ab75f51d3b8e
+  Mesh: !<reference> f3cc8afc-cb20-4193-bb1a-39f896f0cd9a
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
 - !<ObjectPrefabAssetData/f56b6ee1-84de-427e-86f8-060aa9b10082>
-  SourceRemaps:
-    - 511c5040-d880-4e66-b81b-8c3ce435f55a: a658a6f0-aa39-475c-a912-43de8ad80404
-    - 57681c2b-66a7-4828-8515-303958185a0b: ddc66f6e-c1b8-46df-9f40-84e2c6390d8d
-    - 7638e1f7-f76f-4f7c-a3b3-1ccec254fe81: a7c99d01-1944-4cc9-9b4f-85331189c278
-    - d030f2df-6be1-4cb7-98d5-d95a528a8ba7: 2b860841-2c43-46a5-9ca5-349f09b20a2c
-    - d20e8713-f3a9-4017-8108-e186de6e43a1: eef44887-fde0-4b3a-8986-a81aa98199e5
-  SourceState: !<own> eef44887-fde0-4b3a-8986-a81aa98199e5
+  Prototype: !<ObjectOwner/354722d9-dd8d-408a-9a11-241b3c67246d>
+    PackagePath: ""
+    objects:
+      - !<own> 57681c2b-66a7-4828-7aea-cfc6a7e7a5f4

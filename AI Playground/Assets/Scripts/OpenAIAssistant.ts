@@ -1,13 +1,13 @@
-import { AudioProcessor } from "Remote Service Gateway.lspkg/Helpers/AudioProcessor";
-import { DynamicAudioOutput } from "Remote Service Gateway.lspkg/Helpers/DynamicAudioOutput";
-import { MicrophoneRecorder } from "Remote Service Gateway.lspkg/Helpers/MicrophoneRecorder";
 import {
   OpenAI,
   OpenAIRealtimeWebsocket,
-} from "Remote Service Gateway.lspkg/HostedExternal/OpenAI";
-import { OpenAITypes } from "Remote Service Gateway.lspkg/HostedExternal/OpenAITypes";
+} from "RemoteServiceGateway.lspkg/HostedExternal/OpenAI";
 
+import { AudioProcessor } from "RemoteServiceGateway.lspkg/Helpers/AudioProcessor";
+import { DynamicAudioOutput } from "RemoteServiceGateway.lspkg/Helpers/DynamicAudioOutput";
 import Event from "SpectaclesInteractionKit.lspkg/Utils/Event";
+import { MicrophoneRecorder } from "RemoteServiceGateway.lspkg/Helpers/MicrophoneRecorder";
+import { OpenAITypes } from "RemoteServiceGateway.lspkg/HostedExternal/OpenAITypes";
 
 @component
 export class OpenAIAssistant extends BaseScriptComponent {

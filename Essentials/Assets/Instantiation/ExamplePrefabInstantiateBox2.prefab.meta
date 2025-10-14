@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> 07dd45dd-19db-4a0d-b07d-b4f49600179e
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,31 +14,7 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<ObjectPrefab/243dfa3b-29c3-4192-8193-51e3ef3cd258>
-  PackagePath: ""
-  objects:
-    - !<own> 67cdb806-3b95-431c-abb9-d7405ec14bce
-  LazyLoading: false
-  RetainAssets: true
-- !<ColliderComponent/34b445e9-9d59-4b0a-8aa3-52842dc694be>
-  PrefabRemaps:
-    []
-  Name: Physics Collider
-  Enabled: true
-  Shape: !<Box>
-    FitVisual: true
-    Size: {x: 15.000000, y: 15.000000, z: 15.000000}
-  Matter: !<reference> 00000000-0000-0000-0000-000000000000
-  Filter: !<reference> 00000000-0000-0000-0000-000000000000
-  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
-  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
-  EnableSmoothing: false
-  PositionTension: 30.000000
-  RotationTension: 30.000000
-  ForceCompound: false
-  Intangible: false
-  ShowCollider: false
-- !<SceneObject/67cdb806-3b95-431c-abb9-d7405ec14bce>
+- !<SceneObject/660fe018-89df-47d0-5aaa-fcc15f8ed137>
   PrefabRemaps:
     []
   Name: BoxInstantiate2
@@ -52,16 +28,9 @@
   Children:
     []
   Components:
-    - !<own> fb7bce54-6099-40a2-b4a2-7ce632048abe
-    - !<own> 34b445e9-9d59-4b0a-8aa3-52842dc694be
-- !<ObjectPrefabAssetData/e4883041-bf7f-47f6-9e61-64758fba7e8f>
-  SourceRemaps:
-    - 07dd45dd-19db-4a0d-b07d-b4f49600179e: 243dfa3b-29c3-4192-8193-51e3ef3cd258
-    - 660fe018-89df-47d0-a555-033ea0712ec8: 67cdb806-3b95-431c-abb9-d7405ec14bce
-    - 99bcfd45-69fd-41c7-ac91-cf4d93715e93: fb7bce54-6099-40a2-b4a2-7ce632048abe
-    - fe5ea502-65e3-4302-8a94-be8571f56ccf: 34b445e9-9d59-4b0a-8aa3-52842dc694be
-  SourceState: !<own> 243dfa3b-29c3-4192-8193-51e3ef3cd258
-- !<RenderMeshVisual/fb7bce54-6099-40a2-b4a2-7ce632048abe>
+    - !<own> 99bcfd45-69fd-41c7-536e-30b26c8ea16c
+    - !<own> fe5ea502-65e3-4302-756b-417a8e0a9330
+- !<RenderMeshVisual/99bcfd45-69fd-41c7-536e-30b26c8ea16c>
   PrefabRemaps:
     []
   Name: Render Mesh Visual
@@ -81,3 +50,26 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<ObjectPrefabAssetData/e4883041-bf7f-47f6-9e61-64758fba7e8f>
+  Prototype: !<ObjectOwner/617c39bb-3203-4ce8-b8ba-bb3d958e7c37>
+    PackagePath: ""
+    objects:
+      - !<own> 660fe018-89df-47d0-5aaa-fcc15f8ed137
+- !<ColliderComponent/fe5ea502-65e3-4302-756b-417a8e0a9330>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Box>
+    FitVisual: true
+    Size: {x: 15.000000, y: 15.000000, z: 15.000000}
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false

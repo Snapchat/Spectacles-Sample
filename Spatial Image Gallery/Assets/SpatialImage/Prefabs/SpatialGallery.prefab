@@ -207,6 +207,9 @@
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
     targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     allowMultipleInteractors: true
@@ -215,13 +218,14 @@
     acceptableYDirections: true
     acceptableZDirections: true
     useFilteredPinch: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 3.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: true
@@ -230,8 +234,6 @@
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
       useFilteredPinch: false
-      isSynced: false
-      acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
       {}
@@ -289,7 +291,45 @@
     {}
 - !<SceneObject/83dfef19-b118-4d1d-80a6-7f5a142cc652>
   PrefabRemaps:
-    []
+    - 0272ebe5-f944-440b-937d-4ec4da4b9e50: 0272ebe5-f944-440b-6c82-b13b25b461af
+    - 03007d48-fc58-47a6-aed6-5de4c6af6bef: 03007d48-fc58-47a6-5129-a21b39509410
+    - 0e1bd013-1947-4814-a271-9b7a8d4c7f7e: 0e1bd013-1947-4814-5d8e-648572b38081
+    - 1007cd10-54a7-4781-862b-21b0b31f7dff: 1007cd10-54a7-4781-79d4-de4f4ce08200
+    - 2e6b424f-da81-477c-b75e-5a01ff30c2f3: 2e6b424f-da81-477c-48a1-a5fe00cf3d0c
+    - 4749691f-b006-4cd7-8178-ce549d00b9bc: 4749691f-b006-4cd7-7e87-31ab62ff4643
+    - 482281d1-0c5b-4bd8-b71e-e65f00aa2916: 482281d1-0c5b-4bd8-48e1-19a0ff55d6e9
+    - 552c1d97-befb-4c5d-84ca-aa46e9a30932: 552c1d97-befb-4c5d-7b35-55b9165cf6cd
+    - 57d732a1-fc8c-4dfe-b8d5-aec8d479fc85: 57d732a1-fc8c-4dfe-472a-51372b86037a
+    - 6551fd15-578c-42b3-99cf-c3fb8fc16a65: 6551fd15-578c-42b3-6630-3c04703e959a
+    - 6ac3812b-d907-4e67-97ed-0533bdbcf185: 6ac3812b-d907-4e67-6812-facc42430e7a
+    - 79ceb6dd-c2f6-4262-aea0-9d4e8c4941f5: 79ceb6dd-c2f6-4262-515f-62b173b6be0a
+    - 80c500ea-f687-46de-8d57-dab832020e0a: 80c500ea-f687-46de-72a8-2547cdfdf1f5
+    - 83dfef19-b118-4d1d-80a6-7f5a142cc652: 83dfef19-b118-4d1d-7f59-80a5ebd339ad
+    - 8488ff98-413b-477f-9ab6-d34551332bf6: 8488ff98-413b-477f-6549-2cbaaeccd409
+    - 84affbc6-6ce2-4f11-8772-3087e251f0e9: 84affbc6-6ce2-4f11-788d-cf781dae0f16
+    - 87113806-fe31-488c-b746-2a5a980dffca: 87113806-fe31-488c-48b9-d5a567f20035
+    - 8953a246-7de9-4808-b495-a33ca1d671a1: 8953a246-7de9-4808-4b6a-5cc35e298e5e
+    - 97a93722-392f-4f4e-bf30-d84337fcbe68: 97a93722-392f-4f4e-40cf-27bcc8034197
+    - a4d56939-dd66-437b-9cc9-53f6728c2040: a4d56939-dd66-437b-6336-ac098d73dfbf
+    - a72fa16f-7224-4b5e-980a-e9f6f0702a0b: a72fa16f-7224-4b5e-67f5-16090f8fd5f4
+    - bf880b5f-da1e-43b2-8ac4-d34aad548bf9: bf880b5f-da1e-43b2-753b-2cb552ab7406
+    - bfd438e1-9106-4efb-8dd2-10b956bd65dc: bfd438e1-9106-4efb-722d-ef46a9429a23
+    - c9d46289-8222-4e8f-9319-b6201f634ba7: c9d46289-8222-4e8f-6ce6-49dfe09cb458
+    - cb4ec7e0-5100-43d4-aad9-ec69d9877e3b: cb4ec7e0-5100-43d4-5526-1396267881c4
+    - ce3548e3-7122-4c89-a665-fda671d256bd: ce3548e3-7122-4c89-599a-02598e2da942
+    - cfb883c4-ce57-4de5-8fe1-57386840c21f: cfb883c4-ce57-4de5-701e-a8c797bf3de0
+    - d64149c1-ca19-414c-8e23-1d9204e1f8c0: d64149c1-ca19-414c-71dc-e26dfb1e073f
+    - de129c88-bd6d-4583-aa5c-96024cd98f58: de129c88-bd6d-4583-55a3-69fdb32670a7
+    - e2930fc9-dd33-423a-a66f-4ae5bf028434: e2930fc9-dd33-423a-5990-b51a40fd7bcb
+    - e7e33703-fc12-48e3-831b-567504d54a52: e7e33703-fc12-48e3-7ce4-a98afb2ab5ad
+    - eb1731ea-3d10-4e35-b47c-6145d375b22f: eb1731ea-3d10-4e35-4b83-9eba2c8a4dd0
+    - f019f8a0-8593-46ed-9fe2-ff6dcd133d81: f019f8a0-8593-46ed-601d-009232ecc27e
+    - f1dc64ae-983b-4242-867e-50b911c2eae9: f1dc64ae-983b-4242-7981-af46ee3d1516
+    - f4184b3b-b03b-4c04-b309-7efb38b04a6e: f4184b3b-b03b-4c04-4cf6-8104c74fb591
+    - f669d9e1-e22d-45d6-be35-a7f873c982cc: f669d9e1-e22d-45d6-41ca-58078c367d33
+    - f745ae5f-e4fe-4fee-bda8-2958f12bbb5b: f745ae5f-e4fe-4fee-4257-d6a70ed444a4
+    - f8ac664d-2e43-4f80-aa71-38ddbdbe59b3: f8ac664d-2e43-4f80-558e-c7224241a64c
+    - fc004588-c7f7-4911-b81c-df99d5ae4213: fc004588-c7f7-4911-47e3-20662a51bdec
   Name: SpatialGallery
   Enabled: true
   Layers: 1
@@ -390,6 +430,8 @@
     worldSnapping: true
     showFollowButton: true
     _enableInteractionPlane: true
+    _targetingVisual: true
+    isSynced: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -419,6 +461,8 @@
       isFollowing: true
       showCloseButton: false
       _enableInteractionPlane: false
+      _targetingVisual: !<float> 1.000000
+      isSynced: false
   ScriptTypes:
     "":
       {}
@@ -543,7 +587,7 @@
       shuffle: true
   ScriptTypes:
     "":
-      SpatialImage: !<reference.ScriptAsset> 0befc8a4-0849-4e52-8f02-ac717484d5db
+      SpatialImage: !<reference.ScriptAsset> e436ba89-4c78-4f4d-bf1d-a2865c4cf8a0
 - !<ScriptComponent/c9d46289-8222-4e8f-9319-b6201f634ba7>
   PrefabRemaps:
     []
@@ -732,15 +776,18 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -751,6 +798,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -762,6 +810,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -861,6 +910,9 @@
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
     targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     allowMultipleInteractors: true
@@ -869,13 +921,14 @@
     acceptableYDirections: true
     acceptableZDirections: true
     useFilteredPinch: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 3.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: true
@@ -884,8 +937,6 @@
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
       useFilteredPinch: false
-      isSynced: false
-      acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
       {}
@@ -919,15 +970,18 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -938,6 +992,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -949,6 +1004,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth

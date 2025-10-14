@@ -1,0 +1,91 @@
+// Setup type definitions for built-in Supabase Runtime APIs
+import "jsr:@supabase/functions-js/edge-runtime.d.ts";
+import { createClient } from 'jsr:@supabase/supabase-js@2';
+Deno.serve(async (req)=>{
+  try {
+    // Handle CORS preflight
+    if (req.method === 'OPTIONS') {
+      return new Response('ok', {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'POST, OPTIONS',
+          'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type'
+        }
+      });
+    }
+    // Get imageUrl from request
+    const { imageUrl } = await req.json();
+    console.log(`Processing image from: ${imageUrl}`);
+    if (!imageUrl) {
+      throw new Error('imageUrl is required');
+    }
+    // Download the image
+    console.log('Downloading image...');
+    const imageResponse = await fetch(imageUrl);
+    if (!imageResponse.ok) {
+      throw new Error(`Failed to download image: ${imageResponse.status}`);
+    }
+    const imageBytes = await imageResponse.arrayBuffer();
+    const originalSize = imageBytes.byteLength;
+    console.log(`Downloaded ${originalSize} bytes`);
+    // For now, just re-upload without heavy processing to test the flow
+    const processedImageBytes = new Uint8Array(imageBytes);
+    console.log('Uploading image to Storage...');
+    // Upload to Supabase Storage
+    const supabaseUrl = Deno.env.get('SUPABASE_URL');
+    const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
+    const supabase = createClient(supabaseUrl, supabaseKey);
+    // Generate unique filename - store in images folder like SupabaseAssetLoader
+    const timestamp = Date.now();
+    const filename = `images/processed_${timestamp}.jpg`;
+    const bucketName = 'specs-bucket'; // Your existing bucket
+    // Upload to storage
+    const { data: uploadData, error: uploadError } = await supabase.storage.from(bucketName).upload(filename, processedImageBytes, {
+      contentType: 'image/jpeg',
+      upsert: false
+    });
+    if (uploadError) {
+      console.error('Upload error:', uploadError);
+      throw new Error(`Failed to upload: ${uploadError.message}`);
+    }
+    console.log('Upload successful:', uploadData);
+    // Get public URL - same format as SupabaseAssetLoader retrieves
+    const { data: urlData } = supabase.storage.from(bucketName).getPublicUrl(filename);
+    const processedImageUrl = urlData.publicUrl;
+    console.log('Processed image URL:', processedImageUrl);
+    // Return success response with URL
+    const result = {
+      success: true,
+      message: "Image stored successfully",
+      originalUrl: imageUrl,
+      processedUrl: processedImageUrl,
+      originalSize: originalSize,
+      processedSize: processedImageBytes.byteLength,
+      operations: [
+        "downloaded",
+        "stored"
+      ],
+      storagePath: `${bucketName}/${filename}`,
+      timestamp: new Date().toISOString()
+    };
+    return new Response(JSON.stringify(result), {
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    });
+  } catch (error) {
+    console.error('Edge Function Error:', error);
+    return new Response(JSON.stringify({
+      success: false,
+      error: error.message,
+      timestamp: new Date().toISOString()
+    }), {
+      status: 500,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    });
+  }
+});

@@ -1,7 +1,7 @@
-import { GeminiTypes } from "Remote Service Gateway.lspkg/HostedExternal/GeminiTypes";
+import { GeminiTypes } from "RemoteServiceGateway.lspkg/HostedExternal/GeminiTypes";
 import { BoardData } from "./ChessPiece";
 
-import { Gemini } from "Remote Service Gateway.lspkg/HostedExternal/Gemini";
+import { Gemini } from "RemoteServiceGateway.lspkg/HostedExternal/Gemini";
 
 export type FenResult = { ok: boolean; correctedFen?: string; error?: string };
 

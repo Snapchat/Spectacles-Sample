@@ -21,8 +21,8 @@ Get started using our [Design Guidelines](https://developers.snap.com/spectacles
 
 ## Prerequisites
 
-- **Lens Studio**: v5.12.1+
-- **Spectacles OS Version**: v5.63+ (based on Lens Studio v5.12.1. You can reference this webpage to find the matching version: https://ar.snap.com/download)
+- **Lens Studio**: v5.15.0+
+- **Spectacles OS Version**: v5.64+
 - **Compatible Bluetooth Game Controller**: Out of the box, it supports Xbox Controller and SteelSeries Controller which have BLE HID support
 
 To update your Spectacles device and mobile app, refer to this [guide](https://support.spectacles.com/hc/en-us/articles/30214953982740-Updating).
@@ -182,3 +182,8 @@ If you have any questions or need assistance, please don't hesitate to reach out
 ## Contributing
 
 Feel free to provide improvements or suggestions or directly contributing via merge request. By sharing insights, you help everyone else build better Lenses.
+
+---
+
+*Built with 👻 by the Spectacles team*
+ 

@@ -10,7 +10,7 @@
   ImporterName: GltfImporter
   PrimaryAsset: !<reference> 037b6525-f836-4bea-8bd4-8b1d84b60f05
   PackageType: LegacyPackage
-  PackagePolicy: CanBeUnpackedTransparent
+  LegacyPackagePolicy: CanBeUnpackedTransparent
   ExtraData:
     {}
   AssetDataMap:
@@ -38,7 +38,27 @@
       mesh: None Compression
     Overrides:
       {}
-- !<SceneObject/000d0f25-e27e-43c8-a0e7-06dffe88e4a7>
+- !<SceneObject/24bcd32e-4185-4219-52ca-a9e350f12e29>
+  PrefabRemaps:
+    []
+  Name: Cylinder
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> d59401cb-3f75-4d05-4890-12fffa235726
+- !<ObjectPrefabAssetData/2ede55dd-7e05-454f-9e46-d7908f3378d1>
+  Prototype: !<ObjectOwner/54f0d24a-deda-4ada-97ea-0bac89d170d2>
+    PackagePath: ""
+    objects:
+      - !<own> ce0c516c-3f20-4ed8-5847-01d97205f70e
+- !<SceneObject/a00afb55-37f9-467a-5dd9-5f0d8a58955c>
   PrefabRemaps:
     []
   Name: Scene
@@ -50,34 +70,10 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    - !<own> 4217d775-2bcf-4c5c-9fbe-1f6734c3f919
+    - !<own> 24bcd32e-4185-4219-52ca-a9e350f12e29
   Components:
     []
-- !<SceneObject/270dc9e8-1416-4c04-bfc6-19d70e8e0cc2>
-  PrefabRemaps:
-    []
-  Name: Cylinder
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 100.000000, y: 100.000000, z: 100.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> 3a9efaa1-b98c-49a4-99d3-f7288f21e83a
-  Components:
-    []
-- !<ObjectPrefabAssetData/2ede55dd-7e05-454f-9e46-d7908f3378d1>
-  SourceRemaps:
-    - 037b6525-f836-4bea-8bd4-8b1d84b60f05: dbc24b1b-56ba-4e74-9e38-4d1fda459e2a
-    - 24bcd32e-4185-4219-ad35-561caf0ed1d6: 4217d775-2bcf-4c5c-9fbe-1f6734c3f919
-    - a00afb55-37f9-467a-a226-a0f275a76aa3: 000d0f25-e27e-43c8-a0e7-06dffe88e4a7
-    - a4d8d78a-6afb-4aba-b123-b8ad25deb9bb: 3a9efaa1-b98c-49a4-99d3-f7288f21e83a
-    - ce0c516c-3f20-4ed8-a7b8-fe268dfa08f1: 270dc9e8-1416-4c04-bfc6-19d70e8e0cc2
-    - d59401cb-3f75-4d05-b76f-ed0005dca8d9: af1b1f67-396e-4fd1-b018-36ff003a0b63
-  SourceState: !<own> dbc24b1b-56ba-4e74-9e38-4d1fda459e2a
-- !<SceneObject/3a9efaa1-b98c-49a4-99d3-f7288f21e83a>
+- !<SceneObject/a4d8d78a-6afb-4aba-4edc-4752da214644>
   PrefabRemaps:
     []
   Name: Scenes
@@ -89,10 +85,10 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    - !<own> 000d0f25-e27e-43c8-a0e7-06dffe88e4a7
+    - !<own> a00afb55-37f9-467a-5dd9-5f0d8a58955c
   Components:
     []
-- !<SceneObject/4217d775-2bcf-4c5c-9fbe-1f6734c3f919>
+- !<SceneObject/ce0c516c-3f20-4ed8-5847-01d97205f70e>
   PrefabRemaps:
     []
   Name: Cylinder
@@ -101,13 +97,13 @@
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    Scale: {x: 100.000000, y: 100.000000, z: 100.000000}
     HasSegmentScaleCompensation: false
   Children:
-    []
+    - !<own> a4d8d78a-6afb-4aba-4edc-4752da214644
   Components:
-    - !<own> af1b1f67-396e-4fd1-b018-36ff003a0b63
-- !<RenderMeshVisual/af1b1f67-396e-4fd1-b018-36ff003a0b63>
+    []
+- !<RenderMeshVisual/d59401cb-3f75-4d05-4890-12fffa235726>
   PrefabRemaps:
     []
   Name: Cylinder
@@ -127,9 +123,3 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<ObjectPrefab/dbc24b1b-56ba-4e74-9e38-4d1fda459e2a>
-  PackagePath: ""
-  objects:
-    - !<own> 270dc9e8-1416-4c04-bfc6-19d70e8e0cc2
-  LazyLoading: false
-  RetainAssets: true

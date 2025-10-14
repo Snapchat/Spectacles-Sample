@@ -30,6 +30,7 @@
     _enableZTranslation: true
     showRotationProperties: true
     _rotationAxis: true
+    isSynced: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -55,6 +56,7 @@
       _enableZTranslation: true
       showRotationProperties: false
       _rotationAxis: All
+      isSynced: false
   ScriptTypes:
     "":
       {}
@@ -130,6 +132,9 @@
   Enabled: true
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     allowMultipleInteractors: true
@@ -138,13 +143,14 @@
     acceptableYDirections: true
     acceptableZDirections: true
     useFilteredPinch: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 1.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: true
@@ -153,8 +159,6 @@
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
       useFilteredPinch: false
-      isSynced: false
-      acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
       {}
@@ -364,7 +368,29 @@
     {}
 - !<SceneObject/c85a5864-6bd5-4be7-b413-7a0f3a537b5d>
   PrefabRemaps:
-    []
+    - 0039b6f1-e80a-4596-b987-5997d12e0500: 0039b6f1-e80a-4596-4678-a6682ed1faff
+    - 041363d5-7cc7-4339-ad8c-6b48a81f16b0: 041363d5-7cc7-4339-5273-94b757e0e94f
+    - 0d0298cb-e5cf-4a07-9f6b-e84272775162: 0d0298cb-e5cf-4a07-6094-17bd8d88ae9d
+    - 189fcf07-e60a-40b8-80f8-d15d9841eeed: 189fcf07-e60a-40b8-7f07-2ea267be1112
+    - 2dd546f3-5bc1-4276-9eb0-70ecb70a28da: 2dd546f3-5bc1-4276-614f-8f1348f5d725
+    - 2f65008b-7236-41bd-94bd-0335019c1439: 2f65008b-7236-41bd-6b42-fccafe63ebc6
+    - 32bbee96-80cd-454e-b2b8-cc52f700597a: 32bbee96-80cd-454e-4d47-33ad08ffa685
+    - 346e88b4-5910-4434-9264-0cb225cd09e8: 346e88b4-5910-4434-6d9b-f34dda32f617
+    - 4bf46970-bb75-43f0-bdd8-9d3040dcbe30: 4bf46970-bb75-43f0-4227-62cfbf2341cf
+    - 4f7f703e-f7cd-4de0-80c8-0e36de284874: 4f7f703e-f7cd-4de0-7f37-f1c921d7b78b
+    - 57f8e4d1-f5b0-46d5-bfaf-bf3fb072f3ca: 57f8e4d1-f5b0-46d5-4050-40c04f8d0c35
+    - 6f33d08d-d31e-40a3-ab92-da381168a732: 6f33d08d-d31e-40a3-546d-25c7ee9758cd
+    - 8f1acdd4-fc0d-4d40-8f1a-131548efa459: 8f1acdd4-fc0d-4d40-70e5-eceab7105ba6
+    - a032e87d-1dad-4ad6-92c0-7edf88296e0f: a032e87d-1dad-4ad6-6d3f-812077d691f0
+    - ba6be052-fb1b-4978-85ec-5e723d8320ea: ba6be052-fb1b-4978-7a13-a18dc27cdf15
+    - bc8c903e-da65-497b-a368-c24b8e1557d1: bc8c903e-da65-497b-5c97-3db471eaa82e
+    - c85a5864-6bd5-4be7-b413-7a0f3a537b5d: c85a5864-6bd5-4be7-4bec-85f0c5ac84a2
+    - c87b2d14-6550-482f-ba97-7b04184dc911: c87b2d14-6550-482f-4568-84fbe7b236ee
+    - cbbb4225-2af8-40ca-96fa-02a2ca19c377: cbbb4225-2af8-40ca-6905-fd5d35e63c88
+    - dd1fe3bd-315a-446e-96a1-defb964012d7: dd1fe3bd-315a-446e-695e-210469bfed28
+    - e2cfcea4-2b21-44c0-b657-986c568dce13: e2cfcea4-2b21-44c0-49a8-6793a97231ec
+    - e32f7454-8b87-46a6-9994-ae1cd61195ee: e32f7454-8b87-46a6-666b-51e329ee6a11
+    - e90b4adb-efb3-4c72-8315-22a8b57d1771: e90b4adb-efb3-4c72-7cea-dd574a82e88e
   Name: DartNew
   Enabled: true
   Layers: 1

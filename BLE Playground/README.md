@@ -104,10 +104,10 @@ Get started using our [Design Guidelines](https://developers.snap.com/spectacles
 
 ## Prerequisites
 
-- **Lens Studio**: v5.9.0+
-- **Spectacles OS Version**: v5.61.371+
-- **Spectacles App iOS**: v0.61.1.0+
-- **Spectacles App Android**: v0.61.1.1+
+- **Lens Studio**: v5.15.0+
+- **Spectacles OS Version**: v5.64+
+- **Spectacles App iOS**: v0.64+
+- **Spectacles App Android**: v0.64+
 
 To update your Spectacles device and mobile app, please refer to this [guide](https://support.spectacles.com/hc/en-us/articles/30214953982740-Updating).
 
@@ -311,6 +311,10 @@ If you have any questions or need assistance, please don't hesitate to reach out
 
 Feel free to provide improvements or suggestions or directly contributing via merge request. By sharing insights, you help everyone else build better BLE-enabled Lenses.
 
+---
+
+*Built with 👻 by the Spectacles team*
+
 ## Supported Peripherals
 
 ### Heart Rate Monitors
@@ -350,3 +354,4 @@ If you are having trouble writing to hue bulb, you can try resetting bulb via Po
   - Select Connect 
   - In the next screen, make sure all four fields are selected, including “2 Bluetooth devices”.  This enables your band to be connected to your phone and spectacles at the same time. 
 If you’re still having trouble connecting, you may need to [reset your device](https://www.youtube.com/watch?v=wFvB8MUy9Z4)
+ 

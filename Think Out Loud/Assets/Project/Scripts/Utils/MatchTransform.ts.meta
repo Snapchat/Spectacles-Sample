@@ -1,0 +1,62 @@
+- !<AssetImportMetadata/3a33ae0a-2284-4d56-a876-818797beffdf>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> c3ba189a-f433-43e7-ab09-244dc61b8d16
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> c3ba189a-f433-43e7-ab09-244dc61b8d16
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 65c5fa78-d7d8-4b33-a948-cd3ff5c7d0bd
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/65c5fa78-d7d8-4b33-a948-cd3ff5c7d0bd>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 0abf8f45-84ba-49a5-a7ad-e98a291e15df
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    matchRotation: false
+    matchScale: false
+    positionLerpSpeed: false
+    positionOffset: false
+    rotationLerpSpeed: false
+    usePositionLerp: false
+    useRotationLerp: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - positionOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      usePositionLerp: true
+      positionLerpSpeed: !<float> 8.000000
+      useRotationLerp: true
+      rotationLerpSpeed: !<float> 6.000000
+      matchRotation: true
+      matchScale: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - "// @input vec3 positionOffset = {0,0,0} {\"hint\":\"Position offset relative to the target's position\"}"
+    - '// @input bool usePositionLerp = true {"hint":"Use lerping for smooth position transitions"}'
+    - "// @input float positionLerpSpeed = 8 {\"hint\":\"Speed for moving towards the target's position (when lerping is enabled)\", \"widget\":\"slider\", \"min\":0.1, \"max\":20, \"step\":0.1}"
+    - '// @input bool useRotationLerp = true {"hint":"Use lerping for smooth rotation transitions"}'
+    - "// @input float rotationLerpSpeed = 6 {\"hint\":\"Speed for rotating towards the target's rotation (when lerping is enabled)\", \"widget\":\"slider\", \"min\":0.1, \"max\":20, \"step\":0.1}"
+    - "// @input bool matchRotation = true {\"hint\":\"Whether to match the target's rotation\"}"
+    - "// @input bool matchScale {\"hint\":\"Whether to match the target's scale\"}"

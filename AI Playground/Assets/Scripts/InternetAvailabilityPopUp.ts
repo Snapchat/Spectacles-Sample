@@ -1,5 +1,4 @@
-import { LSTween } from "LSTween.lspkg/LSTween";
-import Easing from "LSTween.lspkg/TweenJS/Easing";
+import animate from "SpectaclesInteractionKit.lspkg/Utils/animate";
 
 @component
 export class InternetAvailabilityPopUp extends BaseScriptComponent {
@@ -14,24 +13,36 @@ export class InternetAvailabilityPopUp extends BaseScriptComponent {
 
   isInternetAvailable = (bool: boolean, timeOverride = 300) => {
     if (bool) {
-      LSTween.scaleToLocal(
-        this.popup.getChild(0).getTransform(),
-        vec3.one().uniformScale(0.01),
-        timeOverride
-      )
-        .easing(Easing.Cubic.Out)
-        .onComplete(() => {
+      const tr = this.popup.getChild(0).getTransform();
+      const start = tr.getLocalScale();
+      const end = vec3.one().uniformScale(0.01);
+      animate({
+        duration: (timeOverride ?? 300) / 1000,
+        easing: "ease-out-cubic",
+        update: (t) => {
+          const x = start.x + (end.x - start.x) * t;
+          const y = start.y + (end.y - start.y) * t;
+          const z = start.z + (end.z - start.z) * t;
+          tr.setLocalScale(new vec3(x, y, z));
+        },
+        ended: () => {
           this.popup.enabled = false;
-        })
-        .start();
+        },
+      });
     } else {
-      LSTween.scaleToLocal(
-        this.popup.getChild(0).getTransform(),
-        vec3.one(),
-        timeOverride
-      )
-        .easing(Easing.Cubic.In)
-        .start();
+      const tr = this.popup.getChild(0).getTransform();
+      const start = tr.getLocalScale();
+      const end = vec3.one();
+      animate({
+        duration: (timeOverride ?? 300) / 1000,
+        easing: "ease-in-cubic",
+        update: (t) => {
+          const x = start.x + (end.x - start.x) * t;
+          const y = start.y + (end.y - start.y) * t;
+          const z = start.z + (end.z - start.z) * t;
+          tr.setLocalScale(new vec3(x, y, z));
+        },
+      });
       this.popup.enabled = true;
     }
   };

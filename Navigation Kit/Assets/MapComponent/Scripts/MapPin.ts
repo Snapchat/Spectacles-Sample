@@ -166,14 +166,18 @@ export class MapPin {
     if (this.outlineTransform === undefined) {
       return
     }
-    if (this.tweenCancelFunction !== undefined) {
+    if (!isNull(this.tweenCancelFunction)) {
       this.tweenCancelFunction()
-      this.tweenCancelFunction = undefined
+      this.tweenCancelFunction = null
     }
 
     this.enableOutline(true)
 
     this.tweenCancelFunction = makeTween((t) => {
+      if (isNull(this.outlineTransform) || isNull(this.selectedTransform)) {
+        return
+      }
+
       const easeOutNumber = easeOutElastic(t)
       this.outlineTransform.setLocalScale(new vec3(easeOutNumber, easeOutNumber, easeOutNumber))
       this.selectedTransform.setLocalScale(new vec3(easeOutNumber, easeOutNumber, easeOutNumber))

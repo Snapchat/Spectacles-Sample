@@ -1,0 +1,110 @@
+- !<ObjectPrefab/a5f9c530-8996-4389-b3c9-233f1b973b71>
+  PackagePath: ""
+  objects:
+    - !<own> bc9c18b4-ca36-40db-8448-ea475c0514fd
+  LazyLoading: false
+  RetainAssets: true
+- !<RenderMeshVisual/47aa4e41-f966-4863-a420-cbcdca97e7ba>
+  PrefabRemaps:
+    []
+  Name: component_29
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 200925ca-964e-4fd3-beb1-48ea4c6fa4f2
+  Mesh: !<reference> ed3a5635-2b50-48ca-b9f6-ec7789efdbd4
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/6d36f577-f588-4434-bca6-6eb1d3899f13>
+  PrefabRemaps:
+    []
+  Name: Platonic
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.060000, y: 0.060000, z: 0.060000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 47aa4e41-f966-4863-a420-cbcdca97e7ba
+- !<ScriptComponent/724b33d5-2aea-4a56-b714-0cb4dc377131>
+  PrefabRemaps:
+    []
+  Name: MatchTransform
+  Enabled: true
+  ScriptAsset: !<reference> c3ba189a-f433-43e7-ab09-244dc61b8d16
+  ScriptInputsDefault:
+    positionOffset: true
+    usePositionLerp: true
+    positionLerpSpeed: true
+    useRotationLerp: true
+    rotationLerpSpeed: true
+    matchRotation: true
+    matchScale: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      positionOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      usePositionLerp: true
+      positionLerpSpeed: !<float> 8.000000
+      useRotationLerp: true
+      rotationLerpSpeed: !<float> 6.000000
+      matchRotation: true
+      matchScale: false
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/757dbb4a-a533-44b3-8f51-b6c7eb468c7f>
+  PrefabRemaps:
+    []
+  Name: AnimationTimer
+  Enabled: true
+  ScriptAsset: !<reference> a7faefb7-cb88-47e2-a459-fbad87645e70
+  ScriptInputsDefault:
+    minRotation: true
+    maxRotation: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      minRotation: !<Vec3> {x: -45.000000, y: -45.000000, z: -45.000000}
+      maxRotation: !<Vec3> {x: 45.000000, y: 45.000000, z: 45.000000}
+      minScale: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      maxScale: !<Vec3> {x: 1.000000, y: 1.000000, z: 1.000000}
+      animationTime: !<float> 2.000000
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/bc9c18b4-ca36-40db-8448-ea475c0514fd>
+  PrefabRemaps:
+    - 47aa4e41-f966-4863-a420-cbcdca97e7ba: 47aa4e41-f966-4863-5bdf-343235681845
+    - 6d36f577-f588-4434-bca6-6eb1d3899f13: 6d36f577-f588-4434-4359-914e2c7660ec
+    - 724b33d5-2aea-4a56-b714-0cb4dc377131: 724b33d5-2aea-4a56-48eb-f34b23c88ece
+    - 757dbb4a-a533-44b3-8f51-b6c7eb468c7f: 757dbb4a-a533-44b3-70ae-493814b97380
+    - bc9c18b4-ca36-40db-8448-ea475c0514fd: bc9c18b4-ca36-40db-7bb7-15b8a3faeb02
+  Name: Timer
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 6d36f577-f588-4434-bca6-6eb1d3899f13
+  Components:
+    - !<own> 757dbb4a-a533-44b3-8f51-b6c7eb468c7f
+    - !<own> 724b33d5-2aea-4a56-b714-0cb4dc377131

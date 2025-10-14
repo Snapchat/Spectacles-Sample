@@ -32,7 +32,7 @@ const TEXTURE_SIZE = 512;
 const MAX_LATITUDE = 85.05112878;
 const MAX_LONGITUDE = -180;
 
-const NEARBY_PLACES_RANGE = 100;
+const NEARBY_PLACES_COUNT = 10;
 
 const CENTER_MAP_TWEEN_DURATION = 0.5;
 
@@ -461,18 +461,7 @@ export class MapController extends BaseScriptComponent {
   }
 
   private setPinLocation(pin: MapPin, adjustedAnchoredPosition: vec2) {
-    const offset = this.gridView
-      .getOffset()
-      .sub(this.offsetForLocation)
-      .sub(new vec2(0.5, 0.5));
-    const location: GeoPosition = this.fromLocalPositionToLongLat(
-      new vec2(
-        adjustedAnchoredPosition.x - offset.x,
-        adjustedAnchoredPosition.y + offset.y
-      ),
-      this.mapParameters.zoomLevel
-    );
-    pin.location = location;
+    pin.location = this.getLocationFromLocalPosition(adjustedAnchoredPosition);
     this.pinOffsetter.bindScreenTransformToLocation(
       pin.screenTransform,
       pin.location.longitude,
@@ -481,6 +470,22 @@ export class MapController extends BaseScriptComponent {
     pin.location.altitude = this.userLocation.altitude;
 
     this.onMapPinAddedEvent.invoke(pin);
+  }
+
+  private getLocationFromLocalPosition(localPosition: vec2): GeoPosition {
+    const offset = this.gridView
+      .getOffset()
+      .sub(this.offsetForLocation)
+      .sub(new vec2(0.5, 0.5));
+
+    const location: GeoPosition = this.fromLocalPositionToLongLat(
+      new vec2(
+        localPosition.x - offset.x,
+        localPosition.y + offset.y
+      ),
+      this.mapParameters.zoomLevel
+    );
+    return location;
   }
 
   private fromLocalPositionToLongLat(
@@ -750,6 +755,9 @@ export class MapController extends BaseScriptComponent {
       this.draggingPin.screenTransform.anchors.setCenter(
         adjustedAnchoredPosition
       );
+
+      const location = this.getLocationFromLocalPosition(adjustedAnchoredPosition.uniformScale(0.5));
+      this.draggingPin.location = location;
     } else {
       this.gridView.handleScrollUpdate(localPosition);
     }
@@ -764,11 +772,12 @@ export class MapController extends BaseScriptComponent {
       const adjustedAnchoredPosition =
         this.getPositionWithMapRotationOffset(localPosition);
       log.i(`handleTouchEnd at: ${adjustedAnchoredPosition}`);
-
-      this.setPinLocation(
-        this.draggingPin,
-        adjustedAnchoredPosition.uniformScale(0.5)
+      this.pinOffsetter.bindScreenTransformToLocation(
+        this.draggingPin.screenTransform,
+        this.draggingPin.location.longitude,
+        this.draggingPin.location.latitude
       );
+      this.draggingPin.location.altitude = this.userLocation.altitude;
 
       this.hoveringPinSet.add(this.draggingPin);
       this.draggingPin.sceneObject.getChild(0).enabled = true;
@@ -1100,7 +1109,7 @@ export class MapController extends BaseScriptComponent {
 
   showNearbyPlaces(category: string[]): void {
     this.placesProvider
-      .getNearbyPlaces(this.mapLocation, NEARBY_PLACES_RANGE, category)
+      .getNearbyPlaces(this.mapLocation, NEARBY_PLACES_COUNT, category)
       .then((places) => {
         if (places.length === 0) {
           this.onNoNearbyPlacesFoundEvent.invoke();
@@ -1118,6 +1127,9 @@ export class MapController extends BaseScriptComponent {
           .getPlacesInfo(places)
           .then((placesInfo: PlaceInfo[]) => {
             for (let i = 0; i < placesInfo.length; i++) {
+              if (placesInfo[i] === null) {
+                continue;
+              }
               // Check if the place is already pinned
               if (!this.pinnedPlaceSet.has(placesInfo[i].placeId)) {
                 this.createMapPin(placesInfo[i].centroid, placesInfo[i]);

@@ -1,5 +1,5 @@
-import { Gemini } from "Remote Service Gateway.lspkg/HostedExternal/Gemini";
-import { GeminiTypes } from "Remote Service Gateway.lspkg/HostedExternal/GeminiTypes";
+import { Gemini } from "RemoteServiceGateway.lspkg/HostedExternal/Gemini";
+import { GeminiTypes } from "RemoteServiceGateway.lspkg/HostedExternal/GeminiTypes";
 
 //const GEMINI_MODEL = "gemini-2.5-flash-preview-04-17";
 //const GEMINI_MODEL = "gemini-2.5-flash-preview-05-20";

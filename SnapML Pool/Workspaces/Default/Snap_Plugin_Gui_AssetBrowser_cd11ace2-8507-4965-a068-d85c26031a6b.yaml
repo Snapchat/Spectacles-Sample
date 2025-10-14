@@ -1,10 +1,11 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 425
+    size: 441
     values:
-      - Echopark.hdr
+      - ""
       - Materials
+      - Models
       - Models/PoolML6.onnx
       - Physics
       - Prefabs
@@ -13,6 +14,8 @@ CollapsedEntities:
       - Prefabs/PoolTable/Materials
       - Prefabs/PoolTable/Meshes
       - Prefabs/PoolTable/Textures
+      - Rendering
+      - Rendering/Echopark.hdr
       - Scripts
       - Scripts/CameraService.ts
       - Scripts/ML
@@ -65,6 +68,7 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/Assets/Materials/PlatformUI/ToggleButtonToggledHover.mat
       - SpectaclesInteractionKit.lspkg/Assets/Materials/PlatformUI/ToggleButtonToggledIdle.mat
       - SpectaclesInteractionKit.lspkg/Assets/Materials/PlatformUI/ToggleButtonToggledPinched.mat
+      - SpectaclesInteractionKit.lspkg/Assets/Materials/RayMaterial.mat
       - SpectaclesInteractionKit.lspkg/Assets/Materials/ScaleBasedTargetOutline.mat
       - SpectaclesInteractionKit.lspkg/Assets/Materials/ScrollBarButton.mat
       - SpectaclesInteractionKit.lspkg/Assets/Materials/ScrollBarSlider.mat
@@ -82,6 +86,7 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/ButtonCapsuleMesh.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/ButtonSphereMesh.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/Check.mesh
+      - SpectaclesInteractionKit.lspkg/Assets/Meshes/ImageMaterial.mat
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/LeftHandMeshFull.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/LeftHandMeshIndexThumb.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/LeftHandMeshPin.mesh
@@ -94,6 +99,7 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/PlatformUI/ScrollBarKnobMesh.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/PlatformUI/ScrollBarMesh.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/PlatformUI/Slider.mesh
+      - SpectaclesInteractionKit.lspkg/Assets/Meshes/RayMesh.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/RightHandMeshFull.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/RightHandMeshIndexThumb.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/RightHandMeshPin.mesh
@@ -133,6 +139,7 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/Assets/Shaders/PlatformUI/Slider_Platform.ss_graph
       - SpectaclesInteractionKit.lspkg/Assets/Shaders/PlatformUI/StateButtonToggledHover.ss_graph
       - SpectaclesInteractionKit.lspkg/Assets/Shaders/PlatformUI/StateButtonToggledPinched.ss_graph
+      - SpectaclesInteractionKit.lspkg/Assets/Shaders/RayShader.ss_graph
       - SpectaclesInteractionKit.lspkg/Assets/Shaders/ScaleBasedTargetOutline.ss_graph
       - SpectaclesInteractionKit.lspkg/Assets/Shaders/ScrollBarSlider.ss_graph
       - SpectaclesInteractionKit.lspkg/Assets/Shaders/SliderShaders
@@ -208,10 +215,12 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractionPlane/InteractionPlane.ts
       - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorCursor
       - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorCursor/CircleVisual.ts
+      - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorCursor/CircleVisualV2.ts
       - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorCursor/Cursor.mat
       - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorCursor/CursorController.ts
       - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorCursor/CursorMat.ss_graph
       - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorCursor/CursorViewModel.ts
+      - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorCursor/CursorViewModelV2.ts
       - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorCursor/InteractorCursor.ts
       - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorCursor/ManipulateLineMat.ss_graph
       - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorCursor/ManipulateLineMaterial.mat
@@ -225,6 +234,8 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorLineVisual/InteractorLineMaterial.mat
       - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorLineVisual/InteractorLineRenderer.ts
       - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorLineVisual/InteractorLineVisual.ts
+      - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorRayVisual
+      - SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorRayVisual/InteractorRayVisual.ts
       - SpectaclesInteractionKit.lspkg/Components/UI
       - SpectaclesInteractionKit.lspkg/Components/UI/ContainerFrame
       - SpectaclesInteractionKit.lspkg/Components/UI/ContainerFrame/ContainerFrame.ts
@@ -331,6 +342,10 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/Core/MobileInteractor/MobileInteractor.ts
       - SpectaclesInteractionKit.lspkg/Core/MouseInteractor
       - SpectaclesInteractionKit.lspkg/Core/MouseInteractor/MouseInteractor.ts
+      - SpectaclesInteractionKit.lspkg/Core/SyncInteractionManager
+      - SpectaclesInteractionKit.lspkg/Core/SyncInteractionManager/SyncInteractionManager.ts
+      - SpectaclesInteractionKit.lspkg/Core/SyncInteractor
+      - SpectaclesInteractionKit.lspkg/Core/SyncInteractor/SyncInteractor.ts
       - SpectaclesInteractionKit.lspkg/Decorators
       - SpectaclesInteractionKit.lspkg/Decorators/Singleton.ts
       - SpectaclesInteractionKit.lspkg/Prefabs
@@ -407,6 +422,7 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/Utils/Spatial.ts
       - SpectaclesInteractionKit.lspkg/Utils/State.ts
       - SpectaclesInteractionKit.lspkg/Utils/StateMachine.ts
+      - SpectaclesInteractionKit.lspkg/Utils/SyncKitBridge.ts
       - SpectaclesInteractionKit.lspkg/Utils/UpdateDispatcher.ts
       - SpectaclesInteractionKit.lspkg/Utils/aabb.ts
       - SpectaclesInteractionKit.lspkg/Utils/algorithms.ts

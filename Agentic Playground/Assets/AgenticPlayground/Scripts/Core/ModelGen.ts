@@ -1,5 +1,5 @@
-import { Snap3D } from "Remote Service Gateway.lspkg/HostedSnap/Snap3D";
-import { Snap3DTypes } from "Remote Service Gateway.lspkg/HostedSnap/Snap3DTypes";
+import { Snap3D } from "RemoteServiceGateway.lspkg/HostedSnap/Snap3D";
+import { Snap3DTypes } from "RemoteServiceGateway.lspkg/HostedSnap/Snap3DTypes";
 
 /**
  * ModelGen - Core 3D Model Factory

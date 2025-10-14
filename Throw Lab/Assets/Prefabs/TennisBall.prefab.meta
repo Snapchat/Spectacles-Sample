@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> c32951e3-2b0c-4260-9459-3524d5fc46fa
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,47 +14,7 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<AudioComponent/0b388b74-0d73-439e-a856-b74056983794>
-  PrefabRemaps:
-    []
-  Name: Audio
-  Enabled: true
-  AudioTrack: !<reference> 4c3c4150-013a-407b-ae19-391641f6d12d
-  EnableAutoplayLoop: false
-  Volume: 1.000000
-  EnableMixToSnap: false
-  RecordVolume: 1.000000
-  EnableSpatialAudio: true
-  EnableDistanceEffect: true
-  CurveType: Logarithm
-  MinDistance: 0.000000
-  MaxDistance: 1000.000000
-  EnableDirectivityEffect: true
-  EnablePositionEffect: true
-- !<AudioComponent/22da7cd5-79e1-409a-8d49-ed5d6a434529>
-  PrefabRemaps:
-    []
-  Name: Audio
-  Enabled: true
-  AudioTrack: !<reference> 45d779d1-873d-4106-b853-05b47fe960bb
-  EnableAutoplayLoop: false
-  Volume: 1.000000
-  EnableMixToSnap: false
-  RecordVolume: 1.000000
-  EnableSpatialAudio: true
-  EnableDistanceEffect: true
-  CurveType: Linear
-  MinDistance: 0.000000
-  MaxDistance: 15000.000000
-  EnableDirectivityEffect: true
-  EnablePositionEffect: true
-- !<ObjectPrefab/252e09c3-f3fc-4d10-9511-442396e8974e>
-  PackagePath: ""
-  objects:
-    - !<own> ebc87da2-475b-43fd-8c0e-d7f1a3081abd
-  LazyLoading: false
-  RetainAssets: true
-- !<BodyComponent/2cb88679-de07-4e2a-93b7-7100c3dbd984>
+- !<BodyComponent/0350ff28-12c5-4b24-5357-4e2a13be058d>
   PrefabRemaps:
     []
   Name: Physics Body
@@ -77,31 +37,17 @@
   BodySettingValue: 0.002000
   Damping: 0.010000
   AngularDamping: 0.010000
-- !<ScriptComponent/365f5ea2-c55e-4681-bbf9-1414e4cb0f77>
-  PrefabRemaps:
-    []
-  Name: Grabbable
-  Enabled: true
-  ScriptAsset: !<reference> 64087653-79d3-4558-b642-7d4c33f1c6f3
-  ScriptInputsDefault:
-    handColliderName: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      collider: !<reference.ColliderComponent> 2cb88679-de07-4e2a-93b7-7100c3dbd984
-      handColliderName: ColliderTargetProvider
-  ScriptTypes:
-    "":
-      {}
-- !<ScriptComponent/3b9e9ab7-db86-42c3-98a9-b36db6d51fc7>
+- !<ScriptComponent/0d7ca074-d01b-481c-7ea7-0d2a9e322470>
   PrefabRemaps:
     []
   Name: Interactable
-  Enabled: true
+  Enabled: false
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
     targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     allowMultipleInteractors: true
@@ -110,13 +56,14 @@
     acceptableYDirections: true
     acceptableZDirections: true
     useFilteredPinch: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 3.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: true
@@ -125,12 +72,116 @@
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
       useFilteredPinch: false
-      isSynced: false
-      acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
       {}
-- !<ScriptComponent/42d670ae-4c48-4f96-9487-297611188903>
+- !<SceneObject/21775cbf-6eb8-46d3-7b92-3ade0abfb0ff>
+  PrefabRemaps:
+    []
+  Name: TennisBall
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 13.957748, y: -25.847389, z: -20.163143}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 5f685549-9033-47f5-6ee7-3606d6347296
+    - !<own> 58df563d-e4f9-423e-4854-24c40147d734
+  Components:
+    - !<own> 0350ff28-12c5-4b24-5357-4e2a13be058d
+    - !<own> 64053e25-3f29-4179-6638-f30fb4e807f6
+    - !<own> 0d7ca074-d01b-481c-7ea7-0d2a9e322470
+    - !<own> 6e65c824-339b-4301-5213-c9ff21bd8b16
+    - !<own> 723d601b-48bb-427e-6da2-828361edb3a6
+    - !<own> 45bbec06-75e1-444a-6ec6-dee3c33357d3
+- !<RenderMeshVisual/45ae402e-67fb-4c5d-62e0-0857e7ddc0f9>
+  PrefabRemaps:
+    []
+  Name: component_0
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 7f851abc-bca3-48b8-95b7-732ed32f1498
+  Mesh: !<reference> 2426a3f3-7ee5-4956-8ef6-c7938b9939dc
+  Skin: !<reference> b21a5350-7572-40df-bb74-c5aa1c3db12a
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<ScriptComponent/45bbec06-75e1-444a-6ec6-dee3c33357d3>
+  PrefabRemaps:
+    []
+  Name: TennisBallBehavior
+  Enabled: true
+  ScriptAsset: !<reference> 16736bf8-9deb-41df-bba4-c6f13d3a082b
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      audio: !<reference.AudioComponent> 9624b6d5-2bf1-40ac-649e-e1344f00b70c
+      targetOutlineMaterial: !<reference.Material> 7231c7bc-6c14-4331-ad23-9ab928107707
+      meshVisual: !<reference.RenderMeshVisual> 45ae402e-67fb-4c5d-62e0-0857e7ddc0f9
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/58df563d-e4f9-423e-4854-24c40147d734>
+  PrefabRemaps:
+    []
+  Name: Audio1
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 9624b6d5-2bf1-40ac-649e-e1344f00b70c
+- !<SceneObject/5f685549-9033-47f5-6ee7-3606d6347296>
+  PrefabRemaps:
+    []
+  Name: Mesh
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -3.800000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 45ae402e-67fb-4c5d-62e0-0857e7ddc0f9
+- !<AudioComponent/64053e25-3f29-4179-6638-f30fb4e807f6>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 4c3c4150-013a-407b-ae19-391641f6d12d
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: true
+  EnableDistanceEffect: true
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 1000.000000
+  EnableDirectivityEffect: true
+  EnablePositionEffect: true
+- !<ScriptComponent/6e65c824-339b-4301-5213-c9ff21bd8b16>
   PrefabRemaps:
     []
   Name: InteractableManipulation
@@ -155,6 +206,7 @@
     _enableZTranslation: true
     showRotationProperties: true
     _rotationAxis: true
+    isSynced: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -180,110 +232,48 @@
       _enableZTranslation: true
       showRotationProperties: false
       _rotationAxis: All
+      isSynced: false
   ScriptTypes:
     "":
       {}
-- !<ScriptComponent/69fbf677-918b-4fee-a3d4-66c9bf4b8fc1>
+- !<ScriptComponent/723d601b-48bb-427e-6da2-828361edb3a6>
   PrefabRemaps:
     []
-  Name: TennisBallBehavior
+  Name: Grabbable
   Enabled: true
-  ScriptAsset: !<reference> 16736bf8-9deb-41df-bba4-c6f13d3a082b
+  ScriptAsset: !<reference> 64087653-79d3-4558-b642-7d4c33f1c6f3
   ScriptInputsDefault:
-    {}
+    handColliderName: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      audio: !<reference.AudioComponent> 22da7cd5-79e1-409a-8d49-ed5d6a434529
-      targetOutlineMaterial: !<reference.Material> 7231c7bc-6c14-4331-ad23-9ab928107707
-      meshVisual: !<reference.RenderMeshVisual> 7cf00fe5-58b3-4853-b4ef-a0970e36fd56
+      collider: !<reference.ColliderComponent> 0350ff28-12c5-4b24-5357-4e2a13be058d
+      handColliderName: ColliderTargetProvider
+      leftHandColliderPrefab: !<reference.ObjectPrefab> 322a9cdf-e42e-48fc-871e-82b9cf430047
+      rightHandColliderPrefab: !<reference.ObjectPrefab> 322a9cdf-e42e-48fc-871e-82b9cf430047
   ScriptTypes:
     "":
       {}
-- !<RenderMeshVisual/8f456495-bb31-4fce-9c7c-e185603b207e>
+- !<AudioComponent/9624b6d5-2bf1-40ac-649e-e1344f00b70c>
   PrefabRemaps:
     []
-  Name: component_0
+  Name: Audio
   Enabled: true
-  RenderOrder: 0
-  StretchMode: Stretch
-  VerticalAlignment: Center
-  HorizontalAlignment: Center
-  MeshShadowMode: None
-  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-  ShadowDensity: 1.000000
-  Materials:
-    - !<reference> 7f851abc-bca3-48b8-95b7-732ed32f1498
-  Mesh: !<reference> 2426a3f3-7ee5-4956-8ef6-c7938b9939dc
-  Skin: !<reference> b21a5350-7572-40df-bb74-c5aa1c3db12a
-  BlendShapesEnabled: true
-  BlendNormals: false
-  BlendShapes:
-    {}
-- !<SceneObject/9eb9b166-b61b-41de-9dc2-a0584f21e338>
-  PrefabRemaps:
-    []
-  Name: Mesh
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: -3.800000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 8f456495-bb31-4fce-9c7c-e185603b207e
+  AudioTrack: !<reference> 45d779d1-873d-4106-b853-05b47fe960bb
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: true
+  EnableDistanceEffect: true
+  CurveType: Linear
+  MinDistance: 0.000000
+  MaxDistance: 15000.000000
+  EnableDirectivityEffect: true
+  EnablePositionEffect: true
 - !<ObjectPrefabAssetData/bcf79171-e3af-478f-9922-e903fac6deae>
-  SourceRemaps:
-    - 0350ff28-12c5-4b24-aca8-b1d5ec41fa72: 2cb88679-de07-4e2a-93b7-7100c3dbd984
-    - 0d7ca074-d01b-481c-8158-f2d561cddb8f: 3b9e9ab7-db86-42c3-98a9-b36db6d51fc7
-    - 21775cbf-6eb8-46d3-846d-c521f5404f00: ebc87da2-475b-43fd-8c0e-d7f1a3081abd
-    - 45ae402e-67fb-4c5d-9d1f-f7a818223f06: 8f456495-bb31-4fce-9c7c-e185603b207e
-    - 45bbec06-75e1-444a-9139-211c3ccca82c: 69fbf677-918b-4fee-a3d4-66c9bf4b8fc1
-    - 58df563d-e4f9-423e-b7ab-db3bfeb828cb: f50edab8-121a-4711-8ba5-03bb714d90ac
-    - 5f685549-9033-47f5-9118-c9f929cb8d69: 9eb9b166-b61b-41de-9dc2-a0584f21e338
-    - 64053e25-3f29-4179-99c7-0cf04b17f809: 0b388b74-0d73-439e-a856-b74056983794
-    - 6e65c824-339b-4301-adec-3600de4274e9: 42d670ae-4c48-4f96-9487-297611188903
-    - 723d601b-48bb-427e-925d-7d7c9e124c59: 365f5ea2-c55e-4681-bbf9-1414e4cb0f77
-    - 9624b6d5-2bf1-40ac-9b61-1ecbb0ff48f3: 22da7cd5-79e1-409a-8d49-ed5d6a434529
-    - c32951e3-2b0c-4260-9459-3524d5fc46fa: 252e09c3-f3fc-4d10-9511-442396e8974e
-  SourceState: !<own> 252e09c3-f3fc-4d10-9511-442396e8974e
-- !<SceneObject/ebc87da2-475b-43fd-8c0e-d7f1a3081abd>
-  PrefabRemaps:
-    []
-  Name: TennisBall
-  Enabled: false
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 13.957748, y: -25.847389, z: -20.163143}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> 9eb9b166-b61b-41de-9dc2-a0584f21e338
-    - !<own> f50edab8-121a-4711-8ba5-03bb714d90ac
-  Components:
-    - !<own> 2cb88679-de07-4e2a-93b7-7100c3dbd984
-    - !<own> 0b388b74-0d73-439e-a856-b74056983794
-    - !<own> 3b9e9ab7-db86-42c3-98a9-b36db6d51fc7
-    - !<own> 42d670ae-4c48-4f96-9487-297611188903
-    - !<own> 365f5ea2-c55e-4681-bbf9-1414e4cb0f77
-    - !<own> 69fbf677-918b-4fee-a3d4-66c9bf4b8fc1
-- !<SceneObject/f50edab8-121a-4711-8ba5-03bb714d90ac>
-  PrefabRemaps:
-    []
-  Name: Audio1
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 22da7cd5-79e1-409a-8d49-ed5d6a434529
+  Prototype: !<ObjectOwner/e050c9e0-6640-4f22-9662-26aa6678c987>
+    PackagePath: ""
+    objects:
+      - !<own> 21775cbf-6eb8-46d3-7b92-3ade0abfb0ff

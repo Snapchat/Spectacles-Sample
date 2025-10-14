@@ -66,6 +66,7 @@
     _enableZTranslation: true
     showRotationProperties: true
     _rotationAxis: true
+    isSynced: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -91,6 +92,7 @@
       _enableZTranslation: true
       showRotationProperties: false
       _rotationAxis: All
+      isSynced: false
   ScriptTypes:
     "":
       {}
@@ -116,7 +118,13 @@
     {}
 - !<SceneObject/c69c87bd-4e2c-48e3-bd6c-517e99ab35c8>
   PrefabRemaps:
-    []
+    - 453b315b-d733-427c-97da-17b68ff74aa6: 453b315b-d733-427c-6825-e8497008b559
+    - 671d73c2-8800-4e8f-8df6-af28aa745b8b: 671d73c2-8800-4e8f-7209-50d7558ba474
+    - 76b3387c-ea50-45da-997b-df6c26473dc8: 76b3387c-ea50-45da-6684-2093d9b8c237
+    - abdb9268-44d4-4010-8c44-c95159668961: abdb9268-44d4-4010-73bb-36aea699769e
+    - c69c87bd-4e2c-48e3-bd6c-517e99ab35c8: c69c87bd-4e2c-48e3-4293-ae816654ca37
+    - ef34a997-224c-4de4-8073-03fa03c621c0: ef34a997-224c-4de4-7f8c-fc05fc39de3f
+    - fa78a22c-49ff-4fd1-b503-6decb5a97e40: fa78a22c-49ff-4fd1-4afc-92134a5681bf
   Name: PingPongBallNew
   Enabled: true
   Layers: 1
@@ -164,6 +172,9 @@
   Enabled: true
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     allowMultipleInteractors: true
@@ -172,13 +183,14 @@
     acceptableYDirections: true
     acceptableZDirections: true
     useFilteredPinch: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 1.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: true
@@ -187,8 +199,6 @@
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
       useFilteredPinch: false
-      isSynced: false
-      acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
       {}

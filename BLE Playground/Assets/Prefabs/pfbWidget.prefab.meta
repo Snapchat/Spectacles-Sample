@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> b898a049-78d8-476d-8755-25f6f131dcfe
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,7 +14,28 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<ScriptComponent/04f7c4a6-0b86-46ab-b6b5-529cba940380>
+- !<ObjectPrefabAssetData/15c3fe0f-ea9f-4719-8eb2-f8b9b0515d44>
+  Prototype: !<ObjectOwner/121ad1a9-9bf6-48c2-be8f-6816005289b3>
+    PackagePath: ""
+    objects:
+      - !<own> 418a3c1a-94de-4754-6842-e65d6df39af2
+- !<SceneObject/418a3c1a-94de-4754-6842-e65d6df39af2>
+  PrefabRemaps:
+    []
+  Name: pfbWidget
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> f03e77cc-76ae-42a9-4b55-dbaf96e69158
+    - !<own> 619df0aa-3646-41ea-54b7-5a8eeeb5c1f1
+- !<ScriptComponent/619df0aa-3646-41ea-54b7-5a8eeeb5c1f1>
   PrefabRemaps:
     []
   Name: ContainerFrame
@@ -35,6 +56,8 @@
     showFollowButton: true
     isFollowing: true
     _enableInteractionPlane: true
+    _targetingVisual: true
+    isSynced: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -64,39 +87,12 @@
       isFollowing: false
       showCloseButton: false
       _enableInteractionPlane: false
+      _targetingVisual: !<float> 1.000000
+      isSynced: false
   ScriptTypes:
     "":
       {}
-- !<ObjectPrefabAssetData/15c3fe0f-ea9f-4719-8eb2-f8b9b0515d44>
-  SourceRemaps:
-    - 418a3c1a-94de-4754-97bd-19a2920c650d: 9c8d2088-5806-472a-93fc-51b4a0d6fd4e
-    - 619df0aa-3646-41ea-ab48-a571114a3e0e: 04f7c4a6-0b86-46ab-b6b5-529cba940380
-    - b898a049-78d8-476d-8755-25f6f131dcfe: c80ed550-b877-4847-9aca-be3a4d285abf
-    - f03e77cc-76ae-42a9-b4aa-245069196ea7: f0807496-3cec-4cd2-90fe-caa4d7b9fb90
-  SourceState: !<own> c80ed550-b877-4847-9aca-be3a4d285abf
-- !<SceneObject/9c8d2088-5806-472a-93fc-51b4a0d6fd4e>
-  PrefabRemaps:
-    []
-  Name: pfbWidget
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> f0807496-3cec-4cd2-90fe-caa4d7b9fb90
-    - !<own> 04f7c4a6-0b86-46ab-b6b5-529cba940380
-- !<ObjectPrefab/c80ed550-b877-4847-9aca-be3a4d285abf>
-  PackagePath: ""
-  objects:
-    - !<own> 9c8d2088-5806-472a-93fc-51b4a0d6fd4e
-  LazyLoading: false
-  RetainAssets: true
-- !<ScriptComponent/f0807496-3cec-4cd2-90fe-caa4d7b9fb90>
+- !<ScriptComponent/f03e77cc-76ae-42a9-4b55-dbaf96e69158>
   PrefabRemaps:
     []
   Name: Widget
@@ -108,7 +104,7 @@
     {}
   ScriptInputs:
     "":
-      containerFrame: !<MappingBased.AssignableType> 04f7c4a6-0b86-46ab-b6b5-529cba940380
+      containerFrame: !<MappingBased.AssignableType> 619df0aa-3646-41ea-54b7-5a8eeeb5c1f1
   ScriptTypes:
     "":
       {}

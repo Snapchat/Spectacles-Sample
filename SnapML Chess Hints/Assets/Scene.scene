@@ -3,10 +3,11 @@
   objects:
     - !<own> 00000000-0000-0065-0000-000000000064
     - !<own> 0005641c-028d-459a-0000-000000014b4d
-    - !<own> 6d2bcd57-7fec-4ff0-a8e6-72e123430a54
+    - !<own> 70242ead-ccd7-4bad-9fb6-fd7ebc70a8f0
     - !<own> d0b3f6a6-a8a0-45e2-8f0e-08ae53055cc9
     - !<own> 870a824f-da3d-4f69-b54f-be98eb156ebc
     - !<own> 3dc6e413-f86a-4bac-b05f-d0d088df2c03
+    - !<own> e58aa28f-9f80-450f-90bc-47396046ad67
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       - |
@@ -233,15 +234,18 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -252,6 +256,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -263,6 +268,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -544,6 +550,87 @@
   BodySettingValue: 1.000000
   Damping: 0.000000
   AngularDamping: 0.000000
+- !<Text/0c39e470-933c-4072-b230-d5dc3633c05a>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: Text
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 80
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -20.000000
+    bottom: -2.250000
+    right: 20.000000
+    top: 30.000000
+  OverflowVertical: Truncate
+  OverflowHorizontal: Wrap
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: true
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.713863, y: 0.000000, z: 0.058839, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.500000
+      bottom: 0.500000
+      right: 0.500000
+      top: 0.500000
+    CornerRadius: 1.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
 - !<SceneObject/0cc9d6d6-ee53-4593-be92-376674221e46>
   PrefabRemaps:
     []
@@ -640,15 +727,18 @@
     Mode: Solid
     Color: {x: 0.888609, y: 0.928252, z: 0.856565, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -659,6 +749,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -670,6 +761,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -813,15 +905,18 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -832,6 +927,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -843,6 +939,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -875,6 +972,22 @@
   ScriptTypes:
     "":
       {}
+- !<ScriptComponent/14edfdf7-3b68-4ed9-8bca-e1054e3e66c5>
+  PrefabRemaps:
+    []
+  Name: APIKeyHint
+  Enabled: true
+  ScriptAsset: !<reference> 13509dc7-6b49-467b-8558-53f9fb4f4f27
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      text: !<reference.Text> 0c39e470-933c-4072-b230-d5dc3633c05a
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/156bd38e-7206-4931-aea1-06f49a5ad58e>
   PrefabRemaps:
     []
@@ -899,6 +1012,7 @@
     _enableZTranslation: true
     showRotationProperties: true
     _rotationAxis: true
+    isSynced: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -924,6 +1038,7 @@
       _enableZTranslation: true
       showRotationProperties: false
       _rotationAxis: All
+      isSynced: false
   ScriptTypes:
     "":
       {}
@@ -1005,6 +1120,9 @@
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
     targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     allowMultipleInteractors: true
@@ -1013,13 +1131,14 @@
     acceptableYDirections: true
     acceptableZDirections: true
     useFilteredPinch: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 3.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: true
@@ -1028,8 +1147,6 @@
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
       useFilteredPinch: false
-      isSynced: false
-      acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
       {}
@@ -1173,15 +1290,18 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.123415, y: 0.510353, z: 0.917159, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -1192,6 +1312,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -1203,6 +1324,7 @@
       Mode: Solid
       Color: {x: 0.171145, y: 0.289494, z: 0.595575, w: 0.760006}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -1452,6 +1574,9 @@
   Enabled: true
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     allowMultipleInteractors: true
@@ -1460,13 +1585,14 @@
     acceptableYDirections: true
     acceptableZDirections: true
     useFilteredPinch: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 4.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: true
@@ -1475,8 +1601,6 @@
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
       useFilteredPinch: false
-      isSynced: false
-      acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
       {}
@@ -1580,22 +1704,6 @@
     - !<own> 2443cdb4-fedd-44e5-a17e-fc619071e3a6
   Components:
     []
-- !<ScriptComponent/308eb007-658c-4379-bc80-5462f7328134>
-  PrefabRemaps:
-    []
-  Name: RemoteServiceGatewayCredentials
-  Enabled: true
-  ScriptAsset: !<reference> 37976aca-6847-44c8-88d9-5edb6aadbbf2
-  ScriptInputsDefault:
-    apiToken: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      apiToken: "[PUT YOUR SNAP API TOKEN HERE]"
-  ScriptTypes:
-    "":
-      {}
 - !<ScriptComponent/31f12b18-a328-4d2d-b71b-762c44a023cd>
   PrefabRemaps:
     []
@@ -1968,15 +2076,18 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -1987,6 +2098,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -1998,6 +2110,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.976806, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -2138,12 +2251,14 @@
   Enabled: true
   ScriptAsset: !<reference> 33b8ff0f-4908-4414-8821-6b37f1775435
   ScriptInputsDefault:
-    {}
+    useV2: true
+    drawDebug: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      {}
+      useV2: false
+      drawDebug: false
   ScriptTypes:
     "":
       {}
@@ -2592,6 +2707,26 @@
     []
   Components:
     - !<own> e3e9a9a2-9646-41c0-b65a-6136727c565d
+- !<ScriptComponent/4c8f5be6-4294-424f-81fb-98d93bc488f9>
+  PrefabRemaps:
+    []
+  Name: RemoteServiceGatewayCredentials
+  Enabled: true
+  ScriptAsset: !<reference> 7f146b73-b4e9-4ee8-a43e-4b50fdedaf92
+  ScriptInputsDefault:
+    openAIToken: true
+    googleToken: true
+    snapToken: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      openAIToken: "[INSERT OPENAI TOKEN HERE]"
+      googleToken: "[INSERT GOOGLE TOKEN HERE]"
+      snapToken: "[INSERT SNAP TOKEN HERE]"
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/4d410784-5cbc-413d-8af5-2bf47c211811>
   PrefabRemaps:
     []
@@ -2705,6 +2840,9 @@
   Enabled: true
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     allowMultipleInteractors: true
@@ -2713,13 +2851,14 @@
     acceptableYDirections: true
     acceptableZDirections: true
     useFilteredPinch: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 1.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: true
@@ -2728,8 +2867,6 @@
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
       useFilteredPinch: false
-      isSynced: false
-      acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
       {}
@@ -2917,10 +3054,9 @@
     pinky-3_end_end: !<reference> d72e2ddf-efb3-4849-8d29-5c6a35161323
 - !<SceneObject/55d67824-b2a3-4277-842c-16e0d0422caa>
   PrefabRemaps:
-    - 0035923b-cc05-48ca-b9ff-c1d0d8c0fe63: ca4de0b9-3e30-4f3d-9adc-b81a904e671b
-    - 55d67824-b2a3-4277-842c-16e0d0422caa: f04a590d-2f3b-47ef-88a0-fd5932205e92
-    - 6b2fce83-d672-4798-97a3-6375363f1261: 4626713d-a3ab-4794-99e7-d795b07d8adf
-    - c47ad547-2538-4fac-995d-d15cb8b0b3a2: add3e308-2ebc-458d-9a8a-1e5a9fc6810a
+    - 55d67824-b2a3-4277-842c-16e0d0422caa: f04a590d-2f3b-47ef-775f-02a6cddfa16d
+    - 6b2fce83-d672-4798-97a3-6375363f1261: 4626713d-a3ab-4794-6618-286a4f827520
+    - c47ad547-2538-4fac-995d-d15cb8b0b3a2: add3e308-2ebc-458d-6575-e1a560397ef5
   Name: White Letter
   Enabled: false
   Layers: 1
@@ -3092,15 +3228,18 @@
     Mode: Solid
     Color: {x: 0.988235, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.988235, y: 1.000000, z: 1.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -3111,6 +3250,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -3122,6 +3262,7 @@
       Mode: Solid
       Color: {x: 0.365743, y: 0.255146, z: 0.134691, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -3483,21 +3624,6 @@
     - !<own> 04dff9ec-5db2-4d98-9c32-b0655aa95b98
   Components:
     []
-- !<SceneObject/6d2bcd57-7fec-4ff0-a8e6-72e123430a54>
-  PrefabRemaps:
-    []
-  Name: RemoteServiceGatewayCredentials
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 308eb007-658c-4379-bc80-5462f7328134
 - !<SceneObject/6f7178a6-e6a7-463f-bebd-cbed1ae76998>
   PrefabRemaps:
     []
@@ -3528,6 +3654,21 @@
     - !<own> 2cc1fc78-dd2e-4a1c-a49e-e34307e4f869
   Components:
     []
+- !<SceneObject/70242ead-ccd7-4bad-9fb6-fd7ebc70a8f0>
+  PrefabRemaps:
+    []
+  Name: RemoteServiceGatewayCredentials
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 4c8f5be6-4294-424f-81fb-98d93bc488f9
 - !<SceneObject/70977ee6-61b0-4d7b-b147-37769087e889>
   PrefabRemaps:
     []
@@ -4423,6 +4564,9 @@
   Enabled: true
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     allowMultipleInteractors: true
@@ -4430,13 +4574,14 @@
     acceptableYDirections: true
     acceptableZDirections: true
     useFilteredPinch: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 1.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: true
@@ -4445,8 +4590,6 @@
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
       useFilteredPinch: false
-      isSynced: false
-      acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
       {}
@@ -4553,6 +4696,7 @@
     _enableZTranslation: true
     showRotationProperties: true
     _rotationAxis: true
+    isSynced: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -4578,6 +4722,7 @@
       _enableZTranslation: true
       showRotationProperties: false
       _rotationAxis: All
+      isSynced: false
   ScriptTypes:
     "":
       {}
@@ -4613,10 +4758,9 @@
     - !<own> 201b9c1e-2d29-49dc-bdde-73b90e03bde2
 - !<SceneObject/9bae729d-bb3f-4d45-bea3-30922e62042c>
   PrefabRemaps:
-    - 5cd6818d-33e2-47bd-a121-f79b104c7716: d3245dd7-6f72-4d1d-844c-55510778560e
-    - 973e860d-3bf7-4af9-918b-ee64bbb974d8: fceb292c-ed3a-4caa-b323-470003e81995
-    - 9bae729d-bb3f-4d45-bea3-30922e62042c: 57190bdd-36bf-453f-adfb-2ac0dfd7fbf7
-    - f8d7dfee-7f28-4699-adcb-0b34b9a5294c: dc5a8f57-ea40-440b-b73a-c344b63d0a95
+    - 5cd6818d-33e2-47bd-a121-f79b104c7716: d3245dd7-6f72-4d1d-7bb3-aaaef887a9f1
+    - 9bae729d-bb3f-4d45-bea3-30922e62042c: 57190bdd-36bf-453f-5204-d53f20280408
+    - f8d7dfee-7f28-4699-adcb-0b34b9a5294c: dc5a8f57-ea40-440b-48c5-3cbb49c2f56a
   Name: Black Letter
   Enabled: false
   Layers: 1
@@ -4834,15 +4978,18 @@
     Mode: Solid
     Color: {x: 0.888609, y: 0.928252, z: 0.856565, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -4853,6 +5000,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -4864,6 +5012,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -4887,6 +5036,9 @@
   Enabled: true
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
     allowMultipleInteractors: true
@@ -4895,13 +5047,14 @@
     acceptableYDirections: true
     acceptableZDirections: true
     useFilteredPinch: true
-    isSynced: true
-    acceptableSyncInteractionTypes: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       targetingMode: !<float> 1.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
       allowMultipleInteractors: true
@@ -4910,8 +5063,6 @@
       acceptableYDirections: !<float> 0.000000
       acceptableZDirections: !<float> 1.000000
       useFilteredPinch: false
-      isSynced: false
-      acceptableSyncInteractionTypes: !<float> 7.000000
   ScriptTypes:
     "":
       {}
@@ -5013,15 +5164,18 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -5032,6 +5186,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -5043,6 +5198,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -5325,6 +5481,21 @@
     []
   Components:
     - !<own> 27c1f35e-40a5-40ef-ad35-d83948bf7ce2
+- !<SceneObject/bdae4b3f-2f3a-43ba-8444-42441e07f42a>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -10.000000, z: -55.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 0c39e470-933c-4072-b230-d5dc3633c05a
 - !<ScriptComponent/be6193aa-8779-4c27-be49-0d81e6ac7493>
   PrefabRemaps:
     []
@@ -5518,15 +5689,18 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -5537,6 +5711,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -5548,6 +5723,7 @@
       Mode: Solid
       Color: {x: 0.818006, y: 0.765545, z: 0.633646, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -5653,6 +5829,7 @@
     _enableZTranslation: true
     showRotationProperties: true
     _rotationAxis: true
+    isSynced: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -5678,6 +5855,7 @@
       _enableZTranslation: true
       showRotationProperties: false
       _rotationAxis: All
+      isSynced: false
   ScriptTypes:
     "":
       {}
@@ -5783,6 +5961,7 @@
     _enableZTranslation: true
     showRotationProperties: true
     _rotationAxis: true
+    isSynced: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -5808,6 +5987,7 @@
       _enableZTranslation: true
       showRotationProperties: false
       _rotationAxis: All
+      isSynced: false
   ScriptTypes:
     "":
       {}
@@ -5929,137 +6109,140 @@
       {}
 - !<SceneObject/d0b3f6a6-a8a0-45e2-8f0e-08ae53055cc9>
   PrefabRemaps:
-    - 03719fbe-1fdd-40ef-8f4c-2bdca9eb1529: d54c61ff-e215-476a-95ec-82e3ddc2bb53
-    - 04dff9ec-5db2-4d98-9c32-b0655aa95b98: fa8a056a-2062-4c94-a29d-dedf42c65e7d
-    - 04e63570-7774-4384-8e31-1d418af4a08a: 7c03fc5d-a618-491d-815e-9698ccc95eb8
-    - 07a1f5b8-99c9-4d93-89d5-bed885e3668e: 20700869-1aef-485f-a00d-64943ec2a96c
-    - 09c90f33-d93f-41b3-9240-7a56821dc8a2: 93a82b13-f1ae-404a-b6f3-f6fa4c3d454a
-    - 0f56d0c2-955a-4d81-a1fa-fa34f8840593: f1e10bfb-c13f-486f-9058-a205aa2a22a5
-    - 13b2af76-b2b8-4c73-9732-1e308cf64839: 6796d74c-36de-4973-b60f-26723675de0e
-    - 198a6d50-95a3-42e3-bcca-3e15a0baf51f: bb442796-5475-4695-9191-7b4a8924ddf6
-    - 1a23c0a4-1dd3-4564-bb24-2bd1a06c3aae: b92e7c34-d016-4929-94af-9b325dfef94c
-    - 1a46eac7-1372-4741-be4e-661ebc45cc88: 7dd90ddd-3a7e-4e11-b114-e6a0dd273b4a
-    - 1b2d7910-1dd8-4f50-ad93-0467f4caba41: c34bc6ff-bcac-4506-988c-488a03a3fd02
-    - 1c917d52-c53d-4c56-920f-d2b9b2f7833b: e61d4d85-a08b-4b79-8a78-bd11a94171f2
-    - 222d0796-7f4d-4910-9757-4ff18c8a38b5: e3ec5982-f5aa-45f3-baae-b2c56d5e0bcd
-    - 232f3553-0882-4ab7-9807-0df85645b1ec: a041ce3c-f6e7-494b-9fb8-0da10b5a0225
-    - 2443cdb4-fedd-44e5-a17e-fc619071e3a6: 340699f0-9c85-4b33-a3f1-67f303dd78d6
-    - 2459fbbb-7e04-442f-9223-b7bbe3a69441: e798d31a-2bad-4d59-9110-f038120ad232
-    - 251102bb-d1be-4e66-be4b-50c707be9c4c: 05243f1b-f8a9-4eee-b12a-418bd365fa45
-    - 29009cc0-6b79-47c0-bbe0-f0874000ec91: e54e9514-91f3-4922-87e0-e2ac31cc4855
-    - 2acdae13-9288-4b82-a675-d4ba3ad252b9: 24caeee6-2dc2-41c3-8c22-d8562b2057b9
-    - 2cc1fc78-dd2e-4a1c-a49e-e34307e4f869: 6c82bb54-cde7-40cc-b09a-ae0407d4a7e4
-    - 2eaa281f-d856-439d-b724-374b64038f02: 1a77b076-e485-4ba9-8978-3f0ab2b2d7fd
-    - 302b61bd-928e-4b9b-b740-633f56387a68: 8e3b2e69-294f-497e-a2fe-30431bb76e90
-    - 35e8ea6d-cf34-41bb-a902-d9687c115807: 61c73054-e783-481d-9736-b731ab8896d3
-    - 363e63f3-5699-439a-a6f5-5987519f4168: 31059286-43ff-450e-8473-4be6a35e2271
-    - 3709bb3b-92f6-49ea-abef-d2b05bada201: 8ab59f68-ec36-4c83-8ae2-b9629037fd04
-    - 37769540-6aad-4c10-bd63-acdcd07f4b02: 75c70980-fa79-4d52-9576-c9b558df1e70
-    - 39ea5d6b-9f43-46a7-baca-a213b7dea172: 44d3ae72-34ce-490d-97d1-811ee37f1a40
-    - 3c5902d7-6e9e-44a0-acb9-ae7c4e840819: b1f777fc-9def-4cf7-9504-fc75ebd8523b
-    - 3ccf6cd0-a641-413e-a65e-5520d6961f1f: ac31778e-bd43-42a4-97bc-4f485fb095fc
-    - 3dc2c43a-42eb-47d1-aa50-0fa12e39afef: ea015d35-5918-4f78-a6f5-a17df2637bd4
-    - 3e8f6d6d-7603-4542-a333-6e7e8a263a51: f05448db-5a08-4d04-9b55-ec8dc072831d
-    - 3fcc414a-aeef-4fdb-8d6d-9f0dd6330bb6: b6ce59a2-7157-40d0-acd2-fa7d4fb00afc
-    - 42bf97df-59ce-47e0-9f76-ec185fe9b6b7: bba45d59-1d20-40e3-9003-f83ebb838747
-    - 464fd04b-ea33-4fc8-a0f8-5e7cbe08e734: a5dcc3e5-e051-4ad2-9f3c-361dc8e16680
-    - 46b70058-661e-4816-96f4-2da847699d35: b1c0f72d-600f-41a7-bb62-316ec7473dfe
-    - 47a38b66-fa9f-4e82-80ee-fc5ce381f497: a7ac0bc1-703e-43f5-8f34-6e1cc30c61fb
-    - 488235a1-0bd5-417d-8d27-05f83577c863: ff21c245-9565-4f69-827d-5d3a6411b557
-    - 48d014e4-a56b-47b0-91cb-dbba9718283d: beabd77f-6564-4eb1-9cda-7d3df9128e67
-    - 4dcf8e4a-9135-4077-bbf8-3a8ed04643c4: c0fbe2e8-b696-42bd-aa0d-28c8c92aca11
-    - 4ebc4226-b988-4d5e-8d0c-a2130ab7dd6f: 001d8b74-6a85-4cdd-b231-fd1bdfc8e8d0
-    - 52577f3b-03c6-492e-82b0-838a80e8a974: 743452d1-5aaa-477e-a77d-10b518eabdb2
-    - 53d0740b-1b32-42e4-8f23-c395b9face90: d4da8107-4c33-4f45-b961-1df209595381
-    - 54f3ff30-7fac-4345-a34e-6c8a0a1c1bbf: 68c03b96-ff3b-4c4c-ada6-b8db24e084fb
-    - 56147f69-7816-4de3-bae7-65dd526cf2e9: 1ff24423-e2c4-43dd-922e-71a93eaf6518
-    - 5958977b-d0bd-49cd-bb1c-549c3b634275: fa0dcbdf-ddc9-4890-90e2-d81f925fe239
-    - 599869e8-3da6-4286-8c4a-b18e07f08034: c6ca57a4-4187-47c4-9817-27f2853e83c5
-    - 5bb45d6d-5a01-42f8-86f6-560dc4b6554e: a7e3803f-d6eb-43f5-a3ba-c5146b5dd058
-    - 5eefa325-8fa3-450c-83a9-35d810ee8f53: ad36bd15-0d0d-49b2-a712-033b99866b14
-    - 606b27bf-72a8-4e14-b44b-ee7ed90f0dc0: 40f935c2-ac26-43a7-9d4f-2a8c80446a36
-    - 61583ac6-a0c1-4ac7-9d2b-936c242d4d0b: 43d0e3f6-94eb-4ee1-a4b3-12cc32c39486
-    - 63a84b72-4950-4d56-bf53-34c7f74e201b: 9cedc16a-c9e5-4a68-864c-3a6193939290
-    - 652d81d5-e8d5-4f30-b01d-ebb0ff9b7cb1: 7d75cc0b-46e2-4df2-bae8-0a79d58b2566
-    - 66d8963a-d4aa-46f4-a1cd-b20837fcf7bd: 88104fa0-ad2d-43a1-8271-80188b594b11
-    - 67ea77d2-764a-4d3d-b7ac-238a3dbb04e2: b50d0664-596f-4bd5-9d00-f8f4d7e27a90
-    - 6832e2e1-b575-449f-861a-f414c5f1aca2: 81619451-4acf-4605-b213-bd2788121481
-    - 6a1809a2-b65c-4bc1-854e-b72eb2477372: 3bc29fda-0d40-4a4c-a1d1-ef088f23beb6
-    - 6c588ca5-82cc-4519-b960-2e8c024f73cd: 49316d12-58fb-4a4a-b09c-cc6a9303dbe6
-    - 6f77d111-2fe3-4b9e-807e-bc60b26bfdc2: 17aeff26-95dc-4958-804b-97bfc549c671
-    - 70977ee6-61b0-4d7b-b147-37769087e889: c7fc765f-3e34-42ed-b79c-d0d0f19dfd37
-    - 746afcf6-64ca-47b9-adef-ac75c8eeca2e: 37a62259-1ce7-4744-b6ea-dc2c55f35328
-    - 74c67d45-d754-4a24-8164-17fb23d2ca49: 9674b11d-2166-430e-a446-6e83815ebbc2
-    - 7547619f-9a83-4caf-8375-caa132f8046a: e1e61e4a-f61f-4b8e-9778-77240c5d03b4
-    - 7d1a3af5-1955-4c14-8d97-97b10b8202ec: 95af3b28-6f17-49e5-80c3-e8a9c88ee332
-    - 7e99bd3b-8879-4f1c-bb04-b57897698bf5: 70290c16-3e1e-4ebd-8841-ee066580ac95
-    - 7fcd8983-1376-4903-a41f-70d6820eeb5d: 5922e7e5-b979-4848-947a-3f53d2fafc83
-    - 825d0296-c994-4631-aedc-2b499b4c1146: adab9e6d-b430-459b-a3ef-286096d8456d
-    - 871a6e91-c4be-45ba-acbe-50695b45537e: 82686826-4088-45dd-a8f0-03683796ce78
-    - 874b8c57-05eb-4dfd-ace4-5b776a24f76e: 6167dd36-c853-49b0-b2ae-7bdf862ab8c3
-    - 87726061-d663-4527-8d9f-73e22857b5c0: 9faf2521-a7a5-4e36-9485-5c8084723790
-    - 88e2cb8c-02ad-40a1-a894-ba069488d3bc: 5c910008-d09a-4cf8-b0cb-12e5e0e0cffd
-    - 88f8a937-e32d-46e6-8f11-57825446fa2d: 99e6c117-7864-41d8-b39d-e853018e43ac
-    - 8deb32c7-4e79-42ce-9590-a3c1f04716a2: 49bc520e-979b-41dd-af92-c39d30a5a1c3
-    - 8f58d196-618d-4a40-949d-454000a91e55: 4e42b98e-ee9f-4953-b355-a82cfc02463a
-    - 8ffba4e8-62b5-41f9-8f37-2863e794bb85: 8ac837c8-53c2-4114-915e-b0265e3e9901
-    - 91b41c97-c088-4e6f-8e73-1693de49d171: a0a63f72-25a0-4d69-9417-5662e98b01e3
-    - 921baefb-1cf1-4d41-bfe0-45cf3c80ab74: 8e635d88-9a0d-4a5d-9f36-9c7bc7dec824
-    - 93a4de62-e2b0-4707-84e7-55ea58db95cd: 89b8d96b-b23a-4c1d-9afd-ea5ada766330
-    - 93e75aa7-f313-4046-8a1c-6314823468ad: 3f9892ea-ded0-4c59-ac79-5f72c2580b41
-    - 959d5d34-c09b-40e2-8d34-951d879c9a16: dfa95e7e-64fb-4020-8444-8022e0d510a6
-    - 96772a08-9667-42b5-9dea-48dbd5177b78: d2fbbe47-d72e-4471-a1f1-02ffbcbe9212
-    - 98b369bc-848b-4abe-9ab5-e779f5cf2253: a53b5990-7f09-4804-a3ac-d5306340a40d
-    - 99536f42-2945-4833-ae83-0adf6543dadb: 4c194481-fd5b-43b0-9e1b-2dd8726745ae
-    - 9d9fae9e-3e5b-40fe-8ee8-5190920a21cd: 146c3d55-6548-4c7f-a4a4-22f402575f4f
-    - 9e99e751-098b-496d-83d3-20d8f8ace240: dc97552e-2a04-4019-8979-482f91a5824f
-    - 9fcccf2d-2c37-448f-b0ad-4eb4d3635c18: 34c92e27-4c85-440a-bdf3-52d7aef59d1c
-    - a018a92d-029b-46b2-9326-fdbbcefd8b3a: 9ed0157f-fd08-47e6-9180-d9eaa60dae8e
-    - a208b3ab-1e85-4dd2-9354-09cfb1ee9b62: e7c7be4e-0d9b-4cd3-baea-a871d82011d6
-    - a60fded3-e866-4a78-8094-25f8e8185275: 68c7b547-24e9-465d-9de7-2368fabff0b0
-    - a9717ffe-966b-4f03-87d3-0551c39fa2f8: 5108b158-1992-4fd3-a4de-e59d1ab57470
-    - b3a9ee7d-ef8e-4265-b995-f797604889d2: faa471eb-2331-4766-902e-ad90ebaada39
-    - b4c729e4-5fac-40c5-9aa7-5f77916c060e: 7b545c21-569f-42ee-a8bc-6788a927d730
-    - b69ed3e5-162c-401b-b7ab-1c0a1483e3d9: dbb15efd-eddd-45ff-917d-5b143092a640
-    - b6a2f32a-7fb9-427a-a7aa-afd9937e09ca: 45c0ee0b-4eae-4c81-8af1-44947508de3f
-    - b7a488a4-5aba-4b04-a8d0-6e7445928911: b9d14d3a-7945-428c-a768-41692c2eba14
-    - ba934091-93a4-49ce-ab47-8fec681adc62: 51baf90b-86de-4a7e-8764-cb63b48dc6c3
-    - bb1c9ed8-a3af-4e7f-98f3-3607fbc63ba9: ec66e9a7-c3ab-4c3d-87fc-675ee0b99805
-    - bc5d9975-11ef-4e4d-8071-f3c9235dd003: c6eed1bb-0a4b-4589-a0fd-3c40ba5a1f0d
-    - bf61bad9-af81-423c-a7e0-db6e25aedfcd: b7be8856-93cb-4049-893c-1b5bca4b2fb6
-    - bfa92965-ef83-4a19-aeae-59dc2510a793: 43019c02-fdbb-4c37-a3e6-58a33e870488
-    - c0e7bbb4-ee7f-4c01-b718-1b4c651e28fb: 3b2ad7c8-6228-4421-aad9-65db4e6860b7
-    - c1c5376d-91b8-46d2-8977-7ae206f31452: 746f9b2a-02f1-486b-b70a-611355381f7f
-    - c5575f44-0dfc-4529-bb94-0771aade392e: 4e6d1f6c-d7ff-4da0-b482-b0c1316e394c
-    - c59c12a9-b93d-4313-9e27-85b28e439936: ac3ceda4-1236-4a0b-b52a-e8a75ab781be
-    - c79e74d0-1c34-42ec-a65f-59c92875ebe6: ecb433df-f587-40a4-8dee-5b1879ca1550
-    - cfd69957-ece7-4fd7-ba62-9eb0aa49fc6b: 2fb017cb-455d-49d8-8112-5a05da7b338e
-    - cfecbb7e-9a2f-4a1f-b99d-1fc5f14ccb0b: fc8e7153-7b17-491b-9c4b-1a7d19a6e707
-    - d0b3f6a6-a8a0-45e2-8f0e-08ae53055cc9: ac190d7f-8f8a-427c-b328-fcb2c71a54e3
-    - d5929473-ffd9-4b93-8bdc-7ebfde486b08: f24eade7-4784-4f7b-8f89-10cd7e47127e
-    - d72e2ddf-efb3-4849-8d29-5c6a35161323: ed26aed2-3168-4335-8f84-4fe70d0a1333
-    - d7657cb0-3f97-46a7-8a28-30d6b7e338a5: c99ee9c2-c940-4c10-9c00-6df31f99c027
-    - d789dbd0-b4b9-4bd5-ad36-cb604fc1721c: 215027b3-748f-4737-8ae7-d31403ea7638
-    - db5a1d1a-e66e-4945-8d17-bba19bd2cdd9: 0b47d35b-d9ff-43aa-8c18-6b104c9945a7
-    - dc2addd9-1c71-4d63-8bfa-4e929b35f485: 45ddc26d-8076-436c-86a7-4864751e3270
-    - dd07ce00-48bf-4eff-8579-a84bb0868c7c: 43126ca5-16da-40f9-82b7-c7a8926063bb
-    - ddcd58e8-8804-4ff8-a121-8f0ac38b9cc1: 113a8fde-8503-4cd6-97e0-8257930cb223
-    - def1b455-8e3b-43d8-b864-2653f9792b78: 815b6ca2-77e6-4e1c-8ffd-a39df8483042
-    - e1ab7d99-0767-4f1d-89eb-2f7b222811c1: ed879ff5-8912-4f11-9609-40744af18adf
-    - e38db657-23f0-4d74-9fd0-4cc7750634da: bc7ca399-42d5-43ce-8b46-6e31b628daf7
-    - e40bab51-c5ac-4e04-8b7d-e790538a231b: e5f5a9b5-8c25-4543-8704-b054151e7f27
-    - e5ac028c-32c7-42e4-b3e0-7e6612521dfe: b0156873-8a9f-49b9-957b-a6c2c4d8356f
-    - e7916d91-02f8-43ee-83ae-624b8f870d62: 3ca998f8-03b3-4480-9fb6-c106f2952b90
-    - e83776ee-7c02-41c0-a47d-dccae4d0c980: b1a805b2-6eb9-49e5-918e-db0608d22c04
-    - e9feb0af-9c0a-459c-a6ed-6cb146dfff37: 3a3fe018-7d5d-4ce2-8a13-411b9a6b2d0d
-    - ea92dd52-8cf7-4664-af53-c43c6cf7485d: 022bb054-542f-44f4-bb45-962f06351c51
-    - ed3b3377-2fee-4a71-8cf0-a72724539f38: 66a8dd87-df9a-4166-bc02-99d45a2caff6
-    - ee6b59a0-c22f-453c-9ecb-102c02bd8252: 254b9e85-b5d1-400f-8c84-83dd52f95100
-    - f306e93b-83b8-4176-86fe-0652280168cd: faa08582-c6d2-459c-8570-7ac60a4a7b8d
-    - f376c2b4-3c3b-4ce9-88e9-ced5b85984e8: 6a3dbaa3-d10c-4f71-840d-2b8b8184b67c
-    - f3829ba8-cedc-4e57-a651-a7d7cf5bd3fc: 88a2a29b-d368-412c-9f01-3bd535c31027
-    - fa609cec-a2b8-41ac-addb-539da287e3b2: 24bab02f-73f1-439d-bb0c-0559574f0782
-    - ff315a08-d0be-484e-a6d7-ba8ced565556: 5eda9b75-dd34-4471-bcf6-9264e77b5106
+    - 03719fbe-1fdd-40ef-8f4c-2bdca9eb1529: d54c61ff-e215-476a-6a13-7d1c223d44ac
+    - 04dff9ec-5db2-4d98-9c32-b0655aa95b98: fa8a056a-2062-4c94-5d62-2120bd39a182
+    - 04e63570-7774-4384-8e31-1d418af4a08a: 7c03fc5d-a618-491d-7ea1-69673336a147
+    - 07a1f5b8-99c9-4d93-89d5-bed885e3668e: 20700869-1aef-485f-5ff2-9b6bc13d5693
+    - 09c90f33-d93f-41b3-9240-7a56821dc8a2: 93a82b13-f1ae-404a-490c-0905b3c2bab5
+    - 0f56d0c2-955a-4d81-a1fa-fa34f8840593: f1e10bfb-c13f-486f-6fa7-5dfa55d5dd5a
+    - 13b2af76-b2b8-4c73-9732-1e308cf64839: 6796d74c-36de-4973-49f0-d98dc98a21f1
+    - 198a6d50-95a3-42e3-bcca-3e15a0baf51f: bb442796-5475-4695-6e6e-84b576db2209
+    - 1a23c0a4-1dd3-4564-bb24-2bd1a06c3aae: b92e7c34-d016-4929-6b50-64cda20106b3
+    - 1a46eac7-1372-4741-be4e-661ebc45cc88: 7dd90ddd-3a7e-4e11-4eeb-195f22d8c4b5
+    - 1b2d7910-1dd8-4f50-ad93-0467f4caba41: c34bc6ff-bcac-4506-6773-b775fc5c02fd
+    - 1c917d52-c53d-4c56-920f-d2b9b2f7833b: e61d4d85-a08b-4b79-7587-42ee56be8e0d
+    - 222d0796-7f4d-4910-9757-4ff18c8a38b5: e3ec5982-f5aa-45f3-4551-4d3a92a1f432
+    - 232f3553-0882-4ab7-9807-0df85645b1ec: a041ce3c-f6e7-494b-6047-f25ef4a5fdda
+    - 24246b79-56e2-450e-b93d-956e6ec7143e: 360ccda0-8a8e-4d47-4b6f-89d32e9a3390
+    - 2443cdb4-fedd-44e5-a17e-fc619071e3a6: 340699f0-9c85-4b33-5c0e-980cfc228729
+    - 2459fbbb-7e04-442f-9223-b7bbe3a69441: e798d31a-2bad-4d59-6eef-0fc7edf52dcd
+    - 251102bb-d1be-4e66-be4b-50c707be9c4c: 05243f1b-f8a9-4eee-4ed5-be742c9a05ba
+    - 29009cc0-6b79-47c0-bbe0-f0874000ec91: e54e9514-91f3-4922-781f-1d53ce33b7aa
+    - 2acdae13-9288-4b82-a675-d4ba3ad252b9: 24caeee6-2dc2-41c3-73dd-27a9d4dfa846
+    - 2cc1fc78-dd2e-4a1c-a49e-e34307e4f869: 6c82bb54-cde7-40cc-4f65-51fbf82b581b
+    - 2eaa281f-d856-439d-b724-374b64038f02: 1a77b076-e485-4ba9-7687-c0f54d4d2802
+    - 302b61bd-928e-4b9b-b740-633f56387a68: 8e3b2e69-294f-497e-5d01-cfbce448916f
+    - 35e8ea6d-cf34-41bb-a902-d9687c115807: 61c73054-e783-481d-68c9-48ce5477692c
+    - 363e63f3-5699-439a-a6f5-5987519f4168: 31059286-43ff-450e-7b8c-b4195ca1dd8e
+    - 3709bb3b-92f6-49ea-abef-d2b05bada201: 8ab59f68-ec36-4c83-751d-469d6fc802fb
+    - 37769540-6aad-4c10-bd63-acdcd07f4b02: 75c70980-fa79-4d52-6a89-364aa720e18f
+    - 39ea5d6b-9f43-46a7-baca-a213b7dea172: 44d3ae72-34ce-490d-682e-7ee11c80e5bf
+    - 3c5902d7-6e9e-44a0-acb9-ae7c4e840819: b1f777fc-9def-4cf7-6afb-038a1427adc4
+    - 3ccf6cd0-a641-413e-a65e-5520d6961f1f: ac31778e-bd43-42a4-6843-b0b7a04f6a03
+    - 3dc2c43a-42eb-47d1-aa50-0fa12e39afef: ea015d35-5918-4f78-590a-5e820d9c842b
+    - 3e8f6d6d-7603-4542-a333-6e7e8a263a51: f05448db-5a08-4d04-64aa-13723f8d7ce2
+    - 3fcc414a-aeef-4fdb-8d6d-9f0dd6330bb6: b6ce59a2-7157-40d0-532d-0582b04ff503
+    - 42bf97df-59ce-47e0-9f76-ec185fe9b6b7: bba45d59-1d20-40e3-6ffc-07c1447c78b8
+    - 464fd04b-ea33-4fc8-a0f8-5e7cbe08e734: a5dcc3e5-e051-4ad2-60c3-c9e2371e997f
+    - 46b70058-661e-4816-96f4-2da847699d35: b1c0f72d-600f-41a7-449d-ce9138b8c201
+    - 47a38b66-fa9f-4e82-80ee-fc5ce381f497: a7ac0bc1-703e-43f5-70cb-91e33cf39e04
+    - 488235a1-0bd5-417d-8d27-05f83577c863: ff21c245-9565-4f69-7d82-a2c59bee4aa8
+    - 48d014e4-a56b-47b0-91cb-dbba9718283d: beabd77f-6564-4eb1-6325-82c206ed7198
+    - 4dcf8e4a-9135-4077-bbf8-3a8ed04643c4: c0fbe2e8-b696-42bd-55f2-d73736d535ee
+    - 4ebc4226-b988-4d5e-8d0c-a2130ab7dd6f: 001d8b74-6a85-4cdd-4dce-02e42037172f
+    - 52577f3b-03c6-492e-82b0-838a80e8a974: 743452d1-5aaa-477e-5882-ef4ae715424d
+    - 53d0740b-1b32-42e4-8f23-c395b9face90: d4da8107-4c33-4f45-469e-e20df6a6ac7e
+    - 54f3ff30-7fac-4345-a34e-6c8a0a1c1bbf: 68c03b96-ff3b-4c4c-5259-4724db1f7b04
+    - 56147f69-7816-4de3-bae7-65dd526cf2e9: 1ff24423-e2c4-43dd-6dd1-8e56c1509ae7
+    - 5958977b-d0bd-49cd-bb1c-549c3b634275: fa0dcbdf-ddc9-4890-6f1d-27e06da01dc6
+    - 599869e8-3da6-4286-8c4a-b18e07f08034: c6ca57a4-4187-47c4-67e8-d80d7ac17c3a
+    - 5bb45d6d-5a01-42f8-86f6-560dc4b6554e: a7e3803f-d6eb-43f5-5c45-3aeb94a22fa7
+    - 5eefa325-8fa3-450c-83a9-35d810ee8f53: ad36bd15-0d0d-49b2-58ed-fcc4667994eb
+    - 606b27bf-72a8-4e14-b44b-ee7ed90f0dc0: 40f935c2-ac26-43a7-62b0-d5737fbb95c9
+    - 61583ac6-a0c1-4ac7-9d2b-936c242d4d0b: 43d0e3f6-94eb-4ee1-5b4c-ed33cd3c6b79
+    - 63a84b72-4950-4d56-bf53-34c7f74e201b: 9cedc16a-c9e5-4a68-79b3-c59e6c6c6d6f
+    - 652d81d5-e8d5-4f30-b01d-ebb0ff9b7cb1: 7d75cc0b-46e2-4df2-4517-f5862a74da99
+    - 66d8963a-d4aa-46f4-a1cd-b20837fcf7bd: 88104fa0-ad2d-43a1-7d8e-7fe774a6b4ee
+    - 67ea77d2-764a-4d3d-b7ac-238a3dbb04e2: b50d0664-596f-4bd5-62ff-070b281d856f
+    - 6832e2e1-b575-449f-861a-f414c5f1aca2: 81619451-4acf-4605-4dec-42d877edeb7e
+    - 6a1809a2-b65c-4bc1-854e-b72eb2477372: 3bc29fda-0d40-4a4c-5e2e-10f770dc4149
+    - 6c588ca5-82cc-4519-b960-2e8c024f73cd: 49316d12-58fb-4a4a-4f63-33956cfc2419
+    - 6f77d111-2fe3-4b9e-807e-bc60b26bfdc2: 17aeff26-95dc-4958-7fb4-68403ab6398e
+    - 70977ee6-61b0-4d7b-b147-37769087e889: c7fc765f-3e34-42ed-4863-2f2f0e6202c8
+    - 746afcf6-64ca-47b9-adef-ac75c8eeca2e: 37a62259-1ce7-4744-4915-23d3aa0cacd7
+    - 74c67d45-d754-4a24-8164-17fb23d2ca49: 9674b11d-2166-430e-5bb9-917c7ea1443d
+    - 7547619f-9a83-4caf-8375-caa132f8046a: e1e61e4a-f61f-4b8e-6887-88dbf3a2fc4b
+    - 761364de-89dd-42f0-9bb9-9f5b7efef1a1: cae2d8c6-0879-4b17-53a5-209c43754d6d
+    - 7d1a3af5-1955-4c14-8d97-97b10b8202ec: 95af3b28-6f17-49e5-7f3c-175637711ccd
+    - 7e99bd3b-8879-4f1c-bb04-b57897698bf5: 70290c16-3e1e-4ebd-77be-11f99a7f536a
+    - 7fcd8983-1376-4903-a41f-70d6820eeb5d: 5922e7e5-b979-4848-6b85-c0ac2d05037c
+    - 825d0296-c994-4631-aedc-2b499b4c1146: adab9e6d-b430-459b-5c10-d79f6927ba92
+    - 871a6e91-c4be-45ba-acbe-50695b45537e: 82686826-4088-45dd-570f-fc97c8693187
+    - 874b8c57-05eb-4dfd-ace4-5b776a24f76e: 6167dd36-c853-49b0-4d51-842079d5473c
+    - 87726061-d663-4527-8d9f-73e22857b5c0: 9faf2521-a7a5-4e36-6b7a-a37f7b8dc86f
+    - 88e2cb8c-02ad-40a1-a894-ba069488d3bc: 5c910008-d09a-4cf8-4f34-ed1a1f1f3002
+    - 88f8a937-e32d-46e6-8f11-57825446fa2d: 99e6c117-7864-41d8-4c62-17acfe71bc53
+    - 8deb32c7-4e79-42ce-9590-a3c1f04716a2: 49bc520e-979b-41dd-506d-3c62cf5a5e3c
+    - 8f58d196-618d-4a40-949d-454000a91e55: 4e42b98e-ee9f-4953-4caa-57d303fdb9c5
+    - 8f6addd6-3efb-4918-8f1f-c0546ab66e4a: b8018fa2-37b3-496d-4d03-42eecbd9c50a
+    - 8ffba4e8-62b5-41f9-8f37-2863e794bb85: 8ac837c8-53c2-4114-6ea1-4fd9a1c166fe
+    - 91b41c97-c088-4e6f-8e73-1693de49d171: a0a63f72-25a0-4d69-6be8-a99d1674fe1c
+    - 921baefb-1cf1-4d41-bfe0-45cf3c80ab74: 8e635d88-9a0d-4a5d-60c9-6384382137db
+    - 93a4de62-e2b0-4707-84e7-55ea58db95cd: 89b8d96b-b23a-4c1d-6502-15a525899ccf
+    - 93e75aa7-f313-4046-8a1c-6314823468ad: 3f9892ea-ded0-4c59-5386-a08d3da7f4be
+    - 959d5d34-c09b-40e2-8d34-951d879c9a16: dfa95e7e-64fb-4020-7bbb-7fdd1f2aef59
+    - 96772a08-9667-42b5-9dea-48dbd5177b78: d2fbbe47-d72e-4471-5e0e-fd0043416ded
+    - 98b369bc-848b-4abe-9ab5-e779f5cf2253: a53b5990-7f09-4804-5c53-2acf9cbf5bf2
+    - 99536f42-2945-4833-ae83-0adf6543dadb: 4c194481-fd5b-43b0-61e4-d2278d98ba51
+    - 9d9fae9e-3e5b-40fe-8ee8-5190920a21cd: 146c3d55-6548-4c7f-5b5b-dd0bfda8a0b0
+    - 9e99e751-098b-496d-83d3-20d8f8ace240: dc97552e-2a04-4019-7686-b7d06e5a7db0
+    - 9fcccf2d-2c37-448f-b0ad-4eb4d3635c18: 34c92e27-4c85-440a-420c-ad28510a62e3
+    - a018a92d-029b-46b2-9326-fdbbcefd8b3a: 9ed0157f-fd08-47e6-6e7f-261559f25171
+    - a208b3ab-1e85-4dd2-9354-09cfb1ee9b62: e7c7be4e-0d9b-4cd3-4515-578e27dfee29
+    - a60fded3-e866-4a78-8094-25f8e8185275: 68c7b547-24e9-465d-6218-dc9705400f4f
+    - a9717ffe-966b-4f03-87d3-0551c39fa2f8: 5108b158-1992-4fd3-5b21-1a62e54a8b8f
+    - b3a9ee7d-ef8e-4265-b995-f797604889d2: faa471eb-2331-4766-6fd1-526f145525c6
+    - b4c729e4-5fac-40c5-9aa7-5f77916c060e: 7b545c21-569f-42ee-5743-987756d828cf
+    - b69ed3e5-162c-401b-b7ab-1c0a1483e3d9: dbb15efd-eddd-45ff-6e82-a4ebcf6d59bf
+    - b6a2f32a-7fb9-427a-a7aa-afd9937e09ca: 45c0ee0b-4eae-4c81-750e-bb6b8af721c0
+    - b7a488a4-5aba-4b04-a8d0-6e7445928911: b9d14d3a-7945-428c-5897-be96d3d145eb
+    - ba934091-93a4-49ce-ab47-8fec681adc62: 51baf90b-86de-4a7e-789b-349c4b72393c
+    - bb1c9ed8-a3af-4e7f-98f3-3607fbc63ba9: ec66e9a7-c3ab-4c3d-7803-98a11f4667fa
+    - bc5d9975-11ef-4e4d-8071-f3c9235dd003: c6eed1bb-0a4b-4589-5f02-c3bf45a5e0f2
+    - bf61bad9-af81-423c-a7e0-db6e25aedfcd: b7be8856-93cb-4049-76c3-e4a435b4d049
+    - bfa92965-ef83-4a19-aeae-59dc2510a793: 43019c02-fdbb-4c37-5c19-a75cc178fb77
+    - c0e7bbb4-ee7f-4c01-b718-1b4c651e28fb: 3b2ad7c8-6228-4421-5526-9a24b1979f48
+    - c1c5376d-91b8-46d2-8977-7ae206f31452: 746f9b2a-02f1-486b-48f5-9eecaac7e080
+    - c5575f44-0dfc-4529-bb94-0771aade392e: 4e6d1f6c-d7ff-4da0-4b7d-4f3ece91c6b3
+    - c59c12a9-b93d-4313-9e27-85b28e439936: ac3ceda4-1236-4a0b-4ad5-1758a5487e41
+    - c79e74d0-1c34-42ec-a65f-59c92875ebe6: ecb433df-f587-40a4-7211-a4e78635eaaf
+    - cfd69957-ece7-4fd7-ba62-9eb0aa49fc6b: 2fb017cb-455d-49d8-7eed-a5fa2584cc71
+    - cfecbb7e-9a2f-4a1f-b99d-1fc5f14ccb0b: fc8e7153-7b17-491b-63b4-e582e65918f8
+    - d0b3f6a6-a8a0-45e2-8f0e-08ae53055cc9: ac190d7f-8f8a-427c-4cd7-034d38e5ab1c
+    - d5929473-ffd9-4b93-8bdc-7ebfde486b08: f24eade7-4784-4f7b-7076-ef3281b8ed81
+    - d72e2ddf-efb3-4849-8d29-5c6a35161323: ed26aed2-3168-4335-707b-b018f2f5eccc
+    - d7657cb0-3f97-46a7-8a28-30d6b7e338a5: c99ee9c2-c940-4c10-63ff-920ce0663fd8
+    - d789dbd0-b4b9-4bd5-ad36-cb604fc1721c: 215027b3-748f-4737-7518-2cebfc1589c7
+    - db5a1d1a-e66e-4945-8d17-bba19bd2cdd9: 0b47d35b-d9ff-43aa-73e7-94efb366ba58
+    - dc2addd9-1c71-4d63-8bfa-4e929b35f485: 45ddc26d-8076-436c-7958-b79b8ae1cd8f
+    - dd07ce00-48bf-4eff-8579-a84bb0868c7c: 43126ca5-16da-40f9-7d48-38576d9f9c44
+    - ddcd58e8-8804-4ff8-a121-8f0ac38b9cc1: 113a8fde-8503-4cd6-681f-7da86cf34ddc
+    - def1b455-8e3b-43d8-b864-2653f9792b78: 815b6ca2-77e6-4e1c-7002-5c6207b7cfbd
+    - e1ab7d99-0767-4f1d-89eb-2f7b222811c1: ed879ff5-8912-4f11-69f6-bf8bb50e7520
+    - e38db657-23f0-4d74-9fd0-4cc7750634da: bc7ca399-42d5-43ce-74b9-91ce49d72508
+    - e40bab51-c5ac-4e04-8b7d-e790538a231b: e5f5a9b5-8c25-4543-78fb-4fabeae180d8
+    - e5ac028c-32c7-42e4-b3e0-7e6612521dfe: b0156873-8a9f-49b9-6a84-593d3b27ca90
+    - e7916d91-02f8-43ee-83ae-624b8f870d62: 3ca998f8-03b3-4480-6049-3ef90d6ad46f
+    - e83776ee-7c02-41c0-a47d-dccae4d0c980: b1a805b2-6eb9-49e5-6e71-24f9f72dd3fb
+    - e9feb0af-9c0a-459c-a6ed-6cb146dfff37: 3a3fe018-7d5d-4ce2-75ec-bee46594d2f2
+    - ea92dd52-8cf7-4664-af53-c43c6cf7485d: 022bb054-542f-44f4-44ba-69d0f9cae3ae
+    - ed3b3377-2fee-4a71-8cf0-a72724539f38: 66a8dd87-df9a-4166-43fd-662ba5d35009
+    - ee6b59a0-c22f-453c-9ecb-102c02bd8252: 254b9e85-b5d1-400f-737b-7c22ad06aeff
+    - f306e93b-83b8-4176-86fe-0652280168cd: faa08582-c6d2-459c-7a8f-8539f5b58472
+    - f376c2b4-3c3b-4ce9-88e9-ced5b85984e8: 6a3dbaa3-d10c-4f71-7bf2-d4747e7b4983
+    - f3829ba8-cedc-4e57-a651-a7d7cf5bd3fc: 88a2a29b-d368-412c-60fe-c42aca3cefd8
+    - fa609cec-a2b8-41ac-addb-539da287e3b2: 24bab02f-73f1-439d-44f3-faa6a8b0f87d
+    - ff315a08-d0be-484e-a6d7-ba8ced565556: 5eda9b75-dd34-4471-4309-6d9b1884aef9
   Name: SpectaclesInteractionKit
   Enabled: true
   Layers: 1
@@ -6470,6 +6653,21 @@
     InvertRotation: false
   SurfaceOptions: !<SurfaceOptions>
     EnhanceWithNativeAR: false
+- !<SceneObject/e58aa28f-9f80-450f-90bc-47396046ad67>
+  PrefabRemaps:
+    []
+  Name: APIKeyHint
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> bdae4b3f-2f3a-43ba-8444-42441e07f42a
+  Components:
+    - !<own> 14edfdf7-3b68-4ed9-8bca-e1054e3e66c5
 - !<SceneObject/e5ac028c-32c7-42e4-b3e0-7e6612521dfe>
   PrefabRemaps:
     []

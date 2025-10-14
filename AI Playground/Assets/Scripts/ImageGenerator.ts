@@ -1,7 +1,8 @@
-import { OpenAI } from "Remote Service Gateway.lspkg/HostedExternal/OpenAI";
-import { OpenAITypes } from "Remote Service Gateway.lspkg/HostedExternal/OpenAITypes";
-import { Gemini } from "Remote Service Gateway.lspkg/HostedExternal/Gemini";
-import { GeminiTypes } from "Remote Service Gateway.lspkg/HostedExternal/GeminiTypes";
+import { Gemini } from "RemoteServiceGateway.lspkg/HostedExternal/Gemini";
+import { GeminiTypes } from "RemoteServiceGateway.lspkg/HostedExternal/GeminiTypes";
+import { OpenAI } from "RemoteServiceGateway.lspkg/HostedExternal/OpenAI";
+import { OpenAITypes } from "RemoteServiceGateway.lspkg/HostedExternal/OpenAITypes";
+import { Promisfy } from "RemoteServiceGateway.lspkg/Utils/Promisfy";
 
 export class ImageGenerator {
   private rmm = require("LensStudio:RemoteMediaModule") as RemoteMediaModule;
@@ -90,18 +91,21 @@ export class ImageGenerator {
             let url = datum.url;
             if (url) {
               print("Texture loaded as image URL");
-              let rsm =
-                require("LensStudio:RemoteServiceModule") as RemoteServiceModule;
-              let resource = rsm.makeResourceFromUrl(url);
-              this.rmm.loadResourceAsImageTexture(
-                resource,
-                (texture) => {
-                  resolve(texture);
-                },
-                () => {
-                  reject("Failure to download texture from URL");
-                }
-              );
+              let internetModule = require("LensStudio:InternetModule") as InternetModule;
+              let request = RemoteServiceHttpRequest.create();
+              request.url = url;
+              Promisfy.InternetModule.performHttpRequest(internetModule, request).then((response) => {
+                let resource = response.asResource();
+                this.rmm.loadResourceAsImageTexture(
+                  resource,
+                  (texture) => {
+                    resolve(texture);
+                  },
+                  () => {
+                    reject("Failure to download texture from URL");
+                  }
+                );
+              })
             } else if (b64) {
               print("Decoding texture from base64");
               Base64.decodeTextureAsync(

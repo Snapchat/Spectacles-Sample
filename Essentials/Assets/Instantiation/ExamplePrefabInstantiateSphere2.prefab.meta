@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> 405fc0a1-70c1-49c4-aade-3a09eeb11276
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -15,12 +15,11 @@
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<ObjectPrefabAssetData/243dc8c6-525c-4cb0-b5c6-47a5bae5c9f6>
-  SourceRemaps:
-    - 405fc0a1-70c1-49c4-aade-3a09eeb11276: e796fb7c-910b-459b-982e-0f4533b51314
-    - 7234814d-109f-4e88-a5b2-6b6fe7896849: 67fe60be-5abb-4084-8cfd-6ee69b36b574
-    - ce172210-4de7-44d7-ba14-ed65cc0dd470: f1472d84-5206-45a8-be12-6456c918fbc3
-  SourceState: !<own> e796fb7c-910b-459b-982e-0f4533b51314
-- !<RenderMeshVisual/67fe60be-5abb-4084-8cfd-6ee69b36b574>
+  Prototype: !<ObjectOwner/ef7c7070-49bb-420e-8b59-c1b9df1f0ec3>
+    PackagePath: ""
+    objects:
+      - !<own> ce172210-4de7-44d7-45eb-129a33f22b8f
+- !<RenderMeshVisual/7234814d-109f-4e88-5a4d-9490187697b6>
   PrefabRemaps:
     []
   Name: Render Mesh Visual
@@ -40,13 +39,7 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<ObjectPrefab/e796fb7c-910b-459b-982e-0f4533b51314>
-  PackagePath: ""
-  objects:
-    - !<own> f1472d84-5206-45a8-be12-6456c918fbc3
-  LazyLoading: false
-  RetainAssets: true
-- !<SceneObject/f1472d84-5206-45a8-be12-6456c918fbc3>
+- !<SceneObject/ce172210-4de7-44d7-45eb-129a33f22b8f>
   PrefabRemaps:
     []
   Name: Sphere
@@ -60,4 +53,4 @@
   Children:
     []
   Components:
-    - !<own> 67fe60be-5abb-4084-8cfd-6ee69b36b574
+    - !<own> 7234814d-109f-4e88-5a4d-9490187697b6

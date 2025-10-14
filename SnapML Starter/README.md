@@ -17,10 +17,10 @@ Designing ML-powered Lenses for Spectacles opens new possibilities for creating 
 
 ## Prerequisites
 
-- **Lens Studio**: v5.10.0+
-- **Spectacles OS Version**: v5.62+
-- **Spectacles App iOS**: v0.62+
-- **Spectacles App Android**: v0.62+
+- **Lens Studio**: v5.15.0+
+- **Spectacles OS Version**: v5.64+
+- **Spectacles App iOS**: v0.64+
+- **Spectacles App Android**: v0.64+
 
 > **Disclaimer:**
 > We do not endorse these service, this project is for educational purposes and you could use other alternatives if you'd like. 
@@ -271,3 +271,8 @@ If you have any questions or need assistance, please don't hesitate to reach out
 ## Contributing
 
 Feel free to provide improvements or suggestions or directly contributing via merge request. By sharing insights, you help everyone else build better ML-powered Lenses.
+
+---
+
+*Built with 👻 by the Spectacles team*
+ 

@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> bcaa52a8-3196-4f65-83eb-b80aae88500e
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,34 +14,7 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<ObjectPrefab/1ebe8725-f698-4623-83b6-a064c9f452f5>
-  PackagePath: ""
-  objects:
-    - !<own> dede65e5-e0e1-404f-aa08-9a67444e37a4
-  LazyLoading: false
-  RetainAssets: true
-- !<ObjectPrefabAssetData/30ba6a8b-04af-488f-bac4-b69eff164158>
-  SourceRemaps:
-    - 2a196fee-b24c-43c7-bd23-5762cae8f424: f8cdf7a0-3cbe-4345-b01f-a3f3aadbe790
-    - 7d03dc6a-faf1-4069-a8e6-8b1f9abf6dac: dede65e5-e0e1-404f-aa08-9a67444e37a4
-    - bcaa52a8-3196-4f65-83eb-b80aae88500e: 1ebe8725-f698-4623-83b6-a064c9f452f5
-  SourceState: !<own> 1ebe8725-f698-4623-83b6-a064c9f452f5
-- !<SceneObject/dede65e5-e0e1-404f-aa08-9a67444e37a4>
-  PrefabRemaps:
-    []
-  Name: board
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> f8cdf7a0-3cbe-4345-b01f-a3f3aadbe790
-- !<RenderMeshVisual/f8cdf7a0-3cbe-4345-b01f-a3f3aadbe790>
+- !<RenderMeshVisual/2a196fee-b24c-43c7-42dc-a89d35170bdb>
   PrefabRemaps:
     []
   Name: component_1
@@ -61,3 +34,23 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<ObjectPrefabAssetData/30ba6a8b-04af-488f-bac4-b69eff164158>
+  Prototype: !<ObjectOwner/6ff33a7d-6750-435c-96b1-f682f0a36543>
+    PackagePath: ""
+    objects:
+      - !<own> 7d03dc6a-faf1-4069-5719-74e065409253
+- !<SceneObject/7d03dc6a-faf1-4069-5719-74e065409253>
+  PrefabRemaps:
+    []
+  Name: board
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 2a196fee-b24c-43c7-42dc-a89d35170bdb

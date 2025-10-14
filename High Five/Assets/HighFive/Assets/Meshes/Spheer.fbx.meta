@@ -8,7 +8,7 @@
   ImporterName: FbxImporter
   PrimaryAsset: !<reference> cd1be259-0a2c-4925-9905-972d81ee6498
   PackageType: LegacyPackage
-  PackagePolicy: CanBeUnpackedTransparent
+  LegacyPackagePolicy: CanBeUnpackedTransparent
   ExtraData:
     {}
   AssetDataMap:
@@ -40,7 +40,22 @@
       mesh: None Compression
     Overrides:
       {}
-- !<RenderMeshVisual/1910c8b8-4807-4048-a202-4b933bef23fd>
+- !<SceneObject/11345755-f1b7-4b0d-4658-8198a7d17f8b>
+  PrefabRemaps:
+    []
+  Name: Spheer
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> dfddd8bd-ad79-40d8-722f-0a405c3e9508
+  Components:
+    []
+- !<RenderMeshVisual/4b0155c3-0b2a-49ad-406d-4bb5ce3e1043>
   PrefabRemaps:
     []
   Name: component_0
@@ -60,20 +75,12 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<ObjectPrefab/65d856fc-c77d-45c3-aa4d-a3ddd49c701a>
-  PackagePath: ""
-  objects:
-    - !<own> c6554729-ff98-4168-878c-844f5fd07b63
-  LazyLoading: false
-  RetainAssets: true
 - !<ObjectPrefabAssetData/b12db586-5edb-42fe-a235-9092542c359f>
-  SourceRemaps:
-    - 11345755-f1b7-4b0d-b9a7-7e67582e8074: c6554729-ff98-4168-878c-844f5fd07b63
-    - 4b0155c3-0b2a-49ad-bf92-b44a31c1efbc: 1910c8b8-4807-4048-a202-4b933bef23fd
-    - dfddd8bd-ad79-40d8-8dd0-f5bfa3c16af7: be8423a0-bf79-40c3-b5eb-c2dcfee71a2e
-    - f1511698-2d87-4fd3-8ec6-f80d489b49f0: 01760a17-23c9-4ba8-93ed-ac0913961a57
-  SourceState: !<own> 65d856fc-c77d-45c3-aa4d-a3ddd49c701a
-- !<SceneObject/be8423a0-bf79-40c3-b5eb-c2dcfee71a2e>
+  Prototype: !<ObjectOwner/b9d61074-9e7c-44ab-b43c-bb48c4e06a7f>
+    PackagePath: ""
+    objects:
+      - !<own> 11345755-f1b7-4b0d-4658-8198a7d17f8b
+- !<SceneObject/dfddd8bd-ad79-40d8-722f-0a405c3e9508>
   PrefabRemaps:
     []
   Name: OutSpheer
@@ -87,19 +94,4 @@
   Children:
     []
   Components:
-    - !<own> 1910c8b8-4807-4048-a202-4b933bef23fd
-- !<SceneObject/c6554729-ff98-4168-878c-844f5fd07b63>
-  PrefabRemaps:
-    []
-  Name: spheer
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> be8423a0-bf79-40c3-b5eb-c2dcfee71a2e
-  Components:
-    []
+    - !<own> 4b0155c3-0b2a-49ad-406d-4bb5ce3e1043

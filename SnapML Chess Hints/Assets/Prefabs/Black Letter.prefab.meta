@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> f900c03a-34e5-45c1-b71b-245fefbafe18
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -15,13 +15,11 @@
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<ObjectPrefabAssetData/2b42db44-4aa9-4711-b109-f0f2fbbe9fcf>
-  SourceRemaps:
-    - 57190bdd-36bf-453f-adfb-2ac0dfd7fbf7: 6c9d8aec-d143-47b4-bbe8-aaa585e0fc50
-    - d3245dd7-6f72-4d1d-844c-55510778560e: a2732b9d-cd47-4d9e-b8ba-160ae487528d
-    - dc5a8f57-ea40-440b-b73a-c344b63d0a95: 8e6716cb-6504-40a1-acc1-4b38ad4575c3
-    - f900c03a-34e5-45c1-b71b-245fefbafe18: d8fa38a0-27ee-41b4-9fae-4659b37bab9a
-  SourceState: !<own> d8fa38a0-27ee-41b4-9fae-4659b37bab9a
-- !<SceneObject/6c9d8aec-d143-47b4-bbe8-aaa585e0fc50>
+  Prototype: !<ObjectOwner/1492d141-7772-4aa2-8ed8-24ad79e73f97>
+    PackagePath: ""
+    objects:
+      - !<own> 57190bdd-36bf-453f-5204-d53f20280408
+- !<SceneObject/57190bdd-36bf-453f-5204-d53f20280408>
   PrefabRemaps:
     []
   Name: Black Letter
@@ -35,19 +33,9 @@
   Children:
     []
   Components:
-    - !<own> a2732b9d-cd47-4d9e-b8ba-160ae487528d
-    - !<own> 8e6716cb-6504-40a1-acc1-4b38ad4575c3
-- !<LookAtComponent/8e6716cb-6504-40a1-acc1-4b38ad4575c3>
-  PrefabRemaps:
-    []
-  Name: Look At
-  Enabled: true
-  LookAtMode: LookAtDirection
-  AimVectors: ZAimYUp
-  WorldUpVector: SceneY
-  Target: !<reference> 00000000-0000-0065-0000-000000000064
-  OffsetRotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-- !<Text/a2732b9d-cd47-4d9e-b8ba-160ae487528d>
+    - !<own> d3245dd7-6f72-4d1d-7bb3-aaaef887a9f1
+    - !<own> dc5a8f57-ea40-440b-48c5-3cbb49c2f56a
+- !<Text/d3245dd7-6f72-4d1d-7bb3-aaaef887a9f1>
   PrefabRemaps:
     []
   Name: Text
@@ -77,15 +65,18 @@
     Mode: Solid
     Color: {x: 0.988235, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.988235, y: 1.000000, z: 1.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -96,6 +87,7 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -107,6 +99,7 @@
       Mode: Solid
       Color: {x: 0.365743, y: 0.255146, z: 0.134691, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -123,9 +116,13 @@
     CapitalizationOverride: None
   DepthTest: false
   TwoSided: false
-- !<ObjectPrefab/d8fa38a0-27ee-41b4-9fae-4659b37bab9a>
-  PackagePath: ""
-  objects:
-    - !<own> 6c9d8aec-d143-47b4-bbe8-aaa585e0fc50
-  LazyLoading: false
-  RetainAssets: true
+- !<LookAtComponent/dc5a8f57-ea40-440b-48c5-3cbb49c2f56a>
+  PrefabRemaps:
+    []
+  Name: Look At
+  Enabled: true
+  LookAtMode: LookAtDirection
+  AimVectors: ZAimYUp
+  WorldUpVector: SceneY
+  Target: !<reference> 00000000-0000-0065-0000-000000000064
+  OffsetRotation: {x: 0.000000, y: 0.000000, z: 0.000000}

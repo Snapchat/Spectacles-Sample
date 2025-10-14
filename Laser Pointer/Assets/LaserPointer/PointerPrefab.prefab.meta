@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> fc82cd8e-b6a2-4c26-b96f-9b34334f13a7
   PackageType: NotAPackage
-  PackagePolicy: CannotBeUnpacked
+  LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
@@ -14,7 +14,30 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<ScriptComponent/5a5dfcf0-12ae-4bc6-9353-ff5ac41b5e7f>
+- !<ScriptComponent/49f51933-c553-486a-62c8-f8de84c5db39>
+  PrefabRemaps:
+    []
+  Name: SyncMaterials
+  Enabled: true
+  ScriptAsset: !<reference> 2188acca-211b-474d-ae70-543ccec6cf65
+  ScriptInputsDefault:
+    networkIdTypeString: true
+    customNetworkId: true
+    autoClone: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      networkIdTypeString: objectId
+      customNetworkId: enter_unique_id
+      autoClone: true
+      mainMaterial: !<reference.Material> 669038fd-66ea-4c6c-9750-4c913831373a
+      propertyNames: !<string[]>
+        - baseColor
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/a01a895b-1ee8-46b8-5e64-252a646ac5fa>
   PrefabRemaps:
     []
   Name: SyncTransform
@@ -43,7 +66,7 @@
   ScriptTypes:
     "":
       {}
-- !<RenderMeshVisual/82d1a7e4-44c9-4ea3-a21b-8694702b5604>
+- !<RenderMeshVisual/ad8fb4cb-03ea-402f-44a8-082c8652e31e>
   PrefabRemaps:
     []
   Name: Render Mesh Visual
@@ -63,61 +86,7 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<ObjectPrefab/a790e568-9ae6-4192-b3c7-a4778475b705>
-  PackagePath: ""
-  objects:
-    - !<own> ebc0bc5b-fd99-4d1b-ad45-28d0cf1278b3
-  LazyLoading: false
-  RetainAssets: true
-- !<ScriptComponent/ae5e9a35-c2a4-48fb-ae31-d3847680e75f>
-  PrefabRemaps:
-    []
-  Name: Pointer
-  Enabled: true
-  ScriptAsset: !<reference> 6cd69aa5-1134-4b5c-9104-688fda93d56f
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      pointerRmv: !<reference.RenderMeshVisual> 82d1a7e4-44c9-4ea3-a21b-8694702b5604
-  ScriptTypes:
-    "":
-      {}
-- !<ObjectPrefabAssetData/c6a4f0a1-f4cb-45ce-b661-46373a696e52>
-  SourceRemaps:
-    - 49f51933-c553-486a-9d37-07217b3a24c6: d87fd27f-cba5-43b8-b01c-cae78f64e7e9
-    - a01a895b-1ee8-46b8-a19b-dad59b953a05: 5a5dfcf0-12ae-4bc6-9353-ff5ac41b5e7f
-    - ad8fb4cb-03ea-402f-bb57-f7d379ad1ce1: 82d1a7e4-44c9-4ea3-a21b-8694702b5604
-    - aef33813-0ec4-4bd4-bf07-af9264336640: ebc0bc5b-fd99-4d1b-ad45-28d0cf1278b3
-    - ccdb6a01-aa6a-4e8c-93d0-303706689e50: ae5e9a35-c2a4-48fb-ae31-d3847680e75f
-    - fc82cd8e-b6a2-4c26-b96f-9b34334f13a7: a790e568-9ae6-4192-b3c7-a4778475b705
-  SourceState: !<own> a790e568-9ae6-4192-b3c7-a4778475b705
-- !<ScriptComponent/d87fd27f-cba5-43b8-b01c-cae78f64e7e9>
-  PrefabRemaps:
-    []
-  Name: SyncMaterials
-  Enabled: true
-  ScriptAsset: !<reference> 2188acca-211b-474d-ae70-543ccec6cf65
-  ScriptInputsDefault:
-    networkIdTypeString: true
-    customNetworkId: true
-    autoClone: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      networkIdTypeString: objectId
-      customNetworkId: enter_unique_id
-      autoClone: true
-      mainMaterial: !<reference.Material> 669038fd-66ea-4c6c-9750-4c913831373a
-      propertyNames: !<string[]>
-        - baseColor
-  ScriptTypes:
-    "":
-      {}
-- !<SceneObject/ebc0bc5b-fd99-4d1b-ad45-28d0cf1278b3>
+- !<SceneObject/aef33813-0ec4-4bd4-40f8-506d9bcc99bf>
   PrefabRemaps:
     []
   Name: PointerPrefab
@@ -131,7 +100,28 @@
   Children:
     []
   Components:
-    - !<own> 82d1a7e4-44c9-4ea3-a21b-8694702b5604
-    - !<own> d87fd27f-cba5-43b8-b01c-cae78f64e7e9
-    - !<own> 5a5dfcf0-12ae-4bc6-9353-ff5ac41b5e7f
-    - !<own> ae5e9a35-c2a4-48fb-ae31-d3847680e75f
+    - !<own> ad8fb4cb-03ea-402f-44a8-082c8652e31e
+    - !<own> 49f51933-c553-486a-62c8-f8de84c5db39
+    - !<own> a01a895b-1ee8-46b8-5e64-252a646ac5fa
+    - !<own> ccdb6a01-aa6a-4e8c-6c2f-cfc8f99761af
+- !<ObjectPrefabAssetData/c6a4f0a1-f4cb-45ce-b661-46373a696e52>
+  Prototype: !<ObjectOwner/7dd4348a-733e-42b1-9093-79edb5f3157d>
+    PackagePath: ""
+    objects:
+      - !<own> aef33813-0ec4-4bd4-40f8-506d9bcc99bf
+- !<ScriptComponent/ccdb6a01-aa6a-4e8c-6c2f-cfc8f99761af>
+  PrefabRemaps:
+    []
+  Name: Pointer
+  Enabled: true
+  ScriptAsset: !<reference> 6cd69aa5-1134-4b5c-9104-688fda93d56f
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      pointerRmv: !<reference.RenderMeshVisual> ad8fb4cb-03ea-402f-44a8-082c8652e31e
+  ScriptTypes:
+    "":
+      {}

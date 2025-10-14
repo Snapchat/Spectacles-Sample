@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spectacles Cursor Controller</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            font-weight: 300;
+        }
+
+        .subtitle {
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+
+        .config-section {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .config-section h3 {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .input-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        input[type="text"], input[type="url"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 1rem;
+        }
+
+        input[type="text"]:focus, input[type="url"]:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+
+        .button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+            min-width: 150px;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:disabled {
+            background: rgba(255, 255, 255, 0.3);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .status {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .status.connected {
+            background: rgba(46, 204, 113, 0.2);
+            border: 1px solid rgba(46, 204, 113, 0.5);
+        }
+
+        .status.disconnected {
+            background: rgba(231, 76, 60, 0.2);
+            border: 1px solid rgba(231, 76, 60, 0.5);
+        }
+
+        .status.connecting {
+            background: rgba(241, 196, 15, 0.2);
+            border: 1px solid rgba(241, 196, 15, 0.5);
+        }
+
+        .cursor-area {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            min-height: 200px;
+            position: relative;
+            cursor: crosshair;
+        }
+
+        .cursor-instructions {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .coordinates {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .cursor-visual {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            pointer-events: none;
+            z-index: 100;
+            transform: translate(-2px, -2px);
+            transition: all 0.1s ease-out;
+            opacity: 0;
+        }
+
+        .cursor-visual.active {
+            opacity: 1;
+        }
+
+        .cursor-visual.leader {
+            filter: drop-shadow(0 0 6px rgba(255, 107, 107, 0.8));
+        }
+
+        .cursor-visual.follower {
+            filter: drop-shadow(0 0 6px rgba(76, 205, 196, 0.8));
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .room-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Spectacles Cursor Controller</h1>
+        <p class="subtitle">Control AR objects in real-time from your PC</p>
+
+        <div id="configSection" class="config-section">
+            <h3>⚙️ Configuration</h3>
+
+            <div class="input-group">
+                <label for="supabaseUrl">Supabase URL:</label>
+                <input type="url" id="supabaseUrl" placeholder="https://your-project.supabase.co" />
+            </div>
+
+            <div class="input-group">
+                <label for="supabaseKey">Supabase Anon Key:</label>
+                <input type="text" id="supabaseKey" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." />
+            </div>
+
+            <div class="input-group">
+                <label for="channelName">Channel Name:</label>
+                <input type="text" id="channelName" value="spectacles-demo-channel" />
+            </div>
+
+            <div class="input-group">
+                <label for="userName">Your Name:</label>
+                <input type="text" id="userName" value="PC Controller" />
+            </div>
+
+            <button class="button" onclick="connect()">🚀 Connect to Spectacles</button>
+        </div>
+
+        <div id="controlSection" class="hidden">
+            <div class="room-info">
+                <strong>📡 Connected to Channel:</strong> <span id="currentChannel"></span><br>
+                <strong>👤 User:</strong> <span id="currentUser"></span>
+            </div>
+
+            <div id="controlModeSection">
+                <h3>🎮 Control Mode (Spectacles Controls)</h3>
+                <div id="currentMode" style="margin-top: 1rem; font-weight: bold; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; font-size: 1.1rem;">
+                    👁️ FOLLOWING - Waiting for Spectacles...
+                </div>
+                <div style="margin-top: 0.5rem; opacity: 0.7; font-size: 0.9rem;">
+                    💡 Use the button on your Spectacles to switch modes
+                </div>
+            </div>
+
+            <div id="smoothingSection" style="margin-top: 2rem;">
+                <h3>🎯 Cursor Smoothing</h3>
+                <div class="input-group">
+                    <label for="lerpSpeed">Smoothing Speed (0.05 = very smooth, 0.5 = responsive):</label>
+                    <input type="range" id="lerpSpeed" min="0.05" max="0.5" step="0.05" value="0.15" 
+                           style="width: 100%; margin-top: 0.5rem;"
+                           oninput="updateLerpSpeed(this.value)">
+                    <div id="lerpSpeedValue" style="text-align: center; margin-top: 0.5rem; font-weight: bold;">0.15</div>
+                </div>
+            </div>
+
+            <div class="cursor-area" id="cursorArea">
+                <div class="cursor-instructions" id="cursorInstructions">
+                    Move your mouse in this area to control the AR object in Spectacles
+                </div>
+                <div class="coordinates" id="coordinates">x: 0, y: 0</div>
+
+                <!-- Visual Cursor -->
+                <div class="cursor-visual" id="cursorVisual">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Outer white border for visibility -->
+                        <path d="M12 2L3 21L12 17L21 21L12 2Z" fill="white" stroke="black" stroke-width="1"/>
+                        <!-- Inner colored arrow -->
+                        <path d="M12 4L5 19L12 16L19 19L12 4Z" fill="currentColor"/>
+                        <!-- Small circle at the tip -->
+                        <circle cx="12" cy="2" r="2" fill="currentColor" stroke="white" stroke-width="1"/>
+                    </svg>
+                </div>
+            </div>
+
+            <button class="button" onclick="disconnect()">🔌 Disconnect</button>
+        </div>
+
+        <div id="status" class="status disconnected">
+            📱 Ready to connect - Enter your Supabase credentials above
+        </div>
+    </div>
+
+    <!-- Load Supabase from CDN -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+    <!-- Load our cursor client -->
+    <script src="./supabase-client.js"></script>
+
+    <script>
+        // Global variables
+        let cursorClient = null;
+        let cleanupInterval = null;
+        let isLeader = false; // Start as follower (Spectacles broadcasts by default)
+        let followingInterval = null;
+        
+        // Smooth cursor movement variables
+        let currentCursorX = 50; // Current visual position (percentage)
+        let currentCursorY = 50;
+        let targetCursorX = 50;  // Target position from Spectacles
+        let targetCursorY = 50;
+        let lerpSpeed = 0.15;    // Lerp speed (0.1 = slow, 0.5 = fast)
+        let animationFrameId = null;
+
+        // UI Functions
+        function setStatus(message, type = 'disconnected') {
+            const statusEl = document.getElementById('status');
+            statusEl.textContent = message;
+            statusEl.className = `status ${type}`;
+        }
+
+        function showConfigSection() {
+            document.getElementById('configSection').classList.remove('hidden');
+            document.getElementById('controlSection').classList.add('hidden');
+        }
+
+        function showControlSection() {
+            document.getElementById('configSection').classList.add('hidden');
+            document.getElementById('controlSection').classList.remove('hidden');
+
+            document.getElementById('currentChannel').textContent = document.getElementById('channelName').value;
+            document.getElementById('currentUser').textContent = document.getElementById('userName').value;
+        }
+
+        // Supabase Functions
+        window.connect = async function() {
+            const supabaseUrl = document.getElementById('supabaseUrl').value;
+            const supabaseKey = document.getElementById('supabaseKey').value;
+            const channelName = document.getElementById('channelName').value;
+            const userName = document.getElementById('userName').value;
+
+            if (!supabaseUrl || !supabaseKey || !channelName || !userName) {
+                setStatus('❌ Please fill in all fields', 'disconnected');
+                return;
+            }
+
+            try {
+                setStatus('🔄 Connecting to Supabase...', 'connecting');
+
+                // Create cursor client
+                cursorClient = new window.SpectaclesCursorClient();
+
+                // Connect to Supabase
+                await cursorClient.connect(supabaseUrl, supabaseKey, channelName, userName);
+
+                setStatus('✅ Connected! Waiting for Spectacles mode signal...', 'connected');
+                showControlSection();
+                setupCursorTracking();
+                becomeFollower(); // Start as follower (Spectacles broadcasts by default)
+                
+                // Listen for mode changes from Spectacles
+                setupModeListener();
+
+                // Start periodic cleanup
+                cleanupInterval = setInterval(() => {
+                    cursorClient.cleanupOldPositions();
+                }, 10000); // Every 10 seconds
+
+            } catch (error) {
+                console.error('Connection error:', error);
+                setStatus(`❌ Connection failed: ${error.message}`, 'disconnected');
+            }
+        };
+
+        window.disconnect = function() {
+            if (cursorClient) {
+                cursorClient.disconnect();
+                cursorClient = null;
+            }
+            if (cleanupInterval) {
+                clearInterval(cleanupInterval);
+                cleanupInterval = null;
+            }
+            setStatus('📱 Disconnected', 'disconnected');
+            showConfigSection();
+        };
+
+
+        // Setup mode listener to respond to Spectacles mode changes
+        function setupModeListener() {
+            if (!cursorClient) return;
+            
+            // Set callback for mode changes from Spectacles
+            cursorClient.onModeChange = (mode) => {
+                console.log('🔄 Auto-switching mode based on Spectacles:', mode);
+                
+                if (mode === 'pc_leader') {
+                    // Spectacles wants PC to lead
+                    becomeLeader();
+                } else if (mode === 'spectacles_leader') {
+                    // Spectacles wants to lead
+                    becomeFollower();
+                }
+            };
+        }
+
+        // Control Mode Functions
+        window.becomeLeader = function() {
+            isLeader = true;
+
+            // Stop following if we were following
+            if (followingInterval) {
+                clearInterval(followingInterval);
+                followingInterval = null;
+            }
+
+            // Update UI
+            document.getElementById('currentMode').textContent = '👑 PC LEADING - Move mouse to control Spectacles';
+            document.getElementById('cursorInstructions').textContent = 'Move your mouse in this area to control the AR object';
+
+            // Hide cursor visual when leading (your real mouse cursor is enough)
+            const cursorVisual = document.getElementById('cursorVisual');
+            cursorVisual.className = 'cursor-visual'; // Remove 'active' to hide
+            cursorVisual.style.color = '#FF6B6B'; // Red for leader
+            
+            setStatus('✅ PC is leading - move mouse to control', 'connected');
+        };
+
+        window.becomeFollower = function() {
+            isLeader = false;
+
+            // Start following Spectacles cursor
+            followingInterval = setInterval(() => {
+                followSpectaclesCursor();
+            }, 100); // Check every 100ms
+
+            // Update UI
+            document.getElementById('currentMode').textContent = '👁️ FOLLOWING - Spectacles is broadcasting';
+            document.getElementById('cursorInstructions').textContent = 'Following Spectacles cursor movements (controlled by glasses)';
+
+            // Update cursor visual
+            const cursorVisual = document.getElementById('cursorVisual');
+            cursorVisual.className = 'cursor-visual active follower';
+            cursorVisual.style.color = '#4ECDC4'; // Teal for follower
+
+            // Initialize smooth cursor position to current position
+            targetCursorX = currentCursorX;
+            targetCursorY = currentCursorY;
+            
+            setStatus('✅ Following Spectacles - use button on glasses to switch', 'connected');
+        };
+
+        async function followSpectaclesCursor() {
+            // Get latest cursor position from Spectacles (user_id starting with 'spectacles_')
+            if (cursorClient && cursorClient.isClientConnected()) {
+                const spectaclesData = await cursorClient.getSpectaclesCursor();
+                if (spectaclesData) {
+                    // Update PC cursor position to match Spectacles
+                    const cursorArea = document.getElementById('cursorArea');
+                    const rect = cursorArea.getBoundingClientRect();
+
+                    // Convert percentage back to pixels
+                    const pixelX = (spectaclesData.x / 100) * rect.width;
+                    const pixelY = (spectaclesData.y / 100) * rect.height;
+
+                    // Convert web percentage to LS coordinates for display
+                    const lsX = (spectaclesData.x / 100) * 100 - 50; // 0-100% -> -50 to +50
+                    const lsY = 30 - (spectaclesData.y / 100) * 60;   // 0-100% -> +30 to -30
+                    
+                    // Update coordinates display
+                    document.getElementById('coordinates').textContent =
+                        `Following Spectacles: Web(${spectaclesData.x.toFixed(1)}%, ${spectaclesData.y.toFixed(1)}%) LS(${lsX.toFixed(1)}, ${lsY.toFixed(1)})`;
+
+                    // Update visual cursor position
+                    updateCursorVisual(spectaclesData.x, spectaclesData.y);
+                }
+            }
+        }
+
+        function setupCursorTracking() {
+            const cursorArea = document.getElementById('cursorArea');
+            const coordinates = document.getElementById('coordinates');
+
+            cursorArea.addEventListener('mousemove', (event) => {
+                // Only broadcast if we're the leader
+                if (!isLeader || !cursorClient || !cursorClient.isClientConnected()) return;
+
+                const rect = cursorArea.getBoundingClientRect();
+                const x = ((event.clientX - rect.left) / rect.width) * 100; // 0-100%
+                const y = ((event.clientY - rect.top) / rect.height) * 100;  // 0-100%
+
+                // Update coordinates display
+                coordinates.textContent = `x: ${x.toFixed(1)}%, y: ${y.toFixed(1)}%`;
+
+                // Don't update visual cursor when leading - your mouse is visible
+                // Just keep position updated for smooth transitions when switching modes
+                currentCursorX = x;
+                currentCursorY = y;
+
+                // Send cursor position to Spectacles
+                cursorClient.broadcastCursorPosition(x, y);
+            });
+
+            // Send presence events and cursor visibility
+            cursorArea.addEventListener('mouseenter', () => {
+                if (cursorClient && cursorClient.isClientConnected()) {
+                    cursorClient.sendUserPresence('enter');
+                }
+                // Don't show cursor when leading - your mouse cursor is visible
+                // Only show visual cursor when following Spectacles
+            });
+
+            cursorArea.addEventListener('mouseleave', () => {
+                if (cursorClient && cursorClient.isClientConnected()) {
+                    cursorClient.sendUserPresence('leave');
+                }
+                // Cursor stays hidden when leaving in leader mode
+            });
+        }
+
+        // Smooth cursor animation loop
+        function animateCursor() {
+            // Lerp towards target position
+            currentCursorX += (targetCursorX - currentCursorX) * lerpSpeed;
+            currentCursorY += (targetCursorY - currentCursorY) * lerpSpeed;
+            
+            // Update visual position
+            updateCursorVisualDirect(currentCursorX, currentCursorY);
+            
+            // Continue animation if we haven't reached the target
+            const distanceX = Math.abs(targetCursorX - currentCursorX);
+            const distanceY = Math.abs(targetCursorY - currentCursorY);
+            
+            if (distanceX > 0.1 || distanceY > 0.1) {
+                animationFrameId = requestAnimationFrame(animateCursor);
+            } else {
+                animationFrameId = null;
+            }
+        }
+
+        // Update visual cursor position (direct, no lerp)
+        function updateCursorVisualDirect(xPercent, yPercent) {
+            const cursorVisual = document.getElementById('cursorVisual');
+            const cursorArea = document.getElementById('cursorArea');
+
+            if (!cursorVisual || !cursorArea) return;
+
+            const rect = cursorArea.getBoundingClientRect();
+            const x = (xPercent / 100) * rect.width;
+            const y = (yPercent / 100) * rect.height;
+
+            cursorVisual.style.left = x + 'px';
+            cursorVisual.style.top = y + 'px';
+        }
+
+        // Update visual cursor position (with smooth lerp)
+        function updateCursorVisual(xPercent, yPercent) {
+            // Set target position
+            targetCursorX = xPercent;
+            targetCursorY = yPercent;
+            
+            // Start animation if not already running
+            if (!animationFrameId) {
+                animationFrameId = requestAnimationFrame(animateCursor);
+            }
+        }
+
+        // Hide cursor initially
+        function hideCursor() {
+            document.getElementById('cursorVisual').classList.remove('active');
+        }
+
+        // Update lerp speed from slider
+        function updateLerpSpeed(value) {
+            lerpSpeed = parseFloat(value);
+            document.getElementById('lerpSpeedValue').textContent = value;
+        }
+
+        // Show cursor
+        function showCursor() {
+            document.getElementById('cursorVisual').classList.add('active');
+        }
+
+        // Initialize
+        setStatus('📱 Ready to connect - Enter your Supabase credentials above', 'disconnected');
+    </script>
+</body>
+</html>

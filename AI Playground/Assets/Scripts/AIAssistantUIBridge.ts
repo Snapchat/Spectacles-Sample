@@ -1,10 +1,10 @@
-import { PinchButton } from "SpectaclesInteractionKit.lspkg/Components/UI/PinchButton/PinchButton";
 import { GeminiAssistant } from "./GeminiAssistant";
 import { OpenAIAssistant } from "./OpenAIAssistant";
 import { Snap3DInteractableFactory } from "./Snap3DInteractableFactory";
 import { SphereController } from "./SphereController";
-import { LSTween } from "LSTween.lspkg/LSTween";
-import Easing from "LSTween.lspkg/TweenJS/Easing";
+// Replaced LSTween usage with animate utility
+import { BaseButton } from "SpectaclesUIKit.lspkg/Scripts/Components/Button/BaseButton";
+import animate from "SpectaclesInteractionKit.lspkg/Utils/animate";
 
 enum AssistantType {
   Gemini = "Gemini",
@@ -42,9 +42,9 @@ export class AIAssistantUIBridge extends BaseScriptComponent {
   private hintText: Text;
 
   @input
-  private geminiButton: PinchButton;
+  private geminiButton: BaseButton;
   @input
-  private openAIButton: PinchButton;
+  private openAIButton: BaseButton;
   @ui.group_end
   private textIsVisible: boolean = true;
   private currentAssistant: GeminiAssistant | OpenAIAssistant;
@@ -54,43 +54,65 @@ export class AIAssistantUIBridge extends BaseScriptComponent {
   }
 
   private onStart() {
-    this.geminiButton.onButtonPinched.add(() => {
-      this.assistantType = AssistantType.Gemini;
-      this.hintTitle.text = "Gemini Live Example";
-      this.startWebsocketAndUI();
+    this.geminiButton.onInitialized.add(() => {
+      this.geminiButton.onTriggerUp.add(() => {
+        this.assistantType = AssistantType.Gemini;
+        this.hintTitle.text = "Gemini Live Example";
+        this.startWebsocketAndUI();
+      });
     });
-
-    this.openAIButton.onButtonPinched.add(() => {
-      this.assistantType = AssistantType.OpenAI;
-      this.hintTitle.text = "OpenAI Realtime Example";
-      this.startWebsocketAndUI();
+    
+    this.openAIButton.onInitialized.add(() => {
+      this.openAIButton.onTriggerUp.add(() => {
+        this.assistantType = AssistantType.OpenAI;
+          this.hintTitle.text = "OpenAI Realtime Example";
+          this.startWebsocketAndUI();
+        });
     });
   }
 
   private hideButtons() {
     this.geminiButton.enabled = false;
     this.openAIButton.enabled = false;
-    LSTween.scaleToLocal(
-      this.geminiButton.sceneObject.getTransform(),
-      vec3.zero(),
-      500
-    )
-      .easing(Easing.Quadratic.Out)
-      .onComplete(() => {
-        this.geminiButton.sceneObject.enabled = false;
-      })
-      .start();
+    {
+      const tr = this.geminiButton.sceneObject.getTransform();
+      const start = tr.getLocalScale();
+      const end = vec3.zero();
+      const duration = 0.5;
+      animate({
+        duration,
+        easing: "ease-out-quad",
+        update: (t) => {
+          const sx = start.x + (end.x - start.x) * t;
+          const sy = start.y + (end.y - start.y) * t;
+          const sz = start.z + (end.z - start.z) * t;
+          tr.setLocalScale(new vec3(sx, sy, sz));
+        },
+        ended: () => {
+          this.geminiButton.sceneObject.enabled = false;
+        },
+      });
+    }
 
-    LSTween.scaleToLocal(
-      this.openAIButton.sceneObject.getTransform(),
-      vec3.zero(),
-      500
-    )
-      .easing(Easing.Quadratic.Out)
-      .onComplete(() => {
-        this.openAIButton.sceneObject.enabled = false;
-      })
-      .start();
+    {
+      const tr = this.openAIButton.sceneObject.getTransform();
+      const start = tr.getLocalScale();
+      const end = vec3.zero();
+      const duration = 0.5;
+      animate({
+        duration,
+        easing: "ease-out-quad",
+        update: (t) => {
+          const sx = start.x + (end.x - start.x) * t;
+          const sy = start.y + (end.y - start.y) * t;
+          const sz = start.z + (end.z - start.z) * t;
+          tr.setLocalScale(new vec3(sx, sy, sz));
+        },
+        ended: () => {
+          this.openAIButton.sceneObject.enabled = false;
+        },
+      });
+    }
   }
 
   private startWebsocketAndUI() {
@@ -117,19 +139,6 @@ export class AIAssistantUIBridge extends BaseScriptComponent {
 
     // Connect sphere controller activation to the current assistant
     this.sphereController.isActivatedEvent.add((isActivated) => {
-      if (this.textIsVisible) {
-        LSTween.textAlphaTo(this.hintTitle, 0, 600).start();
-        LSTween.textAlphaTo(this.hintText, 0, 600).start();
-        let bgColor = this.hintTitle.backgroundSettings.fill.color;
-        LSTween.rawTween(600)
-          .onUpdate((tweenData) => {
-            let percent = tweenData.t as number;
-            bgColor.a = 1 - percent;
-            this.hintTitle.backgroundSettings.fill.color = bgColor;
-          })
-          .start();
-      }
-      this.textIsVisible = false;
       this.currentAssistant.streamData(isActivated);
       if (!isActivated) {
         this.currentAssistant.interruptAudioOutput();

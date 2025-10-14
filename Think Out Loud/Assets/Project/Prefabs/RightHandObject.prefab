@@ -1,0 +1,120 @@
+- !<ObjectPrefab/59fb5c1f-1d14-4531-93d2-3397efbccd32>
+  PackagePath: ""
+  objects:
+    - !<own> 05844564-2f32-4276-8ae1-044af679b669
+  LazyLoading: false
+  RetainAssets: true
+- !<SceneObject/05844564-2f32-4276-8ae1-044af679b669>
+  PrefabRemaps:
+    - 05844564-2f32-4276-8ae1-044af679b669: 05844564-2f32-4276-751e-fbb509864996
+    - 2bdd22ba-e055-46c9-ad71-b28ecec2a4a7: 2bdd22ba-e055-46c9-528e-4d71313d5b58
+    - 3e6d7cb7-049a-4cc7-8aca-e9c1783fa416: 3e6d7cb7-049a-4cc7-7535-163e87c05be9
+    - 8b27f1df-9707-4a15-977d-0dbe57409793: 8b27f1df-9707-4a15-6882-f241a8bf686c
+    - 9b46e0af-32c5-4930-b5aa-93283bb8ec01: 9b46e0af-32c5-4930-4a55-6cd7c44713fe
+  Name: RightHandObject
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 3e6d7cb7-049a-4cc7-8aca-e9c1783fa416
+  Components:
+    - !<own> 2bdd22ba-e055-46c9-ad71-b28ecec2a4a7
+    - !<own> 8b27f1df-9707-4a15-977d-0dbe57409793
+- !<ScriptComponent/2bdd22ba-e055-46c9-ad71-b28ecec2a4a7>
+  PrefabRemaps:
+    []
+  Name: HandObjectController
+  Enabled: true
+  ScriptAsset: !<reference> fcf14470-857f-4c83-ad75-d8ed151021c6
+  ScriptInputsDefault:
+    testingMode: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      handObjectManager: !<MappingBased.AssignableType> 07831fb3-5e8b-4645-b81b-22d4190d2011
+      handType: right
+      testingMode: false
+      handColorMaterials: !<reference.Material[]>
+        - !<reference> d31ad86b-f3d2-4adf-9987-153eb139e6ef
+        - !<reference> 50829173-8544-4f65-a54f-390b20752c41
+        - !<reference> 1b18b5f0-e04c-4ff8-902e-08cf7a8f2727
+        - !<reference> 9f9c9ad4-742e-4fbb-aeb4-ec9e4b1f566b
+        - !<reference> 577d50b6-dc5b-4d9c-9352-8f5c85eddf3c
+        - !<reference> eabc4894-b0b8-41bb-ae81-e922bf60197b
+        - !<reference> 20ace729-79d7-4c6d-8204-4b6d3581a2fc
+        - !<reference> ff59243c-a37e-4641-bfd6-45e6d9d4f379
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/3e6d7cb7-049a-4cc7-8aca-e9c1783fa416>
+  PrefabRemaps:
+    []
+  Name: Object 0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 9b46e0af-32c5-4930-b5aa-93283bb8ec01
+- !<ScriptComponent/8b27f1df-9707-4a15-977d-0dbe57409793>
+  PrefabRemaps:
+    []
+  Name: SyncTransform
+  Enabled: true
+  ScriptAsset: !<reference> f3c20594-375f-43d8-a93f-a8e75bd6a61d
+  ScriptInputsDefault:
+    networkIdTypeString: true
+    customNetworkId: true
+    positionSyncString: true
+    rotationSyncString: true
+    scaleSyncString: true
+    persistenceString: true
+    sendsPerSecondLimit: true
+    useSmoothing: true
+    interpolationTarget: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      networkIdTypeString: objectId
+      customNetworkId: enter_unique_id
+      positionSyncString: Local
+      rotationSyncString: Local
+      scaleSyncString: Local
+      persistenceString: Session
+      sendsPerSecondLimit: 10
+      useSmoothing: true
+      interpolationTarget: -0.250000
+  ScriptTypes:
+    "":
+      {}
+- !<RenderMeshVisual/9b46e0af-32c5-4930-b5aa-93283bb8ec01>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> e49c7177-679b-439a-9df6-e8d7488c203b
+  Mesh: !<reference> 028abd0e-6aeb-49d3-bb34-eaae9be577dc
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}

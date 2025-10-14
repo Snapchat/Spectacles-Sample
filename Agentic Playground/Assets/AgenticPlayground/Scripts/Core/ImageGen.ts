@@ -1,7 +1,7 @@
-import { OpenAI } from "Remote Service Gateway.lspkg/HostedExternal/OpenAI";
-import { OpenAITypes } from "Remote Service Gateway.lspkg/HostedExternal/OpenAITypes";
-import { Gemini } from "Remote Service Gateway.lspkg/HostedExternal/Gemini";
-import { GeminiTypes } from "Remote Service Gateway.lspkg/HostedExternal/GeminiTypes";
+import { Gemini } from "RemoteServiceGateway.lspkg/HostedExternal/Gemini";
+import { GeminiTypes } from "RemoteServiceGateway.lspkg/HostedExternal/GeminiTypes";
+import { OpenAI } from "RemoteServiceGateway.lspkg/HostedExternal/OpenAI";
+import { OpenAITypes } from "RemoteServiceGateway.lspkg/HostedExternal/OpenAITypes";
 
 /**
  * ImageGen - Core Image Generation Factory
@@ -139,8 +139,8 @@ export class ImageGen extends BaseScriptComponent {
                 print("ImageGen: 🌐 Loading texture from URL");
               }
               
-              const rsm = require("LensStudio:RemoteServiceModule") as RemoteServiceModule;
-              const resource = rsm.makeResourceFromUrl(url);
+              let internetModule = require("LensStudio:InternetModule") as InternetModule;
+              let resource = internetModule.makeResourceFromUrl(url);
               this.rmm.loadResourceAsImageTexture(
                 resource,
                 (texture) => {

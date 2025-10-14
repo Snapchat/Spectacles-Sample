@@ -1,7 +1,8 @@
-import { AgentLanguageInterface } from '../Agents/AgentLanguageInterface';
 import { CHARACTER_LIMITS, TextLimiter } from '../Utils/TextLimiter';
+import { clearTimeout, setTimeout } from "SpectaclesInteractionKit.lspkg/Utils/FunctionTimingUtils";
+
+import { AgentLanguageInterface } from '../Agents/AgentLanguageInterface';
 import { Message } from '../Agents/AgentTypes';
-import { setTimeout, clearTimeout } from "SpectaclesInteractionKit.lspkg/Utils/FunctionTimingUtils";
 
 /**
  * Spatial Tool - uses camera and Gemini for spatial awareness
@@ -136,7 +137,7 @@ export class SpatialTool {
       print("SpatialTool: 📸 Capturing actual camera frame for visual analysis");
       
       // Import camera and video controller classes with compression settings
-      const { VideoController } = require('Remote Service Gateway.lspkg/Helpers/VideoController');
+      const { VideoController } = require('RemoteServiceGateway.lspkg/Helpers/VideoController');
       
       // Create a temporary video controller for frame capture
       // Using numeric values as these enums should be available in the global scope

@@ -1,0 +1,171 @@
+- !<ObjectPrefab/7394651c-e9d0-404f-95d2-9589e7f48d9a>
+  PackagePath: ""
+  objects:
+    - !<own> 63c67275-6215-40f0-a434-648cc7b08d3d
+  LazyLoading: false
+  RetainAssets: true
+- !<SceneObject/15fab239-b889-4d2a-adba-013c2408ec12>
+  PrefabRemaps:
+    []
+  Name: ActivityIndicator
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: -0.500000}
+    Rotation: {x: -90.000008, y: 0.000000, z: 0.000000}
+    Scale: {x: 4.000000, y: 4.000001, z: 4.000001}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> b037ad12-4f54-4210-9273-ab56db13d0f2
+- !<ScriptComponent/52b543ee-87d8-4e7b-817b-0fd84a566ebc>
+  PrefabRemaps:
+    []
+  Name: ASRQueryController
+  Enabled: true
+  ScriptAsset: !<reference> 496f66d8-20aa-4eca-81f4-f34f77ef5e98
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      button: !<MappingBased.AssignableType> 6a4f13b9-2180-410f-b62f-f988642ec928
+      activityRenderMesh: !<reference.RenderMeshVisual> b037ad12-4f54-4210-9273-ab56db13d0f2
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/63c67275-6215-40f0-a434-648cc7b08d3d>
+  PrefabRemaps:
+    - 15fab239-b889-4d2a-adba-013c2408ec12: 15fab239-b889-4d2a-5245-fec3dbf713ed
+    - 52b543ee-87d8-4e7b-817b-0fd84a566ebc: 52b543ee-87d8-4e7b-7e84-f027b5a99143
+    - 63c67275-6215-40f0-a434-648cc7b08d3d: 63c67275-6215-40f0-5bcb-9b73384f72c2
+    - 6a4f13b9-2180-410f-b62f-f988642ec928: 6a4f13b9-2180-410f-49d0-06779bd136d7
+    - 8124a31e-c103-4a46-bed8-3a57d5644b53: 8124a31e-c103-4a46-4127-c5a82a9bb4ac
+    - 9a9b7f9d-0ae6-4f04-b473-89103ddcc302: 9a9b7f9d-0ae6-4f04-4b8c-76efc2233cfd
+    - b037ad12-4f54-4210-9273-ab56db13d0f2: b037ad12-4f54-4210-6d8c-54a924ec2f0d
+    - f316cfab-cf42-49ae-b177-2e202a3d250f: f316cfab-cf42-49ae-4e88-d1dfd5c2daf0
+  Name: VoiceInput
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -15.000000, z: 2.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.500000, y: 1.500000, z: 1.500000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> f316cfab-cf42-49ae-b177-2e202a3d250f
+  Components:
+    - !<own> 52b543ee-87d8-4e7b-817b-0fd84a566ebc
+- !<ScriptComponent/6a4f13b9-2180-410f-b62f-f988642ec928>
+  PrefabRemaps:
+    []
+  Name: RoundButton
+  Enabled: true
+  ScriptAsset: !<reference> ecf4e352-5db4-4239-8a5e-c4c517a0f03c
+  ScriptInputsDefault:
+    _inactive: true
+    _playAudio: true
+    _style: true
+    _toggleable: true
+    _defaultToOn: true
+    addCallbacks: true
+    triggerUpCallbacks: true
+    triggerDownCallbacks: true
+    onValueChangeCallbacks: true
+    onFinishedCallbacks: true
+    _width: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      _renderOrder: 2
+      _inactive: false
+      _playAudio: false
+      _style: PrimaryNeutral
+      _toggleable: false
+      _defaultToOn: false
+      addCallbacks: false
+      triggerUpCallbacks:
+        []
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+      _width: !<float> 4.000000
+  ScriptTypes:
+    "":
+      {}
+- !<Image/8124a31e-c103-4a46-bed8-3a57d5644b53>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 5
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 3911b998-12f1-40bc-aef5-4520ad630d7e
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/9a9b7f9d-0ae6-4f04-b473-89103ddcc302>
+  PrefabRemaps:
+    []
+  Name: Mic Icon
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 2.000000, y: 2.000000, z: 2.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 8124a31e-c103-4a46-bed8-3a57d5644b53
+- !<RenderMeshVisual/b037ad12-4f54-4210-9273-ab56db13d0f2>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 3
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 6baa0904-a7fc-4a6d-90c8-a0ce96d21fae
+  Mesh: !<reference> 134c2f3f-e37d-45ac-8462-dea7228853ef
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/f316cfab-cf42-49ae-b177-2e202a3d250f>
+  PrefabRemaps:
+    []
+  Name: BaseButton
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 9a9b7f9d-0ae6-4f04-b473-89103ddcc302
+    - !<own> 15fab239-b889-4d2a-adba-013c2408ec12
+  Components:
+    - !<own> 6a4f13b9-2180-410f-b62f-f988642ec928

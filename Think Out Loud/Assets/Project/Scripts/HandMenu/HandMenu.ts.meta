@@ -1,0 +1,71 @@
+- !<AssetImportMetadata/c2ac0335-5b22-4fb5-8f62-73c9210f50b6>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 46c937ba-d0dd-4ff6-a2ef-2b5e9bd3e05a
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 46c937ba-d0dd-4ff6-a2ef-2b5e9bd3e05a
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 6c9abdab-e5b2-43d7-a1d0-f0f1a4e7295c
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/6c9abdab-e5b2-43d7-a1d0-f0f1a4e7295c>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 5d7d3d7e-45f8-44c0-ba50-6a6b25b4e930
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    animationTime: false
+    enableScaling: false
+    endScale: false
+    handMenuPrefab: false
+    headPoseTarget: false
+    hideDelay: false
+    initialScale: false
+    positionOffset: false
+    showDelay: false
+    timerPrefab: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - handMenuPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      timerPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      headPoseTarget: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      positionOffset: !<Vec3> {x: 0.300000, y: 0.100000, z: 0.000000}
+      showDelay: 0.500000
+      hideDelay: !<float> 1.000000
+      initialScale: !<float> 0.000000
+      endScale: !<float> 1.000000
+      animationTime: 0.500000
+      enableScaling: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Asset.ObjectPrefab handMenuPrefab {"hint":"Hand menu prefab to instantiate"}'
+    - '// @input Asset.ObjectPrefab timerPrefab {"hint":"Timer prefab to instantiate during delay period"}'
+    - '// @input SceneObject headPoseTarget {"hint":"Head pose target for positioning calculations"}'
+    - '// @input vec3 positionOffset = {0.3,0.1,0} {"hint":"Position offset from wrist (X, Y, Z)"}'
+    - '// @input float showDelay = 0.5 {"hint":"Delay before showing menu when palm is detected (seconds)", "widget":"slider", "min":0.1, "max":3, "step":0.1}'
+    - '// @input float hideDelay = 1 {"hint":"Delay before hiding menu when palm is lost (seconds)", "widget":"slider", "min":0.1, "max":3, "step":0.1}'
+    - '// @input float initialScale {"hint":"Initial scale for menu (starting scale)", "widget":"slider", "min":0, "max":2, "step":0.1}'
+    - '// @input float endScale = 1 {"hint":"End scale for menu (target scale)", "widget":"slider", "min":0.1, "max":3, "step":0.1}'
+    - '// @input float animationTime = 0.5 {"hint":"Animation time for scaling and positioning (in seconds)", "widget":"slider", "min":0.1, "max":2, "step":0.1}'
+    - '// @input bool enableScaling = true {"hint":"Enable scaling animation on reveal"}'
