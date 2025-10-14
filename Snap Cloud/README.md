@@ -71,7 +71,7 @@ In the Preview Panel, set **Device Type Override** to **Spectacles**
 
 ### 4. Configure Database Tables
 
-Use the Supabase Plugin dashboard to create the required tables for the examples you want to use. Sample SQL and CSV data are provided in the `Data/testData/` folder.
+Use the Supabase Plugin dashboard to create the required tables for the examples you want to use. Sample SQL and CSV data are provided in the `Data/testData-ADD TO TABLES/` folder.
 
 ## Project Structure
 
@@ -82,9 +82,7 @@ Snap Cloud/
 │       ├── Example1-SupabaseConnector/         # Database CRUD operations
 │       │   └── TableConnector.ts
 │       ├── Example2-RealTimeCursor/            # PC ↔ Spectacles cursor sync
-│       │   ├── RealtimeCursor.ts
-│       │   └── Fetch/
-│       │       └── RealtimeCursorBroadcasterFetch.ts
+│       │   └── RealtimeCursor.ts
 │       ├── Example3-LoadAssets/                # Dynamic 3D models, images, audio
 │       │   └── StorageLoader.ts
 │       ├── Example4-EdgeFunctions/             # Serverless function calls
@@ -96,9 +94,7 @@ Snap Cloud/
 │           │   ├── spectacles.jpg
 │           │   └── chill.mp3
 │           ├── testData-ADD TO TABLES/
-│           │   ├── cursor_positions.csv
-│           │   ├── realtime_messages.csv
-│           │   ├── test_messages.csv
+│           │   ├── cursor_debug.csv
 │           │   ├── user_interactions.csv
 │           │   └── user_preferences.csv
 │           └── testEdgeFunction-ADD TO EDGE FUNCTION CODE/
@@ -121,7 +117,7 @@ Basic database operations demonstrating CRUD (Create, Read, Update, Delete) func
 **Use Cases:** User profiles, leaderboards, analytics, messaging
 
 **Setup:**
-1. Create database tables (test_table, user_interactions, user_preferences) using provided CSV data
+1. Create database tables: test_table (see SQL below), user_interactions, and user_preferences (import CSV data from testData folder)
 2. Assign SnapCloudRequirements component to script
 3. Optionally assign RectangleButton for manual data retrieval
 4. Optionally assign Text component for on-device log display
@@ -149,12 +145,13 @@ Unified bidirectional cursor synchronization between PC and Spectacles with smoo
 **Use Cases:** Remote presentations, collaborative design, multiplayer games, interactive demos
 
 **Setup:**
-1. Assign SnapCloudRequirements component to script
-2. Configure channel name for synchronization
-3. Assign cursor object to track/move
-4. Assign RectangleButton to toggle modes
-5. Optionally assign Text components for status display
-6. Test with PC web controller for full bidirectional sync
+1. Optionally create cursor_debug table (see SQL below) for storing cursor positions
+2. Assign SnapCloudRequirements component to script
+3. Configure channel name for synchronization
+4. Assign cursor object to track/move
+5. Assign RectangleButton to toggle modes
+6. Optionally assign Text components for status display
+7. Test with PC web controller for full bidirectional sync
 
 **Features:**
 - Two modes: Broadcast (Spectacles to Web) and Follow (Web to Spectacles)
@@ -242,11 +239,9 @@ Sample data is organized in the `Data/` folder:
 
 ### Test Data (CSV files for database tables)
 Located in `testData-ADD TO TABLES/`:
-- **cursor_positions.csv** - Sample cursor coordinates for Example 2
-- **realtime_messages.csv** - Sample real-time events
-- **test_messages.csv** - Sample messages for Example 1
-- **user_interactions.csv** - Sample user action logs
-- **user_preferences.csv** - Sample user settings
+- **cursor_debug.csv** - Sample cursor debug data for Example 2
+- **user_interactions.csv** - Sample user action logs for Example 1
+- **user_preferences.csv** - Sample user settings for Example 1
 
 **To import:**
 1. Open Supabase Plugin dashboard
@@ -293,22 +288,20 @@ CREATE TABLE test_table (
 );
 ```
 
-#### Cursor Positions Table (Example 2)
+#### Cursor Debug Table (Example 2)
 ```sql
-CREATE TABLE cursor_positions (
+CREATE TABLE cursor_debug (
   id BIGSERIAL PRIMARY KEY,
-  room_name TEXT NOT NULL,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
   user_id TEXT NOT NULL,
-  user_name TEXT NOT NULL,
   x FLOAT NOT NULL,
   y FLOAT NOT NULL,
-  color TEXT DEFAULT '#FF6B6B',
-  timestamp BIGINT NOT NULL,
-  created_at TIMESTAMPTZ DEFAULT NOW()
+  timestamp TIMESTAMPTZ NOT NULL,
+  channel_name TEXT NOT NULL
 );
 
-CREATE INDEX idx_cursor_positions_room_timestamp
-ON cursor_positions(room_name, timestamp DESC);
+CREATE INDEX idx_cursor_debug_channel_timestamp
+ON cursor_debug(channel_name, timestamp DESC);
 ```
 
 #### User Interactions Table (Example 1)
@@ -322,14 +315,13 @@ CREATE TABLE user_interactions (
 );
 ```
 
-#### Realtime Messages Table (Example 1)
+#### User Preferences Table (Example 1)
 ```sql
-CREATE TABLE realtime_messages (
+CREATE TABLE user_preferences (
   id BIGSERIAL PRIMARY KEY,
-  channel TEXT NOT NULL,
-  event TEXT NOT NULL,
-  payload JSONB,
-  sent_at TIMESTAMPTZ DEFAULT NOW()
+  user_id TEXT NOT NULL UNIQUE,
+  preferences JSONB NOT NULL,
+  updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 ```
 
@@ -348,7 +340,7 @@ CREATE POLICY "Allow anonymous access" ON test_table FOR ALL USING (true);
 -- Apply same pattern to all tables
 ALTER TABLE user_interactions DISABLE ROW LEVEL SECURITY;
 ALTER TABLE user_preferences DISABLE ROW LEVEL SECURITY;
-ALTER TABLE cursor_positions DISABLE ROW LEVEL SECURITY;
+ALTER TABLE cursor_debug DISABLE ROW LEVEL SECURITY;
 ```
 
 ## Testing the Lens
