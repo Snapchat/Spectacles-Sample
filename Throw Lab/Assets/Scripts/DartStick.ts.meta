@@ -1,0 +1,53 @@
+- !<AssetImportMetadata/21670a4e-d5be-41ca-a55f-80652e63ee2c>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> f04b4909-99c8-4a1a-b7d3-5bac1ab3381e
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> f04b4909-99c8-4a1a-b7d3-5bac1ab3381e
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> c903ea25-d00c-4472-9dad-015009cbf99d
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/c903ea25-d00c-4472-9dad-015009cbf99d>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 262085d6-b652-47e6-ae59-ec8ba34e65b6
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    bounceSound: false
+    hitSound: false
+    scoreBoard: false
+    tipOffset: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - scoreBoard: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      hitSound: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      bounceSound: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      tipOffset: -0.660000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input SceneObject scoreBoard {"hint":"The score board object to stick to"}'
+    - '// @input Component.AudioComponent hitSound {"hint":"Sound to play when dart sticks to board"}'
+    - '// @input Component.AudioComponent bounceSound {"hint":"Sound to play when dart bounces off board"}'
+    - '// @input float tipOffset = -0.66 {"hint":"Offset for tip positioning (default: -0.66)"}'

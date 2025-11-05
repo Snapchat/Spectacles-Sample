@@ -2,6 +2,7 @@ import { Billboard } from "SpectaclesInteractionKit.lspkg/Components/Interaction
 import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable";
 import Event, { PublicApi } from "SpectaclesInteractionKit.lspkg/Utils/Event";
 import { SnapToWorld } from "../WorldQuery/SnapToWorld";
+import { DragInteractorEvent } from "SpectaclesInteractionKit.lspkg/Core/Interactor/InteractorEvent";
 
 export type WidgetSelectionEvent = {
   widgetIndex: number;
@@ -25,13 +26,13 @@ export class WidgetSelection extends BaseScriptComponent {
   private onSelectedEvent = new Event<WidgetSelectionEvent>();
   public readonly OnSelectedEvent = this.onSelectedEvent.publicApi();
 
-  initialize(index: number) {
+  initialize(index: number): void {
     this.snapToWorld = SnapToWorld.getInstance();
 
     this.index = index;
     this.interactableTransform = this.interactable.getTransform();
 
-    this.interactable.onDragStart.add((eventData) => {
+    this.interactable.onDragStart.add((eventData: DragInteractorEvent) => {
       this.snapToWorld.startManipulating(eventData);
 
       this.interactable.sceneObject.getComponent(
@@ -40,7 +41,7 @@ export class WidgetSelection extends BaseScriptComponent {
     });
 
     // Had to cache the position in onDragUpdate as the ScreenTransform will enforce the layout position when onDragEnd is triggered
-    this.interactable.onDragUpdate.add((eventData) => {
+    this.interactable.onDragUpdate.add((eventData: DragInteractorEvent) => {
       this.snapToWorld.updateManipulating(eventData);
 
       this.cachedDragPosition = this.interactableTransform.getWorldPosition();
@@ -48,7 +49,7 @@ export class WidgetSelection extends BaseScriptComponent {
     });
 
     this.interactable.onDragEnd.add((eventData) => {
-      let transformOnNoteInWorld = this.snapToWorld.getCurrentTransform();
+      const transformOnNoteInWorld = this.snapToWorld.getCurrentTransform();
       if (transformOnNoteInWorld) {
         this.cachedDragPosition = transformOnNoteInWorld.getWorldPosition();
         this.cachedDragRotation = transformOnNoteInWorld.getWorldRotation();
@@ -58,8 +59,8 @@ export class WidgetSelection extends BaseScriptComponent {
       this.interactable.sceneObject.getComponent(
         Billboard.getTypeName()
       ).enabled = false;
-      this.interactable.sceneObject
-        .getTransform()
+      this.interactableTransform.setLocalPosition(vec3.zero())
+      this.interactableTransform
         .setLocalRotation(quat.fromEulerAngles(0, 0, 0));
       this.onSelectedEvent.invoke({
         widgetIndex: this.index,

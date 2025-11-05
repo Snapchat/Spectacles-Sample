@@ -1,105 +1,33 @@
-- !<ObjectPrefab/01ac9b52-6b2c-44e1-ad7a-f6af8918341e>
+- !<ObjectPrefab/5e1977fe-5ab6-4a70-9161-c9a01676f6a8>
   PackagePath: ""
   objects:
-    - !<own> c69c87bd-4e2c-48e3-bd6c-517e99ab35c8
+    - !<own> 61bfac50-2d11-4b12-97e9-f94f6f8cddf4
   LazyLoading: false
   RetainAssets: true
-- !<AudioComponent/453b315b-d733-427c-97da-17b68ff74aa6>
+- !<ScriptComponent/24016af0-6de2-4508-90a6-86f6f4c771f1>
   PrefabRemaps:
     []
-  Name: Audio
+  Name: GrabbableOutlineFeedback
   Enabled: true
-  AudioTrack: !<reference> 4c3c4150-013a-407b-ae19-391641f6d12d
-  EnableAutoplayLoop: false
-  Volume: 1.000000
-  EnableMixToSnap: false
-  RecordVolume: 1.000000
-  EnableSpatialAudio: true
-  EnableDistanceEffect: true
-  CurveType: Logarithm
-  MinDistance: 0.000000
-  MaxDistance: 1000.000000
-  EnableDirectivityEffect: true
-  EnablePositionEffect: true
-- !<ScriptComponent/671d73c2-8800-4e8f-8df6-af28aa745b8b>
-  PrefabRemaps:
-    []
-  Name: PingPongBallBehavior
-  Enabled: true
-  ScriptAsset: !<reference> 661e8ebe-53a2-4317-9deb-c25c09b94a23
+  ScriptAsset: !<reference> 8a626f92-5057-4017-87af-d53f5fde591f
   ScriptInputsDefault:
-    {}
+    targetOutlineMaterial: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      audio: !<reference.AudioComponent> 453b315b-d733-427c-97da-17b68ff74aa6
-      targetOutlineMaterial: !<reference.Material> 7231c7bc-6c14-4331-ad23-9ab928107707
-      meshVisual: !<reference.RenderMeshVisual> abdb9268-44d4-4010-8c44-c95159668961
+      targetOutlineMaterial: !<reference.Material> 7ac80b6c-979a-4a00-a694-099f296be161
+      grabbedColor: !<Vec4> {x: 0.999420, y: 0.985550, z: 0.000000, w: 1.000000}
+      outlineWeight: 0.500000
+      meshVisuals: !<reference.RenderMeshVisual[]>
+        - !<reference> 595f302b-5855-4fd1-933c-7bfe58f8b8ec
   ScriptTypes:
     "":
       {}
-- !<ScriptComponent/76b3387c-ea50-45da-997b-df6c26473dc8>
+- !<RenderMeshVisual/595f302b-5855-4fd1-933c-7bfe58f8b8ec>
   PrefabRemaps:
     []
-  Name: InteractableManipulation
-  Enabled: true
-  ScriptAsset: !<reference> 664b556b-1946-4c2c-866a-e675b4e86006
-  ScriptInputsDefault:
-    manipulateRootSceneObject: true
-    minimumScaleFactor: true
-    maximumScaleFactor: true
-    enableTranslation: true
-    enableRotation: true
-    enableStretchZ: true
-    showStretchZProperties: true
-    zStretchFactorMin: true
-    zStretchFactorMax: true
-    useFilter: true
-    showFilterProperties: true
-    minCutoff: true
-    beta: true
-    dcutoff: true
-    showTranslationProperties: true
-    _enableXTranslation: true
-    _enableYTranslation: true
-    _enableZTranslation: true
-    showRotationProperties: true
-    _rotationAxis: true
-    isSynced: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      manipulateRootSceneObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
-      minimumScaleFactor: 0.250000
-      maximumScaleFactor: !<float> 20.000000
-      enableTranslation: true
-      enableRotation: true
-      enableScale: false
-      enableStretchZ: true
-      showStretchZProperties: false
-      zStretchFactorMin: !<float> 1.000000
-      zStretchFactorMax: !<float> 12.000000
-      useFilter: true
-      showFilterProperties: false
-      minCutoff: !<float> 2.000000
-      beta: 0.015000
-      dcutoff: !<float> 1.000000
-      showTranslationProperties: false
-      _enableXTranslation: true
-      _enableYTranslation: true
-      _enableZTranslation: true
-      showRotationProperties: false
-      _rotationAxis: All
-      isSynced: false
-  ScriptTypes:
-    "":
-      {}
-- !<RenderMeshVisual/abdb9268-44d4-4010-8c44-c95159668961>
-  PrefabRemaps:
-    []
-  Name: Render Mesh Visual
+  Name: component_0
   Enabled: true
   RenderOrder: 0
   StretchMode: Stretch
@@ -109,47 +37,119 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 6da745e3-1140-4131-a53a-3da6e3dfd3eb
-  Mesh: !<reference> df2e3c19-b55b-4eb1-9629-88dc02096d68
-  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 6f4c80cc-a8d0-4284-bbb3-04556b42959e
+  Mesh: !<reference> 2426a3f3-7ee5-4956-8ef6-c7938b9939dc
+  Skin: !<reference> b21a5350-7572-40df-bb74-c5aa1c3db12a
   BlendShapesEnabled: true
   BlendNormals: false
   BlendShapes:
     {}
-- !<SceneObject/c69c87bd-4e2c-48e3-bd6c-517e99ab35c8>
+- !<SceneObject/5b690621-de1d-4e17-9981-fd37d9fda990>
   PrefabRemaps:
-    - 453b315b-d733-427c-97da-17b68ff74aa6: 453b315b-d733-427c-6825-e8497008b559
-    - 671d73c2-8800-4e8f-8df6-af28aa745b8b: 671d73c2-8800-4e8f-7209-50d7558ba474
-    - 76b3387c-ea50-45da-997b-df6c26473dc8: 76b3387c-ea50-45da-6684-2093d9b8c237
-    - abdb9268-44d4-4010-8c44-c95159668961: abdb9268-44d4-4010-73bb-36aea699769e
-    - c69c87bd-4e2c-48e3-bd6c-517e99ab35c8: c69c87bd-4e2c-48e3-4293-ae816654ca37
-    - ef34a997-224c-4de4-8073-03fa03c621c0: ef34a997-224c-4de4-7f8c-fc05fc39de3f
-    - fa78a22c-49ff-4fd1-b503-6decb5a97e40: fa78a22c-49ff-4fd1-4afc-92134a5681bf
-  Name: PingPongBallNew
+    []
+  Name: Mesh
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 20.857748, z: 0.000000}
+    Position: {x: 0.000000, y: -3.000000, z: 0.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 4.000000, y: 4.000000, z: 4.000000}
+    Scale: {x: 0.500000, y: 0.500000, z: 0.500000}
     HasSegmentScaleCompensation: false
   Children:
     []
   Components:
-    - !<own> abdb9268-44d4-4010-8c44-c95159668961
-    - !<own> ef34a997-224c-4de4-8073-03fa03c621c0
-    - !<own> 453b315b-d733-427c-97da-17b68ff74aa6
-    - !<own> fa78a22c-49ff-4fd1-b503-6decb5a97e40
-    - !<own> 76b3387c-ea50-45da-997b-df6c26473dc8
-    - !<own> 671d73c2-8800-4e8f-8df6-af28aa745b8b
-- !<BodyComponent/ef34a997-224c-4de4-8073-03fa03c621c0>
+    - !<own> 595f302b-5855-4fd1-933c-7bfe58f8b8ec
+- !<ScriptComponent/5d520987-9ca6-4fae-b90b-f4baed891285>
+  PrefabRemaps:
+    []
+  Name: CollisionSound
+  Enabled: true
+  ScriptAsset: !<reference> 87f39a88-1048-4f1c-ac27-9932b6953863
+  ScriptInputsDefault:
+    minVelocityThreshold: true
+    velocityToVolume: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      collisionSound: !<reference.AudioComponent> 92da82fe-3bb0-4745-a3e6-755c35f25df3
+      minVelocityThreshold: !<float> 5.000000
+      velocityToVolume: 0.050000
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/61bfac50-2d11-4b12-97e9-f94f6f8cddf4>
+  PrefabRemaps:
+    - 24016af0-6de2-4508-90a6-86f6f4c771f1: 24016af0-6de2-4508-6f59-79090b388e0e
+    - 595f302b-5855-4fd1-933c-7bfe58f8b8ec: 595f302b-5855-4fd1-6cc3-8401a7074713
+    - 5b690621-de1d-4e17-9981-fd37d9fda990: 5b690621-de1d-4e17-667e-02c82602566f
+    - 5d520987-9ca6-4fae-b90b-f4baed891285: 5d520987-9ca6-4fae-46f4-0b451276ed7a
+    - 61bfac50-2d11-4b12-97e9-f94f6f8cddf4: 61bfac50-2d11-4b12-6816-06b09073220b
+    - 92da82fe-3bb0-4745-a3e6-755c35f25df3: 92da82fe-3bb0-4745-5c19-8aa3ca0da20c
+    - b1f61cae-369a-44e2-8340-00283ad9a3c9: b1f61cae-369a-44e2-7cbf-ffd7c5265c36
+    - c353e21f-affc-41b4-a7da-87c7f6743684: c353e21f-affc-41b4-5825-7838098bc97b
+    - ca07fb52-f3a3-46d2-b3d3-a613728a04ca: ca07fb52-f3a3-46d2-4c2c-59ec8d75fb35
+  Name: PingPongBall2
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 5b690621-de1d-4e17-9981-fd37d9fda990
+  Components:
+    - !<own> c353e21f-affc-41b4-a7da-87c7f6743684
+    - !<own> ca07fb52-f3a3-46d2-b3d3-a613728a04ca
+    - !<own> b1f61cae-369a-44e2-8340-00283ad9a3c9
+    - !<own> 5d520987-9ca6-4fae-b90b-f4baed891285
+    - !<own> 92da82fe-3bb0-4745-a3e6-755c35f25df3
+    - !<own> 24016af0-6de2-4508-90a6-86f6f4c771f1
+- !<AudioComponent/92da82fe-3bb0-4745-a3e6-755c35f25df3>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 4c3c4150-013a-407b-ae19-391641f6d12d
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
+- !<ScriptComponent/b1f61cae-369a-44e2-8340-00283ad9a3c9>
+  PrefabRemaps:
+    []
+  Name: MatchTransform
+  Enabled: true
+  ScriptAsset: !<reference> 2ccacba5-3077-49e8-b50e-a2cd942a40e5
+  ScriptInputsDefault:
+    positionLerpSpeed: true
+    rotationLerpSpeed: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      positionLerpSpeed: !<float> 10.000000
+      rotationLerpSpeed: !<float> 10.000000
+      holdDistance: !<float> 2.000000
+  ScriptTypes:
+    "":
+      {}
+- !<BodyComponent/c353e21f-affc-41b4-a7da-87c7f6743684>
   PrefabRemaps:
     []
   Name: Physics Body
   Enabled: true
   Shape: !<Sphere>
     FitVisual: false
-    Radius: 0.500000
+    Radius: 4.500000
   Matter: !<reference> 136fb47c-9df1-4aa9-841b-b3862ba4ca51
   Filter: !<reference> 00000000-0000-0000-0000-000000000000
   OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
@@ -161,44 +161,33 @@
   Intangible: false
   ShowCollider: false
   Dynamic: false
-  BodySetting: Mass
-  BodySettingValue: 0.002000
-  Damping: 0.010000
-  AngularDamping: 0.010000
-- !<ScriptComponent/fa78a22c-49ff-4fd1-b503-6decb5a97e40>
+  BodySetting: Density
+  BodySettingValue: 1.000000
+  Damping: 0.000000
+  AngularDamping: 0.000000
+- !<ScriptComponent/ca07fb52-f3a3-46d2-b3d3-a613728a04ca>
   PrefabRemaps:
     []
-  Name: Interactable
+  Name: GrabbableObject
   Enabled: true
-  ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
+  ScriptAsset: !<reference> 8161d97f-cfdc-4bca-bbbf-6bdb6b553795
   ScriptInputsDefault:
-    targetingVisual: true
-    ignoreInteractionPlane: true
-    keepHoverOnTrigger: true
-    enableInstantDrag: true
-    isScrollable: true
-    allowMultipleInteractors: true
-    enablePokeDirectionality: true
-    acceptableXDirections: true
-    acceptableYDirections: true
-    acceptableZDirections: true
-    useFilteredPinch: true
+    objectType: true
+    destroyDelay: true
+    scoreBoard: true
+    dartThrowForce: true
+    handVelocityMultiplier: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      targetingMode: !<float> 1.000000
-      targetingVisual: !<float> 1.000000
-      ignoreInteractionPlane: false
-      keepHoverOnTrigger: false
-      enableInstantDrag: false
-      isScrollable: false
-      allowMultipleInteractors: true
-      enablePokeDirectionality: false
-      acceptableXDirections: !<float> 0.000000
-      acceptableYDirections: !<float> 0.000000
-      acceptableZDirections: !<float> 1.000000
-      useFilteredPinch: false
+      objectType: Ball
+      matchTransform: !<MappingBased.AssignableType> b1f61cae-369a-44e2-8340-00283ad9a3c9
+      destroyDelay: 4.500000
+      scoreBoard: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      dartThrowForce: !<float> 800.000000
+      ballThrowForce: !<float> 20.000000
+      handVelocityMultiplier: 0.300000
   ScriptTypes:
     "":
       {}

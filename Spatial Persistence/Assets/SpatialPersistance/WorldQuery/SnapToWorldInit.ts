@@ -4,14 +4,14 @@ import { SnapToWorld } from "./SnapToWorld";
 @component
 export class SnapToWorldInit extends BaseScriptComponent {
   @input private previewInWorld: SceneObject;
-  @input private voiceMLModule: WorldQueryModule;
+  @input private worldQueryModule: WorldQueryModule;
   @input private snappingToggle: ToggleButton;
 
   private snapToWorld: SnapToWorld;
 
   onAwake() {
     this.snapToWorld = SnapToWorld.getInstance();
-    this.snapToWorld.init(this.voiceMLModule, this.previewInWorld);
+    this.snapToWorld.init(this.worldQueryModule, this.previewInWorld);
 
     this.createEvent("OnStartEvent").bind(() => {
       this.snappingToggle.onStateChanged.add((isOn) =>

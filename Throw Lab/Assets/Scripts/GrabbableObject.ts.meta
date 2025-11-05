@@ -1,0 +1,62 @@
+- !<AssetImportMetadata/372b0a3a-a6dc-4050-9c47-ec4587ccd5cb>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 8161d97f-cfdc-4bca-bbbf-6bdb6b553795
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 8161d97f-cfdc-4bca-bbbf-6bdb6b553795
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> d9c1c678-8a4c-4e47-9549-4965079725cb
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/d9c1c678-8a4c-4e47-9549-4965079725cb>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 96aee094-050f-465d-a652-6f0cfd44458d
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    ballThrowForce: false
+    dartThrowForce: false
+    destroyDelay: false
+    handVelocityMultiplier: false
+    matchTransform: false
+    objectType: false
+    scoreBoard: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - objectType: Ball
+      matchTransform: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      destroyDelay: 4.500000
+      scoreBoard: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      dartThrowForce: !<float> 800.000000
+      ballThrowForce: !<float> 150.000000
+      handVelocityMultiplier: 0.300000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input string objectType = "Ball" {"hint":"Type of object - determines grab behavior and rotation", "widget":"combobox", "values":[{"label":"Ball", "value":"Ball"}, {"label":"Racket", "value":"Racket"}, {"label":"Darts", "value":"Darts"}]}'
+    - '// @input AssignableType matchTransform {"hint":"Reference to the MatchTransform component on this object"}'
+    - "// @input float destroyDelay = 4.5 {\"hint\":\"Time in seconds before destroying the object after it's dropped\"}"
+    - '// @input SceneObject scoreBoard {"hint":"For Darts: The dartboard/scoreboard to look at when grabbed", "showIf":"objectType", "showIfValue":"Darts"}'
+    - '// @input float dartThrowForce = 800 {"hint":"For Darts: Force applied when releasing (throw strength)", "showIf":"objectType", "showIfValue":"Darts"}'
+    - '// @input float ballThrowForce = 150 {"hint":"For Ball/Racket: Force applied when releasing (throw strength)"}'
+    - '// @input float handVelocityMultiplier = 0.3 {"hint":"For Ball/Racket: Multiplier for hand velocity (higher = more responsive to hand movement)"}'

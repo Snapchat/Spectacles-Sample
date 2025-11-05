@@ -1,0 +1,42 @@
+- !<ObjectPrefab/bcaa52a8-3196-4f65-83eb-b80aae88500e>
+  PackagePath: ""
+  objects:
+    - !<own> 7d03dc6a-faf1-4069-a8e6-8b1f9abf6dac
+  LazyLoading: false
+  RetainAssets: true
+- !<RenderMeshVisual/2a196fee-b24c-43c7-bd23-5762cae8f424>
+  PrefabRemaps:
+    []
+  Name: component_1
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 4b941e79-3d47-4e89-b2d7-0f510dee0c31
+  Mesh: !<reference> 70b134c1-4ba7-4191-9419-7d9af78173ee
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/7d03dc6a-faf1-4069-a8e6-8b1f9abf6dac>
+  PrefabRemaps:
+    - 2a196fee-b24c-43c7-bd23-5762cae8f424: 2a196fee-b24c-43c7-42dc-a89d35170bdb
+    - 7d03dc6a-faf1-4069-a8e6-8b1f9abf6dac: 7d03dc6a-faf1-4069-5719-74e065409253
+  Name: board
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 2a196fee-b24c-43c7-bd23-5762cae8f424

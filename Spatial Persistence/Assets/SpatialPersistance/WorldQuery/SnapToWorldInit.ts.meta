@@ -28,7 +28,7 @@
   ScriptInputsHidden:
     previewInWorld: false
     snappingToggle: false
-    voiceMLModule: false
+    worldQueryModule: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -39,12 +39,12 @@
     []
   DefaultScriptInputs:
     - previewInWorld: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
-      voiceMLModule: !<reference.WorldQueryModule> 00000000-0000-0000-0000-000000000000
+      worldQueryModule: !<reference.WorldQueryModule> 00000000-0000-0000-0000-000000000000
       snappingToggle: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
     - // @input SceneObject previewInWorld
-    - // @input Asset.WorldQueryModule voiceMLModule
+    - // @input Asset.WorldQueryModule worldQueryModule
     - // @input AssignableType snappingToggle

@@ -1,0 +1,59 @@
+- !<AssetImportMetadata/045a3f65-1a0e-4629-a74e-8dd040b07fff>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> d13d1551-ca56-4419-a225-9e92e22b0c50
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> d13d1551-ca56-4419-a225-9e92e22b0c50
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> bed6c83e-78c1-4c47-b413-4d8b2e4eab17
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/bed6c83e-78c1-4c47-b413-4d8b2e4eab17>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 1ce783cc-42e1-4b57-becb-65470cea2a28
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    debugLeftHandPrefab: false
+    debugRightHandPrefab: false
+    detectionRadius: false
+    leftHandTrackingAsset: false
+    minPinchStrength: false
+    rightHandTrackingAsset: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - leftHandTrackingAsset: !<reference.HandTracking3DAsset> 00000000-0000-0000-0000-000000000000
+      rightHandTrackingAsset: !<reference.HandTracking3DAsset> 00000000-0000-0000-0000-000000000000
+      detectionRadius: !<float> 2.000000
+      minPinchStrength: 0.300000
+      debugLeftHandPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      debugRightHandPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Asset.HandTracking3DAsset leftHandTrackingAsset {"hint":"Left hand tracking asset"}'
+    - '// @input Asset.HandTracking3DAsset rightHandTrackingAsset {"hint":"Right hand tracking asset"}'
+    - '// @input float detectionRadius = 1.5 {"hint":"Detection radius around finger tips (in cm)"}'
+    - '// @input float minPinchStrength = 0.3 {"hint":"Minimum pinch strength to maintain grab (0-1)"}'
+    - '// @input Asset.ObjectPrefab debugLeftHandPrefab {"hint":"Optional: Prefab for debug spheres on left hand (index and thumb) - control visibility via mesh renderer in prefab"}'
+    - '// @input Asset.ObjectPrefab debugRightHandPrefab {"hint":"Optional: Prefab for debug spheres on right hand (index and thumb) - control visibility via mesh renderer in prefab"}'

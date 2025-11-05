@@ -1,0 +1,75 @@
+- !<AssetImportMetadata/5c1cce78-0df5-41cf-8873-9808baa6d969>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> 1fb93f89-0ae6-4fe5-961a-f7d6422a46a0
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> 1fb93f89-0ae6-4fe5-961a-f7d6422a46a0
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    ObjectPrefab: !<own> 001019f0-0bf6-4179-ba86-01cf9fd5c965
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ObjectPrefabAssetData/001019f0-0bf6-4179-ba86-01cf9fd5c965>
+  Prototype: !<ObjectOwner/f630cd68-019a-4c77-bb17-06b837599208>
+    PackagePath: ""
+    objects:
+      - !<own> e5a62f20-aff6-4b1b-720e-138810b27125
+- !<ColliderComponent/ab98043f-8dd0-4bc4-77f5-f9ca0c750e5d>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Sphere>
+    FitVisual: true
+    Radius: 6.000000
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
+- !<RenderMeshVisual/d233a999-a089-4a52-7a3b-7b93bec94967>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: false
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 86537a8e-51bc-4597-819b-d1b4d4ae5a0b
+  Mesh: !<reference> df2e3c19-b55b-4eb1-9629-88dc02096d68
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/e5a62f20-aff6-4b1b-720e-138810b27125>
+  PrefabRemaps:
+    []
+  Name: DebugR
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 2.000000, y: 2.000000, z: 2.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> d233a999-a089-4a52-7a3b-7b93bec94967
+    - !<own> ab98043f-8dd0-4bc4-77f5-f9ca0c750e5d

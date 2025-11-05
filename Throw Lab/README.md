@@ -6,8 +6,9 @@
 
 ## Overview
 
-This is a sample Lens Studio project that demonstrates how to implement simple but realistic throwing mechanic in Lens Studio based on physics. It showcases a clean, componentized architecture that takes advantage of the new **Hand Velocity API**.
-By exploring the ThrowLab project, you’ll gain a practical understanding of implementing realistic throwing mechanics in AR. This foundation will help you build more engaging and interactive Lens Studio lenses.
+This is a sample Lens Studio project that demonstrates how to implement realistic grabbing and throwing mechanics in Lens Studio using hand tracking and physics. It features a modular, componentized architecture with support for different object types (Balls, Rackets, Darts) and natural hand-velocity-based throwing.
+
+By exploring the ThrowLab project, you'll gain a practical understanding of implementing grab-and-throw mechanics, physics-based interactions, and type-specific behaviors in AR. This foundation will help you build more engaging and interactive Lens Studio experiences for Spectacles.
 
 > **NOTE:**
 > This project will only work for the Spectacles platform.
@@ -28,54 +29,126 @@ To update your Spectacles device and mobile app, refer to this [guide](https://s
 
 You can download the latest version of Lens Studio from [here](https://ar.snap.com/download?lang=en-US).
 
-## Hand Velocity API
+## Key Features
 
-This API gives an easy and reliable way of getting the velocity of hand joints as `vec3`s in world coordinate system.
-
-The API can be used together with SIK:
-
-````
-   let handInputData = SIK.HandInputData;
-   let hand = this.handInputData.getHand('right');
-   let objectSpecificData = this.hand.objectTracking3D.objectSpecificData
-   if (objectSpecificData) {
-      let handVelocity = objectSpecificData['global'];
-      let indexVelocity = objectSpecificData['index-3'];
-   }
-````
-
-The following joints are available for the velocities: “index-3”, “mid-3”, “ring-3”, “pinky-3”, “thumb-3” and “global”.
+- **Multiple Gesture Types**: Supports both Pinch (Ball/Darts) and Grab (Racket) gestures
+- **Hand Velocity Tracking**: Natural throwing based on actual hand movement speed
+- **Type-Specific Behaviors**: 
+  - Balls follow hand rotation and throw naturally
+  - Rackets use wrist orientation for realistic holding
+  - Darts auto-aim at dartboard with sticking mechanics
+- **Physics Integration**: Full physics simulation with gravity, collisions, and forces
+- **Visual Feedback**: Outline highlighting when objects are grabbed
+- **Audio Feedback**: Sounds for dart hits, bounces, and ball collisions
+- **Auto-Respawn**: Objects respawn at spawn points when grabbed/destroyed
 
 ## Project Overview
 
-With ThrowLab, you can pinch to grab, and then throw four different objects. We have 2 example objects in the project:
+ThrowLab demonstrates a complete grab-and-throw system with three object types, each with unique behaviors:
 
-- [**Ball**](./Assets/Scripts/TennisBallBehavior.ts)
-- [**Dart**](./Assets/Scripts/DartBehavior.ts)
+### **Core System Components**
 
-Each object has slightly different behaviors and corresponding sounds on collision. Dart is a more complex example with some specific logic for hitting the dart board. 
+- [**GestureManager**](./Assets/Scripts/GestureManager.ts) - Manages hand gesture detection and overlap detection
+- [**GrabbableObject**](./Assets/Scripts/GrabbableObject.ts) - Makes objects grabbable with type-specific behaviors
+- [**MatchTransform**](./Assets/Scripts/MatchTransform.ts) - Smoothly positions objects to follow hand
+- [**DartStick**](./Assets/Scripts/DartStick.ts) - Handles dart sticking to dartboard
+- [**CollisionSound**](./Assets/Scripts/CollisionSound.ts) - Plays sounds on collision impacts
+- [**GrabbableOutlineFeedback**](./Assets/Scripts/GrabbableOutlineFeedback.ts) - Visual feedback when grabbing
+- [**ToolPickerBehavior**](./Assets/Scripts/ToolPickerBehavior.ts) - Spawns and respawns objects
+
+### **Object Types**
+
+1. **Ball** (Tennis, Ping Pong)
+   - Gesture: Pinch (thumb + index finger)
+   - Rotation: Follows hand naturally
+   - Throw: Velocity-based (responds to hand movement speed)
+   
+2. **Racket** (Tennis Racket)
+   - Gesture: Grab (close full hand)
+   - Rotation: Follows wrist orientation
+   - Throw: Drops naturally (no force applied)
+   
+3. **Darts**
+   - Gesture: Pinch (thumb + index finger)
+   - Rotation: Auto-aims at dartboard
+   - Throw: Velocity-based, directed towards board
+   - Special: Sticks to board on good hits, plays sounds 
 
 ## How It Works
 
-1. **Hand Detection & Velocity Calculation**:  
-   Lens Studio’s Hand Tracking system detects your hand. As you move, the Hand Velocity API provides the velocity of the relevant joints.
+### 1. **Finger Collision Detection**
+The GestureManager creates invisible sphere colliders on your index finger and thumb tips. These colliders update every frame to match hand tracking positions and detect when your fingers touch grabbable objects using physics overlap events.
 
-2. **Object Selection & Holding**  
-   ThrowLab uses a pinch gesture provided by the Spectacles Interaction Kit (SIK) to allow the user to pinch the objects. When you pinch near an object, it attaches to your hand, simulating a pinched hold.
+### 2. **Gesture Recognition**
+The system listens for two gesture types:
+- **Pinch** (thumb + index finger) - Used for Balls and Darts
+- **Grab** (full hand close) - Used for Racket
 
-3. **Throwing Mechanics**:  
-   While pinching and moving the object, the system continuously tracks acceleration, accumulating data over the time you hold it. When you release the pinch, the final throw velocity is a combination of:
-   - The object’s accumulated acceleration during the hold.
-   - The hand’s velocity at the moment of release.
+When you perform the correct gesture while touching an object, the grab is initiated.
 
-   By blending these factors, you get a smoother, more realistic throwing motion that accounts for the object’s buildup of speed as you swing your hand.
+### 3. **Grab & Follow**
+When grabbed:
+- Object unparents from spawn point
+- Physics becomes non-dynamic (kinematic)
+- Object smoothly transitions from grab position to hold position (~0.5 seconds)
+- MatchTransform makes object follow your index finger tip position
+- Type-specific rotation behavior applied:
+  - **Ball**: Rotates with your index finger
+  - **Racket**: Rotates with your wrist
+  - **Darts**: Locks rotation to aim at dartboard
 
-4. **Cleanup**:  
-   After the object finishes its flight (for example, when it hits the ground and stay still), it destroys itself after some time buffer to keep the scene clean.
+### 4. **Hand Velocity Tracking**
+While holding, the system continuously calculates your hand's velocity by tracking position changes over time. This creates a natural throwing feel where:
+- Fast hand movement = powerful throw
+- Slow hand movement = gentle toss
+
+### 5. **Release & Throw**
+When you release the gesture:
+- Physics becomes dynamic again
+- Throw force is applied based on object type:
+  - **Ball**: Thrown in direction hand was pointing + hand velocity
+  - **Racket**: Drops naturally (no throw force)
+  - **Darts**: Thrown towards dartboard + hand velocity
+- Object flies realistically based on combined forces
+
+### 6. **Special Behaviors**
+- **Darts**: Check hit angle on collision - stick if straight, bounce if angled
+- **Balls**: Play impact sound on collision (volume based on impact speed)
+- **All**: Auto-destroy after 4.5 seconds (except stuck darts)
+
+### 7. **Auto-Respawn**
+ToolPickerBehavior monitors spawned objects and automatically respawns new ones when they're grabbed or destroyed, keeping the spawn points always full.
 
 ## Using it in your Project
 
-The Tennis Ball object is available as an [.lspkg file](./TennisBall_Importable.lspkg). You can easily drag and drop it into your project to easily get started. Or just start with the [**TennisBallBehavior.ts**](./Assets/Scripts/TennisBallBehavior.ts) script.
+### Quick Start
+
+1. **Set up GestureManager** (required, one per scene):
+   - Create empty SceneObject
+   - Add GestureManager component
+   - Assign Hand Tracking assets (left and right)
+   - Optionally add debug sphere prefabs to visualize finger colliders
+
+2. **Make any object grabbable**:
+   - Add Physics.BodyComponent to the object
+   - Add MatchTransform component
+   - Add GrabbableObject component
+     - Select object type (Ball, Racket, or Darts)
+     - Reference the MatchTransform
+     - Configure throw forces and behavior
+   
+3. **Optional enhancements**:
+   - Add CollisionSound for impact sounds
+   - Add GrabbableOutlineFeedback for visual highlighting
+   - Add DartStick for dart sticking behavior (darts only)
+
+### Key Scripts
+
+- [**GestureManager.ts**](./Assets/Scripts/GestureManager.ts) - Main gesture detection system
+- [**GrabbableObject.ts**](./Assets/Scripts/GrabbableObject.ts) - Core grab/throw behavior
+- [**MatchTransform.ts**](./Assets/Scripts/MatchTransform.ts) - Position/rotation following
+- [**DartStick.ts**](./Assets/Scripts/DartStick.ts) - Dart sticking mechanics
+- [**CollisionSound.ts**](./Assets/Scripts/CollisionSound.ts) - Audio on collision
 
 ## Support
 
@@ -89,4 +162,8 @@ Feel free to provide improvements or suggestions or directly contributing via me
 
 *Built with 👻 by the Spectacles team*
  
+
+
+
+
 

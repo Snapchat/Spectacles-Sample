@@ -1,18 +1,38 @@
-- !<ObjectPrefab/c32951e3-2b0c-4260-9459-3524d5fc46fa>
+- !<ObjectPrefab/6b4a0e52-adca-416b-a833-2aecc01780df>
   PackagePath: ""
   objects:
-    - !<own> 21775cbf-6eb8-46d3-846d-c521f5404f00
+    - !<own> e5721a0a-9d89-4f7e-a310-aea7fb90d27e
   LazyLoading: false
   RetainAssets: true
-- !<BodyComponent/0350ff28-12c5-4b24-aca8-b1d5ec41fa72>
+- !<ScriptComponent/3762cf57-5192-4829-ab2d-86b53a1966c2>
+  PrefabRemaps:
+    []
+  Name: GrabbableOutlineFeedback
+  Enabled: true
+  ScriptAsset: !<reference> 8a626f92-5057-4017-87af-d53f5fde591f
+  ScriptInputsDefault:
+    targetOutlineMaterial: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      targetOutlineMaterial: !<reference.Material> 7ac80b6c-979a-4a00-a694-099f296be161
+      grabbedColor: !<Vec4> {x: 0.999420, y: 0.985550, z: 0.000000, w: 1.000000}
+      outlineWeight: 0.500000
+      meshVisuals: !<reference.RenderMeshVisual[]>
+        - !<reference> a72f1dd9-0c7f-4bb3-b5a7-7d35b2db1d28
+  ScriptTypes:
+    "":
+      {}
+- !<BodyComponent/6381c88a-7e29-4c3d-9851-4d3086e7c4ce>
   PrefabRemaps:
     []
   Name: Physics Body
   Enabled: true
   Shape: !<Sphere>
     FitVisual: false
-    Radius: 3.800000
-  Matter: !<reference> 28ee4075-3259-4008-9cef-0a2ac9459f57
+    Radius: 4.500000
+  Matter: !<reference> 136fb47c-9df1-4aa9-841b-b3862ba4ca51
   Filter: !<reference> 00000000-0000-0000-0000-000000000000
   OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
   WorldSettings: !<reference> 32fa292a-8acb-469e-b941-e9ec518d8ca0
@@ -23,80 +43,49 @@
   Intangible: false
   ShowCollider: false
   Dynamic: false
-  BodySetting: Mass
-  BodySettingValue: 0.002000
-  Damping: 0.010000
-  AngularDamping: 0.010000
-- !<ScriptComponent/0d7ca074-d01b-481c-8158-f2d561cddb8f>
+  BodySetting: Density
+  BodySettingValue: 1.000000
+  Damping: 0.000000
+  AngularDamping: 0.000000
+- !<ScriptComponent/6f7f2030-fbf3-4c47-8779-d802e10cd3c0>
   PrefabRemaps:
     []
-  Name: Interactable
-  Enabled: false
-  ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
+  Name: CollisionSound
+  Enabled: true
+  ScriptAsset: !<reference> 87f39a88-1048-4f1c-ac27-9932b6953863
   ScriptInputsDefault:
-    targetingMode: true
-    targetingVisual: true
-    ignoreInteractionPlane: true
-    keepHoverOnTrigger: true
-    enableInstantDrag: true
-    isScrollable: true
-    allowMultipleInteractors: true
-    enablePokeDirectionality: true
-    acceptableXDirections: true
-    acceptableYDirections: true
-    acceptableZDirections: true
-    useFilteredPinch: true
+    minVelocityThreshold: true
+    velocityToVolume: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      targetingMode: !<float> 3.000000
-      targetingVisual: !<float> 1.000000
-      ignoreInteractionPlane: false
-      keepHoverOnTrigger: false
-      enableInstantDrag: false
-      isScrollable: false
-      allowMultipleInteractors: true
-      enablePokeDirectionality: false
-      acceptableXDirections: !<float> 0.000000
-      acceptableYDirections: !<float> 0.000000
-      acceptableZDirections: !<float> 1.000000
-      useFilteredPinch: false
+      collisionSound: !<reference.AudioComponent> cfe36ca8-6aeb-4203-adf1-bc03fc2cbbde
+      minVelocityThreshold: !<float> 5.000000
+      velocityToVolume: 0.050000
   ScriptTypes:
     "":
       {}
-- !<SceneObject/21775cbf-6eb8-46d3-846d-c521f5404f00>
+- !<ScriptComponent/7e1f3b2e-ecda-41ca-b4ad-c0038b9d3063>
   PrefabRemaps:
-    - 0350ff28-12c5-4b24-aca8-b1d5ec41fa72: 0350ff28-12c5-4b24-5357-4e2a13be058d
-    - 0d7ca074-d01b-481c-8158-f2d561cddb8f: 0d7ca074-d01b-481c-7ea7-0d2a9e322470
-    - 21775cbf-6eb8-46d3-846d-c521f5404f00: 21775cbf-6eb8-46d3-7b92-3ade0abfb0ff
-    - 45ae402e-67fb-4c5d-9d1f-f7a818223f06: 45ae402e-67fb-4c5d-62e0-0857e7ddc0f9
-    - 45bbec06-75e1-444a-9139-211c3ccca82c: 45bbec06-75e1-444a-6ec6-dee3c33357d3
-    - 58df563d-e4f9-423e-b7ab-db3bfeb828cb: 58df563d-e4f9-423e-4854-24c40147d734
-    - 5f685549-9033-47f5-9118-c9f929cb8d69: 5f685549-9033-47f5-6ee7-3606d6347296
-    - 64053e25-3f29-4179-99c7-0cf04b17f809: 64053e25-3f29-4179-6638-f30fb4e807f6
-    - 6e65c824-339b-4301-adec-3600de4274e9: 6e65c824-339b-4301-5213-c9ff21bd8b16
-    - 723d601b-48bb-427e-925d-7d7c9e124c59: 723d601b-48bb-427e-6da2-828361edb3a6
-    - 9624b6d5-2bf1-40ac-9b61-1ecbb0ff48f3: 9624b6d5-2bf1-40ac-649e-e1344f00b70c
-  Name: TennisBall
+    []
+  Name: MatchTransform
   Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 13.957748, y: -25.847389, z: -20.163143}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> 5f685549-9033-47f5-9118-c9f929cb8d69
-    - !<own> 58df563d-e4f9-423e-b7ab-db3bfeb828cb
-  Components:
-    - !<own> 0350ff28-12c5-4b24-aca8-b1d5ec41fa72
-    - !<own> 64053e25-3f29-4179-99c7-0cf04b17f809
-    - !<own> 0d7ca074-d01b-481c-8158-f2d561cddb8f
-    - !<own> 6e65c824-339b-4301-adec-3600de4274e9
-    - !<own> 723d601b-48bb-427e-925d-7d7c9e124c59
-    - !<own> 45bbec06-75e1-444a-9139-211c3ccca82c
-- !<RenderMeshVisual/45ae402e-67fb-4c5d-9d1f-f7a818223f06>
+  ScriptAsset: !<reference> 2ccacba5-3077-49e8-b50e-a2cd942a40e5
+  ScriptInputsDefault:
+    positionLerpSpeed: true
+    rotationLerpSpeed: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      positionLerpSpeed: !<float> 10.000000
+      rotationLerpSpeed: !<float> 10.000000
+      holdDistance: !<float> 2.000000
+  ScriptTypes:
+    "":
+      {}
+- !<RenderMeshVisual/a72f1dd9-0c7f-4bb3-b5a7-7d35b2db1d28>
   PrefabRemaps:
     []
   Name: component_0
@@ -116,146 +105,22 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<ScriptComponent/45bbec06-75e1-444a-9139-211c3ccca82c>
-  PrefabRemaps:
-    []
-  Name: TennisBallBehavior
-  Enabled: true
-  ScriptAsset: !<reference> 16736bf8-9deb-41df-bba4-c6f13d3a082b
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      audio: !<reference.AudioComponent> 9624b6d5-2bf1-40ac-9b61-1ecbb0ff48f3
-      targetOutlineMaterial: !<reference.Material> 7231c7bc-6c14-4331-ad23-9ab928107707
-      meshVisual: !<reference.RenderMeshVisual> 45ae402e-67fb-4c5d-9d1f-f7a818223f06
-  ScriptTypes:
-    "":
-      {}
-- !<SceneObject/58df563d-e4f9-423e-b7ab-db3bfeb828cb>
-  PrefabRemaps:
-    []
-  Name: Audio1
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 9624b6d5-2bf1-40ac-9b61-1ecbb0ff48f3
-- !<SceneObject/5f685549-9033-47f5-9118-c9f929cb8d69>
+- !<SceneObject/ae74b397-c0fd-47b4-99e1-c9b22801b2cc>
   PrefabRemaps:
     []
   Name: Mesh
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: -3.800000, z: 0.000000}
+    Position: {x: 0.000000, y: -3.000000, z: 0.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    Scale: {x: 0.800000, y: 0.800000, z: 0.800000}
     HasSegmentScaleCompensation: false
   Children:
     []
   Components:
-    - !<own> 45ae402e-67fb-4c5d-9d1f-f7a818223f06
-- !<AudioComponent/64053e25-3f29-4179-99c7-0cf04b17f809>
-  PrefabRemaps:
-    []
-  Name: Audio
-  Enabled: true
-  AudioTrack: !<reference> 4c3c4150-013a-407b-ae19-391641f6d12d
-  EnableAutoplayLoop: false
-  Volume: 1.000000
-  EnableMixToSnap: false
-  RecordVolume: 1.000000
-  EnableSpatialAudio: true
-  EnableDistanceEffect: true
-  CurveType: Logarithm
-  MinDistance: 0.000000
-  MaxDistance: 1000.000000
-  EnableDirectivityEffect: true
-  EnablePositionEffect: true
-- !<ScriptComponent/6e65c824-339b-4301-adec-3600de4274e9>
-  PrefabRemaps:
-    []
-  Name: InteractableManipulation
-  Enabled: false
-  ScriptAsset: !<reference> 664b556b-1946-4c2c-866a-e675b4e86006
-  ScriptInputsDefault:
-    manipulateRootSceneObject: true
-    minimumScaleFactor: true
-    maximumScaleFactor: true
-    enableTranslation: true
-    enableRotation: true
-    showStretchZProperties: true
-    zStretchFactorMin: true
-    zStretchFactorMax: true
-    showFilterProperties: true
-    minCutoff: true
-    beta: true
-    dcutoff: true
-    showTranslationProperties: true
-    _enableXTranslation: true
-    _enableYTranslation: true
-    _enableZTranslation: true
-    showRotationProperties: true
-    _rotationAxis: true
-    isSynced: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      manipulateRootSceneObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
-      minimumScaleFactor: 0.250000
-      maximumScaleFactor: !<float> 20.000000
-      enableTranslation: true
-      enableRotation: true
-      enableScale: false
-      enableStretchZ: false
-      showStretchZProperties: false
-      zStretchFactorMin: !<float> 1.000000
-      zStretchFactorMax: !<float> 12.000000
-      useFilter: false
-      showFilterProperties: false
-      minCutoff: !<float> 2.000000
-      beta: 0.015000
-      dcutoff: !<float> 1.000000
-      showTranslationProperties: false
-      _enableXTranslation: true
-      _enableYTranslation: true
-      _enableZTranslation: true
-      showRotationProperties: false
-      _rotationAxis: All
-      isSynced: false
-  ScriptTypes:
-    "":
-      {}
-- !<ScriptComponent/723d601b-48bb-427e-925d-7d7c9e124c59>
-  PrefabRemaps:
-    []
-  Name: Grabbable
-  Enabled: true
-  ScriptAsset: !<reference> 64087653-79d3-4558-b642-7d4c33f1c6f3
-  ScriptInputsDefault:
-    handColliderName: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      collider: !<reference.ColliderComponent> 0350ff28-12c5-4b24-aca8-b1d5ec41fa72
-      handColliderName: ColliderTargetProvider
-      leftHandColliderPrefab: !<reference.ObjectPrefab> 322a9cdf-e42e-48fc-871e-82b9cf430047
-      rightHandColliderPrefab: !<reference.ObjectPrefab> 322a9cdf-e42e-48fc-871e-82b9cf430047
-  ScriptTypes:
-    "":
-      {}
-- !<AudioComponent/9624b6d5-2bf1-40ac-9b61-1ecbb0ff48f3>
+    - !<own> a72f1dd9-0c7f-4bb3-b5a7-7d35b2db1d28
+- !<AudioComponent/cfe36ca8-6aeb-4203-adf1-bc03fc2cbbde>
   PrefabRemaps:
     []
   Name: Audio
@@ -265,10 +130,64 @@
   Volume: 1.000000
   EnableMixToSnap: false
   RecordVolume: 1.000000
-  EnableSpatialAudio: true
-  EnableDistanceEffect: true
-  CurveType: Linear
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
   MinDistance: 0.000000
-  MaxDistance: 15000.000000
-  EnableDirectivityEffect: true
-  EnablePositionEffect: true
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
+- !<ScriptComponent/d63327c0-81a3-4567-ba4b-001b9a954013>
+  PrefabRemaps:
+    []
+  Name: GrabbableObject
+  Enabled: true
+  ScriptAsset: !<reference> 8161d97f-cfdc-4bca-bbbf-6bdb6b553795
+  ScriptInputsDefault:
+    objectType: true
+    destroyDelay: true
+    scoreBoard: true
+    dartThrowForce: true
+    handVelocityMultiplier: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      objectType: Ball
+      matchTransform: !<MappingBased.AssignableType> 7e1f3b2e-ecda-41ca-b4ad-c0038b9d3063
+      destroyDelay: 4.500000
+      scoreBoard: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      dartThrowForce: !<float> 800.000000
+      ballThrowForce: !<float> 20.000000
+      handVelocityMultiplier: 0.300000
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/e5721a0a-9d89-4f7e-a310-aea7fb90d27e>
+  PrefabRemaps:
+    - 3762cf57-5192-4829-ab2d-86b53a1966c2: f24dad5b-768c-4fb2-a519-03d558da9e5c
+    - 6381c88a-7e29-4c3d-9851-4d3086e7c4ce: 6381c88a-7e29-4c3d-67ae-b2cf79183b31
+    - 6f7f2030-fbf3-4c47-8779-d802e10cd3c0: 7c178292-45ae-43f6-88f0-4fb117c9b9c0
+    - 7e1f3b2e-ecda-41ca-b4ad-c0038b9d3063: 6c4a68f8-b21c-47ba-8833-69592a998ed8
+    - a72f1dd9-0c7f-4bb3-b5a7-7d35b2db1d28: a72f1dd9-0c7f-4bb3-4a58-82ca4d24e2d7
+    - ae74b397-c0fd-47b4-99e1-c9b22801b2cc: ae74b397-c0fd-47b4-661e-364dd7fe4d33
+    - cfe36ca8-6aeb-4203-adf1-bc03fc2cbbde: 84bf0f25-4ba0-4679-b382-355ab69e1da2
+    - d63327c0-81a3-4567-ba4b-001b9a954013: a4161e10-23df-434d-9bb6-b00a6a4d2c56
+    - e5721a0a-9d89-4f7e-a310-aea7fb90d27e: e5721a0a-9d89-4f7e-5cef-5158046f2d81
+  Name: TennisBall
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> ae74b397-c0fd-47b4-99e1-c9b22801b2cc
+  Components:
+    - !<own> 6381c88a-7e29-4c3d-9851-4d3086e7c4ce
+    - !<own> d63327c0-81a3-4567-ba4b-001b9a954013
+    - !<own> 7e1f3b2e-ecda-41ca-b4ad-c0038b9d3063
+    - !<own> 6f7f2030-fbf3-4c47-8779-d802e10cd3c0
+    - !<own> cfe36ca8-6aeb-4203-adf1-bc03fc2cbbde
+    - !<own> 3762cf57-5192-4829-ab2d-86b53a1966c2

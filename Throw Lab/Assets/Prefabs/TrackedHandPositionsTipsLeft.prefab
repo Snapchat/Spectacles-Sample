@@ -1,0 +1,62 @@
+- !<ObjectPrefab/3e03991a-9f22-4e92-ace9-95f5340ac113>
+  PackagePath: ""
+  objects:
+    - !<own> c4bcc69a-07d8-4c8f-bd04-927b5a987ec2
+  LazyLoading: false
+  RetainAssets: true
+- !<RenderMeshVisual/1312bdc3-a851-4133-8e0f-2df0d2da6c5e>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: false
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 8ee17b78-004d-4e8e-8f94-9bde24381a9a
+  Mesh: !<reference> df2e3c19-b55b-4eb1-9629-88dc02096d68
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<ColliderComponent/7cd12d1c-a32d-47db-bdf1-1cdda77030a8>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Sphere>
+    FitVisual: true
+    Radius: 6.000000
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
+- !<SceneObject/c4bcc69a-07d8-4c8f-bd04-927b5a987ec2>
+  PrefabRemaps:
+    - 1312bdc3-a851-4133-8e0f-2df0d2da6c5e: 1312bdc3-a851-4133-71f0-d20f2d2593a1
+    - 7cd12d1c-a32d-47db-bdf1-1cdda77030a8: 7cd12d1c-a32d-47db-420e-e322588fcf57
+    - c4bcc69a-07d8-4c8f-bd04-927b5a987ec2: c4bcc69a-07d8-4c8f-42fb-6d84a567813d
+  Name: DebugL
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 2.000000, y: 2.000000, z: 2.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 1312bdc3-a851-4133-8e0f-2df0d2da6c5e
+    - !<own> 7cd12d1c-a32d-47db-bdf1-1cdda77030a8

@@ -42,12 +42,34 @@ export class ToolPickerBehavior extends BaseScriptComponent {
 
     onUpdate () {
         this.toolSpawnPoints.forEach((value, ind) => {
-            let spawnPointT = this.toolSpawnPointsT[ind]
-            let objectT = this.latestObjT[ind]
+            try {
+                let spawnPointT = this.toolSpawnPointsT[ind]
+                let objectT = this.latestObjT[ind]
 
-            if (objectT.getWorldPosition().distance(spawnPointT.getWorldPosition()) 
-                > this.distanceOffset) {
-                objectT.getSceneObject().setParent(null)
+                // Check if object still exists (might have been destroyed by GrabbableObject)
+                if (!objectT) {
+                    this.spawnAndReplace(ind)
+                    return
+                }
+                
+                // Try to get scene object - if it fails, object was destroyed
+                const sceneObj = objectT.getSceneObject()
+                if (!sceneObj) {
+                    this.spawnAndReplace(ind)
+                    return
+                }
+
+                // Check distance
+                const objPos = objectT.getWorldPosition()
+                const spawnPos = spawnPointT.getWorldPosition()
+                
+                if (objPos.distance(spawnPos) > this.distanceOffset) {
+                    sceneObj.setParent(null)
+                    this.spawnAndReplace(ind)
+                }
+            } catch (e) {
+                // Object was destroyed mid-update, spawn a new one
+                print(`ToolPickerBehavior: Object at index ${ind} was destroyed, respawning`)
                 this.spawnAndReplace(ind)
             }
         })
@@ -60,6 +82,7 @@ export class ToolPickerBehavior extends BaseScriptComponent {
         let nObject = this.toolPrefabs[ind].instantiate(this.containerObj)
         nObject.enabled = true
         nObject.getTransform().setWorldPosition(spawnPos)
+        nObject.getTransform().setWorldRotation(this.toolSpawnPointsT[ind].getWorldRotation())
 
         this.latestObj[ind] = nObject
         this.latestObjT[ind] = nObject.getTransform()

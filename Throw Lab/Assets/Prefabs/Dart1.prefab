@@ -1,0 +1,172 @@
+- !<ObjectPrefab/9968e74c-812f-49d1-b249-7dff4d35887e>
+  PackagePath: ""
+  objects:
+    - !<own> 3dd743bc-eedd-4d40-bd8a-d9e46c326a28
+  LazyLoading: false
+  RetainAssets: true
+- !<ScriptComponent/02009dfb-42c5-4fa6-a3e3-38aeda5719a7>
+  PrefabRemaps:
+    []
+  Name: MatchTransform
+  Enabled: true
+  ScriptAsset: !<reference> 2ccacba5-3077-49e8-b50e-a2cd942a40e5
+  ScriptInputsDefault:
+    positionLerpSpeed: true
+    rotationLerpSpeed: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      positionLerpSpeed: !<float> 10.000000
+      rotationLerpSpeed: !<float> 10.000000
+      holdDistance: !<float> 2.000000
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/1b5464a6-06ab-4efa-b7a6-792acec271fe>
+  PrefabRemaps:
+    []
+  Name: GrabbableObject
+  Enabled: true
+  ScriptAsset: !<reference> 8161d97f-cfdc-4bca-bbbf-6bdb6b553795
+  ScriptInputsDefault:
+    ballThrowForce: true
+    handVelocityMultiplier: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      objectType: Darts
+      matchTransform: !<MappingBased.AssignableType> 02009dfb-42c5-4fa6-a3e3-38aeda5719a7
+      destroyDelay: !<float> 10.000000
+      scoreBoard: !<reference.SceneObject> 52db6ea7-dac1-4a75-9d8d-f9018e1cec95
+      dartThrowForce: !<float> 170.000000
+      ballThrowForce: !<float> 150.000000
+      handVelocityMultiplier: 0.300000
+  ScriptTypes:
+    "":
+      {}
+- !<BodyComponent/36d6eabb-08b7-4b83-82c9-c87f972971cb>
+  PrefabRemaps:
+    []
+  Name: Physics Body
+  Enabled: true
+  Shape: !<Capsule>
+    Axis: Y
+    Length: 15.000000
+    Radius: 2.500000
+  Matter: !<reference> a26cc039-5298-4fcd-9486-322a254fa180
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 32fa292a-8acb-469e-b941-e9ec518d8ca0
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
+  Dynamic: false
+  BodySetting: Density
+  BodySettingValue: 1.000000
+  Damping: 0.000000
+  AngularDamping: 0.000000
+- !<SceneObject/3dd743bc-eedd-4d40-bd8a-d9e46c326a28>
+  PrefabRemaps:
+    - 02009dfb-42c5-4fa6-a3e3-38aeda5719a7: 4648fd7c-fc28-4bf9-b0bf-d68fdcc13568
+    - 1b5464a6-06ab-4efa-b7a6-792acec271fe: f3ba77e1-1526-495e-a60b-e642aeb5188b
+    - 36d6eabb-08b7-4b83-82c9-c87f972971cb: 36d6eabb-08b7-4b83-7d36-378068d68e34
+    - 3dd743bc-eedd-4d40-bd8a-d9e46c326a28: 3dd743bc-eedd-4d40-4275-261b93cd95d7
+    - 8bf443ff-64d7-4d71-9839-1b30850e1d6b: 9823327e-8d70-412d-989c-4c33d4375785
+    - 8ff77def-67ad-4147-8eb8-97bef858cf22: b1199e50-5958-49a7-9fa3-4c6224c96c10
+    - b8431732-2fcd-4f5e-ae27-64e9f8912d36: b8431732-2fcd-4f5e-51d8-9b16076ed2c9
+    - d3b7f0e7-83fd-4016-9647-359a6297a5e0: d3b7f0e7-83fd-4016-69b8-ca659d685a1f
+  Name: Dart1
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> b8431732-2fcd-4f5e-ae27-64e9f8912d36
+  Components:
+    - !<own> 36d6eabb-08b7-4b83-82c9-c87f972971cb
+    - !<own> 1b5464a6-06ab-4efa-b7a6-792acec271fe
+    - !<own> 02009dfb-42c5-4fa6-a3e3-38aeda5719a7
+    - !<own> 8bf443ff-64d7-4d71-9839-1b30850e1d6b
+    - !<own> 8ff77def-67ad-4147-8eb8-97bef858cf22
+- !<ScriptComponent/8bf443ff-64d7-4d71-9839-1b30850e1d6b>
+  PrefabRemaps:
+    []
+  Name: DartStick
+  Enabled: true
+  ScriptAsset: !<reference> f04b4909-99c8-4a1a-b7d3-5bac1ab3381e
+  ScriptInputsDefault:
+    tipOffset: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      scoreBoard: !<reference.SceneObject> 462c2dcb-0926-4ee0-a5f2-dfdd33c93458
+      hitSound: !<reference.AudioComponent> d3e5b34d-91c7-4351-9e89-90093f9b1f04
+      bounceSound: !<reference.AudioComponent> 30e50526-6458-4880-abd5-52f66dd8895b
+      tipOffset: -0.660000
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/8ff77def-67ad-4147-8eb8-97bef858cf22>
+  PrefabRemaps:
+    []
+  Name: GrabbableOutlineFeedback
+  Enabled: true
+  ScriptAsset: !<reference> 8a626f92-5057-4017-87af-d53f5fde591f
+  ScriptInputsDefault:
+    targetOutlineMaterial: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      targetOutlineMaterial: !<reference.Material> 7ac80b6c-979a-4a00-a694-099f296be161
+      grabbedColor: !<Vec4> {x: 0.999420, y: 0.985550, z: 0.000000, w: 1.000000}
+      outlineWeight: 0.500000
+      meshVisuals: !<reference.RenderMeshVisual[]>
+        - !<reference> d3b7f0e7-83fd-4016-9647-359a6297a5e0
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/b8431732-2fcd-4f5e-ae27-64e9f8912d36>
+  PrefabRemaps:
+    []
+  Name: d2_0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 2.175904, z: -0.101947}
+    Rotation: {x: 0.000000, y: 0.000000, z: -90.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> d3b7f0e7-83fd-4016-9647-359a6297a5e0
+- !<RenderMeshVisual/d3b7f0e7-83fd-4016-9647-359a6297a5e0>
+  PrefabRemaps:
+    []
+  Name: component_0
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> af925d21-3307-41dc-8d63-b62c50979401
+  Mesh: !<reference> 7652093e-49a5-4d4e-b32f-70880291489d
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}

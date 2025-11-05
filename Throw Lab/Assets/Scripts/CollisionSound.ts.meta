@@ -1,0 +1,50 @@
+- !<AssetImportMetadata/64f25e07-1fa8-42c3-bbc2-78f53cdb0968>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 87f39a88-1048-4f1c-ac27-9932b6953863
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 87f39a88-1048-4f1c-ac27-9932b6953863
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> d477f05d-72cd-4614-81a1-02d559b1d1db
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/d477f05d-72cd-4614-81a1-02d559b1d1db>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 631c06d6-7809-404c-acae-65c4dd6f3294
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    collisionSound: false
+    minVelocityThreshold: false
+    velocityToVolume: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - collisionSound: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      minVelocityThreshold: !<float> 5.000000
+      velocityToVolume: 0.050000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Component.AudioComponent collisionSound {"hint":"Sound to play on collision"}'
+    - '// @input float minVelocityThreshold = 5 {"hint":"Minimum velocity magnitude to play sound (prevents tiny bumps from making noise)"}'
+    - '// @input float velocityToVolume = 0.05 {"hint":"Volume multiplier based on impact speed (0-1)"}'
