@@ -185,7 +185,7 @@ const targetPosition = this.calculatePositionWithOffset(
 
 ### Prerequisites
 
-- **Lens Studio**: v5.15.0+
+- **Lens Studio**: v5.15.1+
 - **Spectacles OS**: v5.64+
 - **Target Platform**: Snap Spectacles (required for Connected Lenses)
 - **Testing**: Multiple Spectacles devices or simulation accounts
