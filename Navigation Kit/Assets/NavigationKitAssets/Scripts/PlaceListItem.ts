@@ -78,7 +78,6 @@ export class PlaceListItem extends BaseScriptComponent {
         this.status = PlaceStatus.active
 
         navigationComponent.navigateToPlace(place)
-        place.visited = false
       }
       this.hover = false
     })
