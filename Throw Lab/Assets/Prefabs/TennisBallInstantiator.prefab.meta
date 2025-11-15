@@ -1,0 +1,219 @@
+- !<AssetImportMetadata/a2b15b17-1926-4cf0-82af-f89997d82ef0>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> eba268cd-af4f-4d50-8d13-9d6e4c1bd237
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> eba268cd-af4f-4d50-8d13-9d6e4c1bd237
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    ObjectPrefab: !<own> 16b01b68-907f-432b-99c6-fe71aae14056
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ObjectPrefabAssetData/16b01b68-907f-432b-99c6-fe71aae14056>
+  Prototype: !<ObjectOwner/fe876f66-90b9-4906-96cd-50007d5c567c>
+    PackagePath: ""
+    objects:
+      - !<own> 2cdb5f32-2e6d-4837-ab5e-e19f32967028
+- !<RenderMeshVisual/21677fc7-ed50-4004-9896-55b6c396aa47>
+  PrefabRemaps:
+    []
+  Name: component_0
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 7f851abc-bca3-48b8-95b7-732ed32f1498
+  Mesh: !<reference> 2426a3f3-7ee5-4956-8ef6-c7938b9939dc
+  Skin: !<reference> b21a5350-7572-40df-bb74-c5aa1c3db12a
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/2cdb5f32-2e6d-4837-ab5e-e19f32967028>
+  PrefabRemaps:
+    []
+  Name: TennisBall
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 2f63fc24-a3bb-4faa-bc54-28e733c33867
+  Components:
+    - !<own> c01be8fc-83f7-4176-9039-121e4103f6e2
+    - !<own> 5339a47b-5e29-4f30-9edc-691d99dbb9d8
+    - !<own> 7a4a9891-ae63-4e0f-a2e5-19ec941e3c28
+    - !<own> 6c9e7290-4d47-4a05-89e3-5b184d303d02
+    - !<own> 5efa5043-b495-4ab1-9f15-4d50a06a0329
+    - !<own> 87f3b3d0-6afa-4d7d-bed1-6ae893fbd9dc
+    - !<own> 52a3855b-f4f5-471b-a02e-4793ab61a794
+- !<SceneObject/2f63fc24-a3bb-4faa-bc54-28e733c33867>
+  PrefabRemaps:
+    []
+  Name: Mesh
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -3.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.800000, y: 0.800000, z: 0.800000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 21677fc7-ed50-4004-9896-55b6c396aa47
+- !<ScriptComponent/52a3855b-f4f5-471b-a02e-4793ab61a794>
+  PrefabRemaps:
+    []
+  Name: GrabbableOutlineFeedback
+  Enabled: false
+  ScriptAsset: !<reference> 8a626f92-5057-4017-87af-d53f5fde591f
+  ScriptInputsDefault:
+    targetOutlineMaterial: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      targetOutlineMaterial: !<reference.Material> 7ac80b6c-979a-4a00-a694-099f296be161
+      grabbedColor: !<Vec4> {x: 0.999420, y: 0.985550, z: 0.000000, w: 1.000000}
+      outlineWeight: 0.500000
+      meshVisuals: !<reference.RenderMeshVisual[]>
+        - !<reference> 21677fc7-ed50-4004-9896-55b6c396aa47
+  ScriptTypes:
+    "":
+      {}
+- !<BodyComponent/5339a47b-5e29-4f30-9edc-691d99dbb9d8>
+  PrefabRemaps:
+    []
+  Name: Physics Body
+  Enabled: true
+  Shape: !<Sphere>
+    FitVisual: false
+    Radius: 4.500000
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
+  Dynamic: true
+  BodySetting: Density
+  BodySettingValue: 1.000000
+  Damping: 0.000000
+  AngularDamping: 0.000000
+- !<ScriptComponent/5efa5043-b495-4ab1-9f15-4d50a06a0329>
+  PrefabRemaps:
+    []
+  Name: CollisionSound
+  Enabled: true
+  ScriptAsset: !<reference> 87f39a88-1048-4f1c-ac27-9932b6953863
+  ScriptInputsDefault:
+    minVelocityThreshold: true
+    velocityToVolume: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      collisionSound: !<reference.AudioComponent> 87f3b3d0-6afa-4d7d-bed1-6ae893fbd9dc
+      minVelocityThreshold: !<float> 5.000000
+      velocityToVolume: 0.050000
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/6c9e7290-4d47-4a05-89e3-5b184d303d02>
+  PrefabRemaps:
+    []
+  Name: MatchTransform
+  Enabled: false
+  ScriptAsset: !<reference> 2ccacba5-3077-49e8-b50e-a2cd942a40e5
+  ScriptInputsDefault:
+    positionLerpSpeed: true
+    rotationLerpSpeed: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      positionLerpSpeed: !<float> 10.000000
+      rotationLerpSpeed: !<float> 10.000000
+      holdDistance: !<float> 2.000000
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/7a4a9891-ae63-4e0f-a2e5-19ec941e3c28>
+  PrefabRemaps:
+    []
+  Name: GrabbableObject
+  Enabled: false
+  ScriptAsset: !<reference> 8161d97f-cfdc-4bca-bbbf-6bdb6b553795
+  ScriptInputsDefault:
+    objectType: true
+    destroyDelay: true
+    scoreBoard: true
+    dartThrowForce: true
+    handVelocityMultiplier: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      objectType: Ball
+      matchTransform: !<MappingBased.AssignableType> 6c9e7290-4d47-4a05-89e3-5b184d303d02
+      destroyDelay: 4.500000
+      scoreBoard: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      dartThrowForce: !<float> 800.000000
+      ballThrowForce: !<float> 20.000000
+      handVelocityMultiplier: 0.300000
+  ScriptTypes:
+    "":
+      {}
+- !<AudioComponent/87f3b3d0-6afa-4d7d-bed1-6ae893fbd9dc>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 45d779d1-873d-4106-b853-05b47fe960bb
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
+- !<ColliderComponent/c01be8fc-83f7-4176-9039-121e4103f6e2>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: false
+  Shape: !<Sphere>
+    FitVisual: true
+    Radius: 6.000000
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: true

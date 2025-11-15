@@ -68,6 +68,16 @@
   ForceCompound: false
   Intangible: false
   ShowCollider: false
+- !<LookAtComponent/5049db74-279c-4791-9e07-f2bc7e44868e>
+  PrefabRemaps:
+    []
+  Name: Look At
+  Enabled: true
+  LookAtMode: LookAtPoint
+  AimVectors: NegativeZAimYUp
+  WorldUpVector: ObjectY
+  Target: !<reference> 37ff5b95-fb66-4ca0-bd66-a430a2e05d3f
+  OffsetRotation: {x: 0.000000, y: 0.000000, z: 0.000000}
 - !<ScriptComponent/623bf2ad-6ed3-40e3-892c-355a41a4bc06>
   PrefabRemaps:
     []
@@ -80,8 +90,8 @@
     {}
   ScriptInputs:
     "":
-      positionLerpSpeed: !<float> 3.000000
-      rotationLerpSpeed: !<float> 3.000000
+      positionLerpSpeed: !<float> 8.000000
+      rotationLerpSpeed: !<float> 8.000000
       holdDistance: !<float> 5.000000
   ScriptTypes:
     "":
@@ -114,8 +124,8 @@
   Shape: !<Capsule>
     Axis: Y
     Length: 10.000000
-    Radius: 3.000000
-  Matter: !<reference> 28ee4075-3259-4008-9cef-0a2ac9459f57
+    Radius: 6.000000
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
   Filter: !<reference> 00000000-0000-0000-0000-000000000000
   OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
   WorldSettings: !<reference> 32fa292a-8acb-469e-b941-e9ec518d8ca0
@@ -137,9 +147,9 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: -0.000007, y: -5.250020, z: 0.000000}
-    Rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    Scale: {x: 0.500000, y: 0.500000, z: 0.500000}
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
     []
@@ -152,25 +162,43 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 22.871464, z: 0.000000}
+    Position: {x: 0.000014, y: 56.242966, z: 0.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 15.780530, y: 22.540737, z: 1.000000}
+    Scale: {x: 31.561060, y: 45.081474, z: 2.000000}
     HasSegmentScaleCompensation: false
   Children:
     []
   Components:
     - !<own> e92aa0aa-852a-43b9-9fb6-a4fa75a5a96c
     - !<own> 19da4e6c-13ad-4ab9-9c9f-075128e1462c
+- !<SceneObject/d8ce2a2b-a8ab-425a-813d-43212a330773>
+  PrefabRemaps:
+    []
+  Name: Object 0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.000007, y: -5.250020, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.500000, y: 0.500000, z: 0.500000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 8e134ce8-d295-4f4d-b6e0-ca050378dbe8
+    - !<own> d702d7f8-f036-402a-87b8-cdcd647d35b6
+  Components:
+    - !<own> 5049db74-279c-4791-9e07-f2bc7e44868e
 - !<SceneObject/e88bd07e-734e-4751-a5ea-e2716a5e2dc6>
   PrefabRemaps:
     - 0725993e-acfe-484e-9491-7cab2e58a20c: 8020ad08-3611-447a-b8fa-2808bf551ebf
     - 0d478923-a5ba-42c1-bda1-97acf50c75d9: 5448aadf-7865-47da-b987-324de51dce5f
     - 19da4e6c-13ad-4ab9-9c9f-075128e1462c: 77b83c8c-97e5-4d39-84cd-7bc392caa12e
+    - 5049db74-279c-4791-9e07-f2bc7e44868e: 95cb96ba-cd0d-4ccb-9d80-c1b364faef64
     - 623bf2ad-6ed3-40e3-892c-355a41a4bc06: 68bc7783-66dc-434f-a1fd-a360cc10eb09
     - 6f06cd93-d5dd-428a-97fe-2880e8426850: 6f06cd93-d5dd-428a-6801-d77f17bd97af
     - 898ea45b-5166-4547-b835-39894a011969: 898ea45b-5166-4547-47ca-c676b5fee696
     - 8e134ce8-d295-4f4d-b6e0-ca050378dbe8: 8e134ce8-d295-4f4d-491f-35fafc872417
     - d702d7f8-f036-402a-87b8-cdcd647d35b6: 5bc6aa8f-39ed-479f-8889-d86c787c678f
+    - d8ce2a2b-a8ab-425a-813d-43212a330773: 7e6f8184-0214-42b7-87d0-27726ddc842a
     - e88bd07e-734e-4751-a5ea-e2716a5e2dc6: e88bd07e-734e-4751-5a15-1d8e95a1d239
     - e92aa0aa-852a-43b9-9fb6-a4fa75a5a96c: 7c25aa68-0c7e-4c6c-b55b-d9b1e544ab26
   Name: TennisRacket
@@ -182,8 +210,7 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    - !<own> 8e134ce8-d295-4f4d-b6e0-ca050378dbe8
-    - !<own> d702d7f8-f036-402a-87b8-cdcd647d35b6
+    - !<own> d8ce2a2b-a8ab-425a-813d-43212a330773
   Components:
     - !<own> 898ea45b-5166-4547-b835-39894a011969
     - !<own> 0d478923-a5ba-42c1-bda1-97acf50c75d9

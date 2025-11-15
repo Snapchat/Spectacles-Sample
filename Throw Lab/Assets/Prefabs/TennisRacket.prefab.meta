@@ -52,9 +52,9 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 22.871464, z: 0.000000}
+    Position: {x: 0.000014, y: 56.242966, z: 0.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 15.780530, y: 22.540737, z: 1.000000}
+    Scale: {x: 31.561060, y: 45.081474, z: 2.000000}
     HasSegmentScaleCompensation: false
   Children:
     []
@@ -73,8 +73,8 @@
     {}
   ScriptInputs:
     "":
-      positionLerpSpeed: !<float> 3.000000
-      rotationLerpSpeed: !<float> 3.000000
+      positionLerpSpeed: !<float> 8.000000
+      rotationLerpSpeed: !<float> 8.000000
       holdDistance: !<float> 5.000000
   ScriptTypes:
     "":
@@ -137,6 +137,22 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<SceneObject/7e6f8184-0214-42b7-87d0-27726ddc842a>
+  PrefabRemaps:
+    []
+  Name: Object 0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.000007, y: -5.250020, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.500000, y: 0.500000, z: 0.500000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 8e134ce8-d295-4f4d-491f-35fafc872417
+    - !<own> 5bc6aa8f-39ed-479f-8889-d86c787c678f
+  Components:
+    - !<own> 95cb96ba-cd0d-4ccb-9d80-c1b364faef64
 - !<ScriptComponent/8020ad08-3611-447a-b8fa-2808bf551ebf>
   PrefabRemaps:
     []
@@ -165,8 +181,8 @@
   Shape: !<Capsule>
     Axis: Y
     Length: 10.000000
-    Radius: 3.000000
-  Matter: !<reference> 28ee4075-3259-4008-9cef-0a2ac9459f57
+    Radius: 6.000000
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
   Filter: !<reference> 00000000-0000-0000-0000-000000000000
   OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
   WorldSettings: !<reference> 32fa292a-8acb-469e-b941-e9ec518d8ca0
@@ -188,14 +204,24 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: -0.000007, y: -5.250020, z: 0.000000}
-    Rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
-    Scale: {x: 0.500000, y: 0.500000, z: 0.500000}
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
     []
   Components:
     - !<own> 6f06cd93-d5dd-428a-6801-d77f17bd97af
+- !<LookAtComponent/95cb96ba-cd0d-4ccb-9d80-c1b364faef64>
+  PrefabRemaps:
+    []
+  Name: Look At
+  Enabled: true
+  LookAtMode: LookAtPoint
+  AimVectors: NegativeZAimYUp
+  WorldUpVector: ObjectY
+  Target: !<reference> 37ff5b95-fb66-4ca0-bd66-a430a2e05d3f
+  OffsetRotation: {x: 0.000000, y: 0.000000, z: 0.000000}
 - !<SceneObject/e88bd07e-734e-4751-5a15-1d8e95a1d239>
   PrefabRemaps:
     []
@@ -208,8 +234,7 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    - !<own> 8e134ce8-d295-4f4d-491f-35fafc872417
-    - !<own> 5bc6aa8f-39ed-479f-8889-d86c787c678f
+    - !<own> 7e6f8184-0214-42b7-87d0-27726ddc842a
   Components:
     - !<own> 898ea45b-5166-4547-47ca-c676b5fee696
     - !<own> 5448aadf-7865-47da-b987-324de51dce5f

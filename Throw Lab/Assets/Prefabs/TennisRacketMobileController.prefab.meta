@@ -1,0 +1,174 @@
+- !<AssetImportMetadata/5dbaad78-1b41-42da-8851-57cdef011db9>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> d09451e8-4ec8-4370-b5df-8f432ec9d85d
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> d09451e8-4ec8-4370-b5df-8f432ec9d85d
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    ObjectPrefab: !<own> d141a17b-0a2c-40d5-ad8c-c950c5397445
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/309b165f-069e-49ab-6d63-148ab3fca22b>
+  PrefabRemaps:
+    []
+  Name: TennisRacketMobileController
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 629ac977-4f82-42a7-5d0d-12afed2e2794
+    - !<own> f6e02e9a-ff79-4b69-7533-66e46c0cca5f
+  Components:
+    - !<own> 7a9f50ee-4b2f-4b25-744f-2a76db81cacf
+    - !<own> 580efcce-1e05-4b6a-7b38-a9bbc5f4ee0d
+- !<RenderMeshVisual/31600971-c08b-420e-56f9-7cc709cb32f9>
+  PrefabRemaps:
+    []
+  Name: component_0
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 44b8750e-12c5-464b-9c89-b4eacc07ac50
+  Mesh: !<reference> 173ff0e7-f22e-498f-8162-577b4de65d3f
+  Skin: !<reference> f51daf20-8a73-4706-a91b-196730171cc1
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<ScriptComponent/580efcce-1e05-4b6a-7b38-a9bbc5f4ee0d>
+  PrefabRemaps:
+    []
+  Name: AttachToMobileController
+  Enabled: true
+  ScriptAsset: !<reference> 0b373354-6567-4e74-bd76-ee0a65094a17
+  ScriptInputsDefault:
+    followPosition: true
+    followRotation: true
+    positionOffset: true
+    rotationOffset: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      followPosition: true
+      followRotation: true
+      positionOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      rotationOffset: !<Quat> {0: 0.000000, 1: 0.000000, 2: 0.000000, 3: 1.000000}
+      smoothing: 0.500000
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/629ac977-4f82-42a7-5d0d-12afed2e2794>
+  PrefabRemaps:
+    []
+  Name: C_tennis_racket_GEO
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -0.000007, y: -5.250020, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.500000, y: 0.500000, z: 0.500000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 31600971-c08b-420e-56f9-7cc709cb32f9
+- !<ColliderComponent/71f74cfa-d99d-4ca5-66d0-4815155cee03>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Box>
+    FitVisual: false
+    Size: {x: 1.500000, y: 1.500000, z: 1.000000}
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
+- !<BodyComponent/7a9f50ee-4b2f-4b25-744f-2a76db81cacf>
+  PrefabRemaps:
+    []
+  Name: Physics Body
+  Enabled: true
+  Shape: !<Capsule>
+    Axis: Y
+    Length: 10.000000
+    Radius: 3.000000
+  Matter: !<reference> 28ee4075-3259-4008-9cef-0a2ac9459f57
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 32fa292a-8acb-469e-b941-e9ec518d8ca0
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
+  Dynamic: false
+  BodySetting: Density
+  BodySettingValue: 1.000000
+  Damping: 0.000000
+  AngularDamping: 0.000000
+- !<ObjectPrefabAssetData/d141a17b-0a2c-40d5-ad8c-c950c5397445>
+  Prototype: !<ObjectOwner/fff0a097-c48f-4d26-ac08-73ffc8796ad5>
+    PackagePath: ""
+    objects:
+      - !<own> 309b165f-069e-49ab-6d63-148ab3fca22b
+- !<RenderMeshVisual/d6078a76-b756-4778-55f7-d29649af0469>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: false
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> ea3571c3-ef42-4b6a-9d97-ffb92c714813
+  Mesh: !<reference> c73a3402-321c-404e-8709-e44a98035393
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/f6e02e9a-ff79-4b69-7533-66e46c0cca5f>
+  PrefabRemaps:
+    []
+  Name: Net
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 22.871464, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 15.780530, y: 22.540737, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> d6078a76-b756-4778-55f7-d29649af0469
+    - !<own> 71f74cfa-d99d-4ca5-66d0-4815155cee03

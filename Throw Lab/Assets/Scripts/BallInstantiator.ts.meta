@@ -1,0 +1,59 @@
+- !<AssetImportMetadata/d59456e9-0867-4ad0-a823-56e174d9b281>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> ef184bce-8724-4e17-a979-e1a230267224
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> ef184bce-8724-4e17-a979-e1a230267224
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 7c463b05-a129-4ca9-b1ab-203568afcaca
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/7c463b05-a129-4ca9-b1ab-203568afcaca>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 78e12d0f-e8db-4d07-b8f0-3518e68e00c0
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    maxLifetime: false
+    prefab: false
+    spawnInterval: false
+    spawnPosition: false
+    targetPosition: false
+    throwForce: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - prefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      spawnPosition: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      targetPosition: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      spawnInterval: !<float> 2.000000
+      throwForce: !<float> 500.000000
+      maxLifetime: !<float> 10.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Asset.ObjectPrefab prefab {"hint":"Prefab to instantiate"}'
+    - '// @input SceneObject spawnPosition {"hint":"Spawn position - where balls spawn"}'
+    - '// @input SceneObject targetPosition {"hint":"Target position - direction to throw balls toward"}'
+    - '// @input float spawnInterval = 2 {"hint":"Time between spawning balls in seconds"}'
+    - '// @input float throwForce = 500 {"hint":"Force magnitude to apply when throwing ball"}'
+    - '// @input float maxLifetime = 10 {"hint":"Maximum lifetime of balls in seconds before auto-destruction"}'
