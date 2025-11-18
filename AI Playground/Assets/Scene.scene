@@ -2,6 +2,7 @@
   PackagePath: ""
   objects:
     - !<own> 00000000-0000-0065-0000-000000000064
+    - !<own> 002fbae3-f78b-4f9b-bb52-13cb308999de
     - !<own> fe4c59ee-4026-494b-bfc5-19771dffcfa4
     - !<own> 1b55a799-781e-4c9b-a064-753ddee7112d
     - !<own> 867a6806-8d0e-4a93-8b86-ef91522c708d
@@ -9,11 +10,7 @@
     - !<own> 362d712d-3aa2-470c-8b9d-9b6467c32954
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
-      - |
-        id: 1
-        name: Layer 1
-        color: 0
-
+      []
     HasOrtho: true
   RenderOutput: !<reference> 923415f5-4245-4675-ade1-6d69d6d23e71
   RenderPreviewOutput: !<reference> 923415f5-4245-4675-ade1-6d69d6d23e71
@@ -66,6 +63,21 @@
   MaskTexture: !<reference> 00000000-0000-0000-0000-000000000000
   RayTracing: !<reference> 00000000-0000-0000-0000-000000000000
   DevicePropertiesSource: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/002fbae3-f78b-4f9b-bb52-13cb308999de>
+  PrefabRemaps:
+    []
+  Name: Lighting
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 9649a416-7322-4832-8812-ad3dfcafdc68
+  Components:
+    []
 - !<SceneObject/0039d772-f26b-4ee8-b8e1-2a894a6bf5c5>
   PrefabRemaps:
     []
@@ -337,7 +349,7 @@
     []
   Name: LeftHandMeshPin
   Enabled: true
-  Layers: 2
+  Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
     Rotation: {x: -90.000000, y: 0.000000, z: 0.000000}
@@ -2730,7 +2742,7 @@
   PrefabRemaps:
     []
   Name: Websocket requirements
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 40.000000, z: -180.000000}
@@ -2824,7 +2836,7 @@
     []
   Name: RightHandPinMesh
   Enabled: false
-  Layers: 2
+  Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -3526,6 +3538,21 @@
   Enabled: true
   AnimationLayers:
     BaseLayer: !<reference> 036c5193-1a84-4ee9-8ae4-bc6bd89e33c8
+- !<SceneObject/9649a416-7322-4832-8812-ad3dfcafdc68>
+  PrefabRemaps:
+    []
+  Name: Light
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 40.000000, y: 85.000000, z: 20.000000}
+    Rotation: {x: 70.000000, y: 10.000000, z: 150.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 99004dc6-d40b-4879-b4a2-f3c7c1b33932
 - !<SceneObject/977152fe-8502-4370-a9b5-4748c4b5cc0e>
   PrefabRemaps:
     []
@@ -3660,6 +3687,39 @@
     Fingers_length: 0.000000
     Thumb_inflate: 0.000000
     Thumb_length: 0.000000
+- !<LightSource/99004dc6-d40b-4879-b4a2-f3c7c1b33932>
+  PrefabRemaps:
+    []
+  Name: Light Source
+  Enabled: true
+  renderLayer: 1
+  LightType: Directional
+  Intensity: 1.000000
+  CastShadows: false
+  ShadowDensity: 0.440000
+  ShadowBlurRadius: 4.000000
+  ShadowTextureSize: 512
+  AutoLightSourcePosition: true
+  AutoShadowFrustumSize: true
+  AutoShadowFrustumSizeExtend: 2.000000
+  ShadowFrustumSize: 30.000000
+  ShadowFrustumNearClipPlane: 1.000000
+  ShadowFrustumFarClipPlane: 1000.000000
+  UseEnvMapFromCamera: false
+  EnvMapFromCameraMode: Auto
+  EstimationSharpness: 1.000000
+  EnvMapExposure: 1.000000
+  EnvMapRotation: 0.000000
+  DiffuseEnvTexture: !<reference> 00000000-0000-0000-0000-000000000000
+  SpecularEnvTexture: !<reference> 00000000-0000-0000-0000-000000000000
+  Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+  DynamicEnvInputTexture: !<reference> 00000000-0000-0000-0000-000000000000
+  InnerConeAngle: 0.000000
+  OuterConeAngle: 45.000000
+  DecayType: None
+  DecayLimit: false
+  DecayRange: 40.000000
 - !<SceneObject/9a6029fc-7a62-46e2-840c-8deef9c419ef>
   PrefabRemaps:
     []
