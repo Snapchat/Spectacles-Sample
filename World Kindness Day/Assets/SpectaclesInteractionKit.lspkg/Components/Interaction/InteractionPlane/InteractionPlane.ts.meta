@@ -1,0 +1,65 @@
+- !<AssetImportMetadata/cdee0265-0bab-3983-8ab0-13c28e3c8a85>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 7086d3b2-7004-4ea9-8675-7df51dbe3b82
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 7086d3b2-7004-4ea9-8675-7df51dbe3b82
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 022da8d5-fddd-4499-867b-b04570bf0190
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/022da8d5-fddd-4499-867b-b04570bf0190>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: e67a7577-9712-40d3-bf43-f5a6dd4ea3c4
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    _behindDistance: false
+    _directZoneDistance: false
+    _drawDebug: false
+    _lerpOffset: false
+    _offset: false
+    _planeSize: false
+    _proximityDistance: false
+    targetingVisual: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - targetingVisual: !<float> 1.000000
+      _planeSize: !<Vec2> {x: 10.000000, y: 10.000000}
+      _proximityDistance: !<float> 15.000000
+      _directZoneDistance: 7.500000
+      _drawDebug: false
+      _behindDistance: !<float> 5.000000
+      _lerpOffset: !<float> 5.000000
+      _offset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input float targetingVisual {"hint":"Sets the preferred targeting visual. (Requires the V2 Cursor to be enabled on InteractorCursors).\n\n- 0: None\n- 1: Cursor (default)\n- 2: Ray", "widget":"combobox", "values":[{"label":"None", "value":0}, {"label":"Cursor", "value":1}, {"label":"Ray", "value":2}]}'
+    - '// @input vec2 _planeSize = {10,10} {"hint":"The size of the interaction plane along the local X and Y axes. Defines the rectangular area of the plane where hand interactions are detected. Larger values create a bigger interactive surface area."}'
+    - "// @input float _proximityDistance {\"hint\":\"The depth of the plane's interaction zone along the local Z axis. Defines how far from the plane hand interactions are detected. Hand interactions beyond this distance will not be detected. Larger values allow interaction from greater distances.\"}"
+    - '// @input float _directZoneDistance {"hint":"The maximum distance for Direct interaction with the plane."}'
+    - '// @input bool _drawDebug {"hint":"Enables visual debugging of the Interaction Plane."}'
+    - "// @input float _behindDistance {\"hint\":\"The maximum distance for detecting interactions behind the plane. Creates a failsafe/tolerance zone where interactions can still be detected even if the user's hand accidentally penetrates through the plane.\"}"
+    - '// @input float _lerpOffset {"hint":"The offset from the interaction zone that will be used to transition the user into near field mode. E.g. if the proximityDistance = 20 and lerpOffset = 25, a hand between 20-45cm away from the plane will be lerped into near field mode."}'
+    - '// @input vec3 _offset {"hint":"Local-space offset of the plane. Allows positioning the effective interaction plane relative to the host SceneObject."}'

@@ -1,0 +1,56 @@
+- !<AssetImportMetadata/8eea2849-3704-499a-a690-9c5a91303d8d>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> 4688d3dd-4eaa-4d64-b233-865bc3c746ca
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> 4688d3dd-4eaa-4d64-b233-865bc3c746ca
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    ObjectPrefab: !<own> d128203d-c017-47cd-adc7-562ec610ec4e
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<RenderMeshVisual/022215f3-50a8-45c4-4746-4f5447b18ab1>
+  PrefabRemaps:
+    []
+  Name: component_0
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 339249de-afe5-4c20-a6a9-ee7422c35504
+  Mesh: !<reference> bd56aa76-661e-428e-96fc-090331b2a39c
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/adb9b45a-4e39-425f-70ac-962231034d0b>
+  PrefabRemaps:
+    []
+  Name: Sleek Body Tube
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -1.228443, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 022215f3-50a8-45c4-4746-4f5447b18ab1
+- !<ObjectPrefabAssetData/d128203d-c017-47cd-adc7-562ec610ec4e>
+  Prototype: !<ObjectOwner/ac42f161-edd6-4230-ad5e-ffe710525166>
+    PackagePath: ""
+    objects:
+      - !<own> adb9b45a-4e39-425f-70ac-962231034d0b

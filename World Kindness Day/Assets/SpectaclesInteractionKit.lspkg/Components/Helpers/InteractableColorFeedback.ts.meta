@@ -1,0 +1,57 @@
+- !<AssetImportMetadata/6e01d557-166e-8d49-1f34-3c5689c40209>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> ad94751b-0846-4ee3-af41-7b0eb49b2e2c
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> ad94751b-0846-4ee3-af41-7b0eb49b2e2c
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 3f0dc5b2-8c35-4f39-90fc-f4cb6eeba3ef
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/3f0dc5b2-8c35-4f39-90fc-f4cb6eeba3ef>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 1c774d11-6def-4bad-9263-1e21d2f40660
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    defaultColor: false
+    disabledColor: false
+    hoverColor: false
+    meshVisuals: false
+    pinchedColor: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - defaultColor: !<Vec4> {x: 0.280000, y: 0.280000, z: 0.280000, w: 1.000000}
+      hoverColor: !<Vec4> {x: 0.280000, y: 0.280000, z: 0.280000, w: 1.000000}
+      pinchedColor: !<Vec4> {x: 0.460000, y: 0.460000, z: 0.460000, w: 1.000000}
+      disabledColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 0.000000}
+      meshVisuals: !<reference.RenderMeshVisual[]>
+        []
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input vec4 defaultColor = "{0.28, 0.28, 0.28, 1}" {"hint":"The color applied when the Interactables are in their default state (not being interacted with).", "widget":"color"}'
+    - '// @input vec4 hoverColor = "{0.28, 0.28, 0.28, 1}" {"hint":"The color applied to Interactables when an Interactor is hovering over it.", "widget":"color"}'
+    - '// @input vec4 pinchedColor = "{0.46, 0.46, 0.46, 1}" {"hint":"The color applied to Interactables when they are being actively pinched.", "widget":"color"}'
+    - '// @input vec4 disabledColor = "{1, 1, 1, 0}" {"hint":"The color applied to Interactables when they are disabled.", "widget":"color"}'
+    - '// @input Component.RenderMeshVisual[] meshVisuals = {} {"hint":"The meshes which will have their baseColor changed on pinch/hover/enable/disable events."}'

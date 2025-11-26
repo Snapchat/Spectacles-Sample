@@ -1,0 +1,74 @@
+import { Headers, HeadersInit } from './Headers';
+import { URLSearchParams } from './urlsearchparams';
+type AbortSignal = any;
+type FormData = any;
+interface ReadableStream<R = any> {
+}
+export declare class Request {
+    private _url;
+    private _method;
+    private _headers;
+    private _body;
+    private _bodyUsed;
+    private _cache;
+    private _credentials;
+    private _destination;
+    private _integrity;
+    private _keepalive;
+    private _mode;
+    private _redirect;
+    private _referrer;
+    private _referrerPolicy;
+    private _signal;
+    constructor(input: RequestInfo, init?: RequestInit);
+    get url(): string;
+    get method(): string;
+    get headers(): Headers;
+    get body(): ReadableStream | null;
+    get bodyUsed(): boolean;
+    get cache(): RequestCache;
+    get credentials(): RequestCredentials;
+    get destination(): RequestDestination;
+    get integrity(): string;
+    get keepalive(): boolean;
+    get mode(): RequestMode;
+    get redirect(): RequestRedirect;
+    get referrer(): string;
+    get referrerPolicy(): ReferrerPolicy;
+    get signal(): AbortSignal | null;
+    arrayBuffer(): Promise<ArrayBuffer>;
+    blob(): Promise<Blob>;
+    bytes(): Promise<Uint8Array>;
+    formData(): Promise<FormData>;
+    json(): Promise<any>;
+    text(): Promise<string>;
+    clone(): Request;
+    toLensStudioRequest(): any;
+    static fromLensStudioRequest(lsRequest: any): Request;
+}
+export type RequestInfo = Request | string;
+export type RequestCache = "default" | "force-cache" | "no-cache" | "no-store" | "only-if-cached" | "reload";
+export type RequestCredentials = "omit" | "same-origin" | "include";
+export type RequestDestination = "" | "audio" | "audioworklet" | "document" | "embed" | "font" | "frame" | "iframe" | "image" | "manifest" | "object" | "paintworklet" | "report" | "script" | "sharedworker" | "style" | "track" | "video" | "worker" | "xslt";
+export type RequestMode = "cors" | "no-cors" | "same-origin" | "navigate";
+export type RequestRedirect = "follow" | "error" | "manual";
+export type ReferrerPolicy = "" | "no-referrer" | "no-referrer-when-downgrade" | "origin" | "origin-when-cross-origin" | "same-origin" | "strict-origin" | "strict-origin-when-cross-origin" | "unsafe-url";
+export type BodyInit = ReadableStream | XMLHttpRequestBodyInit;
+export type XMLHttpRequestBodyInit = Blob | BufferSource | FormData | URLSearchParams | string | Uint8Array;
+export type BufferSource = ArrayBufferView | ArrayBuffer;
+export interface RequestInit {
+    body?: BodyInit | null;
+    cache?: RequestCache;
+    credentials?: RequestCredentials;
+    headers?: HeadersInit;
+    integrity?: string;
+    keepalive?: boolean;
+    method?: string;
+    mode?: RequestMode;
+    redirect?: RequestRedirect;
+    referrer?: string;
+    referrerPolicy?: ReferrerPolicy;
+    signal?: AbortSignal | null;
+    window?: null;
+}
+export {};

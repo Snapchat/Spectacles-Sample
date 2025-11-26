@@ -1,0 +1,65 @@
+- !<AssetImportMetadata/21c1dc8a-9bbb-527b-4355-4b2c8541ba58>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 772760e3-b59e-4284-a8b3-60a0f4dfbbcb
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 772760e3-b59e-4284-a8b3-60a0f4dfbbcb
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> ef49694f-3a57-42ad-a6b4-f98cd7740437
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/ef49694f-3a57-42ad-a6b4-f98cd7740437>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 67d543b2-fd68-43b7-8746-d8e8834ce1d0
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    _beginColor: false
+    _endColor: false
+    _interactor: false
+    lineLength: false
+    lineMaterial: false
+    lineStyle: false
+    lineWidth: false
+    shouldStick: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - lineMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      _beginColor: !<Vec3> {x: 1.000000, y: 1.000000, z: 0.000000}
+      _endColor: !<Vec3> {x: 1.000000, y: 1.000000, z: 0.000000}
+      lineWidth: 0.500000
+      lineLength: !<float> 160.000000
+      lineStyle: !<float> 2.000000
+      shouldStick: true
+      _interactor: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Asset.Material lineMaterial {"hint":"The material used to render the interactor line visual. Can be set to InteractorLineMaterial."}'
+    - '// @input vec3 _beginColor = "{1, 1, 0}" {"hint":"The color at the start (origin) of the interactor line visual.", "widget":"color"}'
+    - '// @input vec3 _endColor = "{1, 1, 0}" {"hint":"The color at the end (target) of the interactor line visual.", "widget":"color"}'
+    - '// @input float lineWidth = 0.5 {"hint":"The width of the interactor line visual."}'
+    - '// @input float lineLength = 160 {"hint":"The default length of the interactor line visual. Controls how far the ray extends when not targeting any object."}'
+    - '// @input float lineStyle = 2 {"hint":"Controls the visual style of the interactor line:\n- Full: Renders a continuous line from start to end.\n- Split: Creates a segmented line with gaps between sections.\n- FadedEnd: Gradually fades out the line toward its end point.", "widget":"combobox", "values":[{"label":"Full", "value":0}, {"label":"Split", "value":1}, {"label":"FadedEnd", "value":2}]}'
+    - "// @input bool shouldStick = true {\"hint\":\"When enabled, makes the interactor line 'stick' to targeted Interactables by pointing directly at them when the user interacts with them.\"}"
+    - '// @input Component.ScriptComponent _interactor {"hint":"Reference to the Interactor component that this line will visualize. The line visual appears only when the referenced interactor is using Indirect targeting mode and is actively targeting."}'

@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2021",
+    "isolatedModules": true,
+    "noEmit": true,
+    "skipDefaultLibCheck": true,
+    "allowJs": true,
+    "lib": ["es2021"],
+    "types": [],
+    "paths": {
+      "*" : ["./Assets/*","./Packages/*", "./Cache/TypeScript/Src/Packages/*"]
+    }
+  },
+  "exclude": [
+    "node_modules/typescript/lib/lib.dom.d.ts"
+  ],
+  "include": [
+    "./Cache/TypeScript/lib/LensifyTS/Declarations/**/*.d.ts",
+    "./Assets/**/*.ts",
+    "./Packages/**/*.ts",
+    "./Cache/TypeScript/Src/Packages/**/*.ts"
+  ]
+}

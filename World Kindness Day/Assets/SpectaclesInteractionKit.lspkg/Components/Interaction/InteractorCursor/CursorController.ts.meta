@@ -1,0 +1,47 @@
+- !<AssetImportMetadata/af116226-2602-0612-f776-8f8d7cee4716>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 33b8ff0f-4908-4414-8821-6b37f1775435
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 33b8ff0f-4908-4414-8821-6b37f1775435
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> bc38723e-72c7-4d5a-ad7f-7a15642b84ce
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/bc38723e-72c7-4d5a-ad7f-7a15642b84ce>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 7aec96c4-4844-48cd-9993-a23862d63603
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    drawDebug: false
+    useV2: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - useV2: false
+      drawDebug: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - "// @input bool useV2 {\"label\":\"Use V2 Cursor\", \"hint\":\"Switches to the V2 cursor implementation, designed to make targeting free-floating and distant objects easier, at a higher performance cost.\\n\\n- Targeting: Blends its position based on multiple nearby interactables, making it easier to aim between targets.\\n- Visuals: Fades out when not aimed near any interactable objects. Also enables a 'Ray' visual that can be set per-Interactable/InteractionPlane.\\n- Performance: This version is more computationally expensive due to its multi-target analysis.\"}"
+    - '// @input bool drawDebug {"hint":"Enable debug rendering for cursors (cone collider, center ray, and closest-point helpers)"}'

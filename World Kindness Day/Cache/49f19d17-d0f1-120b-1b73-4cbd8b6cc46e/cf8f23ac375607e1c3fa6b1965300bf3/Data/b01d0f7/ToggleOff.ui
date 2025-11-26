@@ -1,0 +1,1140 @@
+{ 
+	"ui": 
+	[
+		{
+        	"label": "Graph Parameters",
+        	"widget": "group_start"
+        },
+{
+                	"bindingName": "ENABLE_VERTEX_COLOR_BASE",
+                	"bindingType": "define",
+                	"optimize":    false,
+                	"label":       "Enable Vertex Color",
+                	"widget":      "checkbox",
+                	"sortIndex":   "0",
+                	"hint":        "When enabled, vertex color acts as an linear multiplier to Albedo."
+                },
+                
+                {
+                	"bindingName": "colorMultiplier",
+                	"label":       "Color Multiplier",
+                	"widget":      "spinbox",
+                	"step":        "0.01",
+                	"sortIndex":   "0",
+                	"hint":        "",
+                	"default":     "1.0"
+                },
+                
+                {
+                	"bindingName": "ENABLE_GLTF_LIGHTING",
+                	"bindingType": "define",
+                	"optimize":    false,
+                	"label":       "Enable Lighting",
+                	"widget":      "checkbox",
+                	"sortIndex":   "1",
+                	"hint":        "Enable Lighting."
+                },
+                
+                {
+                	"label": "Metallic-Roughness",
+                	"widget": "group_start"
+                },                    
+                    {
+                    	"bindingName": "baseColorFactor",
+                    	"label":       "Base Color",
+                    	"widget":      "color",
+                    	"sortIndex":   "1",
+                    	"hint":        "Specifies the base color (albedo) of the material if the 'Base Texture' is disabled.  Multiplied with the 'Base Texture' otherwise. ",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"label":       "Base Texture",
+                    	"bindingName": "ENABLE_BASE_TEX",
+                    	"bindingType": "define",
+                    	"optimize":    false,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Most materials use a base texture (albedo), but disabling it means the base texture will be considered white, and 'Base Color' will solely control the color."
+                    }
+                    ,                        
+                        { 
+                        	"bindingName": "baseColorTexture", 
+                        	"label":       "Texture", 
+                        	"widget":      "texture_group",
+                        	"sortIndex":   "3",
+                        	"hint":        "Base Color Texture."
+                        },
+                        
+                        {
+                        	"label":       "Texture UV",
+                        	"bindingType": "defineSelect",
+                        	"values":      
+                        	[
+                        		
+                        		{
+                        			"value": "NODE_7_DROPLIST_ITEM 0",
+                        			"label": "Mesh UV 0"
+                        		},
+                        		
+                        		{
+                        			"value": "NODE_7_DROPLIST_ITEM 1",
+                        			"label": "Mesh UV 1"
+                        		}
+                        	],
+                        	"sortIndex":   "4",
+                        	"hint":        "Specifies the UV set used."
+                        },
+                    {
+                    	"_bindingName": "ENABLE_BASE_TEX",
+                    	"widget": "group_end"
+                    }
+                    ,
+                    
+                    {
+                    	"bindingName": "emissiveFactor",
+                    	"label":       "Emissive Factor",
+                    	"widget":      "color",
+                    	"sortIndex":   "20",
+                    	"hint":        "The factors for the emissive color of the material.  1 means high intensity, 0 means no light being emitted by the material.  Multiplies the Emissive Texture if enabled.",
+                    	"default":     "0.0"
+                    },
+                    
+                    {
+                    	"label":       "Emissive Texture",
+                    	"bindingName": "ENABLE_EMISSIVE",
+                    	"bindingType": "define",
+                    	"optimize":    false,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Enables the emissive texture."
+                    }
+                    ,                        
+                        { 
+                        	"bindingName": "emissiveTexture", 
+                        	"label":       "Texture", 
+                        	"widget":      "texture_group",
+                        	"sortIndex":   "22",
+                        	"hint":        "Emissive Texture."
+                        },
+                        
+                        {
+                        	"label":       "Texture UV",
+                        	"bindingType": "defineSelect",
+                        	"values":      
+                        	[
+                        		
+                        		{
+                        			"value": "NODE_10_DROPLIST_ITEM 0",
+                        			"label": "Mesh UV 0"
+                        		},
+                        		
+                        		{
+                        			"value": "NODE_10_DROPLIST_ITEM 1",
+                        			"label": "Mesh UV 1"
+                        		}
+                        	],
+                        	"sortIndex":   "23",
+                        	"hint":        "Specifies the UV set used."
+                        },
+                    {
+                    	"_bindingName": "ENABLE_EMISSIVE",
+                    	"widget": "group_end"
+                    }
+                    ,
+                    
+                    {
+                    	"label":       "Normal Map",
+                    	"bindingName": "ENABLE_NORMALMAP",
+                    	"bindingType": "define",
+                    	"optimize":    false,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Enables the normal map texture and normal mapping. When this is disabled, the per pixel normal is solely determined by the interpolated vertex normals."
+                    }
+                    ,                        
+                        {
+                        	"bindingName": "normalTextureScale",
+                        	"label":       "Scale",
+                        	"widget":      "slider",
+                        	"min":         0,
+                        	"max":         1,
+                        	"step":        "0.01",
+                        	"sortIndex":   "31",
+                        	"hint":        "This parameter applied to each normal vector of the 'Normal Map'.",
+                        	"default":     "1.0"
+                        },
+                        
+                        { 
+                        	"bindingName": "normalTexture", 
+                        	"label":       "Texture", 
+                        	"widget":      "texture_group",
+                        	"sortIndex":   "32",
+                        	"hint":        "Enables metallic roughness normal map."
+                        },
+                        
+                        {
+                        	"label":       "Texture UV",
+                        	"bindingType": "defineSelect",
+                        	"values":      
+                        	[
+                        		
+                        		{
+                        			"value": "NODE_8_DROPLIST_ITEM 0",
+                        			"label": "Mesh UV 0"
+                        		},
+                        		
+                        		{
+                        			"value": "NODE_8_DROPLIST_ITEM 1",
+                        			"label": "Mesh UV 1"
+                        		}
+                        	],
+                        	"sortIndex":   "33",
+                        	"hint":        "Specifies the UV set used."
+                        },
+                    {
+                    	"_bindingName": "ENABLE_NORMALMAP",
+                    	"widget": "group_end"
+                    }
+                    ,
+                    
+                    {
+                    	"bindingName": "metallicFactor",
+                    	"label":       "Metallic",
+                    	"widget":      "slider",
+                    	"min":         0,
+                    	"max":         1,
+                    	"step":        "0.01",
+                    	"sortIndex":   "50",
+                    	"hint":        "1 means metal, 0 means non-metal (dielectric). Multiplies the metallic channel of the Material Params texture if enabled.",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "roughnessFactor",
+                    	"label":       "Roughness",
+                    	"widget":      "slider",
+                    	"min":         0,
+                    	"max":         1,
+                    	"step":        "0.01",
+                    	"sortIndex":   "51",
+                    	"hint":        "1 means completely rough (diffuse), 0 means perfectly smooth and shiny.  Multiplies the roughness channel of the Material Params texture if enabled.  If your roughness is 1 and your metallic is 0, it's more efficient to disable Specular alltogether.",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"label":       "Metallic-Roughness Texture",
+                    	"bindingName": "ENABLE_METALLIC_ROUGHNESS_TEX",
+                    	"bindingType": "define",
+                    	"optimize":    false,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "If enabled, it multiplies each channel with the Metallic, Roughness and Occlusion factor."
+                    }
+                    ,                        
+                        {
+                        	"bindingName": "occlusionTextureStrength",
+                        	"label":       "Occlusion Strength",
+                        	"widget":      "slider",
+                        	"min":         0,
+                        	"max":         1,
+                        	"step":        "0.01",
+                        	"sortIndex":   "52",
+                        	"hint":        "1 means full indirect lighting, 0 means no indirect lighting. Multiplies the occlusion channel of the Material Params texture if enabled.",
+                        	"default":     "1.0"
+                        },
+                        
+                        { 
+                        	"bindingName": "metallicRoughnessTexture", 
+                        	"label":       "Texture", 
+                        	"widget":      "texture_group",
+                        	"sortIndex":   "54",
+                        	"hint":        "Material params texture should have: R - metalness,  G - roughness,  B - ambient occlusion."
+                        },
+                        
+                        {
+                        	"label":       "Texture UV",
+                        	"bindingType": "defineSelect",
+                        	"values":      
+                        	[
+                        		
+                        		{
+                        			"value": "NODE_11_DROPLIST_ITEM 0",
+                        			"label": "Mesh UV 0"
+                        		},
+                        		
+                        		{
+                        			"value": "NODE_11_DROPLIST_ITEM 1",
+                        			"label": "Mesh UV 1"
+                        		}
+                        	],
+                        	"sortIndex":   "55",
+                        	"hint":        "Specifies the UV set used."
+                        },
+                    {
+                    	"_bindingName": "ENABLE_METALLIC_ROUGHNESS_TEX",
+                    	"widget": "group_end"
+                    }
+                    ,
+                {
+                	"widget": "group_end"
+                },
+                
+                {
+                	"label":       "Transmission",
+                	"bindingName": "ENABLE_TRANSMISSION",
+                	"bindingType": "define",
+                	"optimize":    false,
+                	"widget":      "group_start",
+                	"sortIndex":   "0",
+                	"hint":        "Enables transmission for simulating optical transparency on thin materials"
+                }
+                ,                    
+                    { 
+                    	"bindingName": "screenTexture", 
+                    	"label":       "Screen Texture", 
+                    	"widget":      "texture_group",
+                    	"sortIndex":   "101",
+                    	"hint":        "Texture for sampling the background.\n\nWARNING:\na Screen Texture *must* be assigned here for Transmission to work!"
+                    },
+                    
+                    {
+                    	"bindingName": "transmissionFactor",
+                    	"label":       "Factor",
+                    	"widget":      "slider",
+                    	"min":         0,
+                    	"max":         1,
+                    	"step":        "0.01",
+                    	"sortIndex":   "102",
+                    	"hint":        "1 means fully transmitted through, 0 means none.  Multiplies the Transmission Texture if enabled.",
+                    	"default":     "0.0"
+                    },
+                    
+                    {
+                    	"label":       "Transmission Texture",
+                    	"bindingName": "ENABLE_TRANSMISSION_TEX",
+                    	"bindingType": "define",
+                    	"optimize":    false,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Enables transmission texture."
+                    }
+                    ,                        
+                        { 
+                        	"bindingName": "transmissionTexture", 
+                        	"label":       "Texture", 
+                        	"widget":      "texture_group",
+                        	"sortIndex":   "104",
+                        	"hint":        "Transmission value from R channel."
+                        },
+                        
+                        {
+                        	"label":       "Texture UV",
+                        	"bindingType": "defineSelect",
+                        	"values":      
+                        	[
+                        		
+                        		{
+                        			"value": "Tweak_N30 0",
+                        			"label": "Mesh UV 0"
+                        		},
+                        		
+                        		{
+                        			"value": "Tweak_N30 1",
+                        			"label": "Mesh UV 1"
+                        		}
+                        	],
+                        	"sortIndex":   "105",
+                        	"hint":        "Specifies the UV set used."
+                        },
+                    {
+                    	"_bindingName": "ENABLE_TRANSMISSION_TEX",
+                    	"widget": "group_end"
+                    }
+                    ,
+                {
+                	"_bindingName": "ENABLE_TRANSMISSION",
+                	"widget": "group_end"
+                }
+                ,
+                
+                {
+                	"label":       "Sheen",
+                	"bindingName": "ENABLE_SHEEN",
+                	"bindingType": "define",
+                	"optimize":    false,
+                	"widget":      "group_start",
+                	"sortIndex":   "0",
+                	"hint":        "Enable Sheen on top of glTF to represent cloth and fabric materials."
+                }
+                ,                    
+                    {
+                    	"bindingName": "sheenColorFactor",
+                    	"label":       "Color",
+                    	"widget":      "color",
+                    	"sortIndex":   "201",
+                    	"hint":        "The factors for the Sheen Color, multiplies the Sheen Color Texture if enabled.",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"label":       "Color Texture",
+                    	"bindingName": "ENABLE_SHEEN_COLOR_TEX",
+                    	"bindingType": "define",
+                    	"optimize":    false,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Enable Sheen Color Texture."
+                    }
+                    ,                        
+                        { 
+                        	"bindingName": "sheenColorTexture", 
+                        	"label":       "Texture", 
+                        	"widget":      "texture_group",
+                        	"sortIndex":   "203",
+                        	"hint":        "Sheen Color Texture."
+                        },
+                        
+                        {
+                        	"label":       "Texture UV",
+                        	"bindingType": "defineSelect",
+                        	"values":      
+                        	[
+                        		
+                        		{
+                        			"value": "Tweak_N32 0",
+                        			"label": "Mesh UV 0"
+                        		},
+                        		
+                        		{
+                        			"value": "Tweak_N32 1",
+                        			"label": "Mesh UV 1"
+                        		}
+                        	],
+                        	"sortIndex":   "204",
+                        	"hint":        "Specifies the UV set used."
+                        },
+                    {
+                    	"_bindingName": "ENABLE_SHEEN_COLOR_TEX",
+                    	"widget": "group_end"
+                    }
+                    ,
+                    
+                    {
+                    	"bindingName": "sheenRoughnessFactor",
+                    	"label":       "Roughness Factor",
+                    	"widget":      "slider",
+                    	"min":         0,
+                    	"max":         1,
+                    	"step":        "0.01",
+                    	"sortIndex":   "205",
+                    	"hint":        "0 means sharp specular, 1 means smooth specular.  Multiplies the Sheen Roughness texture if enabled.  The sheen roughness is independent from the material parameter roughness. ",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"label":       "Roughness Texture",
+                    	"bindingName": "ENABLE_SHEEN_ROUGHNESS_TEX",
+                    	"bindingType": "define",
+                    	"optimize":    false,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Enable Sheen Roughness Texture."
+                    }
+                    ,                        
+                        { 
+                        	"bindingName": "sheenRoughnessTexture", 
+                        	"label":       "Texture", 
+                        	"widget":      "texture_group",
+                        	"sortIndex":   "207",
+                        	"hint":        "Sheen Roughness Texture value from alpha channel."
+                        },
+                        
+                        {
+                        	"label":       "Texture UV",
+                        	"bindingType": "defineSelect",
+                        	"values":      
+                        	[
+                        		
+                        		{
+                        			"value": "Tweak_N37 0",
+                        			"label": "Mesh UV 0"
+                        		},
+                        		
+                        		{
+                        			"value": "Tweak_N37 1",
+                        			"label": "Mesh UV 1"
+                        		}
+                        	],
+                        	"sortIndex":   "208",
+                        	"hint":        "Specifies the UV set used."
+                        },
+                    {
+                    	"_bindingName": "ENABLE_SHEEN_ROUGHNESS_TEX",
+                    	"widget": "group_end"
+                    }
+                    ,
+                {
+                	"_bindingName": "ENABLE_SHEEN",
+                	"widget": "group_end"
+                }
+                ,
+                
+                {
+                	"label":       "Clear Coat",
+                	"bindingName": "ENABLE_CLEARCOAT",
+                	"bindingType": "define",
+                	"optimize":    false,
+                	"widget":      "group_start",
+                	"sortIndex":   "0",
+                	"hint":        "Enables a clear coating that layers on top of the base material."
+                }
+                ,                    
+                    {
+                    	"bindingName": "clearcoatFactor",
+                    	"label":       "Factor",
+                    	"widget":      "slider",
+                    	"min":         0,
+                    	"max":         1,
+                    	"step":        "0.01",
+                    	"sortIndex":   "301",
+                    	"hint":        "1 means fully coated, 0 means no clear coat.  Multiplies the Clear Coat Texture if enabled.",
+                    	"default":     "0.0"
+                    },
+                    
+                    {
+                    	"label":       "Clear Coat Texture",
+                    	"bindingName": "ENABLE_CLEARCOAT_TEX",
+                    	"bindingType": "define",
+                    	"optimize":    false,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Enables clear coat intensity texture."
+                    }
+                    ,                        
+                        { 
+                        	"bindingName": "clearcoatTexture", 
+                        	"label":       "Texture", 
+                        	"widget":      "texture_group",
+                        	"sortIndex":   "303",
+                        	"hint":        "R channel controls the clear coat intensity."
+                        },
+                        
+                        {
+                        	"label":       "Texture UV",
+                        	"bindingType": "defineSelect",
+                        	"values":      
+                        	[
+                        		
+                        		{
+                        			"value": "Tweak_N44 0",
+                        			"label": "Mesh UV 0"
+                        		},
+                        		
+                        		{
+                        			"value": "Tweak_N44 1",
+                        			"label": "Mesh UV 1"
+                        		}
+                        	],
+                        	"sortIndex":   "304",
+                        	"hint":        "Specifies the UV set used."
+                        },
+                    {
+                    	"_bindingName": "ENABLE_CLEARCOAT_TEX",
+                    	"widget": "group_end"
+                    }
+                    ,
+                    
+                    {
+                    	"bindingName": "clearcoatRoughnessFactor",
+                    	"label":       "Roughness Factor",
+                    	"widget":      "slider",
+                    	"min":         0,
+                    	"max":         1,
+                    	"step":        "0.01",
+                    	"sortIndex":   "305",
+                    	"hint":        "1 means completely rough (diffuse), 0 means perfectly smooth and shiny.  Multiplies the Roughness texture if enabled.",
+                    	"default":     "0.0"
+                    },
+                    
+                    {
+                    	"label":       "Roughness Texture",
+                    	"bindingName": "ENABLE_CLEARCOAT_ROUGHNESS_TEX",
+                    	"bindingType": "define",
+                    	"optimize":    false,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Enables clear coat roughness texture."
+                    }
+                    ,                        
+                        { 
+                        	"bindingName": "clearcoatRoughnessTexture", 
+                        	"label":       "Texture", 
+                        	"widget":      "texture_group",
+                        	"sortIndex":   "307",
+                        	"hint":        ""
+                        },
+                        
+                        {
+                        	"label":       "Texture UV",
+                        	"bindingType": "defineSelect",
+                        	"values":      
+                        	[
+                        		
+                        		{
+                        			"value": "Tweak_N60 0",
+                        			"label": "Mesh UV 0"
+                        		},
+                        		
+                        		{
+                        			"value": "Tweak_N60 1",
+                        			"label": "Mesh UV 1"
+                        		}
+                        	],
+                        	"sortIndex":   "308",
+                        	"hint":        "Specifies the UV set used."
+                        },
+                    {
+                    	"_bindingName": "ENABLE_CLEARCOAT_ROUGHNESS_TEX",
+                    	"widget": "group_end"
+                    }
+                    ,
+                    
+                    {
+                    	"label":       "Normal",
+                    	"bindingName": "ENABLE_CLEARCOAT_NORMAL_TEX",
+                    	"bindingType": "define",
+                    	"optimize":    false,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Enables the clear coat normal map texture."
+                    }
+                    ,                        
+                        { 
+                        	"bindingName": "clearcoatNormalTexture", 
+                        	"label":       "Texture", 
+                        	"widget":      "texture_group",
+                        	"sortIndex":   "310",
+                        	"hint":        ""
+                        },
+                        
+                        {
+                        	"label":       "Texture UV",
+                        	"bindingType": "defineSelect",
+                        	"values":      
+                        	[
+                        		
+                        		{
+                        			"value": "Tweak_N47 0",
+                        			"label": "Mesh UV 0"
+                        		},
+                        		
+                        		{
+                        			"value": "Tweak_N47 1",
+                        			"label": "Mesh UV 1"
+                        		}
+                        	],
+                        	"sortIndex":   "311",
+                        	"hint":        "Specifies the UV set used."
+                        },
+                    {
+                    	"_bindingName": "ENABLE_CLEARCOAT_NORMAL_TEX",
+                    	"widget": "group_end"
+                    }
+                    ,
+                {
+                	"_bindingName": "ENABLE_CLEARCOAT",
+                	"widget": "group_end"
+                }
+                ,
+                
+                {
+                	"label":       "Texture Transform",
+                	"bindingName": "ENABLE_TEXTURE_TRANSFORM",
+                	"bindingType": "define",
+                	"optimize":    false,
+                	"widget":      "group_start",
+                	"sortIndex":   "0",
+                	"hint":        "Enable Texture Transform."
+                }
+                ,                    
+                    {
+                    	"label":       "Base Texture",
+                    	"bindingName": "ENABLE_BASE_TEXTURE_TRANSFORM",
+                    	"bindingType": "define",
+                    	"optimize":    false,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Enable Base Texture Transform."
+                    }
+                    ,                        
+                        {
+                        	"bindingName": "baseColorTexture_offset",
+                        	"label":       "Offset",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "910",
+                        	"hint":        "Base Texture offset transform.",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "baseColorTexture_scale",
+                        	"label":       "Scale",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "911",
+                        	"hint":        "Base Texture size transform.",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "baseColorTexture_rotation",
+                        	"label":       "Rotation",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "912",
+                        	"hint":        "Base Texture rotation transform, values are in degrees.",
+                        	"default":     "1.0"
+                        },
+                    {
+                    	"_bindingName": "ENABLE_BASE_TEXTURE_TRANSFORM",
+                    	"widget": "group_end"
+                    }
+                    ,
+                    
+                    {
+                    	"label":       "Emissive Texture",
+                    	"bindingName": "ENABLE_EMISSIVE_TEXTURE_TRANSFORM",
+                    	"bindingType": "define",
+                    	"optimize":    false,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Enable Emissive Texture Transform."
+                    }
+                    ,                        
+                        {
+                        	"bindingName": "emissiveTexture_offset",
+                        	"label":       "Offset",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "920",
+                        	"hint":        "Emissive Texture offset transform.",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "emissiveTexture_scale",
+                        	"label":       "Scale",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "921",
+                        	"hint":        "Emissive Texture scale transform.",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "emissiveTexture_rotation",
+                        	"label":       "Rotation",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "922",
+                        	"hint":        "Emissive Texture rotation transform, values are in degrees.",
+                        	"default":     "1.0"
+                        },
+                    {
+                    	"_bindingName": "ENABLE_EMISSIVE_TEXTURE_TRANSFORM",
+                    	"widget": "group_end"
+                    }
+                    ,
+                    
+                    {
+                    	"label":       "Normal Texture",
+                    	"bindingName": "ENABLE_NORMAL_TEXTURE_TRANSFORM",
+                    	"bindingType": "define",
+                    	"optimize":    false,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Enable Normal Texture Transform."
+                    }
+                    ,                        
+                        {
+                        	"bindingName": "normalTexture_offset",
+                        	"label":       "Offset",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "930",
+                        	"hint":        "Normal Texture offset transform.",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "normalTexture_scale",
+                        	"label":       "Scale",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "931",
+                        	"hint":        "Normal Texture scale transform.",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "normalTexture_rotation",
+                        	"label":       "Rotation",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "932",
+                        	"hint":        "Normal Texture rotation transform, values are in degrees.",
+                        	"default":     "1.0"
+                        },
+                    {
+                    	"_bindingName": "ENABLE_NORMAL_TEXTURE_TRANSFORM",
+                    	"widget": "group_end"
+                    }
+                    ,
+                    
+                    {
+                    	"label":       "Metallic Roughness Texture",
+                    	"bindingName": "ENABLE_METALLIC_ROUGHNESS_TEXTURE_TRANSFORM",
+                    	"bindingType": "define",
+                    	"optimize":    false,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Enable Metallic Roughness Texture Transform."
+                    }
+                    ,                        
+                        {
+                        	"bindingName": "metallicRoughnessTexture_offset",
+                        	"label":       "Offset",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "940",
+                        	"hint":        "Metallic Roughness Texture offset transform.",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "metallicRoughnessTexture_scale",
+                        	"label":       "Scale",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "941",
+                        	"hint":        "Metallic Roughness Texture scale transform.",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "metallicRoughnessTexture_rotation",
+                        	"label":       "Rotation",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "942",
+                        	"hint":        "Metallic Roughness Texture rotation transform, values are in degrees.",
+                        	"default":     "1.0"
+                        },
+                    {
+                    	"_bindingName": "ENABLE_METALLIC_ROUGHNESS_TEXTURE_TRANSFORM",
+                    	"widget": "group_end"
+                    }
+                    ,
+                    
+                    {
+                    	"label":       "Transmission Texture",
+                    	"bindingName": "ENABLE_TRANSMISSION_TEXTURE_TRANSFORM",
+                    	"bindingType": "define",
+                    	"optimize":    false,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Enable Transmission Texture Transform."
+                    }
+                    ,                        
+                        {
+                        	"bindingName": "transmissionTexture_offset",
+                        	"label":       "Offset",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "950",
+                        	"hint":        "Transmission Texture offset transform.",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "transmissionTexture_scale",
+                        	"label":       "Scale",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "951",
+                        	"hint":        "Transmission Texture scale transform.",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "transmissionTexture_rotation",
+                        	"label":       "Rotation",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "952",
+                        	"hint":        "Transmission Texture rotation transform, values are in degrees.",
+                        	"default":     "1.0"
+                        },
+                    {
+                    	"_bindingName": "ENABLE_TRANSMISSION_TEXTURE_TRANSFORM",
+                    	"widget": "group_end"
+                    }
+                    ,
+                    
+                    {
+                    	"label":       "Sheen Color Texture",
+                    	"bindingName": "ENABLE_SHEEN_COLOR_TEXTURE_TRANSFORM",
+                    	"bindingType": "define",
+                    	"optimize":    false,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Enable Sheen Color Texture Transform."
+                    }
+                    ,                        
+                        {
+                        	"bindingName": "sheenColorTexture_offset",
+                        	"label":       "Offset",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "960",
+                        	"hint":        "Sheen Color Texture offset transform.",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "sheenColorTexture_scale",
+                        	"label":       "Scale",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "961",
+                        	"hint":        "Sheen Color Texture scale transform.",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "sheenColorTexture_rotation",
+                        	"label":       "Rotation",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "962",
+                        	"hint":        "Sheen Color Texture rotation transform, values are in degrees.",
+                        	"default":     "1.0"
+                        },
+                    {
+                    	"_bindingName": "ENABLE_SHEEN_COLOR_TEXTURE_TRANSFORM",
+                    	"widget": "group_end"
+                    }
+                    ,
+                    
+                    {
+                    	"label":       "Sheen Roughness Texture",
+                    	"bindingName": "ENABLE_SHEEN_ROUGHNESS_TEXTURE_TRANSFORM",
+                    	"bindingType": "define",
+                    	"optimize":    false,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Enable Sheen Roughness Texture Transform."
+                    }
+                    ,                        
+                        {
+                        	"bindingName": "sheenRoughnessTexture_offset",
+                        	"label":       "Offset",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "970",
+                        	"hint":        "Sheen Roughness Texture offset transform.",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "sheenRoughnessTexture_scale",
+                        	"label":       "Scale",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "971",
+                        	"hint":        "Sheen Roughness Texture scale transform.",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "sheenRoughnessTexture_rotation",
+                        	"label":       "Rotation",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "972",
+                        	"hint":        "Sheen Roughness Texture rotation transform, values are in degrees.",
+                        	"default":     "1.0"
+                        },
+                    {
+                    	"_bindingName": "ENABLE_SHEEN_ROUGHNESS_TEXTURE_TRANSFORM",
+                    	"widget": "group_end"
+                    }
+                    ,
+                    
+                    {
+                    	"label":       "Clearcoat Texture",
+                    	"bindingName": "ENABLE_CLEARCOAT_TEXTURE_TRANSFORM",
+                    	"bindingType": "define",
+                    	"optimize":    false,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Enable Clearcoat Texture Transform."
+                    }
+                    ,                        
+                        {
+                        	"bindingName": "clearcoatTexture_offset",
+                        	"label":       "Offset",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "980",
+                        	"hint":        "Clearcoat Texture offset transform.",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "clearcoatTexture_scale",
+                        	"label":       "Scale",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "981",
+                        	"hint":        "Clearcoat Texture scale transform.",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "clearcoatTexture_rotation",
+                        	"label":       "Rotation",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "982",
+                        	"hint":        "Clearcoat Texture rotation transform, values are in degrees.",
+                        	"default":     "1.0"
+                        },
+                    {
+                    	"_bindingName": "ENABLE_CLEARCOAT_TEXTURE_TRANSFORM",
+                    	"widget": "group_end"
+                    }
+                    ,
+                    
+                    {
+                    	"label":       "Clearcoat Normal Texture",
+                    	"bindingName": "ENABLE_CLEARCOAT_NORMAL_TEXTURE_TRANSFORM",
+                    	"bindingType": "define",
+                    	"optimize":    false,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Enable Clearcoat Normal Texture Transform."
+                    }
+                    ,                        
+                        {
+                        	"bindingName": "clearcoatNormalTexture_offset",
+                        	"label":       "Offset",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "990",
+                        	"hint":        "Clearcoat Normal Texture offset transform.",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "clearcoatNormalTexture_scale",
+                        	"label":       "Scale",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "991",
+                        	"hint":        "Clearcoat Noraml Texture scale transform.",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "clearcoatNormalTexture_rotation",
+                        	"label":       "Rotation",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "992",
+                        	"hint":        "Clearcoat Normal Texture rotation transform, values are in degrees.",
+                        	"default":     "1.0"
+                        },
+                    {
+                    	"_bindingName": "ENABLE_CLEARCOAT_NORMAL_TEXTURE_TRANSFORM",
+                    	"widget": "group_end"
+                    }
+                    ,
+                    
+                    {
+                    	"label":       "Clearcoat Roughness Texture",
+                    	"bindingName": "ENABLE_CLEARCOAT_ROUGHNESS_TEXTURE_TRANSFORM",
+                    	"bindingType": "define",
+                    	"optimize":    false,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Enable Clearcoat Roughness Texture Transform."
+                    }
+                    ,                        
+                        {
+                        	"bindingName": "clearcoatRoughnessTexture_offset",
+                        	"label":       "Offset",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "1000",
+                        	"hint":        "Clearcoat Roughness Texture offset transform.",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "clearcoatRoughnessTexture_scale",
+                        	"label":       "Scale",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "1001",
+                        	"hint":        "Clearcoat Roughness Texture scale transform.",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "clearcoatRoughnessTexture_rotation",
+                        	"label":       "Rotation",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "1002",
+                        	"hint":        "Clearcoat Roughness Texture rotation transform, values are in degrees.",
+                        	"default":     "1.0"
+                        },
+                    {
+                    	"_bindingName": "ENABLE_CLEARCOAT_ROUGHNESS_TEXTURE_TRANSFORM",
+                    	"widget": "group_end"
+                    }
+                    ,
+                {
+                	"_bindingName": "ENABLE_TEXTURE_TRANSFORM",
+                	"widget": "group_end"
+                }
+                ,
+
+        {
+        	"widget": "group_end"
+        },
+        
+		
+	{
+		"bindingName": "alphaTestThreshold",
+		"widget": "slider",
+		"min" : 0.0,
+		"max" : 1.0,
+		"step": 0.001,
+		"default": 0.5,
+		"hint": "When the 'Alpha Test' blend mode is enabled, pixels with alpha values lower than this disappear."
+	}
+	
+	],
+	
+	"shaderType": "Mesh3d",
+	
+	"extraDefines":
+	[
+		"SC_ENABLE_RT_CASTER",
+		"SC_ENABLE_RT_RECEIVER"
+	]
+}

@@ -1,0 +1,202 @@
+//SG_REFLECTION_BEGIN(200)
+//attribute vec4 boneData 5
+//attribute vec3 blendShape0Pos 6
+//attribute vec3 blendShape0Normal 12
+//attribute vec3 blendShape1Pos 7
+//attribute vec3 blendShape1Normal 13
+//attribute vec3 blendShape2Pos 8
+//attribute vec3 blendShape2Normal 14
+//attribute vec3 blendShape3Pos 9
+//attribute vec3 blendShape4Pos 10
+//attribute vec3 blendShape5Pos 11
+//attribute vec4 position 0
+//attribute vec3 normal 1
+//attribute vec4 tangent 2
+//attribute vec2 texture0 3
+//attribute vec2 texture1 4
+//attribute vec3 positionNext 15
+//attribute vec3 positionPrevious 16
+//attribute vec4 strandProperties 17
+//output vec4 FragColor0 0
+//output vec4 FragColor1 1
+//output vec4 FragColor2 2
+//output vec4 FragColor3 3
+//sampler sampler baseTexSmpSC 2:17
+//texture texture2D baseTex 2:4:2:17
+//ubo int UserUniforms 2:30:4080 {
+//sc_PointLight_t sc_PointLights 0:[3]:80
+//bool sc_PointLights.falloffEnabled 0
+//float sc_PointLights.falloffEndDistance 4
+//float sc_PointLights.negRcpFalloffEndDistance4 8
+//float sc_PointLights.angleScale 12
+//float sc_PointLights.angleOffset 16
+//float3 sc_PointLights.direction 32
+//float3 sc_PointLights.position 48
+//float4 sc_PointLights.color 64
+//sc_DirectionalLight_t sc_DirectionalLights 240:[3]:32
+//float3 sc_DirectionalLights.direction 0
+//float4 sc_DirectionalLights.color 16
+//sc_AmbientLight_t sc_AmbientLights 336:[3]:32
+//float3 sc_AmbientLights.color 0
+//float sc_AmbientLights.intensity 16
+//sc_LightEstimationData_t sc_LightEstimationData 432
+//sc_SphericalGaussianLight_t sc_LightEstimationData.sg 0:[12]:48
+//float3 sc_LightEstimationData.sg.color 0
+//float sc_LightEstimationData.sg.sharpness 16
+//float3 sc_LightEstimationData.sg.axis 32
+//float3 sc_LightEstimationData.ambientLight 576
+//float4 sc_EnvmapDiffuseSize 1024
+//float4 sc_EnvmapDiffuseDims 1040
+//float4 sc_EnvmapDiffuseView 1056
+//float4 sc_EnvmapSpecularSize 1072
+//float4 sc_EnvmapSpecularDims 1088
+//float4 sc_EnvmapSpecularView 1104
+//float3 sc_EnvmapRotation 1120
+//float sc_EnvmapExposure 1136
+//float3 sc_Sh 1152:[9]:16
+//float sc_ShIntensity 1296
+//float4 sc_Time 1312
+//float4 sc_UniformConstants 1328
+//float4 sc_GeometryInfo 1344
+//float4x4 sc_ModelViewProjectionMatrixArray 1360:[2]:64
+//float4x4 sc_ModelViewProjectionMatrixInverseArray 1488:[2]:64
+//float4x4 sc_ViewProjectionMatrixArray 1616:[2]:64
+//float4x4 sc_ViewProjectionMatrixInverseArray 1744:[2]:64
+//float4x4 sc_ModelViewMatrixArray 1872:[2]:64
+//float4x4 sc_ModelViewMatrixInverseArray 2000:[2]:64
+//float3x3 sc_ViewNormalMatrixArray 2128:[2]:48
+//float3x3 sc_ViewNormalMatrixInverseArray 2224:[2]:48
+//float4x4 sc_ProjectionMatrixArray 2320:[2]:64
+//float4x4 sc_ProjectionMatrixInverseArray 2448:[2]:64
+//float4x4 sc_ViewMatrixArray 2576:[2]:64
+//float4x4 sc_ViewMatrixInverseArray 2704:[2]:64
+//float4x4 sc_ModelMatrix 2832
+//float4x4 sc_ModelMatrixInverse 2896
+//float3x3 sc_NormalMatrix 2960
+//float3x3 sc_NormalMatrixInverse 3008
+//float3 sc_LocalAabbMin 3056
+//float3 sc_LocalAabbMax 3072
+//float3 sc_WorldAabbMin 3088
+//float3 sc_WorldAabbMax 3104
+//float4 sc_WindowToViewportTransform 3120
+//sc_Camera_t sc_Camera 3136
+//float3 sc_Camera.position 0
+//float sc_Camera.aspect 16
+//float2 sc_Camera.clipPlanes 24
+//float sc_ShadowDensity 3168
+//float4 sc_ShadowColor 3184
+//float4x4 sc_ProjectorMatrix 3200
+//float _sc_GetFramebufferColorInvalidUsageMarker 3264
+//float shaderComplexityValue 3268
+//float sc_DisableFrustumCullingMarker 3272
+//float4 weights0 3280
+//float4 weights1 3296
+//float4 weights2 3312
+//float4 sc_StereoClipPlanes 3328:[2]:16
+//int sc_FallbackInstanceID 3360
+//float _sc_framebufferFetchMarker 3364
+//float2 sc_TAAJitterOffset 3368
+//float strandWidth 3376
+//float strandTaper 3380
+//float4 sc_StrandDataMapTextureSize 3392
+//float clumpInstanceCount 3408
+//float clumpRadius 3412
+//float clumpTipScale 3416
+//float hairstyleInstanceCount 3420
+//float hairstyleNoise 3424
+//float4 sc_ScreenTextureSize 3440
+//float4 sc_ScreenTextureDims 3456
+//float4 sc_ScreenTextureView 3472
+//bool receivesRayTracedReflections 3488
+//bool isProxyMode 3492
+//bool receivesRayTracedShadows 3496
+//bool receivesRayTracedDiffuseIndirect 3500
+//bool receivesRayTracedAo 3504
+//float4 sc_RayTracedReflectionTextureSize 3520
+//float4 sc_RayTracedReflectionTextureDims 3536
+//float4 sc_RayTracedReflectionTextureView 3552
+//float4 sc_RayTracedShadowTextureSize 3568
+//float4 sc_RayTracedShadowTextureDims 3584
+//float4 sc_RayTracedShadowTextureView 3600
+//float4 sc_RayTracedDiffIndTextureSize 3616
+//float4 sc_RayTracedDiffIndTextureDims 3632
+//float4 sc_RayTracedDiffIndTextureView 3648
+//float4 sc_RayTracedAoTextureSize 3664
+//float4 sc_RayTracedAoTextureDims 3680
+//float4 sc_RayTracedAoTextureView 3696
+//float receiver_mask 3712
+//float3 OriginNormalizationScale 3728
+//float3 OriginNormalizationScaleInv 3744
+//float3 OriginNormalizationOffset 3760
+//int receiverId 3776
+//int instance_id 3780
+//int lray_triangles_last 3784
+//bool noEarlyZ 3788
+//bool has_animated_pn 3792
+//int emitter_stride 3796
+//int proxy_offset_position 3800
+//int proxy_offset_normal 3804
+//int proxy_offset_tangent 3808
+//int proxy_offset_color 3812
+//int proxy_offset_texture0 3816
+//int proxy_offset_texture1 3820
+//int proxy_offset_texture2 3824
+//int proxy_offset_texture3 3828
+//int proxy_format_position 3832
+//int proxy_format_normal 3836
+//int proxy_format_tangent 3840
+//int proxy_format_color 3844
+//int proxy_format_texture0 3848
+//int proxy_format_texture1 3852
+//int proxy_format_texture2 3856
+//int proxy_format_texture3 3860
+//float4 z_rayDirectionsSize 3872
+//float4 z_rayDirectionsDims 3888
+//float4 z_rayDirectionsView 3904
+//float4 baseColor 3920
+//float alpha 3936
+//float selfIllum 3940
+//float4 baseTexSize 3952
+//float4 baseTexDims 3968
+//float4 baseTexView 3984
+//float3x3 baseTexTransform 4000
+//float4 baseTexUvMinMax 4048
+//float4 baseTexBorderColor 4064
+//}
+//ubo float sc_BonesUBO 2:3:96 {
+//sc_Bone_t sc_Bones 0:[]:96
+//float4 sc_Bones.boneMatrix 0:[3]:16
+//float4 sc_Bones.normalMatrix 48:[3]:16
+//}
+//ssbo int layoutIndices 2:0:4 {
+//uint _Triangles 0:[]:4
+//}
+//ssbo float layoutVertices 2:1:4 {
+//float _Vertices 0:[]:4
+//}
+//ssbo float layoutVerticesPN 2:2:4 {
+//float _VerticesPN 0:[]:4
+//}
+//spec_const bool NOTEXTURE 1000
+//spec_const bool SC_DISABLE_FRUSTUM_CULLING 1001
+//spec_const bool SC_USE_CLAMP_TO_BORDER_baseTex 1002
+//spec_const bool SC_USE_UV_MIN_MAX_baseTex 1003
+//spec_const bool SC_USE_UV_TRANSFORM_baseTex 1004
+//spec_const bool baseTexHasSwappedViews 1005
+//spec_const bool sc_IsEditor 1006
+//spec_const bool sc_OITCompositingPass 1007
+//spec_const bool sc_OITDepthBoundsPass 1008
+//spec_const bool sc_OITDepthGatherPass 1009
+//spec_const bool sc_ProjectiveShadowsReceiver 1010
+//spec_const bool sc_TAAEnabled 1011
+//spec_const bool sc_VertexBlendingUseNormals 1012
+//spec_const bool sc_VertexBlending 1013
+//spec_const int SC_SOFTWARE_WRAP_MODE_U_baseTex 1014
+//spec_const int SC_SOFTWARE_WRAP_MODE_V_baseTex 1015
+//spec_const int baseTexLayout 1016
+//spec_const int sc_DepthBufferMode 1017
+//spec_const int sc_RenderingSpace 1018
+//spec_const int sc_SkinBonesCount 1019
+//spec_const int sc_StereoRenderingMode 1020
+//spec_const int sc_StereoRendering_IsClipDistanceEnabled 1021
+//SG_REFLECTION_END

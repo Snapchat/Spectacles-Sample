@@ -1,0 +1,173 @@
+- !<AssetCache>
+  AssetFiles:
+    2e4c5fcd-1599-4c8c-855e-2ace54d540b8: e6f51ff0-8109-6e19-a3ee-4bb52a5334fc/c3b4f19cfb69436732dc729d7e71ad46/Data/FingerTipGlow.ss_graph
+  Assets:
+    - !<ShaderGraphPass/2e4c5fcd-1599-4c8c-855e-2ace54d540b8>
+      PackagePath: ""
+      DefaultDefines:
+        []
+      DefaultProperties:
+        Port_Depth_N004:
+          typeIdx: 1
+          value: 1.000000
+        Port_FinalColor1_N004:
+          typeIdx: 5
+          value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+        Port_FinalColor2_N004:
+          typeIdx: 5
+          value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+        Port_FinalColor3_N004:
+          typeIdx: 5
+          value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+        Port_GSplatPointSize_N004:
+          typeIdx: 1
+          value: 0.000000
+        Port_GSplatRotation_N004:
+          typeIdx: 5
+          value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+        Port_GSplatScale_N004:
+          typeIdx: 4
+          value: {x: 0.000000, y: 0.000000, z: 0.000000}
+        Port_LODValue_N018:
+          typeIdx: 1
+          value: 0.000000
+        Port_PrevWorldPosition_N004:
+          typeIdx: 4
+          value: {x: 0.000000, y: 0.000000, z: 0.000000}
+        Port_RayDirection_N004:
+          typeIdx: 4
+          value: {x: 0.000000, y: 1.000000, z: 0.000000}
+        Port_RayOrigin_N004:
+          typeIdx: 4
+          value: {x: 0.000000, y: 0.000000, z: 0.000000}
+        Port_Value3_N024:
+          typeIdx: 1
+          value: 0.000000
+        Port_Value4_N024:
+          typeIdx: 1
+          value: 0.000000
+        Port_WorldNormal_N004:
+          typeIdx: 4
+          value: {x: 0.000000, y: 1.000000, z: 0.000000}
+        Port_WorldPosition_N004:
+          typeIdx: 4
+          value: {x: 0.000000, y: 0.000000, z: 0.000000}
+        Port_WorldTangent_N004:
+          typeIdx: 4
+          value: {x: 0.000000, y: 0.000000, z: 1.000000}
+      PassUiData: !<PassUiData>
+        ExtraDefines:
+          - SC_ENABLE_RT_CASTER
+        PassBindings:
+          - mLabel: Graph Parameters
+            mType: Invalid
+            mName: ""
+            mWidget: group_start
+            mHint: ""
+            mMin: ~
+            mMax: ~
+            mStep: ~
+            mDefaultVal: ~
+            mValues:
+              []
+          - mLabel: Glow Texture
+            mType: Property
+            mName: glowTexture
+            mWidget: texture_group
+            mHint: "Property: glowTexture"
+            mMin: ~
+            mMax: ~
+            mStep: ~
+            mDefaultVal: ~
+            mValues:
+              []
+          - mLabel: Poke Glow Color
+            mType: Property
+            mName: pokeGlowColor
+            mWidget: color
+            mHint: "Property: pokeGlowColor"
+            mMin: ~
+            mMax: ~
+            mStep: ~
+            mDefaultVal: 1.000000
+            mValues:
+              []
+          - mLabel: Pinch Glow Color
+            mType: Property
+            mName: pinchGlowColor
+            mWidget: color
+            mHint: "Property: pinchGlowColor"
+            mMin: ~
+            mMax: ~
+            mStep: ~
+            mDefaultVal: 1.000000
+            mValues:
+              []
+          - mLabel: pokePinchBlend
+            mType: Property
+            mName: pokePinchBlend
+            mWidget: spinbox
+            mHint: "Property: pokePinchBlend"
+            mMin: ~
+            mMax: ~
+            mStep: 0.010000
+            mDefaultVal: 1.000000
+            mValues:
+              []
+          - mLabel: Poke Glow Brightness
+            mType: Property
+            mName: pokeGlowBrightness
+            mWidget: slider
+            mHint: "Property: pokeGlowBrightness"
+            mMin: 0.000000
+            mMax: 1.000000
+            mStep: 0.010000
+            mDefaultVal: 1.000000
+            mValues:
+              []
+          - mLabel: Pinch Glow Brightness
+            mType: Property
+            mName: pinchGlowBrightness
+            mWidget: slider
+            mHint: "Property: pinchGlowBrightness"
+            mMin: 0.000000
+            mMax: 1.000000
+            mStep: 0.010000
+            mDefaultVal: 1.000000
+            mValues:
+              []
+          - mLabel: ""
+            mType: GroupEnd
+            mName: ""
+            mWidget: group_end
+            mHint: ""
+            mMin: ~
+            mMax: ~
+            mStep: ~
+            mDefaultVal: ~
+            mValues:
+              []
+          - mLabel: Alpha Test Threshold
+            mType: Property
+            mName: alphaTestThreshold
+            mWidget: slider
+            mHint: |-
+              Property: alphaTestThreshold
+              
+              When the 'Alpha Test' blend mode is enabled, pixels with alpha values lower than this disappear.
+            mMin: 0.000000
+            mMax: 1.000000
+            mStep: 0.001000
+            mDefaultVal: 0.500000
+            mValues:
+              []
+        ShaderType: Mesh3d
+      ShaderPath: e6f51ff0-8109-6e19-a3ee-4bb52a5334fc/c3b4f19cfb69436732dc729d7e71ad46/Data/b01d0f7/FingerTipGlow.glsl
+      Defines:
+        []
+      Properties:
+        {}
+  SourceHash: c3b4f19cfb69436732dc729d7e71ad46
+  FileHash: 1bfc6ff9aa23904200482b015174dc11
+  NativePackageItems:
+    []

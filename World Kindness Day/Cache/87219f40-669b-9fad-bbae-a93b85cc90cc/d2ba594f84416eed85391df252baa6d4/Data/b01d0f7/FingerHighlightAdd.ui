@@ -1,0 +1,158 @@
+{ 
+	"ui": 
+	[
+		{
+        	"label": "Graph Parameters",
+        	"widget": "group_start"
+        },
+{
+                	"bindingName": "pokePinchBlend",
+                	"label":       "Poke Pinch Blend",
+                	"widget":      "spinbox",
+                	"step":        "0.01",
+                	"sortIndex":   "0",
+                	"hint":        "",
+                	"default":     "1.0"
+                },
+                
+                { 
+                	"bindingName": "maskMap", 
+                	"label":       "Mask Map", 
+                	"widget":      "texture_group",
+                	"sortIndex":   "0",
+                	"hint":        ""
+                },
+                
+                {
+                	"label": "Poke",
+                	"widget": "group_start"
+                },                    
+                    {
+                    	"bindingName": "pokeColor",
+                    	"label":       "Color",
+                    	"widget":      "color",
+                    	"sortIndex":   "0",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "pokeBrightness",
+                    	"label":       "Brightness",
+                    	"widget":      "slider",
+                    	"min":         0,
+                    	"max":         1,
+                    	"step":        "0.01",
+                    	"sortIndex":   "0",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"label": "Exponent",
+                    	"widget": "group_start"
+                    },                        
+                        {
+                        	"bindingName": "pokeExponent",
+                        	"label":       "Poke Exponent",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "0",
+                        	"hint":        "",
+                        	"default":     "2.0"
+                        },
+                    {
+                    	"widget": "group_end"
+                    },
+                    
+                    {
+                    	"label": "Gradient Mask",
+                    	"widget": "group_start"
+                    },                        
+                        {
+                        	"bindingName": "pokeHighlightGradientMaskPosition",
+                        	"label":       "Gradient Position",
+                        	"widget":      "slider",
+                        	"min":         0,
+                        	"max":         1,
+                        	"step":        "0.01",
+                        	"sortIndex":   "0",
+                        	"hint":        "",
+                        	"default":     "1.0"
+                        },
+                    {
+                    	"widget": "group_end"
+                    },
+                {
+                	"widget": "group_end"
+                },
+                
+                {
+                	"label": "Pinch",
+                	"widget": "group_start"
+                },                    
+                    {
+                    	"label": "Exponent",
+                    	"widget": "group_start"
+                    },                        
+                        {
+                        	"bindingName": "pinchExponent",
+                        	"label":       "Pinch Exponent",
+                        	"widget":      "spinbox",
+                        	"step":        "0.01",
+                        	"sortIndex":   "0",
+                        	"hint":        "",
+                        	"default":     "2.0"
+                        },
+                    {
+                    	"widget": "group_end"
+                    },
+                    
+                    {
+                    	"bindingName": "pinchColor",
+                    	"label":       "Color",
+                    	"widget":      "color",
+                    	"sortIndex":   "2",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "pinchBrightness",
+                    	"label":       "Brightness",
+                    	"widget":      "slider",
+                    	"min":         0,
+                    	"max":         1,
+                    	"step":        "0.01",
+                    	"sortIndex":   "2",
+                    	"hint":        "",
+                    	"default":     "0.5"
+                    },
+                {
+                	"widget": "group_end"
+                },
+
+        {
+        	"widget": "group_end"
+        },
+        
+		
+	{
+		"bindingName": "alphaTestThreshold",
+		"widget": "slider",
+		"min" : 0.0,
+		"max" : 1.0,
+		"step": 0.001,
+		"default": 0.5,
+		"hint": "When the 'Alpha Test' blend mode is enabled, pixels with alpha values lower than this disappear."
+	}
+	
+	],
+	
+	"shaderType": "Mesh3d",
+	
+	"extraDefines":
+	[
+		"SC_ENABLE_RT_CASTER"
+	]
+}

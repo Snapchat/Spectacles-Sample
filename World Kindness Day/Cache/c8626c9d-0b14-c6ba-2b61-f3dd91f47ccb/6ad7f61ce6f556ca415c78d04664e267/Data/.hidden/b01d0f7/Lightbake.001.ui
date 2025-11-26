@@ -1,0 +1,851 @@
+{ 
+	"ui": 
+	[
+		{
+        	"label": "Graph Parameters",
+        	"widget": "group_start"
+        },
+{
+                	"label":       "Vertex Color",
+                	"bindingType": "defineSelect",
+                	"values":      
+                	[
+                		
+                		{
+                			"value": "NODE_38_DROPLIST_ITEM 0",
+                			"label": "None"
+                		},
+                		
+                		{
+                			"value": "NODE_38_DROPLIST_ITEM 1",
+                			"label": "Base Color"
+                		},
+                		
+                		{
+                			"value": "NODE_38_DROPLIST_ITEM 2",
+                			"label": "Emissive"
+                		},
+                		
+                		{
+                			"value": "NODE_38_DROPLIST_ITEM 3",
+                			"label": "AO"
+                		}
+                	],
+                	"sortIndex":   "0",
+                	"hint":        "Specifies the purpose for which vertex color will be used. Requires vertex color to be supplied by the mesh."
+                },
+                
+                {
+                	"bindingName": "baseColor",
+                	"label":       "Base Color",
+                	"widget":      "color",
+                	"sortIndex":   "1",
+                	"hint":        "Specifies the base color (albedo) of the material if the 'Base Textre' is disabled. \nMultiplied with the 'Base Texture' otherwise.",
+                	"default":     "1.0"
+                },
+                
+                {
+                	"label":       "Base Texture",
+                	"bindingName": "ENABLE_BASE_TEX",
+                	"bindingType": "define",
+                	"optimize":    true,
+                	"widget":      "group_start",
+                	"sortIndex":   "0",
+                	"hint":        "Most materials use a base texture (albedo), but disabling it means the base texture will be considered white, and 'Base Color' will solely control the color."
+                }
+                ,                    
+                    { 
+                    	"bindingName": "baseTex", 
+                    	"label":       "Texture", 
+                    	"widget":      "texture_group",
+                    	"sortIndex":   "10",
+                    	"hint":        ""
+                    },
+                    
+                    {
+                    	"label":       "Texture UV",
+                    	"bindingType": "defineSelect",
+                    	"values":      
+                    	[
+                    		
+                    		{
+                    			"value": "NODE_27_DROPLIST_ITEM 0",
+                    			"label": "Mesh UV 0"
+                    		},
+                    		
+                    		{
+                    			"value": "NODE_27_DROPLIST_ITEM 1",
+                    			"label": "Mesh UV 1"
+                    		},
+                    		
+                    		{
+                    			"value": "NODE_27_DROPLIST_ITEM 2",
+                    			"label": "Transformed UV 2"
+                    		},
+                    		
+                    		{
+                    			"value": "NODE_27_DROPLIST_ITEM 3",
+                    			"label": "Transformed UV 3"
+                    		}
+                    	],
+                    	"sortIndex":   "11",
+                    	"hint":        "Specifies the UV set used as the base on top of which the transform is applied."
+                    },
+                {
+                	"_bindingName": "ENABLE_BASE_TEX",
+                	"widget": "group_end"
+                }
+                ,
+                
+                {
+                	"label":       "Opacity Texture",
+                	"bindingName": "ENABLE_OPACITY_TEX",
+                	"bindingType": "define",
+                	"optimize":    true,
+                	"widget":      "group_start",
+                	"sortIndex":   "0",
+                	"hint":        "Normally, the Base Texture's alpha is taken as opacity. Enabling this allows you to define a separate greyscale opacity texture. \nThe 'Opacity Texture' value will be multiplied with the Base Texture's alpha (which is 1 for textures without alpha) to get the final opacity. \n'Opacity Texture' is only available if 'Blend Mode' is not 'Disabled'."
+                }
+                ,                    
+                    { 
+                    	"bindingName": "opacityTex", 
+                    	"label":       "Texture", 
+                    	"widget":      "texture_group",
+                    	"sortIndex":   "20",
+                    	"hint":        ""
+                    },
+                    
+                    {
+                    	"label":       "Texture UV",
+                    	"bindingType": "defineSelect",
+                    	"values":      
+                    	[
+                    		
+                    		{
+                    			"value": "NODE_69_DROPLIST_ITEM 0",
+                    			"label": "Mesh UV 0"
+                    		},
+                    		
+                    		{
+                    			"value": "NODE_69_DROPLIST_ITEM 1",
+                    			"label": "Mesh UV 1"
+                    		},
+                    		
+                    		{
+                    			"value": "NODE_69_DROPLIST_ITEM 2",
+                    			"label": "Transformed UV 2"
+                    		},
+                    		
+                    		{
+                    			"value": "NODE_69_DROPLIST_ITEM 3",
+                    			"label": "Transformed UV 3"
+                    		}
+                    	],
+                    	"sortIndex":   "21",
+                    	"hint":        "Specifies the UV set used as the base on top of which the transform is applied."
+                    },
+                {
+                	"_bindingName": "ENABLE_OPACITY_TEX",
+                	"widget": "group_end"
+                }
+                ,
+                
+                {
+                	"label":       "Recolor",
+                	"bindingName": "ENABLE_RECOLOR",
+                	"bindingType": "define",
+                	"optimize":    true,
+                	"widget":      "group_start",
+                	"sortIndex":   "0",
+                	"hint":        "Recolor replaces colors in the base texture. \nThis is useful for adding variety to assets, ex: recolor a red shirt with a green logo to a blue shirt with a black logo, or any other color combination. \nWhere the base texture is red, you will get whatever color you set in Recolor Red, and same thing for the green and blue channels of the base texture. \nThis also works in combination if the base color is not a pure red, green or blue color."
+                }
+                ,                    
+                    {
+                    	"bindingName": "recolorRed",
+                    	"label":       "Recolor Red",
+                    	"widget":      "color",
+                    	"sortIndex":   "30",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "recolorGreen",
+                    	"label":       "Recolor Green",
+                    	"widget":      "color",
+                    	"sortIndex":   "31",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "recolorBlue",
+                    	"label":       "Recolor Blue",
+                    	"widget":      "color",
+                    	"sortIndex":   "32",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                {
+                	"_bindingName": "ENABLE_RECOLOR",
+                	"widget": "group_end"
+                }
+                ,
+                
+                {
+                	"label":       "Normal Map",
+                	"bindingName": "ENABLE_NORMALMAP",
+                	"bindingType": "define",
+                	"optimize":    true,
+                	"widget":      "group_start",
+                	"sortIndex":   "0",
+                	"hint":        "Enables the normal map texture and normal mapping. \nWhen this is disabled, the per pixel normal is solely determined by the interpolated vertex normals."
+                }
+                ,                    
+                    { 
+                    	"bindingName": "normalTex", 
+                    	"label":       "Texture", 
+                    	"widget":      "texture_group",
+                    	"sortIndex":   "60",
+                    	"hint":        ""
+                    },
+                    
+                    {
+                    	"label":       "Texture UV",
+                    	"bindingType": "defineSelect",
+                    	"values":      
+                    	[
+                    		
+                    		{
+                    			"value": "NODE_181_DROPLIST_ITEM 0",
+                    			"label": "Mesh UV 0"
+                    		},
+                    		
+                    		{
+                    			"value": "NODE_181_DROPLIST_ITEM 1",
+                    			"label": "Mesh UV 1"
+                    		},
+                    		
+                    		{
+                    			"value": "NODE_181_DROPLIST_ITEM 2",
+                    			"label": "Transformed UV 2"
+                    		},
+                    		
+                    		{
+                    			"value": "NODE_181_DROPLIST_ITEM 3",
+                    			"label": "Transformed UV 3"
+                    		}
+                    	],
+                    	"sortIndex":   "61",
+                    	"hint":        "Specifies the UV set used for sampling this texture."
+                    },
+                    
+                    {
+                    	"label":       "Detail Normal",
+                    	"bindingName": "ENABLE_DETAIL_NORMAL",
+                    	"bindingType": "define",
+                    	"optimize":    true,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Detail normal mapping perturbs the base normal map by a detail normal map."
+                    }
+                    ,                        
+                        { 
+                        	"bindingName": "detailNormalTex", 
+                        	"label":       "Texture", 
+                        	"widget":      "texture_group",
+                        	"sortIndex":   "62",
+                        	"hint":        ""
+                        },
+                        
+                        {
+                        	"label":       "Texture UV",
+                        	"bindingType": "defineSelect",
+                        	"values":      
+                        	[
+                        		
+                        		{
+                        			"value": "NODE_184_DROPLIST_ITEM 0",
+                        			"label": "Mesh UV 0"
+                        		},
+                        		
+                        		{
+                        			"value": "NODE_184_DROPLIST_ITEM 1",
+                        			"label": "Mesh UV 1"
+                        		},
+                        		
+                        		{
+                        			"value": "NODE_184_DROPLIST_ITEM 2",
+                        			"label": "Transformed UV 2"
+                        		},
+                        		
+                        		{
+                        			"value": "NODE_184_DROPLIST_ITEM 3",
+                        			"label": "Transformed UV 3"
+                        		}
+                        	],
+                        	"sortIndex":   "63",
+                        	"hint":        "Specifies the UV set used for sampling this texture."
+                        },
+                    {
+                    	"_bindingName": "ENABLE_DETAIL_NORMAL",
+                    	"widget": "group_end"
+                    }
+                    ,
+                {
+                	"_bindingName": "ENABLE_NORMALMAP",
+                	"widget": "group_end"
+                }
+                ,
+                
+                {
+                	"label":       "Emissive",
+                	"bindingName": "ENABLE_EMISSIVE",
+                	"bindingType": "define",
+                	"optimize":    true,
+                	"widget":      "group_start",
+                	"sortIndex":   "0",
+                	"hint":        "Enables the emissive texture."
+                }
+                ,                    
+                    { 
+                    	"bindingName": "emissiveTex", 
+                    	"label":       "Texture", 
+                    	"widget":      "texture_group",
+                    	"sortIndex":   "70",
+                    	"hint":        ""
+                    },
+                    
+                    {
+                    	"label":       "Texture UV",
+                    	"bindingType": "defineSelect",
+                    	"values":      
+                    	[
+                    		
+                    		{
+                    			"value": "NODE_76_DROPLIST_ITEM 0",
+                    			"label": "Mesh UV 0"
+                    		},
+                    		
+                    		{
+                    			"value": "NODE_76_DROPLIST_ITEM 1",
+                    			"label": "Mesh UV 1"
+                    		},
+                    		
+                    		{
+                    			"value": "NODE_76_DROPLIST_ITEM 2",
+                    			"label": "Transformed UV 2"
+                    		},
+                    		
+                    		{
+                    			"value": "NODE_76_DROPLIST_ITEM 3",
+                    			"label": "Transformed UV 3"
+                    		}
+                    	],
+                    	"sortIndex":   "71",
+                    	"hint":        "Specifies the UV set used for sampling this texture."
+                    },
+                    
+                    {
+                    	"bindingName": "emissiveColor",
+                    	"label":       "Color",
+                    	"widget":      "color",
+                    	"sortIndex":   "72",
+                    	"hint":        "Multiplies the existing emissive color. \nRequires 'Enable Emissive' and/or 'Vertex Color' should be set to 'Emissive'.",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "emissiveIntensity",
+                    	"label":       "Intensity",
+                    	"widget":      "slider",
+                    	"min":         0,
+                    	"max":         10,
+                    	"step":        "0.01",
+                    	"sortIndex":   "73",
+                    	"hint":        "Multiplies the existing emissive color. \nRequires 'Enable Emissive' and/or 'Vertex Color' should be set to 'Emissive'.",
+                    	"default":     "1.0"
+                    },
+                {
+                	"_bindingName": "ENABLE_EMISSIVE",
+                	"widget": "group_end"
+                }
+                ,
+                
+                {
+                	"label":       "Simple Reflection",
+                	"bindingName": "ENABLE_SIMPLE_REFLECTION",
+                	"bindingType": "define",
+                	"optimize":    true,
+                	"widget":      "group_start",
+                	"sortIndex":   "0",
+                	"hint":        "Replaces the default PBR environment mapping with a simple lookup from a regular texture (no hdr, no roughness, no fresnel, etc.). \nIt can even be used with unlit materials. The reflection lookup technically assumes a spherical environment map, which is a circular \nshaped texture as obtained by photographing a mirror ball. However, as a shortcut, it is sometimes used with simple, flat photos, and \nmanually bent mesh normals. Note: this spherical mapping is technically different from the 'angular' envmap format that looks similar."
+                }
+                ,                    
+                    { 
+                    	"bindingName": "reflectionTex", 
+                    	"label":       "Texture", 
+                    	"widget":      "texture_group",
+                    	"sortIndex":   "80",
+                    	"hint":        ""
+                    },
+                    
+                    {
+                    	"bindingName": "reflectionIntensity",
+                    	"label":       "Intensity",
+                    	"widget":      "slider",
+                    	"min":         0,
+                    	"max":         10,
+                    	"step":        "0.01",
+                    	"sortIndex":   "81",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"label":       "Modulation Map",
+                    	"bindingName": "Tweak_N177",
+                    	"bindingType": "define",
+                    	"optimize":    true,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "This texture modulates the reflection color. It can be RGB or greyscale."
+                    }
+                    ,                        
+                        { 
+                        	"bindingName": "reflectionModulationTex", 
+                        	"label":       "Texture", 
+                        	"widget":      "texture_group",
+                        	"sortIndex":   "82",
+                        	"hint":        ""
+                        },
+                        
+                        {
+                        	"label":       "Texture UV",
+                        	"bindingType": "defineSelect",
+                        	"values":      
+                        	[
+                        		
+                        		{
+                        			"value": "NODE_228_DROPLIST_ITEM 0",
+                        			"label": "Mesh UV 0"
+                        		},
+                        		
+                        		{
+                        			"value": "NODE_228_DROPLIST_ITEM 1",
+                        			"label": "Mesh UV 1"
+                        		},
+                        		
+                        		{
+                        			"value": "NODE_228_DROPLIST_ITEM 2",
+                        			"label": "Transformed UV 2"
+                        		},
+                        		
+                        		{
+                        			"value": "NODE_228_DROPLIST_ITEM 3",
+                        			"label": "Transformed UV 3"
+                        		}
+                        	],
+                        	"sortIndex":   "83",
+                        	"hint":        "Specifies the UV set used for sampling this texture."
+                        },
+                    {
+                    	"_bindingName": "Tweak_N177",
+                    	"widget": "group_end"
+                    }
+                    ,
+                {
+                	"_bindingName": "ENABLE_SIMPLE_REFLECTION",
+                	"widget": "group_end"
+                }
+                ,
+                
+                {
+                	"label":       "Rim Highlight",
+                	"bindingName": "ENABLE_RIM_HIGHLIGHT",
+                	"bindingType": "define",
+                	"optimize":    true,
+                	"widget":      "group_start",
+                	"sortIndex":   "0",
+                	"hint":        "'Rim highlight', aka. 'fake Fresnel effect'."
+                }
+                ,                    
+                    {
+                    	"bindingName": "rimColor",
+                    	"label":       "Color",
+                    	"widget":      "color",
+                    	"sortIndex":   "90",
+                    	"hint":        "Specifies the color of the rim highlight.",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "rimIntensity",
+                    	"label":       "Intensity",
+                    	"widget":      "slider",
+                    	"min":         0,
+                    	"max":         10,
+                    	"step":        "0.01",
+                    	"sortIndex":   "91",
+                    	"hint":        "Multiplied with 'Rim Color'.",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "rimExponent",
+                    	"label":       "Exponent",
+                    	"widget":      "slider",
+                    	"min":         0,
+                    	"max":         10,
+                    	"step":        "0.01",
+                    	"sortIndex":   "92",
+                    	"hint":        "Controls the tightness of the rim highlight.",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "ENABLE_RIM_INVERT",
+                    	"bindingType": "define",
+                    	"optimize":    true,
+                    	"label":       "Invert",
+                    	"widget":      "checkbox",
+                    	"sortIndex":   "93",
+                    	"hint":        "Inverts the effect so it's brighter in the middle of the object and darker at the edge."
+                    },
+                    
+                    {
+                    	"label":       "Rim Color Texture",
+                    	"bindingName": "Tweak_N216",
+                    	"bindingType": "define",
+                    	"optimize":    true,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Allows the use of a texture to modulate the rim highlight color."
+                    }
+                    ,                        
+                        { 
+                        	"bindingName": "rimColorTex", 
+                        	"label":       "Texture", 
+                        	"widget":      "texture_group",
+                        	"sortIndex":   "94",
+                        	"hint":        ""
+                        },
+                        
+                        {
+                        	"label":       "Texture UV",
+                        	"bindingType": "defineSelect",
+                        	"values":      
+                        	[
+                        		
+                        		{
+                        			"value": "NODE_315_DROPLIST_ITEM 0",
+                        			"label": "Mesh UV 0"
+                        		},
+                        		
+                        		{
+                        			"value": "NODE_315_DROPLIST_ITEM 1",
+                        			"label": "Mesh UV 1"
+                        		},
+                        		
+                        		{
+                        			"value": "NODE_315_DROPLIST_ITEM 2",
+                        			"label": "Transformed UV 2"
+                        		},
+                        		
+                        		{
+                        			"value": "NODE_315_DROPLIST_ITEM 3",
+                        			"label": "Transformed UV 3"
+                        		}
+                        	],
+                        	"sortIndex":   "95",
+                        	"hint":        "Specifies the UV set used for sampling this texture."
+                        },
+                    {
+                    	"_bindingName": "Tweak_N216",
+                    	"widget": "group_end"
+                    }
+                    ,
+                {
+                	"_bindingName": "ENABLE_RIM_HIGHLIGHT",
+                	"widget": "group_end"
+                }
+                ,
+                
+                {
+                	"label": "Lighting",
+                	"widget": "group_start"
+                },                    
+                    {
+                    	"bindingName": "metallic",
+                    	"label":       "Metallic",
+                    	"widget":      "slider",
+                    	"min":         0,
+                    	"max":         1,
+                    	"step":        "0.01",
+                    	"sortIndex":   "100",
+                    	"hint":        "1 means metal, 0 means non-metal (dielectric). Multiplies the metallic channel of the Material Params texture if enabled.",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "roughness",
+                    	"label":       "Roughness",
+                    	"widget":      "slider",
+                    	"min":         0,
+                    	"max":         1,
+                    	"step":        "0.01",
+                    	"sortIndex":   "101",
+                    	"hint":        "1 means completely rough (diffuse), 0 means perfectly smooth and shiny. \nMultiplies the roughness channel of the Material Params texture if enabled. \nIf your roughness is 1 and your metallic is 0, it's more efficient to disable Specular alltogether.",
+                    	"default":     "1.0"
+                    },
+                    
+                    { 
+                    	"bindingName": "materialParamsTex", 
+                    	"label":       "Texture", 
+                    	"widget":      "texture_group",
+                    	"sortIndex":   "102",
+                    	"hint":        "Material params texture should have: R - metalness, G - roughness, B - ambient occlusion."
+                    },
+                    
+                    {
+                    	"label":       "Texture UV",
+                    	"bindingType": "defineSelect",
+                    	"values":      
+                    	[
+                    		
+                    		{
+                    			"value": "NODE_221_DROPLIST_ITEM 0",
+                    			"label": "Mesh UV 0"
+                    		},
+                    		
+                    		{
+                    			"value": "NODE_221_DROPLIST_ITEM 1",
+                    			"label": "Mesh UV 1"
+                    		},
+                    		
+                    		{
+                    			"value": "NODE_221_DROPLIST_ITEM 2",
+                    			"label": "Transformed UV 2"
+                    		},
+                    		
+                    		{
+                    			"value": "NODE_221_DROPLIST_ITEM 3",
+                    			"label": "Transformed UV 3"
+                    		}
+                    	],
+                    	"sortIndex":   "103",
+                    	"hint":        "Specifies the UV set used for sampling this texture."
+                    },
+                    
+                    {
+                    	"label":       "Specular AO",
+                    	"bindingName": "ENABLE_SPECULAR_AO",
+                    	"bindingType": "define",
+                    	"optimize":    true,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        "Allow AO to influence indirect specular lighting (reflections)."
+                    }
+                    ,                        
+                        {
+                        	"bindingName": "specularAoIntensity",
+                        	"label":       "Intensity",
+                        	"widget":      "slider",
+                        	"min":         0,
+                        	"max":         1,
+                        	"step":        "0.01",
+                        	"sortIndex":   "105",
+                        	"hint":        "Specifies the amount of influence AO has on reflections. \nFor metals the specular AO at its darkest approaches a saturated/darkened version of the metal color (ex: dark gold for gold). \nFor non-metals, this is essentially the same as 'Darkeing'.",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "specularAoDarkening",
+                        	"label":       "Darkening",
+                        	"widget":      "slider",
+                        	"min":         0,
+                        	"max":         1,
+                        	"step":        "0.01",
+                        	"sortIndex":   "106",
+                        	"hint":        "For metals, this shifts the darkest AO color from a saturated version of the metal color towards pure black. \nFor non-metals it's essentially equivalent to 'Intensity'.",
+                        	"default":     "1.0"
+                        },
+                    {
+                    	"_bindingName": "ENABLE_SPECULAR_AO",
+                    	"widget": "group_end"
+                    }
+                    ,
+                {
+                	"widget": "group_end"
+                },
+                
+                {
+                	"label":       "Transformed UV 2",
+                	"bindingName": "ENABLE_UV2",
+                	"bindingType": "define",
+                	"optimize":    true,
+                	"widget":      "group_start",
+                	"sortIndex":   "0",
+                	"hint":        "Allows tiling and animation of texture coordinates."
+                }
+                ,                    
+                    {
+                    	"label":       "Source",
+                    	"bindingType": "defineSelect",
+                    	"values":      
+                    	[
+                    		
+                    		{
+                    			"value": "NODE_13_DROPLIST_ITEM 0",
+                    			"label": "Mesh UV 0"
+                    		},
+                    		
+                    		{
+                    			"value": "NODE_13_DROPLIST_ITEM 1",
+                    			"label": "Mesh UV 1"
+                    		},
+                    		
+                    		{
+                    			"value": "NODE_13_DROPLIST_ITEM 2",
+                    			"label": "Screen UV"
+                    		}
+                    	],
+                    	"sortIndex":   "140",
+                    	"hint":        "Specifies the UV set used as the base on top of which the transform is applied."
+                    },
+                    
+                    {
+                    	"bindingName": "uv2Scale",
+                    	"label":       "Scale",
+                    	"widget":      "spinbox",
+                    	"step":        "0.01",
+                    	"sortIndex":   "141",
+                    	"hint":        "Allows tiling of textures.",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "uv2Offset",
+                    	"label":       "Offset",
+                    	"widget":      "spinbox",
+                    	"step":        "0.01",
+                    	"sortIndex":   "142",
+                    	"hint":        "Allows shifting of textures, or controls the speed of scrolling if animation is enabled. \nIf animation is enabled, the speed is 'Offset' UVs per second. So if 'Offset' is 2, the texture will scroll through two complete times per second.",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "uv2EnableAnimation",
+                    	"bindingType": "define",
+                    	"optimize":    true,
+                    	"label":       "Animation",
+                    	"widget":      "checkbox",
+                    	"sortIndex":   "143",
+                    	"hint":        "If this is enabled, the UV's will scroll. In this case the Offset specifies the speed of scrolling. \nThe speed is 'Offset' UVs per second. So if 'Offset' is 2, the texture will scroll through two complete times per second."
+                    },
+                {
+                	"_bindingName": "ENABLE_UV2",
+                	"widget": "group_end"
+                }
+                ,
+                
+                {
+                	"label":       "Transformed UV 3",
+                	"bindingName": "ENABLE_UV3",
+                	"bindingType": "define",
+                	"optimize":    true,
+                	"widget":      "group_start",
+                	"sortIndex":   "0",
+                	"hint":        "Allows tiling and animation of texture coordinates."
+                }
+                ,                    
+                    {
+                    	"label":       "Source",
+                    	"bindingType": "defineSelect",
+                    	"values":      
+                    	[
+                    		
+                    		{
+                    			"value": "NODE_49_DROPLIST_ITEM 0",
+                    			"label": "Mesh UV 0"
+                    		},
+                    		
+                    		{
+                    			"value": "NODE_49_DROPLIST_ITEM 1",
+                    			"label": "Mesh UV 1"
+                    		},
+                    		
+                    		{
+                    			"value": "NODE_49_DROPLIST_ITEM 2",
+                    			"label": "Screen UV"
+                    		},
+                    		
+                    		{
+                    			"value": "NODE_49_DROPLIST_ITEM 3",
+                    			"label": "Transformed UV 2"
+                    		}
+                    	],
+                    	"sortIndex":   "150",
+                    	"hint":        "Specifies the UV set used as the base on top of which the transform is applied."
+                    },
+                    
+                    {
+                    	"bindingName": "uv3Scale",
+                    	"label":       "Scale",
+                    	"widget":      "spinbox",
+                    	"step":        "0.01",
+                    	"sortIndex":   "151",
+                    	"hint":        "Allows tiling of textures.",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "uv3Offset",
+                    	"label":       "Offset",
+                    	"widget":      "spinbox",
+                    	"step":        "0.01",
+                    	"sortIndex":   "152",
+                    	"hint":        "Allows shifting of textures, or controls the speed of scrolling if animation is enabled. \nIf animation is enabled, the speed is 'Offset' UVs per second. So if 'Offset' is 2, the texture will scroll through two complete times per second.",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "uv3EnableAnimation",
+                    	"bindingType": "define",
+                    	"optimize":    true,
+                    	"label":       "Animation",
+                    	"widget":      "checkbox",
+                    	"sortIndex":   "153",
+                    	"hint":        "If this is enabled, the UV's will scroll. In this case the Offset specifies the speed of scrolling. \nThe speed is 'Offset' UVs per second. So if 'Offset' is 2, the texture will scroll through two complete times per second."
+                    },
+                {
+                	"_bindingName": "ENABLE_UV3",
+                	"widget": "group_end"
+                }
+                ,
+
+        {
+        	"widget": "group_end"
+        },
+        
+		
+	{
+		"bindingName": "alphaTestThreshold",
+		"widget": "slider",
+		"min" : 0.0,
+		"max" : 1.0,
+		"step": 0.001,
+		"default": 0.5,
+		"hint": "When the 'Alpha Test' blend mode is enabled, pixels with alpha values lower than this disappear."
+	}
+	
+	],
+	
+	"shaderType": "Mesh3d",
+	
+	"extraDefines":
+	[
+		"SC_ENABLE_RT_CASTER",
+		"SC_ENABLE_RT_RECEIVER"
+	]
+}

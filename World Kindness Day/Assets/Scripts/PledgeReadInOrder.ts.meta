@@ -1,0 +1,59 @@
+- !<AssetImportMetadata/cdc7df38-526f-4fbe-9919-4cb940f6aeff>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 3629bfdc-dd25-4ac2-9b09-1e175b0c0fd1
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 3629bfdc-dd25-4ac2-9b09-1e175b0c0fd1
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> cfdf262f-c91f-4af3-8676-3b4737528757
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/cfdf262f-c91f-4af3-8676-3b4737528757>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: |-
+    Handles the spoken pledge flow using ASR module. Once the full pledge is spoken in order, it triggers the balloon lift via `BalloonManager.changeTransform()`.  Public APIs  - init():
+    Starts the pledge-reading phase.
+  VersionMajor: 1
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 2abc1cab-e907-49e5-94ba-acbbe0a60fbf
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    BalloonManager: false
+    beginContainer: false
+    highlightColor: false
+    pledgeContainer: false
+    pledgeTexts: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - highlightColor: !<Vec4> {x: 1.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      BalloonManager: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      beginContainer: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      pledgeContainer: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      pledgeTexts: !<reference.Text[]>
+        []
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input vec4 highlightColor = "{1,0,0,1}" {"widget":"color"}'
+    - // @input AssignableType BalloonManager
+    - // @input SceneObject beginContainer
+    - // @input SceneObject pledgeContainer
+    - "// @input Component.Text[] pledgeTexts"

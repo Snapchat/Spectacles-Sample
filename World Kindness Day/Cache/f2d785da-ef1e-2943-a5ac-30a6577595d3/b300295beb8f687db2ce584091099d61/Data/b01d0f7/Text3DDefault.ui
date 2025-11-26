@@ -1,0 +1,548 @@
+{ 
+	"ui": 
+	[
+		{
+        	"label": "Graph Parameters",
+        	"widget": "group_start"
+        },
+{
+                	"label": "Front Cap",
+                	"widget": "group_start"
+                },                    
+                    { 
+                    	"bindingName": "frontCapTex", 
+                    	"label":       "Texture", 
+                    	"widget":      "texture_group",
+                    	"sortIndex":   "-2",
+                    	"hint":        ""
+                    },
+                    
+                    {
+                    	"label":       "Mode",
+                    	"bindingType": "defineSelect",
+                    	"values":      
+                    	[
+                    		
+                    		{
+                    			"value": "DROPLIST_FRONT_CAP_MODE 0",
+                    			"label": "Texture"
+                    		},
+                    		
+                    		{
+                    			"value": "DROPLIST_FRONT_CAP_MODE 1",
+                    			"label": "Gradient"
+                    		},
+                    		
+                    		{
+                    			"value": "DROPLIST_FRONT_CAP_MODE 2",
+                    			"label": "Solid"
+                    		}
+                    	],
+                    	"sortIndex":   "-1",
+                    	"hint":        ""
+                    },
+                    
+                    {
+                    	"bindingName": "frontCapTexScale",
+                    	"label":       "Scale",
+                    	"widget":      "spinbox",
+                    	"step":        "0.01",
+                    	"sortIndex":   "0",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "frontCapTexOffset",
+                    	"label":       "Offset",
+                    	"widget":      "spinbox",
+                    	"step":        "0.01",
+                    	"sortIndex":   "0",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "frontCapStartingColor",
+                    	"label":       "Starting Color",
+                    	"widget":      "color",
+                    	"sortIndex":   "0",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "frontCapEndingColor",
+                    	"label":       "Ending Color",
+                    	"widget":      "color",
+                    	"sortIndex":   "0",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "frontCapGradientRamp",
+                    	"label":       "Gradient Ramp",
+                    	"widget":      "slider",
+                    	"min":         -1,
+                    	"max":         1,
+                    	"step":        "0.01",
+                    	"sortIndex":   "0",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"label":       "PBR",
+                    	"bindingName": "frontCapPBR",
+                    	"bindingType": "define",
+                    	"optimize":    true,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        ""
+                    }
+                    ,                        
+                        {
+                        	"bindingName": "frontCapMetallic",
+                        	"label":       "Metallic",
+                        	"widget":      "slider",
+                        	"min":         0,
+                        	"max":         1,
+                        	"step":        "0.01",
+                        	"sortIndex":   "2",
+                        	"hint":        "",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "frontCapRoughness",
+                        	"label":       "Roughness",
+                        	"widget":      "slider",
+                        	"min":         0,
+                        	"max":         1,
+                        	"step":        "0.01",
+                        	"sortIndex":   "3",
+                        	"hint":        "",
+                        	"default":     "1.0"
+                        },
+                    {
+                    	"_bindingName": "frontCapPBR",
+                    	"widget": "group_end"
+                    }
+                    ,
+                {
+                	"widget": "group_end"
+                },
+                
+                {
+                	"label": "Back Cap",
+                	"widget": "group_start"
+                },                    
+                    {
+                    	"label":       "Mode",
+                    	"bindingType": "defineSelect",
+                    	"values":      
+                    	[
+                    		
+                    		{
+                    			"value": "DROPLIST_BACK_CAP_MODE 0",
+                    			"label": "Texture"
+                    		},
+                    		
+                    		{
+                    			"value": "DROPLIST_BACK_CAP_MODE 1",
+                    			"label": "Gradient"
+                    		},
+                    		
+                    		{
+                    			"value": "DROPLIST_BACK_CAP_MODE 2",
+                    			"label": "Solid"
+                    		}
+                    	],
+                    	"sortIndex":   "-1",
+                    	"hint":        ""
+                    },
+                    
+                    { 
+                    	"bindingName": "backCapTex", 
+                    	"label":       "Texture", 
+                    	"widget":      "texture_group",
+                    	"sortIndex":   "-1",
+                    	"hint":        ""
+                    },
+                    
+                    {
+                    	"bindingName": "backCapTexScale",
+                    	"label":       "Scale",
+                    	"widget":      "spinbox",
+                    	"step":        "0.01",
+                    	"sortIndex":   "0",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "backCapTexOffset",
+                    	"label":       "Offset",
+                    	"widget":      "spinbox",
+                    	"step":        "0.01",
+                    	"sortIndex":   "0",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "backCapStartingColor",
+                    	"label":       "Starting Color",
+                    	"widget":      "color",
+                    	"sortIndex":   "0",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "backCapEndingColor",
+                    	"label":       "Ending Color",
+                    	"widget":      "color",
+                    	"sortIndex":   "0",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "backCapGradientRamp",
+                    	"label":       "Gradient Ramp",
+                    	"widget":      "slider",
+                    	"min":         -1,
+                    	"max":         1,
+                    	"step":        "0.01",
+                    	"sortIndex":   "0",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"label":       "PBR",
+                    	"bindingName": "backCapPBR",
+                    	"bindingType": "define",
+                    	"optimize":    true,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        ""
+                    }
+                    ,                        
+                        {
+                        	"bindingName": "backCapMetallic",
+                        	"label":       "Metallic",
+                        	"widget":      "slider",
+                        	"min":         0,
+                        	"max":         1,
+                        	"step":        "0.01",
+                        	"sortIndex":   "2",
+                        	"hint":        "",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "backCapRoughness",
+                        	"label":       "Roughness",
+                        	"widget":      "slider",
+                        	"min":         0,
+                        	"max":         1,
+                        	"step":        "0.01",
+                        	"sortIndex":   "3",
+                        	"hint":        "",
+                        	"default":     "1.0"
+                        },
+                    {
+                    	"_bindingName": "backCapPBR",
+                    	"widget": "group_end"
+                    }
+                    ,
+                {
+                	"widget": "group_end"
+                },
+                
+                {
+                	"label": "Outer Edge",
+                	"widget": "group_start"
+                },                    
+                    {
+                    	"label":       "Mode",
+                    	"bindingType": "defineSelect",
+                    	"values":      
+                    	[
+                    		
+                    		{
+                    			"value": "DROPLIST_OUTER_EDGE_MODE 0",
+                    			"label": "Texture"
+                    		},
+                    		
+                    		{
+                    			"value": "DROPLIST_OUTER_EDGE_MODE 1",
+                    			"label": "Gradient"
+                    		},
+                    		
+                    		{
+                    			"value": "DROPLIST_OUTER_EDGE_MODE 2",
+                    			"label": "Solid"
+                    		}
+                    	],
+                    	"sortIndex":   "-1",
+                    	"hint":        ""
+                    },
+                    
+                    { 
+                    	"bindingName": "outerEdgeTex", 
+                    	"label":       "Texture", 
+                    	"widget":      "texture_group",
+                    	"sortIndex":   "0",
+                    	"hint":        ""
+                    },
+                    
+                    {
+                    	"bindingName": "outerEdgeTexScale",
+                    	"label":       "Scale",
+                    	"widget":      "spinbox",
+                    	"step":        "0.01",
+                    	"sortIndex":   "0",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "outerEdgeTexOffset",
+                    	"label":       "Offset",
+                    	"widget":      "spinbox",
+                    	"step":        "0.01",
+                    	"sortIndex":   "0",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "outerEdgeStartingColor",
+                    	"label":       "Starting Color",
+                    	"widget":      "color",
+                    	"sortIndex":   "0",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "outerEdgeEndingColor",
+                    	"label":       "Ending Color",
+                    	"widget":      "color",
+                    	"sortIndex":   "0",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "outerEdgeGradientRamp",
+                    	"label":       "Gradient Ramp",
+                    	"widget":      "slider",
+                    	"min":         -1,
+                    	"max":         1,
+                    	"step":        "0.01",
+                    	"sortIndex":   "0",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"label":       "PBR",
+                    	"bindingName": "outerEdgePBR",
+                    	"bindingType": "define",
+                    	"optimize":    true,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        ""
+                    }
+                    ,                        
+                        {
+                        	"bindingName": "outerEdgeMetallic",
+                        	"label":       "Metallic",
+                        	"widget":      "slider",
+                        	"min":         0,
+                        	"max":         1,
+                        	"step":        "0.01",
+                        	"sortIndex":   "2",
+                        	"hint":        "",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "outerRoughness",
+                        	"label":       "Roughness",
+                        	"widget":      "slider",
+                        	"min":         0,
+                        	"max":         1,
+                        	"step":        "0.01",
+                        	"sortIndex":   "3",
+                        	"hint":        "",
+                        	"default":     "1.0"
+                        },
+                    {
+                    	"_bindingName": "outerEdgePBR",
+                    	"widget": "group_end"
+                    }
+                    ,
+                {
+                	"widget": "group_end"
+                },
+                
+                {
+                	"label": "Inner Edge",
+                	"widget": "group_start"
+                },                    
+                    {
+                    	"label":       "Mode",
+                    	"bindingType": "defineSelect",
+                    	"values":      
+                    	[
+                    		
+                    		{
+                    			"value": "DROPLIST_INNER_EDGE_MODE 0",
+                    			"label": "Texture"
+                    		},
+                    		
+                    		{
+                    			"value": "DROPLIST_INNER_EDGE_MODE 1",
+                    			"label": "Gradient"
+                    		},
+                    		
+                    		{
+                    			"value": "DROPLIST_INNER_EDGE_MODE 2",
+                    			"label": "Solid"
+                    		}
+                    	],
+                    	"sortIndex":   "-1",
+                    	"hint":        ""
+                    },
+                    
+                    { 
+                    	"bindingName": "InnerEdgeTex", 
+                    	"label":       "Texture", 
+                    	"widget":      "texture_group",
+                    	"sortIndex":   "0",
+                    	"hint":        ""
+                    },
+                    
+                    {
+                    	"bindingName": "InnerEdgeTexScale",
+                    	"label":       "Scale",
+                    	"widget":      "spinbox",
+                    	"step":        "0.01",
+                    	"sortIndex":   "0",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "InnerEdgeTexOffset",
+                    	"label":       "Offset",
+                    	"widget":      "spinbox",
+                    	"step":        "0.01",
+                    	"sortIndex":   "0",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "InnerEdgeStartingColor",
+                    	"label":       "Starting Color",
+                    	"widget":      "color",
+                    	"sortIndex":   "1",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "InnerEdgeEndingColor",
+                    	"label":       "Ending Color",
+                    	"widget":      "color",
+                    	"sortIndex":   "1",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"bindingName": "InnerEdgeGradientRamp",
+                    	"label":       "Gradient Ramp",
+                    	"widget":      "slider",
+                    	"min":         -1,
+                    	"max":         1,
+                    	"step":        "0.01",
+                    	"sortIndex":   "1",
+                    	"hint":        "",
+                    	"default":     "1.0"
+                    },
+                    
+                    {
+                    	"label":       "PBR",
+                    	"bindingName": "innerEdgePBR",
+                    	"bindingType": "define",
+                    	"optimize":    true,
+                    	"widget":      "group_start",
+                    	"sortIndex":   "0",
+                    	"hint":        ""
+                    }
+                    ,                        
+                        {
+                        	"bindingName": "InnerEdgeMetallic",
+                        	"label":       "Metallic",
+                        	"widget":      "slider",
+                        	"min":         0,
+                        	"max":         1,
+                        	"step":        "0.01",
+                        	"sortIndex":   "2",
+                        	"hint":        "",
+                        	"default":     "1.0"
+                        },
+                        
+                        {
+                        	"bindingName": "InnerEdgeRoughness",
+                        	"label":       "Roughness",
+                        	"widget":      "slider",
+                        	"min":         0,
+                        	"max":         1,
+                        	"step":        "0.01",
+                        	"sortIndex":   "3",
+                        	"hint":        "",
+                        	"default":     "1.0"
+                        },
+                    {
+                    	"_bindingName": "innerEdgePBR",
+                    	"widget": "group_end"
+                    }
+                    ,
+                {
+                	"widget": "group_end"
+                },
+
+        {
+        	"widget": "group_end"
+        },
+        
+		
+	{
+		"bindingName": "alphaTestThreshold",
+		"widget": "slider",
+		"min" : 0.0,
+		"max" : 1.0,
+		"step": 0.001,
+		"default": 0.5,
+		"hint": "When the 'Alpha Test' blend mode is enabled, pixels with alpha values lower than this disappear."
+	}
+	
+	],
+	
+	"shaderType": "Mesh3d",
+	
+	"extraDefines":
+	[
+		"SC_ENABLE_RT_CASTER",
+		"SC_ENABLE_RT_RECEIVER"
+	]
+}

@@ -1,0 +1,79 @@
+{ 
+	"ui": 
+	[
+		{
+        	"label": "Graph Parameters",
+        	"widget": "group_start"
+        },
+{
+                	"bindingName": "particles_speed",
+                	"label":       "Particles_Speed",
+                	"widget":      "slider",
+                	"min":         0,
+                	"max":         2000,
+                	"step":        "0.01",
+                	"sortIndex":   "0",
+                	"hint":        "",
+                	"default":     "800.0"
+                },
+                
+                {
+                	"bindingName": "particlesReduce",
+                	"label":       "Particles_reduce",
+                	"widget":      "slider",
+                	"min":         0,
+                	"max":         1.1,
+                	"step":        "0.01",
+                	"sortIndex":   "0",
+                	"hint":        "",
+                	"default":     "1.0"
+                },
+                
+                {
+                	"bindingName": "Tweak_N12",
+                	"label":       "Noise_str",
+                	"widget":      "slider",
+                	"min":         0,
+                	"max":         400,
+                	"step":        "0.01",
+                	"sortIndex":   "0",
+                	"hint":        "",
+                	"default":     "1.0"
+                },
+                
+                {
+                	"bindingName": "particle_scale",
+                	"label":       "Particle_Scale",
+                	"widget":      "slider",
+                	"min":         0,
+                	"max":         3,
+                	"step":        "0.01",
+                	"sortIndex":   "0",
+                	"hint":        "",
+                	"default":     "1.0"
+                },
+
+        {
+        	"widget": "group_end"
+        },
+        
+		
+	{
+		"bindingName": "alphaTestThreshold",
+		"widget": "slider",
+		"min" : 0.0,
+		"max" : 1.0,
+		"step": 0.001,
+		"default": 0.5,
+		"hint": "When the 'Alpha Test' blend mode is enabled, pixels with alpha values lower than this disappear."
+	}
+	
+	],
+	
+	"shaderType": "PostProcessing",
+	
+	"extraDefines":
+	[
+		
+	]
+}

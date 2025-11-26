@@ -1,0 +1,144 @@
+- !<AssetImportMetadata/0a67510c-e374-b3d3-9c25-7b8fdfaa1120>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 94ea82ba-1d42-4617-b71f-c92262f5960b
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 94ea82ba-1d42-4617-b71f-c92262f5960b
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 543073b2-90b4-4ebc-8af1-8808852fd4c3
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/543073b2-90b4-4ebc-8af1-8808852fd4c3>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 7770857d-cabb-451a-82dc-80e8e17bcd3a
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    _enableInteractionPlane: false
+    _targetingVisual: false
+    allowScaling: false
+    allowTranslation: false
+    autoScaleContent: false
+    autoShowHide: false
+    border: false
+    constantPadding: false
+    cutOut: false
+    innerSize: false
+    isContentInteractable: false
+    isFollowing: false
+    isSynced: false
+    itemSnapping: false
+    maximumSize: false
+    minimumSize: false
+    relativeZ: false
+    showCloseButton: false
+    showFollowButton: false
+    useBillboarding: false
+    useFOVFollow: false
+    useSnapping: false
+    worldSnapping: false
+    xAlways: false
+    xOnTranslate: false
+    yAlways: false
+    yOnTranslate: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - autoShowHide: true
+      innerSize: !<Vec2> {x: 32.000000, y: 32.000000}
+      border: !<float> 4.000000
+      constantPadding: !<Vec2> {x: 0.000000, y: 0.000000}
+      allowScaling: true
+      autoScaleContent: true
+      relativeZ: false
+      isContentInteractable: false
+      allowTranslation: true
+      cutOut: false
+      minimumSize: !<Vec2> {x: 10.000000, y: 10.000000}
+      maximumSize: !<Vec2> {x: 300.000000, y: 300.000000}
+      useBillboarding: false
+      xOnTranslate: false
+      xAlways: false
+      yOnTranslate: false
+      yAlways: false
+      useSnapping: false
+      itemSnapping: false
+      worldSnapping: false
+      showFollowButton: false
+      useFOVFollow: false
+      isFollowing: false
+      showCloseButton: true
+      _enableInteractionPlane: false
+      _targetingVisual: !<float> 1.000000
+      isSynced: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"hint":"Controls the appearance, size, and interaction behavior of the container frame.", "widget":"group_start", "label":"Frame Settings"}'
+    - '// @input bool autoShowHide = true {"hint":"When enabled, the frame automatically appears when hovered and hides when not being interacted with. Disable to manually control frame visibility."}'
+    - "// @input vec2 innerSize = \"{32,32}\" {\"hint\":\"Size of the container's inner content area.\"}"
+    - '// @input float border = 7 {"hint":"Width of the border around the container."}'
+    - '// @input vec2 constantPadding = "{0,0}" {"hint":"Extra padding that maintains a fixed size in centimeters regardless of frame scaling, useful for toolbars and fixed-size UI elements."}'
+    - '// @input bool allowScaling = true {"hint":"Enables interactive scaling of the container frame via corner handles."}'
+    - '// @input bool autoScaleContent = true {"hint":"Automatically scales child content when the frame is resized to maintain proportions."}'
+    - '// @input bool relativeZ {"hint":"When enabled, Z-axis scaling of content will match X-axis scaling during frame resizing."}'
+    - "// @input bool isContentInteractable {\"hint\":\"When enabled, allows interaction with content inside the container and hides the container's glow for visual clarity.\"}"
+    - '// @input bool allowTranslation = true {"hint":"Enables moving the container frame."}'
+    - '// @input bool cutOut {"hint":"When enabled, creates a transparent center in the frame, allowing content behind the container to be visible."}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"label", "label":""}'
+    - '// @ui {"hint":"Sets the minimum and maximum dimensions that the container frame can be resized to.", "widget":"group_start", "label":"Min/Max Size"}'
+    - '// @input vec2 minimumSize = "{10,10}" {"hint":"Minimum dimensions in world units (cm) that the container can be resized to."}'
+    - '// @input vec2 maximumSize = "{150,150}" {"hint":"Maximum dimensions in world units (cm) that the container can be resized to."}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"label", "label":""}'
+    - '// @ui {"hint":"Controls how the container frame automatically rotates to face the camera/user.", "widget":"group_start", "label":"Billboarding"}'
+    - '// @input bool useBillboarding {"hint":"Enables the container to automatically rotate to face the camera/user."}'
+    - '// @input bool xOnTranslate {"hint":"When enabled, the container rotates around the X-axis to face the user, but only during movement/translation unless xAlways is also enabled.", "showIf":"useBillboarding"}'
+    - '// @input bool xAlways {"hint":"When enabled, the container continuously rotates around the X-axis to face the user, regardless of movement.", "showIf":"xOnTranslate"}'
+    - '// @input bool yOnTranslate {"hint":"When enabled, the container rotates around the Y-axis to face the user, but only during movement/translation unless yAlways is also enabled.", "showIf":"useBillboarding"}'
+    - '// @input bool yAlways {"hint":"When enabled, the container continuously rotates around the Y-axis to face the user, regardless of movement.", "showIf":"yOnTranslate"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"label", "label":""}'
+    - '// @ui {"hint":"Controls how the container snaps to other containers or world features when moved.", "widget":"group_start", "label":"Snapping"}'
+    - '// @input bool useSnapping {"hint":"Enables container snapping functionality for automatic alignment to other containers or world features when moved."}'
+    - '// @input bool itemSnapping {"hint":"Enables snapping to other containers when moving.", "showIf":"useSnapping"}'
+    - '// @input bool worldSnapping {"hint":"Enables snapping to physical surfaces in the real-world environment when moving.", "showIf":"useSnapping"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"label", "label":""}'
+    - "// @ui {\"hint\":\"Controls whether the container automatically follows the user's view when moving around.\", \"widget\":\"group_start\", \"label\":\"Follow Behavior\"}"
+    - '// @input bool showFollowButton {"hint":"Shows a button that allows users to toggle whether the container follows their view as they move."}'
+    - "// @input bool useFOVFollow {\"label\":\"Front Follow Behavior\", \"hint\":\"When enabled, creates a follow behavior that keeps the container in front of the user's view.\", \"showIf\":\"showFollowButton\"}"
+    - "// @input bool isFollowing {\"hint\":\"Controls whether the container actively follows the user's view. Setting this defines the initial state.\", \"showIf\":\"useFOVFollow\"}"
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"label", "label":""}'
+    - '// @ui {"hint":"Controls whether a close button is displayed in the corner of the container.", "widget":"group_start", "label":"Close Button"}'
+    - '// @input bool showCloseButton = true {"hint":"Shows a button that allows users to close or dismiss the container."}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"hint":"Settings for an interaction plane that extends around the container.", "widget":"group_start", "label":"Interaction Plane"}'
+    - '// @input bool _enableInteractionPlane {"hint":"Enables an Interaction Plane that creates a near-field targeting zone around the container that improves precision when interacting with buttons and UI elements using hand tracking."}'
+    - '// @input float _targetingVisual {"hint":"Sets the preferred targeting visual. (Requires the V2 Cursor to be enabled on InteractorCursors).\n\n- 0: None\n- 1: Cursor (default)\n- 2: Ray", "widget":"combobox", "values":[{"label":"None", "value":0}, {"label":"Cursor", "value":1}, {"label":"Ray", "value":2}], "showIf":"_enableInteractionPlane"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Sync Kit Support"}'
+    - "// @input bool isSynced {\"hint\":\"Relevant only to lenses that use SpectaclesSyncKit when it has SyncInteractionManager in its prefab. If set to true, the Container's position will be synced whenever a new user joins the same Connected Lenses session.\"}"
+    - '// @ui {"widget":"group_end"}'

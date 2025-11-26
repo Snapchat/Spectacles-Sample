@@ -1,0 +1,166 @@
+- !<ObjectPrefab/f9b465dc-2fb9-4281-b320-c9f2cc21f820>
+  PackagePath: ""
+  objects:
+    - !<own> bac84bae-537b-4d0b-8620-64f591938376
+  LazyLoading: false
+  RetainAssets: true
+- !<SceneObject/211877f4-df72-42da-8581-879f0148a339>
+  PrefabRemaps:
+    []
+  Name: Example_RawTween
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: -50.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 76913b13-c2a7-410b-b0ae-2e9a243fb775
+- !<ScriptComponent/751f5b94-d890-4635-b74c-3aaa61bb689f>
+  PrefabRemaps:
+    []
+  Name: Example_ChainTween
+  Enabled: true
+  ScriptAsset: !<reference> ade72132-f046-4552-b447-11d166983d07
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/76913b13-c2a7-410b-b0ae-2e9a243fb775>
+  PrefabRemaps:
+    []
+  Name: Example_RawTween
+  Enabled: true
+  ScriptAsset: !<reference> b0d5bef8-e20d-45c7-adb6-781fd46e71bc
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/7f10c9e3-8a56-4d89-b5a3-b7de4cf71835>
+  PrefabRemaps:
+    []
+  Name: Example_ChainTween
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 23.503178, z: -50.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 10.000000, y: 10.000000, z: 10.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> ca7a2d62-1e8b-45c0-88cd-52af7054cbb3
+    - !<own> 751f5b94-d890-4635-b74c-3aaa61bb689f
+- !<SceneObject/ac8f31bf-8528-4aca-bbfc-42021e32d876>
+  PrefabRemaps:
+    []
+  Name: Example_YoyoTween
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -25.000000, y: 0.000000, z: -50.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 10.000000, y: 10.000000, z: 10.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> d7ad13ec-d8fa-4d57-a1af-e01f0fdbc213
+    - !<own> cfc7a77d-b612-4b73-9759-f3799be2c90b
+- !<SceneObject/bac84bae-537b-4d0b-8620-64f591938376>
+  PrefabRemaps:
+    - 211877f4-df72-42da-8581-879f0148a339: 211877f4-df72-42da-7a7e-7860feb75cc6
+    - 751f5b94-d890-4635-b74c-3aaa61bb689f: 751f5b94-d890-4635-48b3-c5559e449760
+    - 76913b13-c2a7-410b-b0ae-2e9a243fb775: 76913b13-c2a7-410b-4f51-d165dbc0488a
+    - 7f10c9e3-8a56-4d89-b5a3-b7de4cf71835: 7f10c9e3-8a56-4d89-4a5c-4821b308e7ca
+    - ac8f31bf-8528-4aca-bbfc-42021e32d876: ac8f31bf-8528-4aca-4403-bdfde1cd2789
+    - bac84bae-537b-4d0b-8620-64f591938376: bac84bae-537b-4d0b-79df-9b0a6e6c7c89
+    - ca7a2d62-1e8b-45c0-88cd-52af7054cbb3: ca7a2d62-1e8b-45c0-7732-ad508fab344c
+    - cfc7a77d-b612-4b73-9759-f3799be2c90b: cfc7a77d-b612-4b73-68a6-0c86641d36f4
+    - d7ad13ec-d8fa-4d57-a1af-e01f0fdbc213: d7ad13ec-d8fa-4d57-5e50-1fe0f0243dec
+  Name: Example__ADD_TO_SCENE
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 211877f4-df72-42da-8581-879f0148a339
+    - !<own> ac8f31bf-8528-4aca-bbfc-42021e32d876
+    - !<own> 7f10c9e3-8a56-4d89-b5a3-b7de4cf71835
+  Components:
+    []
+- !<RenderMeshVisual/ca7a2d62-1e8b-45c0-88cd-52af7054cbb3>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> a6a01d7f-4c08-4cbf-adee-52f6eaacde41
+  Mesh: !<reference> c65cfd38-9aa8-4632-8b1b-515cf0ad829d
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<ScriptComponent/cfc7a77d-b612-4b73-9759-f3799be2c90b>
+  PrefabRemaps:
+    []
+  Name: Example_YoyoTween
+  Enabled: true
+  ScriptAsset: !<reference> 5046827d-bec2-49a2-b3a9-efcb883113dd
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
+- !<RenderMeshVisual/d7ad13ec-d8fa-4d57-a1af-e01f0fdbc213>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> a6a01d7f-4c08-4cbf-adee-52f6eaacde41
+  Mesh: !<reference> f3cc8afc-cb20-4193-bb1a-39f896f0cd9a
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
