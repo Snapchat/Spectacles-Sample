@@ -456,30 +456,6 @@ Essential projects to get you started with Spectacles development
   </tr>
   <tr>
     <td align="center" valign="top" width="33%">
-      <a href="./Snap Cloud/">
-        <img src="./Snap Cloud/README-ref/sample-list-snap-cloud-rounded-edges.gif" alt="snap-cloud" width="250px" />
-      </a>
-      <h3>Snap Cloud</h3>
-      <p>
-<a href="https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?">
-  <img src="https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3" />
-</a>
-<a href="https://developers.snap.com/spectacles/about-spectacles-features/connected-lenses/overview?">
-  <img src="https://img.shields.io/badge/Networking-Light%20Gray?color=D3D3D3" />
-</a>
-<a href="https://cloud.snap.com">
-  <img src="https://img.shields.io/badge/Cloud-Light%20Gray?color=D3D3D3" />
-</a>
-<a href="https://developers.snap.com/lens-studio/features/capabilities/internet-module">
-  <img src="https://img.shields.io/badge/Internet%20Access-Light%20Gray?color=D3D3D3" />
-</a>
-<a href="https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-ui-kit/get-started">
-  <img src="https://img.shields.io/badge/UI%20Kit-Light%20Gray?color=D3D3D3" />
-</a>
-      </p>
-      <p>Database, real-time sync, cloud storage, and serverless functions using Snap Cloud (powered by Supabase).</p>
-    </td>
-    <td align="center" valign="top" width="33%">
       <a href="./Spectacles Mobile Kit/">
         <img src="./Spectacles Mobile Kit/README-ref/sample-list-mobile-kit-rounded-edges.gif" alt="spectacles-mobile-kit" width="250px" />
       </a>
@@ -490,6 +466,27 @@ Essential projects to get you started with Spectacles development
 </a>
       </p>
       <p>SDK for seamless communication between mobile applications and Lenses running on Spectacles via BLE.</p>
+    </td>
+    <td align="center" valign="top" width="33%">
+      <a href="./DJ Specs/">
+        <img src="./DJ Specs/README-ref/sample-list-dj-specs-rounded-edges.gif" alt="dj-specs" width="250px" />
+      </a>
+      <h3>DJ Specs</h3>
+      <p>
+<a href="https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?">
+  <img src="https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/lens-studio/features/audio/playing-audio?">
+  <img src="https://img.shields.io/badge/Audio-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/apis/hand-tracking">
+  <img src="https://img.shields.io/badge/Hand%20Tracking-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/lens-studio/features/physics/physics-overview?">
+  <img src="https://img.shields.io/badge/Physics-Light%20Gray?color=D3D3D3" />
+</a>
+      </p>
+      <p>Interactive DJ turntable experience with realistic vinyl physics and multi-track audio mixing.</p>
     </td>
     <td></td>
   </tr>
@@ -836,6 +833,61 @@ Multi-user collaborative experiences
       <p>Minimal example of Spectacles Sync Kit transform synchronization across Connected Lenses.</p>
     </td>
     <td></td>
+    <td></td>
+  </tr>
+</table>
+
+## Snap Cloud
+
+Cloud-powered experiences using Snap Cloud (powered by Supabase)
+
+<table>
+  <tr>
+    <td align="center" valign="top" width="33%">
+      <a href="./Snap Cloud/">
+        <img src="./Snap Cloud/README-ref/sample-list-snap-cloud-rounded-edges.gif" alt="snap-cloud" width="250px" />
+      </a>
+      <h3>Snap Cloud</h3>
+      <p>
+<a href="https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?">
+  <img src="https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/connected-lenses/overview?">
+  <img src="https://img.shields.io/badge/Networking-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://cloud.snap.com">
+  <img src="https://img.shields.io/badge/Cloud-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/lens-studio/features/capabilities/internet-module">
+  <img src="https://img.shields.io/badge/Internet%20Access-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-ui-kit/get-started">
+  <img src="https://img.shields.io/badge/UI%20Kit-Light%20Gray?color=D3D3D3" />
+</a>
+      </p>
+      <p>Database, real-time sync, cloud storage, and serverless functions using Snap Cloud (powered by Supabase).</p>
+    </td>
+    <td align="center" valign="top" width="33%">
+      <a href="./World Kindness Day/">
+        <img src="./World Kindness Day/README-ref/sample-list-world-kindness-day-rounded-edges.gif" alt="world-kindness-day" width="250px" />
+      </a>
+      <h3>World Kindness Day</h3>
+      <p>
+<a href="https://developers.snap.com/spectacles/spectacles-frameworks/spectacles-interaction-kit/features/overview?">
+  <img src="https://img.shields.io/badge/SIK-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://cloud.snap.com">
+  <img src="https://img.shields.io/badge/Cloud-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/apis/asr-module">
+  <img src="https://img.shields.io/badge/ASR-Light%20Gray?color=D3D3D3" />
+</a>
+<a href="https://developers.snap.com/spectacles/about-spectacles-features/apis/gesture-module?">
+  <img src="https://img.shields.io/badge/Gesture%20Module-Light%20Gray?color=D3D3D3" />
+</a>
+      </p>
+      <p>Demonstrating Snap Cloud integration with real-time database updates and a companion web app.</p>
+    </td>
     <td></td>
   </tr>
 </table>
