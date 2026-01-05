@@ -98,7 +98,7 @@ export class ToggleSelectionColorDropdown extends VisualElement implements Toggl
       defaultVisual.isBorderGradient = true
       defaultVisual.borderSize = 0.1
       defaultVisual.isBaseGradient = true
-      
+
       this._visual = defaultVisual
     }
   }
@@ -140,7 +140,7 @@ export class ToggleSelectionColorDropdown extends VisualElement implements Toggl
         print("text2Component is null - please assign it in the inspector")
       }
     }
-    
+
     print("updateText completed")
   }
 
@@ -148,7 +148,7 @@ export class ToggleSelectionColorDropdown extends VisualElement implements Toggl
    * Gets the text content from this toggle's text components
    * @returns Object containing text1 and text2 values
    */
-  getTextContent(): { text1: string | null, text2: string | null } {
+  getTextContent(): {text1: string | null; text2: string | null} {
     print("getTextContent called")
 
     let text1: string | null = null
@@ -169,7 +169,7 @@ export class ToggleSelectionColorDropdown extends VisualElement implements Toggl
     }
 
     print("getTextContent returning: text1=" + text1 + ", text2=" + text2)
-    return { text1, text2 }
+    return {text1, text2}
   }
 
   protected onInteractableTriggered(stateEvent: StateEvent): void {

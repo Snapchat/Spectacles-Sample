@@ -1,13 +1,13 @@
-import Event, {PublicApi, callback} from "SpectaclesInteractionKit.lspkg/Utils/Event"
-import {MapParameter, calculateZoomOffset, findScriptComponent} from "./MapUtils"
+import Event, {callback, PublicApi} from "SpectaclesInteractionKit.lspkg/Utils/Event"
+import {calculateZoomOffset, findScriptComponent, MapParameter} from "./MapUtils"
 
 import {GeoLocationPlace} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/GeoLocationPlace"
-import {MapController} from "./MapController"
-import {MapPin} from "./MapPin"
 import {NavigationDataComponent} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/NavigationDataComponent"
 import {Place} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/Place"
-import { PlaceListCreator } from "../../NavigationKitAssets/Scripts/PlaceListCreator"
 import {UserPosition} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/UserPosition"
+import {PlaceListCreator} from "../../NavigationKitAssets/Scripts/PlaceListCreator"
+import {MapController} from "./MapController"
+import {MapPin} from "./MapPin"
 
 export class MapToggledNotification {
   isMini: boolean
@@ -162,7 +162,7 @@ export class MapComponent extends BaseScriptComponent {
       mapPinPrefab: this.mapPinPrefab,
       mapPinCursorDetectorSize: this.mapPinCursorDetectorSize,
       highlightPinColor: this.highlightPinColor,
-      selectedPinColor: this.selectedPinColor,
+      selectedPinColor: this.selectedPinColor
     }
 
     this.userPosition = this.navigationComponent.getUserPosition()

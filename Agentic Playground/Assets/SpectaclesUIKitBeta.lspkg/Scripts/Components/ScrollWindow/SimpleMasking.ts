@@ -131,13 +131,9 @@ export class SimpleMasking extends BaseScriptComponent {
     const currentPos = this.getPosition()
     const deltaOffset = offset - this.yOffset
     this.yOffset = offset
-    
+
     if (this.initialized) {
-      this.screenTransform.position = new vec3(
-        currentPos.x,
-        currentPos.y + deltaOffset,
-        currentPos.z
-      )
+      this.screenTransform.position = new vec3(currentPos.x, currentPos.y + deltaOffset, currentPos.z)
       this.originalPosition = this.screenTransform.position
     }
   }
@@ -156,18 +152,18 @@ export class SimpleMasking extends BaseScriptComponent {
     if (this.initialized) return
 
     this.transform = this.sceneObject.getTransform()
-    
+
     // Store the original world position and parent info before creating ScreenTransform
     const originalWorldPosition = this.transform.getWorldPosition()
     const originalLocalPosition = this.transform.getLocalPosition()
     const parent = this.sceneObject.getParent()
-    
+
     /**
      * Create or get ScreenTransform component
      */
     this.screenTransform =
       this.sceneObject.getComponent("ScreenTransform") || this.sceneObject.createComponent("ScreenTransform")
-    
+
     /**
      * Preserve the original position relative to parent
      * If there's a parent, calculate the position relative to it
@@ -178,10 +174,10 @@ export class SimpleMasking extends BaseScriptComponent {
       const parentWorldPos = parentTransform.getWorldPosition()
       const parentWorldScale = parentTransform.getWorldScale()
       const parentWorldRotation = parentTransform.getWorldRotation()
-      
+
       // Calculate relative position to parent
       const relativeWorldPos = originalWorldPosition.sub(parentWorldPos)
-      
+
       // Apply inverse parent transformation to get local position
       const invParentRotation = parentWorldRotation.invert()
       const rotatedRelativePos = invParentRotation.multiplyVec3(relativeWorldPos)
@@ -190,7 +186,7 @@ export class SimpleMasking extends BaseScriptComponent {
         rotatedRelativePos.y / parentWorldScale.y + this.yOffset,
         rotatedRelativePos.z / parentWorldScale.z
       )
-      
+
       this.screenTransform.position = localPos
       this.originalPosition = localPos
     } else {
@@ -203,7 +199,7 @@ export class SimpleMasking extends BaseScriptComponent {
       this.screenTransform.position = offsetPosition
       this.originalPosition = offsetPosition
     }
-    
+
     this.collider =
       this.sceneObject.getComponent("ColliderComponent") || this.sceneObject.createComponent("ColliderComponent")
     this.maskingComponent =

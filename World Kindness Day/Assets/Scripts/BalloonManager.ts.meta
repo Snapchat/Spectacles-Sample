@@ -1,0 +1,56 @@
+- !<AssetImportMetadata/cd1eb122-c696-45d2-bda7-fdba098d6b7e>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> e5014dad-a99e-4ee0-9781-2b9261efc07d
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> e5014dad-a99e-4ee0-9781-2b9261efc07d
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 703167d6-211e-4641-a513-e57fc96f61e2
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/703167d6-211e-4641-a513-e57fc96f61e2>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: |-
+    Handles all balloon interactions on the start screen. It detects which balloon the user taps or pinches, hides the remaining balloons, starts the pledge-reading sequence by calling `PledgeReadInOrder.init()`, and later animates the selected balloon before notifying KindnessCounter to record the pledge.  Public APIs  - changeTransform():
+    Animates the selected balloon upward then calls KindnessCounter.onBalloonSelected(). This is typically triggered after the voice pledge is captured.
+  VersionMajor: 1
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 1380be72-14c7-4491-b4ea-d2a9d3f491db
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    KindnessCounter: false
+    PledgeReadInOrder: false
+    balloons: false
+    endScreenBalloons: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - KindnessCounter: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      balloons: !<reference.SceneObject[]>
+        []
+      endScreenBalloons: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      PledgeReadInOrder: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input AssignableType KindnessCounter
+    - "// @input SceneObject[] balloons"
+    - // @input SceneObject endScreenBalloons
+    - // @input AssignableType_1 PledgeReadInOrder

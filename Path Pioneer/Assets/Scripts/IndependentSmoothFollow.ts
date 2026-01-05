@@ -1,10 +1,5 @@
 import {setTimeout} from "SpectaclesInteractionKit.lspkg/Utils/FunctionTimingUtils"
-import {
-  clamp,
-  DegToRad,
-  smoothDamp,
-  smoothDampAngle,
-} from "SpectaclesInteractionKit.lspkg/Utils/mathUtils"
+import {clamp, DegToRad, smoothDamp, smoothDampAngle} from "SpectaclesInteractionKit.lspkg/Utils/mathUtils"
 import {validate} from "SpectaclesInteractionKit.lspkg/Utils/validate"
 
 /**
@@ -17,10 +12,10 @@ import {validate} from "SpectaclesInteractionKit.lspkg/Utils/validate"
  */
 @component
 export class SmoothFollow extends BaseScriptComponent {
-  @input 
+  @input
   mainCamera: Camera
   private cameraTransform: Transform = null
-  private tr: Transform = null;
+  private tr: Transform = null
   private fieldOfView: number = 26
   private visibleWidth: number = 20
   private minDistance: number = 25
@@ -38,11 +33,11 @@ export class SmoothFollow extends BaseScriptComponent {
   private dragging: boolean // to reposition the follow position, the manipulator will turn this on then back off
 
   constructor() {
-    super();
-    this.tr = this.sceneObject.getTransform();
+    super()
+    this.tr = this.sceneObject.getTransform()
     validate(this.tr)
 
-    this.cameraTransform = this.mainCamera.getTransform();
+    this.cameraTransform = this.mainCamera.getTransform()
 
     this.target = vec3.zero()
     this.velocity = vec3.zero()
@@ -52,19 +47,19 @@ export class SmoothFollow extends BaseScriptComponent {
     this.initialRot = this.tr.getLocalRotation()
     this.heading = this.cameraHeading
 
-    this.worldRot = quat
-      .angleAxis(this.heading, vec3.up())
-      .multiply(this.initialRot)
-    this.resize( // hardcoding for no container
-        16 + //this.frame.innerSize.x +
-        4 + 2 +//this.frame.border * 2 +
+    this.worldRot = quat.angleAxis(this.heading, vec3.up()).multiply(this.initialRot)
+    this.resize(
+      // hardcoding for no container
+      16 + //this.frame.innerSize.x +
+        4 +
+        2 + //this.frame.border * 2 +
         0 //this.frame.constantPadding.x
     )
     setTimeout(() => {
       this.clampPosition()
     }, 32)
 
-    this.createEvent("UpdateEvent").bind(()=>this.onUpdate());
+    this.createEvent("UpdateEvent").bind(() => this.onUpdate())
   }
 
   startDragging(): void {
@@ -91,18 +86,11 @@ export class SmoothFollow extends BaseScriptComponent {
     this.target = this.cartesianToCylindrical(this.worldToBody(this.worldPos))
 
     this.target.z = clamp(this.target.z, this.minDistance, this.maxDistance)
-    this.target.z = Math.max(
-      this.target.z,
-      (1.1 * this.visibleWidth) /
-        2 /
-        Math.tan((this.fieldOfView / 2) * DegToRad)
-    ) // handle very wide panels
+    this.target.z = Math.max(this.target.z, (1.1 * this.visibleWidth) / 2 / Math.tan((this.fieldOfView / 2) * DegToRad)) // handle very wide panels
     this.target.y = clamp(this.target.y, this.minElevation, this.maxElevation)
     const dist = new vec2(this.target.y, this.target.z).length
     const halfFov = Math.atan(
-      (Math.tan((this.fieldOfView / 2) * DegToRad) * dist -
-        this.visibleWidth / 2) /
-        this.target.z
+      (Math.tan((this.fieldOfView / 2) * DegToRad) * dist - this.visibleWidth / 2) / this.target.z
     )
     this.target.x = clamp(this.target.x, -halfFov, halfFov)
     this.velocity = vec3.zero()
@@ -147,18 +135,12 @@ export class SmoothFollow extends BaseScriptComponent {
       )
 
       // force billboard
-      this.worldRot = quat
-        .lookAt(this.cameraPos.sub(this.worldPos).normalize(), vec3.up())
-        .multiply(this.initialRot)
+      this.worldRot = quat.lookAt(this.cameraPos.sub(this.worldPos).normalize(), vec3.up()).multiply(this.initialRot)
     }
   }
 
   private cartesianToCylindrical(v: vec3): vec3 {
-    return new vec3(
-      Math.atan2(-v.x, -v.z),
-      v.y,
-      Math.sqrt(v.x * v.x + v.z * v.z)
-    )
+    return new vec3(Math.atan2(-v.x, -v.z), v.y, Math.sqrt(v.x * v.x + v.z * v.z))
   }
 
   private cylindricalToCartesian(v: vec3): vec3 {
@@ -166,22 +148,15 @@ export class SmoothFollow extends BaseScriptComponent {
   }
 
   private worldToBody(v: vec3): vec3 {
-    return quat
-      .angleAxis(-this.cameraHeading, vec3.up())
-      .multiplyVec3(v.sub(this.cameraPos))
+    return quat.angleAxis(-this.cameraHeading, vec3.up()).multiplyVec3(v.sub(this.cameraPos))
   }
 
   private bodyToWorld(v: vec3): vec3 {
-    return quat
-      .angleAxis(this.cameraHeading, vec3.up())
-      .multiplyVec3(v)
-      .add(this.cameraPos)
+    return quat.angleAxis(this.cameraHeading, vec3.up()).multiplyVec3(v).add(this.cameraPos)
   }
 
   private get cameraHeading(): number {
-    const forward = this.cameraTransform
-      .getWorldTransform()
-      .multiplyDirection(new vec3(0, 0, -1))
+    const forward = this.cameraTransform.getWorldTransform().multiplyDirection(new vec3(0, 0, -1))
     return Math.atan2(-forward.x, -forward.z)
   }
 
@@ -208,7 +183,7 @@ export class SmoothFollow extends BaseScriptComponent {
     validate(this.tr)
 
     // Forcing value to our camera y position.
-    value.y = this.cameraTransform.getWorldPosition().y;
+    value.y = this.cameraTransform.getWorldPosition().y
 
     this.tr.setWorldPosition(value)
   }

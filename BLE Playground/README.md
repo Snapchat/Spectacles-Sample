@@ -313,8 +313,11 @@ Feel free to provide improvements or suggestions or directly contributing via me
 
 ---
 
-*Built with 👻 by the Spectacles team*
+*Built with 👻 by the Spectacles team*  
 
+---
+
+This project includes a `ci_export.json` file for CI/CD configuration.
 ## Supported Peripherals
 
 ### Heart Rate Monitors
@@ -353,5 +356,11 @@ If you are having trouble writing to hue bulb, you can try resetting bulb via Po
   - If your polar band is on and battery is full, it should appear
   - Select Connect 
   - In the next screen, make sure all four fields are selected, including “2 Bluetooth devices”.  This enables your band to be connected to your phone and spectacles at the same time. 
-If you’re still having trouble connecting, you may need to [reset your device](https://www.youtube.com/watch?v=wFvB8MUy9Z4)
+If you're still having trouble connecting, you may need to [reset your device](https://www.youtube.com/watch?v=wFvB8MUy9Z4)
+
+
+
+
+
+
  

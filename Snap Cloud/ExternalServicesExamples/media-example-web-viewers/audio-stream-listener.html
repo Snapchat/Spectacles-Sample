@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Stream Listener - Spectacles Live Audio</title>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .config-section {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #cccccc;
+            font-weight: 500;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #404040;
+            border-radius: 8px;
+            background: #1a1a1a;
+            color: white;
+            font-size: 14px;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 5px;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .button:disabled {
+            background: #555555;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .status-panel {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .audio-controls {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: center;
+        }
+
+        .volume-slider {
+            width: 200px;
+        }
+
+        .audio-info {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .log-panel {
+            background: #1a1a1a;
+            border: 2px solid #404040;
+            border-radius: 10px;
+            padding: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .log-entry {
+            margin-bottom: 8px;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        .log-info { background: rgba(102, 126, 234, 0.1); }
+        .log-success { background: rgba(34, 197, 94, 0.1); color: #22c55e; }
+        .log-warning { background: rgba(251, 191, 36, 0.1); color: #fbbf24; }
+        .log-error { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+
+        .audio-visualizer {
+            background: #1a1a1a;
+            border: 2px solid #404040;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .audio-levels {
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            height: 60px;
+            gap: 3px;
+        }
+
+        .audio-bar {
+            width: 8px;
+            background: linear-gradient(to top, #22c55e, #fbbf24, #ef4444);
+            border-radius: 4px;
+            transition: height 0.1s ease;
+            height: 5px;
+            min-height: 5px;
+        }
+
+        .connection-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ef4444;
+            margin-right: 8px;
+        }
+
+        .connection-indicator.connected {
+            background: #22c55e;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .stat-item {
+            background: #1a1a1a;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #cccccc;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎧 Audio Stream Listener</h1>
+        <p>Live audio streaming from Spectacles via Supabase Realtime</p>
+    </div>
+
+    <div class="config-section">
+        <h2>📡 Connection Settings</h2>
+        <div class="input-group">
+            <label for="supabaseUrl">Supabase URL:</label>
+            <input type="text" id="supabaseUrl" placeholder="https://your-project.supabase.co">
+        </div>
+        <div class="input-group">
+            <label for="supabaseKey">Supabase Anon Key:</label>
+            <input type="text" id="supabaseKey" placeholder="Your anon key...">
+        </div>
+        <div class="input-group">
+            <label for="channelName">Audio Stream Channel:</label>
+            <input type="text" id="channelName" value="live-audio-stream" placeholder="live-audio-stream">
+        </div>
+        <button class="button" onclick="connectToAudioStream()">🎵 Connect to Audio Stream</button>
+        <button class="button" onclick="disconnect()" disabled id="disconnectBtn">❌ Disconnect</button>
+    </div>
+
+    <div class="status-panel">
+        <h3><span class="connection-indicator" id="connectionIndicator"></span>Connection Status</h3>
+        <p id="statusText">Ready to connect...</p>
+    </div>
+
+    <div class="audio-controls">
+        <h3>🔊 Audio Playback</h3>
+        <button class="button" onclick="startAudioPlayback()" disabled id="playBtn">▶️ Start Audio</button>
+        <button class="button" onclick="stopAudioPlayback()" disabled id="stopBtn">⏹️ Stop Audio</button>
+        <div class="volume-control">
+            <span>🔇</span>
+            <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="80" onchange="updateVolume()">
+            <span>🔊</span>
+            <span id="volumeDisplay">80%</span>
+        </div>
+    </div>
+
+    <div class="audio-visualizer">
+        <h3>📊 Audio Levels</h3>
+        <div class="audio-levels" id="audioLevels">
+            <!-- Audio level bars will be created here -->
+        </div>
+    </div>
+
+    <div class="audio-info">
+        <h3>📈 Stream Statistics</h3>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value" id="chunksReceived">0</div>
+                <div class="stat-label">Audio Chunks</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="totalDuration">0s</div>
+                <div class="stat-label">Total Duration</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="latency">0ms</div>
+                <div class="stat-label">Latency</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="sampleRate">0Hz</div>
+                <div class="stat-label">Sample Rate</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="log-panel" id="logPanel">
+        <div class="log-entry log-info">🎧 Audio Stream Listener initialized. Configure connection settings and click "Connect to Audio Stream"</div>
+    </div>
+
+    <script>
+        class AudioStreamListener {
+            constructor() {
+                this.supabase = null;
+                this.channel = null;
+                this.isConnected = false;
+                this.isPlaying = false;
+
+                // Audio context and processing
+                this.audioContext = null;
+                this.audioQueue = [];
+                this.isProcessingQueue = false;
+                this.currentSource = null;
+                this.gainNode = null;
+                this.analyser = null;
+                this.audioDataArray = null;
+
+                // Audio timing management
+                this.nextScheduledTime = 0;
+
+                // Statistics
+                this.chunksReceived = 0;
+                this.totalDuration = 0;
+                this.lastChunkTime = 0;
+
+                // Audio visualization
+                this.visualizationBars = [];
+                this.initializeVisualization();
+
+                this.log('Audio Stream Listener initialized', 'info');
+            }
+
+            initializeVisualization() {
+                const audioLevels = document.getElementById('audioLevels');
+                for (let i = 0; i < 32; i++) {
+                    const bar = document.createElement('div');
+                    bar.className = 'audio-bar';
+                    audioLevels.appendChild(bar);
+                    this.visualizationBars.push(bar);
+                }
+            }
+
+            async initializeAudioContext() {
+                try {
+                    // Initialize with 44.1kHz to match Spectacles
+                    this.audioContext = new (window.AudioContext || window.webkitAudioContext)({
+                        sampleRate: 44100
+                    });
+
+                    // Create gain node for volume control
+                    this.gainNode = this.audioContext.createGain();
+                    this.gainNode.connect(this.audioContext.destination);
+
+                    // Create analyser for visualization
+                    this.analyser = this.audioContext.createAnalyser();
+                    this.analyser.fftSize = 64;
+                    this.analyser.connect(this.gainNode);
+
+                    this.audioDataArray = new Uint8Array(this.analyser.frequencyBinCount);
+
+                    // Set initial volume
+                    const volume = document.getElementById('volumeSlider').value / 100;
+                    this.gainNode.gain.value = volume;
+
+                    // Log actual audio context sample rate
+                    this.log(`Audio context initialized - Sample Rate: ${this.audioContext.sampleRate}Hz`, 'success');
+                    return true;
+                } catch (error) {
+                    this.log(`Failed to initialize audio context: ${error.message}`, 'error');
+                    return false;
+                }
+            }
+
+            async connectToStream(url, key, channelName) {
+                try {
+                    this.log(`Connecting to Supabase at ${url}...`, 'info');
+
+                    // Initialize Supabase client
+                    this.supabase = supabase.createClient(url, key, {
+                        realtime: {
+                            heartbeatIntervalMs: 2500,
+                        },
+                    });
+
+                    this.log('Supabase client created', 'success');
+
+                    // Create realtime channel
+                    this.channel = this.supabase.channel(channelName, {
+                        config: {
+                            broadcast: { self: false }
+                        }
+                    });
+
+                    // Listen for audio chunks
+                    this.channel
+                        .on('broadcast', { event: 'audio-chunk' }, (msg) => {
+                            this.handleAudioChunk(msg.payload);
+                        })
+                        .on('broadcast', { event: 'stream-started' }, (msg) => {
+                            this.log(`Audio stream started: ${msg.payload.sessionId}`, 'success');
+                        })
+                        .on('broadcast', { event: 'stream-ended' }, (msg) => {
+                            this.log(`Audio stream ended: ${msg.payload.sessionId}`, 'warning');
+                        });
+
+                    // Subscribe to channel
+                    this.channel.subscribe(async (status) => {
+                        this.log(`Channel status: ${status}`, 'info');
+
+                        if (status === 'SUBSCRIBED') {
+                            this.isConnected = true;
+                            this.updateConnectionStatus('Connected to audio stream', true);
+
+                            // Enable audio controls
+                            document.getElementById('playBtn').disabled = false;
+                            document.getElementById('disconnectBtn').disabled = false;
+
+                            // Initialize audio context
+                            await this.initializeAudioContext();
+
+                            this.log('✅ Ready to receive audio chunks!', 'success');
+
+                        } else if (status === 'CLOSED' || status === 'CHANNEL_ERROR' || status === 'TIMED_OUT') {
+                            this.isConnected = false;
+                            this.updateConnectionStatus('Disconnected from stream', false);
+                            this.log('❌ Connection lost', 'error');
+                        }
+                    });
+
+                } catch (error) {
+                    this.log(`Connection failed: ${error.message}`, 'error');
+                    this.updateConnectionStatus('Connection failed', false);
+                }
+            }
+
+            handleAudioChunk(payload) {
+                try {
+                    this.chunksReceived++;
+                    const chunkTime = Date.now();
+
+                    // Calculate latency
+                    const latency = chunkTime - payload.timestamp;
+                    this.lastChunkTime = chunkTime;
+
+                    this.log(`📦 Audio chunk ${payload.chunkNumber}: ${payload.data.length} bytes, ${latency}ms latency`, 'success');
+
+                    // Update statistics
+                    document.getElementById('chunksReceived').textContent = this.chunksReceived;
+                    document.getElementById('latency').textContent = `${latency}ms`;
+
+                    if (payload.metadata) {
+                        document.getElementById('sampleRate').textContent = `${payload.metadata.sampleRate}Hz`;
+                    }
+
+                    // Add to audio queue for playback
+                    if (this.isPlaying) {
+                        this.queueAudioChunk(payload);
+                    }
+
+                } catch (error) {
+                    this.log(`Error handling audio chunk: ${error.message}`, 'error');
+                }
+            }
+
+            async queueAudioChunk(payload) {
+                try {
+                    if (!this.audioContext) {
+                        this.log('Audio context not initialized', 'warning');
+                        return;
+                    }
+
+                    // Decode base64 audio data
+                    const binaryString = atob(payload.data);
+                    const audioData = new Uint8Array(binaryString.length);
+                    for (let i = 0; i < binaryString.length; i++) {
+                        audioData[i] = binaryString.charCodeAt(i);
+                    }
+
+                    // Add to queue with buffer management
+                    this.audioQueue.push({
+                        data: audioData.buffer,
+                        timestamp: payload.timestamp,
+                        chunkNumber: payload.chunkNumber,
+                        metadata: payload.metadata
+                    });
+
+                    // Limit queue size to prevent excessive buffering
+                    const maxQueueSize = 10;
+                    if (this.audioQueue.length > maxQueueSize) {
+                        const dropped = this.audioQueue.shift();
+                        this.log(`Dropped old audio chunk ${dropped.chunkNumber} - queue too long`, 'warning');
+                    }
+
+                    // Start processing when we have a small buffer built up
+                    if (!this.isProcessingQueue && this.audioQueue.length >= 2) {
+                        this.log('Starting audio processing with buffered chunks', 'info');
+                        this.processAudioQueue();
+                    }
+
+                } catch (error) {
+                    this.log(`Error queueing audio chunk: ${error.message}`, 'error');
+                }
+            }
+
+            async processAudioQueue() {
+                if (this.isProcessingQueue || this.audioQueue.length === 0) return;
+
+                this.isProcessingQueue = true;
+
+                // Initialize scheduling time if not set
+                if (this.nextScheduledTime <= this.audioContext.currentTime) {
+                    this.nextScheduledTime = this.audioContext.currentTime + 0.1; // Small delay to avoid clicks
+                }
+
+                // Process chunks one at a time for smoother playback
+                const chunksToProcess = 1;
+
+                for (let i = 0; i < chunksToProcess && this.audioQueue.length > 0 && this.isPlaying; i++) {
+                    const audioChunk = this.audioQueue.shift();
+
+                    try {
+                        // Decode audio buffer
+                        const audioBuffer = await this.audioContext.decodeAudioData(audioChunk.data);
+
+                        // Create audio source
+                        const source = this.audioContext.createBufferSource();
+                        source.buffer = audioBuffer;
+                        source.connect(this.analyser);
+
+                        // Schedule playback to maintain continuous audio
+                        source.start(this.nextScheduledTime);
+
+                        // Calculate when this chunk will finish
+                        this.nextScheduledTime += audioBuffer.duration;
+
+                        // Update total duration
+                        this.totalDuration += audioBuffer.duration;
+                        document.getElementById('totalDuration').textContent = `${this.totalDuration.toFixed(1)}s`;
+
+                        this.log(`▶️ Chunk ${audioChunk.chunkNumber}: ${audioBuffer.duration.toFixed(3)}s @ ${this.nextScheduledTime.toFixed(3)}s`, 'success');
+
+                    } catch (error) {
+                        this.log(`Error playing audio chunk: ${error.message}`, 'warning');
+                    }
+                }
+
+                this.isProcessingQueue = false;
+
+                // Continue processing if there are more chunks (faster interval for smoother streaming)
+                if (this.audioQueue.length > 0 && this.isPlaying) {
+                    setTimeout(() => this.processAudioQueue(), 20);
+                }
+            }
+
+            startAudioPlayback() {
+                if (!this.audioContext) {
+                    this.initializeAudioContext();
+                }
+
+                if (this.audioContext.state === 'suspended') {
+                    this.audioContext.resume();
+                }
+
+                this.isPlaying = true;
+
+                // Reset scheduling time for smooth start
+                this.nextScheduledTime = 0;
+
+                document.getElementById('playBtn').disabled = true;
+                document.getElementById('stopBtn').disabled = false;
+
+                // Start visualization
+                this.startVisualization();
+
+                this.log('🎵 Audio playback started - buffering enabled', 'success');
+            }
+
+            stopAudioPlayback() {
+                this.isPlaying = false;
+
+                // Stop current audio
+                if (this.currentSource) {
+                    this.currentSource.stop();
+                    this.currentSource = null;
+                }
+
+                // Clear queue
+                this.audioQueue = [];
+                this.isProcessingQueue = false;
+
+                document.getElementById('playBtn').disabled = false;
+                document.getElementById('stopBtn').disabled = true;
+
+                // Stop visualization
+                this.stopVisualization();
+
+                this.log('⏹️ Audio playback stopped', 'warning');
+            }
+
+            startVisualization() {
+                if (!this.analyser || !this.isPlaying) return;
+
+                const animate = () => {
+                    if (!this.isPlaying) return;
+
+                    // Get frequency data
+                    this.analyser.getByteFrequencyData(this.audioDataArray);
+
+                    // Update visualization bars
+                    for (let i = 0; i < this.visualizationBars.length; i++) {
+                        const value = this.audioDataArray[i] || 0;
+                        const height = Math.max(5, (value / 255) * 55);
+                        this.visualizationBars[i].style.height = `${height}px`;
+                    }
+
+                    requestAnimationFrame(animate);
+                };
+
+                animate();
+            }
+
+            stopVisualization() {
+                // Reset all bars to minimum height
+                this.visualizationBars.forEach(bar => {
+                    bar.style.height = '5px';
+                });
+            }
+
+            updateVolume(value) {
+                if (this.gainNode) {
+                    this.gainNode.gain.value = value / 100;
+                }
+                document.getElementById('volumeDisplay').textContent = `${value}%`;
+            }
+
+            disconnect() {
+                this.stopAudioPlayback();
+
+                if (this.channel) {
+                    this.supabase.removeChannel(this.channel);
+                    this.channel = null;
+                }
+
+                if (this.audioContext) {
+                    this.audioContext.close();
+                    this.audioContext = null;
+                }
+
+                this.isConnected = false;
+                this.updateConnectionStatus('Disconnected', false);
+
+                // Reset UI
+                document.getElementById('playBtn').disabled = true;
+                document.getElementById('stopBtn').disabled = true;
+                document.getElementById('disconnectBtn').disabled = true;
+
+                // Reset stats
+                this.chunksReceived = 0;
+                this.totalDuration = 0;
+                document.getElementById('chunksReceived').textContent = '0';
+                document.getElementById('totalDuration').textContent = '0s';
+                document.getElementById('latency').textContent = '0ms';
+                document.getElementById('sampleRate').textContent = '0Hz';
+
+                this.log('🔌 Disconnected from audio stream', 'warning');
+            }
+
+            updateConnectionStatus(message, isConnected) {
+                document.getElementById('statusText').textContent = message;
+                const indicator = document.getElementById('connectionIndicator');
+
+                if (isConnected) {
+                    indicator.classList.add('connected');
+                } else {
+                    indicator.classList.remove('connected');
+                }
+            }
+
+            log(message, type = 'info') {
+                const logPanel = document.getElementById('logPanel');
+                const entry = document.createElement('div');
+                entry.className = `log-entry log-${type}`;
+
+                const timestamp = new Date().toLocaleTimeString();
+                entry.textContent = `[${timestamp}] ${message}`;
+
+                logPanel.appendChild(entry);
+                logPanel.scrollTop = logPanel.scrollHeight;
+
+                console.log(`[AudioListener] ${message}`);
+            }
+        }
+
+        // Global instance
+        let audioListener = new AudioStreamListener();
+
+        // Global functions for UI
+        function connectToAudioStream() {
+            const url = document.getElementById('supabaseUrl').value.trim();
+            const key = document.getElementById('supabaseKey').value.trim();
+            const channelName = document.getElementById('channelName').value.trim();
+
+            if (!url || !key || !channelName) {
+                audioListener.log('Please fill in all connection settings', 'error');
+                return;
+            }
+
+            audioListener.connectToStream(url, key, channelName);
+        }
+
+        function disconnect() {
+            audioListener.disconnect();
+        }
+
+        function startAudioPlayback() {
+            audioListener.startAudioPlayback();
+        }
+
+        function stopAudioPlayback() {
+            audioListener.stopAudioPlayback();
+        }
+
+        function updateVolume() {
+            const volume = document.getElementById('volumeSlider').value;
+            audioListener.updateVolume(volume);
+        }
+
+        // Auto-fill Supabase URL if possible (you can customize this)
+        document.addEventListener('DOMContentLoaded', () => {
+            // You can pre-fill your Supabase credentials here for testing
+            // document.getElementById('supabaseUrl').value = 'https://your-project.supabase.co';
+            // document.getElementById('supabaseKey').value = 'your-anon-key';
+        });
+    </script>
+</body>
+</html>

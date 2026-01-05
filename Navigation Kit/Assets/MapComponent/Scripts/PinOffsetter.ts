@@ -26,7 +26,7 @@ export class PinOffsetter {
     this.locationBoundScreenTransforms[screenTransform.uniqueIdentifier] = {
       screenTransform: screenTransform,
       longitude: longitude,
-      latitude: latitude,
+      latitude: latitude
     }
   }
   unbindScreenTransform(screenTransform: ScreenTransform): void {
@@ -39,14 +39,14 @@ export class PinOffsetter {
       const initialTileOffset = this.mapModule.longLatToImageRatio(
         boundLocation.longitude,
         boundLocation.latitude,
-        this.initialLocationAsset,
+        this.initialLocationAsset
       )
       setScreenTransformRect01(
         boundLocation.screenTransform,
         offset.x + initialTileOffset.x,
         offset.y + initialTileOffset.y,
         0,
-        0,
+        0
       )
     })
   }

@@ -18,7 +18,7 @@ export class MapPinPlace extends GeoLocationPlace {
     name: string,
     icon: Texture,
     description: string,
-    userPosition: UserPosition,
+    userPosition: UserPosition
   ) {
     super(mapPin.place.getGeoPosition(), visitDistance, name, icon, description, userPosition)
     this.mapPin = mapPin

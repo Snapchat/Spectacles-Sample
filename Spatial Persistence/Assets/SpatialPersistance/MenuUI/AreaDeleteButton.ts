@@ -1,6 +1,6 @@
-import { InteractableOutlineFeedback } from "SpectaclesInteractionKit.lspkg/Components/Helpers/InteractableOutlineFeedback"
-import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable"
-import Event, { PublicApi } from "SpectaclesInteractionKit.lspkg/Utils/Event"
+import {InteractableOutlineFeedback} from "SpectaclesInteractionKit.lspkg/Components/Helpers/InteractableOutlineFeedback"
+import {Interactable} from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable"
+import Event, {PublicApi} from "SpectaclesInteractionKit.lspkg/Utils/Event"
 
 /**
  * A simple button using SpectaclesInteractionKit events to signal user intent to delete a certain area.
@@ -26,9 +26,7 @@ export class AreaDeleteButton extends BaseScriptComponent {
   }
 
   onStart() {
-    this.interactable = this.sceneObject.getComponent(
-      Interactable.getTypeName()
-    )
+    this.interactable = this.sceneObject.getComponent(Interactable.getTypeName())
 
     this.interactable.onTriggerEnd.add((event) => {
       this.onSelectEvent.invoke()
@@ -40,15 +38,10 @@ export class AreaDeleteButton extends BaseScriptComponent {
    * @param confirmButtonMesh - Button mesh for its confirming state
    * @param targetAreaButton - The area selection button of the same area
    */
-  public initialize(
-    confirmButtonMesh: RenderMesh,
-    targetAreaButton: RenderMeshVisual
-  ) {
+  public initialize(confirmButtonMesh: RenderMesh, targetAreaButton: RenderMeshVisual) {
     this.confirmButtonMesh = confirmButtonMesh
 
-    const outlineFeedback = this.sceneObject.getComponent(
-      InteractableOutlineFeedback.getTypeName()
-    )
+    const outlineFeedback = this.sceneObject.getComponent(InteractableOutlineFeedback.getTypeName())
     outlineFeedback.meshVisuals.push(targetAreaButton)
 
     this.isInitialized = true

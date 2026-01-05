@@ -1,10 +1,9 @@
-import { PinchButton } from "SpectaclesInteractionKit.lspkg/Components/UI/PinchButton/PinchButton"
+import {PinchButton} from "SpectaclesInteractionKit.lspkg/Components/UI/PinchButton/PinchButton"
 
 // The ValueControlInput class defines the input components
 // necessary for the proper functioning of the ValueControl class.
 @component
 export class ValueControlInput extends BaseScriptComponent {
-
   // Root scene object that serves as the container for the value control UI
   @input
   readonly root: SceneObject
@@ -20,5 +19,4 @@ export class ValueControlInput extends BaseScriptComponent {
   // PinchButton component for decrementing the counter value (value down button)
   @input
   readonly valueDownButton: PinchButton
-
 }

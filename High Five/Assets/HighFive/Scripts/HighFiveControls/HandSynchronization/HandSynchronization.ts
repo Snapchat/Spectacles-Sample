@@ -1,18 +1,14 @@
-import {HandSynchronizationInput} from "./HandSynchronizationInput"
 import TrackedHand from "SpectaclesInteractionKit.lspkg/Providers/HandInputData/TrackedHand"
 import {SIK} from "SpectaclesInteractionKit.lspkg/SIK"
+import {SessionController} from "SpectaclesSyncKit.lspkg/Core/SessionController"
 import {RealtimeStoreKeys} from "../SyncControls/RealtimeStoreKeys"
-import {
-  SessionController
-} from "SpectaclesSyncKit.lspkg/Core/SessionController"
+import {HandSynchronizationInput} from "./HandSynchronizationInput"
 
-//The HandSynchronization class synchronizes the position of a virtual box with the user's hand movements in real time.
 // It tracks the right hand's movements, updates the box's position accordingly within the scene,
 // and handles events triggered by changes in hand positioning.
 export class HandSynchronization {
-
   // Array to store callbacks that handle hand position changes
-  private readonly onUserChangedHandPosition: ((value: RealtimeStoreKeys.HAND_LOCAL_POSITION_DATA) => void) [] = []
+  private readonly onUserChangedHandPosition: ((value: RealtimeStoreKeys.HAND_LOCAL_POSITION_DATA) => void)[] = []
 
   // Reference to the right tracked hand
   private readonly rightHand: TrackedHand
@@ -20,7 +16,6 @@ export class HandSynchronization {
   // The box object in the scene that follows the right hand
   private readonly box: SceneObject
 
-  // Transform component for the box, used to dynamically update its position based on the right hand's movement
   private readonly boxTransform: Transform
 
   // Flag to track if the hand was active on the previous frame
@@ -30,7 +25,6 @@ export class HandSynchronization {
   private _lastUpdatedData: RealtimeStoreKeys.HAND_LOCAL_POSITION_DATA
 
   constructor(private readonly input: HandSynchronizationInput) {
-
     // Initialize the right hand using SIK framework
     this.rightHand = SIK.HandInputData.getHand("right")
 
@@ -42,7 +36,6 @@ export class HandSynchronization {
 
     // Initially disable the box as the hand is not yet active
     this.box.enabled = false
-
   }
 
   // Starts the synchronization by initializing data and binding update events
@@ -88,7 +81,7 @@ export class HandSynchronization {
       isActive: false,
       x: 0,
       y: 0,
-      z: 0,
+      z: 0
     }
     return data
   }
@@ -109,11 +102,9 @@ export class HandSynchronization {
       isActive: this.wasActive,
       x: pos.x,
       y: pos.y,
-      z: pos.z,
+      z: pos.z
     }
     this._lastUpdatedData = data
-    this.onUserChangedHandPosition.forEach(value => value(data))
+    this.onUserChangedHandPosition.forEach((value) => value(data))
   }
-
-
 }

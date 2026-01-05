@@ -1,11 +1,17 @@
 import {InteractableManipulation} from "SpectaclesInteractionKit.lspkg/Components/Interaction/InteractableManipulation/InteractableManipulation"
-import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable"
 import {ButtonSlide} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Components/Button/ButtonSlide"
-import {ButtonSlideCardUser} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Components/Button/ButtonSlideCardUser"
 import {ButtonSlideCardBot} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Components/Button/ButtonSlideCardBot"
-import {ScrollSystemUtils, VisibleCardConfig} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Components/SlideLayout/ScrollSystemUtils"
-import {AdvancedCardManager, CardData, CardType} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Components/SlideLayout/AdvancedCardManager"
-import { CHARACTER_LIMITS } from "../Utils/TextLimiter"
+import {ButtonSlideCardUser} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Components/Button/ButtonSlideCardUser"
+import {
+  AdvancedCardManager,
+  CardData,
+  CardType
+} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Components/SlideLayout/AdvancedCardManager"
+import {
+  ScrollSystemUtils,
+  VisibleCardConfig
+} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Components/SlideLayout/ScrollSystemUtils"
+import {CHARACTER_LIMITS} from "../Utils/TextLimiter"
 
 /**
  * Represents the state of a swiped card
@@ -22,7 +28,7 @@ class SwipeState {
 
 /**
  * AdvancedSlideLayoutRearrange - Advanced chat-like card swiping system
- * 
+ *
  * Manages dynamic cards with text injection and variable sizing:
  * - Dynamic number of cards
  * - Text injection with automatic sizing
@@ -32,7 +38,6 @@ class SwipeState {
  */
 @component
 export class ChatComponent extends BaseScriptComponent {
-
   @input
   @hint("User card prefab")
   userCardPrefab: ObjectPrefab
@@ -53,7 +58,7 @@ export class ChatComponent extends BaseScriptComponent {
   @hint("Transform for the top position")
   topPosition: SceneObject = null
 
-  @input("SceneObject") 
+  @input("SceneObject")
   @hint("Transform for the mid position (active/swipeable)")
   midPosition: SceneObject = null
 
@@ -124,11 +129,11 @@ export class ChatComponent extends BaseScriptComponent {
   private swipeState: SwipeState = new SwipeState()
   private basePositions: vec3[] = []
   private currentPositions: vec3[] = []
-  private animatingCards: Map<SceneObject, {target: vec3, isVisible: boolean}> = new Map()
-  
+  private animatingCards: Map<SceneObject, {target: vec3; isVisible: boolean}> = new Map()
+
   private initialized: boolean = false
   private lastScrollValue: number = -1
-  
+
   // Test system
   private testTimer: number = 0
   private testCardCount: number = 0
@@ -152,14 +157,14 @@ export class ChatComponent extends BaseScriptComponent {
     this.setupBasePositions()
     this.initializeCardManager()
     this.createInitialCards()
-    
+
     // Set proper starting index based on mode
     if (this.testMode) {
       this.currentIndex = 2 // Start with card 2 in mid position for test mode
     } else {
       this.currentIndex = 0 // Start with card 0 (welcome message) in chat mode
     }
-    
+
     this.calculateDynamicPositions()
     this.layoutInitialCards()
     this.setupSwipeInteraction()
@@ -170,7 +175,12 @@ export class ChatComponent extends BaseScriptComponent {
     }
 
     this.initialized = true
-    print("AdvancedSlideLayoutRearrange initialized with " + this.cardData.length + " cards" + (this.enableScrollSystem ? " (scroll system enabled)" : ""))
+    print(
+      "AdvancedSlideLayoutRearrange initialized with " +
+        this.cardData.length +
+        " cards" +
+        (this.enableScrollSystem ? " (scroll system enabled)" : "")
+    )
   }
 
   /**
@@ -181,38 +191,48 @@ export class ChatComponent extends BaseScriptComponent {
       print("AdvancedSlideLayoutRearrange: Both user and chatbot card prefabs are required")
       return false
     }
-    if (!this.topLastPosition || !this.topPosition || !this.midPosition || !this.bottomPosition || !this.bottomLastPosition) {
+    if (
+      !this.topLastPosition ||
+      !this.topPosition ||
+      !this.midPosition ||
+      !this.bottomPosition ||
+      !this.bottomLastPosition
+    ) {
       print("AdvancedSlideLayoutRearrange: All five position objects are required")
       return false
     }
-    
+
     // Different minimum requirements based on mode
-    const minCards = this.testMode ? 5 : 1; // Only need 1 card for chat mode (welcome message)
-    const cardsToCreate = this.testMode ? this.initialNumberOfCards : 1; // Only welcome card for chat mode
-    
+    const minCards = this.testMode ? 5 : 1 // Only need 1 card for chat mode (welcome message)
+    const cardsToCreate = this.testMode ? this.initialNumberOfCards : 1 // Only welcome card for chat mode
+
     if (cardsToCreate < minCards) {
-      print(`AdvancedSlideLayoutRearrange: Need at least ${minCards} cards for ${this.testMode ? 'test' : 'chat'} mode`)
+      print(`AdvancedSlideLayoutRearrange: Need at least ${minCards} cards for ${this.testMode ? "test" : "chat"} mode`)
       return false
     }
-    
+
     // Validate spacing multiplier
     if (this.spacingMultiplier < 0.1) {
       print("AdvancedSlideLayoutRearrange: Spacing multiplier too small, setting to minimum 0.1")
       this.spacingMultiplier = 0.1
     }
     if (this.spacingMultiplier > 5.0) {
-      print("AdvancedSlideLayoutRearrange: Spacing multiplier too large, setting to maximum 5.0") 
+      print("AdvancedSlideLayoutRearrange: Spacing multiplier too large, setting to maximum 5.0")
       this.spacingMultiplier = 5.0
     }
-    
+
     // Validate scroll system inputs if enabled
     if (this.enableScrollSystem) {
-      if (!ScrollSystemUtils.validateScrollSystemConfig(this.scrollLineStart, this.scrollLineEnd, this.scrollController)) {
-        print("AdvancedSlideLayoutRearrange: Scroll system configuration is invalid - all components (line start, line end, controller) are required")
+      if (
+        !ScrollSystemUtils.validateScrollSystemConfig(this.scrollLineStart, this.scrollLineEnd, this.scrollController)
+      ) {
+        print(
+          "AdvancedSlideLayoutRearrange: Scroll system configuration is invalid - all components (line start, line end, controller) are required"
+        )
         return false
       }
     }
-    
+
     return true
   }
 
@@ -227,13 +247,24 @@ export class ChatComponent extends BaseScriptComponent {
       this.bottomPosition.getTransform().getLocalPosition(),
       this.bottomLastPosition.getTransform().getLocalPosition()
     ]
-    
-    print("AdvancedSlideLayoutRearrange: Setup base positions in local space - " +
-      "TopLast: " + this.basePositions[0].toString() + ", " +
-      "Top: " + this.basePositions[1].toString() + ", " +
-      "Mid: " + this.basePositions[2].toString() + ", " +
-      "Bottom: " + this.basePositions[3].toString() + ", " +
-      "BottomLast: " + this.basePositions[4].toString())
+
+    print(
+      "AdvancedSlideLayoutRearrange: Setup base positions in local space - " +
+        "TopLast: " +
+        this.basePositions[0].toString() +
+        ", " +
+        "Top: " +
+        this.basePositions[1].toString() +
+        ", " +
+        "Mid: " +
+        this.basePositions[2].toString() +
+        ", " +
+        "Bottom: " +
+        this.basePositions[3].toString() +
+        ", " +
+        "BottomLast: " +
+        this.basePositions[4].toString()
+    )
   }
 
   /**
@@ -248,55 +279,55 @@ export class ChatComponent extends BaseScriptComponent {
    */
   private createInitialCards(): void {
     // Determine number of cards to create based on mode
-    const cardsToCreate = this.testMode ? this.initialNumberOfCards : 1; // Only welcome card for chat mode
-    
+    const cardsToCreate = this.testMode ? this.initialNumberOfCards : 1 // Only welcome card for chat mode
+
     if (!this.testMode) {
-      print("AdvancedSlideLayoutRearrange: Creating minimal cards for chat mode (1 welcome card)");
+      print("AdvancedSlideLayoutRearrange: Creating minimal cards for chat mode (1 welcome card)")
     }
-    
+
     for (let i = 0; i < cardsToCreate; i++) {
-      let cardType: CardType;
-      let textContent: string;
-      
+      let cardType: CardType
+      let textContent: string
+
       if (this.testMode) {
         // Test mode: alternate between user and bot with test content
-        cardType = i % 2 === 0 ? CardType.User : CardType.Chatbot;
-        textContent = this.generateTestText(i);
+        cardType = i % 2 === 0 ? CardType.User : CardType.Chatbot
+        textContent = this.generateTestText(i)
       } else {
         // Chat mode: only welcome message
-        cardType = CardType.Chatbot;
-        textContent = "Welcome to your AI-powered learning companion! Ask me anything about the topics you're studying.";
-        
+        cardType = CardType.Chatbot
+        textContent = "Welcome to your AI-powered learning companion! Ask me anything about the topics you're studying."
+
         // Ensure it respects character limits
         if (textContent.length > CHARACTER_LIMITS.BOT_CARD_TEXT) {
-          textContent = textContent.substring(0, CHARACTER_LIMITS.BOT_CARD_TEXT - 3) + "...";
+          textContent = textContent.substring(0, CHARACTER_LIMITS.BOT_CARD_TEXT - 3) + "..."
         }
       }
-      
-      const prefab = cardType === CardType.User ? this.userCardPrefab : this.chatbotCardPrefab;
-      
+
+      const prefab = cardType === CardType.User ? this.userCardPrefab : this.chatbotCardPrefab
+
       const cardData: CardData = {
         id: i,
         type: cardType,
         textContent: textContent,
         size: this.cardManager.calculateCardSize(textContent || "Sample text"), // Handle empty text
         sceneObject: null
-      };
-      
+      }
+
       // Instantiate the card
-      const cardObject = prefab.instantiate(this.sceneObject);
-      cardObject.name = `Card_${i}_${cardType === CardType.User ? 'User' : 'Bot'}`;
-      cardData.sceneObject = cardObject;
-      
+      const cardObject = prefab.instantiate(this.sceneObject)
+      cardObject.name = `Card_${i}_${cardType === CardType.User ? "User" : "Bot"}`
+      cardData.sceneObject = cardObject
+
       // Set up the card content
-      this.setupCardContent(cardData);
-      
-      this.cards.push(cardObject);
-      this.cardData.push(cardData);
+      this.setupCardContent(cardData)
+
+      this.cards.push(cardObject)
+      this.cardData.push(cardData)
     }
-    
+
     if (!this.testMode) {
-      print(`AdvancedSlideLayoutRearrange: Created ${cardsToCreate} initial cards for chat mode`);
+      print(`AdvancedSlideLayoutRearrange: Created ${cardsToCreate} initial cards for chat mode`)
     }
   }
 
@@ -306,7 +337,7 @@ export class ChatComponent extends BaseScriptComponent {
   private generateTestText(index: number): string {
     // Create text for specific line counts to test sizing
     const lineType = index % 8 // Cycle through 8 different types
-    
+
     switch (lineType) {
       case 0: // 1 line - very short
         return "Hi!"
@@ -335,7 +366,7 @@ export class ChatComponent extends BaseScriptComponent {
   private setupCardContent(cardData: CardData): void {
     // Try to get the appropriate button component based on card type
     let buttonComponent: any = null
-    
+
     if (cardData.type === CardType.User) {
       try {
         buttonComponent = cardData.sceneObject.getComponent(ButtonSlideCardUser.getTypeName()) as ButtonSlideCardUser
@@ -361,24 +392,32 @@ export class ChatComponent extends BaseScriptComponent {
         }
       }
     }
-    
+
     if (buttonComponent) {
       // Set index text
       if (buttonComponent.textIndex) {
         buttonComponent.textIndex.text = cardData.id.toString()
       }
-      
+
       // Set content text
       if (buttonComponent.textContent) {
         buttonComponent.textContent.text = cardData.textContent
       }
-      
+
       // Apply dynamic sizing
       if (buttonComponent.applyDynamicSize) {
         buttonComponent.applyDynamicSize(cardData.size)
       }
-      
-      print("AdvancedSlideLayoutRearrange: Set up " + cardData.type + " card " + cardData.id + " with " + cardData.textContent.length + " chars")
+
+      print(
+        "AdvancedSlideLayoutRearrange: Set up " +
+          cardData.type +
+          " card " +
+          cardData.id +
+          " with " +
+          cardData.textContent.length +
+          " chars"
+      )
     }
   }
 
@@ -387,19 +426,37 @@ export class ChatComponent extends BaseScriptComponent {
    */
   private calculateDynamicPositions(): void {
     // Get visible card indices
-    const indices = ScrollSystemUtils.calculateVisibleIndices(this.currentIndex, this.cardData.length)
+    let indices: {topLast: number; top: number; mid: number; bottom: number; bottomLast: number}
+
+    // FIX: For chat mode, use non-wrapping chronological order
+    if (this.chatModeChronological) {
+      indices = {
+        topLast: this.currentIndex + 2 < this.cardData.length ? this.currentIndex + 2 : -1,
+        top: this.currentIndex + 1 < this.cardData.length ? this.currentIndex + 1 : -1,
+        mid: this.currentIndex,
+        bottom: this.currentIndex - 1 >= 0 ? this.currentIndex - 1 : -1,
+        bottomLast: this.currentIndex - 2 >= 0 ? this.currentIndex - 2 : -1
+      }
+    } else {
+      indices = ScrollSystemUtils.calculateVisibleIndices(this.currentIndex, this.cardData.length)
+    }
+
     const visibleIndices = [indices.topLast, indices.top, indices.mid, indices.bottom, indices.bottomLast]
-    
+
     // Get card sizes for visible cards
-    const cardSizes = visibleIndices.map(index => {
+    const cardSizes = visibleIndices.map((index) => {
       if (index >= 0 && index < this.cardData.length) {
         return this.cardData[index].size
       }
       return new vec3(25, 5, 3) // Default size
     })
-    
+
     // Calculate positions with proper spacing
-    this.currentPositions = this.cardManager.calculateDynamicPositions(this.basePositions, cardSizes, this.spacingMultiplier)
+    this.currentPositions = this.cardManager.calculateDynamicPositions(
+      this.basePositions,
+      cardSizes,
+      this.spacingMultiplier
+    )
   }
 
   /**
@@ -407,12 +464,12 @@ export class ChatComponent extends BaseScriptComponent {
    */
   private layoutInitialCards(): void {
     // Hide all cards first
-    this.cards.forEach(card => card.enabled = false)
+    this.cards.forEach((card) => (card.enabled = false))
 
     // Show and position the first 5 cards
     const indices = ScrollSystemUtils.calculateVisibleIndices(this.currentIndex, this.cardData.length)
     const visibleIndices = [indices.topLast, indices.top, indices.mid, indices.bottom, indices.bottomLast]
-    
+
     visibleIndices.forEach((cardIndex, positionIndex) => {
       if (cardIndex >= 0 && cardIndex < this.cards.length) {
         const card = this.cards[cardIndex]
@@ -434,23 +491,23 @@ export class ChatComponent extends BaseScriptComponent {
    */
   private attachManipulationToCard(card: SceneObject): void {
     let manipulationComponent: any = null
-    
+
     try {
       manipulationComponent = card.getComponent(InteractableManipulation.getTypeName())
     } catch (error) {
       print("AdvancedSlideLayoutRearrange: Could not access InteractableManipulation on " + card.name)
       return
     }
-    
+
     if (manipulationComponent && manipulationComponent.onManipulationStart) {
       const onManipulationStartCallback = () => {
         this.startSwipe(card)
       }
-      
+
       const onManipulationEndCallback = () => {
         this.endSwipe()
       }
-      
+
       manipulationComponent.onManipulationStart.add(onManipulationStartCallback)
       manipulationComponent.onManipulationEnd.add(onManipulationEndCallback)
     }
@@ -466,7 +523,7 @@ export class ChatComponent extends BaseScriptComponent {
     this.swipeState.isSwipping = true
     this.swipeState.swipeStartTime = getTime()
     this.swipeState.swipeStartPosition = card.getTransform().getLocalPosition()
-    
+
     print("AdvancedSlideLayoutRearrange: Started swiping " + card.name)
   }
 
@@ -478,14 +535,14 @@ export class ChatComponent extends BaseScriptComponent {
 
     const currentPos = this.swipeState.swipedObject.getTransform().getLocalPosition()
     const swipeDistance = currentPos.distance(this.swipeState.originalPosition)
-    
+
     // Always return card to its original position
     this.returnCardToOriginalPosition()
 
     // Reset swipe state
     this.swipeState.isSwipping = false
     this.swipeState.swipedObject = null
-    
+
     print("AdvancedSlideLayoutRearrange: Ended swipe - distance: " + swipeDistance + ", returning to original position")
   }
 
@@ -494,10 +551,10 @@ export class ChatComponent extends BaseScriptComponent {
    */
   private returnCardToOriginalPosition(): void {
     if (!this.swipeState.swipedObject) return
-    
+
     // Reset rotation immediately
     this.swipeState.swipedObject.getTransform().setLocalRotation(this.swipeState.originalRotation)
-    
+
     this.animatingCards.set(this.swipeState.swipedObject, {
       target: this.swipeState.originalPosition,
       isVisible: true
@@ -509,7 +566,7 @@ export class ChatComponent extends BaseScriptComponent {
    */
   private update = (): void => {
     this.updateAnimations()
-    
+
     if (this.testMode && this.initialized) {
       this.updateTestSystem()
     }
@@ -520,7 +577,7 @@ export class ChatComponent extends BaseScriptComponent {
    */
   private updateTestSystem(): void {
     this.testTimer += getDeltaTime()
-    
+
     if (this.testTimer >= this.testInterval && this.cardData.length < this.maxTestCards) {
       this.addTestCard()
       this.testTimer = 0
@@ -534,10 +591,10 @@ export class ChatComponent extends BaseScriptComponent {
     const newIndex = this.cardData.length
     const cardType = newIndex % 2 === 0 ? CardType.User : CardType.Chatbot
     const prefab = cardType === CardType.User ? this.userCardPrefab : this.chatbotCardPrefab
-    
+
     // Generate random text length
     const textContent = this.generateRandomLengthText()
-    
+
     const cardData: CardData = {
       id: newIndex,
       type: cardType,
@@ -545,21 +602,21 @@ export class ChatComponent extends BaseScriptComponent {
       size: this.cardManager.calculateCardSize(textContent),
       sceneObject: null
     }
-    
+
     // Instantiate the card
     const cardObject = prefab.instantiate(this.sceneObject)
-    cardObject.name = `Card_${newIndex}_${cardType === CardType.User ? 'User' : 'Bot'}`
+    cardObject.name = `Card_${newIndex}_${cardType === CardType.User ? "User" : "Bot"}`
     cardData.sceneObject = cardObject
     cardObject.enabled = false // Start hidden
-    
+
     // Set up the card content
     this.setupCardContent(cardData)
-    
+
     this.cards.push(cardObject)
     this.cardData.push(cardData)
-    
+
     print("AdvancedSlideLayoutRearrange: Added test card " + newIndex + " (" + textContent.length + " chars)")
-    
+
     // Update layout if this affects visible cards
     this.updateCardLayoutToIndex(this.currentIndex)
   }
@@ -572,25 +629,67 @@ export class ChatComponent extends BaseScriptComponent {
     const targetLines = Math.floor(Math.random() * 8) + 1
     const charsPerLine = 45 // Approximate characters per line
     const targetChars = targetLines * charsPerLine
-    
-    const words = ["Hello", "world", "this", "is", "a", "test", "message", "for", "the", "dynamic", "sizing", "system", "that", "should", "work", "properly", "with", "different", "text", "lengths", "and", "demonstrate", "the", "automatic", "card", "resizing", "functionality", "across", "multiple", "lines", "of", "content"]
-    
+
+    const words = [
+      "Hello",
+      "world",
+      "this",
+      "is",
+      "a",
+      "test",
+      "message",
+      "for",
+      "the",
+      "dynamic",
+      "sizing",
+      "system",
+      "that",
+      "should",
+      "work",
+      "properly",
+      "with",
+      "different",
+      "text",
+      "lengths",
+      "and",
+      "demonstrate",
+      "the",
+      "automatic",
+      "card",
+      "resizing",
+      "functionality",
+      "across",
+      "multiple",
+      "lines",
+      "of",
+      "content"
+    ]
+
     let text = ""
     let attempts = 0
     while (text.length < targetChars && attempts < 100) {
       const word = words[Math.floor(Math.random() * words.length)]
-      if (text.length + word.length + 1 <= targetChars + 10) { // Allow slight overage
+      if (text.length + word.length + 1 <= targetChars + 10) {
+        // Allow slight overage
         text += (text.length > 0 ? " " : "") + word
       } else {
         break
       }
       attempts++
     }
-    
+
     // Add line indicator for debugging
     const actualLines = Math.ceil(text.length / charsPerLine)
-    print("AdvancedSlideLayoutRearrange: Generated " + actualLines + "-line text (" + text.length + " chars): " + text.substring(0, 50) + "...")
-    
+    print(
+      "AdvancedSlideLayoutRearrange: Generated " +
+        actualLines +
+        "-line text (" +
+        text.length +
+        " chars): " +
+        text.substring(0, 50) +
+        "..."
+    )
+
     return text
   }
 
@@ -609,13 +708,13 @@ export class ChatComponent extends BaseScriptComponent {
     }
 
     this.lastScrollValue = normalizedValue
-    
+
     const targetIndex = ScrollSystemUtils.calculateTargetIndexFromScrollValue(normalizedValue, this.cardData.length)
-    
+
     if (targetIndex !== this.currentIndex) {
       this.updateCardLayoutToIndex(targetIndex)
     }
-    
+
     print("AdvancedSlideLayoutRearrange: Scroll value changed to " + normalizedValue + ", target index: " + targetIndex)
   }
 
@@ -624,22 +723,64 @@ export class ChatComponent extends BaseScriptComponent {
    */
   private updateCardLayoutToIndex(targetIndex: number): void {
     this.currentIndex = targetIndex
-    
+
     // Recalculate dynamic positions based on new visible cards
     this.calculateDynamicPositions()
-    
+
     // Clean up and hide all cards
     this.cleanupCardAnimations()
     this.hideAllCards()
 
     // Get visible cards
-    const indices = ScrollSystemUtils.calculateVisibleIndices(this.currentIndex, this.cardData.length)
+    let indices: {topLast: number; top: number; mid: number; bottom: number; bottomLast: number}
+
+    // FIX: For chat mode, use non-wrapping chronological order
+    // Cards should appear from bottom to top: oldest (index 0) at bottom, newest at top
+    if (this.chatModeChronological) {
+      // Calculate indices without wrapping - use -1 for positions that don't exist
+      indices = {
+        topLast: this.currentIndex + 2 < this.cardData.length ? this.currentIndex + 2 : -1,
+        top: this.currentIndex + 1 < this.cardData.length ? this.currentIndex + 1 : -1,
+        mid: this.currentIndex,
+        bottom: this.currentIndex - 1 >= 0 ? this.currentIndex - 1 : -1,
+        bottomLast: this.currentIndex - 2 >= 0 ? this.currentIndex - 2 : -1
+      }
+    } else {
+      // Use wrapping mode for non-chat (carousel style)
+      indices = ScrollSystemUtils.calculateVisibleIndices(this.currentIndex, this.cardData.length)
+    }
+
     const visibleCards: VisibleCardConfig[] = [
-      { card: this.cards[indices.topLast], position: this.currentPositions[0], positionIndex: 0, cardIndex: indices.topLast },
-      { card: this.cards[indices.top], position: this.currentPositions[1], positionIndex: 1, cardIndex: indices.top },
-      { card: this.cards[indices.mid], position: this.currentPositions[2], positionIndex: 2, cardIndex: indices.mid },
-      { card: this.cards[indices.bottom], position: this.currentPositions[3], positionIndex: 3, cardIndex: indices.bottom },
-      { card: this.cards[indices.bottomLast], position: this.currentPositions[4], positionIndex: 4, cardIndex: indices.bottomLast }
+      {
+        card: indices.topLast >= 0 && indices.topLast < this.cards.length ? this.cards[indices.topLast] : null,
+        position: this.currentPositions[0],
+        positionIndex: 0,
+        cardIndex: indices.topLast
+      },
+      {
+        card: indices.top >= 0 && indices.top < this.cards.length ? this.cards[indices.top] : null,
+        position: this.currentPositions[1],
+        positionIndex: 1,
+        cardIndex: indices.top
+      },
+      {
+        card: indices.mid >= 0 && indices.mid < this.cards.length ? this.cards[indices.mid] : null,
+        position: this.currentPositions[2],
+        positionIndex: 2,
+        cardIndex: indices.mid
+      },
+      {
+        card: indices.bottom >= 0 && indices.bottom < this.cards.length ? this.cards[indices.bottom] : null,
+        position: this.currentPositions[3],
+        positionIndex: 3,
+        cardIndex: indices.bottom
+      },
+      {
+        card: indices.bottomLast >= 0 && indices.bottomLast < this.cards.length ? this.cards[indices.bottomLast] : null,
+        position: this.currentPositions[4],
+        positionIndex: 4,
+        cardIndex: indices.bottomLast
+      }
     ]
 
     // Animate visible cards to their positions
@@ -654,7 +795,7 @@ export class ChatComponent extends BaseScriptComponent {
     })
 
     this.setupAllCardsManipulation()
-    
+
     print("AdvancedSlideLayoutRearrange: Updated layout to show card " + targetIndex + " in center")
   }
 
@@ -663,8 +804,8 @@ export class ChatComponent extends BaseScriptComponent {
    */
   private setupAllCardsManipulation(): void {
     this.clearAllManipulationHandlers()
-    
-    this.cards.forEach(card => {
+
+    this.cards.forEach((card) => {
       if (card.enabled) {
         this.attachManipulationToCard(card)
       }
@@ -675,7 +816,7 @@ export class ChatComponent extends BaseScriptComponent {
    * Clear all manipulation event handlers from all cards
    */
   private clearAllManipulationHandlers(): void {
-    this.cards.forEach(card => {
+    this.cards.forEach((card) => {
       try {
         const manipulationComponent = card.getComponent(InteractableManipulation.getTypeName()) as any
         if (manipulationComponent && manipulationComponent.onManipulationStart) {
@@ -701,7 +842,7 @@ export class ChatComponent extends BaseScriptComponent {
   private initializeScrollSystem(): void {
     const initialScrollValue = this.getCurrentScrollValue()
     this.lastScrollValue = initialScrollValue
-    
+
     print("AdvancedSlideLayoutRearrange: Scroll system initialized with value: " + initialScrollValue)
   }
 
@@ -710,19 +851,19 @@ export class ChatComponent extends BaseScriptComponent {
    */
   private updateAnimations(): void {
     const toRemove: SceneObject[] = []
-    
+
     this.animatingCards.forEach((animation, card) => {
       // Check if card is null or destroyed
       if (!card || !card.getTransform()) {
         toRemove.push(card)
         return
       }
-      
+
       try {
         const currentPos = card.getTransform().getLocalPosition()
         const targetPos = animation.target
         const distance = currentPos.distance(targetPos)
-        
+
         if (distance < 0.1) {
           card.getTransform().setLocalPosition(targetPos)
           if (!animation.isVisible) {
@@ -738,8 +879,8 @@ export class ChatComponent extends BaseScriptComponent {
         toRemove.push(card)
       }
     })
-    
-    toRemove.forEach(card => {
+
+    toRemove.forEach((card) => {
       this.animatingCards.delete(card)
     })
   }
@@ -755,7 +896,7 @@ export class ChatComponent extends BaseScriptComponent {
    * Hide all cards
    */
   private hideAllCards(): void {
-    this.cards.forEach(card => {
+    this.cards.forEach((card) => {
       card.enabled = false
     })
   }
@@ -763,13 +904,19 @@ export class ChatComponent extends BaseScriptComponent {
   /**
    * Get system status for debugging
    */
-  public getSystemStatus(): {totalCards: number, visibleCards: number, currentIndex: number, testMode: boolean, testCardsAdded: number} {
+  public getSystemStatus(): {
+    totalCards: number
+    visibleCards: number
+    currentIndex: number
+    testMode: boolean
+    testCardsAdded: number
+  } {
     return {
       totalCards: this.cardData.length,
-      visibleCards: this.cards.filter(card => card.enabled).length,
+      visibleCards: this.cards.filter((card) => card.enabled).length,
       currentIndex: this.currentIndex,
       testMode: this.testMode,
       testCardsAdded: this.testCardCount
     }
   }
-} 
+}

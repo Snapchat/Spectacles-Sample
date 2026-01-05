@@ -1,37 +1,30 @@
-import {
-  Gemini,
-  GeminiLiveWebsocket,
-} from "RemoteServiceGateway.lspkg/HostedExternal/Gemini";
+import {Gemini, GeminiLiveWebsocket} from "RemoteServiceGateway.lspkg/HostedExternal/Gemini"
 
-import { AudioProcessor } from "RemoteServiceGateway.lspkg/Helpers/AudioProcessor";
-import { DynamicAudioOutput } from "RemoteServiceGateway.lspkg/Helpers/DynamicAudioOutput";
-import Event from "SpectaclesInteractionKit.lspkg/Utils/Event";
-import { GeminiTypes } from "RemoteServiceGateway.lspkg/HostedExternal/GeminiTypes";
-import { MicrophoneRecorder } from "RemoteServiceGateway.lspkg/Helpers/MicrophoneRecorder";
-import { VideoController } from "RemoteServiceGateway.lspkg/Helpers/VideoController";
-import { setTimeout } from "SpectaclesInteractionKit.lspkg/Utils/FunctionTimingUtils";
+import {AudioProcessor} from "RemoteServiceGateway.lspkg/Helpers/AudioProcessor"
+import {DynamicAudioOutput} from "RemoteServiceGateway.lspkg/Helpers/DynamicAudioOutput"
+import {MicrophoneRecorder} from "RemoteServiceGateway.lspkg/Helpers/MicrophoneRecorder"
+import {VideoController} from "RemoteServiceGateway.lspkg/Helpers/VideoController"
+import {GeminiTypes} from "RemoteServiceGateway.lspkg/HostedExternal/GeminiTypes"
+import Event from "SpectaclesInteractionKit.lspkg/Utils/Event"
 
 @component
 export class GeminiAssistant extends BaseScriptComponent {
   @ui.separator
-  @ui.label(
-    "Example of connecting to the Gemini Live API. Change various settings in the inspector to customize!"
-  )
+  @ui.label("Example of connecting to the Gemini Live API. Change various settings in the inspector to customize!")
   @ui.separator
   @ui.separator
   @ui.group_start("Setup")
   @input
-  private websocketRequirementsObj: SceneObject;
-  @input private dynamicAudioOutput: DynamicAudioOutput;
-  @input private microphoneRecorder: MicrophoneRecorder;
+  private websocketRequirementsObj: SceneObject
+  @input private dynamicAudioOutput: DynamicAudioOutput
+  @input private microphoneRecorder: MicrophoneRecorder
   @ui.group_end
   @ui.separator
   @ui.group_start("Inputs")
   @input
   @widget(new TextAreaWidget())
-  private instructions: string =
-    "You are a helpful assistant that loves to make puns";
-  @input private haveVideoInput: boolean = false;
+  private instructions: string = "You are a helpful assistant that loves to make puns"
+  @input private haveVideoInput: boolean = false
   @ui.group_end
   @ui.separator
   @ui.group_start("Outputs")
@@ -39,7 +32,7 @@ export class GeminiAssistant extends BaseScriptComponent {
     '<span style="color: yellow;">⚠️ To prevent audio feedback loop in Lens Studio Editor, use headphones or manage your microphone input.</span>'
   )
   @input
-  private haveAudioOutput: boolean = false;
+  private haveAudioOutput: boolean = false
   @input
   @showIf("haveAudioOutput", true)
   @widget(
@@ -51,100 +44,86 @@ export class GeminiAssistant extends BaseScriptComponent {
       new ComboBoxItem("Aoede", "Aoede"),
       new ComboBoxItem("Leda", "Leda"),
       new ComboBoxItem("Orus", "Orus"),
-      new ComboBoxItem("Zephyr", "Zephyr"),
+      new ComboBoxItem("Zephyr", "Zephyr")
     ])
   )
-  private voice: string = "Puck";
+  private voice: string = "Puck"
   @ui.group_end
   @ui.separator
-  private audioProcessor: AudioProcessor = new AudioProcessor();
-  private videoController: VideoController = new VideoController(
-    1500,
-    CompressionQuality.HighQuality,
-    EncodingType.Jpg
-  );
-  private GeminiLive: GeminiLiveWebsocket;
+  private audioProcessor: AudioProcessor = new AudioProcessor()
+  private videoController: VideoController = new VideoController(1500, CompressionQuality.HighQuality, EncodingType.Jpg)
+  private GeminiLive: GeminiLiveWebsocket
 
-  public updateTextEvent: Event<{ text: string; completed: boolean }> =
-    new Event<{ text: string; completed: boolean }>();
+  public updateTextEvent: Event<{text: string; completed: boolean}> = new Event<{text: string; completed: boolean}>()
 
   public functionCallEvent: Event<{
-    name: string;
-    args: any;
-    callId?: string;
+    name: string
+    args: any
+    callId?: string
   }> = new Event<{
-    name: string;
-    args: any;
-  }>();
+    name: string
+    args: any
+  }>()
 
   createGeminiLiveSession() {
-    this.websocketRequirementsObj.enabled = true;
-    this.dynamicAudioOutput.initialize(24000);
-    this.microphoneRecorder.setSampleRate(16000);
+    this.websocketRequirementsObj.enabled = true
+    this.dynamicAudioOutput.initialize(24000)
+    this.microphoneRecorder.setSampleRate(16000)
 
     // Display internet connection status
-    let internetStatus = global.deviceInfoSystem.isInternetAvailable()
-      ? "Websocket connected"
-      : "No internet";
+    let internetStatus = global.deviceInfoSystem.isInternetAvailable() ? "Websocket connected" : "No internet"
 
-    this.updateTextEvent.invoke({ text: internetStatus, completed: true });
+    this.updateTextEvent.invoke({text: internetStatus, completed: true})
 
     global.deviceInfoSystem.onInternetStatusChanged.add((args) => {
-      internetStatus = args.isInternetAvailable
-        ? "Reconnected to internete"
-        : "No internet";
+      internetStatus = args.isInternetAvailable ? "Reconnected to internete" : "No internet"
 
-      this.updateTextEvent.invoke({ text: internetStatus, completed: true });
-    });
+      this.updateTextEvent.invoke({text: internetStatus, completed: true})
+    })
 
-    this.GeminiLive = Gemini.liveConnect();
+    this.GeminiLive = Gemini.liveConnect()
 
     this.GeminiLive.onOpen.add((event) => {
-      print("Connection opened");
-      this.sessionSetup();
-    });
+      print("Connection opened")
+      this.sessionSetup()
+    })
 
-    let completedTextDisplay = true;
+    let completedTextDisplay = true
 
     this.GeminiLive.onMessage.add((message) => {
-      print("Received message: " + JSON.stringify(message));
+      print("Received message: " + JSON.stringify(message))
       // Setup complete, begin sending data
       if (message.setupComplete) {
-        message = message as GeminiTypes.Live.SetupCompleteEvent;
-        print("Setup complete");
-        this.setupInputs();
+        message = message as GeminiTypes.Live.SetupCompleteEvent
+        print("Setup complete")
+        this.setupInputs()
       }
 
       if (message?.serverContent) {
-        message = message as GeminiTypes.Live.ServerContentEvent;
+        message = message as GeminiTypes.Live.ServerContentEvent
         // Playback the audio response
-        if (
-          message?.serverContent?.modelTurn?.parts?.[0]?.inlineData?.mimeType?.startsWith(
-            "audio/pcm"
-          )
-        ) {
-          let b64Audio =
-            message.serverContent.modelTurn.parts[0].inlineData.data;
-          let audio = Base64.decode(b64Audio);
-          this.dynamicAudioOutput.addAudioFrame(audio);
+        if (message?.serverContent?.modelTurn?.parts?.[0]?.inlineData?.mimeType?.startsWith("audio/pcm")) {
+          const b64Audio = message.serverContent.modelTurn.parts[0].inlineData.data
+          const audio = Base64.decode(b64Audio)
+          this.dynamicAudioOutput.addAudioFrame(audio)
         }
         if (message.serverContent.interrupted) {
-          this.dynamicAudioOutput.interruptAudioOutput();
+          this.dynamicAudioOutput.interruptAudioOutput()
         }
         // Show output transcription
         else if (message?.serverContent?.outputTranscription?.text) {
           if (completedTextDisplay) {
             this.updateTextEvent.invoke({
               text: message.serverContent.outputTranscription?.text,
-              completed: true,
-            });
+              completed: true
+            })
           } else {
             this.updateTextEvent.invoke({
               text: message.serverContent.outputTranscription?.text,
-              completed: false,
-            });
+              completed: false
+            })
           }
-          completedTextDisplay = false;
+          completedTextDisplay = false
         }
 
         // Show text response
@@ -152,58 +131,58 @@ export class GeminiAssistant extends BaseScriptComponent {
           if (completedTextDisplay) {
             this.updateTextEvent.invoke({
               text: message.serverContent.modelTurn.parts[0].text,
-              completed: true,
-            });
+              completed: true
+            })
           } else {
             this.updateTextEvent.invoke({
               text: message.serverContent.modelTurn.parts[0].text,
-              completed: false,
-            });
+              completed: false
+            })
           }
-          completedTextDisplay = false;
+          completedTextDisplay = false
         }
 
         // Determine if the response is complete
         else if (message?.serverContent?.turnComplete) {
-          completedTextDisplay = true;
+          completedTextDisplay = true
         }
       }
 
       if (message.toolCall) {
-        message = message as GeminiTypes.Live.ToolCallEvent;
-        print(JSON.stringify(message));
+        message = message as GeminiTypes.Live.ToolCallEvent
+        print(JSON.stringify(message))
         // Handle tool calls
         message.toolCall.functionCalls.forEach((functionCall) => {
           this.functionCallEvent.invoke({
             name: functionCall.name,
-            args: functionCall.args,
-          });
-        });
+            args: functionCall.args
+          })
+        })
       }
-    });
+    })
 
     this.GeminiLive.onError.add((event) => {
-      print("Error: " + event);
-    });
+      print("Error: " + event)
+    })
 
     this.GeminiLive.onClose.add((event) => {
-      print("Connection closed: " + event.reason);
-    });
+      print("Connection closed: " + event.reason)
+    })
   }
 
   public streamData(stream: boolean) {
     if (stream) {
       if (this.haveVideoInput) {
-        this.videoController.startRecording();
+        this.videoController.startRecording()
       }
 
-      this.microphoneRecorder.startRecording();
+      this.microphoneRecorder.startRecording()
     } else {
       if (this.haveVideoInput) {
-        this.videoController.stopRecording();
+        this.videoController.stopRecording()
       }
 
-      this.microphoneRecorder.stopRecording();
+      this.microphoneRecorder.stopRecording()
     }
   }
 
@@ -214,18 +193,18 @@ export class GeminiAssistant extends BaseScriptComponent {
           media_chunks: [
             {
               mime_type: "audio/pcm",
-              data: encodedAudioChunk,
-            },
-          ],
-        },
-      } as GeminiTypes.Live.RealtimeInput;
-      this.GeminiLive.send(message);
-    });
+              data: encodedAudioChunk
+            }
+          ]
+        }
+      } as GeminiTypes.Live.RealtimeInput
+      this.GeminiLive.send(message)
+    })
 
     // Configure the microphone
     this.microphoneRecorder.onAudioFrame.add((audioFrame) => {
-      this.audioProcessor.processFrame(audioFrame);
-    });
+      this.audioProcessor.processFrame(audioFrame)
+    })
 
     if (this.haveVideoInput) {
       // Configure the video controller
@@ -235,13 +214,13 @@ export class GeminiAssistant extends BaseScriptComponent {
             media_chunks: [
               {
                 mime_type: "image/jpeg",
-                data: encodedFrame,
-              },
-            ],
-          },
-        } as GeminiTypes.Live.RealtimeInput;
-        this.GeminiLive.send(message);
-      });
+                data: encodedFrame
+              }
+            ]
+          }
+        } as GeminiTypes.Live.RealtimeInput
+        this.GeminiLive.send(message)
+      })
     }
   }
 
@@ -251,13 +230,13 @@ export class GeminiAssistant extends BaseScriptComponent {
         function_responses: [
           {
             name: functionName,
-            response: { content: args },
-          },
-        ],
-      },
-    } as GeminiTypes.Live.ToolResponse;
+            response: {content: args}
+          }
+        ]
+      }
+    } as GeminiTypes.Live.ToolResponse
 
-    this.GeminiLive.send(messageToSend);
+    this.GeminiLive.send(messageToSend)
   }
 
   private sessionSetup() {
@@ -267,16 +246,16 @@ export class GeminiAssistant extends BaseScriptComponent {
       speechConfig: {
         voiceConfig: {
           prebuiltVoiceConfig: {
-            voiceName: this.voice,
-          },
-        },
-      },
-    } as GeminiTypes.Common.GenerationConfig;
+            voiceName: this.voice
+          }
+        }
+      }
+    } as GeminiTypes.Common.GenerationConfig
 
     if (!this.haveAudioOutput) {
       generationConfig = {
-        responseModalities: ["TEXT"],
-      };
+        responseModalities: ["TEXT"]
+      }
     }
 
     // Define the Snap3D tool
@@ -292,18 +271,18 @@ export class GeminiAssistant extends BaseScriptComponent {
                 prompt: {
                   type: "string",
                   description:
-                    "The text prompt to generate a 3D model from. Cartoonish styles work best. Use 'full body' when generating characters.",
-                },
+                    "The text prompt to generate a 3D model from. Cartoonish styles work best. Use 'full body' when generating characters."
+                }
               },
-              required: ["prompt"],
-            },
-          },
-        ],
-      },
-    ];
+              required: ["prompt"]
+            }
+          }
+        ]
+      }
+    ]
 
     // Send the session setup message
-    let modelUri = `models/gemini-2.0-flash-live-preview-04-09`;
+    const modelUri = `models/gemini-2.0-flash-live-preview-04-09`
     const sessionSetupMessage = {
       setup: {
         model: modelUri,
@@ -311,26 +290,26 @@ export class GeminiAssistant extends BaseScriptComponent {
         system_instruction: {
           parts: [
             {
-              text: this.instructions,
-            },
-          ],
+              text: this.instructions
+            }
+          ]
         },
         tools: tools,
         contextWindowCompression: {
           triggerTokens: 20000,
-          slidingWindow: { targetTokens: 16000 },
+          slidingWindow: {targetTokens: 16000}
         },
-        output_audio_transcription: {},
-      },
-    } as GeminiTypes.Live.Setup;
-    this.GeminiLive.send(sessionSetupMessage);
+        output_audio_transcription: {}
+      }
+    } as GeminiTypes.Live.Setup
+    this.GeminiLive.send(sessionSetupMessage)
   }
 
   public interruptAudioOutput(): void {
     if (this.dynamicAudioOutput && this.haveAudioOutput) {
-      this.dynamicAudioOutput.interruptAudioOutput();
+      this.dynamicAudioOutput.interruptAudioOutput()
     } else {
-      print("DynamicAudioOutput is not initialized.");
+      print("DynamicAudioOutput is not initialized.")
     }
   }
 }

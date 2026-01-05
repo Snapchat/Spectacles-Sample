@@ -1,19 +1,15 @@
-import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable"
-import { ToggleButton } from "SpectaclesInteractionKit.lspkg/Components/UI/ToggleButton/ToggleButton"
-import { TransformFollower } from "./TransformFollower"
+import {Interactable} from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable"
+import {ToggleButton} from "SpectaclesInteractionKit.lspkg/Components/UI/ToggleButton/ToggleButton"
+import {TransformFollower} from "./TransformFollower"
 
 /**
  * A simple button using SpectaclesInteractionKit events to signal user intent to select a certain area and load serialized content.
  */
 @component
 export class ToggleMenuButton extends BaseScriptComponent {
-  private toggleButton = this.sceneObject.getComponent(
-    ToggleButton.getTypeName()
-  )
+  private toggleButton = this.sceneObject.getComponent(ToggleButton.getTypeName())
 
-  private interactable = this.sceneObject.getComponent(
-    Interactable.getTypeName()
-  )
+  private interactable = this.sceneObject.getComponent(Interactable.getTypeName())
 
   private visuals: RenderMeshVisual[]
 
@@ -33,7 +29,7 @@ export class ToggleMenuButton extends BaseScriptComponent {
 
     this.visuals = [
       this.sceneObject.getChild(0).getComponent("Component.RenderMeshVisual"),
-      this.sceneObject.getChild(1).getComponent("Component.RenderMeshVisual"),
+      this.sceneObject.getChild(1).getComponent("Component.RenderMeshVisual")
     ]
 
     this.interactable.onHoverEnter.add(() => {
@@ -45,9 +41,7 @@ export class ToggleMenuButton extends BaseScriptComponent {
       this.visuals[1].mainMaterial.mainPass.hovered = 0
     })
 
-    this.transformFollower = this.sceneObject.getComponent(
-      TransformFollower.getTypeName()
-    )
+    this.transformFollower = this.sceneObject.getComponent(TransformFollower.getTypeName())
   }
 
   private handleStateChanged(isToggledOn: boolean) {
@@ -62,15 +56,7 @@ export class ToggleMenuButton extends BaseScriptComponent {
     this.targetMenu = targetMenu
   }
 
-  public setFollowTarget(
-    followTarget: Transform,
-    translationOffset: vec3,
-    rotationOffset: quat
-  ) {
-    this.transformFollower.setTarget(
-      followTarget,
-      translationOffset,
-      rotationOffset
-    )
+  public setFollowTarget(followTarget: Transform, translationOffset: vec3, rotationOffset: quat) {
+    this.transformFollower.setTarget(followTarget, translationOffset, rotationOffset)
   }
 }

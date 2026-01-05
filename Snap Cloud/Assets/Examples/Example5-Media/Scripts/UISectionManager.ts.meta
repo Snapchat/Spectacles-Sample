@@ -1,0 +1,54 @@
+- !<AssetImportMetadata/d2438e49-9b72-eb5d-f63e-5dbccf318078>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 2fc9f46d-61fc-45c8-ac3a-c3024543dd63
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 2fc9f46d-61fc-45c8-ac3a-c3024543dd63
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 03aae9c7-761b-4dcf-8191-7f5df85ff146
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/03aae9c7-761b-4dcf-8191-7f5df85ff146>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: f40e247d-e7e5-4536-8b77-e1b7d06bcb30
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    defaultSectionIndex: false
+    enableDebugLogs: false
+    toggleGroup: false
+    uiSections: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - toggleGroup: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      uiSections: !<reference.SceneObject[]>
+        []
+      enableDebugLogs: true
+      defaultSectionIndex: !<float> 0.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType toggleGroup {"hint":"ToggleGroup component that controls the section switching"}'
+    - '// @input SceneObject[] uiSections {"hint":"Array of SceneObjects representing the UI sections (index matches toggle index)"}'
+    - '// @input bool enableDebugLogs = true {"hint":"Enable debug logging"}'
+    - '// @input float defaultSectionIndex {"hint":"Index of the default section to show on start (-1 for none)", "widget":"slider", "min":-1, "max":10, "step":1}'

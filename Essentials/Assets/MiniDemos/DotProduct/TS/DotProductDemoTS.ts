@@ -6,70 +6,69 @@
 export class DotProductDemoTS extends BaseScriptComponent {
   @input
   @hint("Reference object to check angle against")
-  reference!: SceneObject;
+  reference!: SceneObject
 
   @input
   @hint("Reference object to check angle against")
-  referenceMaterial!: Material;
+  referenceMaterial!: Material
 
   @input
   @hint("Threshold dot product value for changing color (0-1)")
-  thresholdDot: number = 0.95;
+  thresholdDot: number = 0.95
 
   @input
   @hint("Threshold angle in degrees for recentering")
-  thresholdDotInDegrees: number = 30.0;
+  thresholdDotInDegrees: number = 30.0
 
   @input
   @hint("Camera used for direction checking")
-  camera!: Camera;
+  camera!: Camera
 
   onAwake(): void {
     // Set up update handler
-    this.createEvent("UpdateEvent").bind(this.onUpdate.bind(this));
+    this.createEvent("UpdateEvent").bind(this.onUpdate.bind(this))
   }
 
   onUpdate(): void {
-    this.changeColorIfNotFacing();
+    this.changeColorIfNotFacing()
   }
 
   /**
    * Example: Check if the angle between the camera and objectA exceeds a threshold
    */
   changeColorIfNotFacing(): void {
-    if (!this.camera) return;
-  
+    if (!this.camera) return
+
     // Calculate direction from camera to objectA
-    const cameraPosition = this.camera.getTransform().getWorldPosition();
-    const objectPosition = this.reference.getTransform().getWorldPosition();
-  
+    const cameraPosition = this.camera.getTransform().getWorldPosition()
+    const objectPosition = this.reference.getTransform().getWorldPosition()
+
     // Get the direction vector from camera to object
-    const directionToObject = objectPosition.sub(cameraPosition).normalize();
-    
+    const directionToObject = objectPosition.sub(cameraPosition).normalize()
+
     // Get camera forward direction (negated to point inward)
-    const cameraForward = this.camera.getTransform().forward.uniformScale(-1);
-    
+    const cameraForward = this.camera.getTransform().forward.uniformScale(-1)
+
     // Project both vectors onto the horizontal plane (zero out the Y component)
     // This gives us only the horizontal angle difference
-    const horizontalDirectionToObject = new vec3(directionToObject.x, 0, directionToObject.z).normalize();
-    const horizontalCameraForward = new vec3(cameraForward.x, 0, cameraForward.z).normalize();
-    
+    const horizontalDirectionToObject = new vec3(directionToObject.x, 0, directionToObject.z).normalize()
+    const horizontalCameraForward = new vec3(cameraForward.x, 0, cameraForward.z).normalize()
+
     // Calculate the dot product of the horizontal components
-    const horizontalDotProduct = horizontalDirectionToObject.dot(horizontalCameraForward);
-    
+    const horizontalDotProduct = horizontalDirectionToObject.dot(horizontalCameraForward)
+
     // Convert to angle in degrees (horizontal angle only)
-    const horizontalAngleInDegrees = 
-      Math.acos(Math.max(-1, Math.min(1, horizontalDotProduct))) * (180 / Math.PI);
-    
-    print("Horizontal angle between camera and object: " + horizontalAngleInDegrees.toFixed(2) + "°");
-    
+    const horizontalAngleInDegrees = Math.acos(Math.max(-1, Math.min(1, horizontalDotProduct))) * (180 / Math.PI)
+
+    print("Horizontal angle between camera and object: " + horizontalAngleInDegrees.toFixed(2) + "°")
+
     // Check if horizontal angle exceeds threshold
     if (horizontalAngleInDegrees > this.thresholdDotInDegrees) {
       // Set to red when outside horizontal threshold
-      this.referenceMaterial.mainPass.baseColor = new vec4(1, 0, 0, 1);
+      this.referenceMaterial.mainPass.baseColor = new vec4(1, 0, 0, 1)
     } else {
       // Set to blue when within horizontal threshold
-      this.referenceMaterial.mainPass.baseColor = new vec4(0, 0, 1, 1);
+      this.referenceMaterial.mainPass.baseColor = new vec4(0, 0, 1, 1)
     }
   }
   /**
@@ -78,13 +77,13 @@ export class DotProductDemoTS extends BaseScriptComponent {
    */
   signedAngle(vectorA: vec3, vectorB: vec3, axis: vec3): number {
     // Calculate the unsigned angle
-    const angle = this.angle(vectorA, vectorB);
+    const angle = this.angle(vectorA, vectorB)
 
     // Calculate the sign using the cross product and dot product
-    const cross = this.crossProduct(vectorA, vectorB);
-    const sign = Math.sign(axis.dot(cross));
+    const cross = this.crossProduct(vectorA, vectorB)
+    const sign = Math.sign(axis.dot(cross))
 
-    return angle * sign;
+    return angle * sign
   }
 
   /**
@@ -92,7 +91,7 @@ export class DotProductDemoTS extends BaseScriptComponent {
    * It gives a measure of how aligned the vectors are, ranging from -1 (opposite) to +1 (same direction).
    */
   dotProduct(vectorA: vec3, vectorB: vec3): number {
-    return vectorA.dot(vectorB);
+    return vectorA.dot(vectorB)
   }
 
   /**
@@ -100,7 +99,7 @@ export class DotProductDemoTS extends BaseScriptComponent {
    * Returns a vector perpendicular to both input vectors, following the right-hand rule.
    */
   crossProduct(vectorA: vec3, vectorB: vec3): vec3 {
-    return vectorA.cross(vectorB);
+    return vectorA.cross(vectorB)
   }
 
   /**
@@ -109,17 +108,17 @@ export class DotProductDemoTS extends BaseScriptComponent {
    */
   angle(vectorA: vec3, vectorB: vec3): number {
     // Normalize the vectors
-    const normalizedA = vectorA.normalize();
-    const normalizedB = vectorB.normalize();
+    const normalizedA = vectorA.normalize()
+    const normalizedB = vectorB.normalize()
 
     // Calculate the dot product
-    const dot = normalizedA.dot(normalizedB);
+    const dot = normalizedA.dot(normalizedB)
 
     // Clamp the dot product to avoid numerical errors
-    const clampedDot = Math.max(-1, Math.min(1, dot));
+    const clampedDot = Math.max(-1, Math.min(1, dot))
 
     // Calculate the angle in radians and convert to degrees
-    return Math.acos(clampedDot) * (180 / Math.PI);
+    return Math.acos(clampedDot) * (180 / Math.PI)
   }
 
   /**
@@ -128,12 +127,12 @@ export class DotProductDemoTS extends BaseScriptComponent {
    */
   reflect(incomingVector: vec3, normal: vec3): vec3 {
     // Normalize the normal to ensure accurate reflection
-    const normalizedNormal = normal.normalize();
+    const normalizedNormal = normal.normalize()
 
     // Calculate the reflection: r = i - 2(i·n)n
     // Where i is the incoming vector, n is the normal, and r is the reflection
-    const dotProduct = incomingVector.dot(normalizedNormal);
-    return incomingVector.sub(normalizedNormal.uniformScale(2 * dotProduct));
+    const dotProduct = incomingVector.dot(normalizedNormal)
+    return incomingVector.sub(normalizedNormal.uniformScale(2 * dotProduct))
   }
 
   /**
@@ -142,13 +141,13 @@ export class DotProductDemoTS extends BaseScriptComponent {
    */
   project(vectorA: vec3, vectorB: vec3): vec3 {
     // Normalize vectorB to get the direction
-    const normalizedB = vectorB.normalize();
+    const normalizedB = vectorB.normalize()
 
     // Calculate projection length
-    const projectionLength = vectorA.dot(normalizedB);
+    const projectionLength = vectorA.dot(normalizedB)
 
     // Return the projected vector
-    return normalizedB.uniformScale(projectionLength);
+    return normalizedB.uniformScale(projectionLength)
   }
 
   /**
@@ -157,10 +156,10 @@ export class DotProductDemoTS extends BaseScriptComponent {
    */
   projectOnPlane(vectorA: vec3, normal: vec3): vec3 {
     // Calculate the projection of vectorA onto the normal
-    const projection = this.project(vectorA, normal);
+    const projection = this.project(vectorA, normal)
 
     // Subtract the normal component to get the plane projection
-    return vectorA.sub(projection);
+    return vectorA.sub(projection)
   }
 
   /**
@@ -168,7 +167,7 @@ export class DotProductDemoTS extends BaseScriptComponent {
    * This keeps the direction the same while adjusting the length.
    */
   normalize(vector: vec3): vec3 {
-    return vector.normalize();
+    return vector.normalize()
   }
 
   /**
@@ -176,42 +175,35 @@ export class DotProductDemoTS extends BaseScriptComponent {
    */
   private lerpVec3(a: vec3, b: vec3, t: number): vec3 {
     // Clamp t between 0 and 1
-    const clampedT = Math.max(0, Math.min(1, t));
+    const clampedT = Math.max(0, Math.min(1, t))
 
     // Linear interpolation formula: a + (b - a) * t
-    return new vec3(
-      a.x + (b.x - a.x) * clampedT,
-      a.y + (b.y - a.y) * clampedT,
-      a.z + (b.z - a.z) * clampedT
-    );
+    return new vec3(a.x + (b.x - a.x) * clampedT, a.y + (b.y - a.y) * clampedT, a.z + (b.z - a.z) * clampedT)
   }
 
   /**
    * Creates a rotation that looks in the specified direction
    */
-  private lookRotationFromDirection(
-    direction: vec3,
-    up: vec3 = new vec3(0, 1, 0)
-  ): quat {
+  private lookRotationFromDirection(direction: vec3, up: vec3 = new vec3(0, 1, 0)): quat {
     // Normalize direction
-    const normalizedDirection = direction.normalize();
+    const normalizedDirection = direction.normalize()
 
     // Calculate right vector
-    const right = up.cross(normalizedDirection).normalize();
+    const right = up.cross(normalizedDirection).normalize()
 
     // Recalculate up vector to ensure orthogonality
-    const orthogonalUp = normalizedDirection.cross(right).normalize();
+    const orthogonalUp = normalizedDirection.cross(right).normalize()
 
     // Create a rotation matrix from these vectors
     // This is a simplified implementation that may not handle all edge cases
 
     // Calculate angle around Y axis (yaw)
-    const yaw = Math.atan2(normalizedDirection.x, normalizedDirection.z);
+    const yaw = Math.atan2(normalizedDirection.x, normalizedDirection.z)
 
     // Calculate angle around X axis (pitch)
-    const pitch = -Math.asin(normalizedDirection.y);
+    const pitch = -Math.asin(normalizedDirection.y)
 
     // Create quaternion from Euler angles
-    return quat.fromEulerAngles(pitch, yaw, 0);
+    return quat.fromEulerAngles(pitch, yaw, 0)
   }
 }

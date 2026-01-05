@@ -1,7 +1,7 @@
 import {UserPosition, UserPositionStatus} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/UserPosition"
 
-import { MapController } from "../../MapComponent/Scripts/MapController"
 import {NavigationDataComponent} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/NavigationDataComponent"
+import {MapController} from "../../MapComponent/Scripts/MapController"
 
 /**
  * Scales a graphic representation of the current accuracy reported from the {@link UserPosition}.

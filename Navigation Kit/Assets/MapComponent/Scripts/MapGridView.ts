@@ -106,13 +106,13 @@ export class MapGridView {
     }
 
     const topLeftCorner = this.config.gridScreenTransform.localPointToWorldPoint(
-      new vec2(-this.mapScale, this.mapScale),
+      new vec2(-this.mapScale, this.mapScale)
     )
     const bottomLeftCorner = this.config.gridScreenTransform.localPointToWorldPoint(
-      new vec2(-this.mapScale, -this.mapScale),
+      new vec2(-this.mapScale, -this.mapScale)
     )
     const topRightCorner = this.config.gridScreenTransform.localPointToWorldPoint(
-      new vec2(this.mapScale, this.mapScale),
+      new vec2(this.mapScale, this.mapScale)
     )
     const topLeftToBottomLeft = bottomLeftCorner.sub(topLeftCorner)
     const topLeftToTopRight = topRightCorner.sub(topLeftCorner)
@@ -251,11 +251,11 @@ export class MapGridView {
 
   handleReloadData() {
     this.cells.forEach((cell) => {
-      var indexInHorizontalRange =
+      const indexInHorizontalRange =
         this.config.horizontalAllowOutOfIndexRange ||
         (cell.horizontalIndex >= this.config.horizontalMinIndex &&
           cell.horizontalIndex <= this.config.horizontalMaxIndex)
-      var indexInVerticalRange =
+      const indexInVerticalRange =
         this.config.verticalAllowOutOfIndexRange ||
         (cell.verticalIndex >= this.config.verticalMinIndex && cell.verticalIndex <= this.config.verticalMaxIndex)
 
@@ -300,17 +300,17 @@ export class MapGridView {
         this.screenPositionChangedDidChange = true
         this.isDragging = true
         this.hasDragged = true
-        var delta = getTime() - this.lastTouchMoveTime
+        const delta = getTime() - this.lastTouchMoveTime
         if (delta <= 0) {
           return
         }
 
         const touchOffsetFromInitialTouch = this.getPositionWithMapRotationOffset(
-          localPosition.sub(this.initialLocalTouchPosition),
+          localPosition.sub(this.initialLocalTouchPosition)
         )
         const constrainAxis = new vec2(
           this.config.horizontalScrollingEnabled ? 1 : 0,
-          this.config.verticalScrollingEnabled ? 1 : 0,
+          this.config.verticalScrollingEnabled ? 1 : 0
         )
         this.draggingOffset = touchOffsetFromInitialTouch.mult(new vec2(0.5, -0.5)).mult(constrainAxis)
         // Dampen dragging if it dragging too far
@@ -318,7 +318,7 @@ export class MapGridView {
 
         const scale = delta * 600
         const touchOffsetFromLastTouch = this.getPositionWithMapRotationOffset(
-          localPosition.sub(this.lastTouchPosition),
+          localPosition.sub(this.lastTouchPosition)
         )
         const acceleration = touchOffsetFromLastTouch.mult(new vec2(scale, -scale)).mult(constrainAxis)
         this.velocity = this.velocity.add(acceleration.sub(this.velocity))
@@ -350,7 +350,7 @@ export class MapGridView {
     const adjustedRotationInRad = degInRad - mapRotInRad
     const adjustedLocalPosition = new vec2(
       Math.cos(adjustedRotationInRad),
-      Math.sin(adjustedRotationInRad),
+      Math.sin(adjustedRotationInRad)
     ).uniformScale(distance)
     return adjustedLocalPosition
   }

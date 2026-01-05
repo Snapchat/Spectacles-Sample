@@ -34,8 +34,8 @@ export class InstrumentsData {
     "Keytar",
     "Harpsichord",
     "Viola",
-    "Bassoon",
-  ];
+    "Bassoon"
+  ]
 
   public emojis = [
     "🎸", // Guitar
@@ -72,6 +72,6 @@ export class InstrumentsData {
     "🎹", // Keytar
     "🎹", // Harpsichord
     "🎻", // Viola
-    "🎵", // Bassoon
-  ];
+    "🎵" // Bassoon
+  ]
 }

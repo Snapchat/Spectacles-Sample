@@ -14,23 +14,6 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<ScriptComponent/010bf23a-7d3c-40ba-4c58-02384085a79b>
-  PrefabRemaps:
-    []
-  Name: PieceJS
-  Enabled: true
-  ScriptAsset: !<reference> 32ff3013-497c-4f26-9ebd-d0771157d708
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      controller: !<reference.ScriptComponent> 551351cd-8bbd-4c8f-bd8a-d0a1ebfffab4
-      showLogs: true
-  ScriptTypes:
-    "":
-      {}
 - !<ScriptComponent/259ce649-8554-4be1-77e1-bf69a7b98c16>
   PrefabRemaps:
     []
@@ -72,9 +55,9 @@
 - !<ScriptComponent/2cfedc8c-a9c1-4c25-4f96-e64541d71db2>
   PrefabRemaps:
     []
-  Name: PieceTS
+  Name: Piece
   Enabled: true
-  ScriptAsset: !<reference> 9facf8a8-1b92-4e50-a39a-e8914aea4c5b
+  ScriptAsset: !<reference> 11269698-5c66-4378-bb79-81e18966be63
   ScriptInputsDefault:
     {}
   ScriptTypesDefault:
@@ -82,8 +65,9 @@
   ScriptInputs:
     "":
       showLogs: true
-      controller: !<MappingBased.AssignableType> bdbb6504-1dd2-46c3-8b61-d317554a4120
+      controller: !<MappingBased.AssignableType> 207122fc-71fe-4e6f-8a14-4e873ffb4a33
       manipulatable: !<MappingBased.AssignableType_1> fba50bc8-c99c-4af2-6380-fcf2e4ae4e75
+      interactableOutlineFeedback: !<MappingBased.AssignableType_2> 7aa39e9b-5aed-4893-5304-8a0bd3ce2111
   ScriptTypes:
     "":
       {}
@@ -107,7 +91,6 @@
     - !<own> fba50bc8-c99c-4af2-6380-fcf2e4ae4e75
     - !<own> 7aa39e9b-5aed-4893-5304-8a0bd3ce2111
     - !<own> e4d1ef69-5af3-4e27-4b94-ed5ac4a79887
-    - !<own> 010bf23a-7d3c-40ba-4c58-02384085a79b
     - !<own> 2cfedc8c-a9c1-4c25-4f96-e64541d71db2
 - !<ObjectPrefabAssetData/47be7d2a-56e0-42dc-b60e-b4d633b4618f>
   Prototype: !<ObjectOwner/7a3b264f-4307-4884-b493-333a2c9e82a6>
@@ -142,7 +125,7 @@
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 1
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -166,9 +149,6 @@
   ScriptInputsDefault:
     networkIdTypeString: true
     customNetworkId: true
-    positionSyncString: true
-    rotationSyncString: true
-    scaleSyncString: true
     persistenceString: true
     sendsPerSecondLimit: true
     useSmoothing: true
@@ -179,9 +159,9 @@
     "":
       networkIdTypeString: objectId
       customNetworkId: enter_unique_id
-      positionSyncString: Local
-      rotationSyncString: Local
-      scaleSyncString: Local
+      positionSyncString: Location
+      rotationSyncString: Location
+      scaleSyncString: Location
       persistenceString: Session
       sendsPerSecondLimit: 10
       useSmoothing: true

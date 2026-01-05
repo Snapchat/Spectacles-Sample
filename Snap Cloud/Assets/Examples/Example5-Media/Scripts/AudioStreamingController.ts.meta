@@ -1,0 +1,71 @@
+- !<AssetImportMetadata/450c061a-fcfd-2128-90c8-91a7bfc70ad5>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 648349f5-4c29-47b4-bd92-56817c1a0c23
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 648349f5-4c29-47b4-bd92-56817c1a0c23
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 9967b8d6-b071-4196-80df-7cb17de5fa75
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/9967b8d6-b071-4196-80df-7cb17de5fa75>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 8c216c7e-d538-479d-bef3-a724597181ee
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    buttonText: false
+    chunkSizeMs: false
+    compressionLevel: false
+    enableDebugLogs: false
+    microphoneAsset: false
+    sampleRate: false
+    snapCloudRequirements: false
+    statusText: false
+    streamButton: false
+    streamingChannelName: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - snapCloudRequirements: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      streamingChannelName: live-audio-stream
+      microphoneAsset: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      sampleRate: !<float> 16000.000000
+      chunkSizeMs: !<float> 100.000000
+      compressionLevel: !<float> 3.000000
+      streamButton: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      statusText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      buttonText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      enableDebugLogs: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType snapCloudRequirements {"hint":"Reference to SnapCloudRequirements for centralized Supabase configuration"}'
+    - '// @input string streamingChannelName = "live-audio-stream" {"hint":"Supabase Realtime channel name for live audio streaming"}'
+    - '// @input Asset.AudioTrackAsset microphoneAsset {"hint":"Microphone audio track asset for streaming"}'
+    - '// @input float sampleRate = 16000 {"hint":"Audio sample rate (Hz) - Use 16000 for voice, higher rates may not be supported", "widget":"slider", "min":8000, "max":48000, "step":1000}'
+    - '// @input float chunkSizeMs = 500 {"hint":"Audio chunk size (milliseconds)", "widget":"slider", "min":100, "max":1000, "step":100}'
+    - '// @input float compressionLevel = 3 {"hint":"Audio compression level (0-9, higher = more compression)", "widget":"slider", "min":0, "max":9, "step":1}'
+    - '// @input AssignableType_1 streamButton {"hint":"Button to start/stop audio streaming"}'
+    - '// @input Component.Text statusText {"hint":"Text component to display streaming status"}'
+    - '// @input Component.Text buttonText {"hint":"Text component to display button state (Start Stream/Stop Stream)"}'
+    - '// @input bool enableDebugLogs = true {"hint":"Enable detailed debug logging"}'

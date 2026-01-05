@@ -1,236 +1,268 @@
-import { ChatComponent } from '../Components/ChatComponent';
-import { CardData, CardType } from '../../../SpectaclesUIKitBeta.lspkg/Scripts/Components/SlideLayout/AdvancedCardManager';
+import {CardData, CardType} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Components/SlideLayout/AdvancedCardManager"
+import {ChatComponent} from "../Components/ChatComponent"
 
 /**
  * ChatExtensions - Utility class to extend AgenticChat with public methods for adding cards
- * 
+ *
  * This utility provides a clean way to add cards to AgenticChat from external components
  * while maintaining compatibility with the existing card system.
  */
 export class ChatExtensions {
-  
   /**
    * Add a user message card to the AgenticChat component
    */
   public static addUserCard(agenticChat: ChatComponent, message: string): boolean {
     if (!agenticChat || !message) {
-      return false;
+      return false
     }
-    
+
     try {
       // Access private methods through type assertion
-      const chatAny = agenticChat as any;
-      
+      const chatAny = agenticChat as any
+
       // Get the next card index
-      const newIndex = chatAny.cardData ? chatAny.cardData.length : 0;
-      
+      const newIndex = chatAny.cardData ? chatAny.cardData.length : 0
+
       // Create card data
       const cardData: CardData = {
         id: newIndex,
         type: CardType.User,
         textContent: message,
-        size: chatAny.cardManager ? chatAny.cardManager.calculateCardSize(message) : { width: 300, height: 100 },
+        size: chatAny.cardManager ? chatAny.cardManager.calculateCardSize(message) : {width: 300, height: 100},
         sceneObject: null
-      };
-      
+      }
+
       // Instantiate the card using the user card prefab
       if (chatAny.userCardPrefab) {
-        const cardObject = chatAny.userCardPrefab.instantiate(agenticChat.getSceneObject());
-        cardObject.name = `Card_${newIndex}_User`;
-        cardData.sceneObject = cardObject;
-        cardObject.enabled = false; // Start hidden
-        
+        const cardObject = chatAny.userCardPrefab.instantiate(agenticChat.getSceneObject())
+        cardObject.name = `Card_${newIndex}_User`
+        cardData.sceneObject = cardObject
+        cardObject.enabled = false // Start hidden
+
         // Set up the card content
-        if (typeof chatAny.setupCardContent === 'function') {
-          chatAny.setupCardContent(cardData);
+        if (typeof chatAny.setupCardContent === "function") {
+          chatAny.setupCardContent(cardData)
         }
-        
+
         // Add to arrays
         if (chatAny.cards) {
-          chatAny.cards.push(cardObject);
+          chatAny.cards.push(cardObject)
         }
         if (chatAny.cardData) {
-          chatAny.cardData.push(cardData);
+          chatAny.cardData.push(cardData)
         }
-        
-        // 🔥 CRITICAL: Update currentIndex to show the latest cards in chronological order
-        chatAny.currentIndex = newIndex;
-        
-        // Update layout to show the newest card
-        if (typeof chatAny.updateCardLayoutToIndex === 'function') {
-          chatAny.updateCardLayoutToIndex(newIndex); // Show the new card, not the old currentIndex
+
+        // FIX: For chat mode, maintain chronological order from bottom to top (like a real chat app)
+        // Welcome (index 0) at bottom, User (index 1) above it, Bot (index 2) above that
+        const totalCards = chatAny.cardData ? chatAny.cardData.length : 0
+
+        if (chatAny.chatModeChronological) {
+          // For chronological chat mode (bottom to top = oldest to newest):
+          // Always advance to show the newest card (newIndex) in the center
+          // This ensures the UI automatically advances when new messages are added
+          if (totalCards === 1) {
+            chatAny.currentIndex = 0 // Welcome message at bottom
+          } else {
+            // 2+ cards: show the newest card (newIndex) in center
+            // This automatically advances the UI to show the latest message
+            chatAny.currentIndex = newIndex
+          }
+        } else {
+          // Non-chronological mode: show newest card
+          chatAny.currentIndex = newIndex
         }
-        
-        print(`ChatExtensions: Added user card ${newIndex} with message: "${message.substring(0, 50)}..."`);
-        return true;
+
+        // Update layout to show cards in correct order
+        if (typeof chatAny.updateCardLayoutToIndex === "function") {
+          chatAny.updateCardLayoutToIndex(chatAny.currentIndex)
+        }
+
+        print(`ChatExtensions: Added user card ${newIndex} with message: "${message.substring(0, 50)}..."`)
+        return true
       }
-      
     } catch (error) {
-      print(`ChatExtensions: Error adding user card: ${error}`);
+      print(`ChatExtensions: Error adding user card: ${error}`)
     }
-    
-    return false;
+
+    return false
   }
-  
+
   /**
    * Add a bot message card to the AgenticChat component
    */
   public static addBotCard(agenticChat: ChatComponent, message: string): boolean {
     if (!agenticChat || !message) {
-      print("ChatExtensions: ❌ Invalid agenticChat or message");
-      return false;
+      print("ChatExtensions: Invalid agenticChat or message")
+      return false
     }
-    
+
     try {
-      print(`ChatExtensions: 🤖 Adding bot card: "${message.substring(0, 50)}..."`);
-      
+      print(`ChatExtensions: Adding bot card: "${message.substring(0, 50)}..."`)
+
       // Access private methods through type assertion
-      const chatAny = agenticChat as any;
-      
+      const chatAny = agenticChat as any
+
       // Get the next card index
-      const newIndex = chatAny.cardData ? chatAny.cardData.length : 0;
-      print(`ChatExtensions: 📊 Card index: ${newIndex}`);
-      
+      const newIndex = chatAny.cardData ? chatAny.cardData.length : 0
+      print(`ChatExtensions: Card index: ${newIndex}`)
+
       // Create card data
       const cardData: CardData = {
         id: newIndex,
         type: CardType.Chatbot,
         textContent: message,
-        size: chatAny.cardManager ? chatAny.cardManager.calculateCardSize(message) : { width: 300, height: 100 },
+        size: chatAny.cardManager ? chatAny.cardManager.calculateCardSize(message) : {width: 300, height: 100},
         sceneObject: null
-      };
-      
+      }
+
       // Instantiate the card using the chatbot card prefab
       if (chatAny.chatbotCardPrefab) {
-        print("ChatExtensions: 🏗️ Instantiating bot card prefab");
-        const cardObject = chatAny.chatbotCardPrefab.instantiate(agenticChat.getSceneObject());
-        cardObject.name = `Card_${newIndex}_Bot`;
-        cardData.sceneObject = cardObject;
-        cardObject.enabled = false; // Start hidden
-        
+        print("ChatExtensions: Instantiating bot card prefab")
+        const cardObject = chatAny.chatbotCardPrefab.instantiate(agenticChat.getSceneObject())
+        cardObject.name = `Card_${newIndex}_Bot`
+        cardData.sceneObject = cardObject
+        cardObject.enabled = false // Start hidden
+
         // Set up the card content
-        if (typeof chatAny.setupCardContent === 'function') {
-          print("ChatExtensions: 🔧 Setting up card content");
-          chatAny.setupCardContent(cardData);
+        if (typeof chatAny.setupCardContent === "function") {
+          print("ChatExtensions: Setting up card content")
+          chatAny.setupCardContent(cardData)
         }
-        
+
         // Add to arrays
         if (chatAny.cards) {
-          chatAny.cards.push(cardObject);
+          chatAny.cards.push(cardObject)
         }
         if (chatAny.cardData) {
-          chatAny.cardData.push(cardData);
+          chatAny.cardData.push(cardData)
         }
-        
-        // 🔥 CRITICAL: Update currentIndex to show the latest cards in chronological order
-        chatAny.currentIndex = newIndex;
-        
-        // Update layout to show the newest card
-        if (typeof chatAny.updateCardLayoutToIndex === 'function') {
-          print("ChatExtensions: 📐 Updating card layout");
-          chatAny.updateCardLayoutToIndex(newIndex); // Show the new card, not the old currentIndex
+
+        // FIX: For chat mode, maintain chronological order from bottom to top (like a real chat app)
+        // Welcome (index 0) at bottom, User (index 1) above it, Bot (index 2) above that
+        const totalCards = chatAny.cardData ? chatAny.cardData.length : 0
+
+        if (chatAny.chatModeChronological) {
+          // For chronological chat mode (bottom to top = oldest to newest):
+          // Always advance to show the newest card (newIndex) in the center
+          // This ensures the UI automatically advances when new messages are added
+          if (totalCards === 1) {
+            chatAny.currentIndex = 0 // Welcome message at bottom
+          } else {
+            // 2+ cards: show the newest card (newIndex) in center
+            // This automatically advances the UI to show the latest message
+            chatAny.currentIndex = newIndex
+          }
+        } else {
+          // Non-chronological mode: show newest card
+          chatAny.currentIndex = newIndex
         }
-        
-        print(`ChatExtensions: ✅ Added bot card ${newIndex} with message: "${message.substring(0, 50)}..."`);
-        return true;
+
+        // Update layout to show cards in correct order
+        if (typeof chatAny.updateCardLayoutToIndex === "function") {
+          print("ChatExtensions: Updating card layout to index " + chatAny.currentIndex)
+          chatAny.updateCardLayoutToIndex(chatAny.currentIndex)
+        }
+
+        print(`ChatExtensions: Added bot card ${newIndex} with message: "${message.substring(0, 50)}..."`)
+        return true
       } else {
-        print("ChatExtensions: ❌ No chatbot card prefab found");
+        print("ChatExtensions: No chatbot card prefab found")
       }
-      
     } catch (error) {
-      print(`ChatExtensions: ❌ Error adding bot card: ${error}`);
+      print(`ChatExtensions: Error adding bot card: ${error}`)
     }
-    
-    return false;
+
+    return false
   }
-  
+
   /**
    * Get the total number of cards in the AgenticChat component
    */
   public static getCardCount(agenticChat: ChatComponent): number {
     if (!agenticChat) {
-      return 0;
+      return 0
     }
-    
+
     try {
-      const chatAny = agenticChat as any;
-      return chatAny.cardData ? chatAny.cardData.length : 0;
+      const chatAny = agenticChat as any
+      return chatAny.cardData ? chatAny.cardData.length : 0
     } catch (error) {
-      print(`ChatExtensions: Error getting card count: ${error}`);
-      return 0;
+      print(`ChatExtensions: Error getting card count: ${error}`)
+      return 0
     }
   }
-  
+
   /**
    * Check if the AgenticChat component is ready for adding cards
    */
   public static isReady(agenticChat: ChatComponent): boolean {
     if (!agenticChat) {
-      return false;
+      return false
     }
-    
+
     try {
-      const chatAny = agenticChat as any;
-      return chatAny.initialized === true && 
-             chatAny.userCardPrefab !== null && 
-             chatAny.chatbotCardPrefab !== null &&
-             chatAny.cardData !== null;
+      const chatAny = agenticChat as any
+      return (
+        chatAny.initialized === true &&
+        chatAny.userCardPrefab !== null &&
+        chatAny.chatbotCardPrefab !== null &&
+        chatAny.cardData !== null
+      )
     } catch (error) {
-      print(`ChatExtensions: Error checking readiness: ${error}`);
-      return false;
+      print(`ChatExtensions: Error checking readiness: ${error}`)
+      return false
     }
   }
-  
+
   /**
    * Clear all cards from the AgenticChat component
    */
   public static clearAllCards(agenticChat: ChatComponent): boolean {
     if (!agenticChat) {
-      return false;
+      return false
     }
-    
+
     try {
-      const chatAny = agenticChat as any;
-      
+      const chatAny = agenticChat as any
+
       // Destroy all existing card objects
       if (chatAny.cardData && Array.isArray(chatAny.cardData)) {
         for (const cardData of chatAny.cardData) {
           if (cardData.sceneObject) {
-            cardData.sceneObject.destroy();
+            cardData.sceneObject.destroy()
           }
         }
-        
+
         // Clear the card data array
-        chatAny.cardData = [];
-        
+        chatAny.cardData = []
+
         // Clear the cards array if it exists
         if (chatAny.cards && Array.isArray(chatAny.cards)) {
-          chatAny.cards = [];
+          chatAny.cards = []
         }
-        
+
         // Clear animation map to prevent null reference errors
         if (chatAny.animatingCards && chatAny.animatingCards.clear) {
-          chatAny.animatingCards.clear();
+          chatAny.animatingCards.clear()
         }
-        
+
         // Reset the card manager if it exists
         if (chatAny.cardManager) {
-          chatAny.cardManager.clearAllCards();
+          chatAny.cardManager.clearAllCards()
         }
-        
+
         // Reset the current index
         if (chatAny.currentIndex !== undefined) {
-          chatAny.currentIndex = 0;
+          chatAny.currentIndex = 0
         }
-        
-        print("ChatExtensions: ✅ All cards cleared successfully");
-        return true;
+
+        print("ChatExtensions: All cards cleared successfully")
+        return true
       }
-      
     } catch (error) {
-      print(`ChatExtensions: ❌ Error clearing cards: ${error}`);
+      print(`ChatExtensions: Error clearing cards: ${error}`)
     }
-    
-    return false;
+
+    return false
   }
 }

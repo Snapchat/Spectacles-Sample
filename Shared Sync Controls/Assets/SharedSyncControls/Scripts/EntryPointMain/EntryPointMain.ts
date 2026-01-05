@@ -1,15 +1,14 @@
+import {SessionController} from "SpectaclesSyncKit.lspkg/Core/SessionController"
 import {ColorControl} from "../SharedControls/ColorControl/ColorControl"
-import {ValueControl} from "../SharedControls/ValueControl/ValueControl"
-import {ValueControlInput} from "../SharedControls/ValueControl/ValueControlInput"
 import {ColorControlInput} from "../SharedControls/ColorControl/ColorControlInput"
 import {DataSynchronizationController} from "../SharedControls/SyncControls/DataSynchronizationController"
-import {SessionController} from "SpectaclesSyncKit.lspkg/Core/SessionController"
+import {ValueControl} from "../SharedControls/ValueControl/ValueControl"
+import {ValueControlInput} from "../SharedControls/ValueControl/ValueControlInput"
 
 // The EntryPointMain class is responsible for initializing and managing color and value controls,
 // as well as synchronizing data between these controls in an interactive scene environment.
 @component
 export class EntryPointMain extends BaseScriptComponent {
-
   // Input for color control class
   @input
   readonly colorControlInput: ColorControlInput
@@ -24,7 +23,6 @@ export class EntryPointMain extends BaseScriptComponent {
   // Instance of ValueControl, responsible for managing value-related interactions
   private valueControl: ValueControl
 
-  // Instance of DataSynchronizationController, responsible for synchronizing data about color and value between users
   private dataSynchronizationController: DataSynchronizationController
 
   // Lifecycle method called when the component is initialized
@@ -34,10 +32,7 @@ export class EntryPointMain extends BaseScriptComponent {
 
     this.valueControl = new ValueControl(this.valueControlInput)
 
-    this.dataSynchronizationController = new DataSynchronizationController(
-        this.colorControl,
-        this.valueControl
-    )
+    this.dataSynchronizationController = new DataSynchronizationController(this.colorControl, this.valueControl)
 
     // Set up a callback to handle when the session is ready (user has connected to the session,
     // and the environment has been successfully mapped)
@@ -52,5 +47,4 @@ export class EntryPointMain extends BaseScriptComponent {
     this.valueControl.start()
     this.dataSynchronizationController.start()
   }
-
 }

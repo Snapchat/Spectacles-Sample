@@ -1,6 +1,6 @@
 import NativeLogger from "SpectaclesInteractionKit.lspkg/Utils/NativeLogger"
-import {RoundedRectangleVisualCardBot} from "../../Visuals/RoundedRectangle/RoundedRectangleVisualCardBot"
 import {Callback, createCallbacks} from "../../Utility/SceneUtilities"
+import {RoundedRectangleVisualCardBot} from "../../Visuals/RoundedRectangle/RoundedRectangleVisualCardBot"
 import {VisualElement} from "../VisualElement"
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -28,15 +28,15 @@ export class ButtonSlideCardBot extends VisualElement {
   private triggerDownCallbacks: Callback[] = []
 
   @input
-  textIndex: Text = null;
+  textIndex: Text = null
 
   @input
-  textContent: Text = null;
+  textContent: Text = null
 
   protected setUpEventCallbacks(): void {
     // Always call parent to set up base trigger events
     super.setUpEventCallbacks()
-    
+
     // Add additional callbacks if enabled
     if (this.addCallbacks) {
       this.onTriggerUp.add(createCallbacks(this.triggerUpCallbacks))
@@ -64,11 +64,20 @@ export class ButtonSlideCardBot extends VisualElement {
     if (!this._visual) {
       this.createDefaultVisual()
     }
-    
+
     // Use the visual element's size property instead of transform scaling
     if (this._visual) {
       this.size = size
-      print("ButtonSlideCardBot: Applied dynamic size " + size.x + "x" + size.y + "x" + size.z + " to " + this.sceneObject.name)
+      print(
+        "ButtonSlideCardBot: Applied dynamic size " +
+          size.x +
+          "x" +
+          size.y +
+          "x" +
+          size.z +
+          " to " +
+          this.sceneObject.name
+      )
     } else {
       print("ButtonSlideCardBot: Could not apply size - visual not initialized for " + this.sceneObject.name)
     }
@@ -83,7 +92,7 @@ export class ButtonSlideCardBot extends VisualElement {
     if (!this._visual) {
       this.createDefaultVisual()
     }
-    
+
     // Return the visual element's size property or default size
     return this._visual ? this.size : new vec3(25, 5, 3)
   }
@@ -95,7 +104,7 @@ export class ButtonSlideCardBot extends VisualElement {
   public setTextContent(content: string): void {
     if (this.textContent) {
       this.textContent.text = content
-      
+
       // Apply text wrapping for longer content
       // This depends on the text component configuration
       print("ButtonSlide: Set text content (" + content.length + " chars) on " + this.sceneObject.name)

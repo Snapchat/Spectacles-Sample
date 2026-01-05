@@ -1,5 +1,5 @@
-import {ColorControlInput} from "./ColorControlInput"
 import {ColorParams} from "../SyncControls/RealtimeStoreKeys"
+import {ColorControlInput} from "./ColorControlInput"
 import {SliderControl} from "./SliderControl/SliderControl"
 
 // The ColorControl class manages the color properties of an object,
@@ -8,12 +8,11 @@ import {SliderControl} from "./SliderControl/SliderControl"
 // listens for user interactions via sliders, updates the object's color accordingly,
 // and notifies any subscribed listeners about changes in color values.
 export class ColorControl {
-
   // Reference to the material pass of the object's mesh, used for color adjustments
   private readonly objectPass: Pass
 
   // Array of callback functions that are notified when the user changes the color
-  private readonly onUserChangedColor: ((colorParam: ColorParams, value: number) => void) [] = []
+  private readonly onUserChangedColor: ((colorParam: ColorParams, value: number) => void)[] = []
 
   // Array to store slider controls corresponding to RGB color parameters
   private readonly sliderControls: SliderControl[] = []
@@ -23,7 +22,6 @@ export class ColorControl {
 
   // Constructor initializes the control with input settings and sets up slider controls
   constructor(private readonly input: ColorControlInput) {
-    // Initialize the object in the scene whose color will change based on the position of the RGB sliders
     this.objectPass = input.objectMesh.mainMaterial.mainPass
 
     // Create and configure slider controls for each input
@@ -32,7 +30,7 @@ export class ColorControl {
       // Subscribe to changes from each slider control
       this.sliderControls[index].subscribeOnChanges((colorParam: ColorParams, value: number) => {
         // Notify listeners of color changes
-        this.onUserChangedColor.forEach(event => event(colorParam, value))
+        this.onUserChangedColor.forEach((event) => event(colorParam, value))
         // Update the object's color based on slider input
         this.updateObjectColor(index, value)
       })
@@ -40,7 +38,6 @@ export class ColorControl {
     // Initialize the object's color
     this.initColor(this._objectColor)
 
-    // Initially disable the root component of the color control. It will be enabled after the OnStartColocated event.
     input.root.enabled = false
   }
 
@@ -94,5 +91,4 @@ export class ColorControl {
     // Apply the updated color to the object in the scene
     this.objectPass.baseColor = this._objectColor
   }
-
 }

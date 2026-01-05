@@ -6,7 +6,7 @@ interface Event {
 
 enum EventType {
   Start = 0,
-  End = 1,
+  End = 1
 }
 
 export class UICollisionSolver {
@@ -18,14 +18,14 @@ export class UICollisionSolver {
   resolve1DCollisions(elements: vec2[]): vec2[] {
     const events: Event[] = []
 
-    let i = 0
+    const i = 0
     for (let i = 0; i < elements.length; i++) {
       const element = elements[i]
       events.push({n: element.x, type: EventType.Start, index: i})
       events.push({
         n: element.y,
         type: EventType.End,
-        index: i,
+        index: i
       })
     }
 
@@ -53,14 +53,14 @@ export class UICollisionSolver {
   resolve2DCollisions(elements: vec4[]): vec4[] {
     const events: Event[] = []
 
-    let i = 0
+    const i = 0
     for (let i = 0; i < elements.length; i++) {
       const element = elements[i]
       events.push({n: element.x, type: EventType.Start, index: i})
       events.push({
         n: element.y,
         type: EventType.End,
-        index: i,
+        index: i
       })
     }
 
@@ -107,7 +107,7 @@ export class UICollisionSolver {
             elements[currentIndex].x,
             elements[currentIndex].y,
             otherElement.w,
-            otherElement.w + currentElement.w - currentElement.z,
+            otherElement.w + currentElement.w - currentElement.z
           )
         }
       }

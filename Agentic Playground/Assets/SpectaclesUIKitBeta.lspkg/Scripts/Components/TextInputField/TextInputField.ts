@@ -62,14 +62,14 @@ export const BORDER_GRADIENT_PARAMETERS: {[key: string]: GradientParameters} = {
     type: "Linear",
     stop0: {enabled: true, percent: 0, color: COLORS.lightGray},
     stop1: {enabled: true, percent: 0.5, color: COLORS.lightGray},
-    stop2: {enabled: true, percent: 1, color: COLORS.lightGray},
+    stop2: {enabled: true, percent: 1, color: COLORS.lightGray}
   },
   toggledHovered: {
     enabled: true,
     type: "Linear",
-    stop0: {enabled: true, percent:  1.5, color: COLORS.lightGray},
+    stop0: {enabled: true, percent: 1.5, color: COLORS.lightGray},
     stop1: {enabled: true, percent: 1.5, color: COLORS.lightGray},
-    stop2: {enabled: true, percent:  1.5, color: COLORS.lightGray},
+    stop2: {enabled: true, percent: 1.5, color: COLORS.lightGray}
   }
 }
 

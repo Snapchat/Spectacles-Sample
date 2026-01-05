@@ -3,8 +3,7 @@
  */
 @component
 export class Annotation extends BaseScriptComponent {
-    @input 
-    @widget(new TextAreaWidget())
-    private text: string
-
+  @input
+  @widget(new TextAreaWidget())
+  private text: string
 }

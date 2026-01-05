@@ -1,9 +1,6 @@
-import NativeLogger from "SpectaclesInteractionKit.lspkg/Utils/NativeLogger"
 import {RoundedRectangleVisual} from "../../Visuals/RoundedRectangle/RoundedRectangleVisual"
 
-import {Callback, createCallbacks} from "../../Utility/SceneUtilities"
 import {VisualElement} from "../VisualElement"
-
 
 /**
  * The `Button` class represents a button component in the Spectacles UI Kit.
@@ -13,7 +10,6 @@ import {VisualElement} from "../VisualElement"
  */
 @component
 export class Backplate extends VisualElement {
-
   protected createDefaultVisual(): void {
     if (!this._visual) {
       const defaultVisual: RoundedRectangleVisual = new RoundedRectangleVisual(this.sceneObject)

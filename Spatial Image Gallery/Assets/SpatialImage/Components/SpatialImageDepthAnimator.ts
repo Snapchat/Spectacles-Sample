@@ -1,5 +1,5 @@
-import { easingFunctions } from "SpectaclesInteractionKit.lspkg/Utils/animate"
-import { SpatialImageAngleValidator } from "./SpatialImageAngleValidator"
+import {easingFunctions} from "SpectaclesInteractionKit.lspkg/Utils/animate"
+import {SpatialImageAngleValidator} from "./SpatialImageAngleValidator"
 
 /**
  * Controls the depth scale of the spatial image to reflect the entry of new
@@ -69,23 +69,16 @@ export class SpatialImageDepthAnimator extends BaseScriptComponent {
       return
     }
 
-    let flatten = this.shouldFlatten ? 0 : 1
+    const flatten = this.shouldFlatten ? 0 : 1
 
     const distance = flatten - this.depthFlattenFollower
 
     if (Math.abs(distance) > 0.01) {
-      this.depthFlattenFollower =
-        this.depthFlattenFollower +
-        Math.sign(distance) * getDeltaTime() * this.animateSpeed
+      this.depthFlattenFollower = this.depthFlattenFollower + Math.sign(distance) * getDeltaTime() * this.animateSpeed
     }
 
-    const easedAngle = easingFunctions["ease-in-out-sine"](
-      this.depthFlattenFollower
-    )
-    this.spatializer.material.mainPass.depthScale = Math.max(
-      easedAngle * maxDepthScale,
-      this.minDepth
-    )
+    const easedAngle = easingFunctions["ease-in-out-sine"](this.depthFlattenFollower)
+    this.spatializer.material.mainPass.depthScale = Math.max(easedAngle * maxDepthScale, this.minDepth)
   }
 
   private handleAngleValidityChanged(isValid: boolean): void {

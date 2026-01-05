@@ -1,6 +1,6 @@
 import {BaseToggleGroup} from "./BaseToggleGroup"
 import {Toggleable} from "./Toggleable"
-import { ToggleSelectionColorDropdown } from "./ToggleSelectionColorDropdown"
+import {ToggleSelectionColorDropdown} from "./ToggleSelectionColorDropdown"
 
 /**
  * Represents a dropdown group of toggles where clicking the first element opens/closes the dropdown.
@@ -86,7 +86,7 @@ export class ToggleGroupSelectionColorDropdown extends BaseToggleGroup {
 
     print("All toggles initialized, proceeding with setup")
     print("Toggles array length: " + this._toggles.length)
-    
+
     // Debug: Check each toggle
     for (let i = 0; i < this._toggles.length; i++) {
       const toggle = this._toggles[i]
@@ -100,16 +100,16 @@ export class ToggleGroupSelectionColorDropdown extends BaseToggleGroup {
         print("Toggle " + i + " is null/undefined")
       }
     }
-    
+
     this._setupComplete = true
 
     // Set up our custom dropdown behavior
     this._toggles.forEach((toggle, index) => {
       print("Setting up toggle " + index)
-      
+
       // Make sure each toggle is converted to toggle mode
       toggle.convertToToggle()
-      
+
       // Add our custom dropdown behavior
       toggle.onFinished.add((explicit: boolean) => {
         if (!explicit) return
@@ -142,16 +142,16 @@ export class ToggleGroupSelectionColorDropdown extends BaseToggleGroup {
   }
 
   private openDropdown() {
-    this.panel.enabled = true;
+    this.panel.enabled = true
     print("Opening dropdown")
     print("Current toggles array length: " + this._toggles.length)
     this._isDropdownOpen = true
-    
+
     // Show all toggles
     for (let i = 0; i < this._toggles.length; i++) {
       const toggle = this._toggles[i]
       print("Processing toggle index " + i + " of " + this._toggles.length)
-      
+
       if (toggle) {
         print("Toggle " + i + " exists")
         if (toggle.sceneObject) {
@@ -165,21 +165,21 @@ export class ToggleGroupSelectionColorDropdown extends BaseToggleGroup {
         print("Toggle " + i + " is null/undefined")
       }
     }
-    
+
     print("Finished opening dropdown")
   }
 
   private closeDropdown() {
-    this.panel.enabled = false;
+    this.panel.enabled = false
     print("Closing dropdown")
     print("Current toggles array length: " + this._toggles.length)
     this._isDropdownOpen = false
-    
+
     // Hide all toggles except the first one
     for (let i = 0; i < this._toggles.length; i++) {
       const toggle = this._toggles[i]
       print("Processing toggle index " + i + " of " + this._toggles.length)
-      
+
       if (toggle) {
         if (toggle.sceneObject) {
           if (i === 0) {
@@ -196,14 +196,14 @@ export class ToggleGroupSelectionColorDropdown extends BaseToggleGroup {
         print("Toggle " + i + " is null/undefined")
       }
     }
-    
+
     print("Finished closing dropdown")
   }
 
   private selectOption(selectedIndex: number) {
     print("Selecting option " + selectedIndex)
     this._selectedIndex = selectedIndex
-    
+
     // Update the first toggle's text to match the selected option
     this.updateFirstToggleText()
     print("Updated first toggle text to match selection " + selectedIndex)
@@ -221,7 +221,7 @@ export class ToggleGroupSelectionColorDropdown extends BaseToggleGroup {
     // Get text content from the selected toggle
     const selectedTextContent = selectedToggle.getTextContent()
     print("Selected toggle text content: " + selectedTextContent.text1 + ", " + selectedTextContent.text2)
-    
+
     // Update the first toggle with the selected text
     firstToggle.updateText(selectedTextContent.text1 || undefined, selectedTextContent.text2 || undefined)
     print("Updated first toggle text")

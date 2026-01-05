@@ -1,58 +1,58 @@
-import { Conversions } from "./Conversions";
+import {Conversions} from "./Conversions"
 
 @component
 export class Timer extends BaseScriptComponent {
-    @input 
-    timerText: Text
+  @input
+  timerText: Text
 
-    @input
-    lastLapTimeText: Text
+  @input
+  lastLapTimeText: Text
 
-    @input
-    lastLapHUD: SceneObject
+  @input
+  lastLapHUD: SceneObject
 
-    private time:number = 0;
-    private runTimer:boolean = false;
+  private time: number = 0
+  private runTimer: boolean = false
 
-    onAwake(){
-        this.timerText.enabled = false;
-        this.createEvent("UpdateEvent").bind(()=>this.onUpdate());
+  onAwake() {
+    this.timerText.enabled = false
+    this.createEvent("UpdateEvent").bind(() => this.onUpdate())
+  }
+
+  onUpdate() {
+    if (this.runTimer) {
+      this.time += getDeltaTime()
+      this.updateText(this.time, this.timerText)
     }
+  }
 
-    onUpdate(){
-        if(this.runTimer){
-            this.time += getDeltaTime();
-            this.updateText(this.time, this.timerText);
-        }
-    }
+  public stop() {
+    this.time = 0
+    this.updateText(this.time, this.timerText)
+    this.updateText(this.time, this.lastLapTimeText)
+    this.runTimer = false
+  }
 
-    public stop(){
-        this.time = 0;
-        this.updateText(this.time, this.timerText);
-        this.updateText(this.time, this.lastLapTimeText);
-        this.runTimer = false;
-    }
+  start() {
+    this.time = 0
+    this.updateText(this.time, this.timerText)
+    this.timerText.enabled = true
+    this.runTimer = true
+  }
 
-    start(){
-        this.time = 0;
-        this.updateText(this.time, this.timerText);
-        this.timerText.enabled = true;
-        this.runTimer = true;
-    }
+  pause() {
+    this.runTimer = false
+  }
 
-    pause(){
-        this.runTimer = false;
-    }
+  incrementLap() {
+    this.lastLapHUD.enabled = true
+    this.updateText(this.time, this.lastLapTimeText)
+  }
 
-    incrementLap(){
-        this.lastLapHUD.enabled = true;
-        this.updateText(this.time, this.lastLapTimeText);
-    }
-
-    private updateText(seconds:number, text:Text){
-        let minSec = Conversions.secToMin(seconds);
-        let secStr = minSec.sec < 10 ? "0" + minSec.sec.toFixed(0) : minSec.sec.toFixed(0);
-        let str = minSec.min + ":" + secStr;
-        text.text = str;
-    }
+  private updateText(seconds: number, text: Text) {
+    const minSec = Conversions.secToMin(seconds)
+    const secStr = minSec.sec < 10 ? "0" + minSec.sec.toFixed(0) : minSec.sec.toFixed(0)
+    const str = minSec.min + ":" + secStr
+    text.text = str
+  }
 }

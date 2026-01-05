@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spectacles Composite Stream Viewer</title>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .stream-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .connection-panel {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin: 10px 0;
+        }
+
+        .input-group label {
+            display: block;
+            color: white;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .input-group input {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 14px;
+        }
+
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 10px;
+            transition: transform 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            background: rgba(255, 255, 255, 0.3);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .status {
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-weight: 500;
+        }
+
+        .status.connected {
+            background: rgba(76, 175, 80, 0.3);
+            color: #4caf50;
+            border: 1px solid rgba(76, 175, 80, 0.5);
+        }
+
+        .status.disconnected {
+            background: rgba(244, 67, 54, 0.3);
+            color: #f44336;
+            border: 1px solid rgba(244, 67, 54, 0.5);
+        }
+
+        .status.waiting {
+            background: rgba(255, 193, 7, 0.3);
+            color: #ffc107;
+            border: 1px solid rgba(255, 193, 7, 0.5);
+        }
+
+        .video-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #streamCanvas {
+            max-width: 100%;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            display: block;
+            margin: 0 auto;
+        }
+
+        .stream-info {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            color: white;
+            font-size: 14px;
+        }
+
+        .stream-info div {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin: 0 5px;
+            flex: 1;
+            text-align: center;
+        }
+
+        .audio-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 15px 0;
+            color: white;
+            gap: 15px;
+        }
+
+        .audio-controls button {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .volume-control input {
+            width: 100px;
+        }
+
+        .error-message {
+            background: rgba(244, 67, 54, 0.3);
+            color: #f44336;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border: 1px solid rgba(244, 67, 54, 0.5);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎥🔊 Spectacles Composite Stream Viewer</h1>
+        <p>Watch live video + audio from Spectacles</p>
+    </div>
+
+    <div class="stream-container">
+        <div class="connection-panel">
+            <div class="input-group">
+                <label for="supabaseUrl">Supabase Project URL:</label>
+                <input type="text" id="supabaseUrl" placeholder="https://your-project.supabase.co">
+            </div>
+
+            <div class="input-group">
+                <label for="supabaseKey">Supabase Anon Key:</label>
+                <input type="text" id="supabaseKey" placeholder="your-anon-key">
+            </div>
+
+            <div class="input-group">
+                <label for="channelName">Stream Channel:</label>
+                <input type="text" id="channelName" value="composite-live-stream" placeholder="composite-live-stream">
+            </div>
+
+            <button id="connectBtn" class="btn">Connect to Stream</button>
+            <button id="disconnectBtn" class="btn" disabled>Disconnect</button>
+        </div>
+
+        <div id="statusPanel" class="status waiting">
+            Ready to connect
+        </div>
+
+        <div id="errorPanel" class="error-message"></div>
+
+        <div class="stream-info" style="display: none;" id="streamInfo">
+            <div id="frameCount">Video Frames: 0</div>
+            <div id="audioCount">Audio Chunks: 0</div>
+            <div id="fps">FPS: 0</div>
+            <div id="duration">Duration: 0s</div>
+            <div id="bufferStatus">V-Buffer: 0 | A-Buffer: 0</div>
+        </div>
+
+        <div class="audio-controls" style="display: none;" id="audioControls">
+            <button id="muteBtn">🔊 Mute</button>
+            <div class="volume-control">
+                <label>Volume:</label>
+                <input type="range" id="volumeSlider" min="0" max="100" value="80">
+                <span id="volumeValue">80%</span>
+            </div>
+        </div>
+
+        <div class="video-container">
+            <canvas id="streamCanvas" width="640" height="480"></canvas>
+        </div>
+    </div>
+
+    <script>
+        class CompositeStreamViewer {
+            constructor() {
+                this.supabaseClient = null;
+                this.channel = null;
+                this.canvas = document.getElementById('streamCanvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.isConnected = false;
+                
+                // Video state
+                this.frameCount = 0;
+                this.videoFrameBuffer = [];
+                this.maxVideoBuffer = 4;
+                this.playbackFPS = 30;
+                this.isPlaying = false;
+                this.startTime = 0;
+                this.currentFPS = 0;
+                this.lastFrameDisplayTime = 0;
+
+                // Audio state
+                this.audioContext = null;
+                this.audioChunkCount = 0;
+                this.audioBuffer = [];
+                this.audioQueue = [];
+                this.sampleRate = 16000;
+                this.isMuted = false;
+                this.volume = 0.8;
+                this.nextAudioPlayTime = 0;
+                this.isAudioPlaying = false;
+
+                this.setupEventListeners();
+            }
+
+            setupEventListeners() {
+                document.getElementById('connectBtn').addEventListener('click', () => this.connect());
+                document.getElementById('disconnectBtn').addEventListener('click', () => this.disconnect());
+                document.getElementById('muteBtn').addEventListener('click', () => this.toggleMute());
+                
+                document.getElementById('volumeSlider').addEventListener('input', (e) => {
+                    this.volume = parseInt(e.target.value) / 100;
+                    document.getElementById('volumeValue').textContent = `${e.target.value}%`;
+                    
+                    // Update gain node in real-time
+                    if (this.gainNode && !this.isMuted) {
+                        this.gainNode.gain.value = this.volume;
+                    }
+                });
+            }
+
+            async connect() {
+                const url = document.getElementById('supabaseUrl').value;
+                const key = document.getElementById('supabaseKey').value;
+                const channelName = document.getElementById('channelName').value;
+
+                if (!url || !key || !channelName) {
+                    this.showError('Please fill in all connection fields');
+                    return;
+                }
+
+                try {
+                    this.updateStatus('Connecting to Supabase...', 'waiting');
+
+                    // Initialize Web Audio API - will use stream's sample rate when received
+                    this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+                    // Create gain node for volume control
+                    this.gainNode = this.audioContext.createGain();
+                    this.gainNode.gain.value = this.volume;
+                    this.gainNode.connect(this.audioContext.destination);
+
+                    // Create Supabase client
+                    this.supabaseClient = window.supabase.createClient(url, key, {
+                        realtime: {
+                            heartbeatIntervalMs: 2500,
+                        },
+                    });
+
+                    // Create channel for composite streaming
+                    this.channel = this.supabaseClient.channel(channelName, {
+                        config: {
+                            broadcast: { self: false }
+                        }
+                    });
+
+                    // Listen for composite stream events
+                    this.channel
+                        .on('broadcast', { event: 'composite-stream-init' }, (msg) => {
+                            console.log('🎬 Composite stream initialized:', msg.payload);
+                            this.handleStreamInit(msg.payload);
+                        })
+                        .on('broadcast', { event: 'composite-stream-started' }, (msg) => {
+                            console.log('▶️ Composite stream started:', msg.payload);
+                            this.handleStreamStarted(msg.payload);
+                        })
+                        .on('broadcast', { event: 'composite-video-frame' }, (msg) => {
+                            this.handleVideoFrame(msg.payload);
+                        })
+                        .on('broadcast', { event: 'composite-audio-chunk' }, (msg) => {
+                            this.handleAudioChunk(msg.payload);
+                        })
+                        .on('broadcast', { event: 'composite-stream-ended' }, (msg) => {
+                            console.log('⏹️ Composite stream ended:', msg.payload);
+                            this.handleStreamEnded(msg.payload);
+                        });
+
+                    // Subscribe to channel
+                    await this.channel.subscribe((status) => {
+                        console.log('Subscription status:', status);
+
+                        if (status === 'SUBSCRIBED') {
+                            this.isConnected = true;
+                            this.updateStatus('Connected - Waiting for composite stream...', 'connected');
+                            document.getElementById('connectBtn').disabled = true;
+                            document.getElementById('disconnectBtn').disabled = false;
+                            document.getElementById('streamCanvas').style.display = 'block';
+                            document.getElementById('streamInfo').style.display = 'flex';
+                            document.getElementById('audioControls').style.display = 'flex';
+
+                            // Notify that viewer joined
+                            this.channel.send({
+                                type: 'broadcast',
+                                event: 'viewer-joined',
+                                payload: {
+                                    viewerId: 'web-viewer-' + Date.now(),
+                                    timestamp: Date.now()
+                                }
+                            });
+                        } else if (status === 'CLOSED' || status === 'CHANNEL_ERROR') {
+                            this.showError('Channel subscription failed: ' + status);
+                            this.updateStatus('Connection failed', 'disconnected');
+                        }
+                    });
+
+                } catch (error) {
+                    console.error('Connection error:', error);
+                    this.showError('Connection failed: ' + error.message);
+                    this.updateStatus('Connection failed', 'disconnected');
+                }
+            }
+
+            disconnect() {
+                this.stopPlayback();
+                this.stopAudioPlayback();
+                this.videoFrameBuffer = [];
+                this.audioBuffer = [];
+                this.audioQueue = [];
+
+                if (this.channel && this.isConnected) {
+                    this.channel.send({
+                        type: 'broadcast',
+                        event: 'viewer-left',
+                        payload: {
+                            viewerId: 'web-viewer',
+                            timestamp: Date.now()
+                        }
+                    });
+
+                    this.supabaseClient.removeChannel(this.channel);
+                }
+
+                if (this.audioContext) {
+                    this.audioContext.close();
+                    this.audioContext = null;
+                }
+
+                this.isConnected = false;
+                this.frameCount = 0;
+                this.audioChunkCount = 0;
+                this.updateStatus('Disconnected', 'disconnected');
+                document.getElementById('connectBtn').disabled = false;
+                document.getElementById('disconnectBtn').disabled = true;
+                document.getElementById('streamCanvas').style.display = 'none';
+                document.getElementById('streamInfo').style.display = 'none';
+                document.getElementById('audioControls').style.display = 'none';
+                this.hideError();
+            }
+
+            handleStreamInit(payload) {
+                console.log('Composite stream settings:', payload.settings);
+                this.sampleRate = payload.settings.audio.sampleRate || 16000;
+                console.log(`🔊 Audio configured for ${this.sampleRate}Hz sample rate`);
+                this.updateStatus(`Composite stream initialized - ${this.sampleRate}Hz audio`, 'connected');
+            }
+
+            handleStreamStarted(payload) {
+                this.frameCount = 0;
+                this.audioChunkCount = 0;
+                this.startTime = Date.now();
+                this.lastFrameTime = Date.now();
+                this.updateStatus('🔴 Live Composite Stream - Video + Audio Active', 'connected');
+                document.getElementById('streamCanvas').style.display = 'block';
+                document.getElementById('streamInfo').style.display = 'flex';
+
+                // Clear buffers and start fresh
+                this.videoFrameBuffer = [];
+                this.audioBuffer = [];
+                this.audioQueue = [];
+                this.stopPlayback();
+                this.stopAudioPlayback();
+
+                // Reset audio timing
+                this.nextAudioPlayTime = this.audioContext ? this.audioContext.currentTime : 0;
+
+                // Start playback after brief buffer delay
+                setTimeout(() => {
+                    this.startPlayback();
+                }, 100);
+            }
+
+            handleVideoFrame(payload) {
+                const { frameData, frameNumber, timestamp, metadata } = payload;
+
+                if (!frameData) {
+                    console.error('❌ No frame data received!');
+                    return;
+                }
+
+                // Extract base64 data (remove frame marker)
+                const base64Data = frameData.replace('|||FRAME_END|||', '');
+
+                // Create image and add to buffer
+                const img = new Image();
+                img.onload = () => {
+                    this.videoFrameBuffer.push({
+                        image: img,
+                        frameNumber: frameNumber,
+                        timestamp: timestamp,
+                        metadata: metadata
+                    });
+
+                    // Start playback if not already playing and have frames
+                    if (!this.isPlaying && this.videoFrameBuffer.length >= 2) {
+                        this.startPlayback();
+                    }
+
+                    // Limit buffer size
+                    if (this.videoFrameBuffer.length > 10) {
+                        this.videoFrameBuffer = this.videoFrameBuffer.slice(-this.maxVideoBuffer);
+                    }
+
+                    this.frameCount = frameNumber;
+                };
+
+                img.onerror = (error) => {
+                    console.error('❌ Image load failed:', error);
+                };
+
+                // Set image source
+                if (base64Data.startsWith('data:')) {
+                    img.src = base64Data;
+                } else {
+                    img.src = 'data:image/jpeg;base64,' + base64Data;
+                }
+            }
+
+            handleAudioChunk(payload) {
+                const { audioData, chunkNumber, sampleRate, samples } = payload;
+
+                if (!audioData || !this.audioContext) {
+                    console.error('❌ No audio data or audio context');
+                    return;
+                }
+
+                this.audioChunkCount = chunkNumber;
+                this.sampleRate = sampleRate || 16000;
+
+                console.log(`🔊 Received audio chunk ${chunkNumber}: ${samples} samples at ${sampleRate}Hz`);
+                console.log(`🔊 AudioContext sample rate: ${this.audioContext.sampleRate}Hz`);
+
+                try {
+                    // Decode WAV format base64 audio data
+                    const wavBytes = this.base64ToUint8Array(audioData);
+                    console.log(`🔊 WAV data: ${wavBytes.length} bytes`);
+                    
+                    // Add to queue for smooth playback
+                    this.audioQueue.push({
+                        data: wavBytes.buffer,
+                        chunkNumber: chunkNumber,
+                        timestamp: Date.now()
+                    });
+
+                    // Start audio playback if not already playing
+                    if (!this.isAudioPlaying && this.isPlaying) {
+                        this.startAudioPlayback();
+                    }
+
+                } catch (error) {
+                    console.error('❌ Audio processing error:', error);
+                }
+            }
+
+            base64ToUint8Array(base64) {
+                // Decode base64 to binary
+                const binaryString = atob(base64);
+                const bytes = new Uint8Array(binaryString.length);
+                
+                for (let i = 0; i < binaryString.length; i++) {
+                    bytes[i] = binaryString.charCodeAt(i);
+                }
+
+                return bytes;
+            }
+
+            async startAudioPlayback() {
+                this.isAudioPlaying = true;
+                
+                // Reset scheduling time
+                this.nextAudioPlayTime = this.audioContext.currentTime;
+
+                // Process audio queue continuously
+                this.processAudioQueue();
+            }
+
+            async processAudioQueue() {
+                if (!this.isAudioPlaying || this.isMuted) {
+                    setTimeout(() => {
+                        if (this.isAudioPlaying) this.processAudioQueue();
+                    }, 100);
+                    return;
+                }
+
+                // Process up to 3 chunks at once for smooth playback
+                const chunksToProcess = Math.min(3, this.audioQueue.length);
+
+                for (let i = 0; i < chunksToProcess && this.audioQueue.length > 0 && this.isAudioPlaying; i++) {
+                    const audioChunk = this.audioQueue.shift();
+
+                    try {
+                        // Decode WAV audio buffer
+                        const audioBuffer = await this.audioContext.decodeAudioData(audioChunk.data);
+
+                        // Create audio source
+                        const source = this.audioContext.createBufferSource();
+                        source.buffer = audioBuffer;
+                        source.connect(this.gainNode);
+
+                        // Schedule playback to maintain continuous audio
+                        const currentTime = this.audioContext.currentTime;
+                        const playTime = Math.max(currentTime, this.nextAudioPlayTime);
+                        
+                        source.start(playTime);
+
+                        // Update next scheduled time
+                        this.nextAudioPlayTime = playTime + audioBuffer.duration;
+
+                    } catch (error) {
+                        console.error('❌ Audio decode error:', error);
+                    }
+                }
+
+                // Continue processing queue
+                setTimeout(() => {
+                    if (this.isAudioPlaying) this.processAudioQueue();
+                }, 50);
+            }
+
+            stopAudioPlayback() {
+                this.isAudioPlaying = false;
+                this.audioQueue = [];
+            }
+
+            toggleMute() {
+                this.isMuted = !this.isMuted;
+                const muteBtn = document.getElementById('muteBtn');
+                muteBtn.textContent = this.isMuted ? '🔇 Unmute' : '🔊 Mute';
+                
+                // Update gain node
+                if (this.gainNode) {
+                    this.gainNode.gain.value = this.isMuted ? 0 : this.volume;
+                }
+            }
+
+            startPlayback() {
+                if (this.isPlaying) return;
+
+                this.isPlaying = true;
+                this.updateStatus('🔴 Live Composite Stream - Playing Video + Audio', 'connected');
+
+                // Use requestAnimationFrame for smooth video playback
+                this.lastRenderTime = performance.now();
+                this.frameInterval = 1000 / this.playbackFPS;
+                this.animateStream();
+            }
+
+            animateStream() {
+                if (!this.isPlaying) return;
+
+                const currentTime = performance.now();
+                const elapsed = currentTime - this.lastRenderTime;
+
+                // Render next frame if enough time elapsed
+                if (elapsed >= this.frameInterval) {
+                    this.displayNextFrame();
+                    this.lastRenderTime = currentTime - (elapsed % this.frameInterval);
+                }
+
+                // Continue animation loop
+                requestAnimationFrame(() => this.animateStream());
+            }
+
+            stopPlayback() {
+                this.isPlaying = false;
+            }
+
+            displayNextFrame() {
+                if (this.videoFrameBuffer.length === 0) {
+                    if (this.isPlaying) {
+                        this.updateStatus('🔴 Live Stream - Buffering Video...', 'waiting');
+                    }
+                    return;
+                }
+
+                const frame = this.videoFrameBuffer.shift();
+                if (!frame || !frame.image) return;
+
+                if (this.videoFrameBuffer.length < 1 && this.isPlaying) {
+                    this.updateStatus('🔴 Live Stream - Low Video Buffer', 'waiting');
+                } else if (this.isPlaying) {
+                    this.updateStatus('🔴 Live Composite Stream - Playing', 'connected');
+                }
+
+                try {
+                    // Resize canvas if needed
+                    if (this.canvas.width !== frame.image.width || this.canvas.height !== frame.image.height) {
+                        this.canvas.width = frame.image.width;
+                        this.canvas.height = frame.image.height;
+                    }
+
+                    // Draw frame
+                    this.ctx.imageSmoothingEnabled = true;
+                    this.ctx.imageSmoothingQuality = 'high';
+                    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                    this.ctx.globalAlpha = 1.0;
+                    this.ctx.drawImage(frame.image, 0, 0);
+
+                    // Update stream info
+                    this.updateStreamInfo(frame.metadata);
+                } catch (error) {
+                    console.error('❌ Error drawing frame:', error);
+                }
+            }
+
+            handleStreamEnded(payload) {
+                this.stopPlayback();
+                this.videoFrameBuffer = [];
+                this.audioBuffer = [];
+                this.updateStatus(`Stream ended - ${payload.totalFrames} frames, ${payload.totalAudioChunks} audio chunks`, 'waiting');
+                console.log(`Composite stream completed: ${payload.totalFrames} frames, ${payload.totalAudioChunks} audio in ${payload.duration}ms`);
+            }
+
+            updateStreamInfo(metadata) {
+                const now = performance.now();
+                const duration = Math.floor((now - this.startTime) / 1000);
+
+                // Calculate FPS
+                if (this.lastFrameDisplayTime > 0) {
+                    const timeSinceLastFrame = now - this.lastFrameDisplayTime;
+                    if (timeSinceLastFrame > 0) {
+                        this.currentFPS = Math.round(1000 / timeSinceLastFrame);
+                    }
+                }
+                this.lastFrameDisplayTime = now;
+
+                document.getElementById('frameCount').textContent = `Video Frames: ${this.frameCount}`;
+                document.getElementById('audioCount').textContent = `Audio Chunks: ${this.audioChunkCount}`;
+                document.getElementById('fps').textContent = `FPS: ${this.currentFPS}`;
+                document.getElementById('duration').textContent = `Duration: ${duration}s`;
+                document.getElementById('bufferStatus').textContent = `V-Buffer: ${this.videoFrameBuffer.length} | A-Buffer: ${this.audioBuffer.length}`;
+            }
+
+            updateStatus(message, type) {
+                const statusPanel = document.getElementById('statusPanel');
+                statusPanel.textContent = message;
+                statusPanel.className = `status ${type}`;
+            }
+
+            showError(message) {
+                const errorPanel = document.getElementById('errorPanel');
+                errorPanel.textContent = message;
+                errorPanel.style.display = 'block';
+            }
+
+            hideError() {
+                document.getElementById('errorPanel').style.display = 'none';
+            }
+        }
+
+        // Initialize viewer when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new CompositeStreamViewer();
+        });
+    </script>
+</body>
+</html>
+

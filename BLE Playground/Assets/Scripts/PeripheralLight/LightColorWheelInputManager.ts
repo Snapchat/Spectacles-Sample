@@ -1,55 +1,54 @@
-import { LightController } from "./LightController";
-import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable";
-import { InteractorEvent } from "SpectaclesInteractionKit.lspkg/Core/Interactor/InteractorEvent";
-import { unsubscribe } from "SpectaclesInteractionKit.lspkg/Utils/Event";
+import {Interactable} from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable"
+import {InteractorEvent} from "SpectaclesInteractionKit.lspkg/Core/Interactor/InteractorEvent"
+import {unsubscribe} from "SpectaclesInteractionKit.lspkg/Utils/Event"
+import {LightController} from "./LightController"
 
 @component
 export class LightColorWheelInputManager extends BaseScriptComponent {
+  @input
+  interactable: Interactable
 
-    @input
-    interactable:Interactable
+  @input
+  lightController: LightController
 
-    @input
-    lightController:LightController
+  private triggerUpdateRemover: unsubscribe
 
-    private triggerUpdateRemover:unsubscribe
+  onAwake() {
+    this.createEvent("OnStartEvent").bind(() => this.onStart())
+  }
 
-    onAwake() {
-        this.createEvent("OnStartEvent").bind(()=>this.onStart());
+  private onStart() {
+    this.interactable.onTriggerStart.add(() => this.onTriggerStart())
+    this.interactable.onTriggerEnd.add(() => this.onTriggerEnd())
+    this.interactable.onTriggerCanceled(() => this.onTriggerCanceled())
+  }
+
+  private subscribe() {
+    if (!this.triggerUpdateRemover) {
+      this.triggerUpdateRemover = this.interactable.onTriggerUpdate.add((arg) => this.onTriggerUpdate(arg))
     }
+  }
 
-    private onStart(){
-        this.interactable.onTriggerStart.add(()=>this.onTriggerStart());
-        this.interactable.onTriggerEnd.add(()=>this.onTriggerEnd());
-        this.interactable.onTriggerCanceled(()=>this.onTriggerCanceled());
+  private unsubscribe() {
+    if (this.triggerUpdateRemover) {
+      this.interactable.onTriggerUpdate.remove(this.triggerUpdateRemover)
+      this.triggerUpdateRemover = undefined
     }
+  }
 
-    private subscribe(){
-        if(!this.triggerUpdateRemover){
-            this.triggerUpdateRemover = this.interactable.onTriggerUpdate.add((arg)=>this.onTriggerUpdate(arg));
-        }
-    }
+  onTriggerStart() {
+    this.subscribe()
+  }
 
-    private unsubscribe(){
-        if(this.triggerUpdateRemover){
-            this.interactable.onTriggerUpdate.remove(this.triggerUpdateRemover);
-            this.triggerUpdateRemover = undefined;
-        }
-    }
+  onTriggerEnd() {
+    this.unsubscribe()
+  }
 
-    onTriggerStart(){
-        this.subscribe();
-    }
+  onTriggerCanceled() {
+    this.unsubscribe()
+  }
 
-    onTriggerEnd(){
-        this.unsubscribe();
-    }
-
-    onTriggerCanceled(){
-        this.unsubscribe();
-    }
-
-    onTriggerUpdate(arg:InteractorEvent){
-        this.lightController.selectColorWheelWorldPos(arg.interactor.targetHitPosition);
-    }
+  onTriggerUpdate(arg: InteractorEvent) {
+    this.lightController.selectColorWheelWorldPos(arg.interactor.targetHitPosition)
+  }
 }

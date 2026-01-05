@@ -1,8 +1,8 @@
 @component
 export class NewScript extends BaseScriptComponent {
   @input
-  audio: AudioComponent;
+  audio: AudioComponent
   onAwake() {
-    this.audio.play(1);
+    this.audio.play(1)
   }
 }

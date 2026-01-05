@@ -1,6 +1,6 @@
 import NativeLogger from "SpectaclesInteractionKit.lspkg/Utils/NativeLogger"
-import {RoundedRectangleVisual} from "../../Visuals/RoundedRectangle/RoundedRectangleVisual"
 import {Callback, createCallbacks} from "../../Utility/SceneUtilities"
+import {RoundedRectangleVisual} from "../../Visuals/RoundedRectangle/RoundedRectangleVisual"
 import {VisualElement} from "../VisualElement"
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -28,15 +28,15 @@ export class ButtonSlide extends VisualElement {
   private triggerDownCallbacks: Callback[] = []
 
   @input
-  textIndex: Text = null;
+  textIndex: Text = null
 
   @input
-  textContent: Text = null;
+  textContent: Text = null
 
   protected setUpEventCallbacks(): void {
     // Always call parent to set up base trigger events
     super.setUpEventCallbacks()
-    
+
     // Add additional callbacks if enabled
     if (this.addCallbacks) {
       this.onTriggerUp.add(createCallbacks(this.triggerUpCallbacks))
@@ -62,22 +62,22 @@ export class ButtonSlide extends VisualElement {
   public applyDynamicSize(size: vec3): void {
     const transform = this.sceneObject.getTransform()
     const currentScale = transform.getLocalScale()
-    
+
     // Apply new scale based on size
     const newScale = new vec3(
       size.x / 25, // Normalize to base width of 25
-      size.y / 5,  // Normalize to base height of 5
-      size.z / 3   // Normalize to base depth of 3
+      size.y / 5, // Normalize to base height of 5
+      size.z / 3 // Normalize to base depth of 3
     )
-    
+
     transform.setLocalScale(newScale)
-    
+
     // Update visual if it exists
     if (this._visual && this._visual instanceof RoundedRectangleVisual) {
       const visual = this._visual as RoundedRectangleVisual
       // The visual will automatically adjust with the scale change
     }
-    
+
     print("ButtonSlide: Applied dynamic size " + size.x + "x" + size.y + "x" + size.z + " to " + this.sceneObject.name)
   }
 
@@ -88,12 +88,12 @@ export class ButtonSlide extends VisualElement {
   public getCurrentSize(): vec3 {
     const transform = this.sceneObject.getTransform()
     const scale = transform.getLocalScale()
-    
+
     // Convert scale back to size
     return new vec3(
       scale.x * 25, // Base width
-      scale.y * 5,  // Base height
-      scale.z * 3   // Base depth
+      scale.y * 5, // Base height
+      scale.z * 3 // Base depth
     )
   }
 
@@ -104,7 +104,7 @@ export class ButtonSlide extends VisualElement {
   public setTextContent(content: string): void {
     if (this.textContent) {
       this.textContent.text = content
-      
+
       // Apply text wrapping for longer content
       // This depends on the text component configuration
       print("ButtonSlide: Set text content (" + content.length + " chars) on " + this.sceneObject.name)

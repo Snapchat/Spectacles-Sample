@@ -1,0 +1,89 @@
+- !<AssetImportMetadata/fc80f14d-78c6-e3ad-a6ab-d2212f32d4ad>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> c3c7708d-a682-4354-87b0-a04caa30a5cb
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> c3c7708d-a682-4354-87b0-a04caa30a5cb
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 80d1f19d-f2ca-4bb2-8ed8-bcfaf59dddb8
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/80d1f19d-f2ca-4bb2-8ed8-bcfaf59dddb8>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: ac517059-9bb0-4a12-bd17-16ef543448e6
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    buttonText: false
+    cameraService: false
+    compositeBufferDelay: false
+    compositeSwitch: false
+    compositeTexture: false
+    enableDebugLogs: false
+    previewImage: false
+    resolutionScale: false
+    snapCloudRequirements: false
+    statusText: false
+    streamButton: false
+    streamFPS: false
+    streamQuality: false
+    streamingChannelName: false
+    textLog: false
+    useCompositeTexture: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - textLog: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      snapCloudRequirements: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      streamingChannelName: live-video-stream
+      streamQuality: !<float> 50.000000
+      streamFPS: !<float> 5.000000
+      resolutionScale: 0.500000
+      compositeBufferDelay: !<float> 5.000000
+      cameraService: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      useCompositeTexture: false
+      compositeTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      streamButton: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      compositeSwitch: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      statusText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      buttonText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      previewImage: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      enableDebugLogs: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Component.Text textLog {"hint":"Logs"}'
+    - '// @input AssignableType snapCloudRequirements {"hint":"Reference to SnapCloudRequirements for centralized Supabase configuration"}'
+    - '// @input string streamingChannelName = "live-video-stream" {"hint":"Supabase Realtime channel name for live streaming"}'
+    - '// @input float streamQuality = 15 {"hint":"Stream quality (lower = better performance, higher = better quality) - Keep LOW for Realtime 250KB limit", "widget":"slider", "min":1, "max":100, "step":1}'
+    - '// @input float streamFPS = 30 {"hint":"Frames per second for live streaming (lower = less bandwidth)", "widget":"slider", "min":1, "max":30, "step":1}'
+    - '// @input float resolutionScale = 0.3 {"hint":"Stream resolution scale - Keep LOW for Realtime 250KB limit (0.3 = 30% resolution)", "widget":"slider", "min":0.1, "max":1, "step":0.1}'
+    - '// @input float compositeBufferDelay = 5 {"hint":"Buffer delay in seconds for composite mode - frames are captured, buffered, then sent after this delay", "widget":"slider", "min":1, "max":30, "step":1}'
+    - '// @input AssignableType_1 cameraService {"hint":"Reference to CameraService (RECOMMENDED). Uses its camera to avoid multiple camera requests."}'
+    - '// @input bool useCompositeTexture {"hint":"Default value for composite mode (can be toggled via Switch)"}'
+    - '// @input Asset.Texture compositeTexture {"hint":"Pre-composed texture (with AR content) - used when useCompositeTexture is enabled"}'
+    - '// @input AssignableType_2 streamButton {"hint":"Button to start/stop streaming"}'
+    - '// @input AssignableType_3 compositeSwitch {"hint":"Switch to toggle between camera and composite streaming mode"}'
+    - '// @input Component.Text statusText {"hint":"Text component to display streaming status"}'
+    - '// @input Component.Text buttonText {"hint":"Text component to display button state (Start Stream/Stop Stream)"}'
+    - '// @input Component.Image previewImage {"hint":"Image component to show local preview"}'
+    - '// @input bool enableDebugLogs = true {"hint":"Enable detailed debug logging"}'

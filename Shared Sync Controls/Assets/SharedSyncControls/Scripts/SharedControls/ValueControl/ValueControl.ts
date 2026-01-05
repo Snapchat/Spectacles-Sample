@@ -5,9 +5,8 @@ import {ValueControlInput} from "./ValueControlInput"
 // It listens for button interactions, updates a counter value accordingly,
 // and notifies subscribed listeners of any changes to this value.
 export class ValueControl {
-
   // Array of callback functions that are notified when the user changes the value
-  private readonly onUserChangedValue: ((value: number) => void) [] = []
+  private readonly onUserChangedValue: ((value: number) => void)[] = []
 
   // Private variable to track the current counter value
   private _counterValue: number
@@ -64,14 +63,13 @@ export class ValueControl {
   private onButtonUpPinched = (): void => {
     this.counterValue++
     // Notify all subscribed listeners of the value change
-    this.onUserChangedValue.forEach(value => value(this.counterValue))
+    this.onUserChangedValue.forEach((value) => value(this.counterValue))
   }
 
   // Private method called when the "down" button is pinched, decrements the counter value
   private onButtonDownPinched = (): void => {
     this.counterValue--
     // Notify all subscribed listeners of the value change
-    this.onUserChangedValue.forEach(value => value(this.counterValue))
+    this.onUserChangedValue.forEach((value) => value(this.counterValue))
   }
-
 }

@@ -228,7 +228,7 @@ export class PanelManager extends BaseScriptComponent {
       const newMinimizeButtonPosition = new vec3(
         -12,
         this.minimizeButtonDefaultPosition.y,
-        this.minimizeButtonDefaultPosition.z,
+        this.minimizeButtonDefaultPosition.z
       )
       this.minimizeButton.getTransform().setLocalPosition(newMinimizeButtonPosition)
     }

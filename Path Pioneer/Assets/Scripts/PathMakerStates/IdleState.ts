@@ -1,11 +1,7 @@
-import {IPathMakerState} from "./IPathMakerState";
+import {IPathMakerState} from "./IPathMakerState"
 
 export class IdleState implements IPathMakerState {
-    start() {
+  start() {}
 
-    }
-
-    stop() {
-
-    }
+  stop() {}
 }

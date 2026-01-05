@@ -33,7 +33,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -229,7 +229,8 @@
     _renderOrder: true
     _inactive: true
     _playAudio: true
-    snapToTriggerPosition: true
+    _hasShadow: true
+    _shadowPositionOffset: true
     hasTrackVisual: true
     customKnobSize: true
     addCallbacks: true
@@ -244,7 +245,8 @@
       _size: !<Vec3> {x: 4.000000, y: 2.500000, z: 1.000000}
       _inactive: false
       _playAudio: false
-      snapToTriggerPosition: false
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
       hasTrackVisual: true
       customKnobSize: false
       _knobSize: !<Vec2> {x: 2.500000, y: 2.500000}
@@ -262,7 +264,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Left
@@ -392,11 +394,13 @@
   ScriptInputsDefault:
     _appearance: true
     _padding: true
+    _allowScaling: true
+    allowNonUniformScaling: true
     autoScaleContent: true
     allowTranslation: true
     _cutOutCenter: true
-    minimumSize: true
-    maximumSize: true
+    _minimumSize: true
+    _maximumSize: true
     useBillboarding: true
     xOnTranslate: true
     xAlways: true
@@ -422,14 +426,15 @@
       _appearance: Large
       _innerSize: !<Vec2> {x: 25.000000, y: 15.000000}
       _padding: !<Vec2> {x: 0.000000, y: 0.000000}
-      allowScaling: false
+      _allowScaling: true
+      allowNonUniformScaling: false
       autoScaleContent: true
       relativeZ: false
       _onlyInteractOnBorder: true
       allowTranslation: true
       _cutOutCenter: false
-      minimumSize: !<Vec2> {x: 10.000000, y: 10.000000}
-      maximumSize: !<Vec2> {x: 150.000000, y: 150.000000}
+      _minimumSize: !<Vec2> {x: 10.000000, y: 10.000000}
+      _maximumSize: !<Vec2> {x: 150.000000, y: 150.000000}
       useBillboarding: true
       xOnTranslate: true
       xAlways: false
@@ -486,6 +491,8 @@
     _renderOrder: true
     _inactive: true
     _style: true
+    _hasShadow: true
+    _shadowPositionOffset: true
     _toggleable: true
     _defaultToOn: true
     addCallbacks: true
@@ -502,6 +509,8 @@
       _inactive: false
       _playAudio: true
       _style: PrimaryNeutral
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
       _toggleable: false
       _defaultToOn: false
       addCallbacks: false
@@ -593,6 +602,8 @@
   ScriptInputsDefault:
     _renderOrder: true
     _inactive: true
+    _hasShadow: true
+    _shadowPositionOffset: true
     inputType: true
     formatType: true
     fontFamily: true
@@ -612,6 +623,8 @@
       _size: !<Vec3> {x: 25.000000, y: 3.000000, z: 0.000000}
       _inactive: false
       _playAudio: true
+      _hasShadow: true
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
       inputType: default
       formatType: date
       placeholderText: Text Input
@@ -639,6 +652,8 @@
     _renderOrder: true
     _inactive: true
     _style: true
+    _hasShadow: true
+    _shadowPositionOffset: true
     _toggleable: true
     _defaultToOn: true
     addCallbacks: true
@@ -655,6 +670,8 @@
       _inactive: false
       _playAudio: true
       _style: PrimaryNeutral
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
       _toggleable: false
       _defaultToOn: false
       addCallbacks: false
@@ -710,7 +727,8 @@
     _renderOrder: true
     _inactive: true
     _playAudio: true
-    snapToTriggerPosition: true
+    _hasShadow: true
+    _shadowPositionOffset: true
     hasTrackVisual: true
     customKnobSize: true
     addCallbacks: true
@@ -725,7 +743,8 @@
       _size: !<Vec3> {x: 4.000000, y: 2.500000, z: 1.000000}
       _inactive: false
       _playAudio: false
-      snapToTriggerPosition: false
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
       hasTrackVisual: true
       customKnobSize: false
       _knobSize: !<Vec2> {x: 2.500000, y: 2.500000}
@@ -748,7 +767,8 @@
     _renderOrder: true
     _inactive: true
     _playAudio: true
-    snapToTriggerPosition: true
+    _hasShadow: true
+    _shadowPositionOffset: true
     hasTrackVisual: true
     customKnobSize: true
     addCallbacks: true
@@ -763,7 +783,8 @@
       _size: !<Vec3> {x: 4.000000, y: 2.500000, z: 1.000000}
       _inactive: false
       _playAudio: false
-      snapToTriggerPosition: false
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
       hasTrackVisual: true
       customKnobSize: false
       _knobSize: !<Vec2> {x: 2.500000, y: 2.500000}
@@ -888,7 +909,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -969,7 +990,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -1072,6 +1093,8 @@
     _renderOrder: true
     _inactive: true
     _style: true
+    _hasShadow: true
+    _shadowPositionOffset: true
     _toggleable: true
     _defaultToOn: true
     addCallbacks: true
@@ -1087,6 +1110,8 @@
       _inactive: false
       _playAudio: true
       _style: PrimaryNeutral
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
       _toggleable: false
       _defaultToOn: false
       addCallbacks: false
@@ -1122,7 +1147,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Left
@@ -1203,7 +1228,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Left

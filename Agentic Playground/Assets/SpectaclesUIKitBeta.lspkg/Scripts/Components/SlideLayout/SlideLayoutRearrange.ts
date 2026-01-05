@@ -1,5 +1,5 @@
+import {Interactable} from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable"
 import {InteractableManipulation} from "SpectaclesInteractionKit.lspkg/Components/Interaction/InteractableManipulation/InteractableManipulation"
-import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable"
 import {ButtonSlide} from "../Button/ButtonSlide"
 import {ScrollSystemUtils, VisibleCardConfig} from "./ScrollSystemUtils"
 
@@ -17,22 +17,21 @@ class SwipeState {
 
 /**
  * SlideLayoutRearrange - Tinder-like card swiping system
- * 
+ *
  * Manages a set of cards where 5 are visible at once:
  * - Top last position (top-most card)
  * - Top position (second card)
  * - Mid position (current/active card - only this one can be swiped)
  * - Bottom position (fourth card)
  * - Bottom last position (bottom-most card)
- * 
+ *
  * Swiping the mid card up or down triggers infinite scrolling through the deck
  */
 @component
 export class SlideLayoutRearrange extends BaseScriptComponent {
-
   @input
   @hint("Prefab to instantiate for each card")
-  cardPrefab: ObjectPrefab;
+  cardPrefab: ObjectPrefab
 
   @input("int", "10")
   @hint("Total number of cards to handle")
@@ -46,7 +45,7 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
   @hint("Transform for the top position")
   topPosition: SceneObject = null
 
-  @input("SceneObject") 
+  @input("SceneObject")
   @hint("Transform for the mid position (active/swipeable)")
   midPosition: SceneObject = null
 
@@ -107,8 +106,8 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
   private currentIndex: number = 2 // Start with card 2 in mid position
   private swipeState: SwipeState = new SwipeState()
   private positions: vec3[] = []
-  private animatingCards: Map<SceneObject, {target: vec3, isVisible: boolean}> = new Map()
-  
+  private animatingCards: Map<SceneObject, {target: vec3; isVisible: boolean}> = new Map()
+
   private initialized: boolean = false
   private lastScrollValue: number = -1
 
@@ -139,7 +138,12 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
     }
 
     this.initialized = true
-    print("SlideLayoutRearrange initialized with " + this.numberOfCards + " cards" + (this.enableScrollSystem ? " (scroll system enabled)" : ""))
+    print(
+      "SlideLayoutRearrange initialized with " +
+        this.numberOfCards +
+        " cards" +
+        (this.enableScrollSystem ? " (scroll system enabled)" : "")
+    )
   }
 
   /**
@@ -150,7 +154,13 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
       print("SlideLayoutRearrange: Card prefab is required")
       return false
     }
-    if (!this.topLastPosition || !this.topPosition || !this.midPosition || !this.bottomPosition || !this.bottomLastPosition) {
+    if (
+      !this.topLastPosition ||
+      !this.topPosition ||
+      !this.midPosition ||
+      !this.bottomPosition ||
+      !this.bottomLastPosition
+    ) {
       print("SlideLayoutRearrange: All five position objects are required")
       return false
     }
@@ -158,15 +168,19 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
       print("SlideLayoutRearrange: Need at least 5 cards")
       return false
     }
-    
+
     // Validate scroll system inputs if enabled
     if (this.enableScrollSystem) {
-      if (!ScrollSystemUtils.validateScrollSystemConfig(this.scrollLineStart, this.scrollLineEnd, this.scrollController)) {
-        print("SlideLayoutRearrange: Scroll system configuration is invalid - all components (line start, line end, controller) are required")
+      if (
+        !ScrollSystemUtils.validateScrollSystemConfig(this.scrollLineStart, this.scrollLineEnd, this.scrollController)
+      ) {
+        print(
+          "SlideLayoutRearrange: Scroll system configuration is invalid - all components (line start, line end, controller) are required"
+        )
         return false
       }
     }
-    
+
     return true
   }
 
@@ -199,18 +213,18 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
    */
   private layoutInitialCards(): void {
     // Hide all cards first
-    this.cards.forEach(card => card.enabled = false)
+    this.cards.forEach((card) => (card.enabled = false))
 
     // Show and position the first 5 cards
     for (let i = 0; i < 5 && i < this.cards.length; i++) {
       const card = this.cards[i]
       card.enabled = true
       card.getTransform().setWorldPosition(this.positions[i])
-      
+
       // Apply rotation based on position
       this.applyCardRotation(card, i as 0 | 1 | 2 | 3 | 4)
     }
-    
+
     // Update the text index on cards to show their initial numbers
     this.updateCardTextIndices()
   }
@@ -227,26 +241,26 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
    */
   private attachManipulationToCard(card: SceneObject): void {
     let manipulationComponent: any = null
-    
+
     try {
       manipulationComponent = card.getComponent(InteractableManipulation.getTypeName())
     } catch (error) {
       print("SlideLayoutRearrange: Could not access InteractableManipulation on " + card.name)
       return
     }
-    
+
     if (manipulationComponent && manipulationComponent.onManipulationStart) {
       const onManipulationStartCallback = () => {
         this.startSwipe(card)
       }
-      
+
       const onManipulationEndCallback = () => {
         this.endSwipe()
       }
-      
+
       manipulationComponent.onManipulationStart.add(onManipulationStartCallback)
       manipulationComponent.onManipulationEnd.add(onManipulationEndCallback)
-      
+
       print("SlideLayoutRearrange: Connected swipe events for " + card.name)
     }
   }
@@ -260,7 +274,7 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
     this.swipeState.isSwipping = true
     this.swipeState.swipeStartTime = getTime()
     this.swipeState.swipeStartPosition = card.getTransform().getWorldPosition()
-    
+
     print("SlideLayoutRearrange: Started swiping " + card.name)
   }
 
@@ -272,14 +286,14 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
 
     const currentPos = this.swipeState.swipedObject.getTransform().getWorldPosition()
     const swipeDistance = currentPos.distance(this.swipeState.originalPosition)
-    
+
     // Always return card to its original position
     this.returnCardToOriginalPosition()
 
     // Reset swipe state
     this.swipeState.isSwipping = false
     this.swipeState.swipedObject = null
-    
+
     print("SlideLayoutRearrange: Ended swipe - distance: " + swipeDistance + ", returning to original position")
   }
 
@@ -288,13 +302,13 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
    */
   private swipeUp(): void {
     print("SlideLayoutRearrange: Swiping up")
-    
+
     // Move current mid card off screen upward
     this.animateCardOut(this.swipeState.swipedObject, true)
-    
+
     // Update current index (go backwards, with wrap-around)
     this.currentIndex = (this.currentIndex - 1 + this.numberOfCards) % this.numberOfCards
-    
+
     // Rearrange cards
     this.rearrangeCardsAfterSwipe()
   }
@@ -304,13 +318,13 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
    */
   private swipeDown(): void {
     print("SlideLayoutRearrange: Swiping down")
-    
+
     // Move current mid card off screen downward
     this.animateCardOut(this.swipeState.swipedObject, false)
-    
+
     // Update current index (go forwards, with wrap-around)
     this.currentIndex = (this.currentIndex + 1) % this.numberOfCards
-    
+
     // Rearrange cards
     this.rearrangeCardsAfterSwipe()
   }
@@ -320,7 +334,7 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
    */
   private returnCardToMid(): void {
     if (!this.swipeState.swipedObject) return
-    
+
     this.animatingCards.set(this.swipeState.swipedObject, {
       target: this.positions[2], // Mid position
       isVisible: true
@@ -332,7 +346,7 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
    */
   private returnCardToOriginalPosition(): void {
     if (!this.swipeState.swipedObject) return
-    
+
     this.animatingCards.set(this.swipeState.swipedObject, {
       target: this.swipeState.originalPosition, // Original position
       isVisible: true
@@ -346,12 +360,8 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
     const midPos = this.positions[2]
     const offScreenDistance = 200 // Distance to move off screen
     const direction = toUp ? 1 : -1
-    const targetPos = new vec3(
-      midPos.x,
-      midPos.y + (offScreenDistance * direction),
-      midPos.z
-    )
-    
+    const targetPos = new vec3(midPos.x, midPos.y + offScreenDistance * direction, midPos.z)
+
     this.animatingCards.set(card, {
       target: targetPos,
       isVisible: false
@@ -388,18 +398,18 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
    */
   private updateAnimations(): void {
     const toRemove: SceneObject[] = []
-    
+
     this.animatingCards.forEach((animation, card) => {
       // Safety check - ensure card still exists
       if (!card) {
         toRemove.push(card)
         return
       }
-      
+
       const currentPos = card.getTransform().getWorldPosition()
       const targetPos = animation.target
       const distance = currentPos.distance(targetPos)
-      
+
       if (distance < 0.1) {
         // Animation complete
         card.getTransform().setWorldPosition(targetPos)
@@ -416,9 +426,9 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
         card.getTransform().setWorldPosition(newPos)
       }
     })
-    
+
     // Remove completed animations
-    toRemove.forEach(card => {
+    toRemove.forEach((card) => {
       this.animatingCards.delete(card)
     })
   }
@@ -430,11 +440,11 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
     const indices = ScrollSystemUtils.calculateVisibleIndices(this.currentIndex, this.numberOfCards)
 
     const cardIndices = [
-      { card: this.cards[indices.topLast], index: indices.topLast },
-      { card: this.cards[indices.top], index: indices.top },
-      { card: this.cards[indices.mid], index: indices.mid },
-      { card: this.cards[indices.bottom], index: indices.bottom },
-      { card: this.cards[indices.bottomLast], index: indices.bottomLast }
+      {card: this.cards[indices.topLast], index: indices.topLast},
+      {card: this.cards[indices.top], index: indices.top},
+      {card: this.cards[indices.mid], index: indices.mid},
+      {card: this.cards[indices.bottom], index: indices.bottom},
+      {card: this.cards[indices.bottomLast], index: indices.bottomLast}
     ]
 
     cardIndices.forEach(({card, index}) => {
@@ -451,7 +461,7 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
   /**
    * Get current card indices for debugging
    */
-  public getCurrentIndices(): {topLast: number, top: number, mid: number, bottom: number, bottomLast: number} {
+  public getCurrentIndices(): {topLast: number; top: number; mid: number; bottom: number; bottomLast: number} {
     return ScrollSystemUtils.calculateVisibleIndices(this.currentIndex, this.numberOfCards)
   }
 
@@ -509,7 +519,7 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
   private applyCardRotation(card: SceneObject, position: 0 | 1 | 2 | 3 | 4): void {
     const transform = card.getTransform()
     let rotationZ = 0
-    
+
     switch (position) {
       case 0: // Top last position
         rotationZ = this.topLastCardRotationZ
@@ -527,12 +537,12 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
         rotationZ = this.bottomLastCardRotationZ
         break
     }
-    
+
     const currentRotation = transform.getLocalRotation()
     const newRotation = quat.fromEulerAngles(
       currentRotation.toEulerAngles().x,
       currentRotation.toEulerAngles().y,
-      rotationZ * Math.PI / 180 // Convert degrees to radians
+      (rotationZ * Math.PI) / 180 // Convert degrees to radians
     )
     transform.setLocalRotation(newRotation)
   }
@@ -541,7 +551,7 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
    * Clear all manipulation event handlers from all cards
    */
   private clearAllManipulationHandlers(): void {
-    this.cards.forEach(card => {
+    this.cards.forEach((card) => {
       try {
         const manipulationComponent = card.getComponent(InteractableManipulation.getTypeName()) as any
         if (manipulationComponent && manipulationComponent.onManipulationStart) {
@@ -560,7 +570,7 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
   private setupMidCardManipulation(): void {
     // Clear all existing handlers first
     this.clearAllManipulationHandlers()
-    
+
     // Setup interaction only for the current mid card
     const midCard = this.getCurrentMidCard()
     if (midCard) {
@@ -574,9 +584,9 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
   private setupAllCardsManipulation(): void {
     // Clear all existing handlers first
     this.clearAllManipulationHandlers()
-    
+
     // Setup interaction for all currently visible cards
-    this.cards.forEach(card => {
+    this.cards.forEach((card) => {
       if (card.enabled) {
         this.attachManipulationToCard(card)
       }
@@ -600,15 +610,15 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
     }
 
     this.lastScrollValue = normalizedValue
-    
+
     // Calculate which card should be in the center based on normalized value
     const targetIndex = ScrollSystemUtils.calculateTargetIndexFromScrollValue(normalizedValue, this.numberOfCards)
-    
+
     // Update card layout if index changed
     if (targetIndex !== this.currentIndex) {
       this.updateCardLayoutToIndex(targetIndex)
     }
-    
+
     print("SlideLayoutRearrange: Scroll value changed to " + normalizedValue + ", target index: " + targetIndex)
   }
 
@@ -619,7 +629,7 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
   private updateCardLayoutToIndex(targetIndex: number): void {
     // Update current index
     this.currentIndex = targetIndex
-    
+
     // Calculate which cards should be visible using utility
     const indices = ScrollSystemUtils.calculateVisibleIndices(this.currentIndex, this.numberOfCards)
     const visibleCardIndices = new Set([indices.topLast, indices.top, indices.mid, indices.bottom, indices.bottomLast])
@@ -629,11 +639,16 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
     this.hideAllCards()
 
     const visibleCards: VisibleCardConfig[] = [
-      { card: this.cards[indices.topLast], position: this.positions[0], positionIndex: 0, cardIndex: indices.topLast },
-      { card: this.cards[indices.top], position: this.positions[1], positionIndex: 1, cardIndex: indices.top },
-      { card: this.cards[indices.mid], position: this.positions[2], positionIndex: 2, cardIndex: indices.mid },
-      { card: this.cards[indices.bottom], position: this.positions[3], positionIndex: 3, cardIndex: indices.bottom },
-      { card: this.cards[indices.bottomLast], position: this.positions[4], positionIndex: 4, cardIndex: indices.bottomLast }
+      {card: this.cards[indices.topLast], position: this.positions[0], positionIndex: 0, cardIndex: indices.topLast},
+      {card: this.cards[indices.top], position: this.positions[1], positionIndex: 1, cardIndex: indices.top},
+      {card: this.cards[indices.mid], position: this.positions[2], positionIndex: 2, cardIndex: indices.mid},
+      {card: this.cards[indices.bottom], position: this.positions[3], positionIndex: 3, cardIndex: indices.bottom},
+      {
+        card: this.cards[indices.bottomLast],
+        position: this.positions[4],
+        positionIndex: 4,
+        cardIndex: indices.bottomLast
+      }
     ]
 
     // Animate visible cards to their positions
@@ -643,7 +658,7 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
         target: position,
         isVisible: true
       })
-      
+
       // Apply rotation based on position
       this.applyCardRotation(card, positionIndex as 0 | 1 | 2 | 3 | 4)
     })
@@ -653,11 +668,16 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
 
     // Update the text index on cards to show their current number
     this.updateCardTextIndices()
-    
+
     // Validate card visibility for debugging
     this.validateCardVisibility()
-    
-    print("SlideLayoutRearrange: Updated layout to show card " + targetIndex + " in center. Visible cards: " + Array.from(visibleCardIndices).join(", "))
+
+    print(
+      "SlideLayoutRearrange: Updated layout to show card " +
+        targetIndex +
+        " in center. Visible cards: " +
+        Array.from(visibleCardIndices).join(", ")
+    )
   }
 
   /**
@@ -679,7 +699,7 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
   /**
    * Get scroll system status
    */
-  public getScrollSystemInfo(): {enabled: boolean, currentValue: number, targetIndex: number} {
+  public getScrollSystemInfo(): {enabled: boolean; currentValue: number; targetIndex: number} {
     return {
       enabled: this.enableScrollSystem,
       currentValue: this.lastScrollValue,
@@ -690,16 +710,21 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
   /**
    * Get detailed card status for debugging
    */
-  public getCardStatus(): {totalCards: number, visibleCards: number, animatingCards: number, cardStates: {name: string, enabled: boolean, animating: boolean}[]} {
-    const cardStates = this.cards.map(card => ({
+  public getCardStatus(): {
+    totalCards: number
+    visibleCards: number
+    animatingCards: number
+    cardStates: {name: string; enabled: boolean; animating: boolean}[]
+  } {
+    const cardStates = this.cards.map((card) => ({
       name: card.name,
       enabled: card.enabled,
       animating: this.animatingCards.has(card)
     }))
-    
+
     return {
       totalCards: this.cards.length,
-      visibleCards: this.cards.filter(card => card.enabled).length,
+      visibleCards: this.cards.filter((card) => card.enabled).length,
       animatingCards: this.animatingCards.size,
       cardStates: cardStates
     }
@@ -712,7 +737,7 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
     // Set initial scroll value based on current card index
     const initialScrollValue = this.getCurrentScrollValue()
     this.lastScrollValue = initialScrollValue
-    
+
     print("SlideLayoutRearrange: Scroll system initialized with value: " + initialScrollValue)
   }
 
@@ -728,7 +753,7 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
    * Hide all cards completely
    */
   private hideAllCards(): void {
-    this.cards.forEach(card => {
+    this.cards.forEach((card) => {
       card.enabled = false
     })
     print("SlideLayoutRearrange: Hidden all cards")
@@ -738,10 +763,10 @@ export class SlideLayoutRearrange extends BaseScriptComponent {
    * Validate that only 5 cards are visible (for debugging)
    */
   private validateCardVisibility(): void {
-    const visibleCards = this.cards.filter(card => card.enabled)
+    const visibleCards = this.cards.filter((card) => card.enabled)
     if (visibleCards.length !== 5) {
       print("SlideLayoutRearrange: WARNING - Expected 5 visible cards, but found " + visibleCards.length)
-      print("SlideLayoutRearrange: Visible cards: " + visibleCards.map(card => card.name).join(", "))
+      print("SlideLayoutRearrange: Visible cards: " + visibleCards.map((card) => card.name).join(", "))
     } else {
       print("SlideLayoutRearrange: Card visibility OK - 5 cards visible")
     }

@@ -2,7 +2,6 @@
  * Utility class for scroll system calculations
  */
 export class ScrollSystemUtils {
-  
   /**
    * Calculate which card index should be in the center based on scroll value
    * @param normalizedValue Value between 0 and 1
@@ -12,11 +11,11 @@ export class ScrollSystemUtils {
   static calculateTargetIndexFromScrollValue(normalizedValue: number, numberOfCards: number): number {
     // Clamp the normalized value to 0-1 range
     const clampedValue = MathUtils.clamp(normalizedValue, 0, 1)
-    
+
     // Calculate the index based on the normalized value
     // For numberOfCards = 10, scroll value 0.5 should show card 5 in center
     const targetIndex = Math.floor(clampedValue * (numberOfCards - 1))
-    
+
     return MathUtils.clamp(targetIndex, 0, numberOfCards - 1)
   }
 
@@ -39,11 +38,14 @@ export class ScrollSystemUtils {
    * @param numberOfCards Total number of cards
    * @returns Object with indices for all 5 visible positions
    */
-  static calculateVisibleIndices(centerIndex: number, numberOfCards: number): {
-    topLast: number,
-    top: number,
-    mid: number,
-    bottom: number,
+  static calculateVisibleIndices(
+    centerIndex: number,
+    numberOfCards: number
+  ): {
+    topLast: number
+    top: number
+    mid: number
+    bottom: number
     bottomLast: number
   } {
     const topLastIndex = (centerIndex - 2 + numberOfCards) % numberOfCards
@@ -111,4 +113,4 @@ export interface VisibleCardConfig {
   position: vec3
   positionIndex: number
   cardIndex: number
-} 
+}

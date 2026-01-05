@@ -1,0 +1,73 @@
+- !<AssetImportMetadata/4468c63a-18bb-4f26-b930-a17d188b98a9>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> df9f0ba9-4d35-4a15-93d0-d54e21639cec
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> df9f0ba9-4d35-4a15-93d0-d54e21639cec
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 3b7ffd30-a50c-4c6d-b1af-cd72ec0ba8dc
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/3b7ffd30-a50c-4c6d-b1af-cd72ec0ba8dc>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: |-
+    Manages all Supabase communication and controls the Lens state flow.   Public APIs:
+    
+    - onBalloonSelected() :
+    Triggered after the selected balloon finishes its lift animation. Signals that the user has made a pledge and Supabase should be updated.
+  VersionMajor: 1
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: f8b7ced2-00fa-4bb3-824d-68a073ae23dd
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    allowIncrementFromLens: false
+    balloonPrefabs: false
+    balloonsParent: false
+    endRoot: false
+    maxOthers: false
+    missingConfigRoot: false
+    snapCloudRequirements: false
+    startRoot: false
+    totalText: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - snapCloudRequirements: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      allowIncrementFromLens: true
+      totalText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      startRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      endRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      balloonPrefabs: !<reference.ObjectPrefab[]>
+        []
+      balloonsParent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      maxOthers: !<float> 19.000000
+      missingConfigRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType snapCloudRequirements {"hint":"SnapCloudRequirements component for centralized Supabase configuration"}'
+    - // @input bool allowIncrementFromLens = true
+    - // @input Component.Text totalText
+    - // @input SceneObject startRoot
+    - // @input SceneObject endRoot
+    - "// @input Asset.ObjectPrefab[] balloonPrefabs"
+    - // @input SceneObject balloonsParent
+    - // @input float maxOthers = 20
+    - // @input SceneObject missingConfigRoot

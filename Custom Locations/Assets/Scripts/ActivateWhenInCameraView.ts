@@ -1,4 +1,4 @@
-import { LocatedObject } from "./LocatedObject"
+import {LocatedObject} from "./LocatedObject"
 
 /**
  * Tracks the users position and calls activate and deactivate functions on
@@ -9,9 +9,7 @@ export class ActivateWhenInCameraView extends BaseScriptComponent {
   @input camera!: Camera
   @input
   @allowUndefined
-  @hint(
-    "Optional SceneObject to use as center, will use the center of this SceneObject otherwise"
-  )
+  @hint("Optional SceneObject to use as center, will use the center of this SceneObject otherwise")
   centerReference: SceneObject
   @input("Component.ScriptComponent[]")
   listenerObjects: LocatedObject[]
@@ -49,8 +47,7 @@ export class ActivateWhenInCameraView extends BaseScriptComponent {
       })
     })
 
-    this.distanceForDeActivation =
-      this.distanceForActivation * this.deActivateDistanceMultiplier
+    this.distanceForDeActivation = this.distanceForActivation * this.deActivateDistanceMultiplier
 
     this.centerReferenceTransform = this.getSceneObject().getTransform()
     if (this.centerReference) {
@@ -63,12 +60,10 @@ export class ActivateWhenInCameraView extends BaseScriptComponent {
         isLocalized = true
       }
 
-      let cameraPos = this.camera.getTransform().getWorldPosition()
-      let p = this.centerReferenceTransform.getWorldPosition()
+      const cameraPos = this.camera.getTransform().getWorldPosition()
+      const p = this.centerReferenceTransform.getWorldPosition()
 
-      let cameraDistance2D = new vec2(p.x, p.z).distance(
-        new vec2(cameraPos.x, cameraPos.z)
-      )
+      const cameraDistance2D = new vec2(p.x, p.z).distance(new vec2(cameraPos.x, cameraPos.z))
 
       if (this.isActive) {
         if (cameraDistance2D > this.distanceForDeActivation) {
@@ -81,9 +76,7 @@ export class ActivateWhenInCameraView extends BaseScriptComponent {
         }
       } else {
         if (cameraDistance2D < this.distanceForActivation && isLocalized) {
-          if (
-            this.camera.isSphereVisible(p, this.sphereInViewForActivationRadius)
-          ) {
+          if (this.camera.isSphereVisible(p, this.sphereInViewForActivationRadius)) {
             this.isActive = true
             this.listenerObjects.forEach((element: LocatedObject) => {
               if (element.activate) {

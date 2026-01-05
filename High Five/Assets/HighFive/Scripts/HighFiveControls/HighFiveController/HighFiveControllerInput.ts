@@ -4,9 +4,7 @@ import {BubbleAnimationControllerInput} from "../BubbleAnimationController/Bubbl
 // input dependencies for the HighFiveController class
 @component
 export class HighFiveControllerInput extends BaseScriptComponent {
-
   // Input property representing the controller responsible for bubble animations
   @input
   readonly bubbleAnimationControllerInput: BubbleAnimationControllerInput
-
 }

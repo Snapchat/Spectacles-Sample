@@ -1,4 +1,4 @@
 export interface IPathMakerState {
-    start(): void;
-    stop(): void;
+  start(): void
+  stop(): void
 }

@@ -1,72 +1,68 @@
-import { SIK } from "SpectaclesInteractionKit.lspkg/SIK";
+import {SIK} from "SpectaclesInteractionKit.lspkg/SIK"
 
 @component
 export class PictureController extends BaseScriptComponent {
-  @input scannerPrefab: ObjectPrefab;
+  @input scannerPrefab: ObjectPrefab
 
-  private isEditor = global.deviceInfoSystem.isEditor();
+  private isEditor = global.deviceInfoSystem.isEditor()
 
-  private rightHand = SIK.HandInputData.getHand("right");
-  private leftHand = SIK.HandInputData.getHand("left");
+  private rightHand = SIK.HandInputData.getHand("right")
+  private leftHand = SIK.HandInputData.getHand("left")
 
-  private leftDown = false;
-  private rightDown = false;
+  private leftDown = false
+  private rightDown = false
 
   onAwake() {
-    this.rightHand.onPinchUp.add(this.rightPinchUp);
-    this.rightHand.onPinchDown.add(this.rightPinchDown);
-    this.leftHand.onPinchUp.add(this.leftPinchUp);
-    this.leftHand.onPinchDown.add(this.leftPinchDown);
+    this.rightHand.onPinchUp.add(this.rightPinchUp)
+    this.rightHand.onPinchDown.add(this.rightPinchDown)
+    this.leftHand.onPinchUp.add(this.leftPinchUp)
+    this.leftHand.onPinchDown.add(this.leftPinchDown)
     if (this.isEditor) {
-      this.createEvent("TouchStartEvent").bind(this.editorTest.bind(this));
+      this.createEvent("TouchStartEvent").bind(this.editorTest.bind(this))
     } else {
-        var obj = this.getSceneObject();
-        if (obj.getChildrenCount() > 0){
-            obj.getChild(0).destroy();    
-        }
+      const obj = this.getSceneObject()
+      if (obj.getChildrenCount() > 0) {
+        obj.getChild(0).destroy()
+      }
     }
   }
 
   editorTest() {
-    print("Creating Editor Scanner...");
-    this.createScanner();
+    print("Creating Editor Scanner...")
+    this.createScanner()
   }
 
   private leftPinchDown = () => {
-    print("LEFT Pinch down");
-    this.leftDown = true;
+    print("LEFT Pinch down")
+    this.leftDown = true
     if (this.rightDown && this.isPinchClose()) {
-      this.createScanner();
+      this.createScanner()
     }
-  };
+  }
 
   private leftPinchUp = () => {
-    print("LEFT Pinch up");
-    this.leftDown = false;
-  };
+    print("LEFT Pinch up")
+    this.leftDown = false
+  }
 
   private rightPinchDown = () => {
-    print("RIGHT Pinch down");
-    this.rightDown = true;
+    print("RIGHT Pinch down")
+    this.rightDown = true
     if (this.leftDown && this.isPinchClose()) {
-      this.createScanner();
+      this.createScanner()
     }
-  };
+  }
 
   private rightPinchUp = () => {
-    print("RIGHT Pinch up");
-    this.rightDown = false;
-  };
+    print("RIGHT Pinch up")
+    this.rightDown = false
+  }
 
   isPinchClose() {
-    return (
-      this.leftHand.thumbTip.position.distance(
-        this.rightHand.thumbTip.position
-      ) < 10
-    );
+    return this.leftHand.thumbTip.position.distance(this.rightHand.thumbTip.position) < 10
   }
 
   createScanner() {
-    var scanner = this.scannerPrefab.instantiate(this.getSceneObject());
+    const scanner = this.scannerPrefab.instantiate(this.getSceneObject())
   }
 }

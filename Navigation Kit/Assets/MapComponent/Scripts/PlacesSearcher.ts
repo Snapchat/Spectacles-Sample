@@ -1,10 +1,10 @@
 import {MapComponent} from "MapComponent/Scripts/MapComponent"
-import {IPlacesApi, PlaceInfo} from "./IPlacesApi"
 import {PinchButton} from "SpectaclesInteractionKit.lspkg/Components/UI/PinchButton/PinchButton"
 import {ScrollView} from "SpectaclesInteractionKit.lspkg/Components/UI/ScrollView/ScrollView"
 import {GeoLocationPlace} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/GeoLocationPlace"
 import {NavigationDataComponent} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/NavigationDataComponent"
 import {Place} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/Place"
+import {IPlacesApi, PlaceInfo} from "./IPlacesApi"
 
 /**
  * Searches for nearby places on the map.
@@ -46,15 +46,15 @@ export class PlacesSearcher extends BaseScriptComponent {
 
     const currentFocus = this.mapComponent.getCurrentLocationFocus()
 
-    try {   
+    try {
       if (addCenter) {
-        const searchCenter = new GeoLocationPlace(    
-            currentFocus,
-            10,
-            "Search Center",
-            null,
-            "",
-            this.navigationModule.getUserPosition(),
+        const searchCenter = new GeoLocationPlace(
+          currentFocus,
+          10,
+          "Search Center",
+          null,
+          "",
+          this.navigationModule.getUserPosition()
         )
 
         this.currentPlaces.push(searchCenter)
@@ -96,7 +96,7 @@ export class PlacesSearcher extends BaseScriptComponent {
       name,
       null,
       place.subtitle,
-      this.navigationModule.getUserPosition(),
+      this.navigationModule.getUserPosition()
     )
 
     return navigationPlace

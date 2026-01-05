@@ -1,0 +1,95 @@
+- !<ObjectPrefab/9f5aa5fa-4394-4184-a219-18a21cbdf202>
+  PackagePath: ""
+  objects:
+    - !<own> c63c0659-1a16-4ce7-be51-3646cae3d951
+  LazyLoading: false
+  RetainAssets: true
+- !<RenderMeshVisual/202f46f3-f0d8-4261-9361-db7db926efe2>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 57f5ab49-8702-45d2-a1b7-052455397bfa
+  Mesh: !<reference> 2e5e428e-9a20-4c3f-ad4a-4451f07df611
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<ScriptComponent/2f6c5746-ab8b-4a28-b64d-d9bd6bdc37d6>
+  PrefabRemaps:
+    []
+  Name: SyncTransform
+  Enabled: true
+  ScriptAsset: !<reference> f3c20594-375f-43d8-a93f-a8e75bd6a61d
+  ScriptInputsDefault:
+    networkIdTypeString: true
+    customNetworkId: true
+    persistenceString: true
+    sendsPerSecondLimit: true
+    useSmoothing: true
+    interpolationTarget: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      networkIdTypeString: objectId
+      customNetworkId: enter_unique_id
+      positionSyncString: Location
+      rotationSyncString: Location
+      scaleSyncString: Location
+      persistenceString: Session
+      sendsPerSecondLimit: 10
+      useSmoothing: true
+      interpolationTarget: -0.250000
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/4b63d79a-0073-431d-b092-71af94e316f1>
+  PrefabRemaps:
+    []
+  Name: GridPosition
+  Enabled: true
+  ScriptAsset: !<reference> 0a880c79-2294-49ef-a3bc-4d1cac7f847a
+  ScriptInputsDefault:
+    layer: true
+    row: true
+    col: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      layer: !<float> 0.000000
+      row: !<float> 0.000000
+      col: !<float> 0.000000
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/c63c0659-1a16-4ce7-be51-3646cae3d951>
+  PrefabRemaps:
+    - 202f46f3-f0d8-4261-9361-db7db926efe2: a5e88d1d-1a6b-49e4-b9d2-065b5bf74a9e
+    - 2f6c5746-ab8b-4a28-b64d-d9bd6bdc37d6: 56072002-27bc-4707-8a46-3068748529de
+    - 4b63d79a-0073-431d-b092-71af94e316f1: 52d170c3-190d-46a6-8ddb-d826b6e13c1d
+    - c63c0659-1a16-4ce7-be51-3646cae3d951: fe3ea09f-57b4-4e71-8f5b-b2da74327300
+  Name: OPrefab
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 202f46f3-f0d8-4261-9361-db7db926efe2
+    - !<own> 2f6c5746-ab8b-4a28-b64d-d9bd6bdc37d6
+    - !<own> 4b63d79a-0073-431d-b092-71af94e316f1

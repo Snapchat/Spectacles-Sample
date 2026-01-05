@@ -1,20 +1,20 @@
-import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable";
-import { MicrophoneRecorder } from "./MicrophoneRecorder";
+import {BaseButton} from "SpectaclesUIKit.lspkg/Scripts/Components/Button/BaseButton"
+import {MicrophoneRecorder} from "./MicrophoneRecorder"
 
 @component
 export class PlaybackActivateMicrophoneRecorder extends BaseScriptComponent {
   @input
-  microphoneRecorder: MicrophoneRecorder;
+  microphoneRecorder: MicrophoneRecorder
 
-  private interactable: Interactable;
+  @input
+  @allowUndefined
+  button: BaseButton | undefined
 
   onAwake() {
-    this.interactable = this.sceneObject.getComponent(
-      Interactable.getTypeName()
-    );
-
-    this.interactable.onTriggerStart.add(() => {
-      this.microphoneRecorder.playbackRecordedAudio();
-    });
+    if (this.button) {
+      this.button.onTriggerDown.add(() => {
+        this.microphoneRecorder.playbackRecordedAudio()
+      })
+    }
   }
 }

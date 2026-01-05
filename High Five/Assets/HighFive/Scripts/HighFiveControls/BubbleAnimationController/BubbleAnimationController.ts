@@ -1,11 +1,10 @@
-import {animateToAlpha, setAlpha} from "../../Utils/SharedFunctions"
 import animate from "SpectaclesInteractionKit.lspkg/Utils/animate"
+import {animateToAlpha, setAlpha} from "../../Utils/SharedFunctions"
 import {BubbleAnimationControllerInput} from "./BubbleAnimationControllerInput"
 
 // The BubbleAnimationController class manages the animations and visual effects for the bubble
 // that appears during a high-five interaction
 export class BubbleAnimationController {
-
   // Properties for managing bubble animation
   private bubbleMat: Material
 
@@ -42,7 +41,6 @@ export class BubbleAnimationController {
 
   // Handles the popping animation of the bubble
   pop = (onComplete: () => void) => {
-
     animate({
       update: (value: number) => {
         this.input.modelRim.mainPass["alpha"] = value
@@ -53,8 +51,7 @@ export class BubbleAnimationController {
       end: 1,
       duration: 0.25,
       easing: "ease-out-cubic",
-      ended: ()=> {
-
+      ended: () => {
         animate({
           update: (value: number) => {
             this.bubbleMat.mainPass["alpha"] = 1
@@ -67,7 +64,6 @@ export class BubbleAnimationController {
           easing: "ease-out-cubic",
           ended: onComplete
         })
-
       }
     })
 
@@ -76,22 +72,22 @@ export class BubbleAnimationController {
 
   // Initializes materials and scales for the bubble
   initialize = (onComplete: () => void) => {
-    let delay = this.input.createEvent("DelayedCallbackEvent")
-    delay.bind(()=>{
+    const delay = this.input.createEvent("DelayedCallbackEvent")
+    delay.bind(() => {
       // Clone and set the materials
-      this.input.modelRim = this.input.modelRim.clone();
+      this.input.modelRim = this.input.modelRim.clone()
       this.bubbleMat = this.input.bubbleSphere.mainMaterial.clone()
       this.input.bubbleSphere.clearMaterials()
       this.input.bubbleSphere.mainMaterial = this.bubbleMat
       this.glowMat = this.input.outerGlow.mainMaterial.clone()
       this.input.outerGlow.clearMaterials()
 
-      this.initialized = true;
+      this.initialized = true
 
       this.input.outerGlow.mainMaterial = this.glowMat
       this.setColor(this.input.colorID)
-      this.glowMat.mainPass["alpha"] = 0;
-      this.glowMat.mainPass["flash"] = 0;
+      this.glowMat.mainPass["alpha"] = 0
+      this.glowMat.mainPass["flash"] = 0
       this.input.bubbleSphere.getTransform().setLocalScale(vec3.one())
     })
     delay.reset(0.01)
@@ -113,13 +109,14 @@ export class BubbleAnimationController {
     })
 
     animateToAlpha(this.input.wasHighFiveText.getSceneObject(), 0, 1, 1)
-
   }
 
   // Sets the color of the bubble and its components based on the color ID
   setColor = (colorID: number) => {
-    if(!this.initialized){ return }
-    this.input.colorID = colorID;
+    if (!this.initialized) {
+      return
+    }
+    this.input.colorID = colorID
     this.input.modelRim.mainPass["colorIndex"] = colorID
     this.bubbleMat.mainPass["colorIndex"] = colorID
     this.input.outerGlow.mainPass["colorIndex"] = colorID
@@ -127,14 +124,18 @@ export class BubbleAnimationController {
 
   // Resets the bubble to its initial state
   resetBubble = () => {
-    if(!this.initialized){ return }
+    if (!this.initialized) {
+      return
+    }
     this.bubbleMat.mainPass["alpha"] = 0
     this.bubbleMat.mainPass["dissipation"] = 0
   }
 
   // Executes a pinch animation for the bubble
   pinchAnimation = () => {
-    if(!this.initialized){ return }
+    if (!this.initialized) {
+      return
+    }
     this.input.overallBubble.enabled = true
     this.bubbleMat.mainPass["startState"] = 1
     this.bubbleMat.mainPass["currTime"] = getTime()

@@ -222,6 +222,8 @@
     _inactive: true
     _playAudio: true
     _style: true
+    _hasShadow: true
+    _shadowPositionOffset: true
     _defaultToOn: true
     addCallbacks: true
     triggerUpCallbacks: true
@@ -237,6 +239,8 @@
       _inactive: false
       _playAudio: false
       _style: PrimaryNeutral
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
       _toggleable: true
       _defaultToOn: false
       addCallbacks: false
@@ -400,6 +404,8 @@
     _inactive: true
     _playAudio: true
     _style: true
+    _hasShadow: true
+    _shadowPositionOffset: true
     _defaultToOn: true
     addCallbacks: true
     triggerUpCallbacks: true
@@ -415,6 +421,8 @@
       _inactive: false
       _playAudio: false
       _style: PrimaryNeutral
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
       _toggleable: true
       _defaultToOn: false
       addCallbacks: false
@@ -451,7 +459,7 @@
   Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 5.000000, y: 15.000000, z: -5.000000}
+    Position: {x: 20.000000, y: 15.000000, z: 5.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 0.100000, y: 0.100000, z: 0.100000}
     HasSegmentScaleCompensation: false
@@ -579,6 +587,87 @@
     []
   Components:
     []
+- !<Text/15e1287a-213f-4dee-bda5-a223cac35537>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 10
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Left
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: "Select your favorite styles, select them and start populating your list.  Then click generate to let the magic happen!  Pro tips.  If you generate many clips, remember to position them evenly across your space to interact with them.  You can also grab this UI and move it around.  If a generation does not complete chances are that the Music Gen API blocked your request, please just try again.   "
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 25
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -15.000000
+    bottom: -4.000000
+    right: 15.000000
+    top: 4.000000
+  OverflowVertical: Truncate
+  OverflowHorizontal: Wrap
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 0.917021, y: 0.953536, z: 0.962386, w: 1.000000}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: true
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 1.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.500000
+      bottom: 0.500000
+      right: 0.500000
+      top: 0.500000
+    CornerRadius: 1.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
 - !<SceneObject/16db7410-0612-4589-ba17-19f252ef5555>
   PrefabRemaps:
     []
@@ -645,7 +734,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 1
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Top
   HorizontalAlignment: Center
@@ -832,7 +921,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 1
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -926,9 +1015,9 @@
 - !<SceneObject/275eaca7-1b1b-45b1-8579-32084b82a190>
   PrefabRemaps:
     - 275eaca7-1b1b-45b1-8579-32084b82a190: 60d82add-1f3a-47cb-6725-9701fafd3dfd
+    - 3a58453f-5958-4a35-83f7-16a4466ebbe3: 14be6101-4afd-4eaa-59a2-6c1d0fa0afa5
     - aae38128-8f5c-4bf5-9fb8-47ca227500a9: 06c9cf0e-f114-484b-6592-107d976751ec
     - dfe7f5d1-cde3-461c-9531-0e7b01ff0bce: aa93c18c-58c7-48ec-4183-0748a7a7111c
-    - eca27782-6268-460a-acf3-5291d70ca375: 855e6d25-b1e5-4c82-4f6e-15d8bb7a21ca
   Name: GenreButton
   Enabled: true
   Layers: 1
@@ -961,8 +1050,8 @@
   PrefabRemaps:
     - 2ad890d2-8a15-49ba-bffe-a511b9a7f6f9: 60d82add-1f3a-47cb-6725-9701fafd3dfd
     - 2eb743cc-e204-4da0-916b-fc21c85618ca: 06c9cf0e-f114-484b-6592-107d976751ec
-    - 3540ea3b-490a-4486-9aaf-20ca026b4ae9: 855e6d25-b1e5-4c82-4f6e-15d8bb7a21ca
     - 60c96fd8-e290-40bb-8a6d-d0f9239ccce7: aa93c18c-58c7-48ec-4183-0748a7a7111c
+    - f9831fea-1ee0-4162-98c1-424d377bd208: 14be6101-4afd-4eaa-59a2-6c1d0fa0afa5
   Name: VibesButton
   Enabled: true
   Layers: 1
@@ -1013,22 +1102,26 @@
   Enabled: true
   ScriptAsset: !<reference> 8ca0ce82-b275-4551-8560-820c44a54276
   ScriptInputsDefault:
-    vertical: true
-    horizontal: true
+    _vertical: true
+    _horizontal: true
+    _windowSize: true
+    _scrollDimensions: true
+    _scrollPosition: true
     _scrollSnapping: true
     _snapRegion: true
-    edgeFade: true
+    _edgeFade: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      vertical: true
-      horizontal: false
-      windowSize: !<Vec2> {x: 24.000000, y: 24.000000}
-      scrollDimensions: !<Vec2> {x: 60.000000, y: 100.000000}
+      _vertical: true
+      _horizontal: false
+      _windowSize: !<Vec2> {x: 32.000000, y: 32.000000}
+      _scrollDimensions: !<Vec2> {x: 32.000000, y: 100.000000}
+      _scrollPosition: !<Vec2> {x: 0.000000, y: 0.000000}
       _scrollSnapping: false
-      _snapRegion: !<Vec2> {x: 8.000000, y: 8.000000}
-      edgeFade: false
+      _snapRegion: !<Vec2> {x: -1.000000, y: 20.000000}
+      _edgeFade: false
   ScriptTypes:
     "":
       {}
@@ -1189,6 +1282,8 @@
   ScriptInputsDefault:
     _inactive: true
     _style: true
+    _hasShadow: true
+    _shadowPositionOffset: true
     _toggleable: true
     _defaultToOn: true
     addCallbacks: true
@@ -1204,6 +1299,8 @@
       _inactive: false
       _playAudio: true
       _style: PrimaryNeutral
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
       _toggleable: false
       _defaultToOn: false
       addCallbacks: false
@@ -1658,7 +1755,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 1
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -1839,6 +1936,21 @@
     - !<own> 46821b35-2b0d-481f-9f19-a9bb2d7f36d0
   Components:
     []
+- !<SceneObject/589bf28e-4287-4ac5-85a2-6c210810b0a1>
+  PrefabRemaps:
+    []
+  Name: Guide
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 12.000001, y: -16.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 15e1287a-213f-4dee-bda5-a223cac35537
 - !<SceneObject/596efc09-4c6f-456d-8f92-411ace3296d3>
   PrefabRemaps:
     []
@@ -1910,7 +2022,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -2021,7 +2133,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 1
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Top
   HorizontalAlignment: Center
@@ -2188,6 +2300,7 @@
     - !<own> 20a9569b-6713-4383-b2cb-0d605e8f64a4
     - !<own> 353e0306-75fc-4bcd-892b-5bd3d9a218a8
     - !<own> 6ecb4348-2bdd-47d8-b419-23de5d5bc875
+    - !<own> 589bf28e-4287-4ac5-85a2-6c210810b0a1
   Components:
     - !<own> d1c7bf6d-0245-4a9e-906a-06dbfa30c986
 - !<SceneObject/6904f4c1-af0c-4f23-bcee-38c16f1aee63>
@@ -2322,6 +2435,8 @@
     _inactive: true
     _playAudio: true
     _style: true
+    _hasShadow: true
+    _shadowPositionOffset: true
     addCallbacks: true
     triggerUpCallbacks: true
     triggerDownCallbacks: true
@@ -2336,6 +2451,8 @@
       _inactive: false
       _playAudio: false
       _style: PrimaryNeutral
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
       _toggleable: true
       _defaultToOn: true
       addCallbacks: false
@@ -2563,8 +2680,8 @@
       {}
 - !<SceneObject/8037a8cf-807d-4e9c-9ff9-3bc7adca071d>
   PrefabRemaps:
-    - 0df217b0-eaf3-407e-9cd8-d3a48b66ffbe: 855e6d25-b1e5-4c82-4f6e-15d8bb7a21ca
     - 8037a8cf-807d-4e9c-9ff9-3bc7adca071d: 60d82add-1f3a-47cb-6725-9701fafd3dfd
+    - b291034b-6e3a-4598-bfc5-fda19a515c66: 14be6101-4afd-4eaa-59a2-6c1d0fa0afa5
     - b444242c-8334-429d-b4a6-a4be4a66d208: 06c9cf0e-f114-484b-6592-107d976751ec
     - cf413a14-f60e-4120-9035-d9aa58e890a6: aa93c18c-58c7-48ec-4183-0748a7a7111c
   Name: InstrumentButton
@@ -2665,7 +2782,7 @@
         - 30.000000
       _maxRaycastDistance: !<float> 500.000000
       indirectTargetingVolumeMultiplier: !<float> 1.000000
-      indirectDragThreshold: !<float> 40.000000
+      indirectDragThreshold: !<float> 10.000000
       handType: right
       forcePokeOnNonDominantPalmProximity: false
       directColliderEnterRadius: !<float> 1.000000
@@ -2715,6 +2832,8 @@
     _inactive: true
     _playAudio: true
     _style: true
+    _hasShadow: true
+    _shadowPositionOffset: true
     _toggleable: true
     _defaultToOn: true
     addCallbacks: true
@@ -2731,6 +2850,8 @@
       _inactive: false
       _playAudio: false
       _style: PrimaryNeutral
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
       _toggleable: false
       _defaultToOn: false
       addCallbacks: false
@@ -2923,19 +3044,22 @@
   Enabled: true
   ScriptAsset: !<reference> 8ca0ce82-b275-4551-8560-820c44a54276
   ScriptInputsDefault:
+    _scrollPosition: true
     _scrollSnapping: true
     _snapRegion: true
+    _edgeFade: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      vertical: false
-      horizontal: true
-      windowSize: !<Vec2> {x: 24.000000, y: 24.000000}
-      scrollDimensions: !<Vec2> {x: 60.000000, y: 100.000000}
+      _vertical: false
+      _horizontal: true
+      _windowSize: !<Vec2> {x: 24.000000, y: 32.000000}
+      _scrollDimensions: !<Vec2> {x: 24.000000, y: 100.000000}
+      _scrollPosition: !<Vec2> {x: 0.000000, y: 0.000000}
       _scrollSnapping: false
-      _snapRegion: !<Vec2> {x: 8.000000, y: 8.000000}
-      edgeFade: true
+      _snapRegion: !<Vec2> {x: -1.000000, y: 20.000000}
+      _edgeFade: false
   ScriptTypes:
     "":
       {}
@@ -3258,12 +3382,14 @@
   ScriptInputsDefault:
     autoShowHide: true
     _padding: true
+    _allowScaling: true
+    allowNonUniformScaling: true
     relativeZ: true
     _onlyInteractOnBorder: true
     allowTranslation: true
     _cutOutCenter: true
-    minimumSize: true
-    maximumSize: true
+    _minimumSize: true
+    _maximumSize: true
     useBillboarding: true
     xAlways: true
     xBufferDegrees: true
@@ -3286,14 +3412,15 @@
       _appearance: Small
       _innerSize: !<Vec2> {x: 20.000000, y: 2.000000}
       _padding: !<Vec2> {x: 0.000000, y: 0.000000}
-      allowScaling: false
+      _allowScaling: true
+      allowNonUniformScaling: false
       autoScaleContent: false
       relativeZ: true
       _onlyInteractOnBorder: false
       allowTranslation: true
       _cutOutCenter: false
-      minimumSize: !<Vec2> {x: 10.000000, y: 10.000000}
-      maximumSize: !<Vec2> {x: 150.000000, y: 150.000000}
+      _minimumSize: !<Vec2> {x: 10.000000, y: 10.000000}
+      _maximumSize: !<Vec2> {x: 150.000000, y: 150.000000}
       useBillboarding: true
       xOnTranslate: false
       xAlways: false
@@ -3379,7 +3506,7 @@
         - 30.000000
       _maxRaycastDistance: !<float> 500.000000
       indirectTargetingVolumeMultiplier: !<float> 1.000000
-      indirectDragThreshold: !<float> 40.000000
+      indirectDragThreshold: !<float> 10.000000
       handType: left
       forcePokeOnNonDominantPalmProximity: false
       directColliderEnterRadius: !<float> 1.000000
@@ -3720,7 +3847,7 @@
     {}
   ScriptInputs:
     "":
-      useV2: false
+      useV2: true
       drawDebug: false
   ScriptTypes:
     "":
@@ -3814,6 +3941,7 @@
   ScriptInputs:
     "":
       _dynamicAudioOutput: !<MappingBased.AssignableType> b385c33b-acee-40c1-9fb8-b8623dcd90ed
+      _audioComponent: !<reference.AudioComponent> f645d601-6d51-4bed-89d8-e1ce18942d8b
   ScriptTypes:
     "":
       {}
@@ -4025,7 +4153,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 1
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -4144,7 +4272,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 1
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Top
   HorizontalAlignment: Center
@@ -4486,7 +4614,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 1
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Top
   HorizontalAlignment: Center
@@ -4914,6 +5042,8 @@
     _inactive: true
     _playAudio: true
     _style: true
+    _hasShadow: true
+    _shadowPositionOffset: true
     _toggleable: true
     _defaultToOn: true
     addCallbacks: true
@@ -4929,6 +5059,8 @@
       _inactive: false
       _playAudio: false
       _style: PrimaryNeutral
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
       _toggleable: false
       _defaultToOn: false
       addCallbacks: false

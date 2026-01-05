@@ -1,77 +1,77 @@
-import { Queue } from "./Queue";
+import { Queue } from "./Queue"
 
 export class Logger {
-  bus: LoggerBus;
-  topic: string;
+  bus: LoggerBus
+  topic: string
 
   public log(message: string) {
-    this.bus.write(this.topic, message);
+    this.bus.write(this.topic, message)
   }
 }
 
 // place to write things out exists ahead of component instantiation
 class LoggerBus {
-  listener?: (topic: string, message: string) => void;
+  listener?: (topic: string, message: string) => void
 
   write(topic: string, message: string) {
-    this.buffered.push([topic, message]);
-    this.flush();
+    this.buffered.push([topic, message])
+    this.flush()
   }
 
   flush() {
     if (!this.listener) {
-      return;
+      return
     }
     this.buffered.forEach(([topic, message]) => {
-      this.listener(topic, message);
-    });
-    this.buffered = [];
+      this.listener(topic, message)
+    })
+    this.buffered = []
   }
 
-  private buffered: [string, string][] = [];
+  private buffered: [string, string][] = []
 }
 
 @component
 export class LoggerVisualization extends BaseScriptComponent {
-  @input private logLimit: number = 10;
-  @input private loggerOutput: Text;
+  @input private logLimit: number = 10
+  @input private loggerOutput: Text
 
-  private static theLoggerBus: LoggerBus;
+  private static theLoggerBus: LoggerBus
 
-  private logQueue: Queue<string>;
+  private logQueue: Queue<string>
 
   static get busInstance(): LoggerBus {
     if (!LoggerVisualization.theLoggerBus) {
-      LoggerVisualization.theLoggerBus = new LoggerBus();
+      LoggerVisualization.theLoggerBus = new LoggerBus()
     }
-    return LoggerVisualization.theLoggerBus;
+    return LoggerVisualization.theLoggerBus
   }
   static createLogger(topic: string): Logger {
-    let logger = new Logger();
-    logger.bus = LoggerVisualization.busInstance;
-    logger.topic = topic;
-    return logger;
+    const logger = new Logger()
+    logger.bus = LoggerVisualization.busInstance
+    logger.topic = topic
+    return logger
   }
 
   write(topic: string, message: string) {
-    const localText = `${topic}: ${message}`;
+    const localText = `${topic}: ${message}`
     if (this.loggerOutput != null && this.loggerOutput != undefined) {
-      this.logQueue.enqueue(localText);
-      let formatedLog = this.logQueue.peek(0);
+      this.logQueue.enqueue(localText)
+      let formatedLog = this.logQueue.peek(0)
       for (let index = 0; index < this.logQueue.size(); index++) {
-        formatedLog += "\n" + this.logQueue.peek(index);
+        formatedLog += "\n" + this.logQueue.peek(index)
       }
-      this.loggerOutput.text = formatedLog;
+      this.loggerOutput.text = formatedLog
     } else {
-      print("no textLogger: " + localText);
+      print("no textLogger: " + localText)
     }
 
-    print(localText);
+    print(localText)
   }
 
   onAwake() {
-    this.logQueue = new Queue<string>(this.logLimit);
-    this.write = this.write.bind(this);
-    LoggerVisualization.busInstance.listener = this.write;
+    this.logQueue = new Queue<string>(this.logLimit)
+    this.write = this.write.bind(this)
+    LoggerVisualization.busInstance.listener = this.write
   }
 }

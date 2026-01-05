@@ -1,0 +1,101 @@
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+const STITCHER_URL = Deno.env.get('STITCHER_SERVICE_URL') || 'https://your-railway-service.up.railway.app';
+serve(async (req)=>{
+  const corsHeaders = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type'
+  };
+  if (req.method === 'OPTIONS') {
+    return new Response('ok', {
+      headers: corsHeaders
+    });
+  }
+  try {
+    const { 
+      sessionId, 
+      bucket, 
+      frameRate, 
+      sampleRate, 
+      videoStorageFolder, 
+      audioStorageFolder, 
+      stitchedOutputFolder,
+      // Video format options
+      useVerticalCrop,
+      // Social sharing options
+      shareToSpotlight,
+      spotlightCaption
+    } = await req.json();
+    if (!sessionId) {
+      return new Response(JSON.stringify({
+        error: 'sessionId is required'
+      }), {
+        status: 400,
+        headers: {
+          ...corsHeaders,
+          'Content-Type': 'application/json'
+        }
+      });
+    }
+    console.log(`[TRIGGER] Starting stitch job for session: ${sessionId}`);
+    console.log(`[TRIGGER] Share to Spotlight: ${shareToSpotlight}, Vertical crop: ${useVerticalCrop}`);
+    const stitchResponse = await fetch(`${STITCHER_URL}/stitch`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        sessionId,
+        bucket: bucket || 'specs-bucket',
+        frameRate: frameRate || 30,
+        sampleRate: sampleRate || 44100,
+        videoStorageFolder: videoStorageFolder || 'composite-video',
+        audioStorageFolder: audioStorageFolder || 'composite-audio',
+        stitchedOutputFolder: stitchedOutputFolder || 'composite-stitched',
+        // Video format options
+        useVerticalCrop: useVerticalCrop || false,
+        // Social sharing options
+        shareToSpotlight: shareToSpotlight || false,
+        spotlightCaption: spotlightCaption || 'Captured with Spectacles ✨'
+      })
+    });
+    const stitchData = await stitchResponse.json();
+    if (!stitchResponse.ok) {
+      console.error(`[TRIGGER ERROR] Stitcher responded with error:`, stitchData);
+      return new Response(JSON.stringify({
+        error: 'Stitching service error',
+        details: stitchData
+      }), {
+        status: 500,
+        headers: {
+          ...corsHeaders,
+          'Content-Type': 'application/json'
+        }
+      });
+    }
+    console.log(`[TRIGGER SUCCESS] Stitch job queued:`, stitchData);
+    return new Response(JSON.stringify({
+      success: true,
+      message: 'Stitching job started',
+      sessionId,
+      data: stitchData
+    }), {
+      status: 200,
+      headers: {
+        ...corsHeaders,
+        'Content-Type': 'application/json'
+      }
+    });
+  } catch (error) {
+    console.error('[TRIGGER ERROR]', error);
+    return new Response(JSON.stringify({
+      error: 'Internal server error',
+      message: error.message
+    }), {
+      status: 500,
+      headers: {
+        ...corsHeaders,
+        'Content-Type': 'application/json'
+      }
+    });
+  }
+});

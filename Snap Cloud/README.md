@@ -6,21 +6,15 @@
 
 ## Overview
 
-This project demonstrates how to use **Snap Cloud** (powered by Supabase) with Spectacles to build connected AR experiences. Snap Cloud is Snap's managed cloud platform providing database storage, real-time synchronization, cloud storage, and serverless edge functions—all accessible directly from your Spectacles lenses.
+This project demonstrates how to use **Snap Cloud** (powered by Supabase) with Spectacles to build connected AR experiences. Snap Cloud is Snap's managed cloud platform providing database storage, real-time synchronization, cloud storage, and serverless edge functions.
 
-The template includes four comprehensive examples showcasing different aspects of cloud integration, from basic database operations to advanced real-time synchronization and dynamic asset loading.
+The template includes five comprehensive examples:
 
-Key Features:
-
-- **Database Integration**: Store and query data using PostgreSQL with automatic Snap authentication
-- **Real-Time Synchronization**: Bidirectional PC-to-Spectacles cursor sync with smooth interpolation
-- **Dynamic Asset Loading**: Load 3D models, images, and audio files from cloud storage on demand
-- **Serverless Edge Functions**: Execute cloud functions for image processing and external API calls
-- **Spectacles UI Kit Integration**: Button-triggered interactions using RectangleButton components
-- **Sample Data Included**: Pre-configured CSV files for quick testing and prototyping
-
-> **NOTE:**
-> This project will only work for the Spectacles platform and requires Snap Cloud access. Your Snapchat account must be whitelisted for Snap Cloud. Request access at [#snap-cloud-allowlist](https://snap.com).
+- **Example 1 - Auth & Tables**: Database authentication and CRUD operations
+- **Example 2 - RealTime**: Bidirectional data sync between devices and web
+- **Example 3 - Storage**: Dynamic asset loading (3D models, images, audio)
+- **Example 4 - Edge Functions**: Serverless cloud function execution
+- **Example 5 - Media Suite**: Complete media capture, upload, and streaming
 
 ## Design Guidelines
 
@@ -63,7 +57,7 @@ Open Lens Studio and install the following from the Asset Library:
 1. Open Supabase Plugin: `Window > Supabase`
 2. Login with your Lens Studio credentials
 3. Click "Create a New Project"
-4. Click "Import Credentials" to generate a SupabaseProject asset in your Asset Browser
+4. Click "Import Credentials" to generate a SupabaseProject asset
 
 ### 3. Set Device Type
 
@@ -71,7 +65,7 @@ In the Preview Panel, set **Device Type Override** to **Spectacles**
 
 ### 4. Configure Database Tables
 
-Use the Supabase Plugin dashboard to create the required tables for the examples you want to use. Sample SQL and CSV data are provided in the `Data/testData-ADD TO TABLES/` folder.
+Use the Supabase Plugin dashboard to create the required tables. Sample SQL and CSV data are provided in `ExternalServicesExamples/example-1to4-mockup-data/`.
 
 ## Project Structure
 
@@ -79,203 +73,499 @@ Use the Supabase Plugin dashboard to create the required tables for the examples
 Snap Cloud/
 ├── Assets/
 │   └── Examples/
-│       ├── Example1-SupabaseConnector/         # Database CRUD operations
-│       │   └── TableConnector.ts
-│       ├── Example2-RealTimeCursor/            # PC ↔ Spectacles cursor sync
-│       │   └── RealtimeCursor.ts
-│       ├── Example3-LoadAssets/                # Dynamic 3D models, images, audio
-│       │   └── StorageLoader.ts
-│       ├── Example4-EdgeFunctions/             # Serverless function calls
+│       ├── Example1-AuthAndTables/     # Authentication & database operations
+│       │   ├── BasicAuth.ts            # Simple auth example
+│       │   └── TableConnector.ts       # Full CRUD operations
+│       ├── Example2-RealTime/          # Real-time synchronization
+│       │   └── RealtimeCursor.ts       # Bidirectional cursor sync
+│       ├── Example3-Storage/           # Cloud storage operations
+│       │   └── StorageLoader.ts        # Dynamic asset loading
+│       ├── Example4-EdgeFunctions/     # Serverless functions
 │       │   └── EdgeFunctionImgProcessing.ts
-│       ├── SnapCloudRequirements.ts            # Centralized configuration
-│       └── Data/                                
-│           ├── testAssets-ADD TO STORAGE BUCKET/
-│           │   ├── rabbit.glb
-│           │   ├── spectacles.jpg
-│           │   └── chill.mp3
-│           ├── testData-ADD TO TABLES/
-│           │   ├── cursor_debug.csv
-│           │   ├── user_interactions.csv
-│           │   └── user_preferences.csv
-│           └── testEdgeFunction-ADD TO EDGE FUNCTION CODE/
-│               └── index.txt
+│       ├── Example5-Media/             # Media capture & streaming
+│       │   └── Scripts/
+│       │       ├── ImageCaptureUploader.ts
+│       │       ├── VideoCaptureUploader.ts
+│       │       ├── VideoStreamingController.ts
+│       │       ├── AudioCaptureUploader.ts
+│       │       ├── AudioStreamingController.ts
+│       │       ├── CompositeCaptureUploader.ts
+│       │       ├── CompositeStreamingController.ts
+│       │       ├── CaptureUtilities.ts
+│       │       └── UISectionManager.ts
+│       └── SnapCloudRequirements.ts    # Centralized configuration
+├── ExternalServicesExamples/
+│   ├── example-1to4-mockup-data/       # Sample data for examples 1-4
+│   ├── media-example-web-viewers/      # Web viewers for streaming
+│   ├── media-example-server-composite-stitcher/  # Video stitching server
+│   └── realtime-example-web-cursor-controller/   # Web cursor controller
 └── README.md
 ```
 
-## Integration Guidelines
+---
 
-### Example 1: Database Connector
+## Example 1: Authentication & Tables
 
-Basic database operations demonstrating CRUD (Create, Read, Update, Delete) functionality with automatic connection testing.
+Basic authentication and database CRUD operations with automatic connection testing.
 
-**Key Components:**
-- [TableConnector.ts](Assets/Examples/Example1-SupabaseConnector/TableConnector.ts) - Main connector script with centralized configuration
-- SnapCloudRequirements - Centralized Supabase configuration
-- RectangleButton (optional) - Trigger data retrieval
-- Text Component (optional) - Display logs on device
+### Key Scripts
 
-**Use Cases:** User profiles, leaderboards, analytics, messaging
+**BasicAuth.ts** - Minimal authentication setup:
 
-**Setup:**
-1. Create database tables: test_table (see SQL below), user_interactions, and user_preferences (import CSV data from testData folder)
-2. Assign SnapCloudRequirements component to script
+```typescript
+async signInUser() {
+  const { data, error } = await this.client.auth.signInWithIdToken({
+    provider: 'snapchat',
+    token: '',
+  });
+
+  if (data && data.user) {
+    this.uid = JSON.stringify(user.id).replace(/^"(.*)"$/, '$1');
+    print('User ID: ' + this.uid);
+  }
+}
+```
+
+**TableConnector.ts** - Full database operations with UI:
+
+```typescript
+// Insert data
+async insertData(tableName: string, data: object) {
+  const { data: result, error } = await this.client
+    .from(tableName)
+    .insert(data)
+    .select();
+  return { result, error };
+}
+
+// Query data
+async getData(tableName: string, limit: number = 10) {
+  const { data, error } = await this.client
+    .from(tableName)
+    .select('*')
+    .order('id', { ascending: false })
+    .limit(limit);
+  return { data, error };
+}
+```
+
+### Setup
+1. Assign `SnapCloudRequirements` component with SupabaseProject
+2. Create `test_table` in database (see Database Setup section)
 3. Optionally assign RectangleButton for manual data retrieval
-4. Optionally assign Text component for on-device log display
-
-**Features:**
-- Automatic user authentication with Snapchat ID token
-- Connection testing on startup
-- Generic CRUD methods for any table
-- Sample data insertion and retrieval
-- User interaction logging
-- Real-time log display
 
 ---
 
-### Example 2: Real-Time Cursor Sync
+## Example 2: RealTime Synchronization
 
-Unified bidirectional cursor synchronization between PC and Spectacles with smooth interpolation and mode switching.
+Bidirectional cursor synchronization between Spectacles and web browsers using WebSocket channels.
 
-**Key Components:**
-- [RealtimeCursor.ts](Assets/Examples/Example2-RealTimeCursor/RealtimeCursor.ts) - Unified WebSocket-based cursor sync
-- SnapCloudRequirements - Centralized Supabase configuration
-- RectangleButton - Toggle between broadcast and follow modes
-- Text Components - Display mode and status information
+### Key Script
 
-**Use Cases:** Remote presentations, collaborative design, multiplayer games, interactive demos
+**RealtimeCursor.ts** - Two operation modes:
 
-**Setup:**
-1. Optionally create cursor_debug table (see SQL below) for storing cursor positions
-2. Assign SnapCloudRequirements component to script
-3. Configure channel name for synchronization
-4. Assign cursor object to track/move
-5. Assign RectangleButton to toggle modes
-6. Optionally assign Text components for status display
-7. Test with PC web controller for full bidirectional sync
+```typescript
+// BROADCAST MODE: Send cursor position to web
+private broadcastPosition() {
+  const pos = this.cursorObject.getTransform().getLocalPosition();
+  
+  const webX = (pos.x / this.coordinateScale) * this.perspectiveScale;
+  const webY = (pos.y / this.coordinateScale) * this.perspectiveScale;
+  
+  this.channel.send({
+    type: 'broadcast',
+    event: 'cursor_move',
+    payload: { x: webX, y: webY, source: 'spectacles' }
+  });
+}
 
-**Features:**
-- Two modes: Broadcast (Spectacles to Web) and Follow (Web to Spectacles)
-- Toggle between modes with button press
-- Smooth interpolation for cursor movement
-- Configurable coordinate mapping and scaling
-- Adjustable broadcast interval and movement speed
-- Real-time status logging and display
+// FOLLOW MODE: Receive cursor position from web
+private handleCursorMove(payload: any) {
+  if (payload.source === 'web') {
+    this.targetPosition = new vec3(
+      payload.x * this.movementScale,
+      payload.y * this.movementScale + this.heightOffset,
+      this.cursorZPosition
+    );
+  }
+}
+```
+
+### Setup
+1. Assign `SnapCloudRequirements` component
+2. Set channel name for synchronization
+3. Assign cursor SceneObject to track/move
+4. Use web controller from `ExternalServicesExamples/realtime-example-web-cursor-controller/`
 
 ---
 
-### Example 3: Dynamic Asset Loading
+## Example 3: Dynamic Asset Loading
 
-Load 3D models, images, and audio files from Snap Cloud storage on demand with progress tracking.
+Load 3D models, images, and audio files from Snap Cloud storage on demand.
 
-**Key Components:**
-- [StorageLoader.ts](Assets/Examples/Example3-LoadAssets/StorageLoader.ts) - Comprehensive asset loading script
-- SnapCloudRequirements - Centralized Supabase configuration
-- RectangleButton - Trigger asset loading
-- RemoteMediaModule - Handle remote asset loading
-- InternetModule - Network connectivity and resource creation
+### Key Script
 
-**Use Cases:** User-generated content, dynamic experiences, asset streaming, remote model loading
+**StorageLoader.ts** - Multi-asset loading:
 
-**Setup:**
+```typescript
+// Load 3D model
+private async loadGltfModel() {
+  const url = this.getStorageUrl(this.gltfPath);
+  const resource = await this.internetModule.createResourceFromUrl(url);
+  const gltfAsset = await this.remoteMediaModule.loadGltfFromResource(resource);
+  
+  const sceneObject = gltfAsset.tryInstantiate(this.modelParent);
+  sceneObject.getTransform().setLocalScale(new vec3(this.modelScale, this.modelScale, this.modelScale));
+}
+
+// Load image texture
+private async loadImageTexture() {
+  const url = this.getStorageUrl(this.imagePath);
+  const resource = await this.internetModule.createResourceFromUrl(url);
+  const texture = await this.remoteMediaModule.loadTextureFromResource(resource);
+  
+  this.outputImage.mainPass.baseTex = texture;
+}
+
+// Load audio
+private async loadAudioFile() {
+  const url = this.getStorageUrl(this.audioPath);
+  const resource = await this.internetModule.createResourceFromUrl(url);
+  const audioAsset = await this.remoteMediaModule.loadAudioFromResource(resource);
+  
+  this.audioComponent.audioTrack = audioAsset;
+  this.audioComponent.play(1);
+}
+```
+
+### Setup
 1. Create storage bucket in Snap Cloud
-2. Upload test assets (rabbit.glb, spectacles.jpg, chill.mp3) from testAssets folder to bucket
-3. Assign SnapCloudRequirements component to script
-4. Configure bucket name and file paths in Inspector
-5. Assign Camera object for model positioning
-6. Assign parent scene object for loaded models
-7. Assign Image component for texture display
-8. Assign AudioComponent scene object for audio playback
-9. Optionally assign default Material for models
-10. Configure storage policies for public access
-
-**Features:**
-- Loads 3D models (GLTF) with automatic positioning and scaling
-- Loads images as textures with automatic display
-- Loads audio files with automatic playback
-- Parallel asset loading for better performance
-- Internet connectivity checking
-- Loading progress tracking and status display
-- Asset URL accessibility testing
-- Animation player detection for GLTF models
-- Clear loaded assets functionality
+2. Upload test assets from `ExternalServicesExamples/example-1to4-mockup-data/testAssets-ADD TO STORAGE BUCKET/`
+3. Configure bucket name and file paths in Inspector
+4. Assign output components (Image, AudioComponent, parent SceneObject)
 
 ---
 
-### Example 4: Serverless Edge Functions
+## Example 4: Edge Functions
 
-Call cloud functions for image processing with automatic result display.
+Execute serverless functions for image processing and external API calls.
 
-**Key Components:**
-- [EdgeFunctionImgProcessing.ts](Assets/Examples/Example4-EdgeFunctions/EdgeFunctionImgProcessing.ts) - Edge function caller with image processing
-- SnapCloudRequirements - Centralized Supabase configuration
-- RectangleButton - Trigger function execution
-- Image component - Display processed output
-- InternetModule - HTTP request handling
-- RemoteMediaModule - Download and display processed images
+### Key Script
 
-**Use Cases:** Image filters, image processing, AI inference, external APIs, serverless computation
+**EdgeFunctionImgProcessing.ts** - Call edge functions:
+
+```typescript
+async callEdgeFunction() {
+  const functionUrl = `${this.supabaseProject.url}/functions/v1/${this.functionName}`;
+  
+  const response = await this.internetModule.fetch(functionUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.supabaseProject.publicToken}`,
+    },
+    body: JSON.stringify({
+      imageUrl: this.inputImageUrl,
+      operations: ['grayscale', 'blur']
+    }),
+  });
+  
+  const result = await response.json();
+  // Load processed image from result.outputUrl
+}
+```
+
+### Setup
+1. Deploy edge function from `ExternalServicesExamples/example-1to4-mockup-data/testEdgeFunction-ADD TO EDGE FUNCTION CODE/`
+2. Assign SnapCloudRequirements and function name
+3. Configure input image URL and output Image component
+
+---
+
+## Example 5: Media Suite
+
+Complete media capture, upload, and streaming capabilities for Spectacles.
+
+### 5a. Image Capture
+
+**ImageCaptureUploader.ts** - Capture and upload images:
+
+```typescript
+// Capture from camera or composite texture
+private async captureImage() {
+  const texture = this.useCompositeTexture ? this.compositeTexture : this.cameraTexture;
+  
+  Base64.encodeTextureAsync(
+    texture,
+    async (base64String) => {
+      const binaryData = Base64.decode(base64String);
+      await this.uploadToStorage(binaryData, `images/${sessionId}/capture.jpg`);
+    },
+    () => { print('Encoding failed'); },
+    CompressionQuality.HighQuality,
+    EncodingType.Jpg
+  );
+}
+```
+
+**Features:**
+- Camera-only or composite (AR content + background) capture
+- Configurable JPEG quality
+- High-quality still capture via Camera Module API
+- Preview display
+
+### 5b. Video Capture & Streaming
+
+**VideoCaptureUploader.ts** - Record frame sequences:
+
+```typescript
+// Capture frames during recording
+private captureFrame() {
+  Base64.encodeTextureAsync(
+    this.cameraTexture,
+    (base64String) => {
+      this.frameBuffer.push({
+        frameNumber: this.frameCount++,
+        data: base64String,
+        timestamp: Date.now()
+      });
+    },
+    () => {},
+    this.useHighQuality ? CompressionQuality.HighQuality : CompressionQuality.LowQuality,
+    EncodingType.Jpg
+  );
+}
+
+// Upload all frames after recording
+private async uploadFrames() {
+  for (const frame of this.frameBuffer) {
+    const binaryData = Base64.decode(frame.data);
+    await this.uploadToStorage(binaryData, `video/${sessionId}/frame_${frame.frameNumber}.jpg`);
+  }
+}
+```
+
+**VideoStreamingController.ts** - Live streaming via Realtime:
+
+```typescript
+// Stream frames to viewers
+private streamFrame() {
+  Base64.encodeTextureAsync(
+    this.cameraTexture,
+    (base64String) => {
+      this.channel.send({
+        type: 'broadcast',
+        event: 'video-frame',
+        payload: {
+          frame: base64String,
+          timestamp: Date.now(),
+          frameNumber: this.frameCount++
+        }
+      });
+    },
+    () => {},
+    CompressionQuality.LowQuality,
+    EncodingType.Jpg
+  );
+}
+```
+
+**Features:**
+- Configurable FPS and quality
+- Camera-only or composite mode
+- Upload for later processing OR live streaming
+- Web viewer available at `ExternalServicesExamples/media-example-web-viewers/video-stream-viewer.html`
+
+### 5c. Audio Capture & Streaming
+
+**AudioCaptureUploader.ts** - Record audio chunks:
+
+```typescript
+// Process audio frames
+private processAudioFrame() {
+  const shape = this.audioComponent.audioFrame.shape;
+  const audioData = new Float32Array(shape.x * shape.y);
+  this.audioComponent.audioFrame.getData(audioData);
+  
+  this.audioBuffer.push({
+    audioFrame: audioData,
+    timestamp: Date.now()
+  });
+}
+
+// Convert to WAV and upload
+private async uploadAudioChunk(chunkNumber: number, samples: Float32Array) {
+  const wavData = this.createWavFile(samples, this.sampleRate);
+  await this.uploadToStorage(wavData, `audio/${sessionId}/chunk_${chunkNumber}.wav`);
+}
+```
+
+**AudioStreamingController.ts** - Live audio streaming:
+
+```typescript
+// Stream audio chunks via Realtime
+private streamAudioChunk() {
+  const audioData = this.getAudioBuffer();
+  const base64Audio = Base64.encode(new Uint8Array(audioData.buffer));
+  
+  this.channel.send({
+    type: 'broadcast',
+    event: 'audio-chunk',
+    payload: {
+      audio: base64Audio,
+      sampleRate: this.sampleRate,
+      timestamp: Date.now()
+    }
+  });
+}
+```
+
+**Features:**
+- Configurable sample rate (8kHz - 48kHz)
+- WAV format upload
+- Chunk-based processing
+- Web listener at `ExternalServicesExamples/media-example-web-viewers/audio-stream-listener.html`
+
+### 5d. Composite Capture & Streaming
+
+> **⚠️ Disclaimer:** The video stitching example uses [Railway](https://railway.app/) as an optional hosting platform. Railway is **not endorsed or affiliated with Snap Inc.** This is provided as an example deployment pattern. You may use any Node.js hosting service (Heroku, Render, AWS, Google Cloud, etc.) that supports FFmpeg.
+
+**CompositeCaptureUploader.ts** - Synchronized video + audio capture:
+
+```typescript
+// Start synchronized recording
+private async startRecording() {
+  this.sessionId = SessionUtility.generateSessionId('composite');
+  this.recordingStartTime = Date.now();
+  
+  // Start audio recording
+  this.audioCapture.startRecording();
+  
+  // Start frame capture timer
+  this.frameTimerEvent = this.createEvent('DelayedCallbackEvent');
+  this.frameTimerEvent.bind(() => {
+    this.captureVideoFrame();
+    if (this.isRecording) {
+      this.frameTimerEvent.reset(this.frameInterval / 1000);
+    }
+  });
+  
+  // Create session metadata for stitching
+  await this.createSessionMetadata();
+}
+
+// Trigger server-side stitching
+private async triggerStitching() {
+  const functionUrl = `${this.supabaseProject.url}/functions/v1/trigger-composite-stitch`;
+  
+  await this.internetModule.fetch(functionUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.supabaseProject.publicToken}`,
+    },
+    body: JSON.stringify({
+      sessionId: this.sessionId,
+      frameRate: this.frameRate,
+      sampleRate: this.sampleRate
+    }),
+  });
+}
+```
+
+**Features:**
+- Synchronized video frames + audio chunks with shared session ID
+- Metadata files for stitching relationship
+- Server-side video stitching via Edge Function or external server
+- Stitching server available at `ExternalServicesExamples/media-example-server-composite-stitcher/`
+
+### 5e. Social Sharing (Spotlight)
+
+Share stitched videos to social media platforms via optional third-party integration.
+
+> **⚠️ Disclaimer:** The social sharing example uses [Ayrshare](https://www.ayrshare.com/) as an optional third-party service. Ayrshare is **not endorsed or affiliated with Snap Inc.** This is provided as an example of how to integrate with social media APIs. You may use any similar service or build your own integration.
+
+**CompositeCaptureUploader.ts** - Social sharing controls:
+
+```typescript
+// Inspector-configurable sharing options
+@input public shareToSpotlight: boolean = false;
+@input public captionInput: TextInputField;
+@input public defaultCaption: string = "Captured with Spectacles ✨";
+@input public useVerticalCrop: boolean = false;  // 9:16 aspect ratio for Spotlight/Reels
+
+// Trigger stitching with sharing options
+private async triggerStitching() {
+  const spotlightCaption = this.captionInput?.text?.trim() || this.defaultCaption;
+  
+  await this.internetModule.fetch(functionUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.supabaseProject.publicToken}`,
+    },
+    body: JSON.stringify({
+      sessionId: this.sessionId,
+      frameRate: actualFrameRate,
+      sampleRate: this.sampleRate,
+      // Video format options
+      useVerticalCrop: this.useVerticalCrop,  // 9:16 crop for Spotlight/Reels
+      // Social sharing options
+      shareToSpotlight: this.shareToSpotlight,
+      spotlightCaption: spotlightCaption,
+    }),
+  });
+}
+```
+
+**Server-side sharing** (in composite stitcher):
+
+```javascript
+// Post to Snapchat Spotlight via Ayrshare
+async function shareToSocialMedia(videoUrl, caption) {
+  const response = await axios.post(
+    'https://api.ayrshare.com/api/post',
+    {
+      post: caption,
+      mediaUrls: [videoUrl],
+      platforms: ['snapchat'],  // Snapchat Spotlight
+      snapChatOptions: { spotlight: true }
+    },
+    {
+      headers: { 'Authorization': `Bearer ${AYRSHARE_API_KEY}` }
+    }
+  );
+  return response.data;
+}
+```
+
+**Features:**
+- Optional sharing toggle (Inspector checkbox or UI switch)
+- Custom caption input field
+- 9:16 vertical crop for Spotlight/Reels format
+- Server-side posting after video stitching completes
+- Extensible to other platforms (Instagram, TikTok, YouTube Shorts)
 
 **Setup:**
-1. Deploy edge function to Snap Cloud (use testEdgeFunction code from Data folder)
-2. Assign SnapCloudRequirements component to script
-3. Configure function name in Inspector
-4. Assign image URL from Supabase Storage to process
-5. Assign output Image component to display results
-6. Assign RectangleButton to trigger processing
+1. Create account at [Ayrshare](https://www.ayrshare.com/) (or similar service)
+2. Connect your Snapchat Creator account
+3. Add `AYRSHARE_API_KEY` environment variable to your stitching server
+4. Enable sharing in Inspector and provide caption
 
-**Features:**
-- Sends image URL to edge function for processing
-- Edge function downloads, processes, and stores result
-- Automatically downloads and displays processed image
-- Detailed logging of processing steps
-- Support for various image operations (blur, resize, grayscale, etc.)
-- Returns processing metadata (file sizes, storage paths, operations applied)
+### Media Setup
+
+1. Assign `SnapCloudRequirements` component
+2. Create storage bucket named `specs-bucket`
+3. For composite mode: assign `CameraService` and `compositeTexture`
+4. For audio: assign `AudioTrackAsset` (microphone)
+5. Deploy web viewers for streaming (optional)
+6. Deploy stitching server for composite video (optional)
 
 ---
-
-## Sample Data
-
-Sample data is organized in the `Data/` folder:
-
-### Test Data (CSV files for database tables)
-Located in `testData-ADD TO TABLES/`:
-- **cursor_debug.csv** - Sample cursor debug data for Example 2
-- **user_interactions.csv** - Sample user action logs for Example 1
-- **user_preferences.csv** - Sample user settings for Example 1
-
-**To import:**
-1. Open Supabase Plugin dashboard
-2. Navigate to your table in Table Editor
-3. Click "Insert" then "Import from CSV"
-4. Select the appropriate CSV file
-
-### Test Assets (for storage bucket)
-Located in `testAssets-ADD TO STORAGE BUCKET/`:
-- **rabbit.glb** - 3D model for Example 3
-- **spectacles.jpg** - Image file for Example 3
-- **chill.mp3** - Audio file for Example 3
-
-**To upload:**
-1. Open Supabase Plugin dashboard
-2. Navigate to Storage
-3. Create or select your bucket
-4. Upload the asset files
-
-### Edge Function Code
-Located in `testEdgeFunction-ADD TO EDGE FUNCTION CODE/`:
-- **index.txt** - Sample edge function code for Example 4
-
-**To deploy:**
-1. Open Supabase Plugin dashboard
-2. Navigate to Edge Functions
-3. Create new function
-4. Copy code from index.txt
 
 ## Database Setup
 
 ### Core Tables
-
-Create these tables in your Snap Cloud project for the examples:
 
 #### Test Table (Example 1)
 ```sql
@@ -299,9 +589,6 @@ CREATE TABLE cursor_debug (
   timestamp TIMESTAMPTZ NOT NULL,
   channel_name TEXT NOT NULL
 );
-
-CREATE INDEX idx_cursor_debug_channel_timestamp
-ON cursor_debug(channel_name, timestamp DESC);
 ```
 
 #### User Interactions Table (Example 1)
@@ -315,141 +602,79 @@ CREATE TABLE user_interactions (
 );
 ```
 
-#### User Preferences Table (Example 1)
-```sql
-CREATE TABLE user_preferences (
-  id BIGSERIAL PRIMARY KEY,
-  user_id TEXT NOT NULL UNIQUE,
-  preferences JSONB NOT NULL,
-  updated_at TIMESTAMPTZ DEFAULT NOW()
-);
-```
-
 ### Row Level Security (RLS)
 
-For development, you can disable RLS or allow anonymous access:
+For development, you can disable RLS:
 
 ```sql
--- Disable RLS for testing (not recommended for production)
 ALTER TABLE test_table DISABLE ROW LEVEL SECURITY;
-
--- OR allow anonymous access
-ALTER TABLE test_table ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Allow anonymous access" ON test_table FOR ALL USING (true);
-
--- Apply same pattern to all tables
-ALTER TABLE user_interactions DISABLE ROW LEVEL SECURITY;
-ALTER TABLE user_preferences DISABLE ROW LEVEL SECURITY;
 ALTER TABLE cursor_debug DISABLE ROW LEVEL SECURITY;
+ALTER TABLE user_interactions DISABLE ROW LEVEL SECURITY;
 ```
+
+---
 
 ## Testing the Lens
 
 ### In Lens Studio Editor
 
-1. Open any example scene in Lens Studio
-2. Ensure Device Type is set to Spectacles in Preview Panel
-3. Verify SnapCloudRequirements component is configured with SupabaseProject asset
-4. Test Example 1:
-   - Run the lens and check console for automatic connection testing
-   - Verify data is inserted into database via Supabase Plugin dashboard
-   - Press button to retrieve latest data from all tables
-5. Test Example 2:
-   - Open web cursor controller in browser
-   - Default mode is BROADCAST (Spectacles to Web)
-   - Move cursor in Spectacles and watch it appear on web
-   - Press toggle button to switch to FOLLOW mode
-   - Move mouse on web and watch AR object follow in preview
-6. Test Example 3:
-   - Ensure test assets are uploaded to storage bucket
-   - Press load button to download all assets
-   - Verify 3D model, image, and audio appear in scene
-   - Check console for loading progress
-7. Test Example 4:
-   - Ensure edge function is deployed
-   - Configure image URL from storage
-   - Press process button to trigger edge function
-   - Watch processed image appear in output component
-   - Check console for processing details
+1. Open any example scene
+2. Ensure Device Type is set to Spectacles
+3. Verify SnapCloudRequirements has SupabaseProject assigned
+4. Run and check console for authentication logs
 
 ### On Spectacles Device
 
-1. Ensure Snap Cloud access is enabled for your account
-2. Deploy the lens to your Spectacles device
-3. Ensure internet connectivity (WiFi or mobile hotspot)
-4. Test each example:
-   - **Example 1**: Data automatically syncs with database
-   - **Example 2**: Use web controller to control AR objects remotely
-   - **Example 3**: Press button to load dynamic content
-   - **Example 4**: Process images using cloud functions
+1. Deploy lens to Spectacles
+2. Ensure internet connectivity
+3. Test each example functionality
+
+---
 
 ## Common Configuration
 
 All examples require:
+- **SnapCloudRequirements Script** - Centralized Supabase configuration
+- **SupabaseProject Asset** - Created via Supabase Plugin
+- **Device Type: Spectacles** - Set in preview panel
 
-1. **SnapCloudRequirements Script** - Centralized Supabase configuration (replaces individual SupabaseProject assignments)
-2. **SupabaseProject Asset** - Created via Supabase Plugin (assigned to SnapCloudRequirements)
-3. **Internet Module** - Automatically required by scripts for HTTP requests
-4. **Device Type: Spectacles** - Set in preview panel
+Authentication is automatic using `signInWithIdToken({ provider: 'snapchat', token: '' })`.
 
-Optional components:
-- **RectangleButton** (Spectacles UI Kit) - For interactive triggers (used in all examples)
-- **Text Component** - For status displays and logging
-- **Image Component** - For loaded textures
-- **AudioComponent** - For loaded audio
-
-**SnapCloudRequirements Benefits:**
-- Single configuration point for all examples
-- Automatic URL generation for Storage and Functions APIs
-- Centralized header management
-- Easy switching between projects
+---
 
 ## Security Best Practices
 
 ### Development
 - Use anon public key from Snap Cloud dashboard
 - Disable RLS for quick testing
-- Test with sample data from Data/ folder
 
 ### Production
 - Enable Row Level Security (RLS)
 - Create proper authentication policies
 - Use service role key only server-side
 - Validate all user inputs
-- Set up proper CORS policies
 
-## Disclaimer
-
-This project is intended for demonstration and educational purposes. Ensure compliance with Snap Cloud API usage policies and terms of service when deploying your lenses. Always implement proper security measures and data protection practices in production environments.
+---
 
 ## Support
 
-If you have any questions or need assistance, please don't hesitate to reach out. Our community is here to help, and you can connect with us and ask for support [here](https://www.reddit.com/r/Spectacles/). We look forward to hearing from you and are excited to assist you on your journey!
+If you have questions, connect with us on [Reddit](https://www.reddit.com/r/Spectacles/).
 
-For Snap Cloud specific questions, visit [Snap Cloud Documentation](https://cloud.snap.com/docs).
+For Snap Cloud questions, visit [Snap Cloud Documentation](https://cloud.snap.com/docs).
 
 ## Contributing
 
-Feel free to provide improvements or suggestions or directly contributing via merge request. By sharing insights, you help everyone else build better Lenses.
+Feel free to provide improvements via merge requests.
 
 ## Additional Resources
 
-### Snap Cloud Documentation
 - [Snap Cloud Home](https://cloud.snap.com)
 - [Snap Cloud Docs](https://cloud.snap.com/docs)
 - [Lens Studio API Reference](https://developers.snap.com/lens-studio/api/lens-scripting/index.html)
-
-### Community & Support
-- [Spectacles Reddit](https://www.reddit.com/r/Spectacles/)
-- [1fficial AR YouTube](https://www.youtube.com/@1fficialar)
 - [Spectacles Developer Portal](https://developers.snap.com/spectacles/home)
-
-### Learning Resources
-- [Spectacles Hackathon Resources](https://developers.snap.com/spectacles/spectacles-community/hackathon-resources)
-- [Supabase Documentation](https://supabase.com/docs) - Core concepts
 
 ---
 
 *Built by the Spectacles team*
 
-
+---

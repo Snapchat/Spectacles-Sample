@@ -1,5 +1,5 @@
-import { withAlpha } from "SpectaclesInteractionKit.lspkg/Utils/color"
 import InteractorLineRenderer from "SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorLineVisual/InteractorLineRenderer"
+import {withAlpha} from "SpectaclesInteractionKit.lspkg/Utils/color"
 
 /**
  * This class provides visual representation for a polyline that can be rendered as a continuous or split sequence of lines.
@@ -20,16 +20,10 @@ export class ClosedPolyline extends BaseScriptComponent {
   private lineWidth: number = 0.5
 
   @input
-  @widget(
-    new ComboBoxWidget()
-      .addItem("Full", 0)
-      .addItem("Split", 1)
-      .addItem("FadedEnd", 2),
-  )
+  @widget(new ComboBoxWidget().addItem("Full", 0).addItem("Split", 1).addItem("FadedEnd", 2))
   public lineStyle: number = 0
 
   @input
-
   public continuousLine: boolean = true
 
   private _enabled = true
@@ -38,7 +32,7 @@ export class ClosedPolyline extends BaseScriptComponent {
 
   set isEnabled(isEnabled: boolean) {
     this._enabled = isEnabled
-    this.lines.forEach(line => {
+    this.lines.forEach((line) => {
       line.getSceneObject().enabled = isEnabled
     })
   }
@@ -68,12 +62,10 @@ export class ClosedPolyline extends BaseScriptComponent {
 
   private createOrUpdateLines(): void {
     // Clear existing lines
-    this.lines.forEach(line => line.destroy())
+    this.lines.forEach((line) => line.destroy())
     this.lines = []
 
-    const positions = this.points.map(point =>
-      point.getTransform().getLocalPosition()
-    )
+    const positions = this.points.map((point) => point.getTransform().getLocalPosition())
     if (this.continuousLine) {
       // Render as a single closed line
       positions.push(positions[0])
@@ -83,7 +75,7 @@ export class ClosedPolyline extends BaseScriptComponent {
         startColor: withAlpha(this._color, 1),
         endColor: withAlpha(this._color, 1),
         startWidth: this.lineWidth,
-        endWidth: this.lineWidth,
+        endWidth: this.lineWidth
       })
       line.getSceneObject().setParent(this.sceneObject)
       line.visualStyle = this.lineStyle
@@ -99,7 +91,7 @@ export class ClosedPolyline extends BaseScriptComponent {
           startColor: withAlpha(this._color, 1),
           endColor: withAlpha(this._color, 1),
           startWidth: this.lineWidth,
-          endWidth: this.lineWidth,
+          endWidth: this.lineWidth
         })
         line.getSceneObject().setParent(this.sceneObject)
         line.visualStyle = this.lineStyle
@@ -111,7 +103,7 @@ export class ClosedPolyline extends BaseScriptComponent {
   }
 
   onDestroy(): void {
-    this.lines.forEach(line => line.destroy())
+    this.lines.forEach((line) => line.destroy())
     this.sceneObject.destroy()
   }
 
@@ -121,7 +113,7 @@ export class ClosedPolyline extends BaseScriptComponent {
 
   setColor(color: vec3): void {
     this._color = color
-    this.lines.forEach(line => {
+    this.lines.forEach((line) => {
       const colorWithAlpha = withAlpha(color, 1)
       line.startColor = colorWithAlpha
       line.endColor = colorWithAlpha

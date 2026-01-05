@@ -1,18 +1,16 @@
-import {RealtimeStoreKeys} from "../SyncControls/RealtimeStoreKeys"
-import {HighFiveControllerInput} from "./HighFiveControllerInput"
-import WorldCameraFinderProvider
-  from "SpectaclesInteractionKit.lspkg/Providers/CameraProvider/WorldCameraFinderProvider"
+import WorldCameraFinderProvider from "SpectaclesInteractionKit.lspkg/Providers/CameraProvider/WorldCameraFinderProvider"
 import TrackedHand from "SpectaclesInteractionKit.lspkg/Providers/HandInputData/TrackedHand"
 import {SIK} from "SpectaclesInteractionKit.lspkg/SIK"
-import {BubbleAnimationController} from "../BubbleAnimationController/BubbleAnimationController"
 import {SessionController} from "SpectaclesSyncKit.lspkg/Core/SessionController"
+import {BubbleAnimationController} from "../BubbleAnimationController/BubbleAnimationController"
+import {RealtimeStoreKeys} from "../SyncControls/RealtimeStoreKeys"
+import {HighFiveControllerInput} from "./HighFiveControllerInput"
 
 // The HighFiveController class is responsible for detecting and handling virtual high-five
 // interactions between users in a real-time environment.
 // It tracks the hand positions of the current user and their friends,
 // and triggers animations when a high-five gesture is detected
 export class HighFiveController {
-
   // Controller for managing bubble animations during high-five interactions
   private readonly bubbleAnimationController: BubbleAnimationController
 
@@ -35,7 +33,6 @@ export class HighFiveController {
   private isBubbleAnimationFinished: boolean = true
 
   constructor(private readonly input: HighFiveControllerInput) {
-
     // Initialize the bubble animation controller
     this.bubbleAnimationController = new BubbleAnimationController(this.input.bubbleAnimationControllerInput)
 
@@ -63,7 +60,7 @@ export class HighFiveController {
 
   // Updates or adds a friend's hand information
   friendsInfoUpdated(value: RealtimeStoreKeys.HAND_LOCAL_POSITION_DATA) {
-    for (let friend of this.friendsHandsInfo) {
+    for (const friend of this.friendsHandsInfo) {
       if (friend.connectionID === value.connectionID) {
         friend.isActive = value.isActive
         friend.x = value.x
@@ -77,7 +74,7 @@ export class HighFiveController {
 
   // Removes a friend's hand information when they disconnect
   onFriendDisconnected(connectionID: string) {
-    const indexToRemove = this.friendsHandsInfo.findIndex(item => item.connectionID === connectionID)
+    const indexToRemove = this.friendsHandsInfo.findIndex((item) => item.connectionID === connectionID)
     if (indexToRemove !== -1) {
       this.friendsHandsInfo.splice(indexToRemove, 1)
     }
@@ -90,7 +87,7 @@ export class HighFiveController {
     }
     const currentUserHandPos: vec3 = this.getUserHandPosition(this.currentUserHandInfo)
     let lastDist: number = 1000
-    for (let friend of this.friendsHandsInfo) {
+    for (const friend of this.friendsHandsInfo) {
       if (!friend.isActive) {
         return
       }
@@ -98,11 +95,13 @@ export class HighFiveController {
       lastDist = friendHandPos.distance(currentUserHandPos)
       if (friendHandPos.distance(currentUserHandPos) < 10) {
         let friendName: string = ""
-        SessionController.getInstance().getSession().activeUsersInfo.forEach((user) => {
-          if (user.connectionId === friend.connectionID) {
-            friendName = user.displayName
-          }
-        })
+        SessionController.getInstance()
+          .getSession()
+          .activeUsersInfo.forEach((user) => {
+            if (user.connectionId === friend.connectionID) {
+              friendName = user.displayName
+            }
+          })
         this.showBubbleAnimation(this.rightHand.getPalmCenter(), friendName)
         return
       }

@@ -9,24 +9,24 @@ export class Declaration extends BaseScriptComponent {
  */
 export interface JSComponentA extends ScriptComponent {
   // Properties
-  numberVal: number;
-  stringVal: string;
-  boolVal: boolean;
-  arrayVal: number[];
+  numberVal: number
+  stringVal: string
+  boolVal: boolean
+  arrayVal: number[]
   objectVal: {
-    name: string;
-    version: number;
-  };
-  
+    name: string
+    version: number
+  }
+
   // Methods
-  printHelloWorld: () => void;
-  add: (a: number, b: number) => number;
-  multiply: (a: number, b: number) => number;
-  
+  printHelloWorld: () => void
+  add: (a: number, b: number) => number
+  multiply: (a: number, b: number) => number
+
   // Event handling
-  onValueChanged: (callback: (newValue: number) => void) => void;
-  updateValue: (newValue: number) => void;
-  
+  onValueChanged: (callback: (newValue: number) => void) => void
+  updateValue: (newValue: number) => void
+
   // Internal property (not meant to be accessed directly)
-  valueChangedCallback?: (newValue: number) => void;
+  valueChangedCallback?: (newValue: number) => void
 }

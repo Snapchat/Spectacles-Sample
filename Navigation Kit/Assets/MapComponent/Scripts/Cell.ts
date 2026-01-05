@@ -59,11 +59,11 @@ export class Cell {
       if (this.horizontalIndex !== this.lastHorizontalIndex || this.verticalIndex !== this.lastVerticalIndex) {
         this.onTileWentOutOfViewEvent.invoke({
           horizontalIndex: this.lastHorizontalIndex,
-          verticalIndex: this.lastVerticalIndex,
+          verticalIndex: this.lastVerticalIndex
         })
         this.onTileCameIntoViewEvent.invoke({
           horizontalIndex: this.horizontalIndex,
-          verticalIndex: this.verticalIndex,
+          verticalIndex: this.verticalIndex
         })
         this.lastHorizontalIndex = this.horizontalIndex
         this.lastVerticalIndex = this.verticalIndex
@@ -71,7 +71,7 @@ export class Cell {
     } else {
       this.onTileCameIntoViewEvent.invoke({
         horizontalIndex: this.horizontalIndex,
-        verticalIndex: this.verticalIndex,
+        verticalIndex: this.verticalIndex
       })
       this.lastHorizontalIndex = this.horizontalIndex
       this.lastVerticalIndex = this.verticalIndex
@@ -81,7 +81,7 @@ export class Cell {
     this.textureProvider.location = this.initialPositionLocationAsset.adjacentTile(
       this.horizontalIndex,
       this.verticalIndex,
-      0.0,
+      0.0
     )
   }
 
@@ -99,7 +99,7 @@ export class Cell {
           this.imageComponent.mainMaterial.mainPass.circleBoundRadius = MathUtils.lerp(
             FULL_CIRCLE_BOUND_RADIUS,
             HALF_CIRCLE_BOUND_RADIUS,
-            t,
+            t
           )
         }, TWEEN_DURATION)
       } else {
@@ -111,7 +111,7 @@ export class Cell {
           this.imageComponent.mainMaterial.mainPass.circleBoundRadius = MathUtils.lerp(
             HALF_CIRCLE_BOUND_RADIUS,
             FULL_CIRCLE_BOUND_RADIUS,
-            t,
+            t
           )
           if (t > 0.99999) {
             this.imageComponent.mainMaterial.mainPass.isMini = false

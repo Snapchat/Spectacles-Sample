@@ -86,7 +86,7 @@ export class ToggleSelectionColor extends VisualElement implements Toggleable {
       defaultVisual.isBorderGradient = true
       defaultVisual.borderSize = 0.1
       defaultVisual.isBaseGradient = true
-      
+
       this._visual = defaultVisual
     }
   }

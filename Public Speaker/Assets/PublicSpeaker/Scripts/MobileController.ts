@@ -1,77 +1,72 @@
-import { SIK } from "SpectaclesInteractionKit.lspkg/SIK";
-import { PresentationSwitcher } from "./PresentationSwitcher";
-import { GoogleSlideBridge } from "./GoogleSlideBridge";
-import NativeLogger from "SpectaclesInteractionKit.lspkg/Utils/NativeLogger";
+import {SIK} from "SpectaclesInteractionKit.lspkg/SIK"
+import NativeLogger from "SpectaclesInteractionKit.lspkg/Utils/NativeLogger"
+import {GoogleSlideBridge} from "./GoogleSlideBridge"
+import {PresentationSwitcher} from "./PresentationSwitcher"
 
-const log = new NativeLogger("MobileController");
+const log = new NativeLogger("MobileController")
 
 @component
 export class MobileController extends BaseScriptComponent {
   @input
-  presentationSwitcher: PresentationSwitcher;
-  
+  presentationSwitcher: PresentationSwitcher
+
   @input
-  googleSlideBridge: GoogleSlideBridge;
+  googleSlideBridge: GoogleSlideBridge
 
   @input
   @hint("Enable this boolean if you are planning to Use Google Slide API and the Google Slide Bridge")
-  useGoogleSlide: boolean = false;
-
+  useGoogleSlide: boolean = false
 
   onAwake() {
     this.createEvent("OnStartEvent").bind(() => {
-      this.onStart();
-    });
+      this.onStart()
+    })
   }
 
   onStart() {
     // Retrieve MobileInputData from SIK's definitions.
-    let mobileInputData = SIK.MobileInputData;
+    const mobileInputData = SIK.MobileInputData
     // Fetch the MotionController for the phone.
-    let motionController = mobileInputData.motionController;
+    const motionController = mobileInputData.motionController
     // Add touch event handler that uses the normalized position to decide next/previous.
-    motionController.onTouchEvent.add(
-      (normalizedPosition, touchId, timestampMs, phase) => {
-        // Wait until the touch is finished (Ended phase)
-        if (phase !== MotionController.TouchPhase.Ended) return;
+    motionController.onTouchEvent.add((normalizedPosition, touchId, timestampMs, phase) => {
+      // Wait until the touch is finished (Ended phase)
+      if (phase !== MotionController.TouchPhase.Ended) return
 
-        // Check if the touch occurred on the left half of the screen.
-        if (normalizedPosition.x < 0.5) {
-          log.d("Previous slide");
-          this.navigateToPrevious();
-        } else {
-          log.d("Next slide");
-          this.navigateToNext();
-        }
+      // Check if the touch occurred on the left half of the screen.
+      if (normalizedPosition.x < 0.5) {
+        log.d("Previous slide")
+        this.navigateToPrevious()
+      } else {
+        log.d("Next slide")
+        this.navigateToNext()
       }
-    );
+    })
   }
-  
+
   // Navigate to the next slide and synchronize across all platforms
   private navigateToNext() {
     // Update local presentation
     if (this.presentationSwitcher && !this.useGoogleSlide) {
-      this.presentationSwitcher.next();
+      this.presentationSwitcher.next()
     }
-    
+
     // Update Google Slides via direct API
     if (this.googleSlideBridge && this.useGoogleSlide) {
-      this.googleSlideBridge.next();
+      this.googleSlideBridge.next()
     }
-    
   }
-  
+
   // Navigate to the previous slide and synchronize across all platforms
   private navigateToPrevious() {
     // Update local presentation
     if (this.presentationSwitcher && !this.useGoogleSlide) {
-      this.presentationSwitcher.previous();
+      this.presentationSwitcher.previous()
     }
-    
+
     // Update Google Slides via direct API
     if (this.googleSlideBridge && this.useGoogleSlide) {
-      this.googleSlideBridge.previous();
+      this.googleSlideBridge.previous()
     }
-  
   }
 }

@@ -49,10 +49,7 @@ function isHost() {
 function refreshUI() {
   const isConnected = syncEntity.isSetupFinished;
   startGameButtonObj.enabled =
-    isConnected &&
-    isHost() &&
-    !isGameStartedProp.currentOrPendingValue &&
-    puck.syncEntity.doIOwnStore();
+    isConnected && isHost() && !isGameStartedProp.currentOrPendingValue && puck.syncEntity.doIOwnStore();
 }
 
 function setupForLeftSide() {
@@ -86,21 +83,13 @@ function startGame() {
 // Interactable Callbacks
 
 function joinLeft() {
-  if (
-    !isLeftPlayer &&
-    !isRightPlayer &&
-    !leftPaddle.syncEntity.isStoreOwned()
-  ) {
+  if (!isLeftPlayer && !isRightPlayer && !leftPaddle.syncEntity.isStoreOwned()) {
     setupForLeftSide();
   }
 }
 
 function joinRight() {
-  if (
-    !isLeftPlayer &&
-    !isRightPlayer &&
-    !rightPaddle.syncEntity.isStoreOwned()
-  ) {
+  if (!isLeftPlayer && !isRightPlayer && !rightPaddle.syncEntity.isStoreOwned()) {
     setupForRightSide();
   }
 }
@@ -186,19 +175,11 @@ function initAsOwner() {
 function onSessionReady() {
   startGameButton = startGameButtonObj.getComponent(SIK.PinchButton);
 
-  leftPaddleInteractable = leftPaddle
-    .getSceneObject()
-    .getComponent(SIK.Interactable);
-  rightPaddleInteractable = rightPaddle
-    .getSceneObject()
-    .getComponent(SIK.Interactable);
+  leftPaddleInteractable = leftPaddle.getSceneObject().getComponent(SIK.Interactable);
+  rightPaddleInteractable = rightPaddle.getSceneObject().getComponent(SIK.Interactable);
 
-  leftPaddleManipulation = leftPaddle
-    .getSceneObject()
-    .getComponent(SIK.InteractableManipulation);
-  rightPaddleManipulation = rightPaddle
-    .getSceneObject()
-    .getComponent(SIK.InteractableManipulation);
+  leftPaddleManipulation = leftPaddle.getSceneObject().getComponent(SIK.InteractableManipulation);
+  rightPaddleManipulation = rightPaddle.getSceneObject().getComponent(SIK.InteractableManipulation);
 
   leftPaddleManipulation.setCanTranslate(false);
   leftPaddleManipulation.setCanScale(false);
@@ -214,15 +195,9 @@ function onSessionReady() {
 
   syncEntity = new SyncEntity(script, null, true);
 
-  isGameStartedProp = syncEntity.addStorageProperty(
-    StorageProperty.manualBool("isGameStarted", false)
-  );
-  leftScoreProp = syncEntity.addStorageProperty(
-    StorageProperty.manualInt("leftScore", 0)
-  );
-  rightScoreProp = syncEntity.addStorageProperty(
-    StorageProperty.manualInt("rightScore", 0)
-  );
+  isGameStartedProp = syncEntity.addStorageProperty(StorageProperty.manualBool("isGameStarted", false));
+  leftScoreProp = syncEntity.addStorageProperty(StorageProperty.manualInt("leftScore", 0));
+  rightScoreProp = syncEntity.addStorageProperty(StorageProperty.manualInt("rightScore", 0));
 
   leftScoreProp.onAnyChange.add(setLeftScore);
   rightScoreProp.onAnyChange.add(setRightScore);

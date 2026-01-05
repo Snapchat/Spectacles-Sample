@@ -78,12 +78,9 @@ async function onStart() {
     }
 
     // subscribe to a topic
-    const subscription = session.startSubscription(
-      "hello world times",
-      (error) => {
-        appendLine(`Subscription error: ${error}`);
-      }
-    );
+    const subscription = session.startSubscription("hello world times", (error) => {
+      appendLine(`Subscription error: ${error}`);
+    });
     subscription.add((response) => {
       appendLine(`Subscription response: ${response}`);
     });

@@ -1,0 +1,77 @@
+- !<AssetImportMetadata/8e33af2e-154e-2488-79dc-e91db1f0bec2>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 6ccdc169-812c-4ace-bf46-6666dd4ca601
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 6ccdc169-812c-4ace-bf46-6666dd4ca601
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 967fb842-78be-4ced-9d85-602b86f98c9b
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/967fb842-78be-4ced-9d85-602b86f98c9b>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 877e14f2-1265-413f-8053-52387744f828
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    cameraService: false
+    captureButton: false
+    compositeSwitch: false
+    compositeTexture: false
+    enableDebugLogs: false
+    imageQuality: false
+    previewImage: false
+    snapCloudRequirements: false
+    statusText: false
+    stillCaptureButton: false
+    storageBucket: false
+    useCompositeTexture: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - snapCloudRequirements: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      storageBucket: specs-bucket
+      cameraService: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      imageQuality: !<float> 85.000000
+      useCompositeTexture: false
+      compositeTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      captureButton: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      stillCaptureButton: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      compositeSwitch: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
+      statusText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      previewImage: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      enableDebugLogs: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType snapCloudRequirements {"hint":"Reference to SnapCloudRequirements for centralized Supabase configuration"}'
+    - '// @input string storageBucket = "specs-bucket" {"hint":"Supabase Storage bucket name for images"}'
+    - '// @input AssignableType_1 cameraService {"hint":"Reference to CameraService (RECOMMENDED). Uses its camera to avoid multiple camera requests."}'
+    - '// @input float imageQuality = 85 {"hint":"Image quality for JPEG compression (0-100)", "widget":"slider", "min":1, "max":100, "step":1}'
+    - '// @input bool useCompositeTexture {"hint":"Default value for composite mode (can be toggled via Switch)"}'
+    - '// @input Asset.Texture compositeTexture {"hint":"Pre-composed texture (with AR content) - used when useCompositeTexture is enabled"}'
+    - '// @input AssignableType_2 captureButton {"hint":"Button to capture image (texture-based)"}'
+    - '// @input AssignableType_3 stillCaptureButton {"hint":"Button to capture high-quality still image (Camera Module API)"}'
+    - '// @input AssignableType_4 compositeSwitch {"hint":"Switch to toggle between camera and composite capture mode"}'
+    - '// @input Component.Text statusText {"hint":"Text component to display status"}'
+    - '// @input Component.Image previewImage {"hint":"Image component to display captured frame preview"}'
+    - '// @input bool enableDebugLogs = true {"hint":"Enable detailed debug logging"}'

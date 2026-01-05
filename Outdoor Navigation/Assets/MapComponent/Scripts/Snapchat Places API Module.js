@@ -4,53 +4,55 @@
 
 // https://docs.snap.com/api/lens-studio/Classes/ScriptObjects/#RemoteApiResponse--statusCode
 const statusMessageMap = {
-    0: "Unknown Status Code - Please report this as a bug.",
-    1: "Success",
-    2: "Redirected",
-    3: "Bad Request",
-    4: "Access Denied",
-    5: "API Call Not Found",
-    6: "Timeout",
-    7: "Request Too Large",
-    8: "Server Processing Error",
-    9: "Request Cancelled by Caller",
-    10: "Internal Framework Error",
+  0: "Unknown Status Code - Please report this as a bug.",
+  1: "Success",
+  2: "Redirected",
+  3: "Bad Request",
+  4: "Access Denied",
+  5: "API Call Not Found",
+  6: "Timeout",
+  7: "Request Too Large",
+  8: "Server Processing Error",
+  9: "Request Cancelled by Caller",
+  10: "Internal Framework Error"
 };
 
 class RemoteApiService {
-    constructor(remoteServiceModule) {
-        this.remoteServiceModule = remoteServiceModule;
+  constructor(remoteServiceModule) {
+    this.remoteServiceModule = remoteServiceModule;
+  }
+
+  async performApiRequest(endpoint, request, paramsSchema) {
+    request = request || {};
+
+    for (const [name, optional] of paramsSchema || []) {
+      const value = request.parameters && request.parameters[name];
+      if (!optional && value == null) {
+        throw new Error(`Required parameter ${name} is missing from request.`);
+      }
     }
 
-    async performApiRequest(endpoint, request, paramsSchema) {
-        request = request || {};
+    const req = global.RemoteApiRequest.create();
+    req.endpoint = endpoint;
+    if (request.parameters) req.parameters = request.parameters;
+    if (request.body) req.body = request.body;
 
-        for (const [name, optional] of paramsSchema || []) {
-            const value = request.parameters && request.parameters[name];
-            if (!optional && value == null) {
-                throw new Error(`Required parameter ${name} is missing from request.`);
-            }
-        }
-
-        const req = global.RemoteApiRequest.create();
-        req.endpoint = endpoint;
-        if (request.parameters) req.parameters = request.parameters;
-        if (request.body) req.body = request.body;
-
-        const response = await new Promise((resolve) => { this.remoteServiceModule.performApiRequest(req, resolve) });
-        if (response.statusCode !== 1) {
-            const message = statusMessageMap[response.statusCode] || statusMessageMap[0];
-            throw new Error(`API Call Error - ${message}: ${response.body}.`);
-        }
-
-        return {
-            statusCode: response.statusCode,
-            metadata: response.metadata,
-            bodyAsJson: () => JSON.parse(response.body),
-            bodyAsString: () => response.body,
-            bodyAsResource: () => response.asResource(),
-        };
+    const response = await new Promise((resolve) => {
+      this.remoteServiceModule.performApiRequest(req, resolve);
+    });
+    if (response.statusCode !== 1) {
+      const message = statusMessageMap[response.statusCode] || statusMessageMap[0];
+      throw new Error(`API Call Error - ${message}: ${response.body}.`);
     }
+
+    return {
+      statusCode: response.statusCode,
+      metadata: response.metadata,
+      bodyAsJson: () => JSON.parse(response.body),
+      bodyAsString: () => response.body,
+      bodyAsResource: () => response.asResource()
+    };
+  }
 }
 
 /**
@@ -79,104 +81,102 @@ class RemoteApiService {
  * ApiModule Remote API service.
  */
 class ApiModule extends RemoteApiService {
-    /**
-     * Performs get_place API call.
-     *
-     * @param {Object} request - The request object for the API call.
-     * @param {Object} request.parameters - Parameters for the API call.
-     * @param {string} request.parameters.place_id - place_id parameter value.
-     * @param {string=} request.body - Body content for the API request, if applicable. Typically a JSON string.
-     * @returns {Promise<ApiCallResponse>} - A promise that resolves to the API response.
-     *
-     * @example
-     * get_place({
-     *   parameters: {
-     *     "place_id": "value1",
-     *   },
-     *   body: JSON.stringify({
-     *     "additionalInfo": "Some info"
-     *   })
-     * }).then(response => {
-     *     print(response.bodyAsJson());
-     * }).catch(error => {
-     *     print(error);
-     * });
-     */
-    get_place(request) {
-        return this.performApiRequest("get_place", request, [
-            ["place_id", false],
-        ]);
-    }
+  /**
+   * Performs get_place API call.
+   *
+   * @param {Object} request - The request object for the API call.
+   * @param {Object} request.parameters - Parameters for the API call.
+   * @param {string} request.parameters.place_id - place_id parameter value.
+   * @param {string=} request.body - Body content for the API request, if applicable. Typically a JSON string.
+   * @returns {Promise<ApiCallResponse>} - A promise that resolves to the API response.
+   *
+   * @example
+   * get_place({
+   *   parameters: {
+   *     "place_id": "value1",
+   *   },
+   *   body: JSON.stringify({
+   *     "additionalInfo": "Some info"
+   *   })
+   * }).then(response => {
+   *     print(response.bodyAsJson());
+   * }).catch(error => {
+   *     print(error);
+   * });
+   */
+  get_place(request) {
+    return this.performApiRequest("get_place", request, [["place_id", false]]);
+  }
 
-    /**
-     * Performs get_nearby_places API call.
-     *
-     * @param {Object} request - The request object for the API call.
-     * @param {Object} request.parameters - Parameters for the API call.
-     * @param {string} request.parameters.lat - lat parameter value.
-     * @param {string} request.parameters.lng - lng parameter value.
-     * @param {string} request.parameters.gps_accuracy_m - gps_accuracy_m parameter value.
-     * @param {string} request.parameters.places_limit - places_limit parameter value.
-     * @param {string=} request.body - Body content for the API request, if applicable. Typically a JSON string.
-     * @returns {Promise<ApiCallResponse>} - A promise that resolves to the API response.
-     *
-     * @example
-     * get_nearby_places({
-     *   parameters: {
-     *     "lat": "value1",
-     *     "lng": "value2",
-     *     "gps_accuracy_m": "value3",
-     *     "places_limit": "value4",
-     *   },
-     *   body: JSON.stringify({
-     *     "additionalInfo": "Some info"
-     *   })
-     * }).then(response => {
-     *     print(response.bodyAsJson());
-     * }).catch(error => {
-     *     print(error);
-     * });
-     */
-    get_nearby_places(request) {
-        return this.performApiRequest("get_nearby_places", request, [
-            ["lat", true],
-            ["lng", true],
-            ["gps_accuracy_m", true],
-            ["places_limit", true],
-        ]);
-    }
+  /**
+   * Performs get_nearby_places API call.
+   *
+   * @param {Object} request - The request object for the API call.
+   * @param {Object} request.parameters - Parameters for the API call.
+   * @param {string} request.parameters.lat - lat parameter value.
+   * @param {string} request.parameters.lng - lng parameter value.
+   * @param {string} request.parameters.gps_accuracy_m - gps_accuracy_m parameter value.
+   * @param {string} request.parameters.places_limit - places_limit parameter value.
+   * @param {string=} request.body - Body content for the API request, if applicable. Typically a JSON string.
+   * @returns {Promise<ApiCallResponse>} - A promise that resolves to the API response.
+   *
+   * @example
+   * get_nearby_places({
+   *   parameters: {
+   *     "lat": "value1",
+   *     "lng": "value2",
+   *     "gps_accuracy_m": "value3",
+   *     "places_limit": "value4",
+   *   },
+   *   body: JSON.stringify({
+   *     "additionalInfo": "Some info"
+   *   })
+   * }).then(response => {
+   *     print(response.bodyAsJson());
+   * }).catch(error => {
+   *     print(error);
+   * });
+   */
+  get_nearby_places(request) {
+    return this.performApiRequest("get_nearby_places", request, [
+      ["lat", true],
+      ["lng", true],
+      ["gps_accuracy_m", true],
+      ["places_limit", true]
+    ]);
+  }
 
-    /**
-     * Performs get_places_profile API call.
-     *
-     * @param {Object} request - The request object for the API call.
-     * @param {Object} request.parameters - Parameters for the API call.
-     * @param {string} request.parameters.place_ids - place_ids parameter value.
-     * @param {string} request.parameters.locale - locale parameter value.
-     * @param {string=} request.body - Body content for the API request, if applicable. Typically a JSON string.
-     * @returns {Promise<ApiCallResponse>} - A promise that resolves to the API response.
-     *
-     * @example
-     * get_places_profile({
-     *   parameters: {
-     *     "place_ids": "value1",
-     *     "locale": "value2",
-     *   },
-     *   body: JSON.stringify({
-     *     "additionalInfo": "Some info"
-     *   })
-     * }).then(response => {
-     *     print(response.bodyAsJson());
-     * }).catch(error => {
-     *     print(error);
-     * });
-     */
-    get_places_profile(request) {
-        return this.performApiRequest("get_places_profile", request, [
-            ["place_ids", false],
-            ["locale", true],
-        ]);
-    }
+  /**
+   * Performs get_places_profile API call.
+   *
+   * @param {Object} request - The request object for the API call.
+   * @param {Object} request.parameters - Parameters for the API call.
+   * @param {string} request.parameters.place_ids - place_ids parameter value.
+   * @param {string} request.parameters.locale - locale parameter value.
+   * @param {string=} request.body - Body content for the API request, if applicable. Typically a JSON string.
+   * @returns {Promise<ApiCallResponse>} - A promise that resolves to the API response.
+   *
+   * @example
+   * get_places_profile({
+   *   parameters: {
+   *     "place_ids": "value1",
+   *     "locale": "value2",
+   *   },
+   *   body: JSON.stringify({
+   *     "additionalInfo": "Some info"
+   *   })
+   * }).then(response => {
+   *     print(response.bodyAsJson());
+   * }).catch(error => {
+   *     print(error);
+   * });
+   */
+  get_places_profile(request) {
+    return this.performApiRequest("get_places_profile", request, [
+      ["place_ids", false],
+      ["locale", true]
+    ]);
+  }
 }
 
 module.exports.ApiModule = ApiModule;

@@ -268,7 +268,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 1
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -415,6 +415,8 @@
     _inactive: true
     _playAudio: true
     _style: true
+    _hasShadow: true
+    _shadowPositionOffset: true
     _toggleable: true
     _defaultToOn: true
     addCallbacks: true
@@ -430,6 +432,8 @@
       _inactive: false
       _playAudio: false
       _style: PrimaryNeutral
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
       _toggleable: false
       _defaultToOn: false
       addCallbacks: false
@@ -456,6 +460,8 @@
     _inactive: true
     _playAudio: true
     _style: true
+    _hasShadow: true
+    _shadowPositionOffset: true
     _toggleable: true
     _defaultToOn: true
     addCallbacks: true
@@ -472,6 +478,8 @@
       _inactive: false
       _playAudio: false
       _style: PrimaryNeutral
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
       _toggleable: false
       _defaultToOn: false
       addCallbacks: false
@@ -584,7 +592,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 2
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Bottom
   HorizontalAlignment: Center
@@ -701,6 +709,8 @@
     _inactive: true
     _playAudio: true
     _style: true
+    _hasShadow: true
+    _shadowPositionOffset: true
     _toggleable: true
     _defaultToOn: true
     addCallbacks: true
@@ -717,6 +727,8 @@
       _inactive: false
       _playAudio: false
       _style: PrimaryNeutral
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
       _toggleable: false
       _defaultToOn: false
       addCallbacks: false
@@ -1142,6 +1154,8 @@
     _inactive: true
     _playAudio: true
     _style: true
+    _hasShadow: true
+    _shadowPositionOffset: true
     _toggleable: true
     _defaultToOn: true
     addCallbacks: true
@@ -1158,6 +1172,8 @@
       _inactive: false
       _playAudio: false
       _style: PrimaryNeutral
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
       _toggleable: false
       _defaultToOn: false
       addCallbacks: false
@@ -1258,7 +1274,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -1360,13 +1376,14 @@
     _appearance: true
     _innerSize: true
     _padding: true
-    allowScaling: true
+    _allowScaling: true
+    allowNonUniformScaling: true
     autoScaleContent: true
     relativeZ: true
     allowTranslation: true
     _cutOutCenter: true
-    minimumSize: true
-    maximumSize: true
+    _minimumSize: true
+    _maximumSize: true
     useBillboarding: true
     xOnTranslate: true
     xAlways: true
@@ -1393,14 +1410,15 @@
       _appearance: Large
       _innerSize: !<Vec2> {x: 32.000000, y: 32.000000}
       _padding: !<Vec2> {x: 0.000000, y: 0.000000}
-      allowScaling: true
+      _allowScaling: true
+      allowNonUniformScaling: false
       autoScaleContent: true
       relativeZ: true
       _onlyInteractOnBorder: true
       allowTranslation: true
       _cutOutCenter: false
-      minimumSize: !<Vec2> {x: 10.000000, y: 10.000000}
-      maximumSize: !<Vec2> {x: 150.000000, y: 150.000000}
+      _minimumSize: !<Vec2> {x: 10.000000, y: 10.000000}
+      _maximumSize: !<Vec2> {x: 150.000000, y: 150.000000}
       useBillboarding: true
       xOnTranslate: true
       xAlways: false
@@ -1835,7 +1853,7 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 8.000000, z: -100.000000}
+    Position: {x: 0.000000, y: 10.000000, z: -100.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
@@ -2115,7 +2133,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 1
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -2486,7 +2504,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 2
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Bottom
   HorizontalAlignment: Center
@@ -2662,7 +2680,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 1
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -3115,7 +3133,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 1
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Top
   HorizontalAlignment: Center
@@ -3347,7 +3365,7 @@
     {}
   ScriptInputs:
     "":
-      useV2: false
+      useV2: true
       drawDebug: false
   ScriptTypes:
     "":
@@ -3573,7 +3591,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 1
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Top
   HorizontalAlignment: Center
@@ -4137,6 +4155,8 @@
     _inactive: true
     _playAudio: true
     _style: true
+    _hasShadow: true
+    _shadowPositionOffset: true
     _toggleable: true
     _defaultToOn: true
     addCallbacks: true
@@ -4153,6 +4173,8 @@
       _inactive: false
       _playAudio: false
       _style: PrimaryNeutral
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
       _toggleable: false
       _defaultToOn: false
       addCallbacks: false
@@ -4521,7 +4543,7 @@
         - 30.000000
       _maxRaycastDistance: !<float> 500.000000
       indirectTargetingVolumeMultiplier: !<float> 1.000000
-      indirectDragThreshold: !<float> 40.000000
+      indirectDragThreshold: !<float> 10.000000
       handType: left
       forcePokeOnNonDominantPalmProximity: false
       directColliderEnterRadius: !<float> 1.000000
@@ -5339,7 +5361,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -5578,7 +5600,7 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 1
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Top
   HorizontalAlignment: Center
@@ -5659,19 +5681,22 @@
     []
   Name: Text
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 10
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
   MeshShadowMode: None
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
-  Text: <- Look left and right for examples ->
+  Text: |-
+    <- Look left and right for examples ->
+    Some generations might fail due to unsafe generation detection
+    please try again if you experience it
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
   SizeToFit: false
-  FontSize: 100
+  FontSize: 90
   Font: !<reference> 00000000-0000-0000-0000-000000000000
   LayoutRect:
     left: -7.500000
@@ -5682,7 +5707,7 @@
   OverflowHorizontal: Overflow
   Fill: !<TextFill>
     Mode: Solid
-    Color: {x: 0.519631, y: 0.519631, z: 0.519631, w: 1.000000}
+    Color: {x: 0.959426, y: 1.000000, z: 0.994995, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
     ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
@@ -5713,21 +5738,21 @@
     OffsetX: 0.250000
     OffsetY: 0.250000
   Background: !<BackgroundSettings>
-    Enabled: false
+    Enabled: true
     Fill: !<TextFill>
       Mode: Solid
-      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Color: {x: 0.000000, y: 0.000000, z: 1.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
       ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
     Margins:
-      left: 0.000000
-      bottom: 0.000000
-      right: 0.000000
-      top: 0.000000
-    CornerRadius: 0.000000
+      left: 0.500000
+      bottom: 0.500000
+      right: 0.500000
+      top: 0.500000
+    CornerRadius: 1.000000
   AdvancedLayout: !<TextAdvancedLayout>
     ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
     LetterSpacing: 0.000000
@@ -5897,7 +5922,7 @@
         - 30.000000
       _maxRaycastDistance: !<float> 500.000000
       indirectTargetingVolumeMultiplier: !<float> 1.000000
-      indirectDragThreshold: !<float> 40.000000
+      indirectDragThreshold: !<float> 10.000000
       handType: right
       forcePokeOnNonDominantPalmProximity: false
       directColliderEnterRadius: !<float> 1.000000

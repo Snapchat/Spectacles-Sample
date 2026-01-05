@@ -1,0 +1,83 @@
+- !<AssetImportMetadata/fae42c3d-04a6-37ff-bd65-0af6edbc94ff>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 9bf8693d-aa7b-421b-a730-b28cb6e3ed39
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 9bf8693d-aa7b-421b-a730-b28cb6e3ed39
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 539ecc5a-c520-47e9-a1ae-6aa6645517ec
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/539ecc5a-c520-47e9-a1ae-6aa6645517ec>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 9b35280f-3ddd-489b-8064-7fb8743bcd5a
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    buttonText: false
+    cameraService: false
+    captureFrameRate: false
+    compositeSwitch: false
+    compositeTexture: false
+    enableDebugLogs: false
+    maxRecordingDuration: false
+    previewImage: false
+    recordButton: false
+    snapCloudRequirements: false
+    statusText: false
+    storageBucket: false
+    useCompositeTexture: false
+    useHighQuality: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - snapCloudRequirements: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      storageBucket: video-frames
+      cameraService: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      captureFrameRate: !<float> 10.000000
+      useHighQuality: false
+      maxRecordingDuration: !<float> 30.000000
+      useCompositeTexture: false
+      compositeTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      recordButton: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      compositeSwitch: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      statusText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      buttonText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      previewImage: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      enableDebugLogs: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType snapCloudRequirements {"hint":"Reference to SnapCloudRequirements for centralized Supabase configuration"}'
+    - '// @input string storageBucket = "specs-bucket" {"hint":"Supabase Storage bucket name for video frames"}'
+    - '// @input AssignableType_1 cameraService {"hint":"Reference to CameraService (RECOMMENDED). Uses its camera to avoid multiple camera requests."}'
+    - '// @input float captureFrameRate {"hint":"Target FPS for capture. Set to 0 for MAX rate (captures every camera frame via onNewFrame)", "widget":"slider", "min":0, "max":30, "step":1}'
+    - '// @input bool useHighQuality {"hint":"JPEG quality (lower = smaller files, faster uploads). Low recommended for video."}'
+    - '// @input float maxRecordingDuration = 30 {"hint":"Maximum recording duration in seconds", "widget":"slider", "min":1, "max":60, "step":1}'
+    - '// @input bool useCompositeTexture {"hint":"Default value for composite mode (can be toggled via Switch)"}'
+    - '// @input Asset.Texture compositeTexture {"hint":"Pre-composed texture (with AR content) - used when useCompositeTexture is enabled"}'
+    - '// @input AssignableType_2 recordButton {"hint":"Button to start/stop recording"}'
+    - '// @input AssignableType_3 compositeSwitch {"hint":"Switch to toggle between camera and composite capture mode"}'
+    - '// @input Component.Text statusText {"hint":"Text component to display status"}'
+    - '// @input Component.Text buttonText {"hint":"Text component to display button state (Start/Stop)"}'
+    - '// @input Component.Image previewImage {"hint":"Image component to display captured frame preview"}'
+    - '// @input bool enableDebugLogs {"hint":"Enable detailed debug logging (disable for better performance)"}'

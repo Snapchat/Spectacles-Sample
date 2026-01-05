@@ -4,7 +4,6 @@ import {SessionController} from "SpectaclesSyncKit.lspkg/Core/SessionController"
 // managing and accessing hand position data in a real-time collaborative environment
 
 export namespace RealtimeStoreKeys {
-
   // Constant string used as a prefix for hand position keys
   export const HAND_POSITION: string = "HAND_POSITION"
 
@@ -21,10 +20,9 @@ export namespace RealtimeStoreKeys {
   // Interface defining the structure of hand position data
   export interface HAND_LOCAL_POSITION_DATA {
     connectionID: string // Unique connection ID of the user
-    isActive: boolean    // Indicates if the hand is currently active
-    x: number            // X-coordinate of the hand position
-    y: number            // Y-coordinate of the hand position
-    z: number            // Z-coordinate of the hand position
+    isActive: boolean // Indicates if the hand is currently active
+    x: number // X-coordinate of the hand position
+    y: number // Y-coordinate of the hand position
+    z: number // Z-coordinate of the hand position
   }
-
 }

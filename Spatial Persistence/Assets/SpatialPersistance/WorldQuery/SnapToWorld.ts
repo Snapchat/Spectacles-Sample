@@ -1,160 +1,141 @@
-import { Singleton } from "SpectaclesInteractionKit.lspkg/Decorators/Singleton";
-import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable";
-import {
-  InteractorEvent,
-  DragInteractorEvent,
-} from "SpectaclesInteractionKit.lspkg/Core/Interactor/InteractorEvent";
-import { InteractorInputType } from "SpectaclesInteractionKit.lspkg/Core/Interactor/Interactor";
+import {DragInteractorEvent} from "SpectaclesInteractionKit.lspkg/Core/Interactor/InteractorEvent"
+import {Singleton} from "SpectaclesInteractionKit.lspkg/Decorators/Singleton"
 
 // A variable for 'up' (but not exactly up) We can't have it be exactly up because when
 // we do a cross to get our angles and our raycast result points straiught up we cross two
 // vectors that are the same and it won't give us a sane result
-const NOT_QUITE_UP = new vec3(0.0000001, 0.9999999, 0.0000001).normalize();
-const EPSILON = 0.01;
+const NOT_QUITE_UP = new vec3(0.0000001, 0.9999999, 0.0000001).normalize()
+const EPSILON = 0.01
 
 @Singleton
 export class SnapToWorld {
-  public static getInstance: () => SnapToWorld;
+  public static getInstance: () => SnapToWorld
 
-  private didInitialise = false;
-  private worldQueryModule: WorldQueryModule;
-  private hitTestSession: HitTestSession;
-  private hitTestSessionRunning = false;
-  private timeOfLastHit = -1000;
-  private lastHitResult = null;
+  private didInitialise = false
+  private worldQueryModule: WorldQueryModule
+  private hitTestSession: HitTestSession
+  private hitTestSessionRunning = false
+  private timeOfLastHit = -1000
+  private lastHitResult = null
 
-  private isManipulating: boolean = false;
+  private isManipulating: boolean = false
 
-  private _isOn: boolean = false;
+  private _isOn: boolean = false
 
-  private cachedDragEventData: DragInteractorEvent;
+  private cachedDragEventData: DragInteractorEvent
 
-  private previewInWorld: SceneObject;
+  private previewInWorld: SceneObject
 
   constructor() {}
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - -
   init(worldQueryModule: WorldQueryModule, previewInWorld: SceneObject) {
     if (this.didInitialise) {
-      print("SnapToWorld. Tried to initialize twice");
-      return;
+      print("SnapToWorld. Tried to initialize twice")
+      return
     }
 
-    this.worldQueryModule = worldQueryModule;
-    this.previewInWorld = previewInWorld;
+    this.worldQueryModule = worldQueryModule
+    this.previewInWorld = previewInWorld
 
     // Init WorldQuery
-    const sessionOptions = HitTestSessionOptions.create();
-    sessionOptions.filter = true;
-    this.hitTestSession =
-      this.worldQueryModule.createHitTestSessionWithOptions(sessionOptions);
-    this.hitTestSession.stop();
+    const sessionOptions = HitTestSessionOptions.create()
+    sessionOptions.filter = true
+    this.hitTestSession = this.worldQueryModule.createHitTestSessionWithOptions(sessionOptions)
+    this.hitTestSession.stop()
 
-    this.didInitialise = true;
+    this.didInitialise = true
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - -
   startManipulating(dragEventData: DragInteractorEvent) {
-    this.isManipulating = true;
-    this.cachedDragEventData = dragEventData;
+    this.isManipulating = true
+    this.cachedDragEventData = dragEventData
 
     if (!this._isOn) {
-      return;
+      return
     }
 
-    this.startSnappingSession();
-    this.updateWorldRaycast(dragEventData);
+    this.startSnappingSession()
+    this.updateWorldRaycast(dragEventData)
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - -
   updateManipulating(dragEventData: DragInteractorEvent) {
-    this.cachedDragEventData = dragEventData;
+    this.cachedDragEventData = dragEventData
 
-    this.previewInWorld
-      .getTransform()
-      .setWorldScale(dragEventData.target.getTransform().getWorldScale()); // TEMP
-    this.updateWorldRaycast(dragEventData);
+    this.previewInWorld.getTransform().setWorldScale(dragEventData.target.getTransform().getWorldScale()) // TEMP
+    this.updateWorldRaycast(dragEventData)
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - -
   endManipulating(dragEventData: DragInteractorEvent) {
-    this.isManipulating = false;
+    this.isManipulating = false
 
     if (!this._isOn) {
-      return;
+      return
     }
 
-    this.endSnappingSession();
+    this.endSnappingSession()
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - -
   tick() {
     if (this._isOn) {
-      this.updateRaycastResultHandling();
+      this.updateRaycastResultHandling()
     }
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - -
   updateRaycastResultHandling() {
     if (this.haveValidHitResult()) {
-      const hitPosition: vec3 = this.lastHitResult.position;
-      const hitNormal: vec3 = this.lastHitResult.normal;
+      const hitPosition: vec3 = this.lastHitResult.position
+      const hitNormal: vec3 = this.lastHitResult.normal
 
-      let previewTransform = this.previewInWorld.getTransform();
-      let rot = quat.lookAt(hitNormal, NOT_QUITE_UP);
+      const previewTransform = this.previewInWorld.getTransform()
+      const rot = quat.lookAt(hitNormal, NOT_QUITE_UP)
 
-      previewTransform.setWorldPosition(hitPosition);
-      previewTransform.setWorldRotation(rot);
-      this.previewInWorld.enabled = true;
+      previewTransform.setWorldPosition(hitPosition)
+      previewTransform.setWorldRotation(rot)
+      this.previewInWorld.enabled = true
 
       // TEMP
       //global.debugRenderSystem.drawSolidSphere( hitPosition, 1, new vec4(0, 1, 0, 1) )
       //global.debugRenderSystem.drawLine( hitPosition, hitPosition.add(hitNormal.uniformScale(20)), new vec4(0, 1, 0, 1) )
     } else {
-      this.previewInWorld.enabled = false;
+      this.previewInWorld.enabled = false
     }
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - -
   haveValidHitResult() {
-    const MAX_TIME = 4 / 60;
-    var currTime = getTime();
+    const MAX_TIME = 4 / 60
+    const currTime = getTime()
 
-    return (
-      currTime - this.timeOfLastHit < MAX_TIME &&
-      this.hitTestSessionRunning &&
-      this.lastHitResult
-    );
+    return currTime - this.timeOfLastHit < MAX_TIME && this.hitTestSessionRunning && this.lastHitResult
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - -
   updateWorldRaycast(dragEventData: DragInteractorEvent) {
-    const DIST_IN_FRONT_OF_HAND = 20; // Move in front of the hand a bit as it sometimes results in a raycast hit
-    const DIST_BEHIND_TO_CHECK = 30;
-    let targetPos = dragEventData.target.getTransform().getWorldPosition();
-    let rayToWorldStart = dragEventData.interactor.startPoint.add(
+    const DIST_IN_FRONT_OF_HAND = 20 // Move in front of the hand a bit as it sometimes results in a raycast hit
+    const DIST_BEHIND_TO_CHECK = 30
+    const targetPos = dragEventData.target.getTransform().getWorldPosition()
+    const rayToWorldStart = dragEventData.interactor.startPoint.add(
       dragEventData.interactor.direction.uniformScale(DIST_IN_FRONT_OF_HAND)
-    );
-    const raycastDistance =
-      rayToWorldStart.distance(targetPos) + DIST_BEHIND_TO_CHECK;
-    let rayToWorldEnd = rayToWorldStart.add(
-      dragEventData.interactor.direction.uniformScale(raycastDistance)
-    );
+    )
+    const raycastDistance = rayToWorldStart.distance(targetPos) + DIST_BEHIND_TO_CHECK
+    const rayToWorldEnd = rayToWorldStart.add(dragEventData.interactor.direction.uniformScale(raycastDistance))
 
     if (this.hitTestSessionRunning) {
-      const hitTest = this.hitTestSession.hitTest(
-        rayToWorldStart,
-        rayToWorldEnd,
-        (hitResult) => {
-          if (hitResult === null) {
-            //this.hitTestSession.reset() // TEST: reset the filter if we miss
-            return; // Bail!
-          } else {
-            this.timeOfLastHit = getTime();
-            this.lastHitResult = hitResult;
-          }
+      const hitTest = this.hitTestSession.hitTest(rayToWorldStart, rayToWorldEnd, (hitResult) => {
+        if (hitResult === null) {
+          //this.hitTestSession.reset() // TEST: reset the filter if we miss
+          return // Bail!
+        } else {
+          this.timeOfLastHit = getTime()
+          this.lastHitResult = hitResult
         }
-      );
+      })
     }
 
     // TEMP
@@ -170,44 +151,44 @@ export class SnapToWorld {
   getCurrentTransform() {
     // TEMP
     if (this.haveValidHitResult()) {
-      return this.previewInWorld.getTransform();
+      return this.previewInWorld.getTransform()
     }
 
-    return null;
+    return null
   }
 
   set isOn(onState: boolean) {
     if (this._isOn === onState) {
-      return;
+      return
     }
 
-    print("isOn " + onState);
+    print("isOn " + onState)
 
     if (this.isManipulating) {
       if (onState === true) {
-        this.startSnappingSession();
-        this.updateWorldRaycast(this.cachedDragEventData);
+        this.startSnappingSession()
+        this.updateWorldRaycast(this.cachedDragEventData)
       } else if (onState === false) {
-        this.endSnappingSession();
+        this.endSnappingSession()
       }
     }
 
-    this._isOn = onState;
+    this._isOn = onState
   }
 
   private startSnappingSession(): void {
-    print("startSnappingSession");
+    print("startSnappingSession")
 
-    this.hitTestSession.start();
-    this.hitTestSessionRunning = true;
+    this.hitTestSession.start()
+    this.hitTestSessionRunning = true
   }
 
   private endSnappingSession(): void {
-    print("endSnappingSession");
+    print("endSnappingSession")
 
-    this.hitTestSession.stop();
-    this.hitTestSession.reset();
-    this.hitTestSessionRunning = false;
-    this.previewInWorld.enabled = false;
+    this.hitTestSession.stop()
+    this.hitTestSession.reset()
+    this.hitTestSessionRunning = false
+    this.previewInWorld.enabled = false
   }
 }

@@ -1,34 +1,33 @@
-import { MapController } from "./MapController";
-import { MapGridView } from "./MapGridView";
-import { forEachSceneObjectInSubHierarchy } from "./MapUtils";
+import {MapController} from "./MapController"
+import {forEachSceneObjectInSubHierarchy} from "./MapUtils"
 
 export default class MapConfig {
   // Grid
-  initialPositionLocationAsset: LocationAsset;
-  tileCount: number;
+  initialPositionLocationAsset: LocationAsset
+  tileCount: number
 
-  scrollingFriction: number;
+  scrollingFriction: number
 
-  mapComponentScreenTransform: ScreenTransform;
-  gridScreenTransform: ScreenTransform;
-  mapPinsAnchor: SceneObject;
-  mapTilePrefab: ObjectPrefab;
-  mapRenderOrder: number = 1;
-  isMiniMap: boolean = true;
+  mapComponentScreenTransform: ScreenTransform
+  gridScreenTransform: ScreenTransform
+  mapPinsAnchor: SceneObject
+  mapTilePrefab: ObjectPrefab
+  mapRenderOrder: number = 1
+  isMiniMap: boolean = true
 
   // Horizontal
-  horizontalScrollingEnabled: boolean;
-  horizontalMinIndex: number;
-  horizontalMaxIndex: number;
-  horizontalAllowOutOfIndexRange: boolean;
+  horizontalScrollingEnabled: boolean
+  horizontalMinIndex: number
+  horizontalMaxIndex: number
+  horizontalAllowOutOfIndexRange: boolean
 
   // Vertical
-  verticalScrollingEnabled: boolean;
-  verticalMinIndex: number;
-  verticalMaxIndex: number;
-  verticalAllowOutOfIndexRange: boolean;
+  verticalScrollingEnabled: boolean
+  verticalMinIndex: number
+  verticalMaxIndex: number
+  verticalAllowOutOfIndexRange: boolean
 
-  private mapController: MapController;
+  private mapController: MapController
 
   static makeConfig(
     mapPinsAnchor: SceneObject,
@@ -40,31 +39,31 @@ export default class MapConfig {
     scrollingFriction: number,
     tileCount: number
   ): MapConfig {
-    let config = new MapConfig();
+    const config = new MapConfig()
 
-    config.mapPinsAnchor = mapPinsAnchor;
-    config.mapComponentScreenTransform = mapComponentScreenTransform;
-    config.gridScreenTransform = gridScreenTransform;
-    config.mapTilePrefab = mapTilePrefab;
+    config.mapPinsAnchor = mapPinsAnchor
+    config.mapComponentScreenTransform = mapComponentScreenTransform
+    config.gridScreenTransform = gridScreenTransform
+    config.mapTilePrefab = mapTilePrefab
 
-    config.mapController = mapController;
+    config.mapController = mapController
 
     // Set the horizontal properties
-    config.horizontalScrollingEnabled = enableScrolling;
-    config.horizontalMinIndex = -Infinity;
-    config.horizontalMaxIndex = Infinity;
-    config.horizontalAllowOutOfIndexRange = true; // When true, `onDataChanged` will be called even when a cell is out of range and the cell will not be disabled when out of range.
-    config.tileCount = tileCount;
+    config.horizontalScrollingEnabled = enableScrolling
+    config.horizontalMinIndex = -Infinity
+    config.horizontalMaxIndex = Infinity
+    config.horizontalAllowOutOfIndexRange = true // When true, `onDataChanged` will be called even when a cell is out of range and the cell will not be disabled when out of range.
+    config.tileCount = tileCount
 
     // Set the vertical properties
-    config.verticalScrollingEnabled = enableScrolling;
-    config.verticalMinIndex = -Infinity;
-    config.verticalMaxIndex = Infinity;
-    config.verticalAllowOutOfIndexRange = false; // When true, `onDataChanged` will be called even when a cell is out of range and the cell will not be disabled when out of range.
+    config.verticalScrollingEnabled = enableScrolling
+    config.verticalMinIndex = -Infinity
+    config.verticalMaxIndex = Infinity
+    config.verticalAllowOutOfIndexRange = false // When true, `onDataChanged` will be called even when a cell is out of range and the cell will not be disabled when out of range.
 
-    config.scrollingFriction = scrollingFriction;
+    config.scrollingFriction = scrollingFriction
 
-    return config;
+    return config
   }
 
   /**
@@ -72,13 +71,11 @@ export default class MapConfig {
    */
   onContentMaskRenderLayer(renderLayer: LayerSet) {
     forEachSceneObjectInSubHierarchy(this.mapPinsAnchor, (sceneObject) => {
-      sceneObject.layer = renderLayer;
-    });
+      sceneObject.layer = renderLayer
+    })
   }
 
   onLayout() {
-    this.mapController.pinOffsetter.layoutScreenTransforms(
-      this.mapController.gridView
-    );
+    this.mapController.pinOffsetter.layoutScreenTransforms(this.mapController.gridView)
   }
 }

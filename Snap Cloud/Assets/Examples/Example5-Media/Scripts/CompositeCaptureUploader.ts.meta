@@ -1,0 +1,119 @@
+- !<AssetImportMetadata/94d21ec9-ce7e-4182-146a-6671f7bebe8a>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 7fa6191d-fd0c-468c-8c2e-ca8851c7698e
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 7fa6191d-fd0c-468c-8c2e-ca8851c7698e
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> b573c2f9-16d6-4f46-ad9b-24dcff351a0f
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/b573c2f9-16d6-4f46-ad9b-24dcff351a0f>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 69f33679-d80d-4072-b6d3-80a51806aeae
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    audioStorageFolder: false
+    buttonText: false
+    cameraService: false
+    captionInput: false
+    chunkDurationMs: false
+    compositeSwitch: false
+    compositeTexture: false
+    defaultCaption: false
+    enableDebugLogs: false
+    frameQuality: false
+    frameRate: false
+    imageFormat: false
+    maxRecordingDuration: false
+    microphoneAsset: false
+    previewImage: false
+    recordButton: false
+    sampleRate: false
+    shareToSpotlight: false
+    snapCloudRequirements: false
+    statusText: false
+    stitchedOutputFolder: false
+    storageBucket: false
+    useCompositeTexture: false
+    useVerticalCrop: false
+    verticalCropSwitch: false
+    videoStorageFolder: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - snapCloudRequirements: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      storageBucket: specs-bucket
+      videoStorageFolder: composite-video
+      audioStorageFolder: composite-audio
+      stitchedOutputFolder: composite-stitched
+      shareToSpotlight: false
+      captionInput: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      defaultCaption: Captured with Spectacles ✨
+      useVerticalCrop: false
+      verticalCropSwitch: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      imageFormat: !<float> 0.000000
+      frameQuality: !<float> 70.000000
+      frameRate: !<float> 30.000000
+      maxRecordingDuration: !<float> 30.000000
+      cameraService: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      useCompositeTexture: false
+      compositeTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      microphoneAsset: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      sampleRate: !<float> 44100.000000
+      chunkDurationMs: !<float> 100.000000
+      recordButton: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
+      compositeSwitch: !<MappingBased.AssignableType_5> 00000000-0000-0000-0000-000000000000
+      statusText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      buttonText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      previewImage: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      enableDebugLogs: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType snapCloudRequirements {"hint":"Reference to SnapCloudRequirements for centralized Supabase configuration"}'
+    - '// @input string storageBucket = "specs-bucket" {"hint":"Supabase Storage bucket name for composite uploads"}'
+    - '// @input string videoStorageFolder = "composite-video" {"hint":"Storage folder for video frames"}'
+    - '// @input string audioStorageFolder = "composite-audio" {"hint":"Storage folder for audio chunks"}'
+    - '// @input string stitchedOutputFolder = "composite-stitched" {"hint":"Storage folder for final stitched video"}'
+    - '// @input bool shareToSpotlight {"hint":"Enable sharing to Snapchat Spotlight after video is stitched"}'
+    - '// @input AssignableType_1 captionInput {"hint":"Text input field for Spotlight caption"}'
+    - '// @input string defaultCaption = "Captured with Spectacles ✨" {"hint":"Default caption for Spotlight post (used if no input provided)"}'
+    - '// @input bool useVerticalCrop {"hint":"Default value for 9:16 vertical crop (can be toggled via Switch)"}'
+    - '// @input AssignableType_2 verticalCropSwitch {"hint":"Switch to toggle 9:16 vertical crop for Spotlight/Reels format"}'
+    - '// @input float imageFormat {"hint":"Image format for captured frames.\n\n⚡ JPG: Faster encoding, smaller files, recommended for smooth recording.\n\n⚠️ PNG: Lossless quality but CPU INTENSIVE - may cause stuttering during recording!", "widget":"combobox", "values":[{"label":"JPG (Recommended)", "value":0}, {"label":"PNG (CPU Intensive!)", "value":1}]}'
+    - '// @input float frameQuality = 70 {"hint":"Video frame quality (1-100, higher = better quality). Only affects JPG format.", "widget":"slider", "min":1, "max":100, "step":1}'
+    - '// @input float frameRate = 30 {"hint":"Frames per second for video capture", "widget":"slider", "min":1, "max":30, "step":1}'
+    - '// @input float maxRecordingDuration = 30 {"hint":"Maximum recording duration in seconds", "widget":"slider", "min":5, "max":120, "step":5}'
+    - '// @input AssignableType_3 cameraService {"hint":"Reference to CameraService (RECOMMENDED). Uses its camera to avoid multiple camera requests."}'
+    - '// @input bool useCompositeTexture {"hint":"Default value for composite mode (can be toggled via Switch)"}'
+    - '// @input Asset.Texture compositeTexture {"hint":"Pre-composed texture (with AR content) - used when useCompositeTexture is enabled"}'
+    - '// @input Asset.AudioTrackAsset microphoneAsset {"hint":"Microphone audio track asset for recording"}'
+    - '// @input float sampleRate = 44100 {"hint":"Audio sample rate (Hz)", "widget":"slider", "min":8000, "max":48000, "step":1000}'
+    - '// @input float chunkDurationMs = 100 {"hint":"Audio chunk size in milliseconds", "widget":"slider", "min":50, "max":1000, "step":50}'
+    - '// @input AssignableType_4 recordButton {"hint":"Button to start/stop composite recording"}'
+    - '// @input AssignableType_5 compositeSwitch {"hint":"Switch to toggle between camera and composite capture mode"}'
+    - '// @input Component.Text statusText {"hint":"Text component to display recording status"}'
+    - '// @input Component.Text buttonText {"hint":"Text component to display button state"}'
+    - '// @input Component.Image previewImage {"hint":"Image component to show camera preview"}'
+    - '// @input bool enableDebugLogs = true {"hint":"Enable detailed debug logging"}'

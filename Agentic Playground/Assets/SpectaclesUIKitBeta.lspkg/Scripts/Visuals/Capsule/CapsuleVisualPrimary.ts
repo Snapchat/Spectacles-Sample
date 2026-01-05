@@ -95,7 +95,7 @@ export class CapsuleVisualPrimary extends Visual {
     }
     this._capsule.enableHighlight(hasHighlight)
   }
-  private readonly beigeColor = new vec4(0.96, 0.87, 0.70, 1)
+  private readonly beigeColor = new vec4(0.96, 0.87, 0.7, 1)
   private readonly intenseYellow = new vec4(0.99, 0.99, 0.85, 1)
   protected updateVisualStates(): void {
     this._capsuleVisualStates = new Map([

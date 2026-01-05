@@ -42,7 +42,7 @@
     []
   Name: Render Mesh Visual
   Enabled: true
-  RenderOrder: 0
+  RenderOrder: 1
   StretchMode: Stretch
   VerticalAlignment: Center
   HorizontalAlignment: Center
@@ -66,11 +66,7 @@
   ScriptInputsDefault:
     networkIdTypeString: true
     customNetworkId: true
-    positionSyncString: true
-    rotationSyncString: true
-    scaleSyncString: true
     persistenceString: true
-    sendsPerSecondLimit: true
     useSmoothing: true
     interpolationTarget: true
   ScriptTypesDefault:
@@ -79,11 +75,11 @@
     "":
       networkIdTypeString: objectId
       customNetworkId: enter_unique_id
-      positionSyncString: Local
-      rotationSyncString: Local
-      scaleSyncString: Local
+      positionSyncString: Location
+      rotationSyncString: Location
+      scaleSyncString: Location
       persistenceString: Session
-      sendsPerSecondLimit: 10
+      sendsPerSecondLimit: 20
       useSmoothing: true
       interpolationTarget: -0.250000
   ScriptTypes:
@@ -187,9 +183,9 @@
 - !<ScriptComponent/7e7857e6-7cbd-48f8-689c-1dd8d623e875>
   PrefabRemaps:
     []
-  Name: PieceTS
+  Name: Piece
   Enabled: true
-  ScriptAsset: !<reference> 9facf8a8-1b92-4e50-a39a-e8914aea4c5b
+  ScriptAsset: !<reference> 11269698-5c66-4378-bb79-81e18966be63
   ScriptInputsDefault:
     {}
   ScriptTypesDefault:
@@ -197,8 +193,9 @@
   ScriptInputs:
     "":
       showLogs: true
-      controller: !<MappingBased.AssignableType> bdbb6504-1dd2-46c3-8b61-d317554a4120
+      controller: !<MappingBased.AssignableType> 207122fc-71fe-4e6f-8a14-4e873ffb4a33
       manipulatable: !<MappingBased.AssignableType_1> 40c4d08c-c0b0-4fa8-4199-dae296ef6f40
+      interactableOutlineFeedback: !<MappingBased.AssignableType_2> 02888c8b-418e-4f14-40a4-53acea6ae850
   ScriptTypes:
     "":
       {}
@@ -220,23 +217,6 @@
   ForceCompound: false
   Intangible: false
   ShowCollider: false
-- !<ScriptComponent/a9c4c67a-558b-4c14-5563-67ca8188b095>
-  PrefabRemaps:
-    []
-  Name: PieceJS
-  Enabled: true
-  ScriptAsset: !<reference> 32ff3013-497c-4f26-9ebd-d0771157d708
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      controller: !<reference.ScriptComponent> 551351cd-8bbd-4c8f-bd8a-d0a1ebfffab4
-      showLogs: true
-  ScriptTypes:
-    "":
-      {}
 - !<SceneObject/bf3d27a5-2ac3-4ea6-58a3-6e1b3b862ca2>
   PrefabRemaps:
     []
@@ -255,10 +235,9 @@
     - !<own> 838ecca9-154d-448e-612e-ed216a631f24
     - !<own> 57a242b7-b987-467f-52e5-2bf15a6f29e1
     - !<own> 40c4d08c-c0b0-4fa8-4199-dae296ef6f40
-    - !<own> 02888c8b-418e-4f14-40a4-53acea6ae850
     - !<own> 27d5a95a-09e6-4d3a-535e-eeb66c6ef61d
-    - !<own> a9c4c67a-558b-4c14-5563-67ca8188b095
     - !<own> 7e7857e6-7cbd-48f8-689c-1dd8d623e875
+    - !<own> 02888c8b-418e-4f14-40a4-53acea6ae850
 - !<ObjectPrefabAssetData/cc421410-4651-479d-8b1b-e6fc3ba06905>
   Prototype: !<ObjectOwner/2331c15d-202d-40a3-99f1-73259f4daa09>
     PackagePath: ""

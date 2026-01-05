@@ -2,7 +2,7 @@ import NativeLogger from "SpectaclesInteractionKit.lspkg/Utils/NativeLogger"
 import {SphereVisual} from "../../Visuals/Sphere/SphereVisual"
 import {Toggle} from "./Toggle"
 
-const log = new NativeLogger("SphereToggle") // eslint-disable-line @typescript-eslint/no-unused-vars
+const log = new NativeLogger("SphereToggle")  
 
 /**
  * Represents a SphereToggle component that extends the base Toggle class.

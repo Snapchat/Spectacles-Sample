@@ -1,16 +1,12 @@
-import {
-    withAlpha,
-    withoutAlpha,
-  } from "SpectaclesInteractionKit.lspkg/Utils/color";
-  import InteractorLineRenderer, {
-    VisualStyle,
-  } from "SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorLineVisual/InteractorLineRenderer";
-  /**
+import InteractorLineRenderer, {
+  VisualStyle
+} from "SpectaclesInteractionKit.lspkg/Components/Interaction/InteractorLineVisual/InteractorLineRenderer"
+import {withAlpha, withoutAlpha} from "SpectaclesInteractionKit.lspkg/Utils/color"
+/**
  * This class provides visual representation for interactor lines. It allows customization of the line's material, colors, width, length, and visual style. The class integrates with the InteractionManager and WorldCameraFinderProvider to manage interactions and camera positioning.
  */
 @component
 export class Line extends BaseScriptComponent {
-
   @input
   public startPointObject!: SceneObject
 
@@ -35,12 +31,7 @@ export class Line extends BaseScriptComponent {
   private lineLength: number = 160
 
   @input
-  @widget(
-    new ComboBoxWidget()
-      .addItem("Full", 0)
-      .addItem("Split", 1)
-      .addItem("FadedEnd", 2),
-  )
+  @widget(new ComboBoxWidget().addItem("Full", 0).addItem("Split", 1).addItem("FadedEnd", 2))
   public lineStyle: number = 2
 
   @input
@@ -115,12 +106,14 @@ export class Line extends BaseScriptComponent {
 
     this.line = new InteractorLineRenderer({
       material: this.lineMaterial,
-      points: [this.startPointObject.getTransform().getLocalPosition(),
-        this.endPointObject.getTransform().getLocalPosition()],
+      points: [
+        this.startPointObject.getTransform().getLocalPosition(),
+        this.endPointObject.getTransform().getLocalPosition()
+      ],
       startColor: withAlpha(this._beginColor, 1),
       endColor: withAlpha(this._endColor, 1),
       startWidth: this.lineWidth,
-      endWidth: this.lineWidth,
+      endWidth: this.lineWidth
     })
 
     this.line.getSceneObject().setParent(this.sceneObject)
@@ -136,7 +129,7 @@ export class Line extends BaseScriptComponent {
     // Create update event to update the line on every frame
     this.createEvent("UpdateEvent").bind(this.onUpdate.bind(this))
   }
-  
+
   /**
    * Called every frame to update the line
    */
@@ -144,7 +137,7 @@ export class Line extends BaseScriptComponent {
     if (!this.startPointObject || !this.endPointObject || !this.line) {
       return
     }
-    
+
     try {
       // Update the line points based on the current positions of the start and end objects
       this.line.points = [
@@ -159,5 +152,4 @@ export class Line extends BaseScriptComponent {
     this.line.destroy()
     this.sceneObject.destroy()
   }
-
 }

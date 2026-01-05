@@ -32,7 +32,7 @@ export class QuestMarkerPlace extends QuestMarker {
     boundaryHalfWidthProjection: number,
     boundaryHalfWidth: number,
     boundaryHalfHeight: number,
-    halfFov: number,
+    halfFov: number
   ): void {
     super.initialize(transform, scale, boundaryHalfWidthProjection, boundaryHalfWidth, boundaryHalfHeight, halfFov)
 

@@ -55,6 +55,21 @@
     - !<own> 36dc748e-431d-4040-b8d5-f90ad066acd8
   Components:
     []
+- !<SceneObject/03deefdc-deaa-4f36-8db4-f623775ec60b>
+  PrefabRemaps:
+    []
+  Name: InternetModuleInjector
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 494d42ee-92cd-476b-ac9e-cc3e94f22f3c
 - !<SceneObject/0809662a-0bea-413b-8fef-2cc54e6e6ceb>
   PrefabRemaps:
     []
@@ -171,12 +186,14 @@
   ScriptAsset: !<reference> 3b46d829-f6db-432a-914c-3551904d3994
   ScriptInputsDefault:
     _appearance: true
+    _allowScaling: true
+    allowNonUniformScaling: true
     autoScaleContent: true
     _onlyInteractOnBorder: true
     allowTranslation: true
     _cutOutCenter: true
-    minimumSize: true
-    maximumSize: true
+    _minimumSize: true
+    _maximumSize: true
     useBillboarding: true
     xOnTranslate: true
     xAlways: true
@@ -203,14 +220,15 @@
       _appearance: Large
       _innerSize: !<Vec2> {x: 40.000000, y: 60.000000}
       _padding: !<Vec2> {x: 4.000000, y: 4.000000}
-      allowScaling: false
+      _allowScaling: true
+      allowNonUniformScaling: false
       autoScaleContent: true
       relativeZ: false
       _onlyInteractOnBorder: false
       allowTranslation: true
       _cutOutCenter: false
-      minimumSize: !<Vec2> {x: 10.000000, y: 10.000000}
-      maximumSize: !<Vec2> {x: 150.000000, y: 150.000000}
+      _minimumSize: !<Vec2> {x: 10.000000, y: 10.000000}
+      _maximumSize: !<Vec2> {x: 150.000000, y: 150.000000}
       useBillboarding: true
       xOnTranslate: true
       xAlways: false
@@ -386,7 +404,7 @@
         - 30.000000
       _maxRaycastDistance: !<float> 500.000000
       indirectTargetingVolumeMultiplier: !<float> 1.000000
-      indirectDragThreshold: !<float> 40.000000
+      indirectDragThreshold: !<float> 10.000000
       handType: right
       forcePokeOnNonDominantPalmProximity: false
       directColliderEnterRadius: !<float> 1.000000
@@ -1074,8 +1092,8 @@
   PrefabRemaps:
     - 00a02c37-bbdf-4066-b856-ef48431390a7: 631805b2-28d6-42d1-69fc-73f5c0ce60a2
     - 00d2cce0-9461-4b79-8b16-2f251f6906e2: d33cb033-7bcb-48b1-5e6a-4e5ec785d434
-    - 015f7a10-bd56-498d-98ce-33b804bcea13: b366a68a-e593-4fdf-5b34-0f4541ade3a0
     - 0236ef65-5d10-4087-9475-f5c7160444af: 0ca13a20-160a-462a-554a-ffacc63f4dbc
+    - 03deefdc-deaa-4f36-8db4-f623775ec60b: 73001b8d-531c-4146-9385-9d2f0c4ade29
     - 06fe8a4f-0922-433f-a8a4-914ff3538bcb: daea0ccc-6ec9-4db3-6347-39e4febf6e29
     - 08d3cf81-5972-4849-8de0-af86219378c6: dc393132-e4ab-4b2f-7bcd-838a2205dc22
     - 09933858-d215-4737-ae5d-d5489253f7fd: deab528b-11a0-4478-5a39-07e49bbbc38c
@@ -1085,7 +1103,6 @@
     - 0cee0986-2b03-4387-b6e0-f90ed1157ce9: 2edef4d0-2056-425a-58cd-a2cebedb6fbd
     - 0d876a9f-1c9f-470e-bc7a-32fd24bbf304: 69a0c03d-7890-4b89-69c1-bb7a8d85d641
     - 0d972cff-f995-4d04-9423-73310a4415ac: dca541e3-6f77-4672-592a-bc66da9c8d53
-    - 0dd1f21e-54e2-4e3b-adf2-f9eb53a150b8: b29c3f6f-5d58-430e-7066-256538b0000b
     - 109eeefb-0bd6-4ed7-b281-cb0b02143d4f: 7011ce93-a9db-4a0b-779d-a9298da66e31
     - 10a32ac9-3639-4796-ae2f-cd31a6d0ad8c: 99328ec0-14f4-480e-b52b-7a1b6df74cb8
     - 10b837de-ddfd-4734-a51f-e6a019abf0dd: 4b85a527-23f2-4573-adb6-b030e179411b
@@ -1093,7 +1110,6 @@
     - 123a700d-2e30-4ae0-a6ec-3caac9cab973: 182b8bda-8295-4649-b456-195a45404c06
     - 12740c69-6926-4241-a444-bc95dbe78fcd: 9b303b72-1dbf-4e86-8c30-e31766ddd7ca
     - 17a5545d-3e1c-43da-8fba-c64f807e6e92: cf140761-50d1-4ef0-5bd2-6f302007f720
-    - 1806ec63-9daa-4c85-a1db-9fff3166652c: 6184585a-b387-4732-6af6-6886b268e32a
     - 182c6f15-7f91-4b1f-b123-6b58055a8449: fe36316e-1e7a-428c-6c28-0696a7994e0d
     - 199c3b9e-ec23-4c3c-ae78-d0b30bc55aad: 0024c58f-b51b-4382-68d8-91c14dccf5ee
     - 19d0b084-00f2-49cd-a8bc-1a75fcf93c97: 95352b81-4aac-4ee4-6c99-d62868fbd740
@@ -1109,7 +1125,6 @@
     - 2ccb0056-423e-43fd-876e-34dd141e90f5: 87a37d77-f0c1-4795-4108-0a45ca39928b
     - 2dd33431-22a4-4e8f-a639-ba36abd77b24: 200c483b-906b-489a-693c-29cc58eabdde
     - 2e75fe9e-f055-4867-9554-8212c3cbe359: a7d96ddf-aa4f-4ae0-afb9-7cbada59e145
-    - 31a27e88-88c1-4d4e-b1ca-bd91dbb0b37e: bf6b56fe-ad4a-408a-6830-5d1824516182
     - 320faaec-f0af-434b-bf2d-ea546c1057b8: 6569772a-9117-4255-4376-00bb95a1fff6
     - 32d32949-7894-4ea9-9b1b-68ae20ccf126: aeec8dbc-da66-4c20-9363-52be84e0fc0e
     - 33a27a23-c67b-4ba3-a6ab-4fa8e1482227: da7dc511-c256-4eb4-6526-debad67f1fb9
@@ -1121,6 +1136,7 @@
     - 41bcfb74-cd8e-4238-9557-d321182c372a: 0537c2e2-ddeb-4cd5-51f0-a56345bbf220
     - 42bfa353-731d-409e-9475-27f0f89ee3c4: 16afed68-c0b9-4ce6-7d95-ee17af737aaa
     - 43172bac-03fe-44ed-9939-88bc6565646a: ad189653-4f88-4a7c-b53e-6769601d1d4c
+    - 494d42ee-92cd-476b-ac9e-cc3e94f22f3c: 358c3046-8938-4aa3-9a9c-9da5b3968349
     - 4af0b89d-9b49-4075-af11-4aa76b09ddfb: 9d7e6f73-9332-4435-82f2-bde9432eb24a
     - 4eafa5bb-41f2-490a-8973-24fa2600797f: 28ec1afb-e63f-4df9-6681-05f02166bb6e
     - 4f4bab07-9a41-4021-bdcc-9b4786982aeb: 8ee414f8-cfea-46aa-6466-0ae6a46f2e3c
@@ -1129,14 +1145,12 @@
     - 5147a300-6d41-4e71-ae5e-985911780827: 8cf4ee0c-64b5-42ea-726c-3ca9f7186996
     - 52047588-6f16-4ac9-a5f0-27c443dc5f92: 792b2546-af0a-43d0-b23e-670e449a269e
     - 521d4b8b-5e13-4711-b2ea-c9cae1705878: 84b0d01a-e9af-4041-693a-b10c3f0c1b47
-    - 560d3da8-7353-4a72-8804-a909be408431: 150ed783-5cb2-44bc-6642-28e06420a57b
     - 5670001d-7d4c-4fe1-b3f2-104c06a07bbe: 38507e93-2b4b-4a5c-4dca-0964d56d594e
     - 56be4e08-13aa-4ff2-be8b-3fbfb7902552: d9d31e60-9ed3-4bb1-a6a8-b6cea1348679
     - 57f9f949-b2fe-41a4-b40e-be6515653838: 21801efd-b03c-496a-5c82-76d75b48f62f
     - 5af5a160-9d4c-4070-8f73-f19564494a3c: ca093520-ef07-4c3b-b4d9-a4512c626f81
     - 5b395005-36b5-4856-8028-1d9da709a6ef: f5cf35e6-e901-4484-b0e1-c372748bcb89
     - 5b7e957d-8ac5-4f74-ab64-94bab5176f94: bc844175-2b8e-47ac-a2fa-d4b6c4ec7d85
-    - 5bcf84b7-8e85-42e0-942e-218a472629ae: 369ab33d-c902-4d2a-4c68-585be9b051e0
     - 5bda91be-e2d2-46ea-942c-6545daa560fe: d51232c5-4b2f-4ee6-6c68-75f24647eb51
     - 5c9ebb18-adcb-46b1-89c8-86a4f25eddb9: b3215033-c3ee-4286-a66e-32d213429332
     - 5c9ee38b-cb09-4aec-97df-c0db6bb0f4e1: ba207428-165e-4e4c-9671-f773fde4c3a5
@@ -1157,14 +1171,12 @@
     - 761a7f1e-d8e3-40e4-8241-86ec456ec831: f27d50be-ca1f-4550-7e95-fdebe68ca8b6
     - 771f1381-078c-4e05-a6ef-f04bacf18405: 3ba63110-0cf7-45e8-6377-49d3231bbbc1
     - 775ddab6-dc04-42ba-a43a-bced51a11067: f00bd99e-e224-4fae-b0f1-3edcd3585b87
-    - 77a096c7-fc1b-44e6-9a4b-ec046a35dd6c: 1f4a406f-f571-43c0-441a-69a71d621b9d
     - 78a68763-7611-4d49-9a39-29400cb1ec0f: 9591061c-542d-49f5-5089-516f9a3038d5
     - 78a939c7-a713-4f02-889d-98472a3b3732: 0502e6c6-d7cc-4461-7935-84164495804e
     - 7abba0ee-5eb7-4116-a7b0-1b6364ac57c4: 7123562f-8c7e-4330-5f55-897cf8a6a2ea
     - 7bd0fea7-4823-4e77-a7db-8209e1414fc9: 179be516-9691-44cd-43cd-0c3b2b523b32
     - 7d0939c5-e56f-4fc2-96b6-3559802a35ea: 5f4e605c-7ef7-43aa-583f-ffc4012d9404
     - 7dc97501-4066-41a1-abf0-2885d4aec6af: 2e58f2d1-de43-4bbe-67aa-dd948ed4c4b7
-    - 7f105e6f-acf2-43fc-9428-5b439ae349cf: 5007393b-361d-4bc4-6be8-d436b6224e24
     - 82ab155e-b1e9-4296-ae05-58706184487f: 19e5d684-4e4a-470c-6951-6c158c019844
     - 8394b61c-74d0-4dbf-9006-7e62e592bd9f: 316c257d-5035-4370-6121-001a6928a412
     - 84ef4c4a-1f9b-472c-90cf-6ebf48f521b3: f8923364-ee1a-4399-6f8e-0fde3edaf006
@@ -1190,6 +1202,7 @@
     - aaaad8cc-f051-403a-9c68-2fe2251135da: 9658608b-ad87-4860-7160-3e837bfe7b4c
     - ac0621a7-6237-476c-a567-cd724e1d6755: 9386d87f-166a-4a9f-4494-e277678f8a9c
     - ac109489-3c27-4a89-9c14-4c3f9f5a0ba0: e152ecce-fc67-44bc-521a-8636fc86b4eb
+    - ae78f0ee-d414-4d35-b0c1-4fef665f333b: 8cccea69-b3b3-4666-a1eb-cb619e3a99c8
     - aecc805a-372c-4b10-9f26-557f99ca212a: 925cb148-81d8-4fa1-b107-dfc7436e0322
     - afc5ef6b-d759-4bc6-87b1-c61e8ee95a0e: 04f58ed8-5019-476c-6e01-54a77255b998
     - b2455e3f-3ef1-478c-8859-c0dd69052288: b377a0a2-d115-41f5-7d96-14f57c8c9cfc
@@ -1199,7 +1212,8 @@
     - bc5d2b2f-c69f-4648-9bdf-7a77c34a3e1b: eeb75025-77db-4e96-7d08-811a9d2418dc
     - bca7aeb7-6d7b-4a8a-b01f-2d6023006330: 7efba2d4-6bff-46dc-a1aa-f3e2020f7451
     - c1c78234-1579-4312-98e7-dcebc351e27a: 3618923e-57e8-4a9a-5927-78fad6e57cb1
-    - c336d8cd-f5c2-47cb-9956-93f7ad1dcbb4: d7094a98-b00b-4ca8-4032-9c1d54a56e52
+    - c1cf3348-6631-483d-b177-308dd356b8db: a7b2b55f-d428-4d74-908a-6bb7aa2a4ce0
+    - c63dfc15-3ad5-4d19-8d1f-6bc8c7ff0f75: 338dda2e-9699-40a8-813a-9c3c83eae4cb
     - c647508c-f21c-408f-bac5-d6da86204812: c13c9e06-7376-4aab-688d-93c86d28c637
     - c6bcd0ff-177d-407f-b97f-6baa0ddbe184: 39f8a514-5eef-4336-b94d-4ed01a8b5d38
     - c863b88f-c485-416a-8a64-30cfc21aeeb6: 5c63bde6-9b81-4fa5-6a01-6fb43fe42dc5
@@ -1211,14 +1225,10 @@
     - cec0d662-4a97-42c8-b23d-9392110232ca: 7197a7ea-a97a-4ace-4492-8dbd0794949a
     - d5dc49de-5311-4118-a694-faafb7b37702: 6eaa1f77-45fc-47b2-73b0-9f8c017236a5
     - d6768b90-a66d-48cb-beac-8112e7e2bbe1: 00bac917-9940-41d2-b6cf-66e62fb7b0c3
-    - d6bceea7-fa24-429c-8067-4e7150309bce: f83b859b-a1a4-477c-6272-2b4e6f6cd263
-    - d881f541-4ccb-4707-8446-584f06dd5a85: 89d51ddc-3337-497c-7f0d-c04bbe57f5c5
     - da388c8f-c7d6-4e4e-9ae7-4b97268236a2: ecf6d799-c182-45fa-71fc-99950c9243dd
     - da43617b-10f0-4a53-82cc-177e5281ed48: 7d0feb06-3e0f-445f-5ac2-d8a1fa3ac0f1
     - dd31c040-7681-4cb8-af95-836c0391c7f4: d442203a-95ba-4bf6-9320-637efcc52802
-    - de15c6df-e9b6-4594-9207-bb7f5b9a4ad5: dd5361fc-92c0-4a42-54d9-aa23f6c39b90
     - dfbaec7f-3d98-406b-ba30-807c0f489ec5: 72e15a13-4799-47fe-72bc-7c851fd98195
-    - e4bba7b9-a6cd-4591-9606-2396a48e836b: 369c0572-c137-4758-56a4-10ab5aeb1faa
     - e5ac15ab-313c-4a81-950d-85d63dcb2888: 43ee6bc9-e638-402c-9757-aadeaff16f7a
     - e6258f66-8444-447f-aceb-53b5115d0ca3: 1f9e0b0e-9a94-4842-5aa5-6845e20699d7
     - ec4ef613-b4a3-4e37-9056-97eb9726d131: 4ca6346c-8a7b-4dd3-593a-cdf6ff74d1ea
@@ -1318,7 +1328,7 @@
     {}
   ScriptInputs:
     "":
-      useV2: false
+      useV2: true
       drawDebug: false
   ScriptTypes:
     "":
@@ -1338,6 +1348,22 @@
     - !<own> 7f564129-a4f5-4485-99f8-16ad7643b18b
   Components:
     []
+- !<ScriptComponent/494d42ee-92cd-476b-ac9e-cc3e94f22f3c>
+  PrefabRemaps:
+    []
+  Name: InternetModuleInjector
+  Enabled: true
+  ScriptAsset: !<reference> dd13e4f8-a3e2-400f-916c-37361c3a0e70
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<RenderMeshVisual/4ad393fb-604e-4f6a-8f5a-eb6616c37734>
   PrefabRemaps:
     []
@@ -2639,6 +2665,8 @@
     _renderOrder: true
     _inactive: true
     _style: true
+    _hasShadow: true
+    _shadowPositionOffset: true
     _toggleable: true
     _defaultToOn: true
     triggerUpCallbacks: true
@@ -2654,6 +2682,8 @@
       _inactive: false
       _playAudio: true
       _style: PrimaryNeutral
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
       _toggleable: false
       _defaultToOn: false
       addCallbacks: true
@@ -2988,7 +3018,7 @@
   Name: Located At
   Enabled: true
   Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-  Location: !<reference> d40991a7-d0e5-476c-8338-ef6cd9fe46b8
+  Location: !<reference> 1bb2718d-1311-4d5a-a08f-56d1562ef11b
 - !<SceneObject/ac109489-3c27-4a89-9c14-4c3f9f5a0ba0>
   PrefabRemaps:
     []
@@ -3001,6 +3031,7 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
+    - !<own> 03deefdc-deaa-4f36-8db4-f623775ec60b
     - !<own> 8529ccf7-8685-49d5-ae17-55cb401640a4
   Components:
     - !<own> 251fa211-d033-4e86-ab2a-161e8cefcc2c
@@ -3038,7 +3069,7 @@
         - 30.000000
       _maxRaycastDistance: !<float> 500.000000
       indirectTargetingVolumeMultiplier: !<float> 1.000000
-      indirectDragThreshold: !<float> 40.000000
+      indirectDragThreshold: !<float> 10.000000
       handType: left
       forcePokeOnNonDominantPalmProximity: false
       directColliderEnterRadius: !<float> 1.000000
@@ -4090,6 +4121,8 @@
     _renderOrder: true
     _inactive: true
     _style: true
+    _hasShadow: true
+    _shadowPositionOffset: true
     _toggleable: true
     _defaultToOn: true
     triggerUpCallbacks: true
@@ -4105,6 +4138,8 @@
       _inactive: false
       _playAudio: true
       _style: PrimaryNeutral
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
       _toggleable: false
       _defaultToOn: false
       addCallbacks: true

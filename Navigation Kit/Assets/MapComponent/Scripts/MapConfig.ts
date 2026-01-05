@@ -37,9 +37,9 @@ export default class MapConfig {
     mapController: MapController,
     enableScrolling: boolean,
     scrollingFriction: number,
-    tileCount: number,
+    tileCount: number
   ): MapConfig {
-    let config = new MapConfig()
+    const config = new MapConfig()
 
     config.mapPinsAnchor = mapPinsAnchor
     config.mapComponentScreenTransform = mapComponentScreenTransform

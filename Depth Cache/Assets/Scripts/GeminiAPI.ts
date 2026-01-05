@@ -1,8 +1,8 @@
-import { Gemini } from "RemoteServiceGateway.lspkg/HostedExternal/Gemini";
-import { GeminiTypes } from "RemoteServiceGateway.lspkg/HostedExternal/GeminiTypes";
+import {Gemini} from "RemoteServiceGateway.lspkg/HostedExternal/Gemini"
+import {GeminiTypes} from "RemoteServiceGateway.lspkg/HostedExternal/GeminiTypes"
 
 //const GEMINI_MODEL = "gemini-2.5-flash";
-const GEMINI_MODEL = "gemini-2.5-pro";
+const GEMINI_MODEL = "gemini-2.5-pro"
 
 const SYSTEM_MESSAGE =
   //Goal
@@ -16,41 +16,32 @@ const SYSTEM_MESSAGE =
   //Context Dump
   "The label and arrow can be useful for tasks, if user asks how to use something, maybe use an arrow and set the label to Step #1, Step #2, etc. \n" +
   "Dont label anything over 20 feet away from the camera. \n" +
-  "Do not label objects that you already labled! Make sure the AR content you add doesnt overlap each other, but feel free to make as many as you see fit! You are the AR and AI BOSS!\n";
+  "Do not label objects that you already labled! Make sure the AR content you add doesnt overlap each other, but feel free to make as many as you see fit! You are the AR and AI BOSS!\n"
 
 @component
 export class GeminiAPI extends BaseScriptComponent {
   onAwake() {}
 
-  makeGeminiRequest(
-    texture: Texture,
-    userQuery: string,
-    callback: (any) => void
-  ) {
+  makeGeminiRequest(texture: Texture, userQuery: string, callback: (any) => void) {
     Base64.encodeTextureAsync(
       texture,
       (base64String) => {
-        print("Making image request...");
-        this.sendGeminiChat(userQuery, base64String, texture, callback);
+        print("Making image request...")
+        this.sendGeminiChat(userQuery, base64String, texture, callback)
       },
       () => {
-        print("Image encoding failed!");
+        print("Image encoding failed!")
       },
       CompressionQuality.HighQuality,
       EncodingType.Png
-    );
+    )
   }
 
-  sendGeminiChat(
-    request: string,
-    image64: string,
-    texture: Texture,
-    callback: (response: any) => void
-  ) {
-    var respSchema: GeminiTypes.Common.Schema = {
+  sendGeminiChat(request: string, image64: string, texture: Texture, callback: (response: any) => void) {
+    const respSchema: GeminiTypes.Common.Schema = {
       type: "object",
       properties: {
-        message: { type: "string" },
+        message: {type: "string"},
         data: {
           type: "array",
           items: {
@@ -58,17 +49,17 @@ export class GeminiAPI extends BaseScriptComponent {
             properties: {
               boundingBox: {
                 type: "array",
-                items: { type: "number" },
+                items: {type: "number"}
               },
-              label: { type: "string" },
-              useArrow: { type: "boolean" },
+              label: {type: "string"},
+              useArrow: {type: "boolean"}
             },
-            required: ["boundingBox", "label", "useArrow"],
-          },
-        },
+            required: ["boundingBox", "label", "useArrow"]
+          }
+        }
       },
-      required: ["message", "data"],
-    };
+      required: ["message", "data"]
+    }
 
     const reqObj: GeminiTypes.Models.GenerateContentRequest = {
       model: GEMINI_MODEL,
@@ -81,101 +72,87 @@ export class GeminiAPI extends BaseScriptComponent {
               {
                 inlineData: {
                   mimeType: "image/png",
-                  data: image64,
-                },
+                  data: image64
+                }
               },
               {
-                text: request,
-              },
-            ],
-          },
+                text: request
+              }
+            ]
+          }
         ],
         systemInstruction: {
           parts: [
             {
-              text: SYSTEM_MESSAGE,
-            },
-          ],
+              text: SYSTEM_MESSAGE
+            }
+          ]
         },
         generationConfig: {
           temperature: 0.5,
           responseMimeType: "application/json",
-          response_schema: respSchema,
-        },
-      },
-    };
+          response_schema: respSchema
+        }
+      }
+    }
 
-    print(JSON.stringify(reqObj.body));
+    print(JSON.stringify(reqObj.body))
 
     Gemini.models(reqObj)
       .then((response) => {
-        var responseObj = JSON.parse(
-          response.candidates[0].content.parts[0].text
-        );
-        this.onGeminiResponse(responseObj, texture, callback);
+        const responseObj = JSON.parse(response.candidates[0].content.parts[0].text)
+        this.onGeminiResponse(responseObj, texture, callback)
       })
       .catch((error) => {
-        print("Gemini error: " + error);
+        print("Gemini error: " + error)
         if (callback != null) {
           callback({
             points: [],
             lines: [],
-            aiMessage: "reponse error...",
-          });
+            aiMessage: "reponse error..."
+          })
         }
-      });
+      })
   }
 
-  private onGeminiResponse(
-    responseObj: any,
-    texture: Texture,
-    callback: (response: any) => void
-  ) {
-    let geminiResult = {
+  private onGeminiResponse(responseObj: any, texture: Texture, callback: (response: any) => void) {
+    const geminiResult = {
       points: [],
-      aiMessage: "no response",
-    };
+      aiMessage: "no response"
+    }
 
-    print("GEMINI RESPONSE: " + responseObj.message);
-    geminiResult.aiMessage = responseObj.message;
+    print("GEMINI RESPONSE: " + responseObj.message)
+    geminiResult.aiMessage = responseObj.message
     try {
       //load points
-      var data = responseObj.data;
-      print("Data: " + JSON.stringify(data));
-      print("POINT LENGTH: " + data.length);
-      for (var i = 0; i < data.length; i++) {
-        var centerPoint = this.boundingBoxToPixels(
-          data[i].boundingBox,
-          texture.getWidth(),
-          texture.getHeight()
-        );
-        var lensStudioPoint = {
+      const data = responseObj.data
+      print("Data: " + JSON.stringify(data))
+      print("POINT LENGTH: " + data.length)
+      for (let i = 0; i < data.length; i++) {
+        const centerPoint = this.boundingBoxToPixels(data[i].boundingBox, texture.getWidth(), texture.getHeight())
+        const lensStudioPoint = {
           pixelPos: centerPoint,
           label: data[i].label,
-          showArrow: data[i].useArrow,
-        };
-        geminiResult.points.push(lensStudioPoint);
+          showArrow: data[i].useArrow
+        }
+        geminiResult.points.push(lensStudioPoint)
       }
     } catch (error) {
-      print("Error parsing points!: " + error);
+      print("Error parsing points!: " + error)
     }
     if (callback != null) {
-      callback(geminiResult);
+      callback(geminiResult)
     }
   }
 
-  private boundingBoxToPixels(
-    boxPoints: any,
-    width: number,
-    height: number
-  ): vec2 {
-    var x1 = MathUtils.remap(boxPoints[1], 0, 1000, 0, width);
-    var y1 = MathUtils.remap(boxPoints[0], 0, 1000, height, 0); //flipped for lens studio
-    var topLeft = new vec2(x1, height - y1);
-    var x2 = MathUtils.remap(boxPoints[3], 0, 1000, 0, width);
-    var y2 = MathUtils.remap(boxPoints[2], 0, 1000, height, 0);
-    var bottomRight = new vec2(x2, height - y2);
-    var center = topLeft.add(bottomRight).uniformScale(0.5);
-    return center;
+  private boundingBoxToPixels(boxPoints: any, width: number, height: number): vec2 {
+    const x1 = MathUtils.remap(boxPoints[1], 0, 1000, 0, width)
+    const y1 = MathUtils.remap(boxPoints[0], 0, 1000, height, 0) //flipped for lens studio
+    const topLeft = new vec2(x1, height - y1)
+    const x2 = MathUtils.remap(boxPoints[3], 0, 1000, 0, width)
+    const y2 = MathUtils.remap(boxPoints[2], 0, 1000, height, 0)
+    const bottomRight = new vec2(x2, height - y2)
+    const center = topLeft.add(bottomRight).uniformScale(0.5)
+    return center
   }
 }

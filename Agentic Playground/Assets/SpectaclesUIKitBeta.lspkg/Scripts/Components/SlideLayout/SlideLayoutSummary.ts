@@ -1,6 +1,6 @@
-import { InteractableManipulation } from "SpectaclesInteractionKit.lspkg/Components/Interaction/InteractableManipulation/InteractableManipulation"
-import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable"
-import { ButtonSlideSummary } from "../Button/ButtonSlideSummary"
+import {Interactable} from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable"
+import {InteractableManipulation} from "SpectaclesInteractionKit.lspkg/Components/Interaction/InteractableManipulation/InteractableManipulation"
+import {ButtonSlideSummary} from "../Button/ButtonSlideSummary"
 
 /**
  * Represents the state of a swiped card
@@ -16,10 +16,9 @@ class SwipeState {
 
 @component
 export class SlideLayoutSummary extends BaseScriptComponent {
-
   @input
   @hint("Prefab to instantiate for each card")
-  cardPrefab: ObjectPrefab;
+  cardPrefab: ObjectPrefab
 
   @input("int", "10")
   @hint("Total number of cards to handle")
@@ -60,7 +59,7 @@ export class SlideLayoutSummary extends BaseScriptComponent {
   private cards: SceneObject[] = []
   private currentIndex: number = 1 // Start with card 1 in center
   private swipeState: SwipeState = new SwipeState()
-  private animatingCards: Map<SceneObject, { target: vec3, isVisible: boolean }> = new Map()
+  private animatingCards: Map<SceneObject, {target: vec3; isVisible: boolean}> = new Map()
 
   private initialized: boolean = false
 
@@ -136,7 +135,7 @@ export class SlideLayoutSummary extends BaseScriptComponent {
     const positions = this.getLocalPositions()
 
     // Hide all cards first
-    this.cards.forEach(card => card.enabled = false)
+    this.cards.forEach((card) => (card.enabled = false))
 
     // Show and position the first 3 cards
     for (let i = 0; i < 3 && i < this.cards.length; i++) {
@@ -237,7 +236,14 @@ export class SlideLayoutSummary extends BaseScriptComponent {
     this.swipeState.isSwipping = false
     this.swipeState.swipedObject = null
 
-    print("SlideLayoutRearrange: Ended swipe - distance: " + swipeDistance + ", speed: " + swipeSpeed + ", changed: " + shouldChangeCard)
+    print(
+      "SlideLayoutRearrange: Ended swipe - distance: " +
+        swipeDistance +
+        ", speed: " +
+        swipeSpeed +
+        ", changed: " +
+        shouldChangeCard
+    )
   }
 
   /**
@@ -293,11 +299,7 @@ export class SlideLayoutSummary extends BaseScriptComponent {
     const centerPos = positions[1]
     const offScreenDistance = 200 // Distance to move off screen
     const direction = toRight ? 1 : -1
-    const targetPos = new vec3(
-      centerPos.x + (offScreenDistance * direction),
-      centerPos.y,
-      centerPos.z
-    )
+    const targetPos = new vec3(centerPos.x + offScreenDistance * direction, centerPos.y, centerPos.z)
 
     this.animatingCards.set(card, {
       target: targetPos,
@@ -312,7 +314,7 @@ export class SlideLayoutSummary extends BaseScriptComponent {
     const positions = this.getLocalPositions()
 
     // Disable manipulation for all cards first
-    this.cards.forEach(card => {
+    this.cards.forEach((card) => {
       if (!this.animatingCards.has(card)) {
         card.enabled = false
       }
@@ -325,13 +327,13 @@ export class SlideLayoutSummary extends BaseScriptComponent {
     const rightIndex = (this.currentIndex + 1) % this.numberOfCards
 
     const visibleCards = [
-      { card: this.cards[leftIndex], position: positions[0], positionIndex: 0 },
-      { card: this.cards[centerIndex], position: positions[1], positionIndex: 1 },
-      { card: this.cards[rightIndex], position: positions[2], positionIndex: 2 }
+      {card: this.cards[leftIndex], position: positions[0], positionIndex: 0},
+      {card: this.cards[centerIndex], position: positions[1], positionIndex: 1},
+      {card: this.cards[rightIndex], position: positions[2], positionIndex: 2}
     ]
 
     // Animate visible cards to their positions
-    visibleCards.forEach(({ card, position, positionIndex }) => {
+    visibleCards.forEach(({card, position, positionIndex}) => {
       card.enabled = true
       this.animatingCards.set(card, {
         target: position,
@@ -395,7 +397,7 @@ export class SlideLayoutSummary extends BaseScriptComponent {
     })
 
     // Remove completed animations
-    toRemove.forEach(card => {
+    toRemove.forEach((card) => {
       this.animatingCards.delete(card)
     })
   }
@@ -409,12 +411,12 @@ export class SlideLayoutSummary extends BaseScriptComponent {
     const rightIndex = (this.currentIndex + 1) % this.numberOfCards
 
     const cardIndices = [
-      { card: this.cards[leftIndex], index: leftIndex },
-      { card: this.cards[centerIndex], index: centerIndex },
-      { card: this.cards[rightIndex], index: rightIndex }
+      {card: this.cards[leftIndex], index: leftIndex},
+      {card: this.cards[centerIndex], index: centerIndex},
+      {card: this.cards[rightIndex], index: rightIndex}
     ]
 
-    cardIndices.forEach(({ card, index }) => {
+    cardIndices.forEach(({card, index}) => {
       if (card && card.enabled) {
         const buttonSlide = card.getComponent(ButtonSlideSummary.getTypeName()) as ButtonSlideSummary
         if (buttonSlide && buttonSlide.textIndex) {
@@ -428,7 +430,7 @@ export class SlideLayoutSummary extends BaseScriptComponent {
   /**
    * Get current card indices for debugging
    */
-  public getCurrentIndices(): { left: number, center: number, right: number } {
+  public getCurrentIndices(): {left: number; center: number; right: number} {
     const leftIndex = (this.currentIndex - 1 + this.numberOfCards) % this.numberOfCards
     const rightIndex = (this.currentIndex + 1) % this.numberOfCards
 
@@ -510,7 +512,7 @@ export class SlideLayoutSummary extends BaseScriptComponent {
     const newRotation = quat.fromEulerAngles(
       currentRotation.toEulerAngles().x,
       currentRotation.toEulerAngles().y,
-      rotationZ * Math.PI / 180 // Convert degrees to radians
+      (rotationZ * Math.PI) / 180 // Convert degrees to radians
     )
     transform.setLocalRotation(newRotation)
   }
@@ -519,7 +521,7 @@ export class SlideLayoutSummary extends BaseScriptComponent {
    * Clear all manipulation event handlers from all cards
    */
   private clearAllManipulationHandlers(): void {
-    this.cards.forEach(card => {
+    this.cards.forEach((card) => {
       try {
         const manipulationComponent = card.getComponent(InteractableManipulation.getTypeName()) as any
         if (manipulationComponent && manipulationComponent.onManipulationStart) {

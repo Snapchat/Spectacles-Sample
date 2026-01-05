@@ -1,11 +1,11 @@
 import {clamp, smoothDamp, smoothDampAngle} from "SpectaclesInteractionKit.lspkg/Utils/mathUtils"
 
 import {ContainerFrame} from "SpectaclesInteractionKit.lspkg/Components/UI/ContainerFrame/ContainerFrame"
+import WorldCameraFinderProvider from "SpectaclesInteractionKit.lspkg/Providers/CameraProvider/WorldCameraFinderProvider"
 import {LensConfig} from "SpectaclesInteractionKit.lspkg/Utils/LensConfig"
 import {UpdateDispatcher} from "SpectaclesInteractionKit.lspkg/Utils/UpdateDispatcher"
-import WorldCameraFinderProvider from "SpectaclesInteractionKit.lspkg/Providers/CameraProvider/WorldCameraFinderProvider"
-import { delayAFrame } from "../NavigationKitAssets/Scripts/DelayAFrame"
 import {validate} from "SpectaclesInteractionKit.lspkg/Utils/validate"
+import {delayAFrame} from "../NavigationKitAssets/Scripts/DelayAFrame"
 
 @component
 export class ContainerMover extends BaseScriptComponent {
@@ -122,7 +122,7 @@ export class ContainerMover extends BaseScriptComponent {
         this.target.x,
         this.velocity.x,
         this.translationXTime,
-        getDeltaTime(),
+        getDeltaTime()
       )
       ;[newY, this.velocity.y] = smoothDamp(currentY, targetY, this.velocity.y, this.translationYTime, getDeltaTime())
       ;[pos.z, this.velocity.z] = smoothDamp(
@@ -130,7 +130,7 @@ export class ContainerMover extends BaseScriptComponent {
         this.target.z,
         this.velocity.z,
         this.translationZTime,
-        getDeltaTime(),
+        getDeltaTime()
       )
     }
 
@@ -143,7 +143,7 @@ export class ContainerMover extends BaseScriptComponent {
         this.cameraHeading,
         this.omega,
         this.rotationTime,
-        getDeltaTime(),
+        getDeltaTime()
       )
     }
     // force billboard
@@ -181,7 +181,7 @@ export class ContainerMover extends BaseScriptComponent {
 
     this.target.z = Math.max(
       this.target.z,
-      (1.1 * this.visibleWidth) / 2 / Math.tan((this.fieldOfView / 2) * MathUtils.DegToRad),
+      (1.1 * this.visibleWidth) / 2 / Math.tan((this.fieldOfView / 2) * MathUtils.DegToRad)
     ) // handle very wide panels
 
     this.target.y = clamp(this.target.y, this.minElevation, this.maxElevation)
@@ -194,7 +194,7 @@ export class ContainerMover extends BaseScriptComponent {
   private get halfFov(): number {
     const dist = new vec2(this.target.y, this.target.z).length
     return Math.atan(
-      (Math.tan((this.fieldOfView / 2) * MathUtils.DegToRad) * dist - this.visibleWidth / 2) / this.target.z,
+      (Math.tan((this.fieldOfView / 2) * MathUtils.DegToRad) * dist - this.visibleWidth / 2) / this.target.z
     )
   }
 

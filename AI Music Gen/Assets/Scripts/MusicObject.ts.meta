@@ -27,9 +27,10 @@
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
     _closeButton: false
-    _frame: false
     _musicPlayer: false
+    _pauseIcon: false
     _playButton: false
+    _playIcon: false
     _snap3DObject: false
   ScriptTypesHidden:
     {}
@@ -41,16 +42,18 @@
     []
   DefaultScriptInputs:
     - _snap3DObject: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
-      _frame: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
-      _musicPlayer: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
-      _closeButton: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
-      _playButton: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
+      _musicPlayer: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      _closeButton: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      _playButton: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      _playIcon: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      _pauseIcon: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
     - // @input AssignableType _snap3DObject
-    - // @input AssignableType_1 _frame
-    - // @input AssignableType_2 _musicPlayer
-    - // @input AssignableType_3 _closeButton
-    - // @input AssignableType_4 _playButton
+    - // @input AssignableType_1 _musicPlayer
+    - // @input AssignableType_2 _closeButton
+    - // @input AssignableType_3 _playButton
+    - // @input SceneObject _playIcon
+    - // @input SceneObject _pauseIcon

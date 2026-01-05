@@ -29,8 +29,8 @@ export class VibesData {
     "Soothing",
     "Whimsical",
     "Elegant",
-    "Suspenseful",
-  ];
+    "Suspenseful"
+  ]
 
   public emojis = [
     "🌿", // Nature
@@ -62,6 +62,6 @@ export class VibesData {
     "🧘", // Soothing
     "🦄", // Whimsical
     "👑", // Elegant
-    "⏳", // Suspenseful
-  ];
+    "⏳" // Suspenseful
+  ]
 }

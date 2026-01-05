@@ -2,24 +2,22 @@
 // input parameters for the BubbleAnimationController
 @component
 export class BubbleAnimationControllerInput extends BaseScriptComponent {
+  // Input properties for the components involved in the bubble animation
+  @input
+  readonly outerGlow: RenderMeshVisual
 
-    // Input properties for the components involved in the bubble animation
-    @input
-    readonly outerGlow: RenderMeshVisual
+  @input
+  readonly bubbleSphere: RenderMeshVisual
 
-    @input
-    readonly bubbleSphere: RenderMeshVisual
+  @input
+  readonly overallBubble: SceneObject
 
-    @input
-    readonly overallBubble: SceneObject
+  @input
+  readonly wasHighFiveText: Text
 
-    @input
-    readonly wasHighFiveText: Text
+  @input
+  modelRim: Material
 
-    @input
-    modelRim: Material
-
-    @input
-    colorID: number = 0
-
+  @input
+  colorID: number = 0
 }

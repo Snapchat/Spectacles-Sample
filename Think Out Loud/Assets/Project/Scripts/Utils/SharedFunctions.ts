@@ -9,9 +9,7 @@ export const getPasses = (object: SceneObject): Pass[] | null => {
   const meshComponent = object.getComponents("Component.RenderMeshVisual")
   const imageComponent = object.getComponents("Component.Image")
   if (meshComponent.length > 0) {
-    const mesh = <RenderMeshVisual>(
-      object.getComponent("Component.RenderMeshVisual")
-    )
+    const mesh = <RenderMeshVisual>object.getComponent("Component.RenderMeshVisual")
     const res: Pass[] = []
     for (let i: number = 0; i < mesh.getMaterialsCount(); ++i) {
       res.push(mesh.getMaterial(i).mainPass)
@@ -68,8 +66,6 @@ export function animateToAlpha(
     start: 0,
     end: 1,
     duration: duration,
-    ended: onComplete,
+    ended: onComplete
   })
 }
-
-

@@ -1,6 +1,4 @@
-import {ButtonGrid} from "../Button/ButtonGrid"
 import {InteractableManipulation} from "SpectaclesInteractionKit.lspkg/Components/Interaction/InteractableManipulation/InteractableManipulation"
-import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable"
 export const enum LayoutDirection {
   "Row" = 0,
   "Column" = 1
@@ -118,12 +116,12 @@ export class GridLayoutRearrange extends BaseScriptComponent {
    */
   layout = () => {
     this.children = this.sceneObject.children
-    
+
     // Update drag interactions when children change
     if (this.initialized && this.enableRearrangement) {
       this.setupDragInteractions()
     }
-    
+
     for (let i = 0; i < this.children.length; i++) {
       const child = this.children[i]
       const transform = child.getTransform()
@@ -245,45 +243,43 @@ export class GridLayoutRearrange extends BaseScriptComponent {
 
     this.children.forEach((child, index) => {
       print("Checking child " + index + " (" + child.name + ")")
-      
+
       // Try to access InteractableManipulation component using proper syntax
       let manipulationComponent: any = null
-      
+
       try {
         // Use type casting to get around TypeScript restrictions
-        manipulationComponent = child.getComponent(
-      InteractableManipulation.getTypeName()
-    );
+        manipulationComponent = child.getComponent(InteractableManipulation.getTypeName())
         print("Found InteractableManipulation component on child " + index)
       } catch (error) {
         print("Could not access InteractableManipulation on child " + index + ": " + error)
-        
+
         // Fallback: Let's see what components are actually available
         try {
           const allComponents = child.getAllComponents()
-          const componentNames = allComponents.map(comp => comp.getTypeName()).join(", ")
+          const componentNames = allComponents.map((comp) => comp.getTypeName()).join(", ")
           print("Available components on child " + index + ": " + componentNames)
         } catch (debugError) {
           print("Could not list components: " + debugError)
         }
       }
-      
+
       if (manipulationComponent && manipulationComponent.onManipulationStart) {
         // Create callback functions like your example
         const onManipulationStartCallback = () => {
           this.startDrag(child, index)
           print("Manipulation start callback triggered for index: " + index)
         }
-        
+
         const onManipulationEndCallback = () => {
           this.endDrag()
           print("Manipulation end callback triggered for index: " + index)
         }
-        
+
         // Add the event listeners to the manipulation component
         manipulationComponent.onManipulationStart.add(onManipulationStartCallback)
         manipulationComponent.onManipulationEnd.add(onManipulationEndCallback)
-        
+
         print("Successfully connected manipulation events for child at index: " + index)
       } else {
         print("Warning: No valid InteractableManipulation component found on child at index: " + index)
@@ -340,7 +336,7 @@ export class GridLayoutRearrange extends BaseScriptComponent {
 
     // Reset positions and layout normally
     this.layout()
-    
+
     // Reset drag state
     this.dragState.isDragging = false
     this.dragState.draggedObject = null
@@ -357,14 +353,14 @@ export class GridLayoutRearrange extends BaseScriptComponent {
     if (!this.dragState.draggedObject) return
 
     const draggedPos = this.dragState.draggedObject.getTransform().getLocalPosition()
-    
+
     // Find which original position this dragged object is closest to
     let closestIndex = 0
     let closestDistance = Number.MAX_VALUE
 
     for (let i = 0; i < this.dragState.originalPositions.length; i++) {
       if (i === this.dragState.originalIndex) continue // Skip its own original position
-      
+
       const distance = draggedPos.distance(this.dragState.originalPositions[i])
       if (distance < closestDistance) {
         closestDistance = distance
@@ -387,7 +383,7 @@ export class GridLayoutRearrange extends BaseScriptComponent {
       if (this.children[i] === this.dragState.draggedObject) continue
 
       let newIndex = i
-      
+
       // Determine where this item should move
       if (this.dragState.originalIndex < targetIndex) {
         // Dragging forward - shift items back
@@ -395,7 +391,7 @@ export class GridLayoutRearrange extends BaseScriptComponent {
           newIndex = i - 1
         }
       } else {
-        // Dragging backward - shift items forward  
+        // Dragging backward - shift items forward
         if (i >= targetIndex && i < this.dragState.originalIndex) {
           newIndex = i + 1
         }
@@ -419,7 +415,7 @@ export class GridLayoutRearrange extends BaseScriptComponent {
       // Uncomment for debugging (will be very verbose)
       // print("Checking for rearrangement...")
     }
-    
+
     if (this.showDebug) {
       this.debugRender()
     }

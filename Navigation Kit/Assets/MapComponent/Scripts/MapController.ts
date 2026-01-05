@@ -1,8 +1,8 @@
 require("LensStudio:RawLocationModule")
 
 import {Cell, TileViewEvent} from "./Cell"
+import {MapPin, MapPinRenderConfig} from "./MapPin"
 import {
-  MapParameter,
   addRenderMeshVisual,
   calculateZoomOffset,
   clip,
@@ -14,24 +14,24 @@ import {
   makeCircle2DMesh,
   makeLineStrip2DMeshWithJoints,
   makeTween,
+  MapParameter
 } from "./MapUtils"
-import {MapPin, MapPinRenderConfig} from "./MapPin"
 
+import {TWEEN_DURATION} from "MapComponent/MapUIController"
 import {CancelFunction} from "SpectaclesInteractionKit.lspkg/Utils/animate"
 import Event from "SpectaclesInteractionKit.lspkg/Utils/Event"
-import {GeoLocationPlace} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/GeoLocationPlace"
 import {LensConfig} from "SpectaclesInteractionKit.lspkg/Utils/LensConfig"
-import { LocationAccuracyDisplay } from "../../NavigationKitAssets/Scripts/LocationAccuracyDisplay"
+import NativeLogger from "SpectaclesInteractionKit.lspkg/Utils/NativeLogger"
+import {UpdateDispatcher} from "SpectaclesInteractionKit.lspkg/Utils/UpdateDispatcher"
+import {GeoLocationPlace} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/GeoLocationPlace"
+import {NavigationDataComponent} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/NavigationDataComponent"
+import {Place} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/Place"
+import {UserPosition} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/UserPosition"
+import {LocationAccuracyDisplay} from "../../NavigationKitAssets/Scripts/LocationAccuracyDisplay"
+import {PlaceListCreator} from "../../NavigationKitAssets/Scripts/PlaceListCreator"
 import MapConfig from "./MapConfig"
 import {MapGridView} from "./MapGridView"
-import NativeLogger from "SpectaclesInteractionKit.lspkg/Utils/NativeLogger"
-import {NavigationDataComponent} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/NavigationDataComponent"
 import {PinOffsetter} from "./PinOffsetter"
-import {Place} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/Place"
-import { PlaceListCreator } from "../../NavigationKitAssets/Scripts/PlaceListCreator"
-import {TWEEN_DURATION} from "MapComponent/MapUIController"
-import {UpdateDispatcher} from "SpectaclesInteractionKit.lspkg/Utils/UpdateDispatcher"
-import {UserPosition} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/UserPosition"
 
 const TEXTURE_SIZE = 512
 
@@ -170,7 +170,7 @@ export class MapController extends BaseScriptComponent {
     mapParameters: MapParameter,
     navigationComponent: NavigationDataComponent,
     startedAsMiniMap: boolean,
-    placeListCreator: PlaceListCreator | null = null,
+    placeListCreator: PlaceListCreator | null = null
   ): void {
     log.i("Initializing Map Controller")
 
@@ -404,7 +404,7 @@ export class MapController extends BaseScriptComponent {
     const offset = this.gridView.getOffset().sub(this.offsetForLocation).sub(new vec2(0.5, 0.5))
     const location: GeoPosition = this.fromLocalPositionToLongLat(
       new vec2(adjustedAnchoredPosition.x - offset.x, adjustedAnchoredPosition.y + offset.y),
-      this.mapParameters.zoomLevel,
+      this.mapParameters.zoomLevel
     )
     location.altitude = this.userPosition.getGeoPosition().altitude
 
@@ -433,7 +433,7 @@ export class MapController extends BaseScriptComponent {
     const mapImageOffset = this.mapModule.longLatToImageRatio(
       this.mapLocation.longitude,
       this.mapLocation.latitude,
-      this.northwestLocationAsset,
+      this.northwestLocationAsset
     )
 
     const pixelX = mapImageOffset.x * TEXTURE_SIZE + pixelOffsetFromMapLocationX
@@ -463,7 +463,7 @@ export class MapController extends BaseScriptComponent {
       this.mapModule,
       this.referencePositionLocationAsset,
       this.mapLocation.longitude,
-      this.mapLocation.latitude,
+      this.mapLocation.latitude
     )
   }
 
@@ -480,7 +480,7 @@ export class MapController extends BaseScriptComponent {
       this,
       this.mapParameters.enableScrolling,
       this.mapParameters.scrollingFriction,
-      this.mapParameters.tileCount,
+      this.mapParameters.tileCount
     )
     this.config.isMiniMap = this.startedAsMiniMap
 
@@ -539,11 +539,11 @@ export class MapController extends BaseScriptComponent {
   private setUpZoom() {
     this.referencePositionLocationAsset = LocationAsset.getGeoAnchoredPosition(
       this.mapLocation.longitude,
-      this.mapLocation.latitude,
+      this.mapLocation.latitude
     ).location.adjacentTile(0, 0, this.mapParameters.zoomOffet)
     this.northwestLocationAsset = LocationAsset.getGeoAnchoredPosition(
       MAX_LONGITUDE,
-      MAX_LATITUDE,
+      MAX_LATITUDE
     ).location.adjacentTile(0, 0, this.mapParameters.zoomOffet)
 
     // Calculate how much the map needs to be scrolled to match the geo position of the tile
@@ -643,7 +643,7 @@ export class MapController extends BaseScriptComponent {
     }
     if (this.hoveringPinSet.size > 0) {
       log.i(`handleTouchStart`)
-      for (let value of this.hoveringPinSet.values()) {
+      for (const value of this.hoveringPinSet.values()) {
         this.draggingPin = value
         break
       }
@@ -764,7 +764,7 @@ export class MapController extends BaseScriptComponent {
     this.pinOffsetter.bindScreenTransformToLocation(
       this.mapPinsAnchor.getComponent("ScreenTransform"),
       location.longitude,
-      location.latitude,
+      location.latitude
     )
 
     this.pinOffsetter.layoutScreenTransforms(this.gridView)
@@ -774,7 +774,7 @@ export class MapController extends BaseScriptComponent {
         this.mapModule,
         this.referencePositionLocationAsset,
         location.longitude,
-        location.latitude,
+        location.latitude
       )
       this.gridView.setOffset(this.offsetForLocation.add(this.mapParameters.mapFocusPosition))
     }
@@ -802,13 +802,13 @@ export class MapController extends BaseScriptComponent {
       renderMeshSceneObject,
       makeCircle2DMesh(position, radius),
       this.lineMaterial,
-      this.mapRenderOrder + 1,
+      this.mapRenderOrder + 1
     )
 
     this.pinOffsetter.bindScreenTransformToLocation(
       screenTransform,
       this.mapLocation.longitude,
-      this.mapLocation.latitude,
+      this.mapLocation.latitude
     )
     this.geometryObjects.push(sceneObject)
   }
@@ -825,7 +825,7 @@ export class MapController extends BaseScriptComponent {
     const screenTransform = sceneObject.createComponent("Component.ScreenTransform")
     screenTransform.rotation = this.currentMapRotation.invert()
 
-    var renderMeshSceneObject = global.scene.createSceneObject("")
+    const renderMeshSceneObject = global.scene.createSceneObject("")
     renderMeshSceneObject.setParent(sceneObject)
     renderMeshSceneObject.layer = this.getSceneObject().layer
 
@@ -833,13 +833,13 @@ export class MapController extends BaseScriptComponent {
       renderMeshSceneObject,
       makeLineStrip2DMeshWithJoints([start, end], thickness),
       this.lineMaterial,
-      this.mapRenderOrder + 1,
+      this.mapRenderOrder + 1
     )
 
     this.pinOffsetter.bindScreenTransformToLocation(
       screenTransform,
       this.mapLocation.longitude,
-      this.mapLocation.latitude,
+      this.mapLocation.latitude
     )
     this.geometryObjects.push(sceneObject)
   }
@@ -858,7 +858,7 @@ export class MapController extends BaseScriptComponent {
 
     const location: GeoPosition = this.fromLocalPositionToLongLat(
       new vec2(adjustedAnchoredPosition.x - offset.x, adjustedAnchoredPosition.y + offset.y),
-      this.mapParameters.zoomLevel,
+      this.mapParameters.zoomLevel
     )
     return location
   }
@@ -882,13 +882,13 @@ export class MapController extends BaseScriptComponent {
       renderMeshSceneObject,
       makeLineStrip2DMeshWithJoints(positions, thickness),
       this.lineMaterial,
-      this.mapRenderOrder + 1,
+      this.mapRenderOrder + 1
     )
 
     this.pinOffsetter.bindScreenTransformToLocation(
       screenTransform,
       this.mapLocation.longitude,
-      this.mapLocation.latitude,
+      this.mapLocation.latitude
     )
     this.geometryObjects.push(sceneObject)
   }
@@ -907,14 +907,14 @@ export class MapController extends BaseScriptComponent {
    * Getting world position for geometry
    */
   getWorldPositionForGeometryPoint(geometryPoint: vec2) {
-    var offset = this.gridView.getOffset()
+    const offset = this.gridView.getOffset()
 
-    var initialTileOffset = this.mapModule.longLatToImageRatio(
+    const initialTileOffset = this.mapModule.longLatToImageRatio(
       geometryPoint.x,
       geometryPoint.y,
-      this.referencePositionLocationAsset,
+      this.referencePositionLocationAsset
     )
-    var localPoint = new vec2(lerp(-1, 1, offset.x + initialTileOffset.x), lerp(1, -1, offset.y + initialTileOffset.y))
+    const localPoint = new vec2(lerp(-1, 1, offset.x + initialTileOffset.x), lerp(1, -1, offset.y + initialTileOffset.y))
     return this.config.gridScreenTransform.localPointToWorldPoint(localPoint)
   }
 
@@ -964,7 +964,7 @@ export class MapController extends BaseScriptComponent {
       this.mapModule,
       this.referencePositionLocationAsset,
       this.mapLocation.longitude,
-      this.mapLocation.latitude,
+      this.mapLocation.latitude
     )
     const targetOffset = userOffset.add(new vec2(0.5, 0.5))
     this.tweenCancelFunction = makeTween((t) => {
@@ -987,7 +987,7 @@ export class MapController extends BaseScriptComponent {
       this.mapModule,
       this.referencePositionLocationAsset,
       this.mapLocation.longitude,
-      this.mapLocation.latitude,
+      this.mapLocation.latitude
     )
     return currentOffset === userOffset.add(new vec2(0.5, 0.5))
   }
@@ -999,7 +999,7 @@ export class MapController extends BaseScriptComponent {
     const adjustedRotationInRad = degInRad - mapRotInRad
     const adjustedLocalPosition = new vec2(
       Math.cos(adjustedRotationInRad),
-      Math.sin(adjustedRotationInRad),
+      Math.sin(adjustedRotationInRad)
     ).uniformScale(distance)
     return adjustedLocalPosition
   }
@@ -1023,7 +1023,7 @@ export class MapController extends BaseScriptComponent {
       this.mapPinsAnchor.layer,
       this.mapRenderOrder,
       this.mapParameters.highlightPinColor,
-      this.mapParameters.selectedPinColor,
+      this.mapParameters.selectedPinColor
     )
   }
 
@@ -1034,7 +1034,7 @@ export class MapController extends BaseScriptComponent {
       name,
       null,
       "User created map pin.",
-      this.userPosition,
+      this.userPosition
     )
 
     return newPlace
@@ -1047,7 +1047,7 @@ export class MapController extends BaseScriptComponent {
       name,
       null,
       "User created map pin.",
-      this.userPosition,
+      this.userPosition
     )
     return newPlace
   }

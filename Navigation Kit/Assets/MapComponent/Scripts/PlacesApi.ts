@@ -16,7 +16,7 @@ export class PlacesApi extends BaseScriptComponent implements IPlacesApi {
   public getNearbyPlacesInfo(
     location: GeoPosition,
     numberNearbyPlaces: number,
-    nearbyDistanceThreshold: number,
+    nearbyDistanceThreshold: number
   ): Promise<SnapPlaceInfo[]> {
     if (location.latitude === 0 && location.longitude === 0) {
       return new Promise((resolve) => {
@@ -37,7 +37,7 @@ export class PlacesApi extends BaseScriptComponent implements IPlacesApi {
               .then((places) => {
                 this.locationToPlaces.set(
                   location,
-                  places.filter((e) => true), // TODO: Revive filtering
+                  places.filter((e) => true) // TODO: Revive filtering
                 )
                 resolve(places)
               })
@@ -63,7 +63,7 @@ export class PlacesApi extends BaseScriptComponent implements IPlacesApi {
         lat: location.latitude.toString(),
         lng: location.longitude.toString(),
         gps_accuracy_m: "100",
-        places_limit: numberNearbyPlaces.toString(),
+        places_limit: numberNearbyPlaces.toString()
       }
 
       this.remoteServiceModule.performApiRequest(request, (response: RemoteApiResponse) => {
@@ -97,7 +97,7 @@ export class PlacesApi extends BaseScriptComponent implements IPlacesApi {
             const request = RemoteApiRequest.create()
             request.endpoint = "get_place"
             request.parameters = {
-              place_id: place.placeId,
+              place_id: place.placeId
             }
 
             this.remoteServiceModule.performApiRequest(request, (response: RemoteApiResponse) => {
@@ -140,7 +140,7 @@ export class PlacesApi extends BaseScriptComponent implements IPlacesApi {
         region: placeObject.address.region,
         postal_code: placeObject.address.postalCode,
         country: placeObject.address.country,
-        country_code: placeObject.countryCode,
+        country_code: placeObject.countryCode
       },
       opening_hours: placeObject.openingHours
         ? {
@@ -152,35 +152,35 @@ export class PlacesApi extends BaseScriptComponent implements IPlacesApi {
                       return {
                         start_hour: {
                           hour: hour.start?.hour ?? 0,
-                          minute: hour.start?.minute ?? 0,
+                          minute: hour.start?.minute ?? 0
                         },
                         end_hour: {
                           hour: hour.end?.hour ?? 0,
-                          minute: hour.end?.minute ?? 0,
-                        },
+                          minute: hour.end?.minute ?? 0
+                        }
                       }
-                    }),
+                    })
                   }
                 })
               : {},
-            time_zone: placeObject.openingHours.timeZone ? placeObject.openingHours.timeZone : "",
+            time_zone: placeObject.openingHours.timeZone ? placeObject.openingHours.timeZone : ""
           }
         : {
             dayHours: [],
-            time_zone: "",
+            time_zone: ""
           },
-      centroid: longlat,
+      centroid: longlat
     }
     return place
   }
 
   private getNearbyPlacesFromCache(
     location: GeoPosition,
-    nearbyPlacesRefreshMinimumDistanceThreshold: number,
+    nearbyPlacesRefreshMinimumDistanceThreshold: number
   ): SnapPlaceInfo[] | null {
     let nearestDistance = Number.MAX_VALUE
     let cachedNearbyPlaces: SnapPlaceInfo[] | null = null
-    for (let cachedLocation of this.locationToPlaces.keys()) {
+    for (const cachedLocation of this.locationToPlaces.keys()) {
       const distance = getPhysicalDistanceBetweenLocations(location, cachedLocation)
       if (distance < nearestDistance) {
         cachedNearbyPlaces = this.locationToPlaces.get(cachedLocation)

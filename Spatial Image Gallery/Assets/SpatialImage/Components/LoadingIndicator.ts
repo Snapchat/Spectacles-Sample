@@ -18,9 +18,7 @@ export class LoadingIndicator extends BaseScriptComponent {
   public checkProgressing?: () => boolean
 
   onAwake() {
-    this.material = this.sceneObject.getComponent(
-      "Component.RenderMeshVisual"
-    ).mainMaterial
+    this.material = this.sceneObject.getComponent("Component.RenderMeshVisual").mainMaterial
 
     this.createEvent("OnEnableEvent").bind(() => {
       this.progress = 0

@@ -9,7 +9,7 @@
         value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   DepthWrite: true
   DepthTest: true
-  DepthFunction: LessEqual
+  DepthFunction: Less
   TwoSided: false
   ColorMask: {x: true, y: true, z: true, w: true}
   CullMode: Back
@@ -18,11 +18,11 @@
   FrustumCullPad: 0.000000
   InstanceCount: 1
   Defines:
-    - ENABLE_BASE_TEX
     - NODE_13_DROPLIST_ITEM 0
     - NODE_27_DROPLIST_ITEM 0
     - NODE_49_DROPLIST_ITEM 0
     - NODE_69_DROPLIST_ITEM 0
+    - ENABLE_BASE_TEX
   BlendMode: PremultipliedAlphaAuto
   Properties:
     Port_Default_N204:
@@ -43,7 +43,7 @@
           wrapModeU: Repeat
           wrapModeV: Repeat
           wrapModeW: Repeat
-          borderColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
           mipmaps: false
         type: Texture2D
-  Pass: !<reference> 743768a7-a090-4181-bade-6207095eba2f
+  Pass: !<reference> be081b44-cdc3-4383-99ce-48b314df7c9a

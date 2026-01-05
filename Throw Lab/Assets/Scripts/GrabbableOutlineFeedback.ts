@@ -1,4 +1,4 @@
-import { GrabbableObject } from "Scripts/GrabbableObject"
+import {GrabbableObject} from "Scripts/GrabbableObject"
 
 /**
  * This class provides visual feedback by adding an outline to mesh visuals when object is grabbed.
@@ -73,7 +73,7 @@ export class GrabbableOutlineFeedback extends BaseScriptComponent {
 
     this.setupGrabbableCallbacks()
   }
-  
+
   /**
    * Find GrabbableObject component on this scene object
    */
@@ -82,8 +82,7 @@ export class GrabbableOutlineFeedback extends BaseScriptComponent {
     for (let i = 0; i < allComponents.length; i++) {
       const comp = allComponents[i]
       // Check if this is a GrabbableObject by checking if it has the required methods
-      if (comp && typeof (comp as any).onGrab === 'function' && 
-          typeof (comp as any).onRelease === 'function') {
+      if (comp && typeof (comp as any).onGrab === "function" && typeof (comp as any).onRelease === "function") {
         return comp as GrabbableObject
       }
     }
@@ -103,7 +102,7 @@ export class GrabbableOutlineFeedback extends BaseScriptComponent {
         print(`GrabbableOutlineFeedback: Mesh at index ${i} is null, skipping`)
         continue
       }
-      
+
       const matCount = this.meshVisuals[i].getMaterialsCount()
 
       let addMaterial = true
@@ -128,13 +127,13 @@ export class GrabbableOutlineFeedback extends BaseScriptComponent {
 
   removeMaterialFromRenderMeshArray(): void {
     print(`GrabbableOutlineFeedback: Removing outline from ${this.meshVisuals.length} meshes`)
-    
+
     for (let i = 0; i < this.meshVisuals.length; i++) {
       if (!this.meshVisuals[i]) {
         print(`GrabbableOutlineFeedback: Mesh at index ${i} is null, skipping`)
         continue
       }
-      
+
       const materials = []
 
       const matCount = this.meshVisuals[i].getMaterialsCount()
@@ -156,7 +155,7 @@ export class GrabbableOutlineFeedback extends BaseScriptComponent {
       for (let k = 0; k < materials.length; k++) {
         this.meshVisuals[i].addMaterial(materials[k])
       }
-      
+
       print(`GrabbableOutlineFeedback: Mesh ${i} now has ${this.meshVisuals[i].getMaterialsCount()} materials`)
     }
   }
@@ -176,6 +175,4 @@ export class GrabbableOutlineFeedback extends BaseScriptComponent {
       print("GrabbableOutlineFeedback: Object released - hiding outline")
     })
   }
-
 }
-

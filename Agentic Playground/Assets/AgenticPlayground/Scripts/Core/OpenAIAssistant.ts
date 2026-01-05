@@ -1,31 +1,27 @@
-import {
-  OpenAI,
-  OpenAIRealtimeWebsocket,
-} from "RemoteServiceGateway.lspkg/HostedExternal/OpenAI";
+import {OpenAI, OpenAIRealtimeWebsocket} from "RemoteServiceGateway.lspkg/HostedExternal/OpenAI"
 
-import { AudioProcessor } from "RemoteServiceGateway.lspkg/Helpers/AudioProcessor";
-import { DynamicAudioOutput } from "RemoteServiceGateway.lspkg/Helpers/DynamicAudioOutput";
-import Event from "SpectaclesInteractionKit.lspkg/Utils/Event";
-import { MicrophoneRecorder } from "RemoteServiceGateway.lspkg/Helpers/MicrophoneRecorder";
-import { OpenAITypes } from "RemoteServiceGateway.lspkg/HostedExternal/OpenAITypes";
+import {AudioProcessor} from "RemoteServiceGateway.lspkg/Helpers/AudioProcessor"
+import {DynamicAudioOutput} from "RemoteServiceGateway.lspkg/Helpers/DynamicAudioOutput"
+import {MicrophoneRecorder} from "RemoteServiceGateway.lspkg/Helpers/MicrophoneRecorder"
+import {OpenAITypes} from "RemoteServiceGateway.lspkg/HostedExternal/OpenAITypes"
+import Event from "SpectaclesInteractionKit.lspkg/Utils/Event"
 
 @component
 export class OpenAIAssistant extends BaseScriptComponent {
   @ui.separator
-  @ui.label(
-    "Example of connecting to the OpenAI Realtime API. Change various settings in the inspector to customize!"
-  )
+  @ui.label("Example of connecting to the OpenAI Realtime API. Change various settings in the inspector to customize!")
   @ui.separator
   @ui.separator
   @ui.group_start("Setup")
   @input
-  private websocketRequirementsObj: SceneObject;
-  @input private dynamicAudioOutput: DynamicAudioOutput;
-  @input private microphoneRecorder: MicrophoneRecorder;
+  private websocketRequirementsObj: SceneObject
+  @input private dynamicAudioOutput: DynamicAudioOutput
+  @input private microphoneRecorder: MicrophoneRecorder
   @ui.group_end
   @ui.separator
   @ui.group_start("Inputs")
-  private readonly instructions: string = `You are an educational AI tutor designed to help students learn and understand complex topics. 
+  private readonly instructions: string =
+    `You are an educational AI tutor designed to help students learn and understand complex topics. 
 
 Your primary goals are to:
 - Provide clear, accurate explanations of educational concepts
@@ -35,7 +31,7 @@ Your primary goals are to:
 - Encourage critical thinking and curiosity
 - Adapt your teaching style to the student's level
 
-🔥 CRITICAL RESPONSE LENGTH REQUIREMENT:
+CRITICAL RESPONSE LENGTH REQUIREMENT:
 - Your responses MUST be limited to exactly 300 characters or fewer
 - This is a HARD LIMIT that cannot be exceeded under any circumstances
 - Count characters carefully and stop exactly at 300 characters
@@ -43,15 +39,15 @@ Your primary goals are to:
 - If a topic needs more explanation, invite follow-up questions
 - Prioritize the most important information within the character limit
 
-Always maintain an encouraging, patient, and supportive tone. Focus on helping students build knowledge and confidence in their learning journey within the strict 300-character limit.`;
+Always maintain an encouraging, patient, and supportive tone. Focus on helping students build knowledge and confidence in their learning journey within the strict 300-character limit.`
   @ui.group_end
   @ui.separator
   @ui.group_start("Outputs")
   @ui.label(
-    '<span style="color: yellow;">⚠️ To prevent audio feedback loop in Lens Studio Editor, use headphones or manage your microphone input.</span>'
+    '<span style="color: yellow;">To prevent audio feedback loop in Lens Studio Editor, use headphones or manage your microphone input.</span>'
   )
   @input
-  private haveAudioOutput: boolean = true;
+  private haveAudioOutput: boolean = true
   @input
   @showIf("haveAudioOutput", true)
   @widget(
@@ -63,189 +59,181 @@ Always maintain an encouraging, patient, and supportive tone. Focus on helping s
       new ComboBoxItem("echo", "echo"),
       new ComboBoxItem("sage", "sage"),
       new ComboBoxItem("shimmer", "shimmer"),
-      new ComboBoxItem("verse", "verse"),
+      new ComboBoxItem("verse", "verse")
     ])
   )
-  private voice: string = "coral";
+  private voice: string = "coral"
   @ui.group_end
   @ui.separator
-  private audioProcessor: AudioProcessor = new AudioProcessor();
-  private OAIRealtime: OpenAIRealtimeWebsocket; // OpenAI realtime session
+  private audioProcessor: AudioProcessor = new AudioProcessor()
+  private OAIRealtime: OpenAIRealtimeWebsocket // OpenAI realtime session
 
-  public updateTextEvent: Event<{ text: string; completed: boolean }> =
-    new Event<{ text: string; completed: boolean }>();
+  public updateTextEvent: Event<{text: string; completed: boolean}> = new Event<{text: string; completed: boolean}>()
 
   public functionCallEvent: Event<{
-    name: string;
-    args: any;
-    callId?: string;
+    name: string
+    args: any
+    callId?: string
   }> = new Event<{
-    name: string;
-    args: any;
-    callId?: string;
-  }>();
+    name: string
+    args: any
+    callId?: string
+  }>()
 
   createOpenAIRealtimeSession() {
-    this.websocketRequirementsObj.enabled = true;
+    this.websocketRequirementsObj.enabled = true
     // Display internet connection status
-    let internetStatus = global.deviceInfoSystem.isInternetAvailable()
-      ? "Websocket connected"
-      : "No internet";
+    let internetStatus = global.deviceInfoSystem.isInternetAvailable() ? "Websocket connected" : "No internet"
 
-    this.updateTextEvent.invoke({ text: internetStatus, completed: true });
+    this.updateTextEvent.invoke({text: internetStatus, completed: true})
 
     global.deviceInfoSystem.onInternetStatusChanged.add((args) => {
-      internetStatus = args.isInternetAvailable
-        ? "Reconnected to internet"
-        : "No internet";
+      internetStatus = args.isInternetAvailable ? "Reconnected to internet" : "No internet"
 
-      this.updateTextEvent.invoke({ text: internetStatus, completed: true });
-    });
-    this.dynamicAudioOutput.initialize(24000);
-    this.microphoneRecorder.setSampleRate(24000);
+      this.updateTextEvent.invoke({text: internetStatus, completed: true})
+    })
+    this.dynamicAudioOutput.initialize(24000)
+    this.microphoneRecorder.setSampleRate(24000)
     this.OAIRealtime = OpenAI.createRealtimeSession({
-      model: "gpt-4o-mini-realtime-preview",
-    });
+      model: "gpt-4o-mini-realtime-preview"
+    })
 
     this.OAIRealtime.onOpen.add((event) => {
-      print("Connection opened");
-      this.sessionSetup();
-    });
+      print("Connection opened")
+      this.sessionSetup()
+    })
 
-    let completedTextDisplay = true;
+    let completedTextDisplay = true
 
     this.OAIRealtime.onMessage.add((message) => {
       // DEBUG: Log all message types to see what OpenAI sends for programmatic text
-      if (message.type !== "response.audio.delta") { // Skip audio delta spam
-        print(`OpenAIAssistant: 🔍 DEBUG - Received message type: ${message.type}`);
+      if (message.type !== "response.audio.delta") {
+        // Skip audio delta spam
+        print(`OpenAIAssistant: 🔍 DEBUG - Received message type: ${message.type}`)
         if (message.delta) {
-          print(`OpenAIAssistant: 🔍 DEBUG - Message delta: "${message.delta}"`);
+          print(`OpenAIAssistant: 🔍 DEBUG - Message delta: "${message.delta}"`)
         }
       }
-      
+
       // Listen for text responses
-      if (
-        message.type === "response.text.delta" ||
-        message.type === "response.audio_transcript.delta"
-      ) {
+      if (message.type === "response.text.delta" || message.type === "response.audio_transcript.delta") {
         if (!completedTextDisplay) {
           this.updateTextEvent.invoke({
             text: message.delta,
-            completed: false,
-          });
+            completed: false
+          })
         } else {
           this.updateTextEvent.invoke({
             text: message.delta,
-            completed: true,
-          });
+            completed: true
+          })
         }
-        completedTextDisplay = false;
-      } 
+        completedTextDisplay = false
+      }
       // Handle response.output_item.added for programmatic text responses
       else if (message.type === "response.output_item.added") {
-        print(`OpenAIAssistant: 🔍 DEBUG - output_item.added: ${JSON.stringify(message.item)}`);
+        print(`OpenAIAssistant: 🔍 DEBUG - output_item.added: ${JSON.stringify(message.item)}`)
         if (message.item && message.item.type === "message" && message.item.content) {
           // Extract text from message content
-          for (let content of message.item.content) {
+          for (const content of message.item.content) {
             if (content.type === "text" && content.text) {
-              print(`OpenAIAssistant: 🔍 Found text in output_item.added: "${content.text}"`);
+              print(`OpenAIAssistant: 🔍 Found text in output_item.added: "${content.text}"`)
               this.updateTextEvent.invoke({
                 text: content.text,
-                completed: false,
-              });
-              completedTextDisplay = false;
+                completed: false
+              })
+              completedTextDisplay = false
             }
           }
         }
       }
       // Handle response.output_item.done for final text responses
       else if (message.type === "response.output_item.done") {
-        print(`OpenAIAssistant: 🔍 DEBUG - output_item.done: ${JSON.stringify(message.item)}`);
+        print(`OpenAIAssistant: 🔍 DEBUG - output_item.done: ${JSON.stringify(message.item)}`)
         if (message.item && message.item.type === "message" && message.item.content) {
           // Extract text from message content
-          for (let content of message.item.content) {
+          for (const content of message.item.content) {
             if (content.type === "text" && content.text) {
-              print(`OpenAIAssistant: 🔍 Found text in output_item.done: "${content.text}"`);
+              print(`OpenAIAssistant: 🔍 Found text in output_item.done: "${content.text}"`)
               this.updateTextEvent.invoke({
                 text: content.text,
-                completed: true,
-              });
-              completedTextDisplay = true;
+                completed: true
+              })
+              completedTextDisplay = true
             }
           }
         }
         // Also check for function calls
         else if (message.item && message.item.type === "function_call") {
-          const functionCall = message.item;
-          print(`Function called: ${functionCall.name}`);
-          print(`Function args: ${functionCall.arguments}`);
+          const functionCall = message.item
+          print(`Function called: ${functionCall.name}`)
+          print(`Function args: ${functionCall.arguments}`)
 
-          let args = JSON.parse(functionCall.arguments);
+          const args = JSON.parse(functionCall.arguments)
           this.functionCallEvent.invoke({
             name: functionCall.name,
             args: args,
-            callId: functionCall.call_id, // OpenAI requires a call_id
-          });
+            callId: functionCall.call_id // OpenAI requires a call_id
+          })
         }
-      }
-      else if (message.type === "response.done") {
-        print(`OpenAIAssistant: 🔍 DEBUG - response.done received`);
-        completedTextDisplay = true;
+      } else if (message.type === "response.done") {
+        print(`OpenAIAssistant: 🔍 DEBUG - response.done received`)
+        completedTextDisplay = true
       }
 
       // Set up Audio Playback
       else if (message.type === "response.audio.delta") {
-        let delta = Base64.decode(message.delta);
-        this.dynamicAudioOutput.addAudioFrame(delta);
+        const delta = Base64.decode(message.delta)
+        this.dynamicAudioOutput.addAudioFrame(delta)
       }
       // Listen for user began speaking
       else if (message.type === "input_audio_buffer.speech_started") {
-        print("Speech started, interrupting the AI");
-        this.dynamicAudioOutput.interruptAudioOutput();
+        print("Speech started, interrupting the AI")
+        this.dynamicAudioOutput.interruptAudioOutput()
       }
-    });
+    })
 
     this.OAIRealtime.onError.add((event) => {
-      print("Error: " + event);
-    });
+      print("Error: " + event)
+    })
 
     this.OAIRealtime.onClose.add((event) => {
-      print("Connection closed: " + event.reason);
+      print("Connection closed: " + event.reason)
       this.updateTextEvent.invoke({
         text: "Websocket closed: " + event.reason,
-        completed: true,
-      });
-    });
+        completed: true
+      })
+    })
   }
 
   public streamData(stream: boolean) {
     // Check if we're in orchestrated mode - if so, don't handle voice input directly
     // The orchestrator will handle voice input and call us for AI processing only
-    print(`OpenAIAssistant: streamData called with stream=${stream}`);
-    
+    print(`OpenAIAssistant: streamData called with stream=${stream}`)
+
     // Don't start/stop recording if we're being controlled by an orchestrator
     // This prevents competing voice input systems
     if (stream) {
-      print("OpenAIAssistant: 🔒 Voice input disabled - orchestrated system should handle voice input");
+      print("OpenAIAssistant: 🔒 Voice input disabled - orchestrated system should handle voice input")
       // this.microphoneRecorder.startRecording(); // Commented out to prevent conflicts
     } else {
-      print("OpenAIAssistant: 🔒 Voice input disabled - orchestrated system should handle voice input");
+      print("OpenAIAssistant: 🔒 Voice input disabled - orchestrated system should handle voice input")
       // this.microphoneRecorder.stopRecording(); // Commented out to prevent conflicts
     }
   }
 
   public interruptAudioOutput(): void {
     if (this.dynamicAudioOutput && this.haveAudioOutput) {
-      this.dynamicAudioOutput.interruptAudioOutput();
+      this.dynamicAudioOutput.interruptAudioOutput()
     } else {
-      print("DynamicAudioOutput is not initialized.");
+      print("DynamicAudioOutput is not initialized.")
     }
   }
 
   private sessionSetup() {
-    let modalitiesArray = ["text"];
+    const modalitiesArray = ["text"]
     if (this.haveAudioOutput) {
-      modalitiesArray.push("audio");
+      modalitiesArray.push("audio")
     }
 
     const tools = [
@@ -259,16 +247,16 @@ Always maintain an encouraging, patient, and supportive tone. Focus on helping s
             prompt: {
               type: "string",
               description:
-                "The text prompt to generate a 3D model from. Cartoonish styles work best. Use 'full body' when generating characters.",
-            },
+                "The text prompt to generate a 3D model from. Cartoonish styles work best. Use 'full body' when generating characters."
+            }
           },
-          required: ["prompt"],
-        },
-      } as OpenAITypes.Common.ToolDefinition,
-    ];
+          required: ["prompt"]
+        }
+      } as OpenAITypes.Common.ToolDefinition
+    ]
 
     // Set up the session
-    let sessionUpdateMsg = {
+    const sessionUpdateMsg = {
       type: "session.update",
       session: {
         instructions: this.instructions,
@@ -282,44 +270,40 @@ Always maintain an encouraging, patient, and supportive tone. Focus on helping s
           threshold: 0.5,
           prefix_padding_ms: 300,
           silence_duration_ms: 500,
-          create_response: true,
-        },
-      },
-    } as OpenAITypes.Realtime.SessionUpdateRequest;
+          create_response: true
+        }
+      }
+    } as OpenAITypes.Realtime.SessionUpdateRequest
 
-    this.OAIRealtime.send(sessionUpdateMsg);
+    this.OAIRealtime.send(sessionUpdateMsg)
 
     // Process microphone input to send to the server
     this.audioProcessor.onAudioChunkReady.add((encodedAudioChunk) => {
-      let audioMsg = {
+      const audioMsg = {
         type: "input_audio_buffer.append",
-        audio: encodedAudioChunk,
-      } as OpenAITypes.Realtime.ClientMessage;
-      this.OAIRealtime.send(audioMsg);
-    });
+        audio: encodedAudioChunk
+      } as OpenAITypes.Realtime.ClientMessage
+      this.OAIRealtime.send(audioMsg)
+    })
 
     // Configure the microphone
     this.microphoneRecorder.onAudioFrame.add((audioFrame) => {
-      this.audioProcessor.processFrame(audioFrame);
-    });
+      this.audioProcessor.processFrame(audioFrame)
+    })
   }
 
-  public sendFunctionCallUpdate(
-    functionName: string,
-    callId: string,
-    response: string
-  ): void {
-    print("Call id = " + callId);
-    let messageToSend = {
+  public sendFunctionCallUpdate(functionName: string, callId: string, response: string): void {
+    print("Call id = " + callId)
+    const messageToSend = {
       type: "conversation.item.create",
       item: {
         type: "function_call_output",
         call_id: callId,
-        output: response,
-      },
-    } as OpenAITypes.Realtime.ConversationItemCreateRequest;
+        output: response
+      }
+    } as OpenAITypes.Realtime.ConversationItemCreateRequest
 
-    this.OAIRealtime.send(messageToSend);
+    this.OAIRealtime.send(messageToSend)
   }
 
   /**
@@ -328,46 +312,46 @@ Always maintain an encouraging, patient, and supportive tone. Focus on helping s
    */
   public sendMessageWithAudio(content: string): void {
     if (!this.OAIRealtime) {
-      print("OpenAIAssistant: ⚠️ Realtime session not initialized");
-      return;
+      print("OpenAIAssistant: Realtime session not initialized")
+      return
     }
 
-    print(`OpenAIAssistant: 🔊 Sending message with audio: "${content.substring(0, 100)}..."`);
-    
+    print(`OpenAIAssistant: Sending message with audio: "${content.substring(0, 100)}..."`)
+
     // Send user message to conversation
-    let userMessageToSend = {
+    const userMessageToSend = {
       type: "conversation.item.create",
       item: {
         type: "message",
         role: "user",
         content: [
           {
-            type: "input_text", 
+            type: "input_text",
             text: content
           }
         ]
-      },
-    } as OpenAITypes.Realtime.ConversationItemCreateRequest;
+      }
+    } as OpenAITypes.Realtime.ConversationItemCreateRequest
 
-    this.OAIRealtime.send(userMessageToSend);
+    this.OAIRealtime.send(userMessageToSend)
 
     // Request AI response with audio
-    let modalitiesArray = ["text"];
+    const modalitiesArray = ["text"]
     if (this.haveAudioOutput) {
-      modalitiesArray.push("audio");
+      modalitiesArray.push("audio")
     }
 
-    let responseRequest = {
+    const responseRequest = {
       type: "response.create",
       response: {
         modalities: modalitiesArray, // Include audio if available
         instructions: this.instructions
       }
-    } as OpenAITypes.Realtime.ResponseCreateRequest;
+    } as OpenAITypes.Realtime.ResponseCreateRequest
 
-    this.OAIRealtime.send(responseRequest);
-    
-    print(`OpenAIAssistant: ✅ Message sent with modalities: ${modalitiesArray.join(", ")}`);
+    this.OAIRealtime.send(responseRequest)
+
+    print(`OpenAIAssistant: Message sent with modalities: ${modalitiesArray.join(", ")}`)
   }
 
   /**
@@ -376,40 +360,40 @@ Always maintain an encouraging, patient, and supportive tone. Focus on helping s
    */
   public sendTextMessage(content: string): void {
     if (!this.OAIRealtime) {
-      print("OpenAIAssistant: ⚠️ Realtime session not initialized");
-      return;
+      print("OpenAIAssistant: Realtime session not initialized")
+      return
     }
 
-    print(`OpenAIAssistant: 📝 Sending text message: "${content.substring(0, 100)}..."`);
-    
+    print(`OpenAIAssistant: 📝 Sending text message: "${content.substring(0, 100)}..."`)
+
     // Send user message to conversation
-    let userMessageToSend = {
+    const userMessageToSend = {
       type: "conversation.item.create",
       item: {
         type: "message",
         role: "user",
         content: [
           {
-            type: "input_text", 
+            type: "input_text",
             text: content
           }
         ]
-      },
-    } as OpenAITypes.Realtime.ConversationItemCreateRequest;
+      }
+    } as OpenAITypes.Realtime.ConversationItemCreateRequest
 
-    this.OAIRealtime.send(userMessageToSend);
+    this.OAIRealtime.send(userMessageToSend)
 
     // Request AI response
-    let responseRequest = {
+    const responseRequest = {
       type: "response.create",
       response: {
         modalities: ["text"], // Text only, no audio
         instructions: this.instructions
       }
-    } as OpenAITypes.Realtime.ResponseCreateRequest;
+    } as OpenAITypes.Realtime.ResponseCreateRequest
 
-    this.OAIRealtime.send(responseRequest);
-    
-    print("OpenAIAssistant: ✅ Text message sent, waiting for AI response");
+    this.OAIRealtime.send(responseRequest)
+
+    print("OpenAIAssistant: Text message sent, waiting for AI response")
   }
 }

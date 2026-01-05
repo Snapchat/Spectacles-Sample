@@ -1,30 +1,28 @@
-import { ToggleButton } from "SpectaclesInteractionKit.lspkg/Components/UI/ToggleButton/ToggleButton";
-import { SnapToWorld } from "./SnapToWorld";
+import {ToggleButton} from "SpectaclesInteractionKit.lspkg/Components/UI/ToggleButton/ToggleButton"
+import {SnapToWorld} from "./SnapToWorld"
 
 @component
 export class SnapToWorldInit extends BaseScriptComponent {
-  @input private previewInWorld: SceneObject;
-  @input private worldQueryModule: WorldQueryModule;
-  @input private snappingToggle: ToggleButton;
+  @input private previewInWorld: SceneObject
+  @input private worldQueryModule: WorldQueryModule
+  @input private snappingToggle: ToggleButton
 
-  private snapToWorld: SnapToWorld;
+  private snapToWorld: SnapToWorld
 
   onAwake() {
-    this.snapToWorld = SnapToWorld.getInstance();
-    this.snapToWorld.init(this.worldQueryModule, this.previewInWorld);
+    this.snapToWorld = SnapToWorld.getInstance()
+    this.snapToWorld.init(this.worldQueryModule, this.previewInWorld)
 
     this.createEvent("OnStartEvent").bind(() => {
-      this.snappingToggle.onStateChanged.add((isOn) =>
-        this.handleToggleStateChanged(isOn)
-      );
-    });
+      this.snappingToggle.onStateChanged.add((isOn) => this.handleToggleStateChanged(isOn))
+    })
 
     this.createEvent("UpdateEvent").bind(() => {
-      this.snapToWorld.tick();
-    });
+      this.snapToWorld.tick()
+    })
   }
 
   private handleToggleStateChanged(isToggledOn: boolean) {
-    this.snapToWorld.isOn = isToggledOn;
+    this.snapToWorld.isOn = isToggledOn
   }
 }

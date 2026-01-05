@@ -25,7 +25,7 @@ enum ButtonType {
   TOGGLE_MINI_MAP,
   SHOW_CAFE,
   SHOW_BARS,
-  SHOW_RESTAURANTS,
+  SHOW_RESTAURANTS
 }
 
 const TAG = "[MapUIController]"
@@ -123,7 +123,7 @@ export class MapUIController extends BaseScriptComponent {
       this.toggleMiniMapButton.getTransform(),
       this.showCafeButton.getTransform(),
       this.showBarsButton.getTransform(),
-      this.showRestaurantsButton.getTransform(),
+      this.showRestaurantsButton.getTransform()
     ]
 
     if (this.logObject !== undefined) {
@@ -186,31 +186,31 @@ export class MapUIController extends BaseScriptComponent {
       this.showRestaurantsButton.sceneObject.enabled = this.showRestaurantsButtonEnabled
       this.tweenCancelFunction = makeTween((t) => {
         this.buttonTransforms[ButtonType.ZOOM_IN].setLocalPosition(
-          vec3.lerp(ZOOM_IN_BUTTON_OFFSET_FULL, ZOOM_IN_BUTTON_OFFSET_MINI, t),
+          vec3.lerp(ZOOM_IN_BUTTON_OFFSET_FULL, ZOOM_IN_BUTTON_OFFSET_MINI, t)
         )
         this.buttonTransforms[ButtonType.ZOOM_OUT].setLocalPosition(
-          vec3.lerp(ZOOM_OUT_BUTTON_OFFSET_FULL, ZOOM_OUT_BUTTON_OFFSET_MINI, t),
+          vec3.lerp(ZOOM_OUT_BUTTON_OFFSET_FULL, ZOOM_OUT_BUTTON_OFFSET_MINI, t)
         )
         this.buttonTransforms[ButtonType.CENTER_MAP].setLocalPosition(
-          vec3.lerp(CENTER_MAP_BUTTON_OFFSET_FULL, CENTER_MAP_BUTTON_OFFSET_MINI, t),
+          vec3.lerp(CENTER_MAP_BUTTON_OFFSET_FULL, CENTER_MAP_BUTTON_OFFSET_MINI, t)
         )
         this.buttonTransforms[ButtonType.TOGGLE_MINI_MAP].setLocalPosition(
-          vec3.lerp(TOGGLE_BUTTON_OFFSET_FULL, TOGGLE_BUTTON_OFFSET_MINI, t),
+          vec3.lerp(TOGGLE_BUTTON_OFFSET_FULL, TOGGLE_BUTTON_OFFSET_MINI, t)
         )
       }, TWEEN_DURATION)
     } else {
       this.tweenCancelFunction = makeTween((t) => {
         this.buttonTransforms[ButtonType.ZOOM_IN].setLocalPosition(
-          vec3.lerp(ZOOM_IN_BUTTON_OFFSET_MINI, ZOOM_IN_BUTTON_OFFSET_FULL, t),
+          vec3.lerp(ZOOM_IN_BUTTON_OFFSET_MINI, ZOOM_IN_BUTTON_OFFSET_FULL, t)
         )
         this.buttonTransforms[ButtonType.ZOOM_OUT].setLocalPosition(
-          vec3.lerp(ZOOM_OUT_BUTTON_OFFSET_MINI, ZOOM_OUT_BUTTON_OFFSET_FULL, t),
+          vec3.lerp(ZOOM_OUT_BUTTON_OFFSET_MINI, ZOOM_OUT_BUTTON_OFFSET_FULL, t)
         )
         this.buttonTransforms[ButtonType.CENTER_MAP].setLocalPosition(
-          vec3.lerp(CENTER_MAP_BUTTON_OFFSET_MINI, CENTER_MAP_BUTTON_OFFSET_FULL, t),
+          vec3.lerp(CENTER_MAP_BUTTON_OFFSET_MINI, CENTER_MAP_BUTTON_OFFSET_FULL, t)
         )
         this.buttonTransforms[ButtonType.TOGGLE_MINI_MAP].setLocalPosition(
-          vec3.lerp(TOGGLE_BUTTON_OFFSET_MINI, TOGGLE_BUTTON_OFFSET_FULL, t),
+          vec3.lerp(TOGGLE_BUTTON_OFFSET_MINI, TOGGLE_BUTTON_OFFSET_FULL, t)
         )
 
         if (t > 0.99999) {

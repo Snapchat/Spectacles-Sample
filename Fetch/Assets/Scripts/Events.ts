@@ -1,12 +1,10 @@
-export type callback<Arg> = (args: Arg) => void;
+export type callback<Arg> = (args: Arg) => void
 
 export default class Event<Arg = void> {
-  private subscribers: callback<Arg>[];
+  private subscribers: callback<Arg>[]
 
   constructor(...callbacks: (callback<Arg> | undefined)[]) {
-    this.subscribers = callbacks.filter(
-      (cb) => cb !== undefined
-    ) as callback<Arg>[];
+    this.subscribers = callbacks.filter((cb) => cb !== undefined) as callback<Arg>[]
   }
 
   /**
@@ -15,7 +13,7 @@ export default class Event<Arg = void> {
    * @param handler to register
    */
   public add(handler: callback<Arg>) {
-    this.subscribers.push(handler);
+    this.subscribers.push(handler)
   }
 
   /**
@@ -25,8 +23,8 @@ export default class Event<Arg = void> {
    */
   public remove(handler: callback<Arg>) {
     this.subscribers = this.subscribers.filter((h) => {
-      return h !== handler;
-    });
+      return h !== handler
+    })
   }
 
   /**
@@ -36,7 +34,7 @@ export default class Event<Arg = void> {
    */
   public invoke(arg: Arg) {
     this.subscribers.forEach((handler) => {
-      handler(arg);
-    });
+      handler(arg)
+    })
   }
 }

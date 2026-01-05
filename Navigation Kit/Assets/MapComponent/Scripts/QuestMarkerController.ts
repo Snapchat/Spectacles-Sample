@@ -1,13 +1,13 @@
 import {map, quaternionToPitch} from "./MapUtils"
 
+import WorldCameraFinderProvider from "SpectaclesInteractionKit.lspkg/Providers/CameraProvider/WorldCameraFinderProvider"
 import {LensConfig} from "SpectaclesInteractionKit.lspkg/Utils/LensConfig"
+import {UpdateDispatcher} from "SpectaclesInteractionKit.lspkg/Utils/UpdateDispatcher"
 import {NavigationDataComponent} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/NavigationDataComponent"
 import {Place} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/Place"
-import {QuestMarker} from "./QuestMarker"
-import { UICollisionSolver } from "../../NavigationKitAssets/Scripts/UICollisionDetector"
-import {UpdateDispatcher} from "SpectaclesInteractionKit.lspkg/Utils/UpdateDispatcher"
 import {UserPosition} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/UserPosition"
-import WorldCameraFinderProvider from "SpectaclesInteractionKit.lspkg/Providers/CameraProvider/WorldCameraFinderProvider"
+import {UICollisionSolver} from "../../NavigationKitAssets/Scripts/UICollisionDetector"
+import {QuestMarker} from "./QuestMarker"
 
 const BOUNDARY_HALF_WIDTH_PROJECTION = 35
 const BOUNDARY_HALF_WIDTH = 26
@@ -21,7 +21,7 @@ enum MarkerPosition {
   BOTTOM = 2,
   LEFT = 3,
   CORNER = 4,
-  INVIEW = 5,
+  INVIEW = 5
 }
 
 interface MarkerPositionIndex {
@@ -115,7 +115,7 @@ export class QuestMarkerController extends BaseScriptComponent {
       const {orientation, xPosition, yPosition} = this.resolveMarkerPositionAndRotation(
         marker,
         this.userPosition,
-        yOrientationOffset,
+        yOrientationOffset
       )
 
       marker.setOrientation(orientation)
@@ -123,7 +123,7 @@ export class QuestMarkerController extends BaseScriptComponent {
       const localPosition = new vec3(
         xPosition,
         MathUtils.clamp(yPosition, -BOUNDARY_HALF_HEIGHT, BOUNDARY_HALF_HEIGHT),
-        0,
+        0
       )
 
       marker.transform.setLocalPosition(localPosition)
@@ -191,43 +191,43 @@ export class QuestMarkerController extends BaseScriptComponent {
     if (isCorner) {
       this.markerPositions[markerIndex] = {
         position: MarkerPosition.CORNER,
-        index: 0,
+        index: 0
       }
     } else {
       if (localPosition.x === -BOUNDARY_HALF_WIDTH) {
         this.markerPositions[markerIndex] = {
           position: MarkerPosition.LEFT,
-          index: this.leftElements.length,
+          index: this.leftElements.length
         }
         this.leftElements.push(
-          new vec2(localPosition.y - this.markerHalfHeight, localPosition.y + this.markerHalfHeight),
+          new vec2(localPosition.y - this.markerHalfHeight, localPosition.y + this.markerHalfHeight)
         )
       } else if (localPosition.x === BOUNDARY_HALF_WIDTH) {
         this.markerPositions[markerIndex] = {
           position: MarkerPosition.RIGHT,
-          index: this.rightElements.length,
+          index: this.rightElements.length
         }
         this.rightElements.push(
-          new vec2(localPosition.y - this.markerHalfHeight, localPosition.y + this.markerHalfHeight),
+          new vec2(localPosition.y - this.markerHalfHeight, localPosition.y + this.markerHalfHeight)
         )
       } else if (localPosition.y === -BOUNDARY_HALF_HEIGHT) {
         this.markerPositions[markerIndex] = {
           position: MarkerPosition.BOTTOM,
-          index: this.bottomElements.length,
+          index: this.bottomElements.length
         }
         this.bottomElements.push(
-          new vec2(localPosition.x - this.markerHalfWidth, localPosition.x + this.markerHalfWidth),
+          new vec2(localPosition.x - this.markerHalfWidth, localPosition.x + this.markerHalfWidth)
         )
       } else if (localPosition.y === BOUNDARY_HALF_HEIGHT) {
         this.markerPositions[markerIndex] = {
           position: MarkerPosition.TOP,
-          index: this.topElements.length,
+          index: this.topElements.length
         }
         this.topElements.push(new vec2(localPosition.x - this.markerHalfWidth, localPosition.x + this.markerHalfWidth))
       } else {
         this.markerPositions[markerIndex] = {
           position: MarkerPosition.INVIEW,
-          index: this.inViewElements.length,
+          index: this.inViewElements.length
         }
         // Assume the in-view markers are all at the same height
         this.inViewElements.push(
@@ -235,8 +235,8 @@ export class QuestMarkerController extends BaseScriptComponent {
             localPosition.x - this.markerHalfWidth,
             localPosition.x + this.markerHalfWidth,
             localPosition.y - this.labelHalfHeight,
-            localPosition.y + this.labelHalfHeight,
-          ),
+            localPosition.y + this.labelHalfHeight
+          )
         )
       }
     }
@@ -245,7 +245,7 @@ export class QuestMarkerController extends BaseScriptComponent {
   private resolveMarkerPositionAndRotation(
     marker: QuestMarker,
     userPosition: UserPosition,
-    yOrientationOffset: number,
+    yOrientationOffset: number
   ): {orientation: number; xPosition: number; yPosition: number} {
     const bearing = marker.getBearing(userPosition)
     const inView = bearing < this.halfFOV && bearing > -this.halfFOV
@@ -290,7 +290,7 @@ export class QuestMarkerController extends BaseScriptComponent {
     return {
       orientation,
       xPosition: screenPosition.x,
-      yPosition: screenPosition.y,
+      yPosition: screenPosition.y
     }
   }
 
@@ -306,7 +306,7 @@ export class QuestMarkerController extends BaseScriptComponent {
         BOUNDARY_HALF_WIDTH_PROJECTION,
         BOUNDARY_HALF_WIDTH,
         BOUNDARY_HALF_HEIGHT,
-        this.halfFOV,
+        this.halfFOV
       )
       this.defaultLabelY = questMarker.markerLabel.getTransform().getLocalPosition().y
       this.questMarkers.set(uniqueIdentifier, questMarker)
@@ -337,10 +337,10 @@ export class QuestMarkerController extends BaseScriptComponent {
   private mapAngleToScreenPoint(radians: number): vec2 {
     let x, y: number
     const degree = radians * MathUtils.RadToDeg
-    var top = BOUNDARY_HALF_HEIGHT
-    var left = -BOUNDARY_HALF_WIDTH
-    var right = BOUNDARY_HALF_WIDTH
-    var bottom = -BOUNDARY_HALF_HEIGHT
+    const top = BOUNDARY_HALF_HEIGHT
+    const left = -BOUNDARY_HALF_WIDTH
+    const right = BOUNDARY_HALF_WIDTH
+    const bottom = -BOUNDARY_HALF_HEIGHT
 
     const halfFOVInDegree = this.halfFOV * MathUtils.RadToDeg
 

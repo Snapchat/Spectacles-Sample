@@ -1,6 +1,6 @@
 import {BaseToggleGroup} from "./BaseToggleGroup"
 import {Toggleable} from "./Toggleable"
-import { ToggleSelectionColor } from "./ToggleSelectionColor"
+import {ToggleSelectionColor} from "./ToggleSelectionColor"
 
 /**
  * Represents a group of toggles.

@@ -1,9 +1,8 @@
+import {Interactable} from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable"
 import {InteractableManipulation} from "SpectaclesInteractionKit.lspkg/Components/Interaction/InteractableManipulation/InteractableManipulation"
-import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable"
 import {ButtonSlideSummary} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Components/Button/ButtonSlideSummary"
-import {RoundedRectangleVisualCardSummary} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Visuals/RoundedRectangle/RoundedRectangleVisualCardSummary"
 import {RoundedRectangleVisualCardBot} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Visuals/RoundedRectangle/RoundedRectangleVisualCardBot"
-
+import {RoundedRectangleVisualCardSummary} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Visuals/RoundedRectangle/RoundedRectangleVisualCardSummary"
 
 /**
  * Represents the state of a swiped card
@@ -27,10 +26,9 @@ interface LectureContent {
 
 @component
 export class SummaryComponent extends BaseScriptComponent {
-
   @input
   @hint("Prefab to instantiate for each card")
-  cardPrefab: ObjectPrefab;
+  cardPrefab: ObjectPrefab
 
   @input("int", "10")
   @hint("Total number of cards to handle")
@@ -40,7 +38,7 @@ export class SummaryComponent extends BaseScriptComponent {
   @hint("Transform for the left position")
   leftPosition: SceneObject = null
 
-  @input("SceneObject") 
+  @input("SceneObject")
   @hint("Transform for the center position (active/swipeable)")
   centerPosition: SceneObject = null
 
@@ -69,15 +67,17 @@ export class SummaryComponent extends BaseScriptComponent {
   rightCardRotationZ: number = 15.0
 
   @input("boolean", "false")
-  @hint("Enable test mode with randomly generated lecture content - DEPRECATED: Use SummaryBridge test framework instead")
+  @hint(
+    "Enable test mode with randomly generated lecture content - DEPRECATED: Use SummaryBridge test framework instead"
+  )
   testMode: boolean = false
 
   private cards: SceneObject[] = []
   private currentIndex: number = 1 // Start with card 1 in center
   private swipeState: SwipeState = new SwipeState()
-  private animatingCards: Map<SceneObject, {target: vec3, isVisible: boolean}> = new Map()
+  private animatingCards: Map<SceneObject, {target: vec3; isVisible: boolean}> = new Map()
   private lectureContent: LectureContent[] = []
-  
+
   private initialized: boolean = false
 
   onAwake() {
@@ -112,7 +112,10 @@ export class SummaryComponent extends BaseScriptComponent {
 
     this.setupSwipeInteraction()
     this.initialized = true
-    print("AdvancedSlideLayoutSummary initialized" + (this.testMode ? " with " + this.numberOfCards + " cards (TEST MODE)" : " in DYNAMIC mode"))
+    print(
+      "AdvancedSlideLayoutSummary initialized" +
+        (this.testMode ? " with " + this.numberOfCards + " cards (TEST MODE)" : " in DYNAMIC mode")
+    )
   }
 
   /**
@@ -182,14 +185,14 @@ export class SummaryComponent extends BaseScriptComponent {
     ]
 
     this.lectureContent = []
-    
+
     for (let i = 0; i < 10; i++) {
       const title = sampleTitles[i].substring(0, 157)
-      
+
       // Generate content with random parts and occasional blank lines
       let content = ""
       const numParts = Math.floor(Math.random() * 3) + 2 // 2-4 parts
-      
+
       for (let j = 0; j < numParts; j++) {
         if (j > 0) {
           // 30% chance of adding a blank line
@@ -199,7 +202,7 @@ export class SummaryComponent extends BaseScriptComponent {
             content += " "
           }
         }
-        
+
         // Add 1-3 random content parts
         const partsToAdd = Math.floor(Math.random() * 3) + 1
         for (let k = 0; k < partsToAdd; k++) {
@@ -208,12 +211,12 @@ export class SummaryComponent extends BaseScriptComponent {
           if (k < partsToAdd - 1) content += " "
         }
       }
-      
+
       // Ensure content doesn't exceed 785 characters
       if (content.length > 785) {
         content = content.substring(0, 782) + "..."
       }
-      
+
       this.lectureContent.push({
         title: title,
         content: content
@@ -227,7 +230,7 @@ export class SummaryComponent extends BaseScriptComponent {
   private getLocalPositions(): vec3[] {
     return [
       this.leftPosition.getTransform().getLocalPosition(),
-      this.centerPosition.getTransform().getLocalPosition(), 
+      this.centerPosition.getTransform().getLocalPosition(),
       this.rightPosition.getTransform().getLocalPosition()
     ]
   }
@@ -240,13 +243,13 @@ export class SummaryComponent extends BaseScriptComponent {
       const cardObject = this.cardPrefab.instantiate(this.sceneObject)
       cardObject.name = "Card_" + i
       this.cards.push(cardObject)
-      
+
       // Populate card with lecture content if in test mode
       if (this.testMode && i < this.lectureContent.length) {
         this.populateCardContent(cardObject, this.lectureContent[i])
       } else if (!this.testMode) {
         // Ensure cards are empty when not in test mode
-        this.populateCardContent(cardObject, { title: "", content: "" })
+        this.populateCardContent(cardObject, {title: "", content: ""})
       }
     }
   }
@@ -261,11 +264,13 @@ export class SummaryComponent extends BaseScriptComponent {
         // Use the specific text components from ButtonSlideSummary
         if (buttonSlide.textTitle) {
           buttonSlide.textTitle.text = content.title
-          print("AdvancedSlideLayoutSummary: Set title for " + card.name + ": " + content.title.substring(0, 30) + "...")
+          print(
+            "AdvancedSlideLayoutSummary: Set title for " + card.name + ": " + content.title.substring(0, 30) + "..."
+          )
         } else {
           print("AdvancedSlideLayoutSummary: textTitle not found in ButtonSlideSummary for " + card.name)
         }
-        
+
         if (buttonSlide.textContent) {
           buttonSlide.textContent.text = content.content
           print("AdvancedSlideLayoutSummary: Set content for " + card.name + " (" + content.content.length + " chars)")
@@ -285,26 +290,26 @@ export class SummaryComponent extends BaseScriptComponent {
    */
   private layoutInitialCards(): void {
     const positions = this.getLocalPositions()
-    
+
     // Hide all cards first
-    this.cards.forEach(card => card.enabled = false)
+    this.cards.forEach((card) => (card.enabled = false))
 
     // Show and position the first 3 cards
     for (let i = 0; i < 3 && i < this.cards.length; i++) {
       const card = this.cards[i]
       card.enabled = true
       card.getTransform().setLocalPosition(positions[i])
-      
+
       // Apply rotation based on position
       this.applyCardRotation(card, i as 0 | 1 | 2)
-      
+
       // Set appropriate visual based on position (center card gets highlight)
       this.switchCardVisual(card, i === 1)
-      
+
       // Enable manipulation only for center card (index 1)
       this.setCardManipulationEnabled(card, i === 1)
     }
-    
+
     // Update the text index on cards to show their initial numbers
     this.updateCardTextIndices()
   }
@@ -321,26 +326,26 @@ export class SummaryComponent extends BaseScriptComponent {
    */
   private attachManipulationToCard(card: SceneObject): void {
     let manipulationComponent: any = null
-    
+
     try {
       manipulationComponent = card.getComponent(InteractableManipulation.getTypeName())
     } catch (error) {
       print("AdvancedSlideLayoutSummary: Could not access InteractableManipulation on " + card.name)
       return
     }
-    
+
     if (manipulationComponent && manipulationComponent.onManipulationStart) {
       const onManipulationStartCallback = () => {
         this.startSwipe(card)
       }
-      
+
       const onManipulationEndCallback = () => {
         this.endSwipe()
       }
-      
+
       manipulationComponent.onManipulationStart.add(onManipulationStartCallback)
       manipulationComponent.onManipulationEnd.add(onManipulationEndCallback)
-      
+
       print("AdvancedSlideLayoutSummary: Connected swipe events for " + card.name)
     }
   }
@@ -354,7 +359,7 @@ export class SummaryComponent extends BaseScriptComponent {
     this.swipeState.isSwipping = true
     this.swipeState.swipeStartTime = getTime()
     this.swipeState.swipeStartPosition = card.getTransform().getLocalPosition()
-    
+
     print("AdvancedSlideLayoutSummary: Started swiping " + card.name)
   }
 
@@ -368,14 +373,14 @@ export class SummaryComponent extends BaseScriptComponent {
     const swipeDistance = currentPos.distance(this.swipeState.originalPosition)
     const swipeTime = getTime() - this.swipeState.swipeStartTime
     const swipeSpeed = swipeTime > 0 ? swipeDistance / swipeTime : 0
-    
+
     // Calculate swipe direction (mainly interested in left/right)
     const swipeVector = currentPos.sub(this.swipeState.originalPosition)
     const isRightSwipe = swipeVector.x > 0
-    
+
     // Determine if swipe is strong enough to trigger card change
     const shouldChangeCard = swipeDistance > this.swipeThreshold || swipeSpeed > this.swipeSpeedThreshold
-    
+
     if (shouldChangeCard) {
       if (isRightSwipe) {
         this.swipeRight()
@@ -390,8 +395,15 @@ export class SummaryComponent extends BaseScriptComponent {
     // Reset swipe state
     this.swipeState.isSwipping = false
     this.swipeState.swipedObject = null
-    
-    print("AdvancedSlideLayoutSummary: Ended swipe - distance: " + swipeDistance + ", speed: " + swipeSpeed + ", changed: " + shouldChangeCard)
+
+    print(
+      "AdvancedSlideLayoutSummary: Ended swipe - distance: " +
+        swipeDistance +
+        ", speed: " +
+        swipeSpeed +
+        ", changed: " +
+        shouldChangeCard
+    )
   }
 
   /**
@@ -399,13 +411,13 @@ export class SummaryComponent extends BaseScriptComponent {
    */
   private swipeRight(): void {
     print("AdvancedSlideLayoutSummary: Swiping right")
-    
+
     // Move current center card off screen to the right
     this.animateCardOut(this.swipeState.swipedObject, true)
-    
+
     // Update current index (go backwards, with wrap-around)
     this.currentIndex = (this.currentIndex - 1 + this.numberOfCards) % this.numberOfCards
-    
+
     // Rearrange cards
     this.rearrangeCardsAfterSwipe()
   }
@@ -415,13 +427,13 @@ export class SummaryComponent extends BaseScriptComponent {
    */
   private swipeLeft(): void {
     print("AdvancedSlideLayoutSummary: Swiping left")
-    
+
     // Move current center card off screen to the left
     this.animateCardOut(this.swipeState.swipedObject, false)
-    
+
     // Update current index (go forwards, with wrap-around)
     this.currentIndex = (this.currentIndex + 1) % this.numberOfCards
-    
+
     // Rearrange cards
     this.rearrangeCardsAfterSwipe()
   }
@@ -431,7 +443,7 @@ export class SummaryComponent extends BaseScriptComponent {
    */
   private returnCardToCenter(): void {
     if (!this.swipeState.swipedObject) return
-    
+
     const positions = this.getLocalPositions()
     this.animatingCards.set(this.swipeState.swipedObject, {
       target: positions[1], // Center position
@@ -447,12 +459,8 @@ export class SummaryComponent extends BaseScriptComponent {
     const centerPos = positions[1]
     const offScreenDistance = 200 // Distance to move off screen
     const direction = toRight ? 1 : -1
-    const targetPos = new vec3(
-      centerPos.x + (offScreenDistance * direction),
-      centerPos.y,
-      centerPos.z
-    )
-    
+    const targetPos = new vec3(centerPos.x + offScreenDistance * direction, centerPos.y, centerPos.z)
+
     this.animatingCards.set(card, {
       target: targetPos,
       isVisible: false
@@ -464,9 +472,9 @@ export class SummaryComponent extends BaseScriptComponent {
    */
   private rearrangeCardsAfterSwipe(): void {
     const positions = this.getLocalPositions()
-    
+
     // Disable manipulation for all cards first
-    this.cards.forEach(card => {
+    this.cards.forEach((card) => {
       if (!this.animatingCards.has(card)) {
         card.enabled = false
       }
@@ -482,9 +490,9 @@ export class SummaryComponent extends BaseScriptComponent {
     this.ensureCorrectVisualsForPositions(leftIndex, centerIndex, rightIndex)
 
     const visibleCards = [
-      { card: this.cards[leftIndex], position: positions[0], positionIndex: 0 },
-      { card: this.cards[centerIndex], position: positions[1], positionIndex: 1 },
-      { card: this.cards[rightIndex], position: positions[2], positionIndex: 2 }
+      {card: this.cards[leftIndex], position: positions[0], positionIndex: 0},
+      {card: this.cards[centerIndex], position: positions[1], positionIndex: 1},
+      {card: this.cards[rightIndex], position: positions[2], positionIndex: 2}
     ]
 
     // Animate visible cards to their positions
@@ -494,10 +502,10 @@ export class SummaryComponent extends BaseScriptComponent {
         target: position,
         isVisible: true
       })
-      
+
       // Apply rotation based on position
       this.applyCardRotation(card, positionIndex as 0 | 1 | 2)
-      
+
       // Enable manipulation only for center card (positionIndex === 1)
       this.setCardManipulationEnabled(card, positionIndex === 1)
     })
@@ -514,11 +522,11 @@ export class SummaryComponent extends BaseScriptComponent {
    */
   private ensureCorrectVisualsForPositions(leftIndex: number, centerIndex: number, rightIndex: number): void {
     const indices = [leftIndex, centerIndex, rightIndex]
-    
+
     for (const index of indices) {
       const needsHighlight = index === centerIndex
       const currentCard = this.cards[index]
-      
+
       // Switch the visual based on whether this card needs highlighting
       this.switchCardVisual(currentCard, needsHighlight)
     }
@@ -533,32 +541,37 @@ export class SummaryComponent extends BaseScriptComponent {
       if (buttonSlide) {
         // Access the visual through the public interface
         const currentVisual = buttonSlide.visual
-        
+
         // Check if we need to change the visual type
         const needsHighlightVisual = useHighlight
         const currentlyHighlighted = currentVisual instanceof RoundedRectangleVisualCardSummary
-        
+
         if (needsHighlightVisual !== currentlyHighlighted) {
           // Destroy current visual
           if (currentVisual) {
             currentVisual.destroy()
           }
-          
+
           // Create new visual based on highlight state
-          const newVisual = useHighlight 
-            ? new RoundedRectangleVisualCardSummary(card) 
+          const newVisual = useHighlight
+            ? new RoundedRectangleVisualCardSummary(card)
             : new RoundedRectangleVisualCardBot(card)
-          
+
           // Configure the visual properties
           newVisual.hasBorder = true
           newVisual.isBorderGradient = true
           newVisual.borderSize = 0.1
           newVisual.isBaseGradient = true
-          
+
           // Set the new visual using the public setter
           buttonSlide.visual = newVisual
-          
-          print("AdvancedSlideLayoutSummary: Switched visual for " + card.name + " to " + (useHighlight ? "highlight" : "regular"))
+
+          print(
+            "AdvancedSlideLayoutSummary: Switched visual for " +
+              card.name +
+              " to " +
+              (useHighlight ? "highlight" : "regular")
+          )
         }
       }
     } catch (error) {
@@ -588,12 +601,12 @@ export class SummaryComponent extends BaseScriptComponent {
    */
   private updateAnimations(): void {
     const toRemove: SceneObject[] = []
-    
+
     this.animatingCards.forEach((animation, card) => {
       const currentPos = card.getTransform().getLocalPosition()
       const targetPos = animation.target
       const distance = currentPos.distance(targetPos)
-      
+
       if (distance < 0.1) {
         // Animation complete
         card.getTransform().setLocalPosition(targetPos)
@@ -607,9 +620,9 @@ export class SummaryComponent extends BaseScriptComponent {
         card.getTransform().setLocalPosition(newPos)
       }
     })
-    
+
     // Remove completed animations
-    toRemove.forEach(card => {
+    toRemove.forEach((card) => {
       this.animatingCards.delete(card)
     })
   }
@@ -623,9 +636,9 @@ export class SummaryComponent extends BaseScriptComponent {
     const rightIndex = (this.currentIndex + 1) % this.numberOfCards
 
     const cardIndices = [
-      { card: this.cards[leftIndex], index: leftIndex },
-      { card: this.cards[centerIndex], index: centerIndex },
-      { card: this.cards[rightIndex], index: rightIndex }
+      {card: this.cards[leftIndex], index: leftIndex},
+      {card: this.cards[centerIndex], index: centerIndex},
+      {card: this.cards[rightIndex], index: rightIndex}
     ]
 
     cardIndices.forEach(({card, index}) => {
@@ -642,10 +655,10 @@ export class SummaryComponent extends BaseScriptComponent {
   /**
    * Get current card indices for debugging
    */
-  public getCurrentIndices(): {left: number, center: number, right: number} {
+  public getCurrentIndices(): {left: number; center: number; right: number} {
     const leftIndex = (this.currentIndex - 1 + this.numberOfCards) % this.numberOfCards
     const rightIndex = (this.currentIndex + 1) % this.numberOfCards
-    
+
     return {
       left: leftIndex,
       center: this.currentIndex,
@@ -659,12 +672,12 @@ export class SummaryComponent extends BaseScriptComponent {
   public getCurrentContent(): LectureContent[] {
     return this.lectureContent
   }
-  
+
   /**
    * Get current lecture content formatted for agent consumption
    */
-  public getCurrentContentForAgent(): { title: string; content: string }[] {
-    return this.lectureContent.map(item => ({
+  public getCurrentContentForAgent(): {title: string; content: string}[] {
+    return this.lectureContent.map((item) => ({
       title: item.title,
       content: item.content
     }))
@@ -706,7 +719,9 @@ export class SummaryComponent extends BaseScriptComponent {
       const manipulationComponent = card.getComponent(InteractableManipulation.getTypeName()) as any
       if (manipulationComponent) {
         manipulationComponent.enabled = enabled
-        print("AdvancedSlideLayoutSummary: Set manipulation " + (enabled ? "enabled" : "disabled") + " for " + card.name)
+        print(
+          "AdvancedSlideLayoutSummary: Set manipulation " + (enabled ? "enabled" : "disabled") + " for " + card.name
+        )
       }
 
       const interactableComponent = card.getComponent(Interactable.getTypeName()) as any
@@ -724,7 +739,7 @@ export class SummaryComponent extends BaseScriptComponent {
   private applyCardRotation(card: SceneObject, position: 0 | 1 | 2): void {
     const transform = card.getTransform()
     let rotationZ = 0
-    
+
     switch (position) {
       case 0: // Left position
         rotationZ = this.leftCardRotationZ
@@ -736,12 +751,12 @@ export class SummaryComponent extends BaseScriptComponent {
         rotationZ = this.rightCardRotationZ
         break
     }
-    
+
     const currentRotation = transform.getLocalRotation()
     const newRotation = quat.fromEulerAngles(
       currentRotation.toEulerAngles().x,
       currentRotation.toEulerAngles().y,
-      rotationZ * Math.PI / 180 // Convert degrees to radians
+      (rotationZ * Math.PI) / 180 // Convert degrees to radians
     )
     transform.setLocalRotation(newRotation)
   }
@@ -750,7 +765,7 @@ export class SummaryComponent extends BaseScriptComponent {
    * Clear all manipulation event handlers from all cards
    */
   private clearAllManipulationHandlers(): void {
-    this.cards.forEach(card => {
+    this.cards.forEach((card) => {
       try {
         const manipulationComponent = card.getComponent(InteractableManipulation.getTypeName()) as any
         if (manipulationComponent && manipulationComponent.onManipulationStart) {
@@ -762,7 +777,7 @@ export class SummaryComponent extends BaseScriptComponent {
       }
     })
   }
-  
+
   /**
    * Dynamically create a card with content
    */
@@ -771,58 +786,60 @@ export class SummaryComponent extends BaseScriptComponent {
       print("AdvancedSlideLayoutSummary: Cannot create card - prefab not set")
       return -1
     }
-    
+
     const cardIndex = this.cards.length
     const cardObject = this.cardPrefab.instantiate(this.sceneObject)
     cardObject.name = "Card_" + cardIndex
     cardObject.enabled = false // Start disabled until positioned
-    
+
     this.cards.push(cardObject)
     this.numberOfCards = this.cards.length
-    
+
     // Populate the card with content
     this.populateCardContent(cardObject, content)
-    
-    print(`AdvancedSlideLayoutSummary: Created dynamic card ${cardIndex} with title: ${content.title.substring(0, 30)}...`)
-    
+
+    print(
+      `AdvancedSlideLayoutSummary: Created dynamic card ${cardIndex} with title: ${content.title.substring(0, 30)}...`
+    )
+
     // If this is one of the first 3 cards, position it immediately
     if (cardIndex < 3) {
       this.positionInitialDynamicCards()
     }
-    
+
     return cardIndex
   }
-  
+
   /**
    * Position the first 3 dynamic cards
    */
   private positionInitialDynamicCards(): void {
     const positions = this.getLocalPositions()
     const visibleCount = Math.min(3, this.cards.length)
-    
+
     // Update current index to center if we have cards
     if (this.cards.length > 0 && this.currentIndex < 0) {
       // Always try to put the first card in center position (index 1)
       // This ensures the main draggable card starts centered
       this.currentIndex = 0 // The first card (index 0) will be placed in center
     }
-    
+
     // If we still don't have any cards, return early
     if (this.cards.length === 0) {
       print("AdvancedSlideLayoutSummary: No cards to position yet")
       return
     }
-    
+
     // Special handling based on number of cards
     if (this.cards.length === 1) {
       // Single card - place it in the center
       const card = this.cards[0]
       card.enabled = true
       card.getTransform().setLocalPosition(positions[1]) // Center position
-      
+
       // No rotation for center card
       this.applyCardRotation(card, 1)
-      
+
       // Center card gets highlight visual and manipulation
       this.switchCardVisual(card, true)
       this.setCardManipulationEnabled(card, true)
@@ -831,14 +848,14 @@ export class SummaryComponent extends BaseScriptComponent {
       const centerCard = this.cards[this.currentIndex]
       const otherIndex = this.currentIndex === 0 ? 1 : 0
       const otherCard = this.cards[otherIndex]
-      
+
       // Position center card
       centerCard.enabled = true
       centerCard.getTransform().setLocalPosition(positions[1]) // Center
       this.applyCardRotation(centerCard, 1)
       this.switchCardVisual(centerCard, true)
       this.setCardManipulationEnabled(centerCard, true)
-      
+
       // Position other card on left
       otherCard.enabled = true
       otherCard.getTransform().setLocalPosition(positions[0]) // Left
@@ -850,48 +867,48 @@ export class SummaryComponent extends BaseScriptComponent {
       const leftIndex = (this.currentIndex - 1 + this.numberOfCards) % this.numberOfCards
       const centerIndex = this.currentIndex
       const rightIndex = (this.currentIndex + 1) % this.numberOfCards
-      
+
       const visibleIndices = [leftIndex, centerIndex, rightIndex]
-      
+
       for (let i = 0; i < 3; i++) {
         const cardIndex = visibleIndices[i]
         if (cardIndex >= 0 && cardIndex < this.cards.length) {
           const card = this.cards[cardIndex]
           card.enabled = true
           card.getTransform().setLocalPosition(positions[i])
-          
+
           // Apply rotation based on position
           this.applyCardRotation(card, i as 0 | 1 | 2)
-          
+
           // Center position (i=1) gets highlight and manipulation
           this.switchCardVisual(card, i === 1)
           this.setCardManipulationEnabled(card, i === 1)
         }
       }
     }
-    
+
     // Setup swipe interaction if we have enough cards
     if (this.cards.length >= 2) {
       this.setupCenterCardManipulation()
     }
-    
+
     // Update card indices
     this.updateCardTextIndices()
   }
-  
+
   /**
    * Add multiple dynamic cards at once
    */
   public addDynamicCards(contentArray: LectureContent[]): number[] {
     const indices: number[] = []
-    
-    contentArray.forEach(content => {
+
+    contentArray.forEach((content) => {
       const index = this.createDynamicCard(content)
       if (index >= 0) {
         indices.push(index)
       }
     })
-    
+
     print(`AdvancedSlideLayoutSummary: Added ${indices.length} dynamic cards`)
     return indices
   }
@@ -902,11 +919,11 @@ export class SummaryComponent extends BaseScriptComponent {
   private setupCenterCardManipulation(): void {
     // Clear all existing handlers first
     this.clearAllManipulationHandlers()
-    
+
     // Setup interaction only for the current center card
     const centerCard = this.getCurrentCenterCard()
     if (centerCard) {
       this.attachManipulationToCard(centerCard)
     }
   }
-} 
+}

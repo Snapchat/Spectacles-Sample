@@ -22,7 +22,7 @@ export class MapMessageController extends BaseScriptComponent {
     this.mapComponent.subscribeOnNoNearbyPlacesFound(() => this.showMessage("No nearby places found"))
 
     this.mapComponent.subscribeOnNearbyPlacesFailed(() =>
-      this.showMessage("Failed to received nearby places. Please check your internet connection."),
+      this.showMessage("Failed to received nearby places. Please check your internet connection.")
     )
 
     this.handleCloseButtonTriggered()

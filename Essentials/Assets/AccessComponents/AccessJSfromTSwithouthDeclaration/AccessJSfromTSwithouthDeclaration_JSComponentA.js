@@ -14,7 +14,7 @@ script.objectVal = {
 
 // Methods
 script.printHelloWorld = function () {
-  script.debug && print('hello');
+  script.debug && print("hello");
 };
 
 // Debug logging helper
@@ -24,13 +24,13 @@ script.log = function (message) {
 
 script.calculateSum = function (...numbers) {
   const result = numbers.reduce((sum, num) => sum + num, 0);
-  script.debug && print(`Calculated sum of [${numbers.join(', ')}] = ${result}`);
+  script.debug && print(`Calculated sum of [${numbers.join(", ")}] = ${result}`);
   return result;
 };
 
 script.formatMessage = function (template, ...values) {
   const result = template.replace(/{(\d+)}/g, (match, index) => {
-    return typeof values[index] !== 'undefined' ? values[index] : match;
+    return typeof values[index] !== "undefined" ? values[index] : match;
   });
   script.debug && print(`Formatted message: "${result}"`);
   return result;
@@ -65,5 +65,5 @@ script.on = function (eventName, callback) {
 script.emit = function (eventName, ...args) {
   const listeners = script.eventListeners[eventName] || [];
   script.debug && print(`Emitting event "${eventName}" with ${listeners.length} listeners`);
-  listeners.forEach(callback => callback(...args));
+  listeners.forEach((callback) => callback(...args));
 };

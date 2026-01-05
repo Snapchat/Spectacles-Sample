@@ -12,65 +12,61 @@
 let closestPointOnPlane;
 
 function onAwake() {
-    script.createEvent("UpdateEvent").bind(() => {
-        update();
-    });
+  script.createEvent("UpdateEvent").bind(() => {
+    update();
+  });
 }
 
 function update() {
-    if (!script.planeTransform) {
-        print("Warning: Plane Transform is not assigned!");
-        return;
-    }
-    
-    // Use script.sceneObject as fallback if snappingObject is not assigned
-    const objectToSnap = script.snappingObject || script.sceneObject;
-    
-    // Use snappingObject as fallback for distanceObject if not assigned
-    const objectForDistance = script.distanceObject || objectToSnap;
-    
-    // Get the plane transform
-    const planeTransformObj = script.planeTransform.getTransform();
-    
-    // Get the right and forward vectors from the plane transform
-    const planeRight = planeTransformObj.right;
-    const planeForward = planeTransformObj.forward;
-    
-    // Calculate the normal of the plane based on the transform's directions
-    const planeNormal = planeRight.cross(planeForward).normalize();
-    
-    // Get positions
-    const distanceObjectPosition = objectForDistance.getTransform().getWorldPosition();
-    const planePosition = script.planeTransform.getTransform().getWorldPosition();
+  if (!script.planeTransform) {
+    print("Warning: Plane Transform is not assigned!");
+    return;
+  }
 
-    // Find the closest point on the plane to the distance object
-    closestPointOnPlane = getClosestPointOnPlane(
-        distanceObjectPosition,
-        planePosition,
-        planeNormal
-    );
+  // Use script.sceneObject as fallback if snappingObject is not assigned
+  const objectToSnap = script.snappingObject || script.sceneObject;
 
-    // Check if the distance object is within the snap distance
-    const distance = distanceObjectPosition.distance(closestPointOnPlane);
-    
-    if (distance <= script.snapDistance) {
-        // Snap the snapping object to the closest point on the plane
-        objectToSnap.getTransform().setWorldPosition(closestPointOnPlane);
-    }
+  // Use snappingObject as fallback for distanceObject if not assigned
+  const objectForDistance = script.distanceObject || objectToSnap;
+
+  // Get the plane transform
+  const planeTransformObj = script.planeTransform.getTransform();
+
+  // Get the right and forward vectors from the plane transform
+  const planeRight = planeTransformObj.right;
+  const planeForward = planeTransformObj.forward;
+
+  // Calculate the normal of the plane based on the transform's directions
+  const planeNormal = planeRight.cross(planeForward).normalize();
+
+  // Get positions
+  const distanceObjectPosition = objectForDistance.getTransform().getWorldPosition();
+  const planePosition = script.planeTransform.getTransform().getWorldPosition();
+
+  // Find the closest point on the plane to the distance object
+  closestPointOnPlane = getClosestPointOnPlane(distanceObjectPosition, planePosition, planeNormal);
+
+  // Check if the distance object is within the snap distance
+  const distance = distanceObjectPosition.distance(closestPointOnPlane);
+
+  if (distance <= script.snapDistance) {
+    // Snap the snapping object to the closest point on the plane
+    objectToSnap.getTransform().setWorldPosition(closestPointOnPlane);
+  }
 }
 
 /**
  * Calculate the closest point on a plane to a given point
  */
 function getClosestPointOnPlane(point, planePoint, planeNormal) {
-    // Calculate the vector from the point to the plane
-    const pointToPlane = point.sub(planePoint);
+  // Calculate the vector from the point to the plane
+  const pointToPlane = point.sub(planePoint);
 
-    // Project the vector onto the plane normal to get the distance from the point to the plane
-    const distanceToPlane = pointToPlane.dot(planeNormal);
+  // Project the vector onto the plane normal to get the distance from the point to the plane
+  const distanceToPlane = pointToPlane.dot(planeNormal);
 
-    // Calculate the closest point by subtracting the distance from the point along the plane normal
-    return point.sub(planeNormal.scale(new vec3(distanceToPlane, distanceToPlane, distanceToPlane)));
+  // Calculate the closest point by subtracting the distance from the point along the plane normal
+  return point.sub(planeNormal.scale(new vec3(distanceToPlane, distanceToPlane, distanceToPlane)));
 }
 
 // Start the script

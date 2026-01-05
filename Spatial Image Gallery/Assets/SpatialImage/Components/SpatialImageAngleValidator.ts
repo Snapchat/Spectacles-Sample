@@ -1,4 +1,4 @@
-import { ContainerFrame } from "SpectaclesInteractionKit.lspkg/Components/UI/ContainerFrame/ContainerFrame"
+import {ContainerFrame} from "SpectaclesInteractionKit.lspkg/Components/UI/ContainerFrame/ContainerFrame"
 
 /**
  * Tracks the users point of view and emits events on whether they are viewing
@@ -57,15 +57,11 @@ export class SpatialImageAngleValidator extends BaseScriptComponent {
     const cameraPosition = this.camera.getTransform().getWorldPosition()
     const imageTransform = this.image.getTransform()
     const imagePos = imageTransform.getWorldPosition()
-    const imageFocalDisplacement = imageTransform
-      .getWorldRotation()
-      .multiplyVec3(new vec3(0, 0, this.validZoneFocal))
+    const imageFocalDisplacement = imageTransform.getWorldRotation().multiplyVec3(new vec3(0, 0, this.validZoneFocal))
     const imageFocal = imagePos.sub(imageFocalDisplacement)
     const displacement = cameraPosition.sub(imageFocal)
     const displacementDirection = displacement.normalize()
-    let angle = displacementDirection.dot(
-      this.image.getTransform().getWorldRotation().multiplyVec3(vec3.forward())
-    )
+    const angle = displacementDirection.dot(this.image.getTransform().getWorldRotation().multiplyVec3(vec3.forward()))
 
     return (1 - angle) * 90
   }
@@ -100,8 +96,6 @@ export class SpatialImageAngleValidator extends BaseScriptComponent {
    * @param callback - the callback to remove
    */
   public removeOnValidityCallback(callback: (entered: boolean) => void): void {
-    this.onValidityCallbacks = this.onValidityCallbacks.filter(
-      (cb) => cb !== callback
-    )
+    this.onValidityCallbacks = this.onValidityCallbacks.filter((cb) => cb !== callback)
   }
 }

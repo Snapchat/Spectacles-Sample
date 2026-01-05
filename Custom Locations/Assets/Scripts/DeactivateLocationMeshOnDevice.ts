@@ -14,9 +14,7 @@ export class DeactivateLocationMeshOnDevice extends BaseScriptComponent {
   }
 
   private deactivateChildMeshes(): void {
-    const locatedAtChildren = this.sceneObject.children.map((element) =>
-      element.getComponent("LocatedAtComponent")
-    )
+    const locatedAtChildren = this.sceneObject.children.map((element) => element.getComponent("LocatedAtComponent"))
     const withMeshVisualAttached = locatedAtChildren.map((element) =>
       element?.sceneObject.getComponent("RenderMeshVisual")
     )

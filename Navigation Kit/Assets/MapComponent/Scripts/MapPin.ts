@@ -3,7 +3,7 @@ import Event from "SpectaclesInteractionKit.lspkg/Utils/Event"
 import {Place} from "SpectaclesNavigationKit.lspkg/NavigationDataComponent/Place"
 import {easeOutElastic, makeTween} from "./MapUtils"
 
-let pinAvailableID = 0
+const pinAvailableID = 0
 const HIGHLIGHT_TWEEN_DURATION = 1
 const LABEL_BOUNDARY_PADDING = 4
 const LABEL_CIRCLE_BOUNDARY_PADDING = 4
@@ -43,7 +43,7 @@ export class MapPin {
     parent: SceneObject,
     place: Place | null,
     renderConfig: MapPinRenderConfig,
-    isUser = false,
+    isUser = false
   ): MapPin {
     const pin = new MapPin()
     pin.isUser = isUser
@@ -109,7 +109,7 @@ export class MapPin {
           dotVerticalVector > dotVerticalFromCorner ? 1 : 0,
           dotVerticalFromCorner,
           dotHorizontalVector > dotHorizontalFromCorner ? 1 : 0,
-          dotHorizontalFromCorner,
+          dotHorizontalFromCorner
         ) <= 0
       ) {
         this.label.backgroundSettings.enabled = false

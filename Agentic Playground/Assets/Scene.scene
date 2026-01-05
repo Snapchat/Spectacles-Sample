@@ -902,7 +902,7 @@
     {}
   ScriptInputs:
     "":
-      useV2: false
+      useV2: true
       drawDebug: false
   ScriptTypes:
     "":
@@ -1223,7 +1223,6 @@
   ScriptAsset: !<reference> a0abcfc0-1e6c-41ca-b580-570ef007292f
   ScriptInputsDefault:
     resetStorageOnAwake: true
-    enableDebugLogging: true
     enableStorageIntegration: true
   ScriptTypesDefault:
     {}
@@ -1233,7 +1232,7 @@
       summaryStorage: !<MappingBased.AssignableType_1> c844b7fa-c13a-4bb6-8902-a391827f3a0a
       diagramStorage: !<MappingBased.AssignableType_2> bfc6c0e7-2764-4008-b6de-199e05efcdd8
       resetStorageOnAwake: false
-      enableDebugLogging: true
+      enableDebugLogging: false
       enableStorageIntegration: true
   ScriptTypes:
     "":
@@ -2407,7 +2406,7 @@
         - 30.000000
       _maxRaycastDistance: !<float> 500.000000
       indirectTargetingVolumeMultiplier: !<float> 1.000000
-      indirectDragThreshold: !<float> 40.000000
+      indirectDragThreshold: !<float> 10.000000
       handType: right
       forcePokeOnNonDominantPalmProximity: false
       directColliderEnterRadius: !<float> 1.000000
@@ -2450,7 +2449,7 @@
         - 30.000000
       _maxRaycastDistance: !<float> 500.000000
       indirectTargetingVolumeMultiplier: !<float> 1.000000
-      indirectDragThreshold: !<float> 40.000000
+      indirectDragThreshold: !<float> 10.000000
       handType: left
       forcePokeOnNonDominantPalmProximity: false
       directColliderEnterRadius: !<float> 1.000000
@@ -3698,6 +3697,7 @@
   Enabled: true
   ScriptAsset: !<reference> 9b28ae15-e0ea-4478-9384-7d0b581c3e20
   ScriptInputsDefault:
+    enableDebugLogging: true
     sessionTimeout: true
     continuousListening: true
   ScriptTypesDefault:
@@ -3708,7 +3708,7 @@
       chatStorage: !<MappingBased.AssignableType_1> 9724e5ac-84ec-4929-8a0b-c63551dd893e
       micButton: !<MappingBased.AssignableType_2> cd696cc5-79f4-48cb-b2a2-59ac04c5c107
       activityIndicator: !<reference.RenderMeshVisual> 4da6d07c-2a57-4c55-8d38-dab9f198704a
-      enableDebugLogging: false
+      enableDebugLogging: true
       sessionTimeout: !<float> 300.000000
       continuousListening: false
   ScriptTypes:
@@ -4523,11 +4523,11 @@
 - !<SceneObject/9bcad24f-5fa1-40b2-afe9-ee65ff96a4ec>
   PrefabRemaps:
     []
-  Name: TextHint
+  Name: TextHint_WILL DISABLE AUTOMATICALLY
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: -8.000000, z: -90.000000}
+    Position: {x: 0.000000, y: -8.000000, z: -70.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
@@ -5771,7 +5771,7 @@
 - !<SceneObject/ca311c7c-5de6-43e1-a70e-b6641c0d45a5>
   PrefabRemaps:
     []
-  Name: TextInstructions
+  Name: TextInstructions_DISABLE AFTER READING
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
@@ -5997,7 +5997,6 @@
     enableQueueSystem: true
     maxConcurrentImages: true
     maxConcurrentModels: true
-    enableDebugLogging: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -6007,7 +6006,7 @@
       enableQueueSystem: true
       maxConcurrentImages: !<float> 1.000000
       maxConcurrentModels: !<float> 1.000000
-      enableDebugLogging: true
+      enableDebugLogging: false
   ScriptTypes:
     "":
       {}
@@ -6583,14 +6582,13 @@
   ScriptAsset: !<reference> c95c83e9-7ae1-4d58-a092-f95c6c5b9bfa
   ScriptInputsDefault:
     openAIToken: true
-    googleToken: true
     snapToken: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       openAIToken: "[INSERT OPENAI TOKEN HERE]"
-      googleToken: "[INSERT GOOGLE TOKEN HERE]"
+      googleToken: "[INSERT GO0GLE TOKEN HERE]"
       snapToken: "[INSERT SNAP TOKEN HERE]"
   ScriptTypes:
     "":

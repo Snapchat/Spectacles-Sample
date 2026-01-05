@@ -11,8 +11,8 @@ const colorGray = new vec4(0.3, 0.3, 0.3, 1.0);
 /** @type {ScriptComponent} */
 var mlController = script.mlController;
 if (!mlController || !mlController.onDetectionsUpdated) {
-    print("Error, MLController script input is not set or wrong script referenced");
-    return;
+  print("Error, MLController script input is not set or wrong script referenced");
+  return;
 }
 
 //@input int classIndex
@@ -34,11 +34,11 @@ interactionComponent.addMeshVisual(meshVisual);
 interactionComponent.onTouchStart.add(toggle);
 
 function toggle() {
-    isTracking = !mlController.getClassEnabled(classIndex);
-    
-    mlController.setClassEnabled(classIndex, isTracking);
-    
-    if (meshVisual.mainPass && meshVisual.mainPass.baseColor != undefined) {
-        meshVisual.mainPass.baseColor = isTracking ? colorWhite : colorGray;
-    }
+  isTracking = !mlController.getClassEnabled(classIndex);
+
+  mlController.setClassEnabled(classIndex, isTracking);
+
+  if (meshVisual.mainPass && meshVisual.mainPass.baseColor != undefined) {
+    meshVisual.mainPass.baseColor = isTracking ? colorWhite : colorGray;
+  }
 }

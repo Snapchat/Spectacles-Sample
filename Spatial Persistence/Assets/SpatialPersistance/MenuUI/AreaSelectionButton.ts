@@ -1,5 +1,5 @@
-import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable"
-import Event, { PublicApi } from "SpectaclesInteractionKit.lspkg/Utils/Event"
+import {Interactable} from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable"
+import Event, {PublicApi} from "SpectaclesInteractionKit.lspkg/Utils/Event"
 
 /**
  * A simple button using SpectaclesInteractionKit events to signal user intent to select a certain area and load serialized content.
@@ -21,9 +21,7 @@ export class AreaSelectionButton extends BaseScriptComponent {
   }
 
   onStart() {
-    this.interactable = this.sceneObject.getComponent(
-      Interactable.getTypeName()
-    )
+    this.interactable = this.sceneObject.getComponent(Interactable.getTypeName())
 
     this.interactable.onTriggerEnd.add((event) => {
       this.onSelectEvent.invoke()

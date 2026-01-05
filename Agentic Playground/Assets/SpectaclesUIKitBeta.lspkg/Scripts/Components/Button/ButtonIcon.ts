@@ -1,8 +1,8 @@
 import NativeLogger from "SpectaclesInteractionKit.lspkg/Utils/NativeLogger"
 import {RoundedRectangleVisual} from "../../Visuals/RoundedRectangle/RoundedRectangleVisual"
 
-import {Callback, createCallbacks} from "../../Utility/SceneUtilities"
 import {StateEvent} from "../../Utility/InteractableStateMachine"
+import {Callback, createCallbacks} from "../../Utility/SceneUtilities"
 import {VisualElement} from "../VisualElement"
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

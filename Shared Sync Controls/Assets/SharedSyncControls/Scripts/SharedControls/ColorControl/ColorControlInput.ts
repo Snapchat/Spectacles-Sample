@@ -4,7 +4,6 @@ import {SliderControlInput} from "./SliderControl/SliderControlInput"
 // necessary for the proper functioning of the ColorControl class.
 @component
 export class ColorControlInput extends BaseScriptComponent {
-
   // Root scene object that serves as the container for the color control UI
   @input
   readonly root: SceneObject
@@ -16,5 +15,4 @@ export class ColorControlInput extends BaseScriptComponent {
   // Array of SliderControlInput components used to adjust RGB color parameters
   @input
   readonly sliderControlsInput: SliderControlInput[]
-
 }

@@ -1,72 +1,67 @@
-import { Billboard } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Billboard/Billboard";
-import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable";
-import Event, { PublicApi } from "SpectaclesInteractionKit.lspkg/Utils/Event";
-import { SnapToWorld } from "../WorldQuery/SnapToWorld";
-import { DragInteractorEvent } from "SpectaclesInteractionKit.lspkg/Core/Interactor/InteractorEvent";
+import {Billboard} from "SpectaclesInteractionKit.lspkg/Components/Interaction/Billboard/Billboard"
+import {Interactable} from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable"
+import {DragInteractorEvent} from "SpectaclesInteractionKit.lspkg/Core/Interactor/InteractorEvent"
+import Event from "SpectaclesInteractionKit.lspkg/Utils/Event"
+import {SnapToWorld} from "../WorldQuery/SnapToWorld"
 
 export type WidgetSelectionEvent = {
-  widgetIndex: number;
-  position: vec3;
-  rotation: quat;
-};
+  widgetIndex: number
+  position: vec3
+  rotation: quat
+}
 
 @component
 export class WidgetSelection extends BaseScriptComponent {
   @input
-  private interactable: Interactable;
+  private interactable: Interactable
 
-  private index: number;
+  private index: number
 
-  private interactableTransform: Transform;
-  private cachedDragPosition: vec3;
-  private cachedDragRotation: quat;
+  private interactableTransform: Transform
+  private cachedDragPosition: vec3
+  private cachedDragRotation: quat
 
-  private snapToWorld: SnapToWorld;
+  private snapToWorld: SnapToWorld
 
-  private onSelectedEvent = new Event<WidgetSelectionEvent>();
-  public readonly OnSelectedEvent = this.onSelectedEvent.publicApi();
+  private onSelectedEvent = new Event<WidgetSelectionEvent>()
+  public readonly OnSelectedEvent = this.onSelectedEvent.publicApi()
 
   initialize(index: number): void {
-    this.snapToWorld = SnapToWorld.getInstance();
+    this.snapToWorld = SnapToWorld.getInstance()
 
-    this.index = index;
-    this.interactableTransform = this.interactable.getTransform();
+    this.index = index
+    this.interactableTransform = this.interactable.getTransform()
 
     this.interactable.onDragStart.add((eventData: DragInteractorEvent) => {
-      this.snapToWorld.startManipulating(eventData);
+      this.snapToWorld.startManipulating(eventData)
 
-      this.interactable.sceneObject.getComponent(
-        Billboard.getTypeName()
-      ).enabled = true;
-    });
+      this.interactable.sceneObject.getComponent(Billboard.getTypeName()).enabled = true
+    })
 
     // Had to cache the position in onDragUpdate as the ScreenTransform will enforce the layout position when onDragEnd is triggered
     this.interactable.onDragUpdate.add((eventData: DragInteractorEvent) => {
-      this.snapToWorld.updateManipulating(eventData);
+      this.snapToWorld.updateManipulating(eventData)
 
-      this.cachedDragPosition = this.interactableTransform.getWorldPosition();
-      this.cachedDragRotation = this.interactableTransform.getWorldRotation();
-    });
+      this.cachedDragPosition = this.interactableTransform.getWorldPosition()
+      this.cachedDragRotation = this.interactableTransform.getWorldRotation()
+    })
 
     this.interactable.onDragEnd.add((eventData) => {
-      const transformOnNoteInWorld = this.snapToWorld.getCurrentTransform();
+      const transformOnNoteInWorld = this.snapToWorld.getCurrentTransform()
       if (transformOnNoteInWorld) {
-        this.cachedDragPosition = transformOnNoteInWorld.getWorldPosition();
-        this.cachedDragRotation = transformOnNoteInWorld.getWorldRotation();
+        this.cachedDragPosition = transformOnNoteInWorld.getWorldPosition()
+        this.cachedDragRotation = transformOnNoteInWorld.getWorldRotation()
       }
-      this.snapToWorld.endManipulating(eventData);
+      this.snapToWorld.endManipulating(eventData)
 
-      this.interactable.sceneObject.getComponent(
-        Billboard.getTypeName()
-      ).enabled = false;
+      this.interactable.sceneObject.getComponent(Billboard.getTypeName()).enabled = false
       this.interactableTransform.setLocalPosition(vec3.zero())
-      this.interactableTransform
-        .setLocalRotation(quat.fromEulerAngles(0, 0, 0));
+      this.interactableTransform.setLocalRotation(quat.fromEulerAngles(0, 0, 0))
       this.onSelectedEvent.invoke({
         widgetIndex: this.index,
         position: this.cachedDragPosition,
-        rotation: this.cachedDragRotation,
-      });
-    });
+        rotation: this.cachedDragRotation
+      })
+    })
   }
 }

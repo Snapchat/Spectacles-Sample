@@ -59,5 +59,5 @@ export class ProjectVariantSelector extends BaseScriptComponent {
 
 enum VariantType {
   Indoors = 0,
-  Outdoors = 1,
+  Outdoors = 1
 }

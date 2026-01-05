@@ -148,7 +148,10 @@ with the requested image and mesh.
 
 ---
 
-*Built with 👻 by the Spectacles team*
- 
+*Built with 👻 by the Spectacles team*  
+
+---
+
+This project includes a `ci_export.json` file for CI/CD configuration.
 
 

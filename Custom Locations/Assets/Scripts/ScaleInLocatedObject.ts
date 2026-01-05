@@ -1,13 +1,10 @@
-import { LocatedObject } from "./LocatedObject"
+import {LocatedObject} from "./LocatedObject"
 
 /**
  * Animates appearing and disappearing through scaling.
  */
 @component
-export class ScaleInLocatedObject
-  extends BaseScriptComponent
-  implements LocatedObject
-{
+export class ScaleInLocatedObject extends BaseScriptComponent implements LocatedObject {
   @input
   @allowUndefined
   @hint("Will be enabled the first time it is activated")
@@ -18,13 +15,13 @@ export class ScaleInLocatedObject
   private targetScaleIn: number = 0.0
 
   onAwake() {
-    let t = this.contentSceneObject.getTransform()
+    const t = this.contentSceneObject.getTransform()
     this.targetScaleIn = t.getLocalScale().x
     t.setLocalScale(new vec3(0, 0, 0))
 
     this.createEvent("UpdateEvent").bind(() => {
       if (this.animationSpeed !== 0.0) {
-        let t = this.contentSceneObject.getTransform()
+        const t = this.contentSceneObject.getTransform()
         let currScale = t.getLocalScale().x + this.animationSpeed
 
         if (currScale < 0) {

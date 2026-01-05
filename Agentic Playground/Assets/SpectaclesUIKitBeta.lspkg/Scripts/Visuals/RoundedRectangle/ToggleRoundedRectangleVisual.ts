@@ -1,7 +1,7 @@
 import {StateName} from "../../Components/Element"
 import {VisualState} from "../Visual"
-import {RoundedRectangleVisual} from "./RoundedRectangleVisual"
 import {GradientParameters} from "./RoundedRectangle"
+import {RoundedRectangleVisual} from "./RoundedRectangleVisual"
 
 type ToggleRoundedRectangleVisualState = {
   baseGradient: GradientParameters
@@ -19,18 +19,18 @@ export class ToggleRoundedRectangleVisual extends RoundedRectangleVisual {
   private readonly darkGray = new vec4(0.4, 0.4, 0.4, 1)
   private originalGradientSetting: boolean = true
   private currentState: StateName = StateName.default
-  
+
   /**
    * Override setState to properly handle dark gray color for toggled states
    */
   setState(stateName: StateName) {
     this.currentState = stateName
-    
+
     // Store original gradient setting for non-toggled states
     if (stateName !== StateName.toggledDefault && stateName !== StateName.toggledHovered) {
       this.originalGradientSetting = this.isBaseGradient
     }
-    
+
     // For toggled states, force solid color mode
     if (stateName === StateName.toggledDefault || stateName === StateName.toggledHovered) {
       // Completely disable gradient for background
@@ -45,7 +45,7 @@ export class ToggleRoundedRectangleVisual extends RoundedRectangleVisual {
       super.setState(stateName)
     }
   }
-  
+
   /**
    * Override updateColors to prevent gradient from overriding our dark gray color
    */
@@ -57,7 +57,7 @@ export class ToggleRoundedRectangleVisual extends RoundedRectangleVisual {
     }
     super.updateColors(meshColor)
   }
-  
+
   /**
    * Override updateGradient to prevent gradient updates for toggled states
    */

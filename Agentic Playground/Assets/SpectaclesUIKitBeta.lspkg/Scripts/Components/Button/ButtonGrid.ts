@@ -1,6 +1,6 @@
 import NativeLogger from "SpectaclesInteractionKit.lspkg/Utils/NativeLogger"
-import {RoundedRectangleVisual} from "../../Visuals/RoundedRectangle/RoundedRectangleVisual"
 import {Callback, createCallbacks} from "../../Utility/SceneUtilities"
+import {RoundedRectangleVisual} from "../../Visuals/RoundedRectangle/RoundedRectangleVisual"
 import {VisualElement} from "../VisualElement"
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -30,7 +30,7 @@ export class ButtonGrid extends VisualElement {
   protected setUpEventCallbacks(): void {
     // Always call parent to set up base trigger events
     super.setUpEventCallbacks()
-    
+
     // Add additional callbacks if enabled
     if (this.addCallbacks) {
       this.onTriggerUp.add(createCallbacks(this.triggerUpCallbacks))

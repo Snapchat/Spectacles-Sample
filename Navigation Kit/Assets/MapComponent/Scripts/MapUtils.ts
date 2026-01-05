@@ -1,5 +1,5 @@
-import { CancelFunction } from "SpectaclesInteractionKit.lspkg/Utils/animate"
-import { LensConfig } from "SpectaclesInteractionKit.lspkg/Utils/LensConfig"
+import {CancelFunction} from "SpectaclesInteractionKit.lspkg/Utils/animate"
+import {LensConfig} from "SpectaclesInteractionKit.lspkg/Utils/LensConfig"
 
 export const EPSILON = 0.000001
 
@@ -18,20 +18,17 @@ export function forEachSceneObjectInSubHierarchy(
   if (includeSelf === undefined || includeSelf) {
     fn(sceneObject)
   }
-  for (var i = 0; i < sceneObject.getChildrenCount(); i++) {
-    var childSceneObject = sceneObject.getChild(i)
+  for (let i = 0; i < sceneObject.getChildrenCount(); i++) {
+    const childSceneObject = sceneObject.getChild(i)
     fn(childSceneObject)
     forEachSceneObjectInSubHierarchy(childSceneObject, fn, false)
   }
 }
 
 // |SceneObject| Find a script component with an unique property name
-export function findScriptComponent(
-  sceneObject: SceneObject,
-  propertyName: string
-) {
-  var components = sceneObject.getComponents("ScriptComponent")
-  for (var idx = 0; idx < components.length; idx++) {
+export function findScriptComponent(sceneObject: SceneObject, propertyName: string) {
+  const components = sceneObject.getComponents("ScriptComponent")
+  for (let idx = 0; idx < components.length; idx++) {
     if ((components[idx] as any)[propertyName]) {
       return components[idx]
     }
@@ -52,52 +49,31 @@ export function getSceneRoot(sceneObject: SceneObject) {
 }
 
 // |Math| Maps a number to a different interval. With optional clamping and easing.
-export function map(
-  input: number,
-  inputMin: number,
-  inputMax: number,
-  outputMin: number,
-  outputMax: number
-): number {
+export function map(input: number, inputMin: number, inputMax: number, outputMin: number, outputMax: number): number {
   input = (input - inputMin) / (inputMax - inputMin)
-  var output = input * (outputMax - outputMin) + outputMin
+  const output = input * (outputMax - outputMin) + outputMin
   return output
 }
 
 // |UI| Get screen transform positions as array. Useful for checking is a screen transforms bounds changed with [compare-screen-transforms-positions-array](./compare-screen-transforms-positions-array.js).
-export function getScreenTransformPositionsAsArray(
-  screenTransform: ScreenTransform
-): vec3[] {
-  return [
-    screenTransform.localPointToWorldPoint(vec2.zero()),
-    screenTransform.localPointToWorldPoint(vec2.one())
-  ]
+export function getScreenTransformPositionsAsArray(screenTransform: ScreenTransform): vec3[] {
+  return [screenTransform.localPointToWorldPoint(vec2.zero()), screenTransform.localPointToWorldPoint(vec2.one())]
 }
 
 // |UI| Determine is a screen transform is below a screen point and is active. Handy for touch & tap start events.
-export function wasClicked(
-  screenTransform: ScreenTransform,
-  screenPoint: vec2
-): boolean {
-  return (
-    screenTransform.getSceneObject().isEnabledInHierarchy &&
-    screenTransform.containsScreenPoint(screenPoint)
-  )
+export function wasClicked(screenTransform: ScreenTransform, screenPoint: vec2): boolean {
+  return screenTransform.getSceneObject().isEnabledInHierarchy && screenTransform.containsScreenPoint(screenPoint)
 }
 
 // |UI| Get screen transform width.
-export function getScreenTransformWorldWidth(
-  screenTransform: ScreenTransform
-): number {
+export function getScreenTransformWorldWidth(screenTransform: ScreenTransform): number {
   return screenTransform
     .localPointToWorldPoint(new vec2(-1, -1))
     .distance(screenTransform.localPointToWorldPoint(new vec2(1, -1)))
 }
 
 // |UI| Get screen transform height
-export function getScreenTransformWorldHeight(
-  screenTransform: ScreenTransform
-): number {
+export function getScreenTransformWorldHeight(screenTransform: ScreenTransform): number {
   return screenTransform
     .localPointToWorldPoint(new vec2(-1, 1))
     .distance(screenTransform.localPointToWorldPoint(new vec2(-1, -1)))
@@ -126,11 +102,7 @@ export function getOffsetForLocation(
   latitude: number,
   longitude: number
 ): vec2 {
-  var tileOffsetForLocation = mapModule.longLatToImageRatio(
-    latitude,
-    longitude,
-    initialLocation
-  )
+  const tileOffsetForLocation = mapModule.longLatToImageRatio(latitude, longitude, initialLocation)
 
   // Align the user position with the top left of the grid
   return new vec2(-tileOffsetForLocation.x, -tileOffsetForLocation.y)
@@ -174,10 +146,7 @@ export type LocationBoundScreenTransform = {
 }
 
 // |UI| Compare screen transform positions array. Useful for checking is a screen transforms bounds changed with [get-screen-transform-positions-as-array](./get-screen-transform-positions-as-array.js).
-export function compareScreenTransformsPositionsArray(
-  a: vec3[],
-  b: vec3[]
-): boolean {
+export function compareScreenTransformsPositionsArray(a: vec3[], b: vec3[]): boolean {
   return a.toString() === b.toString()
 }
 
@@ -211,20 +180,13 @@ export function isFunction(fn) {
 }
 
 // Interpolating between rotations
-export function interpolate(
-  startRotation: quat,
-  endRotation: quat,
-  peakVelocity: number
-) {
-  var step = peakVelocity * getDeltaTime()
+export function interpolate(startRotation: quat, endRotation: quat, peakVelocity: number) {
+  const step = peakVelocity * getDeltaTime()
   return quat.slerp(startRotation, endRotation, step)
 }
 
 // |Time| Will call a callback function every frame for a set duration with a number increasing from 0 to 1.
-export function makeTween(
-  callback: (time: number) => void,
-  duration: number
-): CancelFunction {
+export function makeTween(callback: (time: number) => void, duration: number): CancelFunction {
   const updateDispatcher = LensConfig.getInstance().updateDispatcher
   const lateUpdateEvent = updateDispatcher.createLateUpdateEvent("Tween")
   const startTime = getTime()
@@ -271,9 +233,7 @@ export function addRenderMeshVisual(
   material: Material,
   renderOrder: number
 ) {
-  let renderMeshVisual = sceneObject.createComponent(
-    "Component.RenderMeshVisual"
-  )
+  const renderMeshVisual = sceneObject.createComponent("Component.RenderMeshVisual")
   renderMeshVisual.addMaterial(material)
   renderMeshVisual.mesh = mesh
   renderMeshVisual.setRenderOrder(renderOrder)
@@ -284,17 +244,12 @@ export function addRenderMeshVisual(
  * Making circle 2D mesh
  */
 export function makeCircle2DMesh(position: vec3, radius: number): RenderMesh {
-  const builder = new MeshBuilder([{ name: "position", components: 3 }])
+  const builder = new MeshBuilder([{name: "position", components: 3}])
 
   builder.topology = MeshTopology.Triangles
   builder.indexType = MeshIndexType.UInt16
 
-  const [indices, vertices] = this.makeCircle2DIndicesVerticesPair(
-    position,
-    radius,
-    16,
-    0
-  )
+  const [indices, vertices] = this.makeCircle2DIndicesVerticesPair(position, radius, 16, 0)
 
   builder.appendIndices(indices)
   builder.appendVerticesInterleaved(vertices)
@@ -339,22 +294,14 @@ export function makeCircle2DIndicesVerticesPair(
 /**
  * Making line mesh with joints
  */
-export function makeLineStrip2DMeshWithJoints(
-  positions: vec3[],
-  thickness: number
-): RenderMesh {
-  const builder = new MeshBuilder([{ name: "position", components: 3 }])
+export function makeLineStrip2DMeshWithJoints(positions: vec3[], thickness: number): RenderMesh {
+  const builder = new MeshBuilder([{name: "position", components: 3}])
 
   builder.topology = MeshTopology.Triangles
   builder.indexType = MeshIndexType.UInt16
 
   for (let i = 0; i < positions.length - 1; ++i) {
-    const [indices, vertices] = this.makeLine2DIndicesVerticesPair(
-      positions[i],
-      positions[i + 1],
-      thickness,
-      i * 4
-    )
+    const [indices, vertices] = this.makeLine2DIndicesVerticesPair(positions[i], positions[i + 1], thickness, i * 4)
 
     builder.appendIndices(indices)
     builder.appendVerticesInterleaved(vertices)
@@ -397,14 +344,7 @@ export function makeLine2DIndicesVerticesPair(
 
   return [
     // indices
-    [
-      0 + indicesOffset,
-      1 + indicesOffset,
-      2 + indicesOffset,
-      2 + indicesOffset,
-      1 + indicesOffset,
-      3 + indicesOffset
-    ],
+    [0 + indicesOffset, 1 + indicesOffset, 2 + indicesOffset, 2 + indicesOffset, 1 + indicesOffset, 3 + indicesOffset],
     // vertices
     [
       start.x + right.x,
@@ -423,10 +363,7 @@ export function makeLine2DIndicesVerticesPair(
   ]
 }
 
-export function getPhysicalDistanceBetweenLocations(
-  location1: GeoCoordinate,
-  location2: GeoCoordinate
-): number {
+export function getPhysicalDistanceBetweenLocations(location1: GeoCoordinate, location2: GeoCoordinate): number {
   const long1 = location1.longitude * MathUtils.DegToRad
   const lat1 = location1.latitude * MathUtils.DegToRad
   const long2 = location2.longitude * MathUtils.DegToRad
@@ -449,10 +386,7 @@ export function getPhysicalDistanceBetweenLocations(
  * @param {LongLatPosition} end - The ending point with latitude and longitude.
  * @returns {number} The bearing in radians from the start point to the end point.
  */
-export function calculateBearing(
-  start: GeoCoordinate,
-  end: GeoCoordinate
-): number {
+export function calculateBearing(start: GeoCoordinate, end: GeoCoordinate): number {
   const startLat = start.latitude * MathUtils.DegToRad
   const startLng = start.longitude * MathUtils.DegToRad
   const endLat = end.latitude * MathUtils.DegToRad
@@ -461,9 +395,7 @@ export function calculateBearing(
   const dLng = endLng - startLng
 
   const y = Math.sin(dLng) * Math.cos(endLat)
-  const x =
-    Math.cos(startLat) * Math.sin(endLat) -
-    Math.sin(startLat) * Math.cos(endLat) * Math.cos(dLng)
+  const x = Math.cos(startLat) * Math.sin(endLat) - Math.sin(startLat) * Math.cos(endLat) * Math.cos(dLng)
 
   const bearing = Math.atan2(y, x)
 
@@ -487,10 +419,8 @@ export function normalizeAngle(angle: number): number {
  */
 export function quaternionToRoll(quaternion: quat): number {
   // Calculate the roll angle from the quaternion
-  const sinRoll =
-    2.0 * (quaternion.w * quaternion.z + quaternion.x * quaternion.y)
-  const cosRoll =
-    1.0 - 2.0 * (quaternion.y * quaternion.y + quaternion.z * quaternion.z)
+  const sinRoll = 2.0 * (quaternion.w * quaternion.z + quaternion.x * quaternion.y)
+  const cosRoll = 1.0 - 2.0 * (quaternion.y * quaternion.y + quaternion.z * quaternion.z)
   return Math.atan2(sinRoll, cosRoll)
 }
 
@@ -506,8 +436,7 @@ export function quaternionToPitch(quaternion: quat): number {
 
   quaternion = quaternion.multiply(inverseRollQuaternion)
 
-  let sinPitch =
-    2.0 * (quaternion.w * quaternion.x - quaternion.y * quaternion.z)
+  let sinPitch = 2.0 * (quaternion.w * quaternion.x - quaternion.y * quaternion.z)
 
   // Clamp sinPitch between -1 and 1 to prevent NaN results from asin
   sinPitch = Math.max(-1.0, Math.min(1.0, sinPitch))
@@ -521,13 +450,7 @@ const easeOutElasticConstant = (2 * Math.PI) / 3
  * @param x Should be between 0 and 1
  */
 export function easeOutElastic(x: number): number {
-  return x === 0
-    ? 0
-    : x === 1
-    ? 1
-    : Math.pow(2, -10 * x) *
-        Math.sin((x * 10 - 0.75) * easeOutElasticConstant) +
-      1
+  return x === 0 ? 0 : x === 1 ? 1 : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * easeOutElasticConstant) + 1
 }
 
 export function customGetEuler(quaternion: quat): vec3 {
@@ -554,15 +477,9 @@ export function customGetEuler(quaternion: quat): vec3 {
     pitch = -Math.PI / 2
     roll = 0
   } else {
-    yaw = Math.atan2(
-      2 * quaternion.y * quaternion.w - 2 * quaternion.x * quaternion.z,
-      sqx - sqy - sqz + sqw
-    )
+    yaw = Math.atan2(2 * quaternion.y * quaternion.w - 2 * quaternion.x * quaternion.z, sqx - sqy - sqz + sqw)
     pitch = Math.asin((2 * test) / unit)
-    roll = Math.atan2(
-      2 * quaternion.x * quaternion.w - 2 * quaternion.y * quaternion.z,
-      -sqx + sqy - sqz + sqw
-    )
+    roll = Math.atan2(2 * quaternion.x * quaternion.w - 2 * quaternion.y * quaternion.z, -sqx + sqy - sqz + sqw)
   }
   const r = new vec3(
     pitch < 0 ? pitch + Math.PI * 2 : pitch,

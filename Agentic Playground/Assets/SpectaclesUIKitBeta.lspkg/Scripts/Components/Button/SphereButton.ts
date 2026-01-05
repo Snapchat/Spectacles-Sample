@@ -2,7 +2,7 @@ import NativeLogger from "SpectaclesInteractionKit.lspkg/Utils/NativeLogger"
 import {SphereVisual} from "../../Visuals/Sphere/SphereVisual"
 import {Button} from "./Button"
 
-const log = new NativeLogger("SphereButton") // eslint-disable-line @typescript-eslint/no-unused-vars
+const log = new NativeLogger("SphereButton")  
 
 /**
  * Represents a SphereButton component that extends the base Button class.

@@ -12,61 +12,63 @@
 //@input float arcAngleSpan = 360 {"hint":"Angular span of the arc in degrees (0-360, where 360 is a full circle)"}
 
 function CirclePerimeterInstantiatorWithFixedArcLength() {
-    // Initialize with the proper pattern
-    script.createEvent("OnStartEvent").bind(onStart);
+  // Initialize with the proper pattern
+  script.createEvent("OnStartEvent").bind(onStart);
 
-    function onStart() {
-        instantiatePrefabs();
+  function onStart() {
+    instantiatePrefabs();
+  }
+
+  // Method to instantiate prefabs along the circle perimeter
+  function instantiatePrefabs() {
+    if (!script.center || !script.prefab || script.radius <= 0 || script.numberOfPrefabs <= 0) {
+      print(
+        "Error: Invalid parameters! Ensure radius and number of prefabs are greater than zero, and center/prefab are assigned."
+      );
+      return;
     }
 
-    // Method to instantiate prefabs along the circle perimeter
-    function instantiatePrefabs() {
-        if (!script.center || !script.prefab || script.radius <= 0 || script.numberOfPrefabs <= 0) {
-            print("Error: Invalid parameters! Ensure radius and number of prefabs are greater than zero, and center/prefab are assigned.");
-            return;
-        }
+    // Convert angles to radians
+    var startAngleRad = (script.startAngle * Math.PI) / 180;
+    var arcSpanRad = (script.arcAngleSpan * Math.PI) / 180;
 
-        // Convert angles to radians
-        var startAngleRad = (script.startAngle * Math.PI) / 180;
-        var arcSpanRad = (script.arcAngleSpan * Math.PI) / 180;
-        
-        // Get the number of prefabs to instantiate
-        var prefabCount = script.numberOfPrefabs;
-        
-        // Calculate angle step based on the number of prefabs
-        var angleStep = (prefabCount > 1) ? arcSpanRad / (prefabCount - 1) : 0;
-        
-        // If we're working with a very small arc or just one prefab
-        if (prefabCount <= 1 || script.arcAngleSpan <= 0) {
-            prefabCount = 1;
-        }
+    // Get the number of prefabs to instantiate
+    var prefabCount = script.numberOfPrefabs;
 
-        var centerPosition = script.center.getTransform().getWorldPosition();
+    // Calculate angle step based on the number of prefabs
+    var angleStep = prefabCount > 1 ? arcSpanRad / (prefabCount - 1) : 0;
 
-        for (var i = 0; i < prefabCount; i++) {
-            // Calculate angle for each prefab
-            var angle = startAngleRad + (i * angleStep);
-
-            // Calculate the position on the perimeter of the circle
-            var positionOnCircle = new vec3(
-                centerPosition.x + Math.cos(angle) * script.radius,
-                centerPosition.y + Math.sin(angle) * script.radius,
-                centerPosition.z
-            );
-
-            // Create a prefab instance at the calculated position
-            createPrefabInstance(positionOnCircle);
-        }
+    // If we're working with a very small arc or just one prefab
+    if (prefabCount <= 1 || script.arcAngleSpan <= 0) {
+      prefabCount = 1;
     }
 
-    // Helper method to create a prefab instance at a specific position
-    function createPrefabInstance(position) {
-        if (script.prefab) {
-            var instance = script.prefab.instantiate(script.sceneObject);
-            instance.getTransform().setWorldPosition(position);
-            print("Created prefab instance at position: " + position.x + ", " + position.y + ", " + position.z);
-        }
+    var centerPosition = script.center.getTransform().getWorldPosition();
+
+    for (var i = 0; i < prefabCount; i++) {
+      // Calculate angle for each prefab
+      var angle = startAngleRad + i * angleStep;
+
+      // Calculate the position on the perimeter of the circle
+      var positionOnCircle = new vec3(
+        centerPosition.x + Math.cos(angle) * script.radius,
+        centerPosition.y + Math.sin(angle) * script.radius,
+        centerPosition.z
+      );
+
+      // Create a prefab instance at the calculated position
+      createPrefabInstance(positionOnCircle);
     }
+  }
+
+  // Helper method to create a prefab instance at a specific position
+  function createPrefabInstance(position) {
+    if (script.prefab) {
+      var instance = script.prefab.instantiate(script.sceneObject);
+      instance.getTransform().setWorldPosition(position);
+      print("Created prefab instance at position: " + position.x + ", " + position.y + ", " + position.z);
+    }
+  }
 }
 
 // Register the script

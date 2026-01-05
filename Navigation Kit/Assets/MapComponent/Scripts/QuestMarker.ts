@@ -24,7 +24,7 @@ export abstract class QuestMarker {
     boundaryHalfWidthProjection: number,
     boundaryHalfWidth: number,
     boundaryHalfHeight: number,
-    halfFov: number,
+    halfFov: number
   ): void {
     this.transform = transform
     this.transform.setLocalScale(new vec3(scale, scale, scale))
@@ -119,9 +119,9 @@ export abstract class QuestMarker {
       MathUtils.clamp(
         (screenSpaceRaw.x - 0.5) * this.boundaryHalfWidthProjection * 2 * (isOnTheBack ? -1 : 1),
         -this.boundaryHalfWidth,
-        this.boundaryHalfWidth,
+        this.boundaryHalfWidth
       ),
-      MathUtils.lerp(-this.boundaryHalfHeight, this.boundaryHalfHeight, 1 - screenSpaceRaw.y),
+      MathUtils.lerp(-this.boundaryHalfHeight, this.boundaryHalfHeight, 1 - screenSpaceRaw.y)
     )
   }
 

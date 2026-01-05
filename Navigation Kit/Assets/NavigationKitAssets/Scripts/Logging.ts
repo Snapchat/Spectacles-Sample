@@ -47,7 +47,7 @@ export class LoggerVisualization extends BaseScriptComponent {
     return LoggerVisualization.theLoggerBus
   }
   static createLogger(topic: string): Logger {
-    let logger = new Logger()
+    const logger = new Logger()
     logger.bus = LoggerVisualization.busInstance
     logger.topic = topic
     return logger

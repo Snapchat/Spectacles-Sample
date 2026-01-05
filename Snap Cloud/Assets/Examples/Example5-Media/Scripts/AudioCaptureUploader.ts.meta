@@ -1,0 +1,74 @@
+- !<AssetImportMetadata/b7893717-bf65-0018-b884-902d19ed213e>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 188821b6-c558-4805-9c45-fa76d6428e77
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 188821b6-c558-4805-9c45-fa76d6428e77
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> ec8909eb-63db-4734-a61d-022015eab15e
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/ec8909eb-63db-4734-a61d-022015eab15e>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 5df5639d-12d2-49f7-903e-ccf1f66c7a5e
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    buttonText: false
+    chunkDurationMs: false
+    enableDebugLogs: false
+    microphoneAsset: false
+    recordButton: false
+    sampleRate: false
+    snapCloudRequirements: false
+    statusText: false
+    storageBucket: false
+    storageFolder: false
+    testSingleChunk: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - snapCloudRequirements: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      storageBucket: specs-bucket
+      storageFolder: audio-recordings
+      microphoneAsset: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      sampleRate: !<float> 44100.000000
+      chunkDurationMs: !<float> 100.000000
+      recordButton: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      statusText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      buttonText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      enableDebugLogs: true
+      testSingleChunk: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType snapCloudRequirements {"hint":"Reference to SnapCloudRequirements for centralized Supabase configuration"}'
+    - '// @input string storageBucket = "specs-bucket" {"hint":"Supabase Storage bucket name for audio chunks"}'
+    - '// @input string storageFolder = "audio-recordings" {"hint":"Supabase Storage folder path for audio uploads"}'
+    - '// @input Asset.AudioTrackAsset microphoneAsset {"hint":"Microphone audio track asset for recording"}'
+    - '// @input float sampleRate = 16000 {"hint":"Audio sample rate (Hz) - Use 16000 for voice, higher rates may cause chipmunk effect if not supported", "widget":"slider", "min":8000, "max":48000, "step":1000}'
+    - '// @input float chunkDurationMs = 1000 {"hint":"Audio chunk size in milliseconds", "widget":"slider", "min":100, "max":2000, "step":100}'
+    - '// @input AssignableType_1 recordButton {"hint":"Button to start/stop audio recording"}'
+    - '// @input Component.Text statusText {"hint":"Text component to display status"}'
+    - '// @input Component.Text buttonText {"hint":"Text component to display button state (Start/Stop)"}'
+    - '// @input bool enableDebugLogs = true {"hint":"Enable detailed debug logging"}'
+    - '// @input bool testSingleChunk {"hint":"Test with single audio chunk capture before continuous"}'

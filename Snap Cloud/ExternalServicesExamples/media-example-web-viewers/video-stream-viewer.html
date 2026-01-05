@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spectacles Live Stream Viewer</title>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .stream-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .connection-panel {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin: 10px 0;
+        }
+
+        .input-group label {
+            display: block;
+            color: white;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .input-group input {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 14px;
+        }
+
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 10px;
+            transition: transform 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            background: rgba(255, 255, 255, 0.3);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .status {
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-weight: 500;
+        }
+
+        .status.connected {
+            background: rgba(76, 175, 80, 0.3);
+            color: #4caf50;
+            border: 1px solid rgba(76, 175, 80, 0.5);
+        }
+
+        .status.disconnected {
+            background: rgba(244, 67, 54, 0.3);
+            color: #f44336;
+            border: 1px solid rgba(244, 67, 54, 0.5);
+        }
+
+        .status.waiting {
+            background: rgba(255, 193, 7, 0.3);
+            color: #ffc107;
+            border: 1px solid rgba(255, 193, 7, 0.5);
+        }
+
+        .video-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #streamCanvas {
+            max-width: 100%;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            display: block;
+            margin: 0 auto;
+        }
+
+        .stream-info {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            color: white;
+            font-size: 14px;
+        }
+
+        .stream-info div {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin: 0 5px;
+            flex: 1;
+            text-align: center;
+        }
+
+        .error-message {
+            background: rgba(244, 67, 54, 0.3);
+            color: #f44336;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border: 1px solid rgba(244, 67, 54, 0.5);
+            display: none;
+        }
+
+        .buffer-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 15px 0;
+            color: white;
+            font-size: 14px;
+        }
+
+        .buffer-controls label {
+            margin-right: 10px;
+        }
+
+        .buffer-controls input[type="range"] {
+            width: 150px;
+            margin: 0 10px;
+        }
+
+        .buffer-controls span {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 8px;
+            border-radius: 4px;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .log-panel {
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .log-header {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .log-content {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #00ff00;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .log-line {
+            margin: 2px 0;
+            padding: 2px 5px;
+            border-left: 2px solid transparent;
+        }
+
+        .log-line.info {
+            color: #00ff00;
+            border-left-color: #00ff00;
+        }
+
+        .log-line.success {
+            color: #4caf50;
+            border-left-color: #4caf50;
+        }
+
+        .log-line.error {
+            color: #f44336;
+            border-left-color: #f44336;
+        }
+
+        .log-line.warning {
+            color: #ffc107;
+            border-left-color: #ffc107;
+        }
+
+        .clear-log-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .clear-log-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📹 Spectacles Live Stream Viewer</h1>
+        <p>Connect to view live video stream from Spectacles</p>
+    </div>
+
+    <div class="stream-container">
+        <div class="connection-panel">
+            <div class="input-group">
+                <label for="supabaseUrl">Supabase Project URL:</label>
+                <input type="text" id="supabaseUrl" placeholder="https://your-project.supabase.co">
+            </div>
+
+            <div class="input-group">
+                <label for="supabaseKey">Supabase Anon Key:</label>
+                <input type="text" id="supabaseKey" placeholder="your-anon-key">
+            </div>
+
+            <div class="input-group">
+                <label for="channelName">Stream Channel:</label>
+                <input type="text" id="channelName" value="live-video-stream" placeholder="live-video-stream">
+            </div>
+
+            <button id="connectBtn" class="btn">Connect to Stream</button>
+            <button id="disconnectBtn" class="btn" disabled>Disconnect</button>
+        </div>
+
+        <div id="statusPanel" class="status waiting">
+            Ready to connect
+        </div>
+
+        <div id="errorPanel" class="error-message"></div>
+
+        <div class="stream-info" style="display: none;" id="streamInfo">
+            <div id="frameCount">Frames: 0</div>
+            <div id="fps">FPS: 0</div>
+            <div id="quality">Quality: 0%</div>
+            <div id="duration">Duration: 0s</div>
+            <div id="bufferStatus">Buffer: 0</div>
+        </div>
+
+        <div class="buffer-controls" style="display: none;" id="bufferControls">
+            <label>Buffer Delay:</label>
+            <input type="range" id="bufferDelaySlider" min="100" max="2000" value="100" step="100">
+            <span id="bufferDelayValue">100ms</span>
+
+            <label style="margin-left: 20px;">Buffer Size:</label>
+            <input type="range" id="bufferSizeSlider" min="2" max="15" value="4" step="1">
+            <span id="bufferSizeValue">4 frames</span>
+        </div>
+
+        <div class="video-container">
+            <canvas id="streamCanvas" width="640" height="480"></canvas>
+        </div>
+
+        <div class="log-panel">
+            <div class="log-header">
+                <span>📋 Connection Log</span>
+                <button id="clearLogBtn" class="clear-log-btn">Clear Log</button>
+            </div>
+            <div id="logContent" class="log-content">
+                <div class="log-line info">Waiting to connect...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class SpectaclesStreamViewer {
+            constructor() {
+                this.supabaseClient = null;
+                this.channel = null;
+                this.canvas = document.getElementById('streamCanvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.isConnected = false;
+                this.frameCount = 0;
+                this.lastFrameTime = 0;
+                this.startTime = 0;
+                this.currentFPS = 0;
+                this.lastFrameDisplayTime = 0;
+
+                // Frame buffering for smooth playback (optimal defaults from testing)
+                this.frameBuffer = [];
+                this.maxBufferSize = 4; // Optimal buffer size from testing
+                this.playbackFPS = 30; // Target playback FPS (matching source)
+                this.playbackInterval = null;
+                this.isPlaying = false;
+                this.bufferDelay = 100; // 100ms initial buffer (optimal from testing)
+                this.frameDropThreshold = 8; // Drop frames if buffer exceeds this
+
+                // Logging
+                this.logContainer = document.getElementById('logContent');
+                this.maxLogLines = 50;
+                this.lastBufferWarning = null;
+
+                this.setupEventListeners();
+                this.addLog('🌐 Viewer initialized', 'success');
+            }
+
+            setupEventListeners() {
+                document.getElementById('connectBtn').addEventListener('click', () => this.connect());
+                document.getElementById('disconnectBtn').addEventListener('click', () => this.disconnect());
+
+                // Buffer control sliders
+                document.getElementById('bufferDelaySlider').addEventListener('input', (e) => {
+                    this.bufferDelay = parseInt(e.target.value);
+                    document.getElementById('bufferDelayValue').textContent = `${this.bufferDelay}ms`;
+                });
+
+                document.getElementById('bufferSizeSlider').addEventListener('input', (e) => {
+                    this.maxBufferSize = parseInt(e.target.value);
+                    document.getElementById('bufferSizeValue').textContent = `${this.maxBufferSize} frames`;
+                });
+
+                // Clear log button
+                document.getElementById('clearLogBtn').addEventListener('click', () => this.clearLog());
+            }
+
+            addLog(message, type = 'info') {
+                const timestamp = new Date().toLocaleTimeString();
+                const logLine = document.createElement('div');
+                logLine.className = `log-line ${type}`;
+                logLine.textContent = `[${timestamp}] ${message}`;
+                
+                this.logContainer.appendChild(logLine);
+
+                // Keep only recent logs
+                const lines = this.logContainer.querySelectorAll('.log-line');
+                if (lines.length > this.maxLogLines) {
+                    lines[0].remove();
+                }
+
+                // Auto-scroll to bottom
+                this.logContainer.parentElement.scrollTop = this.logContainer.parentElement.scrollHeight;
+
+                // Also log to console
+                console.log(`[${timestamp}] ${message}`);
+            }
+
+            clearLog() {
+                this.logContainer.innerHTML = '<div class="log-line info">Log cleared</div>';
+            }
+
+            async connect() {
+                const url = document.getElementById('supabaseUrl').value;
+                const key = document.getElementById('supabaseKey').value;
+                const channelName = document.getElementById('channelName').value;
+
+                if (!url || !key || !channelName) {
+                    this.showError('Please fill in all connection fields');
+                    this.addLog('❌ Missing connection fields', 'error');
+                    return;
+                }
+
+                try {
+                    this.addLog('🔌 Connecting to Supabase...', 'info');
+                    this.addLog(`📡 URL: ${url.substring(0, 30)}...`, 'info');
+                    this.addLog(`📢 Channel: ${channelName}`, 'info');
+                    this.updateStatus('Connecting to Supabase...', 'waiting');
+
+                    // Create Supabase client
+                    this.supabaseClient = window.supabase.createClient(url, key, {
+                        realtime: {
+                            heartbeatIntervalMs: 2500,
+                        },
+                    });
+                    this.addLog('✅ Supabase client created', 'success');
+
+                    // Create channel
+                    this.addLog('🔗 Creating channel...', 'info');
+                    this.channel = this.supabaseClient.channel(channelName, {
+                        config: {
+                            broadcast: { self: false }
+                        }
+                    });
+
+                    // Listen for stream events
+                    this.addLog('👂 Setting up event listeners...', 'info');
+                    this.channel
+                        .on('broadcast', { event: 'stream-init' }, (msg) => {
+                            this.addLog('🎬 Stream initialized', 'success');
+                            console.log('🎬 Stream initialized:', msg.payload);
+                            this.handleStreamInit(msg.payload);
+                        })
+                        .on('broadcast', { event: 'stream-started' }, (msg) => {
+                            this.addLog('▶️ Stream started!', 'success');
+                            console.log('▶️ Stream started:', msg.payload);
+                            this.handleStreamStarted(msg.payload);
+                        })
+                        .on('broadcast', { event: 'video-frame' }, (msg) => {
+                            this.handleVideoFrame(msg.payload);
+                        })
+                        .on('broadcast', { event: 'stream-ended' }, (msg) => {
+                            this.addLog('⏹️ Stream ended', 'warning');
+                            console.log('⏹️ Stream ended:', msg.payload);
+                            this.handleStreamEnded(msg.payload);
+                        })
+                        .on('broadcast', { event: 'viewer-joined' }, (msg) => {
+                            this.addLog('👤 Another viewer joined', 'info');
+                        })
+                        .on('broadcast', { event: 'test-message' }, (msg) => {
+                            this.addLog('🧪 Test message received: ' + msg.payload.message, 'info');
+                        });
+
+                    // Subscribe to channel with proper async handling
+                    this.addLog('🔄 Subscribing to channel...', 'info');
+                    await this.channel.subscribe((status) => {
+                        this.addLog(`🔔 Subscription status: ${status}`, status === 'SUBSCRIBED' ? 'success' : 'warning');
+                        console.log('Subscription status:', status);
+
+                        if (status === 'SUBSCRIBED') {
+                        this.isConnected = true;
+                        this.addLog('✅ CONNECTED! Waiting for stream...', 'success');
+                        this.updateStatus('Connected - Waiting for stream...', 'connected');
+                        document.getElementById('connectBtn').disabled = true;
+                        document.getElementById('disconnectBtn').disabled = false;
+                        document.getElementById('bufferControls').style.display = 'flex';
+                        document.getElementById('streamCanvas').style.display = 'block';
+                        document.getElementById('streamInfo').style.display = 'flex';
+
+                            // Notify that viewer joined
+                            this.addLog('📤 Sending viewer-joined event...', 'info');
+                            this.channel.send({
+                                type: 'broadcast',
+                                event: 'viewer-joined',
+                                payload: {
+                                    viewerId: 'web-viewer-' + Date.now(),
+                                    timestamp: Date.now()
+                                }
+                            });
+
+                            // Send test message to verify connection
+                            setTimeout(() => {
+                                this.channel.send({
+                                    type: 'broadcast',
+                                    event: 'test-message',
+                                    payload: { message: 'Hello from web viewer!' }
+                                });
+                                this.addLog('🧪 Sent test message', 'info');
+                                console.log('🧪 Sent test message to channel');
+                            }, 1000);
+                        } else if (status === 'CLOSED' || status === 'CHANNEL_ERROR') {
+                            this.addLog(`❌ Subscription failed: ${status}`, 'error');
+                            this.showError('Channel subscription failed: ' + status);
+                            this.updateStatus('Connection failed', 'disconnected');
+                        }
+                    });
+
+                } catch (error) {
+                    console.error('Connection error:', error);
+                    this.addLog(`❌ Connection error: ${error.message}`, 'error');
+                    this.showError('Connection failed: ' + error.message);
+                    this.updateStatus('Connection failed', 'disconnected');
+                }
+            }
+
+            disconnect() {
+                this.addLog('🔌 Disconnecting...', 'warning');
+                
+                // Stop playback first
+                this.stopPlayback();
+                this.frameBuffer = [];
+
+                if (this.channel && this.isConnected) {
+                    // Notify that viewer left
+                    this.addLog('📤 Sending viewer-left event...', 'info');
+                    this.channel.send({
+                        type: 'broadcast',
+                        event: 'viewer-left',
+                        payload: {
+                            viewerId: 'web-viewer',
+                            timestamp: Date.now()
+                        }
+                    });
+
+                    this.supabaseClient.removeChannel(this.channel);
+                }
+
+                this.isConnected = false;
+                this.frameCount = 0;
+                this.addLog('✅ Disconnected', 'success');
+                this.updateStatus('Disconnected', 'disconnected');
+                document.getElementById('connectBtn').disabled = false;
+                document.getElementById('disconnectBtn').disabled = true;
+                document.getElementById('streamCanvas').style.display = 'none';
+                document.getElementById('streamInfo').style.display = 'none';
+                document.getElementById('bufferControls').style.display = 'none';
+                this.hideError();
+            }
+
+            handleStreamInit(payload) {
+                console.log('Stream settings:', payload.settings);
+                this.updateStatus('Stream initialized - Ready to receive frames', 'connected');
+            }
+
+            handleStreamStarted(payload) {
+                this.addLog('🎥 Stream started - preparing to receive', 'success');
+                this.addLog(`⏱️ Buffer delay: ${this.bufferDelay}ms`, 'info');
+                
+                this.frameCount = 0;
+                this.startTime = Date.now();
+                this.lastFrameTime = Date.now();
+                this.updateStatus('🔴 Live Stream Active - Buffering...', 'connected');
+                document.getElementById('streamCanvas').style.display = 'block';
+                document.getElementById('streamInfo').style.display = 'flex';
+
+                // Clear any existing frames and start fresh
+                this.frameBuffer = [];
+                this.stopPlayback();
+
+                // Start playback after initial buffer delay
+                setTimeout(() => {
+                    this.addLog('▶️ Buffer delay complete, ready to play', 'success');
+                    this.startPlayback();
+                }, this.bufferDelay);
+            }
+
+            handleVideoFrame(payload) {
+                const { frameData, frameNumber, timestamp, metadata } = payload;
+
+                if (!frameData) {
+                    console.error('❌ No frame data received!');
+                    this.addLog('❌ Frame received with no data', 'error');
+                    return;
+                }
+
+                // Log first frame reception
+                if (frameNumber === 1) {
+                    this.addLog('📹 First frame received!', 'success');
+                }
+                
+                // Log every 30 frames
+                if (frameNumber % 30 === 0) {
+                    this.addLog(`📊 Received frame #${frameNumber}`, 'info');
+                }
+
+                // Extract base64 data (remove frame marker like Remote ARsistance)
+                const base64Data = frameData.replace('|||FRAME_END|||', '');
+
+                // Create image and add to buffer
+                const img = new Image();
+                img.onload = () => {
+                    // Add frame to buffer with metadata
+                    this.frameBuffer.push({
+                        image: img,
+                        frameNumber: frameNumber,
+                        timestamp: timestamp,
+                        metadata: metadata
+                    });
+
+                    // Start playback immediately if we have enough frames and not playing yet
+                    if (!this.isPlaying && this.frameBuffer.length >= 2) {
+                        this.addLog('▶️ Starting playback', 'success');
+                        this.startPlayback();
+                    }
+
+                    // Limit buffer size (drop oldest frames if buffer is full)
+                    if (this.frameBuffer.length > this.frameDropThreshold) {
+                        // If buffer is getting too large, drop older frames
+                        const framesToKeep = Math.min(this.maxBufferSize, this.frameBuffer.length / 2);
+                        const dropped = this.frameBuffer.length - framesToKeep;
+                        this.frameBuffer = this.frameBuffer.slice(-framesToKeep);
+                        if (dropped > 0) {
+                            this.addLog(`⚠️ Dropped ${dropped} frames (buffer overflow)`, 'warning');
+                        }
+                    }
+
+                    // Update frame count
+                    this.frameCount = frameNumber;
+                };
+
+                img.onerror = (error) => {
+                    console.error('❌ Image load failed:', error);
+                    this.addLog(`❌ Frame #${frameNumber} decode failed`, 'error');
+                };
+
+                // Set image source (add data URL prefix if not present)
+                if (base64Data.startsWith('data:')) {
+                    img.src = base64Data;
+                } else {
+                    img.src = 'data:image/jpeg;base64,' + base64Data;
+                }
+            }
+
+            startPlayback() {
+                if (this.isPlaying) return;
+
+                this.isPlaying = true;
+                this.updateStatus('🔴 Live Stream Active - Playing', 'connected');
+
+                // Use requestAnimationFrame for smoother playback
+                this.lastRenderTime = performance.now();
+                this.frameInterval = 1000 / this.playbackFPS;
+                this.animateStream();
+            }
+
+            animateStream() {
+                if (!this.isPlaying) return;
+
+                const currentTime = performance.now();
+                const elapsed = currentTime - this.lastRenderTime;
+
+                // Only render if enough time has passed for next frame
+                if (elapsed >= this.frameInterval) {
+                    this.displayNextFrame();
+                    this.lastRenderTime = currentTime - (elapsed % this.frameInterval);
+                }
+
+                // Continue animation loop
+                requestAnimationFrame(() => this.animateStream());
+            }
+
+            stopPlayback() {
+                this.isPlaying = false;
+                if (this.playbackInterval) {
+                    clearInterval(this.playbackInterval);
+                    this.playbackInterval = null;
+                }
+            }
+
+            displayNextFrame() {
+                // Check if we have frames in buffer
+                if (this.frameBuffer.length === 0) {
+                    // Buffer is empty - show buffering message
+                    if (this.isPlaying) {
+                        this.updateStatus('🔴 Live Stream Active - Buffering...', 'waiting');
+                        // Only log once when buffer becomes empty
+                        if (this.lastBufferWarning !== 'empty') {
+                            this.addLog('⚠️ Buffer empty - waiting for frames', 'warning');
+                            this.lastBufferWarning = 'empty';
+                        }
+                    }
+                    return;
+                }
+
+                // Get the next frame from buffer
+                const frame = this.frameBuffer.shift();
+                if (!frame || !frame.image) return;
+
+                // Ensure we maintain minimum buffer
+                if (this.frameBuffer.length < 1 && this.isPlaying) {
+                    this.updateStatus('🔴 Live Stream Active - Low Buffer', 'waiting');
+                    if (this.lastBufferWarning !== 'low') {
+                        this.addLog('⚠️ Low buffer (< 1 frame)', 'warning');
+                        this.lastBufferWarning = 'low';
+                    }
+                } else if (this.isPlaying) {
+                    this.updateStatus('🔴 Live Stream Active - Playing', 'connected');
+                    this.lastBufferWarning = null;
+                }
+
+                try {
+                    // Resize canvas if needed (only if dimensions actually changed)
+                    if (this.canvas.width !== frame.image.width || this.canvas.height !== frame.image.height) {
+                        this.canvas.width = frame.image.width;
+                        this.canvas.height = frame.image.height;
+                    }
+
+                    // Apply smooth rendering with double buffering
+                    this.ctx.imageSmoothingEnabled = true;
+                    this.ctx.imageSmoothingQuality = 'high';
+
+                    // Clear previous frame
+                    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+                    // Draw new frame
+                    this.ctx.globalAlpha = 1.0;
+                    this.ctx.drawImage(frame.image, 0, 0);
+
+                    // Update stream info
+                    this.updateStreamInfo(frame.metadata);
+                } catch (error) {
+                    console.error('❌ Error drawing frame:', error);
+                }
+            }
+
+            handleStreamEnded(payload) {
+                this.addLog('⏹️ Stream ended by device', 'warning');
+                this.addLog(`📊 Total: ${payload.totalFrames} frames in ${payload.duration}ms`, 'info');
+                
+                this.stopPlayback();
+                this.frameBuffer = [];
+                this.updateStatus('Stream ended', 'waiting');
+                console.log(`Stream completed: ${payload.totalFrames} frames in ${payload.duration}ms`);
+            }
+
+            updateStreamInfo(metadata) {
+                const now = performance.now();
+                const duration = Math.floor((now - this.startTime) / 1000);
+
+                // Calculate FPS based on frame display rate (not just time between calls)
+                if (this.lastFrameDisplayTime > 0) {
+                    const timeSinceLastFrame = now - this.lastFrameDisplayTime;
+                    if (timeSinceLastFrame > 0) {
+                        this.currentFPS = Math.round(1000 / timeSinceLastFrame);
+                    }
+                }
+                this.lastFrameDisplayTime = now;
+
+                document.getElementById('frameCount').textContent = `Frames: ${this.frameCount}`;
+                document.getElementById('fps').textContent = `FPS: ${this.currentFPS}`;
+                document.getElementById('quality').textContent = `Quality: ${metadata?.quality || 40}%`;
+                document.getElementById('duration').textContent = `Duration: ${duration}s`;
+                document.getElementById('bufferStatus').textContent = `Buffer: ${this.frameBuffer.length}`;
+            }
+
+            updateStatus(message, type) {
+                const statusPanel = document.getElementById('statusPanel');
+                statusPanel.textContent = message;
+                statusPanel.className = `status ${type}`;
+            }
+
+            showError(message) {
+                const errorPanel = document.getElementById('errorPanel');
+                errorPanel.textContent = message;
+                errorPanel.style.display = 'block';
+            }
+
+            hideError() {
+                document.getElementById('errorPanel').style.display = 'none';
+            }
+        }
+
+        // Initialize viewer when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new SpectaclesStreamViewer();
+        });
+    </script>
+</body>
+</html>

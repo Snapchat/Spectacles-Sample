@@ -42,7 +42,7 @@ const CachedTransform = {
   transform: mat4.identity(),
   position: vec3.zero(),
   rotation: quat.quatIdentity(),
-  scale: vec3.one(),
+  scale: vec3.one()
 }
 
 /**
@@ -220,7 +220,7 @@ export class InteractableManipulation extends BaseScriptComponent {
       frequency: 60, //fps
       minCutoff: this.minCutoff,
       beta: this.beta,
-      dcutoff: this.dcutoff,
+      dcutoff: this.dcutoff
     }
 
     this.translateFilter = new OneEuroFilterVec3(this.defaultFilterConfig)
@@ -278,7 +278,7 @@ export class InteractableManipulation extends BaseScriptComponent {
           event.stopPropagation()
           this.onHoverToggle(event)
         }
-      }),
+      })
     )
 
     this.unsubscribeBag.push(
@@ -287,7 +287,7 @@ export class InteractableManipulation extends BaseScriptComponent {
           event.stopPropagation()
           this.onHoverToggle(event)
         }
-      }),
+      })
     )
 
     this.unsubscribeBag.push(
@@ -296,7 +296,7 @@ export class InteractableManipulation extends BaseScriptComponent {
           event.stopPropagation()
           this.onHoverUpdate(event)
         }
-      }),
+      })
     )
 
     this.unsubscribeBag.push(
@@ -305,7 +305,7 @@ export class InteractableManipulation extends BaseScriptComponent {
           event.stopPropagation()
           this.onTriggerToggle(event)
         }
-      }),
+      })
     )
 
     this.unsubscribeBag.push(
@@ -314,7 +314,7 @@ export class InteractableManipulation extends BaseScriptComponent {
           event.stopPropagation()
           this.onTriggerUpdate(event)
         }
-      }),
+      })
     )
 
     this.unsubscribeBag.push(
@@ -323,7 +323,7 @@ export class InteractableManipulation extends BaseScriptComponent {
           event.stopPropagation()
           this.onTriggerToggle(event)
         }
-      }),
+      })
     )
 
     this.unsubscribeBag.push(
@@ -332,7 +332,7 @@ export class InteractableManipulation extends BaseScriptComponent {
           event.stopPropagation()
           this.onTriggerToggle(event)
         }
-      }),
+      })
     )
   }
 
@@ -354,7 +354,7 @@ export class InteractableManipulation extends BaseScriptComponent {
       transform: this.mapTransform.getWorldTransform(),
       position: this.mapTransform.getWorldPosition(),
       rotation: this.mapTransform.getWorldRotation(),
-      scale: this.mapTransform.getWorldScale(),
+      scale: this.mapTransform.getWorldScale()
     }
 
     const cameraRotation = this.camera.getTransform().getWorldRotation()
@@ -406,18 +406,18 @@ export class InteractableManipulation extends BaseScriptComponent {
       transform: this.mapTransform.getWorldTransform(),
       position: this.mapTransform.getWorldPosition(),
       rotation: this.mapTransform.getWorldRotation(),
-      scale: this.mapTransform.getWorldScale(),
+      scale: this.mapTransform.getWorldScale()
     }
 
     this.originalLocalTransform = {
       transform: mat4.compose(
         this.mapTransform.getLocalPosition(),
         this.mapTransform.getLocalRotation(),
-        this.mapTransform.getLocalScale(),
+        this.mapTransform.getLocalScale()
       ),
       position: this.mapTransform.getLocalPosition(),
       rotation: this.mapTransform.getLocalRotation(),
-      scale: this.mapTransform.getLocalScale(),
+      scale: this.mapTransform.getLocalScale()
     }
   }
 
@@ -506,7 +506,7 @@ export class InteractableManipulation extends BaseScriptComponent {
       this.log.w(
         `Failed to retrieve interactors on ${this.getSceneObject().name}: ${
           this.interactable.hoveringInteractor
-        } (InteractorInputType)`,
+        } (InteractorInputType)`
       )
       return null
     }
@@ -518,14 +518,14 @@ export class InteractableManipulation extends BaseScriptComponent {
     validate(this.interactable)
 
     const interactors: Interactor[] = this.interactionManager.getInteractorsByType(
-      this.interactable.triggeringInteractor,
+      this.interactable.triggeringInteractor
     )
 
     if (interactors.length === 0) {
       this.log.w(
         `Failed to retrieve interactors on ${this.getSceneObject().name}: ${
           this.interactable.triggeringInteractor
-        } (InteractorInputType)`,
+        } (InteractorInputType)`
       )
       return null
     }
@@ -541,13 +541,13 @@ export class InteractableManipulation extends BaseScriptComponent {
       translateEvent.invoke({
         interactable: this.interactable,
         startPosition: this.startTransform.position,
-        currentPosition: this.mapTransform.getWorldPosition(),
+        currentPosition: this.mapTransform.getWorldPosition()
       })
     }
   }
 
   private limitQuatRotation(rotation: quat): quat {
-    let euler = customGetEuler(rotation)
+    const euler = customGetEuler(rotation)
 
     return quat.fromEulerVec(euler)
   }
@@ -581,7 +581,7 @@ export class InteractableManipulation extends BaseScriptComponent {
 
     if (this.cachedTargetingMode === TargetingMode.Direct) {
       newPosition = startPoint.add(
-        limitRotation.multiply(this.startTransform.rotation.invert()).multiplyVec3(this.offsetPosition),
+        limitRotation.multiply(this.startTransform.rotation.invert()).multiplyVec3(this.offsetPosition)
       )
 
       this.updatePosition(newPosition, this.useFilter)
@@ -593,7 +593,7 @@ export class InteractableManipulation extends BaseScriptComponent {
       this.smoothedStretch = MathUtils.lerp(
         this.smoothedStretch,
         this.calculateStretchFactor(interactor),
-        getDeltaTime() * STRETCH_SMOOTH_SPEED,
+        getDeltaTime() * STRETCH_SMOOTH_SPEED
       )
       newPosition = this.triggeringInteractor.planecastPoint.add(direction.uniformScale(this.smoothedStretch))
       this.updatePosition(newPosition, this.useFilter)
@@ -664,7 +664,7 @@ export class InteractableManipulation extends BaseScriptComponent {
       //dont let value accumulate out of bounds
       this.mobileStretch = Math.min(
         maxStretch - finalStretchAmount,
-        Math.max(minStretch - finalStretchAmount, this.mobileStretch),
+        Math.max(minStretch - finalStretchAmount, this.mobileStretch)
       )
       finalStretchAmount += this.mobileStretch
     }

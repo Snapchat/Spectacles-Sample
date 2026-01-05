@@ -33,8 +33,8 @@ export class GenresData {
     "Grunge",
     "Synthwave",
     "Afrobeat",
-    "Experimental",
-  ];
+    "Experimental"
+  ]
 
   public emojis = [
     "🎷", // Jazz
@@ -70,6 +70,6 @@ export class GenresData {
     "👕", // Grunge
     "🌆", // Synthwave
     "🌍", // Afrobeat
-    "🧪", // Experimental
-  ];
+    "🧪" // Experimental
+  ]
 }

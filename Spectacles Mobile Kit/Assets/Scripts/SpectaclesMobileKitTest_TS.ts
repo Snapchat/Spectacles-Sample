@@ -1,131 +1,128 @@
 @component
 export class SpectaclesMobileTest_TS extends BaseScriptComponent {
   @input
-  resetAfterDelay: boolean = false;
+  resetAfterDelay: boolean = false
 
   @input
-  image: Image;
+  image: Image
   @input
-  gltfContainer: SceneObject;
+  gltfContainer: SceneObject
   @input
-  gltfMaterial: Material;
+  gltfMaterial: Material
   @input
-  logText: Text;
+  logText: Text
 
-  private module = require("LensStudio:SpectaclesMobileKitModule");
-  private internetModule: InternetModule = require("LensStudio:InternetModule");
+  private module = require("LensStudio:SpectaclesMobileKitModule")
+  private internetModule: InternetModule = require("LensStudio:InternetModule")
 
-  private mainPass: Pass;
-  private session: any = null;
+  private mainPass: Pass
+  private session: any = null
 
   private appendLine(txt: string) {
-    print(txt);
+    print(txt)
     if (this.logText) {
-      this.logText.text += `\n${txt}`;
+      this.logText.text += `\n${txt}`
     }
   }
 
   private async createSessionAsync(onDisconnect: () => void): Promise<any> {
     return new Promise((resolve, reject) => {
-      const session = this.module.createSession();
-      session.onDisconnected.add(onDisconnect);
+      const session = this.module.createSession()
+      session.onDisconnected.add(onDisconnect)
       session.onConnected.add(() => {
-        resolve(session);
-      });
-      session.start();
-    });
+        resolve(session)
+      })
+      session.start()
+    })
   }
 
   async onStart() {
-    this.image.mainMaterial = this.image.mainMaterial.clone();
-    this.mainPass = this.image.mainPass;
+    this.image.mainMaterial = this.image.mainMaterial.clone()
+    this.mainPass = this.image.mainPass
 
-    this.appendLine("Script Started");
+    this.appendLine("Script Started")
     try {
-      this.appendLine("Awaiting connection");
+      this.appendLine("Awaiting connection")
 
       if (this.resetAfterDelay) {
-        const delay = this.createEvent("DelayedCallbackEvent");
+        const delay = this.createEvent("DelayedCallbackEvent")
         delay.bind(() => {
-          this.appendLine("Stopping the session");
+          this.appendLine("Stopping the session")
           if (this.session) {
-            this.session.close();
-            this.session = null;
+            this.session.close()
+            this.session = null
           }
-        });
-        delay.reset(10);
+        })
+        delay.reset(10)
       }
 
       this.session = await this.createSessionAsync(() => {
-        this.appendLine("Disconnected");
-      });
+        this.appendLine("Disconnected")
+      })
 
-      const session = this.session;
+      const session = this.session
 
-      this.appendLine("Client Connected");
+      this.appendLine("Client Connected")
 
       // oneway, not expecting a response
-      session.sendData("test data");
-      this.appendLine("Sent data");
+      session.sendData("test data")
+      this.appendLine("Sent data")
 
       // request-app-digest
       // This "app://digest" request is not sent to the mobile app for processing.
       // It is called to get the digest of the connected mobile app,
       // allowing the Lens to determine whether the connected app is trustworthy.
       try {
-        const response = await session.sendRequest("app://digest");
-        this.appendLine(`Digest: ${response}`);
+        const response = await session.sendRequest("app://digest")
+        this.appendLine(`Digest: ${response}`)
       } catch (error) {
-        this.appendLine(`Error: ${error}`);
+        this.appendLine(`Error: ${error}`)
       }
 
       // request-response
       try {
-        const response = await session.sendRequest("echo me back");
-        this.appendLine(`Response: ${response}`);
+        const response = await session.sendRequest("echo me back")
+        this.appendLine(`Response: ${response}`)
       } catch (error) {
-        this.appendLine(`Error: ${error}`);
+        this.appendLine(`Error: ${error}`)
       }
 
       // subscribe to a topic
-      const subscription = session.startSubscription(
-        "hello world times",
-        (error) => {
-          this.appendLine(`Subscription error: ${error}`);
-        }
-      );
+      const subscription = session.startSubscription("hello world times", (error) => {
+        this.appendLine(`Subscription error: ${error}`)
+      })
       subscription.add((response) => {
-        this.appendLine(`Subscription response: ${response}`);
-      });
+        this.appendLine(`Subscription response: ${response}`)
+      })
 
-      const textureId = "spectacleskit://test.png";
-      let textureResource : DynamicResource = this.internetModule.makeResourceFromUrl(textureId);
-      this.appendLine(`Loading asset: ${textureId}`);
-      const remoteMediaModule: RemoteMediaModule = require("LensStudio:RemoteMediaModule");
+      const textureId = "spectacleskit://test.png"
+      const textureResource: DynamicResource = this.internetModule.makeResourceFromUrl(textureId)
+      this.appendLine(`Loading asset: ${textureId}`)
+      const remoteMediaModule: RemoteMediaModule = require("LensStudio:RemoteMediaModule")
       remoteMediaModule.loadResourceAsImageTexture(
         textureResource,
         (texture) => {
-          this.appendLine("Texture loaded");
-          this.mainPass.baseTex = texture;
+          this.appendLine("Texture loaded")
+          this.mainPass.baseTex = texture
         },
         (error) => {
-          this.appendLine(`Error loading asset: ${error}`);
+          this.appendLine(`Error loading asset: ${error}`)
         }
-      );
-      const meshId = "spectacleskit://test.glb";
-      let meshResource : DynamicResource = this.internetModule.makeResourceFromUrl(meshId);
-      this.appendLine(`Loading asset: ${meshId}`);
+      )
+      const meshId = "spectacleskit://test.glb"
+      const meshResource: DynamicResource = this.internetModule.makeResourceFromUrl(meshId)
+      this.appendLine(`Loading asset: ${meshId}`)
       remoteMediaModule.loadResourceAsGltfAsset(
         meshResource,
         (asset) => {
-          this.appendLine("Mesh loaded");
-          asset.tryInstantiate(this.gltfContainer, this.gltfMaterial);
+          this.appendLine("Mesh loaded")
+          asset.tryInstantiate(this.gltfContainer, this.gltfMaterial)
           // TODO: you can now find a new object in this.gltfContainer and change its textures
         },
         (error) => {
-          this.appendLine(`Error loading asset: ${error}`);
+          this.appendLine(`Error loading asset: ${error}`)
         }
-      );
+      )
 
       // try other asset types:
       // remoteMediaModule.loadAsAnimatedTexture('spectacleskit://test_asset.gif', ( texture )=> {
@@ -139,12 +136,12 @@ export class SpectaclesMobileTest_TS extends BaseScriptComponent {
       // stop the subscription
       // session.stopSubscription(subscription)
     } catch (error) {
-      this.appendLine(`Spectacles Kit is not available: ${error}`);
+      this.appendLine(`Spectacles Kit is not available: ${error}`)
     }
   }
   async onAwake() {
     this.createEvent("OnStartEvent").bind(() => {
-      this.onStart();
-    });
+      this.onStart()
+    })
   }
 }

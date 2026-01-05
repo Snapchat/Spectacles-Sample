@@ -1,12 +1,12 @@
 interface Event {
-  n: number;
-  type: EventType;
-  index: number;
+  n: number
+  type: EventType
+  index: number
 }
 
 enum EventType {
   Start = 0,
-  End = 1,
+  End = 1
 }
 
 export class UICollisionSolver {
@@ -16,33 +16,33 @@ export class UICollisionSolver {
    * @returns The resolved elements.
    */
   resolve1DCollisions(elements: vec2[]): vec2[] {
-    const events: Event[] = [];
+    const events: Event[] = []
 
-    let i = 0;
+    const i = 0
     for (let i = 0; i < elements.length; i++) {
-      const element = elements[i];
-      events.push({ n: element.x, type: EventType.Start, index: i });
+      const element = elements[i]
+      events.push({n: element.x, type: EventType.Start, index: i})
       events.push({
         n: element.y,
         type: EventType.End,
-        index: i,
-      });
+        index: i
+      })
     }
 
-    events.sort((a, b) => a.n - b.n || (a.type === EventType.End ? -1 : 1));
+    events.sort((a, b) => a.n - b.n || (a.type === EventType.End ? -1 : 1))
 
-    const activeElements = new Set<number>();
+    const activeElements = new Set<number>()
 
     events.forEach((event) => {
       if (event.type === EventType.Start) {
-        this.resolve1DOverlap(elements, event.index, activeElements);
-        activeElements.add(event.index);
+        this.resolve1DOverlap(elements, event.index, activeElements)
+        activeElements.add(event.index)
       } else {
-        activeElements.delete(event.index);
+        activeElements.delete(event.index)
       }
-    });
+    })
 
-    return elements;
+    return elements
   }
 
   /**
@@ -51,73 +51,56 @@ export class UICollisionSolver {
    * @returns The resolved elements.
    */
   resolve2DCollisions(elements: vec4[]): vec4[] {
-    const events: Event[] = [];
+    const events: Event[] = []
 
-    let i = 0;
+    const i = 0
     for (let i = 0; i < elements.length; i++) {
-      const element = elements[i];
-      events.push({ n: element.x, type: EventType.Start, index: i });
+      const element = elements[i]
+      events.push({n: element.x, type: EventType.Start, index: i})
       events.push({
         n: element.y,
         type: EventType.End,
-        index: i,
-      });
+        index: i
+      })
     }
 
-    events.sort((a, b) => a.n - b.n || (a.type === EventType.End ? -1 : 1));
+    events.sort((a, b) => a.n - b.n || (a.type === EventType.End ? -1 : 1))
 
-    const activeElements = new Set<number>();
+    const activeElements = new Set<number>()
 
     events.forEach((event) => {
       if (event.type === EventType.Start) {
-        this.resolve2DOverlap(elements, event.index, activeElements);
-        activeElements.add(event.index);
+        this.resolve2DOverlap(elements, event.index, activeElements)
+        activeElements.add(event.index)
       } else {
-        activeElements.delete(event.index);
+        activeElements.delete(event.index)
       }
-    });
+    })
 
-    return elements;
+    return elements
   }
 
-  private resolve1DOverlap(
-    elements: vec2[],
-    currentIndex: number,
-    elementSet: Set<number>
-  ): void {
-    const currentElement = elements[currentIndex];
+  private resolve1DOverlap(elements: vec2[], currentIndex: number, elementSet: Set<number>): void {
+    const currentElement = elements[currentIndex]
     elementSet.forEach((index) => {
       if (index !== currentIndex) {
-        const otherElement = elements[index];
+        const otherElement = elements[index]
         if (check1DOverlap(currentElement, otherElement)) {
           // Reposition currentRect after rect
-          elements[currentIndex] = new vec2(
-            otherElement.y,
-            otherElement.y + currentElement.y - currentElement.x
-          );
+          elements[currentIndex] = new vec2(otherElement.y, otherElement.y + currentElement.y - currentElement.x)
         }
       }
-    });
+    })
   }
 
-  private resolve2DOverlap(
-    elements: vec4[],
-    currentIndex: number,
-    elementSet: Set<number>
-  ): void {
-    const currentElement = elements[currentIndex];
+  private resolve2DOverlap(elements: vec4[], currentIndex: number, elementSet: Set<number>): void {
+    const currentElement = elements[currentIndex]
     elementSet.forEach((index) => {
       if (index !== currentIndex) {
-        const otherElement = elements[index];
+        const otherElement = elements[index]
         if (
-          check1DOverlap(
-            new vec2(currentElement.x, currentElement.y),
-            new vec2(otherElement.x, otherElement.y)
-          ) &&
-          check1DOverlap(
-            new vec2(currentElement.z, currentElement.w),
-            new vec2(otherElement.z, otherElement.w)
-          )
+          check1DOverlap(new vec2(currentElement.x, currentElement.y), new vec2(otherElement.x, otherElement.y)) &&
+          check1DOverlap(new vec2(currentElement.z, currentElement.w), new vec2(otherElement.z, otherElement.w))
         ) {
           // Reposition currentRect after rect
           elements[currentIndex] = new vec4(
@@ -125,10 +108,10 @@ export class UICollisionSolver {
             elements[currentIndex].y,
             otherElement.w,
             otherElement.w + currentElement.w - currentElement.z
-          );
+          )
         }
       }
-    });
+    })
   }
 }
 
@@ -136,5 +119,5 @@ function check1DOverlap(currentElement: vec2, otherElement: vec2) {
   return !(
     (currentElement.y > otherElement.y && currentElement.x > otherElement.y) ||
     (otherElement.y > currentElement.y && otherElement.x > currentElement.y)
-  );
+  )
 }
