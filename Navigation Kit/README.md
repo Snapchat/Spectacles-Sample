@@ -157,7 +157,6 @@ Feel free to provide improvements or suggestions or directly contribute via merg
 
 ---
 
-This project includes a `ci_export.json` file for CI/CD configuration.
 
 
 

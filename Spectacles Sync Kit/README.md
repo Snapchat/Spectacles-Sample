@@ -280,7 +280,3 @@ We're excited to see what you build with Connected Lenses and Spectacles Sync Ki
 *Built with 👻 by the Spectacles team*  
 
 ---
-
-This project includes a `ci_export.json` file for CI/CD configuration.
-
-

@@ -79,7 +79,6 @@ Feel free to provide improvements or suggestions or directly contributing via me
 
 ---
 
-This project includes a `ci_export.json` file for CI/CD configuration.
 
 
 

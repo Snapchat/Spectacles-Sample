@@ -1010,7 +1010,6 @@ Feel free to adapt, modify, and build upon this educational framework while resp
 
 ---
 
-This project includes a `ci_export.json` file for CI/CD configuration.
 
 
 
