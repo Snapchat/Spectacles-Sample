@@ -1,4 +1,4 @@
-import {CardData, CardType} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Components/SlideLayout/AdvancedCardManager"
+import {CardData, CardType} from "SpectaclesUIKitBeta.lspkg/Scripts/Components/SlideLayout/AdvancedCardManager"
 import {ChatComponent} from "../Components/ChatComponent"
 
 /**

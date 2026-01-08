@@ -185,7 +185,7 @@ export class ChessAI {
     if (tokens.length !== 6) {
       return bad("must contain six space‑delimited fields")
     }
-    const [pieceField, side, castle, ep, halfMoveStr, fullMoveStr] = tokens
+    let [pieceField, side, castle, ep, halfMoveStr, fullMoveStr] = tokens
 
     /* ---------- numeric fields -------------------------------------------- */
     const halfMoves = +halfMoveStr,

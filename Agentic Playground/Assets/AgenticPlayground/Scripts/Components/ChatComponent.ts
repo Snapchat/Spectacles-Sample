@@ -1,16 +1,16 @@
 import {InteractableManipulation} from "SpectaclesInteractionKit.lspkg/Components/Interaction/InteractableManipulation/InteractableManipulation"
-import {ButtonSlide} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Components/Button/ButtonSlide"
-import {ButtonSlideCardBot} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Components/Button/ButtonSlideCardBot"
-import {ButtonSlideCardUser} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Components/Button/ButtonSlideCardUser"
+import {ButtonSlide} from "SpectaclesUIKitBeta.lspkg/Scripts/Components/Button/ButtonSlide"
+import {ButtonSlideCardBot} from "SpectaclesUIKitBeta.lspkg/Scripts/Components/Button/ButtonSlideCardBot"
+import {ButtonSlideCardUser} from "SpectaclesUIKitBeta.lspkg/Scripts/Components/Button/ButtonSlideCardUser"
 import {
   AdvancedCardManager,
   CardData,
   CardType
-} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Components/SlideLayout/AdvancedCardManager"
+} from "SpectaclesUIKitBeta.lspkg/Scripts/Components/SlideLayout/AdvancedCardManager"
 import {
   ScrollSystemUtils,
   VisibleCardConfig
-} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Components/SlideLayout/ScrollSystemUtils"
+} from "SpectaclesUIKitBeta.lspkg/Scripts/Components/SlideLayout/ScrollSystemUtils"
 import {CHARACTER_LIMITS} from "../Utils/TextLimiter"
 
 /**

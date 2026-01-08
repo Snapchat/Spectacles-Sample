@@ -1,8 +1,8 @@
 import {Interactable} from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable"
 import {InteractableManipulation} from "SpectaclesInteractionKit.lspkg/Components/Interaction/InteractableManipulation/InteractableManipulation"
-import {ButtonSlideSummary} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Components/Button/ButtonSlideSummary"
-import {RoundedRectangleVisualCardBot} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Visuals/RoundedRectangle/RoundedRectangleVisualCardBot"
-import {RoundedRectangleVisualCardSummary} from "../../../SpectaclesUIKitBeta.lspkg/Scripts/Visuals/RoundedRectangle/RoundedRectangleVisualCardSummary"
+import {ButtonSlideSummary} from "SpectaclesUIKitBeta.lspkg/Scripts/Components/Button/ButtonSlideSummary"
+import {RoundedRectangleVisualCardBot} from "SpectaclesUIKitBeta.lspkg/Scripts/Visuals/RoundedRectangle/RoundedRectangleVisualCardBot"
+import {RoundedRectangleVisualCardSummary} from "SpectaclesUIKitBeta.lspkg/Scripts/Visuals/RoundedRectangle/RoundedRectangleVisualCardSummary"
 
 /**
  * Represents the state of a swiped card

@@ -828,7 +828,7 @@ export class ChessBoardPredictor extends BaseScriptComponent {
       this.boardInterface.getChild(0).getComponent("LookAtComponent").enabled = true
     }
 
-    const [currentPosition, targetPosition, distance] = this.getInterfaceDistance()
+    let [currentPosition, targetPosition, distance] = this.getInterfaceDistance()
 
     if (distance > 4) {
       this.targetPosition = targetPosition
