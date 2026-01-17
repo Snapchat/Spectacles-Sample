@@ -1,6 +1,6 @@
-Copyright (c) 2024 Snap Inc.
+Copyright (c) 2026 Specs Inc.
 
-The sample projects in this repository are made available under the MIT License as reproduced below. Please also see the Snap Developer Terms and Lens Studio License Agreement reproduced below.
+The sample projects in this repository are made available under the MIT License as reproduced below. Please also see the Specs Developer Terms and Lens Studio License Agreement reproduced below.
 
 MIT License
 
@@ -12,19 +12,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 —-
 
-Snap Developer Terms:
+Specs Developer Terms:
 
-Access to or use of developer products and services made available to you by Snap Inc. and its affiliates (“Snap”), is subject to the Snap Developer Terms, which can be found at:
+Access to or use of developer products and services made available to you by Specs Inc. and its affiliates ("Specs"), is subject to the Specs Developer Terms, which can be found at:
 
 https://snap.com/en-US/terms/developer
 
-If you do not agree to these terms, do not use or otherwise access Snap developer products.
+If you do not agree to these terms, do not use or otherwise access Specs developer products.
 
 —-
 
 Lens Studio License Agreement:
 
-Access to or use of Lens Studio and its associated documentation, software code, and other materials (collectively, “Lens Studio”), made available by Snap Inc. and its affiliates ("Snap"), is subject to the Lens Studio License Agreement, which can be found at:
+Access to or use of Lens Studio and its associated documentation, software code, and other materials (collectively, "Lens Studio"), made available by Specs Inc. and its affiliates ("Specs"), is subject to the Lens Studio License Agreement, which can be found at:
 
 https://snap.com/en-US/terms/lens-studio-license-agreement
 
